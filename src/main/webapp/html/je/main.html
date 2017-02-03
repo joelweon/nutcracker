@@ -5,20 +5,105 @@
 <title>우리는 The Nutcracker 입니다.</title>
 
 <style>
-input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('file:/C:/Users/BitCamp/git/The_Nutcracker/src/main/webapp/html/je/search.PNG');
-    /* background-position: 10px 10px; 
-    background-repeat: no-repeat; */
-    padding: 12px 20px 12px 40px;
+
+#header {
+  height: 60px;
+  position: relative;
 }
 
+#mainpic {
+  height:60px;
+  float:left;
+  margin-top:3px;
+  margin-left:3px;
+}
 
+input[type=text] {
+  float: right;
+  width: 200px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: white;
+  background-image: url('search.PNG');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat; 
+  padding: 12px 20px 12px 40px;
+}
+
+#name {
+  font-size:17px;
+  color:red;
+}
+
+.myButton {
+  margin: 0px 0px 0px 10px;
+ -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
+ -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
+  box-shadow:inset 0px 1px 0px 0px #cf866c;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+  background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+  background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+  background-color:#d0451b;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+  border:1px solid #942911;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #854629;
+}
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+    background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+    background-color:#bc3315;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+#main-desc {
+  width: 960px;
+  height: 300px;
+  background-color: gray;
+  font-size: 45px;
+  text-align:center;
+  margin-left: 190px;
+  min-height: 400px;
+  font-weight:bold;
+}
+
+#cont {
+  width:900px;
+  margin:0 auto;
+  padding: 100px;
+}
+
+#footer {
+  background-color:gray;
+  height:20px;
+  color:white;
+  padding-top:2px;
+  font-family:돋움체,sans-serif;
+  text-align:center;
+  font-weight:lighter;
+}
 </style>
 
 
@@ -26,42 +111,39 @@ input[type=text] {
 <body>
 
 <div class='container'>
-<div id='header' style='background-color:gray; height:40px;position:relative;'>
-<img src='main.PNG' height="50" style='float:left; margin-top:3px; margin-left:3px;'>
-<div id='btn'>
-  <button type="button" >불매운동</button>
-  <button type="button" >불량후기</button>
-  <button type="button" >대체상품</button>
-  <button type="button" >공동구매</button>
-</div>
+<div id='header'>
+<img id='mainpic' src='main.PNG'>
+  <a href="#" class="myButton" style='margin-left: 200px'>불매운동</a>
+  <a href="#" class="myButton">불량후기</a>
+  <a href="#" class="myButton">대체상품</a>
+  <a href="#" class="myButton">공동구매</a>
 
-<form>
   <input type="text" name="search" placeholder="Search..">
-</form>
 
 </div>
 
 
 <div id="content">
-<h1>학생 정보</h1>
-<a id='new-btn' href='#' class="btn btn-primary btn-sm">추가</a><br>
-<table id='list-table' class='table table-hover'>
-<thead>
-  <tr>
-    <th>회원번호</th>
-    <th>이름</th>
-    <th>전화</th>
-    <th>재직</th>
-    <th>최종학력</th>
-    <th>학교명</th>
-  </tr>
-<thead>
-<tbody></tbody>
-</table>
+
+<div id="main-desc">
+
+<div id="cont">
+올바른 소비문화와 갑질 근절을 위해 
+이 세상의 모든 부조리를 까버리는
+우리는 
+<span id="name">The Nutcracker</span> 
+입니다.
+</div>
 
 </div>
 
-<div id='footer' style='background-color:gray; height:20px; margin-top:20px;'></div>
+
+
+</div>
+
+<div id='footer'>
+All Content Copyright 2017  L  All Rights Reserved.     |     Terms &amp; Service     |     Privacy Policy
+</div>
 </div>
 
 </body>
