@@ -111,19 +111,11 @@ body {
 	height:80px;
 	display:block;
 }
-.board img {
-	position:absolute;
-	padding-top:5px;
-	padding-left:5px;
-	height:70px;
-	width:70px;
-}
 #board-text {
 	padding-left:80px;
 	padding-top:5px;
 	font-size:10pt;
 }
-
 .board-table {
   margin: 0 0 40px 0;
   width: 100%;
@@ -133,27 +125,37 @@ body {
 .row.header {
 	text-align:center;
   font-weight: 900;
-  font-size: 12pt;
+  font-size: 11pt;
   color: #000000;
   background: #c0c0c0;
+  height: 50px;
+  padding: 20px;
 }
 .row {
   display: table-row;
   background: #ffffff;
   font-size: 10pt;
+  height: 60px;
 }
 .cell {
-  padding: 6px 12px;
+  padding: 5px;
   display: table-cell;
   text-align:center;
 }
-.cell-title {
-  padding: 6px 12px;
+#cell-title {
+	position: relative;
+  padding-left: 60px;
+  padding-top: 20px;
   display: table-cell;
   text-align:left;
 }
-
-
+#cell-title div {
+	position:absolute;
+	left:5px;
+	top:5px;
+	height:50px;
+	width:50px;
+}
 #footer {
 	background-color:rgb(94,94,94);
 	color:white;
