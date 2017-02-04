@@ -3,87 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="../../css/oj/common.css">
 </head>
 
 <body>
 
 <!-- 헤더(로고, 메뉴, 로그인) -->
-<div id='header'>
-  <img src='./image/logo.jpg'>
-	<a href="#">불매운동</a>
-	<a href="#">불량후기</a>
-	<a href="#">대체상품</a>
-	<a href="#">공동구매</a>
+<div class='container'>
+  <div class='row'>
+    <div id="header"> 
+      <a id="logo" href="#"><img id='img-logo' src='./image/logo.jpg'></a>
+      <nav>
+        <ul>
+        <li>
+        <ul class='menu'>
+          <li><a class='menu' href="#">불매운동</a></li>
+          <li><a class='menu' >|</a></li>
+          <li><a class='menu' href="#">불량후기</a></li>
+          <li><a class='menu' >|</a></li>
+          <li><a class='menu'  href="#">대체상품</a></li>
+          <li><a class='menu' >|</a></li>
+          <li><a class='menu' href="#">공동구매</a></li>
+        </ul>
+        </li>
+        <li>
+        <ul class='search-login'>
+          <li><input type="text" placeholder="Search"></li>
+				  <li><a href='#'>Login</a></li>
+				  <li><a> / </a>
+				  <li><a href='#'>Join</a></li>
+        </ul>
+        </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+    
+    
+<!--     
+		<div id='topMenu'>
+			<div align="left">
+			  <ul>
+				  <li><a href='#'><img id='img-logo' src='./image/logo.jpg'></a></li>
+					<li><a class="menuLink" href="#">불매운동</a></li>
+					<li>|</li>
+					<li><a class="menuLink" href="#">불량후기</a></li>
+					<li>|</li>
+					<li><a class="menuLink" href="#">대체상품</a></li>
+					<li>|</li>
+					<li><a class="menuLink" href="#">공동구매</a></li>
+				</ul>
+			</div>
+			<div align="right">
+				<input type="text" placeholder="Search">
+				<a href='#'>Login / </a>
+				<a href='#'>Join</a>
+			</div>
+		</div>
+	</div>
+ -->
+  <!-- 소개 -->
+	<div id='intro-div'>
+	  올바른 소비문화와 갑질 근절을 위해 이 세상의 모든 부조리를 까버리는 우리는 The Nutcracker 입니다.
+	</div>
 	
-	<input type="text" placeholder="Search">
-	<a href='로그인'>Login</a> / 
-	<a href='가입'>Join</a>
-</div>
-
-<!-- 소개 -->
-<div id='intro-div'>
-  올바른 소비문화와 갑질 근절을 위해 이 세상의 모든 부조리를 까버리는 우리는 The Nutcracker 입니다.
-</div>
-
-<!-- 바로가기버튼 -->
-<div>
-  <a href='#'>불매운동</a> | 
-  <a href='#'>불량후기</a>
-</div>
-
-<!-- 불매운동 -->
-<div>
-<h1>불매운동</h1><hr>
-<table>
-  <tr>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-  </tr>
-  <tr>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-  </tr>
-  <tr>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
-  </tr>
-</table>
-</div>
-
-<!-- 후기 -->
-<div>
-<h1>불량후기</h1><hr>
-<table>
-  <tr>
-    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
-  </tr>
-  <tr>
-    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
-  </tr>
-  <tr>
-    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
-  </tr>
-  <tr>
-    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
-  </tr>
-  <tr>
-    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
-  </tr>
-</table>
-
-</div>
-
-<!-- 풋터 -->
-<div id='footer' style='width: 960px; height: 30px; background-color: gray; color: white'>
-  All Content Copyright 2017  L  All Rights Reserved.     |     Terms & Service     |     Privacy Policy
-</div>
-
+	<!-- 바로가기버튼 -->
+	<div>
+	  <a href='#'>불매운동</a> | 
+	  <a href='#'>불량후기</a>
+	</div>
+	
+	<!-- 불매운동 -->
+	<div>
+	<h1>불매운동</h1><hr>
+	<table>
+	  <tr>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	  </tr>
+	  <tr>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	  </tr>
+	  <tr>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	    <td><img src='./image/wmp.jpg' style='width: 150px; height: 150px;'><br><a href='#'>옥시레킷벤키저 가습기 살균제 사건</a></td>
+	  </tr>
+	</table>
+	</div>
+	
+	<!-- 후기 -->
+	<div>
+	<h1>불량후기</h1><hr>
+	<table>
+	  <tr>
+	    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
+	  </tr>
+	  <tr>
+	    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
+	  </tr>
+	  <tr>
+	    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
+	  </tr>
+	  <tr>
+	    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
+	  </tr>
+	  <tr>
+	    <td><img src='./image/review.jpg' style='width: 100px; height: 100px;'></td><td>홍삼액이 가짜홍삼이라니요. [20]</td>
+	  </tr>
+	</table>
+	
+	</div>
+	
+	<!-- 풋터 -->
+	<div id='footer' style='width: 960px; height: 30px; background-color: gray; color: white'>
+	  All Content Copyright 2017  L  All Rights Reserved.     |     Terms & Service     |     Privacy Policy
+	</div>
+</div> <!-- container -->
 </body>
 </html>
