@@ -3,35 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
+<link rel="stylesheet" href="../../css/sh/common.css">
 </head>
 <body>
-<div class='container'>
 <div id='header'></div>
-<div style='height:200px; background-color:rgb(64,64,64); color:white; font-size:20pt; font-weight:bold; text-align:center;'>
-  <pre style='padding-top:70px;'>
-올바른 소비문화와 갑징 근절을 위해 이 세상의 모든 부조리를 까버리는
+<div id='intro'>
+  <pre style='padding-top:50px;'>
+올바른 소비문화와 갑질 근절을 위해 이 세상의 모든 부조리를 까버리는
 우리는 <font color='red' size='22pt'>The Nutcracker</font> 입니다.
   </pre>
 </div>
 <br>
-<span style='padding-left:190px; color:rgb(94,94,94); font-size:10pt;'>
+<div class='container'>
+<span style='color:rgb(94,94,94); font-size:10pt;'>
 불매리스트 | 불량후기
 <font style='font-weight:bold'>
 최근 1년간 선택한 관심 상품 목록입니다.
 </font>
 </span>
 <br>
-<div style='horizontal-align:middle; max-width:960px; margin:auto; '>
-  <span style='background-color:white; font-weight:bold; font-size:15pt; padding-right:10px;'>불매리스트</span>
+<div id='main-section'>
+  <span id='section'>불매리스트</span>
   <hr color='gray' style='margin-top:-13px;'>
-  <span style='margin-top:-33px; float:right; background-color:white; font-size:10pt; padding-left:10px;'>view more &gt;</span>
+  <span id='view-more'>view more &gt;</span>
 </div>
-<span style='padding-left:200px; color:rgb(94,94,94); font-size:10pt;'>
+<span style='color:rgb(94,94,94); font-size:10pt;'>
 <b>호두 많은 순</b> | 최신 작성 순
 </span>
+<div id="img-list">
+  <img src="png.jpg" alt="Avatar" class="image">
+  <div class="overlay">
+    <div id="img-text">Hello World</div>
+  </div>
 </div>
+</div>
+<br>
 <div id='footer'></div>
-</body>
 <script> 
 window.addEventListener("load", function() {
   get('header.html', function(result) {
@@ -47,9 +54,10 @@ function get(url, success) {
     if (xhr.readyState < 4) 
       return;
     success(xhr.responseText);
-  }
+  };
   xhr.open('get', url, true);
   xhr.send();
-}
+};
 </script>
+</body>
 </html>

@@ -1,0 +1,112 @@
+@CHARSET "UTF-8";
+body {
+  font-family: '맑은 고딕', sans-serif;
+}
+.container {
+	max-width:960px;
+  margin:auto;
+  /*border:1px solid #73AD21;*/
+}
+#tab {
+	
+  /*border: 1px solid red;*/
+}
+#tab ul {
+  overflow: auto;
+  list-style-type: none;
+}
+#tab li {
+  height: 25px;
+  float: left;
+  margin-right: 0px;
+  border-right: 1px solid #aaa;
+  padding: 0 20px;
+}
+#tab li:last-child {
+  /*border-right: none;*/
+}
+#tab li a {
+  text-decoration: none;
+  color: #ccc;
+  font: 15px/1 Helvetica, Verdana, sans-serif;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#tab li a:hover {
+  color: #666;
+}
+#tab li.active a {
+  font-weight: bold;
+  color: #333;
+}
+#intro {
+	height:200px;
+	background-color:rgb(64,64,64);
+	color:white;
+	font-size:20pt;
+	font-weight:bold;
+	text-align:center;
+}
+#main-section {
+	horizontal-align:middle;
+}
+#section {
+	background-color:white;
+	font-weight:bold;
+	font-size:15pt;
+	padding-right:10px;
+}
+#view-more {
+	margin-top:-33px;
+	float:right;
+	background-color:white;
+	font-size:10pt;
+	padding-left:10px;
+}
+#img-list {
+  position: relative;
+  width: 300px;
+}
+.image {
+  display: block;
+  border:1px solid gray;
+  width: 300px;
+  height: 300px;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:#ffffff;
+  overflow: hidden;
+  width: 300px;
+  height: 0;
+  transition: .5s ease;
+}
+#img-list:hover .overlay {
+  height: 30%;
+}
+#img-text {
+  white-space: nowrap; 
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+#footer {
+	background-color:rgb(94,94,94);
+	color:white;
+	margin-left:5px;
+	font-familly:돋움체, sans-serif;
+	text-align:center;
+	font-weight:lighter;
+}
