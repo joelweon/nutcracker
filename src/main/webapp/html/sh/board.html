@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+<link rel="stylesheet" href="../../css/sh/common.css">
+</head>
+<body>
+<div id='header'></div>
+<div class='container'>
+<h3 style='display:inline; font-style:oblique;'>불량후기</h3>
+<span style='padding-left:10px; color:gray; font-size:12px;'>
+생활 속에서 겪은 모든 부조리함을 털어놓는 게시판 입니다.
+</span>
+<br>
+<div align='right' style='position:relative; margin-bottom:10px;'>
+<button style='background-color:rgb(255,0,0); cursor:pointer;'>글쓰기</button>
+</div>
+
+<div class="board-table">
+    <div class="row header">
+      <div class="cell">글번호</div>
+      <div class="cell">제목</div>
+      <div class="cell">작성자</div>
+      <div class="cell">작성일</div>
+      <div class="cell">조회수</div>
+      <div class="cell">추천수</div>
+    </div>
+    <div class="row">
+      <div class="cell">1</div>
+      <div class="cell-title">[불매운동] 홍삼액이 가짜홍삼이라니요.</div>
+      <div class="cell">몸살쟁이</div>
+      <div class="cell">2017.01.15</div>
+      <div class="cell">21</div>
+      <div class="cell">10</div>
+    </div>
+    <div class="row">
+      <div class="cell">2</div>
+      <div class="cell-title">[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ</div>
+      <div class="cell">강냉이</div>
+      <div class="cell">2017.01.13</div>
+      <div class="cell">189</div>
+      <div class="cell">24</div>
+    </div>
+  </div>
+
+</div>
+<div id='footer'></div>
+<script> 
+window.addEventListener("load", function() {
+  get('header.html', function(result) {
+    document.querySelector('#header').innerHTML = result;
+  });
+  get('footer.html', function(result) {
+    document.querySelector('#footer').innerHTML = result;
+  });
+});
+function get(url, success) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState < 4) 
+      return;
+    success(xhr.responseText);
+  };
+  xhr.open('get', url, true);
+  xhr.send();
+};
+</script>
+</body>
+</html>

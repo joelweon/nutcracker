@@ -123,6 +123,37 @@ body {
 	padding-top:5px;
 	font-size:10pt;
 }
+
+.board-table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+.row.header {
+	text-align:center;
+  font-weight: 900;
+  font-size: 12pt;
+  color: #000000;
+  background: #c0c0c0;
+}
+.row {
+  display: table-row;
+  background: #ffffff;
+  font-size: 10pt;
+}
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+  text-align:center;
+}
+.cell-title {
+  padding: 6px 12px;
+  display: table-cell;
+  text-align:left;
+}
+
+
 #footer {
 	background-color:rgb(94,94,94);
 	color:white;
