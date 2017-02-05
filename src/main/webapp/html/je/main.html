@@ -3,147 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <title>우리는 The Nutcracker 입니다.</title>
-
-<style>
-
-#header {
-  height: 60px;
-  position: relative;
-}
-
-#mainpic {
-  height:60px;
-  float:left;
-  margin-top:3px;
-  margin-left:3px;
-}
-
-input[type=text] {
-  float: right;
-  width: 200px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 13px;
-  background-color: white;
-  background-image: url('search.PNG');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat; 
-  padding: 12px 20px 12px 40px;
-}
-
-#name {
-  font-size:17px;
-  color:red;
-}
-
-.myButton {
-  margin: 0px 0px 0px 10px;
- -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
- -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
-  box-shadow:inset 0px 1px 0px 0px #cf866c;
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
-  background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-  background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-  background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-  background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
-  background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
-  background-color:#d0451b;
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
-  border-radius:3px;
-  border:1px solid #942911;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family:Arial;
-  font-size:13px;
-  padding:6px 24px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #854629;
-}
-.myButton:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
-    background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-    background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-    background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-    background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
-    background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
-    background-color:#bc3315;
-}
-.myButton:active {
-    position:relative;
-    top:1px;
-}
-
-#main-desc {
-  width: 960px;
-  height: 300px;
-  background-color: gray;
-  font-size: 45px;
-  text-align:center;
-  margin-left: 190px;
-  min-height: 400px;
-  font-weight:bold;
-}
-
-#cont {
-  width:900px;
-  margin:0 auto;
-  padding: 100px;
-}
-
-#footer {
-  background-color:gray;
-  height:20px;
-  color:white;
-  padding-top:2px;
-  font-family:돋움체,sans-serif;
-  text-align:center;
-  font-weight:lighter;
-}
-</style>
-
-
+<link rel="stylesheet" href="../../css/je/css.css">
 </head>
+
+
 <body>
 
 <div class='container'>
-<div id='header'>
-<img id='mainpic' src='main.PNG'>
-  <a href="#" class="myButton" style='margin-left: 200px'>불매운동</a>
-  <a href="#" class="myButton">불량후기</a>
-  <a href="#" class="myButton">대체상품</a>
-  <a href="#" class="myButton">공동구매</a>
+	<div id='header'>
+	<img id='mainpic' src='main.PNG'>
+	  <a href="#" class="myButton" style='margin-left: 200px'>불매운동</a>
+	  <a href="#" class="myButton">불량후기</a>
+	  <a href="#" class="myButton">대체상품</a>
+	  <a href="#" class="myButton">공동구매</a>
+	
+	<div class="logf">
+	<a href="#" id="login" class="log">Login</a>
+	/
+	<a href="#" id="join" class="log">Join</a>
+	</div>
+	<input type="text" name="search" placeholder="Search..">
+	
+	
+	</div>
+	
+	
+	<div id="content">
+	
+		<div id="main-desc">
+		<pre id="main-text">
+ 올바른 소비문화와 갑질 근절을 위해 
+ 이 세상의 모든 부조리를 까버리는
+ 우리는 <span id="title-name">The Nutcracker</span> 입니다.
+		</pre>
+		</div>
+		
+		<div class="cont-head">
+		
+		<a href="#" id="boycott" class="cont-list">불매리스트</a>
+		|
+		<a href="#" id="poor-comment" class="cont-list">불량후기</a>
+		최근 1년간 선택한 관심 상품 목록입니다.
+		
+		</div>
+		
+		<div class="cont-body">
+		  <div class="cont-title">
+				<span id="boycott-title">불매리스트</span>
+  			<a href="#" class="more">view more &gt;</a>
+			  <hr>
+		  </div>
+		  
+		  <div class=order>
+		    <a id="nut-order" href="#">호두 많은 순</a>
+		    |
+		    <a id="date-order" href="#">최신 작성 순</a>
+		  </div>
+			
+			<ul class="boycott-list">
+			  <li class="col">
+			    <div class="img-topic">
+					    <a href="#">
+						  <img width="300" height="200" src="oxy.PNG" alt=""/>
+						  </a>
+					    <div class="box-info">
+						    <span class="cont-title">옥시 가습기 살균제 사건</span>
+						    <span class="cont-side">♨500 | 30일전</span>
+						  </div>
+			    </div>
+			  </li>
+			  <li class="col">
+			    <div class="img-topic">
+					    <a href="#">
+						  <img width="300" height="200" src="oxy.PNG" alt=""/>
+						  </a>
+					    <div class="box-info">
+						    <span class="cont-title">옥시 가습기 살균제 사건</span>
+						    <span class="cont-side">♨500 | 30일전</span>
+						  </div>
+			    </div>
+			  </li>
+			  <li class="col">
+			    <div class="img-topic">
+					    <a href="#">
+						  <img width="300" height="200" src="oxy.PNG" alt=""/>
+						  </a>
+					    <div class="box-info">
+						    <span class="cont-title">옥시 가습기 살균제 사건</span>
+						    <span class="cont-side">♨500 | 30일전</span>
+						  </div>
+			    </div>
+			  </li>
+			  <li class="col">
+			    <div class="img-topic">
+					    <a href="#">
+						  <img width="300" height="200" src="oxy.PNG" alt=""/>
+						  </a>
+					    <div class="box-info">
+						    <span class="cont-title">옥시 가습기 살균제 사건</span>
+						    <span class="cont-side">♨500 | 30일전</span>
+						  </div>
+			    </div>
+			  </li>
+			  <li class="col">
+			    <div class="img-topic">
+					    <a href="#">
+						  <img width="300" height="200" src="oxy.PNG" alt=""/>
+						  </a>
+					    <div class="box-info">
+						    <span class="cont-title">옥시 가습기 살균제 사건</span>
+						    <span class="cont-side">♨500 | 30일전</span>
+						  </div>
+			    </div>
+			  </li>
+			  <li class="col">
+			    <div class="img-topic">
+					    <a href="#">
+						  <img width="300" height="200" src="oxy.PNG" alt=""/>
+						  </a>
+					    <div class="box-info">
+						    <span class="cont-title">옥시 가습기 살균제 사건</span>
+						    <span class="cont-side">♨500 | 30일전</span>
+						  </div>
+			    </div>
+			  </li>
+			  <li class="col">
+			    <div class="img-topic">
+					    <a href="#">
+						  <img width="300" height="200" src="oxy.PNG" alt=""/>
+						  </a>
+					    <div class="box-info">
+						    <span class="cont-title">옥시 가습기 살균제 사건</span>
+						    <span class="cont-side">♨500 | 30일전</span>
+						  </div>
+			    </div>
+			  </li>
+			</ul>
+			
+      <div class="cont-title">
+        <span id="boycott-title">불량후기</span>
+        <a href="#" class="more">view more &gt;</a>
+        <hr>
+      </div>
+      <div class=order>
+        <a id="nut-order" href="#">호두 많은 순</a>
+        |
+        <a id="date-order" href="#">최신 작성 순</a>
+      </div>
 
-  <input type="text" name="search" placeholder="Search..">
+			<ul class="poor-list">
+			  <li class="col2">
+			    <div class="img-board">
+			      <a href="#">
+			        <img width="100" height="100" src="hong.PNG" align="left"/>
+			      </a>
+			      <div class="text">
+			        <span id="board-title">홍삼액이 가짜홍삼이라니요!![20]</span>
+			        <br>
+			        <span id="board-id">몸살쟁이</span>
+			        |
+			        <span id="board-date">2017.01.14</span>
+			        |
+			        <span id="board-nuts">♨ 25</span>
+			      </div>
+			    </div>
+			  </li>
+			  <li class="col2">
+			    <div class="img-board">
+			      <a href="#">
+			        <img width="100" height="100" src="hong.PNG" align="left"/>
+			      </a>
+			      <div class="text">
+			        <span id="board-title">홍삼액이 가짜홍삼이라니요!![20]</span>
+			        <br>
+			        <span id="board-id">몸살쟁이</span>
+			        |
+			        <span id="board-date">2017.01.14</span>
+			        |
+			        <span id="board-nuts">♨ 25</span>
+			      </div>
+			    </div>
+			  </li>
+			  <li class="col2">
+			    <div class="img-board">
+			      <a href="#">
+			        <img width="100" height="100" src="hong.PNG" align="left"/>
+			      </a>
+			      <div class="text">
+			        <span id="board-title">홍삼액이 가짜홍삼이라니요!![20]</span>
+			        <br>
+			        <span id="board-id">몸살쟁이</span>
+			        |
+			        <span id="board-date">2017.01.14</span>
+			        |
+			        <span id="board-nuts">♨ 25</span>
+			      </div>
+			    </div>
+			  </li>
+			  <li class="col2">
+			    <div class="img-board">
+			      <a href="#">
+			        <img width="100" height="100" src="hong.PNG" align="left"/>
+			      </a>
+			      <div class="text">
+			        <span id="board-title">홍삼액이 가짜홍삼이라니요!![20]</span>
+			        <br>
+			        <span id="board-id">몸살쟁이</span>
+			        |
+			        <span id="board-date">2017.01.14</span>
+			        |
+			        <span id="board-nuts">♨ 25</span>
+			      </div>
+			    </div>
+			  </li>
+			  <li class="col2">
+			    <div class="img-board">
+			      <a href="#">
+			        <img width="100" height="100" src="hong.PNG" align="left"/>
+			      </a>
+			      <div class="text">
+			        <span id="board-title">홍삼액이 가짜홍삼이라니요!![20]</span>
+			        <br>
+			        <span id="board-id">몸살쟁이</span>
+			        |
+			        <span id="board-date">2017.01.14</span>
+			        |
+			        <span id="board-nuts">♨ 25</span>
+			      </div>
+			    </div>
+			  </li>
+			</ul>
+		</div>
+	  
+	  
 
-</div>
 
 
-<div id="content">
-
-<div id="main-desc">
-
-<div id="cont">
-올바른 소비문화와 갑질 근절을 위해 
-이 세상의 모든 부조리를 까버리는
-우리는 
-<span id="name">The Nutcracker</span> 
-입니다.
-</div>
-
-</div>
+	</div>
 
 
-
-</div>
-
-<div id='footer'>
-All Content Copyright 2017  L  All Rights Reserved.     |     Terms &amp; Service     |     Privacy Policy
-</div>
+	<div id='footer'>
+	All Content Copyright 2017  L  All Rights Reserved.     |     Terms &amp; Service     |     Privacy Policy
+	</div>
 </div>
 
 </body>
