@@ -2,10 +2,10 @@
 
 div {
 	width: 960px;
-  /* border: 1px solid red */;
+  /* border: 1px solid red; */
 }
 .row {
-	margin-left: 0px;
+	margin: 0px 5px 0px 5px;
 }
 
 /*이미지 파일*/
@@ -47,11 +47,6 @@ div {
 #header nav ul.search-login li {
   margin-right: 5px;
 }
-#header nav ul.search-login li a{
-  color: #343434;
-  font-size: 15px;
-	text-decoration: none;
-}
 #header nav li {
 	float: left;
 	list-style: none;
@@ -68,9 +63,19 @@ div {
 #header nav li a.menu:hover {
   color: red;
 }
+#header h3 {
+	padding: 10px 5px;
+}
 .search-login {
 	width: 300px;
 	height: 25px;
+}
+.search-login a {
+	color: gray;
+	font-weight: bold;
+}
+.search-login a:hover {
+	text-decoration: underline;
 }
 .input-group {
 	width: 150px;
@@ -107,4 +112,95 @@ div {
 	color: red;
 	font-size: 30px;
 	font-weight: bolder;
+}
+
+/* 타이틀바 */
+#title-bar, #title-bar nav {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#title-bar ul {
+	left: 0px;
+}
+#title-bar span {
+	height: 40px;
+	float: left;
+	vertical-align: middle;
+	display: inline-block;
+}
+.title-title {
+	width: 110px;
+	color: black;
+	text-decoration: none;
+	font-size: 25px;
+	font-weight: bold;
+}
+.title-line {
+	width: 750px;
+	display: inline-block;
+}
+.title-view {
+	width: 90px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+.title-view a {
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: normal;
+	color: gray;
+}
+
+/* 불매운동 */
+.portfolio-item {
+  margin-bottom: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.img-boycott {
+	width: 230px;
+	height: 230px;
+	background-color: gray;
+}
+.list-quotes {
+    cursor: pointer;
+    height: auto;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+.list-quotes img {
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.list-quotes p {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0,50px,0);
+    transform: translate3d(0,50px,0);
+    font-size: 12px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.9);
+    width: 100%;
+    color: black;
+}
+.list-quotes:hover img {
+    -webkit-transform: translate3d(0,-80px,0);
+    transform: scale(1.2);
+    transition: all 250ms ease;
+}
+.list-quotes:hover p {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
