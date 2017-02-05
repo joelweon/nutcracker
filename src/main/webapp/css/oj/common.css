@@ -2,7 +2,7 @@
 
 div {
 	width: 960px;
-  /* border: 1px solid red; */
+/*   border: 1px solid red; */
 }
 .row {
 	margin: 0px 5px 0px 5px;
@@ -124,10 +124,24 @@ div {
 	text-decoration: none;
 }
 
+/* 정렬메뉴 */
+#menu-array {
+	margin: 3px 0px 10px 10px;
+}
+#menu-array a {
+	color: gray;
+	font-size: 13px;
+	text-decoration: none;
+}
+#menu-array a#selected {
+	color: #343434;
+	font-weight: bold;
+}
+
 /* 타이틀바 */
 .title-bar, .title-bar nav {
 	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 .title-bar ul {
 	left: 0px;
