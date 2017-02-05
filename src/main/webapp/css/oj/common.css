@@ -2,7 +2,7 @@
 
 div {
 	width: 960px;
-  /* border: 1px solid red; */
+/*   border: 1px solid red; */
 }
 .row {
 	margin: 0px 5px 0px 5px;
@@ -114,15 +114,39 @@ div {
 	font-weight: bolder;
 }
 
-/* 타이틀바 */
-#title-bar, #title-bar nav {
-	margin-top: 20px;
-	margin-bottom: 20px;
+/* 스크롤바 */
+#scrollbar {
+	margin-top: 10px;
 }
-#title-bar ul {
+#scrollbar button {
+	color: gray;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+/* 정렬메뉴 */
+#menu-array {
+	margin: 3px 0px 10px 10px;
+}
+#menu-array a {
+	color: gray;
+	font-size: 13px;
+	text-decoration: none;
+}
+#menu-array a#selected {
+	color: #343434;
+	font-weight: bold;
+}
+
+/* 타이틀바 */
+.title-bar, .title-bar nav {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.title-bar ul {
 	left: 0px;
 }
-#title-bar span {
+.title-bar span {
 	height: 40px;
 	float: left;
 	vertical-align: middle;
@@ -203,4 +227,50 @@ div {
     opacity: 1;
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
+}
+
+/* 불량후기 */
+.list-group-item {
+	width: 950px;
+	padding: 5px 10px;
+}
+.profile-teaser-left {
+  float: left;
+  width: 100px;
+  margin-right: 20px;
+}
+.profile-img img {
+  width: 100px; 
+  height: 100px;
+}
+.profile-teaser-main {
+	width: 780px;
+	height: 100px;
+	padding-top: 20px;
+}
+.info {
+  font-size: 12px;
+	display: inline-block;
+	margin-right: 5px;
+	color: #777;
+}
+.profile-name a {
+	color: #343434;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.profile-name a:hover {
+	text-decoration: underline;
+}
+
+/* 풋터 */
+#footer div {
+	width: 960px; 
+	height: 40px; 
+	background-color: gray; 
+	color: white;
+	font-size: 15px;
+	padding-left: 210px;
+	padding-top: 7px;
 }
