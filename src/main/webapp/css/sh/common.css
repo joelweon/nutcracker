@@ -36,7 +36,7 @@ body {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-#tab li a:hover, #tab li a:focus {
+#tab li a:hover {
   font-weight: bold;
   color: #333;
 }
@@ -82,18 +82,18 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color:rgb(255,255,255);
+  background-color:rgba(255,255,255,0.7);
   overflow: hidden;
   width: 230px;
   height: 0;
   transition: .5s ease;
-  text-align: left;
 }
 .img-list:hover .overlay {
   height: 30%;
 }
 .img-text {
-  white-space: nowrap; 
+  margin-left: 5px;
+  width: 100%;
   color: black;
   font-size: 8pt;
   position: absolute;
@@ -110,12 +110,12 @@ body {
 	display:block;
 	position: relative;
 }
-.board-img {
+.board > img {
 	position:absolute;
   left:5px;
   top:5px;
-  height:100px;
-  width:100px;
+  height:80px;
+  width:80px;
 }
 .board-text {
 	position: absolute;
@@ -156,7 +156,7 @@ body {
   display: table-cell;
   text-align:left;
 }
-#cell-title div {
+.cell-title img {
 	position:absolute;
 	left:5px;
 	top:5px;
