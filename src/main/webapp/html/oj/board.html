@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>불량후기-리스트</title>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../../css/oj/common.css">
+  <link rel="stylesheet" href="../../css/oj/board.css">
+</head>
+
+<body>
+	<!-- 헤더(로고, 메뉴, 로그인) -->
+	<div class='container'>
+	  <div class='row'>
+	    <div id="header"> 
+	      <a id="logo" href="#"><img id='img-logo' src='./image/logo.png'></a>
+	      <nav>
+	        <ul>
+	        <li>
+	        <ul class='menu'>
+	          <li><a class='menu' href="#">불매운동</a></li>
+	          <li><h3>|</h3></li>
+	          <li><a class='menu' href="#" style="color: red;">불량후기</a></li>
+	          <li><h3>|</h3></li>
+	          <li><a class='menu'  href="#">대체상품</a></li>
+	          <li><h3>|</h3></li>
+	          <li><a class='menu' href="#">공동구매</a></li>
+	        </ul>
+	        </li>
+	        <li>
+	        <ul class='search-login'>
+	          <li>
+	            <div class="input-group">
+	              <input type="text" class="form-control" placeholder="Search...">
+	              <span class="input-group-btn">
+	                <button class="btn btn-default" id="btn-search" type="button"><img id='img-search' class="btn-img" src="./image/search.png"></button>
+	              </span>
+	            </div>
+	          </li>
+	          <li><a href='#'>Login</a></li>
+	          <li><a> / </a>
+	          <li><a href='#'>Join</a></li>
+	        </ul>
+	        </li>
+	        </ul>
+	      </nav>
+	    </div>
+	    <div id='menuline'><hr></div>
+	  </div>
+	  
+	  <!-- 타이틀바 -->
+	  <div id="title-bar-review" class="row title-bar">
+	    <nav>
+	      <span class='title-title'>불량후기</span>
+	      <span class='title-sub'>생활 속에서 겪은 모든 부조리함을 털어놓는 게시판입니다.</span>
+	    </nav>
+	  </div>
+	  
+	  <!-- 글쓰기버튼 -->
+	  <div class='btn-toolbar'>
+	    <button id='btn-write' class="btn btn-danger">글쓰기</button>
+	  </div>
+	  
+		<!-- 테이블 -->
+		<div class='container'>
+		  <table class="table table-hover table-review">
+			  <thead>
+		        <tr>
+		          <th id='no'>글번호</th>
+		          <th id='title'>제목</th>
+		          <th id='writer'>작성자</th>
+		          <th id='reg-date'>작성일</th>
+		          <th id='view-cnt'>조회수</th>
+		          <th id='hodu-cnt'>추천수</th>
+		        </tr>
+	      </thead>
+				<tbody>
+				  <tr>
+				    <td>1</td>
+				    <td>
+			        <a href="#" class="table-review-row">
+			          <img src="./image/hongsam1.png" class="review-list-img">
+			          <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
+			        </a>
+				    </td>
+				    <td>몸살쟁이</td>
+				    <td>2017.01.15</td>
+				    <td>120</td>
+				    <td>10</td>
+				  </tr>
+				  <tr>
+            <td>2</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/dryou1.png" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
+              </a>
+            </td>
+            <td>강냉이</td>
+            <td>2017.01.13</td>
+            <td>120</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/chocomilk1.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
+              </a>
+            </td>
+            <td>시리얼은코코볼</td>
+            <td>2017.01.09</td>
+            <td>498</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/nabang.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
+              </a>
+            </td>
+            <td>사오정육개장</td>
+            <td>2017.01.05</td>
+            <td>91</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/default.png" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
+              </a>
+            </td>
+            <td>안간다이제퉤</td>
+            <td>2016.12.28</td>
+            <td>63</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/hongsam1.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
+              </a>
+            </td>
+            <td>몸살쟁이</td>
+            <td>2017.01.15</td>
+            <td>120</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/dryou1.png" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
+              </a>
+            </td>
+            <td>강냉이</td>
+            <td>2017.01.13</td>
+            <td>120</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/chocomilk1.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
+              </a>
+            </td>
+            <td>시리얼은코코볼</td>
+            <td>2017.01.09</td>
+            <td>498</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/nabang.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
+              </a>
+            </td>
+            <td>사오정육개장</td>
+            <td>2017.01.05</td>
+            <td>91</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>
+              <a href="#" class="table-review-row">
+                <img src="./image/default.png" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
+              </a>
+            </td>
+            <td>안간다이제퉤</td>
+            <td>2016.12.28</td>
+            <td>63</td>
+            <td>13</td>
+          </tr>
+				</tbody>
+	    </table>
+	  </div>
+	  
+	<!-- 풋터 -->
+  <div id='footer'>
+    <div>All Content Copyright 2017    All Rights Reserved.     |     Terms & Service     |     Privacy Policy</div>
+  </div>
+</div>
+</body>

@@ -1,0 +1,123 @@
+@CHARSET "UTF-8";
+
+/* 소개글 */
+#intro-div {
+  background-color: #343434;
+  height: 150px;
+  display: table;
+}
+.text-center {
+  font-size: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.text-center span {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.text-center span#txt-border {
+  color: red;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+/* 스크롤바 */
+#scrollbar {
+  margin-top: 10px;
+}
+#scrollbar button {
+  color: gray;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* 메인 - 불매운동 */
+.portfolio-item {
+  margin-bottom: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.img-boycott {
+  width: 220px;
+  height: 220px;
+  background-color: gray;
+}
+.list-quotes {
+    cursor: pointer;
+    height: auto;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+.list-quotes img {
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.list-quotes p {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(0,50px,0);
+    transform: translate3d(0,50px,0);
+    font-size: 12px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.9);
+    width: 100%;
+    color: black;
+}
+.list-quotes:hover img {
+    -webkit-transform: translate3d(0,-80px,0);
+    transform: scale(1.2);
+    transition: all 250ms ease;
+}
+.list-quotes:hover p {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+/* 불량후기 */
+.list-group-item {
+  width: 950px;
+  padding: 5px 10px;
+}
+.profile-teaser-left {
+  float: left;
+  width: 100px;
+  margin-right: 20px;
+}
+.profile-img img {
+  width: 100px; 
+  height: 100px;
+}
+.profile-teaser-main {
+  width: 780px;
+  height: 100px;
+  padding-top: 20px;
+}
+.info {
+  font-size: 12px;
+  display: inline-block;
+  margin-right: 5px;
+  color: #777;
+}
+.profile-name a {
+  color: #343434;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.profile-name a:hover {
+  text-decoration: underline;
+}

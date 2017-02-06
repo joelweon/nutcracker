@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+#btn-write {
+	margin-bottom: 5px;
+}
+.review-list-img {
+	width: 80px;
+	height: 80px;
+}
+.table-review > thead > tr > th, .table-review > tbody > tr > td {
+	padding: 3px;
+	vertical-align: middle;
+}
+.table-review > tbody > tr > td > a.table-review-row {
+	text-decoration: none;
+}
+.table-review-title {
+	color: #343434;
+	text-decoration: none;
+	margin-left: 10px;
+	text-decoration: none;
+}
+.table-review #no, .table-review #view-cnt, .table-review #hodu-cnt {
+	width: 7%;
+}
+.table-review #title {
+	width: 55%;
+}
+.table-review #writer, .table-review #reg-date {
+	width: 12%;
+}
