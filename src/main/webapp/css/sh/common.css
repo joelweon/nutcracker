@@ -48,24 +48,24 @@ body {
 	font-weight:bold;
 	text-align:center;
 }
-#main-section {
+.main-section {
 	padding-top:10px;
 	horizontal-align:middle;
 }
-#section {
+.section {
 	background-color:white;
 	font-weight:bold;
 	font-size:15pt;
 	padding-right:10px;
 }
-#view-more {
+.view-more {
 	margin-top:-33px;
 	float:right;
 	background-color:white;
 	font-size:10pt;
 	padding-left:10px;
 }
-#img-list {
+.img-list {
 	display: inline-block;
   position: relative;
   width: 230px;
@@ -89,10 +89,10 @@ body {
   transition: .5s ease;
   text-align: left;
 }
-#img-list:hover .overlay {
+.img-list:hover .overlay {
   height: 30%;
 }
-#img-text {
+.img-text {
   white-space: nowrap; 
   color: black;
   font-size: 8pt;
@@ -110,14 +110,14 @@ body {
 	display:block;
 	position: relative;
 }
-#board-img {
+.board-img {
 	position:absolute;
   left:5px;
   top:5px;
   height:100px;
   width:100px;
 }
-#board-text {
+.board-text {
 	position: absolute;
 	padding-left:100px;
 	padding-top:20px;
@@ -149,7 +149,7 @@ body {
   display: table-cell;
   text-align:center;
 }
-#cell-title {
+.cell-title {
 	position: relative;
   padding-left: 60px;
   padding-top: 20px;
