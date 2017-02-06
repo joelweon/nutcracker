@@ -36,10 +36,7 @@ body {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-#tab li a:hover {
-  color: #666;
-}
-#tab li.active a {
+#tab li a:hover, #tab li a:focus {
   font-weight: bold;
   color: #333;
 }
