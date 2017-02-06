@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+/* 년도별 보기 */
+#array-year {
+  padding-right: 20px;
+  background-color: yellow;
+}
+#array-year > li {
+  list-style: none;
+  display: inline-table;
+  vertical-align: middle;
+}
+.dropdown {
+  width: 100px;
+}

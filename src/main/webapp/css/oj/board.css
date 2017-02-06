@@ -1,12 +1,17 @@
-@import url("http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css")
 @CHARSET "UTF-8";
 
+/* 글쓰기버튼 */
 #btn-write {
 	margin-bottom: 5px;
 }
+
+/* 불매후기 리스트 테이블 */
 .review-list-img {
 	width: 80px;
 	height: 80px;
+}
+.table-review {
+	width: 940px;
 }
 .table-review > thead > tr > th {
   background: #343434;
@@ -44,30 +49,26 @@
 }
 
 /* 게시판검색 */
-/*  .board-search > ul {
-	float: right;;
-	display:inline;
+.board-search {
+	padding-right: 20px;
 }
 .board-search > li {
 	list-style: none;
+	display: inline-table;
 	vertical-align: middle;
 }
-.board-search > li > div.dropup {
-	width: 100px;
-	margin-right: 300px;
-}
-.dropup > button {
+.board-search button {
 	padding: 2px;
-	width: 100px;
 	height: 25px;
-}  */
-
-.dropup, .form-control {
-	position:relative;
 }
+.dropup, .dropup button {
+	width: 100px;
+}
+
 /* 페이지 이동 */
 .pagination {
-	margin: 5px 0px 10px 0px;
+	width: 100%;
+	margin: 5px 0px 30px 0px;
 }
 .pagination > li > a {
 	color: gray;
