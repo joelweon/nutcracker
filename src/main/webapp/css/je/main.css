@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-
+body {font-size: small;}
 #header {
   height: 60px;
   position: relative;
@@ -23,7 +23,7 @@ input[type=text] {
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: white;
-  background-image: url('../../html/je/search.PNG');
+  background-image: url('../../html/je/image/search.PNG');
   background-position: 11px 10px; 
   background-repeat: no-repeat; 
   padding: 12px 5px 12px 40px;
@@ -64,6 +64,7 @@ input[type=text]:focus {
 .logf {
    float:right;
    padding: 8px;
+   font-size:1.3em;
 }
 .log {
   color:black;
