@@ -5,10 +5,13 @@ body {
 }
 div {
 	width: 960px;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 .row {
 	margin: 0px 5px 0px 5px;
+}
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+  outline: 0;
 }
 
 /*이미지 파일*/

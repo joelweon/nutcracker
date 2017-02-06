@@ -32,6 +32,9 @@
   font-size: 13px;
   text-decoration: none;
 }
+#scrollbar button:active {
+	outline: 0px;
+}
 
 /* 메인 - 불매운동 */
 .portfolio-item {

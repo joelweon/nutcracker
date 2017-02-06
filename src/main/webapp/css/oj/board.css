@@ -1,3 +1,4 @@
+@import url("http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css")
 @CHARSET "UTF-8";
 
 #btn-write {
@@ -7,9 +8,21 @@
 	width: 80px;
 	height: 80px;
 }
+.table-review > thead > tr > th {
+  background: #343434;
+  color: #fff;
+  font-size: 110%;
+}
+.table-review > tbody > tr {
+  border-bottom: 1px solid #ddd;
+}
 .table-review > thead > tr > th, .table-review > tbody > tr > td {
-	padding: 3px;
+	padding: 5px;
 	vertical-align: middle;
+	text-align: center;
+}
+.table-review > tbody > tr > td.td-title {
+	text-align: left;
 }
 .table-review > tbody > tr > td > a.table-review-row {
 	text-decoration: none;
@@ -28,4 +41,39 @@
 }
 .table-review #writer, .table-review #reg-date {
 	width: 12%;
+}
+
+/* 게시판검색 */
+/*  .board-search > ul {
+	float: right;;
+	display:inline;
+}
+.board-search > li {
+	list-style: none;
+	vertical-align: middle;
+}
+.board-search > li > div.dropup {
+	width: 100px;
+	margin-right: 300px;
+}
+.dropup > button {
+	padding: 2px;
+	width: 100px;
+	height: 25px;
+}  */
+
+.dropup, .form-control {
+	position:relative;
+}
+/* 페이지 이동 */
+.pagination {
+	margin: 5px 0px 10px 0px;
+}
+.pagination > li > a {
+	color: gray;
+}
+.pagination > li.active > a {
+	background-color: red;
+	color: white;
+	border: 1px solid gray;
 }

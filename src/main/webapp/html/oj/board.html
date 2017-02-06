@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../../node_modules/bootstrap/js/dropdown.js"></script>
 <head>
 <meta charset="UTF-8">
 <title>불량후기-리스트</title>
@@ -78,7 +79,7 @@
 				<tbody>
 				  <tr>
 				    <td>1</td>
-				    <td>
+				    <td class='td-title'>
 			        <a href="#" class="table-review-row">
 			          <img src="./image/hongsam1.png" class="review-list-img">
 			          <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
@@ -91,7 +92,7 @@
 				  </tr>
 				  <tr>
             <td>2</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/dryou1.png" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
@@ -104,7 +105,7 @@
           </tr>
           <tr>
             <td>3</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/chocomilk1.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
@@ -117,7 +118,7 @@
           </tr>
           <tr>
             <td>4</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/nabang.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
@@ -130,7 +131,7 @@
           </tr>
           <tr>
             <td>5</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/default.png" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
@@ -143,7 +144,7 @@
           </tr>
           <tr>
             <td>6</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/hongsam1.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
@@ -156,7 +157,7 @@
           </tr>
           <tr>
             <td>7</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/dryou1.png" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
@@ -169,7 +170,7 @@
           </tr>
           <tr>
             <td>8</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/chocomilk1.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
@@ -182,7 +183,7 @@
           </tr>
           <tr>
             <td>9</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/nabang.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
@@ -195,7 +196,7 @@
           </tr>
           <tr>
             <td>10</td>
-            <td>
+            <td class='td-title'>
               <a href="#" class="table-review-row">
                 <img src="./image/default.png" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
@@ -209,6 +210,40 @@
 				</tbody>
 	    </table>
 	  </div>
+	  
+		<!-- 게시판 검색 -->
+		<div class='row'>
+			<ul class='board-search'>
+			  <li>
+				  <div class="dropup">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    제목+내용
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">제목</a></li>
+					    <li><a href="#">내용</a></li>
+					    <li><a href="#">작성자</a></li>
+					  </ul>
+					</div>
+				    <input type='text' class='form-control'>
+				</li>
+			</ul>
+		</div>
+		
+	  <!-- 페이지이동 -->
+	  <div class="clearfix">
+			<ul class="pagination">
+			  <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+			  <li class="active"><a href="#">1</a></li>
+			  <li><a href="#">2</a></li>
+			  <li><a href="#">3</a></li>
+			  <li><a href="#">4</a></li>
+			  <li><a href="#">5</a></li>
+			  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+			</ul>
+			
+    </div>
 	  
 	<!-- 풋터 -->
   <div id='footer'>
