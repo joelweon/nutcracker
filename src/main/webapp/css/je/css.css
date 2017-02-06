@@ -4,7 +4,6 @@
   height: 60px;
   position: relative;
 }
-
 #content {
   width: 960px;
 }
@@ -114,7 +113,7 @@ input[type=text]:focus {
   padding:0px 20px 0px 0px;
 }
 
-#boycott-title {
+#boycott-title, #poor-title  {
 	font-size:25px;
 	font-weight:bold;
 }
@@ -134,6 +133,7 @@ hr {
 	margin-top:10px;
 }
 
+
 .order {
 	padding: 10px;
 }
@@ -146,10 +146,7 @@ hr {
 	text-decoration:none;
 	color:gray;
 }
-#nut-order:hover {
-	color:black;
-}
-#date-order:hover {
+#nut-order:hover, #date-order:hover{
 	color:black;
 }
 
@@ -160,9 +157,7 @@ hr {
   color: #202121;
   display: inline-block;
 }
-.col2 {
-	list-style:none;
-}
+
 
 
 div.img-topic {
@@ -174,7 +169,7 @@ div.img-topic {
   float:left;
 }
 
-span.cont-title {
+span.boycott-name {
   font-weight:bold;
   font-size:18px;
   position:absolute;
@@ -185,7 +180,7 @@ span.cont-title {
   opacity:0.7;
   padding-top: 18px;
 }
-span.cont-side {
+span.boycott-side {
   position:absolute;
   display:block;
   left:0;
@@ -194,8 +189,10 @@ span.cont-side {
   background: rbga(0, 0, 0, .5)
 }
 
+
 .col2 {
   position:relative;
+  list-style:none;
   width:900px;
   height:100px;
   border: 1px solid black;
@@ -205,6 +202,9 @@ span.cont-side {
 .text {
 	padding:20px 0px;
 	
+}
+.img-board {
+  height:100px;
 }
 
 #board-title {
