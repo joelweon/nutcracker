@@ -7,7 +7,7 @@
 <title>불량후기-리스트</title>
   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="../../css/oj/common.css">
-  <link rel="stylesheet" href="../../css/oj/board.css">
+  <link rel="stylesheet" href="../../css/oj/boycott.css">
 </head>
 
 <body>
@@ -20,9 +20,9 @@
           <ul>
           <li>
           <ul class='menu'>
-            <li><a class='menu' href="#">불매운동</a></li>
+            <li><a class='menu' href="#" style="color: red;">불매운동</a></li>
             <li><h3>|</h3></li>
-            <li><a class='menu' href="#" style="color: red;">불량후기</a></li>
+            <li><a class='menu' href="#">불량후기</a></li>
             <li><h3>|</h3></li>
             <li><a class='menu'  href="#">대체상품</a></li>
             <li><h3>|</h3></li>
@@ -56,29 +56,102 @@
         <span class='title-title'>불매운동</span>
         <span class='title-sub'>현재 진행중인 불매운동 리스트입니다.</span>
       </nav>
+    </div><!-- title-bar-rew -->
     
-	    <!-- 년도별 보기 -->
-	    <div class='row'>
-	      <ul id='array-year' class='pull-right'>
-	        <li>년도별 보기</li>
-	        <li>
-	          <div class="dropdown">
-	            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	              2017
-	              <span class="caret"></span>
-	            </button>
-	            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	              <li><a href="#">2016</a></li>
-	              <li><a href="#">2015</a></li>
-	              <li><a href="#">2014</a></li>
-	            </ul>
-	          </div>
-	        </li>
-	        
-	      </ul>
-	    </div>
-    </div><!-- title-bar-review -->
+    <!-- 년도별 보기 -->
+    <div class='row'>
+      <ul class='array-year pull-right'>
+        <li>년도별 보기</li>
+        <li>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              2017
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">2016</a></li>
+              <li><a href="#">2015</a></li>
+              <li><a href="#">2014</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
     
+    <!-- 불매운동 리스트 -->
+    <div class="row">
+    <div class="list-group">
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="./image/hongsam1.png"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-title"><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+          <span class="profile-article"><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+          <span class="profile-article"><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span><br>
+          <div class='profile-btn'>
+	          <span class='boycott-cnt'>★ 1200</span>
+	          <button class='btn btn-danger add-boycott'>나의 불매리스트에 추가</button>
+          </div>
+        </div>
+      </div><!-- item -->
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="./image/hongsam1.png"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-title"><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+          <span class="profile-article"><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+          <span class="profile-article"><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span><br>
+          <div class='profile-btn'>
+            <span class='boycott-cnt'>★ 1200</span>
+            <button class='btn btn-danger add-boycott'>나의 불매리스트에 추가</button>
+          </div>
+        </div>
+      </div><!-- item -->
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="./image/hongsam1.png"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-title"><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+          <span class="profile-article"><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+          <span class="profile-article"><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span><br>
+          <div class='profile-btn'>
+            <span class='boycott-cnt'>★ 1200</span>
+            <button class='btn btn-danger add-boycott'>나의 불매리스트에 추가</button>
+          </div>
+        </div>
+      </div><!-- item -->
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="./image/hongsam1.png"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-title"><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+          <span class="profile-article"><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+          <span class="profile-article"><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+          <span class="profile-article"><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span><br>
+          <div class='profile-btn'>
+            <span class='boycott-cnt'>★ 1200</span>
+            <button class='btn btn-default add-boycott'>나의 불매리스트에 추가</button>
+          </div>
+        </div>
+      </div><!-- item -->
+    </div>
+    
+    <!-- 풋터 -->
+  <div id='footer'>
+    <div>All Content Copyright 2017    All Rights Reserved.     |     Terms & Service     |     Privacy Policy</div>
+  </div>
+  
   </div>
   </body>
 </html>
