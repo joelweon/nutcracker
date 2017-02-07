@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>불매운동</title>
+<link rel="stylesheet" href="../../css/yj/css.css">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+
+<style>
+body {
+	font-size: 14px;
+}
+#topdiv {
+  border: 1px solid red; 
+  max-width: 960px; 
+  height: 40px; 
+  margin: auto;
+}
+
+#top-title {
+  font-size: 30px; 
+  font: bold; 
+  margin-left: 20px;
+}
+
+#top-text {
+  font: bold; 
+  margin-left: 20px;
+}
+
+#top-select-text {
+  float: right; 
+  padding: 10px 20px 0px 0px;
+}
+
+
+#boycott-list {
+  /* border: 1px solid red;  */
+  max-height: 2400px; 
+  max-width: 960px; 
+  margin: 40px auto auto auto;
+}
+
+#boycott-list > div {
+  border: 1px solid;
+  border-color: #dddddd;
+  width: 960px;
+  height: 200px;
+  margin: 5px 0px 0px 0px;
+}
+
+#boycott-list img {
+
+  width: 180px;
+  height: 180px;
+}
+
+#boycott-inner-div {
+  margin: 10px 0px 0px 40px;
+  float: left;
+}
+
+#boycott-inner-title {
+  margin: 20px 0px 0px 260px;
+  font: bold;
+  font-size: 24px;
+  width: 500px;
+}
+
+#boycott-inner-list {
+  width: 500px;
+  margin: 0px 0px 0px 240px;
+}
+
+#boycott-inner-list li {
+  list-style-type: none;
+  margin-top: 3px;
+}
+
+#boycott-inner-list a:link{
+  text-decoration: none;
+  color: black;
+}
+
+#boycott-inner-list a:hover{
+  color: #aa0000;
+}
+
+.btn-glyphicon { padding:8px; color: red; background:#ffffff; margin-right:4px; }
+.icon-btn { padding: 1px 15px 3px 2px; border-radius:20px; border-color: red;}
+
+#list-add-btn {
+  float: right; margin-right: 80px;
+  background-color: red;
+}
+</style>
+</head>
+<body>
+<div id="header"></div>
+
+<div id="topdiv">
+  <span id="top-title">불매운동</span>
+  <span id="top-text">현재 진행중인 불매운동 리스트입니다.</span>
+  <span id="top-select-text">연도별 리스트 보기
+	  <select name="prog">
+		  <option value="">2017</option>
+		  <option>2016</option>
+		  <option>2015</option>
+		  <option>2014</option>
+		  <option>2013</option>
+		  <option>2012</option>
+    </select>
+  </span>
+</div>
+
+<div id="boycott-list">
+  <div>
+    <div id="boycott-inner-div">
+      <a href='#'>
+        <img src="./image/hongsam1.png">
+      </a>
+    </div>
+    <div id="boycott-inner-title">[옥시레킷벤키저 가습기 살균제 사건]</div>
+    <div id="boycott-inner-list">
+      <ul>
+        <li><a href="#">'가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존리는 무죄</a></li>
+        <li><a href="#">국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고해야"</a></li>
+        <li><a href="#">"인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></li>
+        <li><a href="#">환경부, 가습기 살균제 피해 18명 추가... 총276명으로 늘어</a></li>
+      </ul>
+    </div>
+    <span style="margin-left: 60px; color: red;"> 1327</span>
+    <a id="list-add-btn" class="btn icon-btn btn-success" href="#">
+      <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+    나의 불매 리스트에 추가</a>
+  </div>
+  
+  
+  
+  
+  
+</div>
+
+
+</body>
+</html>
