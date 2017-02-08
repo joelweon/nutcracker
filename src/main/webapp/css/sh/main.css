@@ -1,13 +1,4 @@
 @CHARSET "UTF-8";
-body {
-  font-family: '맑은 고딕', sans-serif;
-  font-size: small;
-  background-color: #f0f0f0;
-}
-.container {
-  max-width:960px;
-  margin:auto;
-}
 /* 불매 불량 바로가기 */
 #scrollbar {
   margin-top: 10px;
@@ -21,18 +12,6 @@ body {
   outline: 0px;
 }
 /* 불매 불량 리스트 헤더 */
-.title-bar > span, .title-bar > hr {
-  horizontal-align:middle;
-  display: block;
-}
-.title-title {
-  width: 110px;
-  color: black;
-  font-size: 1.5em;
-  font-weight: bold;
-  background-color: #f0f0f0;
-  padding-right:10px;
-}
 .title-view {
 	float: right;
   width: 90px;
