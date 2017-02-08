@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: large;
+}
+.container {
+	display: inline;
+	padding: 0;
+}
+#header li {
+	list-style: none;
+}
+#header a {
+	text-decoration: none;
+}
+#header label, #btn-toggle {
+	display: none;
+}
+
+/* 숨은메뉴 */
+#div-menu-hidden {
+	display: none;
+	float: left;
+}
+#div-menu-hidden ul, #div-menu-hidden li {
+	list-style: none;
+}
+#nav-menu-hidden ul {
+	display: block;
+}
+
+/* 주메뉴 */
+#nav-menu {
+  padding: 0;
+  margin: 0;
+  display: inline;
+}
+#nav-menu li {
+  display: inline; /* 메뉴 목록 일렬로 늘어놓기 */
+}
+
+/* 가로가 600px 이하일 때 */
+@media screen and (max-width: 730px)
+{
+	#header > #nav-menu { /* 주메뉴 숨기기 */
+	 display: none;
+	}
+	#header > label{ /* 숨은메뉴 아이콘 보이기 */
+	  display: inline;
+	}
+/* 	 #div-menu-hidden {
+	  display: inline;
+	  float: left;
+	}  */
+	#btn-toggle:checked ~ #div-menu-hidden {
+	  display: inline;
+	  float: left;
+	  border:1px solid red;
+	} /* 아이콘 토글시 숨은메뉴 보이기*/
+}
+
+#content {
+	height: 30em;
+	background-color: gray;
+}
