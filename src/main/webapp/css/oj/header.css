@@ -4,59 +4,171 @@ body {
 	font-size: large;
 }
 .container {
-	display: inline;
+	width: 100%;
+	min-width: 500px;
 	padding: 0;
 }
-#header li {
-	list-style: none;
+div {
+	/* border: 1px solid red; */
 }
-#header a {
-	text-decoration: none;
-}
-#header label, #btn-toggle {
-	display: none;
-}
+dl,ul,ol,li{list-style:none;}
 
-/* 숨은메뉴 */
-#div-menu-hidden {
-	display: none;
+#wrap-header {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+#header {
+	height: 60px;
+	padding: 0 15px;
+	display: table-cell;
+  vertical-align: middle;
+}
+.header-sub {
+	height: 90%;
 	float: left;
 }
-#div-menu-hidden ul, #div-menu-hidden li {
-	list-style: none;
+
+/* 숨은메뉴-토글버튼 */
+.div-hidden-box {
+  display: none;
+  padding-top: 10px;
 }
-#nav-menu-hidden ul {
+.div-hidden-box #btn-show-hidden {
+	width:25px;
+	height:25px;
+	border-bottom:0 none;
+}
+/* .div-hidden-box #btn-show-hidden.on span {background-position:right -29px;} */
+
+/* 햄버거 메뉴 효과 */
+.menu-trigger,
+.menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+}
+.menu-trigger {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+.menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #f00;
+    border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+    top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+    bottom: 10px;
+}
+.menu-trigger span:nth-of-type(3) {
+    bottom: 0;
+}
+/* type-01 */
+/* 중앙 라인이 고정된 자리에서 투명하게 사라지며 상하라인 회전하며 엑스자 만들기 */
+.menu-trigger.active-1 span:nth-of-type(1) {
+    -webkit-transform: translateY (10px) rotate (-45deg);
+    transform: translateY(10px) rotate(-45deg);
+}
+.menu-trigger.active-1 span:nth-of-type(2) {
+    opacity: 0;
+}
+.menu-trigger.active-1 span:nth-of-type(3) {
+    -webkit-transform: translateY(-10px) rotate(45deg);
+    transform: translateY(-10px) rotate(45deg);
+}
+
+/* 숨은메뉴-메뉴 */
+.div-hidden-box .div-menu-hidden {
+	width:100%;
+	overflow:hidden;
+	display: none;
+	background:#343434;
+	/* height:auto;
+	border:1px solid #aeaeae;
+	border-top:0 none; */
+	position:absolute;
+	left:0;
+	top:60px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	z-index:100;
 	display: block;
+}
+.div-hidden-box .div-menu-hidden.on {display:block;}
+
+.div-menu-hidden ul, .div-menu-hidden ul li {
+	display: block;
+  padding: 0px 20px;
+}
+.div-menu-hidden li:first-child {
+	padding-top: 20px;
+}
+.div-menu-hidden li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.div-menu-hidden li a:hover {
+  color: #c0c0c0;
+}
+/* 로고 */
+.div-logo img {
+	height: 50px;
 }
 
 /* 주메뉴 */
-#nav-menu {
-  padding: 0;
-  margin: 0;
-  display: inline;
+.div-menu {
+	display: table-cell;
+	float: right;
+	padding-top: 12px;
 }
-#nav-menu li {
-  display: inline; /* 메뉴 목록 일렬로 늘어놓기 */
+.div-menu li {
+	display: inline;
+}
+.div-menu li a.menu {
+  float: left;
+  color: #323338;
+  padding: 0 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.div-menu li a.menu:hover {
+	color: red;
+}
+.div-menu li span.menu-divider {
+	float: left;
+	color: #323338;
+	font-weight: bold;
 }
 
-/* 가로가 600px 이하일 때 */
-@media screen and (max-width: 730px)
+/* 가로가 76px 이하일 때 */
+@media screen and (max-width: 760px)
 {
-	#header > #nav-menu { /* 주메뉴 숨기기 */
-	 display: none;
+	.div-hidden-box {
+	  display: block;
 	}
-	#header > label{ /* 숨은메뉴 아이콘 보이기 */
-	  display: inline;
+	.div-hidden-box .div-menu-hidden {
+	  display: none;
 	}
-/* 	 #div-menu-hidden {
-	  display: inline;
-	  float: left;
-	}  */
-	#btn-toggle:checked ~ #div-menu-hidden {
-	  display: inline;
-	  float: left;
-	  border:1px solid red;
-	} /* 아이콘 토글시 숨은메뉴 보이기*/
+	.div-menu {
+	  display: none;
+	}
+	.div-logo {
+	  margin-left: 35%;
+	}
+}
+@media screen and (max-width: 600px)
+{
+	.div-logo {
+	  margin-left: 32%;
+	}
 }
 
 #content {
