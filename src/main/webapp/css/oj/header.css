@@ -87,19 +87,17 @@ dl,ul,ol,li{list-style:none;}
 /* 숨은메뉴-메뉴 */
 .div-hidden-box .div-menu-hidden {
 	width:100%;
+	height: 100%;
 	overflow:hidden;
 	display: none;
 	background:#343434;
-	/* height:auto;
-	border:1px solid #aeaeae;
-	border-top:0 none; */
 	position:absolute;
 	left:0;
 	top:60px;
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	z-index:100;
-	display: block;
+	/* display: block; */
 }
 .div-hidden-box .div-menu-hidden.on {display:block;}
 
@@ -126,8 +124,8 @@ dl,ul,ol,li{list-style:none;}
 /* 주메뉴 */
 .div-menu {
 	display: table-cell;
+	padding-top: 14px;
 	float: right;
-	padding-top: 12px;
 }
 .div-menu li {
 	display: inline;
@@ -148,7 +146,68 @@ dl,ul,ol,li{list-style:none;}
 	font-weight: bold;
 }
 
-/* 가로가 76px 이하일 때 */
+/* 검색 */
+.div-menu-search {
+	display: table-cell;
+	float: right;
+	padding-top: 11px;
+}
+.div-menu-search .div-search {
+  width:100%;
+  height: 100%;
+  overflow:hidden;
+  display: none;
+  background:#ffffff;
+  /* border:1px solid #aeaeae;
+  border-top:0 none; */
+  position:absolute;
+  left:0;
+  top:60px;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  z-index:100;
+}
+.div-menu-search .input-search {
+	position: absolute;
+	top: 40%;
+	font-size: 5em;
+	width: 100%;
+	text-align: center;
+}
+.div-menu-search label.input-search {
+	color: #808080;
+	display: block;
+}
+.div-menu-search label.input-search.focus {
+	color: #c0c0c0;
+}
+.div-menu-search label.input-search.off {
+	color: #fff;
+}
+.div-menu-search label.input-search.hover {
+	color: #343434;
+}
+.div-menu-search #input-search {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.div-menu-search .div-search.on {
+	display: block;
+}
+
+/* <form role="search" id="nav-search" method="get" class="right left" action="https://www.wired.com/" data-js="navSearch" autocomplete="off">
+  <fieldset>
+    <input id="s" class="black text-c no-outline no-border" name="s" type="search" required="required" data-js="searchInput">
+    <label class="black text-c absolute top right left" for="s">Search</label>
+    <input id="search-submit" class="text-c visually-hidden" type="submit" value="Submit Search">
+  </fieldset>
+</form> */
+
+
+/* ------------------------------------------
+  가로가 76px 이하일 때 
+--------------------------------------------*/
 @media screen and (max-width: 760px)
 {
 	.div-hidden-box {
@@ -172,6 +231,6 @@ dl,ul,ol,li{list-style:none;}
 }
 
 #content {
-	height: 30em;
-	background-color: gray;
+	height: 90em;
+	background-color: #800080;
 }

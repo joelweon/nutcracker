@@ -37,6 +37,14 @@
 			<div class='header-sub div-logo'>
 			  <a id="logo" href="./main.html"><img src='./image/logo.png'></a>
 			</div>
+			<div class='header-sub div-menu-search'>
+        <a id="btn-search" class='search-trigger' href="#"><img src='../../images/search.PNG'></a>
+        <div class='div-search'>
+          <label for='input-search' class='input-search'>Search</label>
+          <input id='input-search' class='input-search' type="search" required="required"/>
+        </div>
+        <button type='button' class='btn btn-default'>Login</button>
+      </div>
 			<div class='header-sub div-menu'>
 			  <ul id='nav-menu'>
 		      <li><a class='menu' href="./boycott.html">불매운동</a></li>
@@ -48,36 +56,73 @@
 		      <li><a class='menu' href="#">공동구매</a></li>
 		    </ul>
 			</div>
-		</div>
-  </div>
-</div>
+			
+		</div> <!-- header -->
+  </div> <!-- wrap-header -->
   
   <div id='content'></div>
-</div>
+</div> <!-- container -->
 
 </body>
 
 <script type="text/javascript">
-/* hide.show */
-$(document).ready( function(){
-  $('#btn-show-hidden').click(function(){ 
+$(document).ready(function() {
+	/* 숨은메뉴-버튼 이벤트 */
+  $('#btn-show-hidden').click(function() { 
     $('#btn-show-hidden').toggleClass('on');
     $(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
     return false;
   });
+  /* 검색버튼 이벤트 */
+  $('#btn-search').click(function() {
+    $('#btn-search').toggleClass('on');
+    $(this).parent().parent().find('.div-search').toggleClass('on');
+    return false;
+  });
+  /* 검색 마우스 올릴 때 */
+	$('.input-search').hover(function() {
+		if ($('#input-search').val().length <= 0) {
+		  $(this).parent().parent().find('label.input-search').addClass('hover');
+		}
+	}, function() {
+		$(this).parent().parent().find('label.input-search').removeClass('hover');
+	});
+  /* 검색 input 입력시 */
+	$('#input-search').focus(function() {
+		if ($('#input-search').val().length <= 0) {
+	    $(this).parent().parent().find('label.input-search').toggleClass('off');
+			$(this).parent().parent().find('label.input-search').removeClass('hover');
+		}
+    return false;
+  });
+	$('#input-search').blur(function() {
+		if ($('#input-search').val().length <= 0) {
+			$(this).parent().parent().find('label.input-search').removeClass('off');
+		}
+    return false;
+	});
 });
 
 /* 햄버거 메뉴 효과 */
 var burger = $('.menu-trigger');
 
-burger.each(function(index){
+burger.each(function(index) {
     var $this = $(this);
     
-    $this.on('click', function(e){
+    $this.on('click', function(e) {
         e.preventDefault();
         $(this).toggleClass('active-' + (index+1));
     })
 });
+
+/* 검색버튼 이벤트 */
+/* $(document).ready(function() {
+	$('#btn-search').click(function() {
+		$('#btn-search').toggleClass('on');
+		$(this).parent().parent().find('.div-search').toggleClass('on');
+		return false;
+	});
+}); */
 </script>
 
 </html>
