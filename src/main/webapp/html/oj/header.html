@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
+  <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="../../css/oj/header.css">
 </head>
@@ -12,41 +13,71 @@
 
 <!-- 헤더(로고, 메뉴, 로그인) -->
 <div class='container'>
-  <div id=header>
-    <label for='btn-toggle'>&#8801;</label>
-    <input type='checkbox' id='btn-toggle'/>
-
-    <a id="logo" href="./main.html"><img src='./image/logo.png'></a>
-   
-    <ul id='nav-menu'>
-      <li><a class='menu' href="./boycott.html">불매운동</a></li>
-      <li><span>|</span></li>
-      <li><a class='menu' href="./board.html">불량후기</a></li>
-      <li><span>|</span></li>
-      <li><a class='menu'  href="#">대체상품</a></li>
-      <li><span>|</span></li>
-      <li><a class='menu' href="#">공동구매</a></li>
-    </ul>
-    <a href='#'>검색</a>
-    <a href='#'>로그인</a>
+  <div id='wrap-header'>
+	  <div id='header'>
+		  <div class='header-sub div-hidden-box'>
+				<a id="btn-show-hidden" class='menu-trigger' href="#">
+				    <span></span>
+				    <span></span>
+				    <span></span>
+				</a>
+				<div class='header-sub div-menu-hidden'>
+			    <ul id='nav-menu-hidden' class='nav-memu-hidden'>
+			      <li><a href="./boycott.html">불매운동</a></li>
+			      <li><hr/></li>
+			      <li><a href="./board.html">불량후기</a></li>
+			      <li><hr/></li>
+			      <li><a href="#">대체상품</a></li>
+			      <li><hr/></li>
+			      <li><a href="#">공동구매</a></li>
+			      <li><hr/></li>
+			    </ul>
+		    </div>
+			</div>
+			<div class='header-sub div-logo'>
+			  <a id="logo" href="./main.html"><img src='./image/logo.png'></a>
+			</div>
+			<div class='header-sub div-menu'>
+			  <ul id='nav-menu'>
+		      <li><a class='menu' href="./boycott.html">불매운동</a></li>
+		      <li><span class='menu-divider'>|</span></li>
+		      <li><a class='menu' href="./board.html">불량후기</a></li>
+		      <li><span class='menu-divider'>|</span></li>
+		      <li><a class='menu'  href="#">대체상품</a></li>
+		      <li><span class='menu-divider'>|</span></li>
+		      <li><a class='menu' href="#">공동구매</a></li>
+		    </ul>
+			</div>
+		</div>
   </div>
-  <div id='div-menu-hidden'>
-	  <ul id='nav-menu-hidden' class='nav-memu-hidden'>
-      <!-- <li><a id="logo" href="./main.html"><img src='./image/logo.png'></a></li> -->
-      <li><a class='menu' href="./boycott.html">불매운동</a></li>
-      <li><a class='menu' href="./board.html">불량후기</a></li>
-      <li><a class='menu'  href="#">대체상품</a></li>
-      <li><a class='menu' href="#">공동구매</a></li>
-    </ul>
-  </div>
+</div>
   
   <div id='content'></div>
-  <div id='footer'></div>
 </div>
 
 </body>
 
-<script>
+<script type="text/javascript">
+/* hide.show */
+$(document).ready( function(){
+  $('#btn-show-hidden').click(function(){ 
+    $('#btn-show-hidden').toggleClass('on');
+    $(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
+    return false;
+  });
+});
 
+/* 햄버거 메뉴 효과 */
+var burger = $('.menu-trigger');
+
+burger.each(function(index){
+    var $this = $(this);
+    
+    $this.on('click', function(e){
+        e.preventDefault();
+        $(this).toggleClass('active-' + (index+1));
+    })
+});
 </script>
+
 </html>
