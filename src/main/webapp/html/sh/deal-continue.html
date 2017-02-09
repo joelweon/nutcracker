@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../../css/sh/common.css">
+<link rel="stylesheet" href="../../css/sh/deal.css">
+</head>
+<body>
+<!-- <div id='header'></div> -->
+<div class='container'>
+  <!-- 페이지 타이틀 -->
+  <div class='title-title'>
+   <span>공동구매</span>
+  </div>
+  <!-- 정렬방식 -->
+  <div class='menu-array'>
+    <span><a id='selected' href='deal-continue.html'>진행 중인 공구</a></span>
+    <span> | </span>
+    <span><a href='deal-finish.html'>종료된 공구</a></span>
+  </div>
+  <!-- 공동구매 진행딜 -->
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/barun.png'>
+    <div class='deal-title'><span><b>바른두유 플레인 진한영양 20개입</b></span></div>
+    <div class='deal-price'>29,000원</div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="30%">
+    <div class="percentbar-bar" style='background-color:#ff0000'></div>
+    <div class="percentbar-text">30%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>60 명</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>18 명</span></div>
+      <div class='deal-detail-date'><span>남은 기간<br>13 일</span></div>
+    </div>
+  </div> <!-- content-box class -->
+  
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/nare.png'>
+    <div class='deal-title'><span><b>나래농장 내몸에 착한 100% 홍삼액</b></span></div>
+    <div class='deal-price'>71,000원</div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="46%">
+    <div class="percentbar-bar" style='background-color:#ff0000'></div>
+    <div class="percentbar-text">46%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>30 명</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>14 명</span></div>
+      <div class='deal-detail-date'><span>남은 기간<br>9 일</span></div>
+    </div>
+  </div> <!-- content-box class -->
+  
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/sundung.png'>
+    <div class='deal-title'><span><b>순둥이 베이직 무향 물티슈 80매</b></span></div>
+    <div class='deal-price'>16,500원</div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="80%">
+    <div class="percentbar-bar" style='background-color:#008040'></div>
+    <div class="percentbar-text">80%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+	    <div class='deal-detail-recruit'><span>모집 인원<br>50 명</span></div>
+	    <div class='deal-detail-register'><span>신청 인원<br>40 명</span></div>
+	    <div class='deal-detail-date'><span>남은 기간<br>7 일</span></div>
+    </div>
+  </div> <!-- content-box class -->
+  
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/kindoh.png'>
+    <div class='deal-title'><span><b>킨도 프리미엄 기저귀 대형 48매</b></span></div>
+    <div class='deal-price'>16,000원</div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="64%">
+    <div class="percentbar-bar" style='background-color:#008040'></div>
+    <div class="percentbar-text">64%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>50 명</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>32 명</span></div>
+      <div class='deal-detail-date'><span>남은 기간<br>4 일</span></div>
+    </div>
+  </div> <!-- content-box class -->
+</div> <!-- container class -->
+<!-- <div id='footer'></div> -->
+<script>
+// 헤더 풋터 가져오기
+window.addEventListener("load", function() {
+  get('header.html', function(result) {
+    document.querySelector('#header').innerHTML = result;
+  });
+  get('footer.html', function(result) {
+    document.querySelector('#footer').innerHTML = result;
+  });
+});
+
+function get(url, success) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState < 4) 
+      return;
+    success(xhr.responseText);
+  };
+  xhr.open('get', url, true);
+  xhr.send();
+};
+
+// 퍼센트 그래프
+jQuery(document).ready(function(){
+  jQuery('.percentbar').each(function(){
+  	var percentage = jQuery(this).attr('data-percent');
+    jQuery(this).find('.percentbar-bar').animate({ width:percentage },1000);
+  });
+});
+</script>
+</body>
+</html>

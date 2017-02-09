@@ -26,13 +26,23 @@
   color: gray;
 }
 /* 불매 리스트 */
+.boycott-box {
+  /* border: 1px solid gray; */
+  background-color: white;
+  width:24%;
+  height:250px;
+  min-width:200px;
+  position:relative;
+  display: inline-block;
+  overflow: hidden;
+}
 .boycott-img {
 	position:absolute;
 	width:100%;
 	height:80%;
 	top:0;
 }
-.content-box:hover img {
+.boycott-box:hover img {
 	-webkit-transform: translate3d(0,-80px,0);
   transform: scale(1.2);
   transition: all 250ms ease;
@@ -47,7 +57,7 @@
 	font-size:0.7em;
 }
 /* 공동구매 아이콘 */
-.purchase-icon {
+.deal-icon {
 	position:absolute;
 	top: 0;
 	right: 0;
@@ -55,9 +65,15 @@
 	padding: 5px 10px;
 	/* margin: 1px 1px 0 0; */
 	background-color: rgb(255,0,0);
+}
+.deal-icon > a {
 	font-size: 0.8em;
-	color: white;
-	font-weight: bold;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.deal-icon:hover > a {
+	font-size: 1.0em;
 }
 /* 불량후기 */
 .list-group-item {
@@ -89,13 +105,13 @@
   display: inline-block;
   color: #777;
 }
-.profile-name a {
+.profile-name > a {
   color: #343434;
   font-size: 1.0em;
   font-weight: bold;
   text-decoration: none;
 }
-.profile-name a:hover {
+.profile-name > a:hover {
   text-decoration: underline;
   color: #0000c4;
 }
