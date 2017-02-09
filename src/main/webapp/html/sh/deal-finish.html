@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../../css/sh/common.css">
+<link rel="stylesheet" href="../../css/sh/deal.css">
+</head>
+<body>
+<!-- <div id='header'></div> -->
+<div class='container'>
+  <!-- 페이지 타이틀 -->
+  <div class='title-title'>
+   <span>공동구매</span>
+  </div>
+  <!-- 정렬방식 -->
+  <div class='menu-array'>
+    <span><a href='deal-continue.html'>진행 중인 공구</a></span>
+    <span> | </span>
+    <span><a id='selected' href='deal-finish.html'>종료된 공구</a></span>
+  </div>
+<!-- 공동구매 종료딜 -->
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/cleanall.png'>
+    <div class='deal-title'><span><b>웰그린몰 클린올 버블 핸드워시 800ml</b></span></div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="100%">
+    <div class="percentbar-bar" style='background-color:#008040'></div>
+    <div class="percentbar-text">136%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>50 명</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>68 명</span></div>
+      <div class='deal-detail-date'><span>배송 일자<br>2017.01.23</span></div>
+    </div>
+  </div> <!-- content-box class -->
+  
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/snuggle.png'>
+    <div class='deal-title'><span><b>스너글 섬유유연제 블루스파클 4.96L</b></span></div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="100%">
+    <div class="percentbar-bar" style='background-color:#008040'></div>
+    <div class="percentbar-text">132%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>100 명</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>132 명</span></div>
+      <div class='deal-detail-date'><span>배송 일자<br>2017.01.09</span></div>
+    </div>
+  </div> <!-- content-box class -->
+  
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/gamja.png'>
+    <div class='deal-title'><span><b>에스엘 맛있는 꼬들꼬들오돌오돌 감자라면</b></span></div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="100%">
+    <div class="percentbar-bar" style='background-color:#008040'></div>
+    <div class="percentbar-text">108%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>80 명</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>86 명</span></div>
+      <div class='deal-detail-date'><span>배송 일자<br>2016.12.28</span></div>
+    </div>
+  </div> <!-- content-box class -->
+  
+  <div class='deal-box'>
+    <img class='deal-img' src='../../images/dry.png'>
+    <div class='deal-title'><span><b>산도깨비 참숯물도깨비 제습제 510mlX24개</b></span></div>
+    <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="100%">
+    <div class="percentbar-bar" style='background-color:#008040'></div>
+    <div class="percentbar-text">150%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>70 명</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>105 명</span></div>
+      <div class='deal-detail-date'><span>배송 일자<br>2016.12.26</span></div>
+    </div>
+  </div> <!-- content-box class -->
+  
+</div> <!-- container class -->
+<!-- <div id='footer'></div> -->
+<script>
+// 헤더 풋터 가져오기
+window.addEventListener("load", function() {
+  get('header.html', function(result) {
+    document.querySelector('#header').innerHTML = result;
+  });
+  get('footer.html', function(result) {
+    document.querySelector('#footer').innerHTML = result;
+  });
+});
+
+function get(url, success) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState < 4) 
+      return;
+    success(xhr.responseText);
+  };
+  xhr.open('get', url, true);
+  xhr.send();
+};
+
+// 퍼센트 그래프
+jQuery(document).ready(function(){
+  jQuery('.percentbar').each(function(){
+  	var percentage = jQuery(this).attr('data-percent');
+    jQuery(this).find('.percentbar-bar').animate({ width:percentage },1000);
+  });
+});
+</script>
+</body>
+</html>

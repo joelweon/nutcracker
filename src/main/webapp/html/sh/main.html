@@ -5,10 +5,11 @@
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../../css/sh/common.css">
 <link rel="stylesheet" href="../../css/sh/main.css">
 </head>
 <body>
-<div id='header'></div>
+<!-- <div id='header'></div> -->
 <div class='container'>
   <!-- 불매/불량 바로가기 -->
   <div id='scrollbar'>
@@ -19,7 +20,7 @@
   <!-- 불매 헤더 -->
   <div id="title-bar-boycott" class="title-bar">
       <span class='title-title'>불매운동</span>
-      <hr color='rgb(64,64,64)' style='margin-top:-13px;'>
+      <hr style='margin-top:-13px; margin-left: 100px; border-top:1px solid gray;'>
       <span class='title-view'><a href='title-bar-boycott'>view more 》</a></span>
   </div>
   <!-- 정렬방식 -->
@@ -29,23 +30,39 @@
     <span><a href='#'>최근 등록 순</a></span>
   </div>
   <!-- 불매 콘텐츠 -->
-  <div class='boycott-content'>
-    <img src='./images/png.jpg'>
+  <div class='boycott-box'>
+    <img class='boycott-img' src='../../images/oxy2.PNG'>
     <div class='boycott-text'>
-    <span>팸퍼스 귀저기 독성 물질 논란으로 판매 중단<br>♨ 274 | 1일 전</span>
+    <span><b>옥시레킷벤키저 가습기 살균제 사건</b><br>♨ 500 | 30일 전</span>
     </div>
   </div>
   
-  <div class='boycott-content'>
-    <img src='./images/oxy.PNG'>
+  <div class='boycott-box'>
+    <div class='deal-icon'><a href='#'>공구진행중</a></div>
+    <img class='boycott-img' src='../../images/huggies1.png'>
     <div class='boycott-text'>
-    <span>옥시레킷벤키저 가습기 살균제 사건<br>♨ 500 | 30일 전</span>
+    <span><b>유한킴벌리 물티슈 유독물질 과다 검출</b><br>♨ 350 | 3일 전</span>
     </div>
   </div>
+  
+  <div class='boycott-box'>
+    <img class='boycott-img' src='../../images/png.jpg'>
+    <div class='boycott-text'>
+    <span><b>'독성 물질 논란' 팸퍼스 귀저기 판매 중단</b><br>♨ 274 | 1일 전</span>
+    </div>
+  </div>
+  
+  <div class='boycott-box'>
+    <img class='boycott-img' src='../../images/snack1.png'>
+    <div class='boycott-text'>
+    <span><b>수미칩, 포카칩 '질소과자' 여전</b><br>♨ 134 | 1년 전</span>
+    </div>
+  </div>
+  
   <!-- 불량 헤더 -->
   <div id="title-bar-review" class="title-bar">
       <span class='title-title'>불량후기</span>
-      <hr color='rgb(64,64,64)' style='margin-top:-13px;'>
+      <hr style='margin-top:-13px; margin-left: 100px; border-top:1px solid gray;'>
       <span class='title-view'><a href='title-bar-review'>view more 》</a></span>
   </div>
   <!-- 정렬방식 -->
@@ -59,7 +76,7 @@
     <div class="list-group">
       <div class="list-group-item clearfix">
         <div class="profile-teaser-left">
-          <div class="profile-img"><a href='#'><img src="../oj/image/hongsam1.png"/></a></div>
+          <div class="profile-img"><a href='#'><img src="../../images/hong.PNG"/></a></div>
         </div>
         <div class="profile-teaser-main">
           <span class="profile-name"><a href='#'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</a></span><br>
@@ -72,7 +89,7 @@
       </div><!-- item -->
       <div class="list-group-item clearfix">
         <div class="profile-teaser-left">
-          <div class="profile-img"><a href='#'><img src="../oj/image/dryou1.png"/></a></div>
+          <div class="profile-img"><a href='#'><img src="../../images/oksusu.PNG"/></a></div>
         </div>
         <div class="profile-teaser-main">
           <span class="profile-name"><a href='#'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</a></span><br>
@@ -85,7 +102,7 @@
       </div><!-- item -->
       <div class="list-group-item clearfix">
         <div class="profile-teaser-left">
-          <div class="profile-img"><a href='#'><img src="../oj/image/chocomilk1.png"/></a></div>
+          <div class="profile-img"><a href='#'><img src="../../images/chocomilk1.png"/></a></div>
         </div>
         <div class="profile-teaser-main">
           <span class="profile-name"><a href='#'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</a></span><br>
@@ -98,7 +115,7 @@
       </div><!-- item -->
       <div class="list-group-item clearfix">
         <div class="profile-teaser-left">
-          <div class="profile-img"><a href='#'><img src="../oj/image/nabang.png"/></a></div>
+          <div class="profile-img"><a href='#'><img src="../../images/nabang.png"/></a></div>
         </div>
         <div class="profile-teaser-main">
           <span class="profile-name"><a href='#'>[불매운동] 나방나온다 나바아아아앙~ [61]</a></span><br>
@@ -111,7 +128,59 @@
       </div><!-- item -->
       <div class="list-group-item clearfix">
         <div class="profile-teaser-left">
-          <div class="profile-img"><a href='#'><img src="../oj/image/default.png"/></a></div>
+          <div class="profile-img"><a href='#'><img src="../../images/default.png"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-name"><a href='#'>[불량후기] 혜화역 역대급 불친절식당! [19]</a></span><br>
+          <span class="info">안간다이제퉤</span>
+          <span class="info">|</span>
+          <span class="info">2016.12.28</span>
+          <span class="info">|</span>
+          <span class="info">♨ 13</span>
+        </div>
+      </div><!-- item -->
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="../../images/oksusu.PNG"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-name"><a href='#'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</a></span><br>
+          <span class="info">강냉이</span>
+          <span class="info">|</span>
+          <span class="info">2017.01.13</span>
+          <span class="info">|</span>
+          <span class="info">♨ 24</span>
+        </div>
+      </div><!-- item -->
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="../../images/chocomilk1.png"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-name"><a href='#'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</a></span><br>
+          <span class="info">시리얼은코코볼</span>
+          <span class="info">|</span>
+          <span class="info">2017.01.09</span>
+          <span class="info">|</span>
+          <span class="info">♨ 51</span>
+        </div>
+      </div><!-- item -->
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="../../images/nabang.png"/></a></div>
+        </div>
+        <div class="profile-teaser-main">
+          <span class="profile-name"><a href='#'>[불매운동] 나방나온다 나바아아아앙~ [61]</a></span><br>
+          <span class="info">사오정육개장</span>
+          <span class="info">|</span>
+          <span class="info">2017.01.05</span>
+          <span class="info">|</span>
+          <span class="info">♨ 30</span>
+        </div>
+      </div><!-- item -->
+      <div class="list-group-item clearfix">
+        <div class="profile-teaser-left">
+          <div class="profile-img"><a href='#'><img src="../../images/default.png"/></a></div>
         </div>
         <div class="profile-teaser-main">
           <span class="profile-name"><a href='#'>[불량후기] 혜화역 역대급 불친절식당! [19]</a></span><br>
@@ -126,7 +195,7 @@
   </div><!-- row -->
   
 </div> <!-- container -->
-<div id='footer'></div>
+<!-- <div id='footer'></div> -->
 <script>
 // 헤더 풋터 가져오기
 window.addEventListener("load", function() {
