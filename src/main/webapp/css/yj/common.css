@@ -2,6 +2,40 @@
 
 body {
 	margin: 0 auto;
+	font-size: 14px;
+}
+
+/* header */
+.header-div {
+	width: 960px;
+	margin: auto;
+}
+
+.logoff-div {
+	height:30px; 
+	float:right; 
+	margin:15px;
+}
+
+.search-div {
+	float: right; 
+	margin: 15px 0px 0px 0px;
+}
+
+.header-nav {
+	margin: 10px auto auto auto;
+	
+}
+
+.header-div li {
+	list-style-type: none;
+	display: inline-table;
+	vertical-align: middle;
+	float: right;
+}
+
+.logoff-div {
+	vertical-align: middle;
 }
 
 
@@ -101,6 +135,89 @@ input[type=text]:focus {
 }
 
 
+/* boycott */
+.topdiv {
+ /*  border: 1px solid red;  */
+  max-width: 960px; 
+  height: 40px; 
+  margin: auto;
+}
 
+.top-title {
+  font-size: 30px; 
+  font: bold; 
+  margin-left: 20px;
+}
+
+.top-text {
+  font: bold; 
+  margin-left: 20px;
+}
+
+.top-select-text {
+  float: right; 
+  padding: 10px 20px 0px 0px;
+}
+
+
+.boycott-list {
+  /* border: 1px solid red;  */
+  max-height: 2400px; 
+  max-width: 960px; 
+  margin: 20px auto auto auto;
+}
+
+.boycott-list > div {
+  border: 1px solid;
+  border-color: #dddddd;
+  width: 960px;
+  height: 200px;
+  margin: 5px 0px 0px 0px;
+}
+
+.boycott-list img {
+
+  width: 180px;
+  height: 180px;
+}
+
+.boycott-inner-div {
+  margin: 10px 0px 0px 40px;
+  float: left;
+}
+
+.boycott-inner-title {
+  margin: 20px 0px 0px 260px;
+  font: bold;
+  font-size: 24px;
+  width: 500px;
+}
+
+.boycott-inner-list {
+  width: 500px;
+  margin: 0px 0px 0px 240px;
+}
+
+.boycott-inner-list li {
+  list-style-type: none;
+  margin-top: 3px;
+}
+
+.boycott-inner-list a:link{
+  text-decoration: none;
+  color: black;
+}
+
+.boycott-inner-list a:hover{
+  color: #aa0000;
+}
+
+.btn-glyphicon { padding:8px; color: red; background:#ffffff; margin-right:4px; }
+.icon-btn { padding: 1px 15px 3px 2px; border-radius:20px; border-color: red;}
+
+.list-add-btn {
+  float: right; margin-right: 20px;
+  background-color: red;
+}
 
 
