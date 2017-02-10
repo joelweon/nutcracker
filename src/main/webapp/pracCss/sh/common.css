@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+body {
+  font-family: '맑은 고딕', sans-serif;
+  font-size: small;
+  background-color: #f1f1f2;
+}
+.container {
+	width:100%;
+  /* max-width:960px;
+  margin:auto; */
+}
+#wrap-content {
+	width: 100%;
+	max-width: 960px;
+	margin: auto;
+	
+}
+/* 페이지 타이틀 */
+.title-bar > span, .title-bar > hr {
+  horizontal-align:middle;
+  display: block;
+}
+.title-title {
+  width: 110px;
+  color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding-right:10px;
+}
+/* 정렬방식 */
+.menu-array {
+  margin: 3px 0px 10px 10px;
+}
+.menu-array a {
+  color: gray;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+.menu-array a#selected {
+  color: #343434;
+  font-weight: bold;
+}
+/* 모바일 설정 */
+@media all and (min-divice-width: 320px) and (max-device-width : 414px) {
+        container { max-width:320px; }
+}

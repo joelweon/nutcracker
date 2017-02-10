@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+
+/* 년도별 보기 */
+.array-year {
+  padding-right: 20px;
+}
+.array-year > li {
+  list-style: none;
+  display: inline-table;
+  vertical-align: middle;
+}
+ul.dropdown-menu, ul.dropdown-menu li {
+	min-width: 100px;
+}
+.array-year button {
+  padding: 2px;
+  height: 25px;
+}
+.dropdown, .dropdown button {
+  width: 100px;
+}
+
+/* 불량후기 리스트 */
+.list-group-item {
+  width: 950px;
+  padding: 5px 10px;
+}
+.profile-teaser-left {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+}
+.profile-img img {
+  width: 200px; 
+  height: 200px;
+}
+.profile-teaser-main {
+  width: 750px;
+  height: 200px;
+  padding-top: 20px;
+}
+.profile-title a {
+  color: #343434;
+  font-size: 150%;
+  font-weight: bold;
+  text-decoration: none;
+}
+.profile-title a:hover {
+  color: red;;
+}
+.profile-article a {
+	color: #343434;
+}
+.boycott-cnt {
+	font-size: 130%;
+	font-weight: bold;
+	color: red;
+}
+.profile-btn {
+	width: 920px;
+	margin-top: 40px;
+	display: compact;
+}
+.profile-btn > .add-boycott {
+	float: right;
+	background-color: red;
+	color: white;
+}
