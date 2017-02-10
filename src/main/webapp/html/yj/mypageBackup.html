@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우리는 The Nutcracker 입니다.</title>
+<link rel="stylesheet" href="../../css/yj/mypage.css">
+</head>
+
+
+<body>
+
+
+<div class='container'>
+  <div class="content">
+    <div class="my-top">
+      <span id="my-title">마이페이지</span>
+      <img id="profile-photo" src="image/nutc1.PNG" onclick="location.href='#'">
+      <span id="profile-name">cracker 님</span>
+      <input type="checkbox" name="toggle" id="toggle" /> 
+      <label for="toggle"></label>
+      <div class="my-bot">
+        <div class='my-menu-list'>
+          <ul>
+            <li><a href='#'>불매기업</a>
+              <div>5</div>
+            </li>
+            <li><a href='#'>구매내역</a>
+              <div>10</div>
+            </li>
+            <li><a href='#'>위시리스트</a>
+              <div>23</div>
+            </li>
+            <li><a href='#'>게시글관리</a>
+              <div>15</div>
+            </li>
+            <li><a href='#'>내가던진호두</a>
+              <div>120</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="re-check-left">
+      <!-- side menu -->
+      <nav class="navigation">
+        <h2>마이페이지</h2>
+        <ul class="mainmenu">
+          <li><a href="">계정관리</a></li>
+          <li><a href="">불매기업</a></li>
+          <li><a href="">구매내역</a></li>
+          <li><a href="">위시리스트</a></li>
+          <li><a href="">게시글관리</a></li>
+          <li><a href="">내가던진호두</a></li>
+       </ul>
+      </nav>
+    
+      <div class="re-check-right">
+        <h2>비밀번호 재확인</h2>
+        <hr><br>
+         <span>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.<br>
+              비밀번호는 다른 사람에게 노출되지 않도록 주의해주시기 바랍니다.<br>
+         </span>
+        <hr>
+  
+        <form action="#" method="post">
+  
+        <!-- 비밀번호 재확인 박스 -->
+        <div class="login-box">
+          <label><b>Email</b></label>
+          <input id="re-email" type="text" placeholder="Enter Email" name="id" required>
+          <label><b>Password</b></label>
+          <input id="re-password" type="password" placeholder="Enter Password" name="psw" required>
+          <button id="re-login" type="submit">로그인</button>
+      </div>
+      </form>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  
+  
+</div>
+
+
+
+</body>
+</html>
+
+<!-- css -->
+
+@CHARSET "UTF-8";
+body {font-size: small;}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.content {
+  max-width: 960px;
+  margin: auto;
+}
+
+.my-top {
+  max-width:960px;
+  background-color:black;
+  height:100px;
+  color:white;
+  border-bottom:1px solid white;
+  z-index: 15;
+}
+
+#my-title {
+  font-size:2.2em;
+  font-weight:bold;
+  margin: 30px;
+  float:left;
+}
+
+#profile-photo {
+  border-radius: 50%;
+  witdh:42px;
+  height:42px;
+  margin-top:28px;
+  float:left;
+}
+
+#profile-name {
+  font-size:large;
+  float:left;
+  margin: 37px 10px;
+}
+
+#profile-name :target {
+  
+}
+
+h2 {
+  margin: auto auto auto 15px;
+}
+
+
+.re-check-left {
+  position:relative;
+  font-size:1.4em;
+  margin-top: 20px;
+}
+
+.re-check-right {
+  font-size:1.4em;
+  float: right;
+}
+
+
+form {
+    border: 3px solid #f1f1f1;
+}
+
+#re-email, #re-password{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 20px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    float: right;
+}
+
+
+.login-box {
+    padding: 16px;
+    height:210px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+    
+}
+
+.navigation {
+  width: 170px;
+  float: left;
+}
+
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainmenu {
+  background-color: #FF4444;
+}
+
+.mainmenu li {
+  margin-top: 20px;
+  padding: 10px 0px 10px 30px;
+}
+
+.mainmenu a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
+}
+
+.mainmenu a:hover {
+    background-color: #FF9999;
+}
+
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+}
+
+/* 토글버튼 구현 */
+.my-bot {
+  max-width:960px;
+  position: absolute;
+  background-color:black;
+  min-height:70px;
+  font-size:1.5em;
+  transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  overflow: hidden;
+  top:50px;
+}
+
+
+.message {
+background:#181818;
+color:#FFF;
+position: absolute;
+top: -250px;
+left: 0;
+width: 100%;
+height: 250px;
+padding: 20px;
+transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+overflow: hidden;
+box-sizing: border-box;
+  
+}
+
+.message h1 {
+  color:#FFF;
+}
+
+#toggle {
+  position:absolute;
+  appearance:none;
+  cursor:pointer;
+  left:-100%;
+  top:-100%;
+}
+
+#toggle + label {
+  position:absolute;
+  cursor:pointer;
+  padding:10px;
+  background: #26ae90;
+  width: 100px;
+  border-radius: 3px;
+  padding: 8px 10px;
+  color: #FFF;
+  line-height:20px;
+  font-size:12px;
+  text-align:center;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  margin:20px 50px;
+  top: 2%;
+  left: 37%;
+  /* transition:all 500ms ease; */
+}
+
+
+#toggle:checked ~ .my-bot {
+  top: 100px;
+}
+
+#toggle:checked ~ .re-check-left{
+  margin-top: 120px;
+}
+
+#toggle:checked ~ .togle-container {
+  margin-top: 250px;
+}
+
+#toggle:checked + label {
+  background:#dd6149;
+}
+
+#toggle + label:after {
+  content:"활동내역 보기" 
+}
+#toggle:checked + label:after {
+  content:"활동내역 숨기기"
+}
+
+
+.my-bot{
+  width:100%;
+  background-color:black;
+  min-height:70px;
+  font-size:1.5em;
+  transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.my-menu-list ul {
+  list-style-type: none;
+  list-style: none;
+}
+
+.my-menu-list li {
+  display:inline-block;
+  width: 17%;
+}
+
+.my-menu-list a {
+  text-decoration:none;
+  color: white;
+}
+
+.my-menu-list div {
+  color: red;
+  
+}
+
+.my-menu-list li:nth-child(1) > div { padding-left: 13%; }
+
+.my-menu-list li:nth-child(2) > div { padding-left: 13%; }
+
+.my-menu-list li:nth-child(3) > div { padding-left: 16%; }
+
+.my-menu-list li:nth-child(4) > div { padding-left: 16%; }
+
+.my-menu-list li:nth-child(5) > div { padding-left: 19%; }
+
+.space {
+  width: 100%;
+  height: 10px;
+}
+
+
+
+#footer {
+  background-color:gray;
+  height:20px;
+  color:white;
+  padding-top:2px;
+  font-family:돋움체,sans-serif;
+  text-align:center;
+  font-weight:lighter;
+}

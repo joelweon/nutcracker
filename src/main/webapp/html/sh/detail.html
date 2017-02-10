@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Boycott Detail</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="../../node_modules/swiper/dist/css/swiper.min.css">
-  <link href="b.css" rel="stylesheet">
+  <link rel="stylesheet" href="detail.css">
   
-</head>
-
-<body>
   <div id="myModal" class="modal">
-
 <!-- Modal content -->
     <div class="modal-content">
 <!-- 왼쪽 -->
@@ -169,44 +159,3 @@
       </div>
     </div>
   </div>
-
-<!-- 스크립트 -->
-  <script src="../../node_modules/swiper/dist/js/swiper.min.js"></script>
-  
-  <script>
-  var modal = document.querySelectorAll('.modal')[0];
-  var modal_content = document.querySelectorAll('.modal-content')[0];
-  var sticky = document.getElementById('sticker');
-        
-  modal.addEventListener('scroll',function(e){
-      
-      var windowTop = e.target.scrollTop;
-      var modalTop = modal_content.offsetTop;
-                              
-      if(modalTop<windowTop){
-          sticky.classList.add('active');
-      }else{
-          sticky.classList.remove('active');
-      }
-  }); 
-  
-  /* 대체상품 이미지 swiper */
-  var swiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    slidesPerView: 1,
-    paginationClickable: true,
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: 2500,
-    autoplayDisableOnInteraction: false,
-    spaceBetween: 30,
-    loop: true
-  });
-  </script>
-</body>
-
-
-
-</html>

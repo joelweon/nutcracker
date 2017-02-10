@@ -1,8 +1,5 @@
 @CHARSET "UTF-8";
 
-/* 이미지 폰트 */
-@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
-
 body {
   font-size:small;
   font-family: '돋움',Dotum,sans-serif;
@@ -84,30 +81,6 @@ div.share-area {
     width: 100%;
     text-align: right;
 }
-/*페이스북*/
-/* .facebook:before {
-    font-family:"FontAwesome";
-    content: "\f09a";
-    background-color:#3B5998;
-    color:white;
-    padding:2px 8px;
-} */
-/* .facebook:hover {
-  text-decoration: none;
-}
-.facebook:hover:before {
-  text-decoration: none;
-  color: #337AB7;
-} */
-/* a.facebook:before {
-  font-size: 32px;
-  text-decoration: none;
-      font-family:"FontAwesome";
-    content: "\f09a";
-    background-color:#3B5998;
-    color:white;
-    padding:2px 8px;
-}  */
 .share-area {
   margin-bottom:120px;
 }
@@ -236,7 +209,7 @@ ul.reply-list-area {
   color:#939598;
   float: left;
   background-color: #424242;
-  width: 230px;
+  width: 180px;
   height: 2000px;
   /* Could be more or less, depending on screen size */
   border-top-right-radius:10px;
@@ -245,8 +218,8 @@ ul.reply-list-area {
 .content-content2.active{
     position: fixed;
     top: 0;
-    left:700px;
-    width:230px;
+    left:900px;
+    width:300px;
 }
 
 div.share-info-area {
@@ -281,8 +254,7 @@ div.purchase-area {
   border-top:1px solid #6a6e71;
   border-bottom:1px solid #6a6e71;
   margin:10px;
-  padding-top:10px;
-  padding-bottom:40px;
+  padding:10px 0px;
 }
 
 div.purchase-title-area {
@@ -298,29 +270,6 @@ span.link {
   text-align:center;
   color:#6a6e71;
 }
-.purchase-img {
-  width:170px;
-  height:150px;
-  padding-left:25px;
-}
-
-
-/* #contents_img {
-    width: 100px;
-    height: 100px;
-    margin-left: 35px;
-    margin-top: 50px;
-} */
-
-/* .stick {
-    position: fixed;
-    top: 0px;
-    z-index: 999999;
-} */
-
-
-
-
 
 .right-image {
   width:100%;
@@ -382,7 +331,7 @@ a#more {
 
 
 /* 모달 효과 */
-/*     .modalDialog {
+.modalDialog {
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
     top: 0;
@@ -412,4 +361,4 @@ a#more {
     background: -webkit-linear-gradient(#fff, #999);
     background: -o-linear-gradient(#fff, #999);
 }
- */
+
