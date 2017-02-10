@@ -158,7 +158,8 @@ h2 {
 }
 
 .my-contents {
-  font-size:1.4em;
+	max-width: 80%;
+  font-size:1.2em;
   float: right;
 }
 
