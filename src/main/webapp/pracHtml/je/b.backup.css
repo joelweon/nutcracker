@@ -7,7 +7,6 @@ body {
   font-size:small;
   font-family: '돋움',Dotum,sans-serif;
 }
-
 .modal {
     /* Hidden by default */
     /* Stay in place */
@@ -26,6 +25,7 @@ body {
     /* Fallback color */
     /* Black w/ opacity */
     background-color: rgba(0, 0, 0, 0.3);
+    display:contents;
 }
 /* Modal Content/Box */
 
@@ -216,7 +216,7 @@ ul.reply-list-area {
 /* Right */
 
 
-/* The Close Button 삭제예정*/
+/* The Close Button 삭제예정
 .close {
     color: #aaa;
     float: right;
@@ -230,7 +230,7 @@ ul.reply-list-area {
     color: black;
     text-decoration: none;
     cursor: pointer;
-} 
+} */
 
 .content-content2 {
   color:#939598;
@@ -382,7 +382,7 @@ a#more {
 
 
 /* 모달 효과 */
-/*     .modalDialog {
+.modalDialog {
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
     top: 0;
@@ -412,4 +412,4 @@ a#more {
     background: -webkit-linear-gradient(#fff, #999);
     background: -o-linear-gradient(#fff, #999);
 }
- */
+
