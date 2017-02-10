@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+  <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/header.css">
+ <!--  <link rel="stylesheet" href="../../pracCss/sh/common.css"> -->
+</head>
+
+<body>
+
 <div id='wrap-header'>
   <div id='header'>
     <div class='header-sub div-hidden-box'>
@@ -20,10 +34,10 @@
       </div>
     </div>
     <div class='header-sub div-logo'>
-      <a id="logo" href="./main.html"><img src='./image/logo.png'></a>
+      <a id="logo" href="./main.html"><img src='../images/logo.png'></a>
     </div>
     <div class='header-sub div-menu-search'>
-      <a id="btn-search" class='search-trigger' href="#"><img src='../../images/search.PNG'></a>
+      <a id="btn-search" class='search-trigger' href="#"><img src='../images/search.PNG'></a>
       <div class='div-search'>
         <label for='input-search' class='input-search'>Search</label>
         <input id='input-search' class='input-search' type="search" required="required"/>
@@ -33,11 +47,11 @@
     <div class='header-sub div-menu'>
       <ul id='nav-menu'>
         <li><a class='menu' href="./boycott.html">불매운동</a></li>
-        <li><span class='menu-divider'>|</span></li>
+        <!-- <li><span class='menu-divider'>|</span></li> -->
         <li><a class='menu' href="./board.html">불량후기</a></li>
-        <li><span class='menu-divider'>|</span></li>
+        <!-- <li><span class='menu-divider'>|</span></li> -->
         <li><a class='menu'  href="#">대체상품</a></li>
-        <li><span class='menu-divider'>|</span></li>
+        <!-- <li><span class='menu-divider'>|</span></li> -->
         <li><a class='menu' href="#">공동구매</a></li>
       </ul>
     </div>
@@ -47,8 +61,76 @@
 <!-- 소개글 -->
 <div id='div-intro'>
   <div id='div-intro-text'>
-    <img id='intro-logo' src='./image/walnut-black.png'><br>
+    <img id='intro-logo' src='../images/walnut-black.png'><br>
     <span>올바른 소비문화와 갑질 근절을 위해 이 세상의 모든 부조리를 까버리는</span><br>
     <span>우리는</span><span id='txt-border'> The Nutcracker </span><span>입니다.</span>
   </div>
 </div>
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  /* 숨은메뉴-버튼 이벤트 */
+  $('#btn-show-hidden').click(function() { 
+    $('#btn-show-hidden').toggleClass('on');
+    $(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
+    return false;
+  });
+  /* 검색버튼 이벤트 */
+  $('#btn-search').click(function() {
+    $('#btn-search').toggleClass('on');
+    $(this).parent().parent().find('.div-search').toggleClass('on');
+    return false;
+  });
+  /* 검색 마우스 올릴 때 */
+  $('.input-search').hover(function() {
+    if ($('#input-search').val().length <= 0) {
+      $(this).parent().parent().find('label.input-search').addClass('hover');
+    }
+  }, function() {
+    $(this).parent().parent().find('label.input-search').removeClass('hover');
+  });
+  /* 검색 input 입력시 */
+  $('#input-search').focus(function() {
+    if ($('#input-search').val().length <= 0) {
+      $(this).parent().parent().find('label.input-search').toggleClass('off');
+      $(this).parent().parent().find('label.input-search').removeClass('hover');
+    }
+    return false;
+  });
+  $('#input-search').blur(function() {
+    if ($('#input-search').val().length <= 0) {
+      $(this).parent().parent().find('label.input-search').removeClass('off');
+    }
+    return false;
+  });
+});
+
+/* 햄버거 메뉴 효과 */
+var burger = $('.menu-trigger');
+
+burger.each(function(index) {
+    var $this = $(this);
+    
+    $this.on('click', function(e) { 
+        e.preventDefault();
+        $(this).toggleClass('active-' + (index+1));
+    })
+});
+//불매 불량 바로가기
+function fnMove(seq){
+    var offset = $("#title-bar-" + seq).offset();
+    $('html, body').animate({scrollTop : offset.top}, 400);
+};
+/* 검색버튼 이벤트 */
+/* $(document).ready(function() {
+  $('#btn-search').click(function() {
+    $('#btn-search').toggleClass('on');
+    $(this).parent().parent().find('.div-search').toggleClass('on');
+    return false;
+  });
+}); */
+</script>
+
+</html>
