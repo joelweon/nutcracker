@@ -6,8 +6,14 @@ body {
 }
 .container {
 	width:100%;
-  max-width:960px;
-  margin:auto;
+  /* max-width:960px;
+  margin:auto; */
+}
+#wrap-content {
+	width: 100%;
+	max-width: 960px;
+	margin: auto;
+	
 }
 /* 페이지 타이틀 */
 .title-bar > span, .title-bar > hr {
