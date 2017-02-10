@@ -1,23 +1,22 @@
 @CHARSET "UTF-8";
 body {font-size: small;}
 
-.container {
-	max-width: 960px;
-	margin: auto;
-}
-
-.content {
+.contents-container {
   max-width: 960px;
   margin: auto;
 }
 
-.my-top {
-	max-width:960px;
+.my-top-space {
+  max-width: 100%;
+  margin: auto;
+}
+
+.my-top-basic {
+  max-width:960px;
   background-color:black;
   height:100px;
   color:white;
   border-bottom:1px solid white;
-  z-index: 15;
 }
 
 #my-title {
@@ -45,141 +44,32 @@ body {font-size: small;}
 }
 
 #my-photo {
-	width: 5%;
-	margin: auto;
+  width: 5%;
+  margin: auto;
 }
 
 #profile-name :target {
-	
+  
 }
 
 h2 {
-	margin: auto auto auto 15px;
-}
-
-
-.re-check-left {
-	position:relative;
-  font-size:1.4em;
-  margin-top: 20px;
-}
-
-.re-check-right {
-  font-size:1.4em;
-  float: right;
-}
-
-
-form {
-    border: 3px solid #f1f1f1;
-}
-
-#re-email, #re-password{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 20px;
-    border: none;
-    cursor: pointer;
-    width: 80px;
-    float: right;
-}
-
-
-.login-box {
-    padding: 16px;
-    height:210px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-    
-}
-
-.navigation {
-  width: 170px;
-  float: left;
-}
-
-.mainmenu, .submenu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.mainmenu {
-	background-color: #FF4444;
-}
-
-.mainmenu li {
-	margin-top: 20px;
-	padding: 10px 0px 10px 30px;
-}
-
-.mainmenu a {
-  display: block;
-  text-decoration: none;
-  padding: 10px;
-  color: #fff;
-}
-
-.mainmenu a:hover {
-    background-color: #FF9999;
-}
-
-
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
+  margin: auto auto auto 15px;
 }
 
 /* 토글버튼 구현 */
-.my-bot {
-	max-width:960px;
-	position: absolute;
+.my-top-detail {
+  max-width:960px;
+  position: absolute;
   background-color:black;
   min-height:70px;
   font-size:1.5em;
   transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
   overflow: hidden;
-  top:-100px;
+  top:-200px;
 }
 
 
-.message {
-background:#181818;
-color:#FFF;
-position: absolute;
-top: -250px;
-left: 0;
-width: 100%;
-height: 250px;
-padding: 20px;
-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-overflow: hidden;
-box-sizing: border-box;
-  
-}
-
-.message h1 {
-  color:#FFF;
-}
-
-#toggle {
+#my-toggle {
   position:absolute;
   appearance:none;
   cursor:pointer;
@@ -187,52 +77,39 @@ box-sizing: border-box;
   top:-100%;
 }
 
-#toggle + label {
+#my-toggle + label {
   position:absolute;
   cursor:pointer;
   padding:10px;
   background: #fb4443;
-	width: 100px;
-	border-radius: 3px;
-	padding: 8px 10px;
-	color: #FFF;
-	line-height:20px;
-	font-size:12px;
-	text-align:center;
-	-webkit-font-smoothing: antialiased;
-	cursor: pointer;
+  width: 100px;
+  border-radius: 3px;
+  padding: 8px 10px;
+  color: #FFF;
+  line-height:20px;
+  font-size:12px;
+  text-align:center;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
   margin:20px 50px;
   top: 2%;
   left: 57%;
-  /* transition:all 500ms ease; */
 }
 
+/* mytop이 내려오는 위치 */
+#my-toggle:checked ~ .my-top-basic .my-top-detail{ top: 100px; }
 
-#toggle:checked ~ .my-top .my-bot {
-  top: 100px;
-}
+/* 토글 이후 여백주기 */
+#my-toggle:checked ~ .my-content-area{ margin-top: 120px; }
 
-#toggle:checked ~ .re-check-left{
-  margin-top: 120px;
-}
+#my-toggle:checked + label { background:#cccccc; }
 
-#toggle:checked ~ .togle-container {
-  margin-top: 250px;
-}
+#my-toggle + label:after { content:"활동내역 보기" }
 
-#toggle:checked + label {
-  background:#cccccc;
-}
-
-#toggle + label:after {
-  content:"활동내역 보기" 
-}
-#toggle:checked + label:after {
-  content:"활동내역 숨기기"
-}
+#my-toggle:checked + label:after { content:"활동내역 숨기기" }
 
 
-.my-bot{
+.my-top-detail{
   width:100%;
   background-color:black;
   min-height:70px;
@@ -248,21 +125,21 @@ box-sizing: border-box;
 }
 
 .my-menu-list li {
-	display:inline-block;
-	width: 17%;
+  display:inline-block;
+  width: 17%;
 }
 
 .my-menu-list a {
-	text-decoration:none;
-	color: white;
+  text-decoration:none;
+  color: white;
 }
 
 .my-menu-list div {
-	color: red;
-	
+  color: red;
+  
 }
 
-.my-menu-list li:nth-child(1) > div {	padding-left: 13%; }
+.my-menu-list li:nth-child(1) > div { padding-left: 13%; }
 
 .my-menu-list li:nth-child(2) > div { padding-left: 13%; }
 
@@ -272,12 +149,86 @@ box-sizing: border-box;
 
 .my-menu-list li:nth-child(5) > div { padding-left: 19%; }
 
-.space {
-	width: 100%;
-	height: 10px;
+
+
+.my-content-area {
+  position:relative;
+  font-size:1.4em;
+  margin-top: 20px;
 }
 
+.my-contents {
+  font-size:1.4em;
+  float: right;
+}
 
+form {
+    border: 3px solid #f1f1f1;
+}
+
+#re-email, #re-password{
+   width: 100%;
+   padding: 12px 20px;
+   margin: 8px 0;
+   display: inline-block;
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+}
+
+button {
+   background-color: #4CAF50;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 20px;
+   border: none;
+   cursor: pointer;
+   width: 80px;
+   float: right;
+}
+
+.login-box {
+  padding: 16px;
+  height:210px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.my-side-menu {
+  width: 170px;
+  float: left;
+}
+
+.my-side-menu ul {
+  background-color: #FF4444;
+  list-style-type: none;
+}
+
+.my-side-menu ul > li {
+  margin-top: 20px;
+  padding: 10px 0px 10px 0px;
+}
+
+.my-side-menu ul > li > a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
+}
+
+.my-side-menu ul > li > a:hover {
+    background-color: #FF9999;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+}
 
 #footer {
   background-color:gray;
