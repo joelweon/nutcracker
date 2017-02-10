@@ -1,8 +1,34 @@
 @CHARSET "UTF-8";
 
-body {
-	font-size: large;
+@font-face{ 
+	font-family: godo; 
+	src: url(./GODOM.TTF);
+} 
+@font-face{ 
+  font-family: bmjua; 
+  src: url(./BMJUA_ttf.ttf);
+} 
+@font-face{ 
+  font-family: bmdohyen; 
+  src: url(./BMDOHYEON_ttf.ttf);
+} 
+@font-face{ 
+  font-family: seoul; 
+  src: url(./seoulM.ttf);
+} 
+/* @font-face{ 
+  font-family: seoulnam; 
+  src: url(./SeoulNamsanM.ttf);
+}  */
+body{
+	font-size: medium;
+	font-family: bmdohyen, '궁서';
 }
+
+/* body {
+	font-size: large;
+	font-family :'godo', '궁서';
+} */
 .container {
 	width: 100%;
 	min-width: 500px;
@@ -114,7 +140,7 @@ dl,ul,ol,li{list-style:none;}
 .div-menu-hidden li a {
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .div-menu-hidden li a:hover {
   color: #c0c0c0;
@@ -138,7 +164,7 @@ dl,ul,ol,li{list-style:none;}
   color: #323338;
   padding: 0 5px;
   text-decoration: none;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .div-menu li a.menu:hover {
 	color: red;
@@ -146,7 +172,7 @@ dl,ul,ol,li{list-style:none;}
 .div-menu li span.menu-divider {
 	float: left;
 	color: #323338;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 /* 검색 */
@@ -333,7 +359,7 @@ dl,ul,ol,li{list-style:none;}
   padding: 0 5px;
   text-decoration: none;
   font-size: 1.2em;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .div-menu li a.menu:hover {
 	color: red;
@@ -413,12 +439,12 @@ dl,ul,ol,li{list-style:none;}
 #div-intro span {
 	font-size: 2em;
 	color: #fff;
-	font-weight: bold;
+/* 	font-weight: bold; */
 }
 #div-intro-text span#txt-border {
   color: #f00;
   font-size: 3em;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 
 /* <form role="search" id="nav-search" method="get" class="right left" action="https://www.wired.com/" data-js="navSearch" autocomplete="off">
