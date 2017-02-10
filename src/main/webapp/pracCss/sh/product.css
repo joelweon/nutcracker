@@ -5,7 +5,7 @@ body {
 .container > img {
 	width:90%;
 	height:auto;
-	margin-top:100px;
+	margin-top:200px;
 }
 /* 검색 조건 div */
 .product-search-option{
@@ -87,10 +87,10 @@ body {
 }
 @keyframes btn-focus-anim {
     0% {
-        box-shadow: 0 0 0 85px #673AB7;
+      box-shadow: 0 0 0 40px #ff0000;
     }
     100% {
-        box-shadow: 0 0 0 100px #4A148C;
+      /* box-shadow: 0 0 0 100px #4A148C; */
     }
 }
 .material-icons {
@@ -102,7 +102,6 @@ body {
   width: 1em;
   height: 1em;
   line-height: 1;
-  z-index:11;
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
@@ -129,7 +128,7 @@ form {
     position: absolute;
     width: 700px;
     height: 96px;
-    top: 0;
+    top: -600px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -146,7 +145,7 @@ form {
     font-size: 48px;
 }
 #sbx:focus ~ #btn {
-    color: black;
+    color: #000000;
     text-indent: 6px;
     transition: .2s .4s;
 }
