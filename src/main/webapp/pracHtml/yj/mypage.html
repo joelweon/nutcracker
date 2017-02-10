@@ -3,92 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <title>우리는 The Nutcracker 입니다.</title>
-<link rel="stylesheet" href="../../css/yj/mypage.css">
+<link rel="stylesheet" href="../../pracCss/yj/mypage.css">
 </head>
+<body>    
 
-
-<body>
-
-
-<div class='container'>
-	<div class="content">
-	
-	<input type="checkbox" name="toggle" id="toggle" /> 
-    <label for="toggle"></label>
-    <div class="my-top">
+<div class='contents-container'>
+  <div class="my-top-space">
+  <input type="checkbox" name="toggle" id="my-toggle" /> 
+  <label for="my-toggle"></label>
+    <div class="my-top-basic">
       <span id="my-title">마이페이지</span>
       <span id="my-photo">
-      <img id="profile-photo" src="image/nutc1.PNG" onclick="location.href='#'">
+        <img id="profile-photo" src="../../images/nutc1.PNG" onclick="location.href='#'">
       </span>
       <span id="profile-name">cracker 님</span>
-	    <div class="my-bot">
+      <div class="my-top-detail">
         <div class='my-menu-list'>
           <ul>
             <li><a href='#'>불매기업</a>
               <div>5</div>
-			      </li>
-			      <li><a href='#'>구매내역</a>
-			        <div>10</div>
-			      </li>
-			      <li><a href='#'>위시리스트</a>
-			        <div>23</div>
-			      </li>
-			      <li><a href='#'>게시글관리</a>
-			        <div>15</div>
-			      </li>
-			      <li><a href='#'>내가던진호두</a>
-			        <div>120</div>
-			      </li>
-			    </ul>
-			  </div>
-			</div>
+            </li>
+            <li><a href='#'>구매내역</a>
+              <div>10</div>
+            </li>
+            <li><a href='#'>위시리스트</a>
+              <div>23</div>
+            </li>
+            <li><a href='#'>게시글관리</a>
+              <div>15</div>
+            </li>
+            <li><a href='#'>내가던진호두</a>
+              <div>120</div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    
-    
-    <div class="re-check-left">
+      
+      
+    <div class="my-content-area">
       <!-- side menu -->
-      <nav class="navigation">
+      <nav class="my-side-menu">
         <h2>마이페이지</h2>
-        <ul class="mainmenu">
+        <ul>
           <li><a href="">계정관리</a></li>
           <li><a href="">불매기업</a></li>
-			    <li><a href="">구매내역</a></li>
-			    <li><a href="">위시리스트</a></li>
-			    <li><a href="">게시글관리</a></li>
-			    <li><a href="">내가던진호두</a></li>
-       </ul>
+          <li><a href="">구매내역</a></li>
+          <li><a href="">위시리스트</a></li>
+          <li><a href="">게시글관리</a></li>
+          <li><a href="">내가던진호두</a></li>
+        </ul>
       </nav>
-    
-      <div class="re-check-right">
-	      <h2>비밀번호 재확인</h2>
-	      <hr><br>
-	       <span>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.<br>
-	            비밀번호는 다른 사람에게 노출되지 않도록 주의해주시기 바랍니다.<br>
-	       </span>
-	      <hr>
-	
-	      <form action="#" method="post">
-	
-	      <!-- 비밀번호 재확인 박스 -->
-	      <div class="login-box">
-	        <label><b>Email</b></label>
-	        <input id="re-email" type="text" placeholder="Enter Email" name="id" required>
-	        <label><b>Password</b></label>
-	        <input id="re-password" type="password" placeholder="Enter Password" name="psw" required>
-	        <button id="re-login" type="submit">로그인</button>
+      <!-- side menu end -->
+      
+      <!-- main contents area start -->
+      <div class="my-contents">
+        <h2>비밀번호 재확인</h2>
+        <hr>
+        <span id="pw-text">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.<br>
+              비밀번호는 다른 사람에게 노출되지 않도록 주의해주시기 바랍니다.<br>
+        </span>
+        <hr>
+        <form action="#" method="post">
+          <!-- 비밀번호 재확인 박스 -->
+          <div class="login-box">
+            <label><b>Email</b></label>
+            <input id="re-email" type="text" placeholder="Enter Email" name="id" required>
+            <label><b>Password</b></label>
+            <input id="re-password" type="password" placeholder="Enter Password" name="psw" required>
+            <button id="re-login" type="submit">로그인</button>
+          </div>
+        </form>
       </div>
-      </form>
-      </div>
+      <!-- main contents area end -->
     </div>
-    
-	</div>
-	
-	
-	
-	
+  </div>
 </div>
-
-
 
 </body>
 </html>
