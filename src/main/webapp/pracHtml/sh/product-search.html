@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../../css/sh/common.css">
+<link rel="stylesheet" href="../../css/sh/product.css">
+</head>
+<body>
+<!-- <div id='header'></div> -->
+<div class='container'>
+  <div class='product-search-option'>
+    <div class='product-search-text'>
+      <span>모든 불매기업 검색 차단</span>
+    </div>
+    <div class="product-search-btn"></div>
+    <span>
+      <input type="checkbox" name="off_off_switch" class="switch_checkbox">
+    </span>
+  </div> <!-- product-search-option class -->
+  <div class='product-search-option'>
+    <div class='product-search-text'>
+      <span>나의 불매기업 검색 차단</span>
+    </div>
+    <div class="product-search-btn"></div>
+    <span>
+      <input type="checkbox" name="off_off_switch" class="switch_checkbox">
+    </span>
+  </div> <!-- product-search-option class -->
+  
+  <!-- 검색창 -->
+  <form>
+  <input type="search" id="sbx" name="searchbox" placeholder="대체 상품을 검색하세요"/>
+  <input type="submit" id="btn" class="material-icons" value="go" name="button"/>
+  <span id="line"></span>
+  </form>
+  
+  <!-- 호두까기인형 이미지 삽입 -->
+  <img src='../../images/nutcracker.png'>
+</div> <!-- container class -->
+<!-- <div id='footer'></div> -->
+<script>
+/* on-off 스위치 */
+$(document).ready(function(){
+  $('.product-search-btn').click(function(){
+    $(this).toggleClass("switchon");
+  });
+});
+</script>
+</body>
+</html>
