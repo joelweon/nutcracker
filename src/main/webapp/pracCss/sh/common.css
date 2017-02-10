@@ -8,6 +8,15 @@ body {
 	width:100%;
   max-width:960px;
   margin:auto;
+  /* max-width:960px;
+  margin:auto; */
+}
+#wrap-content {
+	width: 100%;
+	max-width: 960px;
+	margin: auto;
+	
+>>>>>>> branch 'master' of https://github.com/joelweon/nutcracker.git
 }
 /* 페이지 타이틀 */
 .title-bar > span, .title-bar > hr {
