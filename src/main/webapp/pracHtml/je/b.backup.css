@@ -7,10 +7,6 @@ body {
   font-size:small;
   font-family: '돋움',Dotum,sans-serif;
 }
-.ui-tooltip {
-  max-width:900px;
-}
-
 .modal {
     /* Hidden by default */
     /* Stay in place */
@@ -29,7 +25,7 @@ body {
     /* Fallback color */
     /* Black w/ opacity */
     background-color: rgba(0, 0, 0, 0.3);
-    display:inline;
+    display:contents;
 }
 /* Modal Content/Box */
 
@@ -416,5 +412,4 @@ a#more {
     background: -webkit-linear-gradient(#fff, #999);
     background: -o-linear-gradient(#fff, #999);
 }
-
 

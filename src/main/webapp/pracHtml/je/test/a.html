@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Animation</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="../../../node_modules/swiper/dist/css/swiper.min.css">
+  <link rel="stylesheet" href="../../../html/je/b.css">
+<style type="text/css">
+  
+
+/*     position: absolute;
+    height: auto;
+    width: 980.8px;
+    top: 0px;
+    left: 347px;
+    display: block;
+ */
+  
+  
+/* class=
+"ui-dialog 
+ui-corner-all 
+ui-widget 
+ui-widget-content 
+ui-front 
+ui-draggable 
+ui-resizable" */
+
+</style>
+
+
+  <script>
+  $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
+  </script>
+  <script src="../../../node_modules/swiper/dist/js/swiper.min.js"></script>
+    
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    slidesPerView: 1,
+    paginationClickable: true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: 2500,
+    autoplayDisableOnInteraction: false,
+    spaceBetween: 30,
+    loop: true
+  });
+    </script>
+    
+    
+</head>
+<body>
+
+<div class="full">
+
+<div id="dialog" title="Basic dialog">
+
+
+<!-- 왼쪽 -->
+      <div class="left-area">
+        <div class="inarea">
+<!-- 제목박스 -->
+          <div class="tit-area">
+            <h1>옥시레킷벤키저 가습기 살균제 사건</h1>
+            <span class="des"></span>
+            <span id="date">2017.01.02 20:00</span>
+          </div>
+          <span style="margin:10px;"></span>
+          
+<!-- SNS공유 -->
+          <div class="share-area">
+            <a href='http://www.facebook.com'>
+              <img class='facebook-logo' src="../../../images/facebook-logo.png"/>
+            </a>
+            <a href='http://www.twitter.com'>
+              <img class='twitter-logo' src="../../../images/twitter-logo.png"/>
+            </a>
+            <a href='#'>
+              <img class='share-logo' src="../../../images/share-logo.png"/>
+            </a>
+          </div>
+
+<!-- 콘텐츠 -->
+          <div class="detail-area">
+            <img class="detail" src="../../../images/detail/옥2.PNG" />
+            <img class="detail" src="../../../images/detail/옥3.PNG" />
+            <img class="detail" src="../../../images/detail/옥4.PNG" />
+            <img class="detail" src="../../../images/detail/옥5.PNG" />
+            <img class="detail" src="../../../images/detail/옥6.PNG" />
+            <img class="detail" src="../../../images/detail/옥7.PNG" />
+            <img class="detail" src="../../../images/detail/옥8.PNG" />
+            <img class="detail" src="../../../images/detail/옥9.PNG" />
+          </div>
+<!-- 댓글입력박스 -->
+          <div class="reply-commit-area">
+            <div class="reply-commit">
+              <img id="rep-img" src="../../../images/nutc1.PNG" />
+              <textarea id="textarea" rows="5" cols="50" maxlength="50" placeholder="로그인이 필요합니다."></textarea>
+              <button class="reply-button" type="button">댓글 등록</button>
+            </div>
+          </div>
+<!-- 댓글목록 -->
+          <ul class="reply-list-area">
+            <li>
+              <div class="reply-box">
+                <div><img id="rep-img" src="../../../images/nutc1.PNG" /></div>
+                <div class="reply-info">
+                  <span class="reply-id">아이디야</span>
+                  <div class="infotext-area">
+                    <span class="infotext">폐지하고 개인정보보호를 강화해야되는게 정답 아닌가</span>
+                    <div class="c-time">
+                      <img class="clock" src="../../../images/clock.PNG" />
+                      <span class="time">2016.09.28 23:03</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="reply-box">
+                <div><img id="rep-img" src="../../../images/nutc1.PNG" /></div>
+                <div class="reply-info">
+                  <span class="reply-id">테스트중</span>
+                  <div class="infotext-area">
+                    <span class="infotext">사이트를 모바일 환경에서도 사용할 수 있게 만들 때 중요합니다.</span>
+                     <div class="c-time">
+                        <img class="clock" src="../../../images/clock.PNG" />
+                        <span class="time">2016.09.28 23:03</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+
+<!-- 오른쪽 -->
+      <div class="right-area">
+        <div id="sticker" class="content-content2">
+          <span class="close">&times;</span>
+
+          <div class="inarea">
+<!-- 글 정보 통계 -->
+            <div class="share-info-area">
+              <ul class="share-info">
+                <li>
+                  <span class="hits">®조회수</span>
+                  <span class="num">100</span>
+                </li>
+                <li>
+                  <span class="hodu">●호두수</span>
+                  <span class="num">12</span>
+                </li>
+                <li>
+                 <span class="reply">☏댓글</span>
+                 <span class="num">43</span>
+                </li>
+                <li>
+                  <span class="share">㉿공유</span>
+                  <span class="num">25</span>
+                </li>
+              </ul>
+            </div>
+<!-- 공동구매 -->
+            <div class="purchase-area">
+              <div class="purchase-title-area">
+                <img src=""/>
+                <span class="purchase-title">공동구매 진행중!</span>
+              </div>
+              <div class="purchase-img">
+                <a href="#">
+                  <img src="../../../images/wetwipes.png" class="right-image"/>
+                  <span class="link">순둥이 베이직 무향 물티슈 80매</span>
+                </a>
+              </div>
+            </div>
+<!-- 대체상품 -->
+            <div class="swiper-container">
+              <div class="alta-title">
+                <span class="alternative-goods">대체상품</span>
+                <span><a href="#" id="more">more &gt;</a></span>
+              </div>
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <a href="#">
+                      <img src="../../../images/bit1.PNG" class="right-image"/>
+                      <span class="link">바르는 찌든때 비트</span>
+                    </a>
+                  </div>
+                  <div class="swiper-slide">
+                    <a href="#">
+                      <img src="../../../images/bit2.PNG" class="right-image"/>
+                      <span class="link">찌든때 제거 스프레이</span>
+                    </a>
+                  </div>
+                  <div class="swiper-slide">
+                    <a href="#">
+                      <img src="../../../images/living.PNG" class="right-image"/>
+                      <span class="link">얼룩제거제</span>
+                    </a>
+                  </div>
+              </div>
+<!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+<!-- Add Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+          </div><!-- inarea -->
+        </div>
+      </div>
+
+
+  </div>
+  
+</div>
+<button id="opener">Open Dialog</button>
+ 
+ 
+</body>
+</html>
