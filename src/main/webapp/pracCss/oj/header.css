@@ -7,6 +7,9 @@ body {
 	width: 100%;
 	min-width: 500px;
 	padding: 0;
+	background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 20%;
 }
 div {
 	/* border: 1px solid red; */
@@ -197,9 +200,9 @@ dl,ul,ol,li{list-style:none;}
 	/* width: 100%; */
 	/* min-width: 500px; */
 	padding: 0;
-	background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg);
+	/* background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg);
 	background-repeat: no-repeat;
-	background-size: 100% 20%;
+	background-size: 100% 20%; */
 }
 div {
 	/* border: 1px solid red; */
