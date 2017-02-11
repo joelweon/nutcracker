@@ -78,7 +78,7 @@
   width:97%;
   margin: 0 3px 0 3px;
   background:#eee;
-  height:15px;
+  height:8px;
   border-radius:3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
@@ -94,7 +94,7 @@
   transition-property:width, background-color;
 }
 .percentbar-bar {
-  height:15px;
+  height:8px;
   width:0px;
   border-radius:3px;
   -moz-border-radius:3px;
@@ -105,6 +105,6 @@
   right:0;
   bottom:0;
   font-size:0.3em;
-  height:15px;
+  height:8px;
   color:rgba(0, 0, 0, 0.8);
 }

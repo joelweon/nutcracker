@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../../pracCss/sh/common.css">
+<link rel="stylesheet" href="../../pracCss/sh/deal.css">
+<link rel="stylesheet" href="../../pracCss/sh/deal-detail.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<!-- <div id='header'></div> -->
+<div class='deal-detail-container'>
+  <div class='deal-detail-title'>
+    <span>[순둥이] 베이직 무향 물티슈 80매</span>
+    <hr>
+  </div>
+  <div class='share-icon'>
+	  <i class="fa">&#xf081;</i>
+	  <i class="fa">&#xf082;</i>
+	  <i class="fa">&#xf1e1;</i>
+  </div>
+  <div class='deal-detail-img'>
+    <img src='../../images/sundung.png'>
+  </div>
+  <div class='deal-detail-infoset'>
+	  <div class='deal-detail-info'>
+	    <i class="fa fa-money fa-2x" aria-hidden="true"></i>
+	    <span class='deal-detail-info-title'>구입 가격</span>
+	    <span class='deal-detail-info-cont'>9,000원</span>
+	  </div> <!-- deal-detail-info -->
+	  <div class='deal-detail-info'>
+      <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
+      <span class='deal-detail-info-title'>남은 기간</span>
+      <span class='deal-detail-info-cont'>7일</span>
+    </div> <!-- deal-detail-info -->
+	  <div class='deal-detail-info'>
+      <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+      <span class='deal-detail-info-title'>모집 인원</span>
+      <span class='deal-detail-info-cont'>50명</span>
+    </div> <!-- deal-detail-info -->
+    <div class='deal-detail-info'>
+      <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i>
+      <span class='deal-detail-info-title'>신청 인원</span>
+      <span class='deal-detail-info-cont'>40명</span>
+    </div> <!-- deal-detail-info -->
+  <!-- 퍼센트 바 -->
+    <div class="percentbar clearfix" data-percent="30%">
+    <div class="percentbar-bar" style='background-color:#ff0000'></div>
+    <div class="percentbar-text">30%</div>
+    </div> <!-- 퍼센트 바 끝 -->
+  </div> <!-- deal-detail-infoset -->
+</div>
+<!-- <div id='footer'></div> -->
+<script>
+//퍼센트 그래프
+jQuery(document).ready(function(){
+  jQuery('.percentbar').each(function(){
+    var percentage = jQuery(this).attr('data-percent');
+    jQuery(this).find('.percentbar-bar').animate({ width:percentage },1000);
+  });
+});
+</script>
+</body>
+</html>
