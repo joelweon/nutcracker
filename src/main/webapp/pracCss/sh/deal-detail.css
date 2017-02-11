@@ -49,7 +49,7 @@
   top:150px;
   right:30px;
   width:40%;
-  height:250px;
+  height:300px;
 }
 .deal-detail-info {
 	border:1px solid red;
@@ -61,3 +61,177 @@
 	font-size:1.5em;
 	padding-right:30px;
 }
+/* 버튼 */
+.deal-detail-info-btn {
+	border: 1px solid red;
+	position: absolute;
+	width:100%;
+	height:40px;
+	left: 0px;
+	margin-top: 10px;
+}
+/* 구매버튼 */
+.purchase-btn{
+	border:1px solid green;
+	position: absolute;
+	width: 40%;
+	height:40px;
+}
+.purchase-btn ul {
+	list-style:none;
+	position: absolute;
+	left:-20px;
+  top:-20px;
+  width:100%;
+}
+.purchase-btn ul li a {
+  display: inline-block;
+  height: 35px;
+  background: #ff0000;
+  text-align: center;
+  padding: 5px 10px 0 10px;
+  position: absolute;
+  margin: 5px 5px 0 0; 
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #ffffff;
+}
+.purchase-btn ul li a:after {
+  content: "";
+  border-top: 20px solid red;
+  border-bottom: 20px solid red;
+  border-left: 20px solid blue;
+  position: absolute;
+  right: -20px;
+  top: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #ff0000;
+}
+.purchase-btn ul li a:hover,
+.wish-btn ul li a:hover {
+  background: #0000ff;
+}
+.purchase-btn ul li a:hover:after,
+.wish-btn ul li a:hover:after {
+  border-left-color: #0000ff;
+}
+/* 위시버튼 */
+.wish-btn {
+  border:1px solid green;
+  position: absolute;
+  width: 60%;
+  height:40px;
+  right:0;
+}
+.wish-btn ul {
+  list-style:none;
+  position: absolute;
+  left:-20px;
+  top:-20px;
+  width:100%;
+}
+.wish-btn ul li a {
+  display: inline-block;
+  height: 35px;
+  background: #008000;
+  text-align: center;
+  padding: 5px 10px 0 10px;
+  position: absolute;
+  margin: 5px 5px 0 0; 
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #ffffff;
+}
+.wish-btn ul li a:after {
+  content: "";
+  border-top: 20px solid red;
+  border-bottom: 20px solid red;
+  border-left: 20px solid blue;
+  position: absolute;
+  right: -20px;
+  top: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #008000;
+}
+
+/* 딜 상세 컨텐츠 */
+.deal-detail-tab {
+	position:absolute;
+	bottom:0;
+}
+#deal-detail-tab-menu {
+	margin:40px 0 0 150px;
+}
+#deal-detail-tab-menu ul {
+	list-style:none;
+}
+#deal-detail-tab-menu ul li {
+	display:inline;
+	float:left;
+	margin-bottom:20px;
+}
+/* :first-child pseudo selector with rounded top left corner */
+#deal-detail-tab-menu ul li:first-child a {
+	-moz-border-radius-topleft: 12px;
+	-webkit-border-top-left-radius:12px;
+}
+/* :last-child pseudo selector with rounded top right corner */
+#deal-detail-tab-menu ul li:last-child a {
+	-moz-border-radius-topright: 12px;
+	-webkit-border-top-right-radius:12px;
+}
+/* background color set to RGBA, with opacity on 0.3 and also using text-shadow */
+#deal-detail-tab-menu ul li a {
+	padding:20px;
+	background: rgba(255,138,30,0.3);
+	text-decoration: none;
+	letter-spacing: -1px;
+	color: #402e16;
+  text-shadow: #eee 0px 0px 2px;
+}
+/* hover state shows a linear gradient and opacity it brought down to 0.9 and also shows a very slight grey gradient on top */
+#deal-detail-tab-menu ul li a:hover {
+	-moz-box-shadow: 0 -5px 10px #777;
+	-webkit-box-shadow: 0 -5px 10px #777;
+  background: -webkit-gradient(
+    linear, right bottom, left top,
+    color-stop(0, rgb(237,227,112)),
+    color-stop(0.72, rgb(255,173,10))) !important;
+  background: -moz-linear-gradient(
+    right bottom, rgb(237,227,112) 0%, rgb(255,173,10) 72%) !important;
+  background-color:rgb(255,173,10) !important;
+  -moz-opacity:.90;
+  filter:alpha(opacity=90); opacity:.90;
+}
+/* another RGBA background, now with an opacity of 0.8 */
+#deal-detail-tab-menu ul li a.active {
+	background: rgba(255,138,30,0.8) !important;
+}
+/* main contents with RGBA background (same colour as active tab) and three rounded corners */
+#deal-detail-tab-menu {
+	clear:both;
+	background: rgba(255,138,30,0.8);
+	width:500px;
+	margin-left:150px;
+  -moz-border-radius-topright: 12px;
+  -moz-border-radius-bottomright: 12px;
+  -moz-border-radius-bottomleft: 12px;
+  -webkit-border-top-right-radius:12px;
+  -webkit-border-bottom-right-radius:12px;
+  -webkit-border-bottom-left-radius:12px;
+}
+/* header with a text-shadow */
+.deal-detail-tab-cont h3 {
+	text-transform:uppercase;
+	padding:20px 0 0 20px;
+	color:#eee;
+	text-shadow: #000 0px 0px 2px;
+}
+.deal-detail-tab-cont p {
+	padding-bottom:20px;
+	color:#ddd;
+}
+
+
