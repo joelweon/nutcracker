@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="../../node_modules/bootstrap/js/dropdown.js"></script>
 <head>
 <meta charset="UTF-8">
-<title>불량후기-리스트</title>
-  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="../../pracCss/oj/common.css">
-  <link rel="stylesheet" href="../../pracCss/oj/board.css">
+<title>The Nutcracker</title>
+  <!-- <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1"> -->
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/review.css">
 </head>
 
 <body>
-	<!-- 헤더(로고, 메뉴, 로그인) -->
-	<div class='container'>
-	  <div class='row'>
-	    <div id="header"> 
-	      <a id="logo" href="./main.html"><img id='img-logo' src='./image/logo.png'></a>
-	      <nav>
-	        <ul>
-	        <li>
-	        <ul class='menu'>
-	          <li><a class='menu' href="./boycott.html">불매운동</a></li>
-	          <li><h3>|</h3></li>
-	          <li><a class='menu' href="./board.html" style="color: red;">불량후기</a></li>
-	          <li><h3>|</h3></li>
-	          <li><a class='menu'  href="#">대체상품</a></li>
-	          <li><h3>|</h3></li>
-	          <li><a class='menu' href="#">공동구매</a></li>
-	        </ul>
-	        </li>
-	        <li>
-	        <ul class='search-login'>
-	          <li>
-	            <div class="input-group">
-	              <input type="text" class="form-control" placeholder="Search...">
-	              <span class="input-group-btn">
-	                <button class="btn btn-default" id="btn-search" type="button"><img id='img-search' class="btn-img" src="./image/search.png"></button>
-	              </span>
-	            </div>
-	          </li>
-	          <li><a href='#'>Login</a></li>
-	          <li><a> / </a>
-	          <li><a href='#'>Join</a></li>
-	        </ul>
-	        </li>
-	        </ul>
-	      </nav>
-	    </div>
-	    <div id='menuline'><hr></div>
-	  </div>
-	  
-	  <!-- 타이틀바 -->
-	  <div id="title-bar-review" class="row title-bar">
-	    <nav>
-	      <span class='title-title'>불량후기</span>
-	      <span class='title-sub'>생활 속에서 겪은 모든 부조리함을 털어놓는 게시판입니다.</span>
-	    </nav>
+
+<!-- 헤더(로고, 메뉴, 로그인) -->
+<div class='container'>
+  <div id='wrap-header'>
+    <div id='header'>
+		  <div class='header-sub div-hidden-box'>
+		    <a id="btn-show-hidden" class='menu-trigger' href="#">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		    </a>
+		    <div class='header-sub div-menu-hidden'>
+		      <ul id='nav-menu-hidden' class='nav-memu-hidden'>
+		        <li><a href="./boycott.html">불매운동</a></li>
+		        <li><hr/></li>
+		        <li><a href="./board.html">불량후기</a></li>
+		        <li><hr/></li>
+		        <li><a href="#">대체상품</a></li>
+		        <li><hr/></li>
+		        <li><a href="#">공동구매</a></li>
+		        <li><hr/></li>
+		      </ul>
+		    </div>
+		  </div>
+		  <div class='header-sub div-logo'>
+		    <a id="logo" href="./main.html"><img src='../images/logo.png'></a>
+		  </div>
+		  <div class='header-sub div-menu-search'>
+		    <a id="btn-search" class='search-trigger glyphicon glyphicon-search' href="#">
+		    <!-- <img src='../images/search.PNG'> -->
+		    </a>
+		    <div class='div-search'>
+		      <label for='input-search' class='input-search'>Search</label>
+		      <input id='input-search' class='input-search' type="search" required="required"/>
+		    </div>
+		    <button type='button' class='btn btn-default'>Login</button>
+		  </div>
+		  <div class='header-sub div-menu'>
+		    <ul id='nav-menu'>
+		      <li><a class='menu' id='boycott' href="./boycott.html">불매운동</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' id='review' href="./board.html">불량후기</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' id='product' href="#">대체상품</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' id='purchase' href="#">공동구매</a></li>
+		    </ul>
+		  </div>
+		</div> <!-- header -->
+  </div>
+  
+  <!-- 소개글 -->
+	<div id='div-intro-none'></div>
+  
+  <div id='wrap-content'>
+	  <!-- 불매 헤더 -->
+	  <div id="title-bar-boycott" class="title-bar">
+	  	<nav>
+	      <span class='title-title'>불매운동</span><span class='title-sub'>현재 진행중인 불매운동 리스트입니다.</span>
+	  	</nav>
 	  </div>
 	  
 	  <!-- 글쓰기버튼 -->
@@ -81,7 +97,7 @@
 				    <td>1</td>
 				    <td class='td-title'>
 			        <a href="#" class="table-review-row">
-			          <img src="./image/hongsam1.png" class="review-list-img">
+			          <img src="../images/hong.PNG" class="review-list-img">
 			          <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
 			        </a>
 				    </td>
@@ -94,7 +110,7 @@
             <td>2</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/dryou1.png" class="review-list-img">
+                <img src="../images/oksusu.PNG" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
               </a>
             </td>
@@ -107,7 +123,7 @@
             <td>3</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/chocomilk1.png" class="review-list-img">
+                <img src="../images/chocomilk1.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
               </a>
             </td>
@@ -120,7 +136,7 @@
             <td>4</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/nabang.png" class="review-list-img">
+                <img src="../images/nabang.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
               </a>
             </td>
@@ -133,7 +149,7 @@
             <td>5</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/default.png" class="review-list-img">
+                <img src="../images/default.png" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
               </a>
             </td>
@@ -146,7 +162,7 @@
             <td>6</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/hongsam1.png" class="review-list-img">
+                <img src="../images/hong.PNG" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
               </a>
             </td>
@@ -159,7 +175,7 @@
             <td>7</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/dryou1.png" class="review-list-img">
+                <img src="../images/oksusu.PNG" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
               </a>
             </td>
@@ -172,7 +188,7 @@
             <td>8</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/chocomilk1.png" class="review-list-img">
+                <img src="../images/chocomilk1.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
               </a>
             </td>
@@ -185,7 +201,7 @@
             <td>9</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/nabang.png" class="review-list-img">
+                <img src="../images/nabang.png" class="review-list-img">
                 <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
               </a>
             </td>
@@ -198,7 +214,7 @@
             <td>10</td>
             <td class='td-title'>
               <a href="#" class="table-review-row">
-                <img src="./image/default.png" class="review-list-img">
+                <img src="../images/default.png" class="review-list-img">
                 <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
               </a>
             </td>
@@ -246,9 +262,68 @@
 			
     </div>
 	  
-	<!-- 풋터 -->
-  <div id='footer'>
-    <div>All Content Copyright 2017    All Rights Reserved.     |     Terms & Service     |     Privacy Policy</div>
-  </div>
-</div>
+	</div> <!-- wrap-content -->
+</div> <!-- container -->
+
 </body>
+
+<script type="text/javascript">
+/*-----------------------------
+ * 헤더 JavaScript
+ -----------------------------*/
+ $(document).ready(function() {
+	  /* 숨은메뉴-버튼 이벤트 */
+	  $('#btn-show-hidden').click(function() { 
+	    $('#btn-show-hidden').toggleClass('on');
+	    $(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
+	    return false;
+	  });
+	  /* 검색버튼 이벤트 */
+	  $('#btn-search').click(function() {
+	    $('#btn-search').toggleClass('on');
+	    $(this).parent().parent().find('.div-search').toggleClass('on');
+	    return false;
+	  });
+	  /* 검색 마우스 올릴 때 */
+	  $('.input-search').hover(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').addClass('hover');
+	    }
+	  }, function() {
+	    $(this).parent().parent().find('label.input-search').removeClass('hover');
+	  });
+	  /* 검색 input 입력시 */
+	  $('#input-search').focus(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').toggleClass('off');
+	      $(this).parent().parent().find('label.input-search').removeClass('hover');
+	    }
+	    return false;
+	  });
+	  $('#input-search').blur(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').removeClass('off');
+	    }
+	    return false;
+	  });
+
+	/* 햄버거 메뉴 효과 */
+	var burger = $('.menu-trigger');
+
+	burger.each(function(index) {
+	    var $this = $(this);
+	    
+	    $this.on('click', function(e) { 
+	        e.preventDefault();
+	        $(this).toggleClass('active-' + (index+1));
+	    })
+	});
+});
+	
+/*-----------------------------
+ * 메인 JavaScript
+ -----------------------------*/
+
+</script>
+
+</html>

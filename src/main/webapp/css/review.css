@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+
+#wrap-header {
+	border-bottom: 2px solid #aaa;
+}
+
+/*----------------------
+  불량후기 리스트
+----------------------*/
+.div-menu a#review {
+	color: red;
+}
+
+/* 글쓰기버튼 */
+#btn-write {
+	margin-bottom: 5px;
+	float: right;
+}
+
+/* 불매후기 리스트 테이블 */
+.review-list-img {
+	width: 17%;
+}
+.table-review {
+	width: 100%;
+}
+.table-review > thead > tr > th {
+  background: #343434;
+  color: #fff;
+  font-size: 1.1em;
+}
+.table-review > tbody > tr {
+	background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.table-review > thead > tr > th, .table-review > tbody > tr > td {
+	padding: 5px;
+	vertical-align: middle;
+	text-align: center;
+}
+.table-review > tbody > tr > td.td-title {
+	text-align: left;
+}
+.table-review > tbody > tr > td > a.table-review-row {
+	text-decoration: none;
+}
+.table-review-title {
+	color: #343434;
+	text-decoration: none;
+	margin-left: 10px;
+	text-decoration: none;
+}
+.table-review #no, .table-review #view-cnt, .table-review #hodu-cnt {
+	width: 7%;
+}
+.table-review #title {
+	width: 55%;
+}
+.table-review #writer, .table-review #reg-date {
+	width: 12%;
+}
+
+/* 게시판검색 */
+.board-search {
+	padding-right: 20px;
+}
+.board-search > li {
+	list-style: none;
+	display: inline-table;
+	vertical-align: middle;
+}
+.board-search button {
+	padding: 2px;
+	height: 25px;
+}
+.dropup, .dropup button {
+	width: 100px;
+}
+
+/* 페이지 이동 */
+.pagination {
+	width: 100%;
+	margin: 5px 0px 30px 0px;
+}
+.pagination > li > a {
+	color: gray;
+}
+.pagination > li.active > a {
+	background-color: red;
+	color: white;
+	border: 1px solid gray;
+}
