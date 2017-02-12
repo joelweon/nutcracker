@@ -2,6 +2,7 @@
 
 body {
 	font-size: small;
+	margin: auto;
 }
 
 .contents-container {
@@ -9,12 +10,9 @@ body {
 	margin: auto;
 }
 
-.my-top-space {
-	max-width: 100%;
-	margin: auto;
-}
 
 .my-top-basic {
+	
 	max-width: 960px;
 	background-color: black;
 	height: 100px;
@@ -23,11 +21,10 @@ body {
 }
 
 #my-title {
-	font-size: 2.2em;
+	font-size: 2.0em;
 	font-weight: bold;
 	margin: 30px;
 	float: left;
-	width: 15%;
 }
 
 #profile-name {
@@ -51,16 +48,12 @@ body {
 	margin: auto;
 }
 
-#profile-name :target {
-	
-}
-
 /* 토글버튼 구현 */
 .my-top-detail {
 	max-width: 960px;
 	position: absolute;
 	background-color: black;
-	min-height: 50px;
+	min-height: 70px;
 	font-size: 1.3em;
 	transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
 	overflow: hidden;
@@ -169,17 +162,20 @@ body {
 	position: relative;
 	font-size: 1.2em;
 	margin-top: 20px;
-	display: inline-block;
 	width: 100%;
+	display: inline-block;
+	overflow: hidden;
 }
 
+/* side menu  CSS */
 .my-side-menu {
-	width: 18%;
-	float: left;
+	width: 17%;
 	background-color: #ff0f0f;
+	float: left;
 }
 
 .my-side-menu h2 {
+	padding-top: 15px;
 	text-align: center;
 	color: white;
 }
@@ -204,54 +200,98 @@ body {
 .my-side-menu ul>li>a:hover {
 	background-color: #FF9999;
 }
+/* side menu  CSS */
 
-/* main contents area*/
-.my-contents {
-	max-width: 80%;
-	font-size: 1.1em;
+.main-contents {
+	float: right;
+	width: 80%;
+	font-size: 0.9em;
+}
+
+.term-list {
+	
+}
+
+.term-list ul { 
+	list-style-type: none;
 	float: right;
 }
 
-form {
-	border: 3px solid #f1f1f1;
-}
-
-#re-email, #re-password {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
+.term-list ul > li {
 	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
+	padding: 0px 10px 0px 0px;
 }
 
-button {
-	background-color: #4CAF50;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 20px;
-	border: none;
-	cursor: pointer;
-	width: 80px;
-	float: right;
+.term-list ul > li > a {
+	text-decoration: none;
+	color: black;
 }
 
-.login-box {
-	padding: 16px;
-	height: 210px;
+.term-list ul > li:nth-child(1) {
+	border-right: 1px solid gray;
 }
 
-span.psw {
-	float: right;
-	padding-top: 16px;
+.term-list ul > li:nth-child(2) {
+	border-right: 1px solid gray;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-	span.psw {
-		display: block;
-		float: none;
-	}
+.term-list ul > li:nth-child(3) {
+	border-right: 1px solid gray;
 }
 
-/* main contents area*/
+.purchase-table { 
+	border: 1px solid #c0c0c0;
+	width: 100%;
+	text-align: center;
+}
+
+purchase-table. th {
+	background-color: #cococo;
+	font: bold;
+}
+
+.list-img-span > a > img {
+	max-height: 130px;
+	max-width: 100px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 1em;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.purchase-list-title {
+	background-color: #d5d5d5;
+	margin: 0;
+	text-align: center;
+}
+
+.purchase-list {
+	display: inline;
+	text-align: left;
+}
+
+.purchase-list p {
+	margin: 0px 0px 0px 0px;
+	font: 0.9em normal;
+}
+
+.red {
+  background-color: #e74c3c;
+  box-shadow: 0px 5px 0px 0px #CE3323;
+}
+
+.red:hover {
+  background-color: #FF6656;
+}

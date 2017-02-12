@@ -1,36 +1,15 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-
 <head>
 <meta charset="UTF-8">
 <title>Test Page</title>
-<link rel="stylesheet" href="../../css/sh/jquery-edit.css">
 </head>
 <body>
-<button id="dialog_trigger">공동구매</button>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-ghgh
-<div id="dialog" style="display:none;">
-<iframe frameborder="0" scrolling="no" width="700" height="700" src="deal-continue.html">
-</iframe>
-</div>
-<script>
-$( "#dialog_trigger" ).click(function() {
-$( "#dialog" ).dialog( "open" );});
-$("#dialog").dialog({
-    autoOpen: false,
-    position: 'center' ,
-    draggable: false,
-    width : 800,
-    height : 700, 
-    resizable : true,
-    modal : true,
-});
+haha
+<script type="text/xml">
+curl "https://openapi.naver.com/v1/search/shop.xml?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim" \
+-H "X-Naver-Client-Id: {BEHeUZ8BlT37cyM4OUd5}" \
+-H "X-Naver-Client-Secret: {P31S4XUPPs}" -v
 </script>
 </body>
 </html>
