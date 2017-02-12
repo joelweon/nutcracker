@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+  <!-- <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1"> -->
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/boycott.css">
+</head>
+
+<body>
+
+<!-- 헤더(로고, 메뉴, 로그인) -->
+<div class='container'>
+  <div id='wrap-header'>
+    <div id='header'>
+		  <div class='header-sub div-hidden-box'>
+		    <a id="btn-show-hidden" class='menu-trigger' href="#">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		    </a>
+		    <div class='header-sub div-menu-hidden'>
+		      <ul id='nav-menu-hidden' class='nav-memu-hidden'>
+		        <li><a href="./boycott.html">불매운동</a></li>
+		        <li><hr/></li>
+		        <li><a href="./board.html">불량후기</a></li>
+		        <li><hr/></li>
+		        <li><a href="#">대체상품</a></li>
+		        <li><hr/></li>
+		        <li><a href="#">공동구매</a></li>
+		        <li><hr/></li>
+		      </ul>
+		    </div>
+		  </div>
+		  <div class='header-sub div-logo'>
+		    <a id="logo" href="./main.html"><img src='../images/logo.png'></a>
+		  </div>
+		  <div class='header-sub div-menu-search'>
+		    <a id="btn-search" class='search-trigger glyphicon glyphicon-search' href="#">
+		    <!-- <img src='../images/search.PNG'> -->
+		    </a>
+		    <div class='div-search'>
+		      <label for='input-search' class='input-search'>Search</label>
+		      <input id='input-search' class='input-search' type="search" required="required"/>
+		    </div>
+		    <button type='button' class='btn btn-default'>Login</button>
+		  </div>
+		  <div class='header-sub div-menu'>
+		    <ul id='nav-menu'>
+		      <li><a class='menu' id='boycott' href="./boycott.html">불매운동</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' id='review' href="./board.html">불량후기</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' id='product' href="#">대체상품</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' id='purchase' href="#">공동구매</a></li>
+		    </ul>
+		  </div>
+		</div> <!-- header -->
+  </div>
+  
+  <!-- 소개글 -->
+	<div id='div-intro-none'></div>
+  
+  <div id='wrap-content'>
+	  <!-- 불매 헤더 -->
+	  <div id="title-bar-boycott" class="title-bar">
+	  	<nav>
+	      <span class='title-title'>불매운동</span><span class='title-sub'>현재 진행중인 불매운동 리스트입니다.</span>
+			  <!-- 년도선택 -->
+			  <div id="div-year" align="right">
+			    <span>연도 별 리스트 보기</span>
+		      <select id='select-year'>
+		        <option>2017년</option>
+		        <option>2016년</option>
+		        <option>2015년</option>
+		        <option>2014년</option>
+		      </select>
+		    </div>
+	  	
+	  	</nav>
+	  </div>
+	  
+	  <!-- 불매 콘텐츠 -->
+	  <div class='boycott-list-box'>
+	    <a href='../je/b.html'>
+	      <img class='boycott-list-img' src='../images/oxy2.PNG'>
+	    </a>
+	    <div class='boycott-list-detail'>
+	      <div class='boycott-list-content'>
+		    	<span class='boycott-list-title'><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span>
+		    </div>
+	    	<div class='boycott-list-btn'>
+	    	  <span class='support-cnt glyphicon glyphicon-user'>1234</span>
+	    	  <a class="list-add-btn btn icon-btn btn-danger" href="#">
+	     			<span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
+	     			나의 불매 리스트에 추가
+	     	  </a>
+	    	</div>
+    	</div> <!-- boycott-list-detail -->
+	  </div> <!-- boycott-list-box -->
+	  <div class='boycott-list-box'>
+	    <a href='../je/b.html'>
+	      <img class='boycott-list-img' src='../images/oxy2.PNG'>
+	    </a>
+	    <div class='boycott-list-detail'>
+	      <div class='boycott-list-content'>
+		    	<span class='boycott-list-title'><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span>
+		    </div>
+	    	<div class='boycott-list-btn'>
+	    	  <span class='support-cnt glyphicon glyphicon-user'>1234</span>
+	    	  <a class="list-add-btn btn icon-btn btn-danger" href="#">
+	     			<span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
+	     			나의 불매 리스트에 추가
+	     	  </a>
+	    	</div>
+    	</div> <!-- boycott-list-detail -->
+	  </div> <!-- boycott-list-box -->
+	  <div class='boycott-list-box'>
+	    <a href='../je/b.html'>
+	      <img class='boycott-list-img' src='../images/oxy2.PNG'>
+	    </a>
+	    <div class='boycott-list-detail'>
+	      <div class='boycott-list-content'>
+		    	<span class='boycott-list-title'><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span>
+		    </div>
+	    	<div class='boycott-list-btn'>
+	    	  <span class='support-cnt glyphicon glyphicon-user'>1234</span>
+	    	  <a class="list-add-btn btn icon-btn btn-danger" href="#">
+	     			<span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
+	     			나의 불매 리스트에 추가
+	     	  </a>
+	    	</div>
+    	</div> <!-- boycott-list-detail -->
+	  </div> <!-- boycott-list-box -->
+	  <div class='boycott-list-box'>
+	    <a href='../je/b.html'>
+	      <img class='boycott-list-img' src='../images/oxy2.PNG'>
+	    </a>
+	    <div class='boycott-list-detail'>
+	      <div class='boycott-list-content'>
+		    	<span class='boycott-list-title'><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
+		    	<span class='boycott-list-text'><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span>
+		    </div>
+	    	<div class='boycott-list-btn'>
+	    	  <span class='support-cnt glyphicon glyphicon-user'>1234</span>
+	    	  <a class="list-add-btn btn icon-btn btn-danger" href="#">
+	     			<span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
+	     			나의 불매 리스트에 추가
+	     	  </a>
+	    	</div>
+    	</div> <!-- boycott-list-detail -->
+	  </div> <!-- boycott-list-box -->
+	  
+	</div> <!-- wrap-content -->
+</div> <!-- container -->
+
+</body>
+
+<script type="text/javascript">
+/*-----------------------------
+ * 헤더 JavaScript
+ -----------------------------*/
+ $(document).ready(function() {
+	  /* 숨은메뉴-버튼 이벤트 */
+	  $('#btn-show-hidden').click(function() { 
+	    $('#btn-show-hidden').toggleClass('on');
+	    $(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
+	    return false;
+	  });
+	  /* 검색버튼 이벤트 */
+	  $('#btn-search').click(function() {
+	    $('#btn-search').toggleClass('on');
+	    $(this).parent().parent().find('.div-search').toggleClass('on');
+	    return false;
+	  });
+	  /* 검색 마우스 올릴 때 */
+	  $('.input-search').hover(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').addClass('hover');
+	    }
+	  }, function() {
+	    $(this).parent().parent().find('label.input-search').removeClass('hover');
+	  });
+	  /* 검색 input 입력시 */
+	  $('#input-search').focus(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').toggleClass('off');
+	      $(this).parent().parent().find('label.input-search').removeClass('hover');
+	    }
+	    return false;
+	  });
+	  $('#input-search').blur(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').removeClass('off');
+	    }
+	    return false;
+	  });
+
+	/* 햄버거 메뉴 효과 */
+	var burger = $('.menu-trigger');
+
+	burger.each(function(index) {
+	    var $this = $(this);
+	    
+	    $this.on('click', function(e) { 
+	        e.preventDefault();
+	        $(this).toggleClass('active-' + (index+1));
+	    })
+	});
+});
+	
+/*-----------------------------
+ * 메인 JavaScript
+ -----------------------------*/
+
+</script>
+
+</html>

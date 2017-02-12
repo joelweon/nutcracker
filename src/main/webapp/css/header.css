@@ -18,19 +18,11 @@
 } 
 /* font-family: bmdohyen, '궁서'; */
 
-body {
-	font-size: medium;
-  font-family: bmdohyeon, '궁서';
-}
-div {
-	border: 1px solid red;
-	background-color: #c0c0c0;
-}
-
 #wrap-header {
   width: 100%;
-  height: 100%;
+  height: 60px;
   display: table;
+  font-family: bmdohyeon, sans-serif;
 }
 #header {
   height: 60px;
@@ -137,13 +129,15 @@ div {
   display: table-cell;
   padding-top: 15px;
   float: right;
+  font-size: 1.2em;
 }
 .div-menu li {
   display: inline;
 }
 .div-menu li a.menu {
   float: left;
-  color: #323338;
+  /* color: #323338; */
+  color: #fff;
   padding: 0 10px;
   text-decoration: none;
 }
@@ -160,6 +154,12 @@ div {
   display: table-cell;
   float: right;
   padding-top: 10px;
+}
+.div-menu-search #btn-search {
+	text-decoration: none;
+	font-size: 1.5em;
+	color: #aaa;
+	padding: 5px 3px;
 }
 .div-menu-search .div-search {
   width:100%;
@@ -203,13 +203,18 @@ div {
   display: block;
   padding: 0;
 }
+.div-menu-search button {
+	font-size: 1em;
+	margin-top: -7px;
+}
 
 /* 소개글 */
 #div-intro {
   width: 100%;
-  height: 100%;
+  height: 200px;
   display: table;
   margin-bottom: 3%;
+  font-family: bmdohyeon, sans-serif;
 }
 #div-intro #div-intro-text {
   display: table-cell;
@@ -226,4 +231,34 @@ div {
 #div-intro-text span#txt-border {
   color: #f00;
   font-size: 2.5em;
+}
+
+#div-intro-none {
+	width: 100%;
+	height: 20px;
+}
+
+/* ------------------------------------------
+  가로가 76px 이하일 때 
+--------------------------------------------*/
+@media screen and (min-devide-width: 760px)
+{
+	.div-hidden-box {
+	  display: block;
+	}
+	.div-hidden-box .div-menu-hidden {
+	  display: none;
+	}
+	.div-menu {
+	  display: none;
+	}
+	.div-logo {
+	  margin-left: 35%;
+	}
+}
+@media screen and (min-divice-width: 600px)
+{
+	.div-logo {
+	  margin-left: 32%;
+	}
 }
