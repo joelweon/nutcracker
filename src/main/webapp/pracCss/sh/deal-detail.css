@@ -110,11 +110,11 @@
 }
 .purchase-btn ul li a:hover,
 .wish-btn ul li a:hover {
-  background: #0000ff;
+  background: #2ac7e1;
 }
 .purchase-btn ul li a:hover:after,
 .wish-btn ul li a:hover:after {
-  border-left-color: #0000ff;
+  border-left-color: #2ac7e1;
 }
 /* 위시버튼 */
 .wish-btn {
@@ -157,81 +157,70 @@
 }
 
 /* 딜 상세 컨텐츠 */
-.deal-detail-tab {
+.deal-detail-tabs {
+	border:1px solid red;
 	position:absolute;
 	bottom:0;
+	width:90%;
+	height:300px;
+	margin:2em;
 }
-#deal-detail-tab-menu {
-	margin:40px 0 0 150px;
-}
-#deal-detail-tab-menu ul {
-	list-style:none;
-}
-#deal-detail-tab-menu ul li {
-	display:inline;
-	float:left;
-	margin-bottom:20px;
-}
-/* :first-child pseudo selector with rounded top left corner */
-#deal-detail-tab-menu ul li:first-child a {
-	-moz-border-radius-topleft: 12px;
-	-webkit-border-top-left-radius:12px;
-}
-/* :last-child pseudo selector with rounded top right corner */
-#deal-detail-tab-menu ul li:last-child a {
-	-moz-border-radius-topright: 12px;
-	-webkit-border-top-right-radius:12px;
-}
-/* background color set to RGBA, with opacity on 0.3 and also using text-shadow */
-#deal-detail-tab-menu ul li a {
-	padding:20px;
-	background: rgba(255,138,30,0.3);
-	text-decoration: none;
-	letter-spacing: -1px;
-	color: #402e16;
-  text-shadow: #eee 0px 0px 2px;
-}
-/* hover state shows a linear gradient and opacity it brought down to 0.9 and also shows a very slight grey gradient on top */
-#deal-detail-tab-menu ul li a:hover {
-	-moz-box-shadow: 0 -5px 10px #777;
-	-webkit-box-shadow: 0 -5px 10px #777;
-  background: -webkit-gradient(
-    linear, right bottom, left top,
-    color-stop(0, rgb(237,227,112)),
-    color-stop(0.72, rgb(255,173,10))) !important;
-  background: -moz-linear-gradient(
-    right bottom, rgb(237,227,112) 0%, rgb(255,173,10) 72%) !important;
-  background-color:rgb(255,173,10) !important;
-  -moz-opacity:.90;
-  filter:alpha(opacity=90); opacity:.90;
-}
-/* another RGBA background, now with an opacity of 0.8 */
-#deal-detail-tab-menu ul li a.active {
-	background: rgba(255,138,30,0.8) !important;
-}
-/* main contents with RGBA background (same colour as active tab) and three rounded corners */
-#deal-detail-tab-menu {
-	clear:both;
-	background: rgba(255,138,30,0.8);
-	width:500px;
-	margin-left:150px;
-  -moz-border-radius-topright: 12px;
-  -moz-border-radius-bottomright: 12px;
-  -moz-border-radius-bottomleft: 12px;
-  -webkit-border-top-right-radius:12px;
-  -webkit-border-bottom-right-radius:12px;
-  -webkit-border-bottom-left-radius:12px;
-}
-/* header with a text-shadow */
-.deal-detail-tab-cont h3 {
-	text-transform:uppercase;
-	padding:20px 0 0 20px;
-	color:#eee;
-	text-shadow: #000 0px 0px 2px;
-}
-.deal-detail-tab-cont p {
-	padding-bottom:20px;
-	color:#ddd;
+#deal-detail-tab-title {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
+#deal-detail-tab-title li {
+  float: left;
+  margin: 0 -15px 0 0;
+}
 
+#deal-detail-tab-title a {
+  float: left;
+  position: relative;
+  padding: 0 40px;
+  height: 0; 
+  line-height: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid #3D3D3D;
+  border-bottom-color: #777\9;
+  opacity: .3;
+  filter: alpha(opacity=30);    
+}
+/* #tabs a {
+  height: 0; 
+  line-height: 30px;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid #3D3D3D;    
+} */
+
+#deal-detail-tab-title a:hover, #deal-detail-tab-title a:focus {
+  border-bottom-color: #2ac7e1;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+#deal-detail-tab-title a:focus {
+  outline: 0;
+}
+
+#deal-detail-tab-title #current {
+  z-index: 3;
+  border-bottom-color: #3d3d3d;
+  opacity: 1;
+  filter: alpha(opacity=100);   
+}
+#tab2 {
+	padding: 10px 0 10px 20px;
+	font-size: 1em;
+}
+/* #tab1 {
+	overflow-x: hidden;
+  overflow-y: scroll;
+} */

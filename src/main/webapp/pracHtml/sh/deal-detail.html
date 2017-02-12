@@ -29,22 +29,22 @@
 	  <div class='deal-detail-info'>
 	    <i class="fa fa-money fa-2x" aria-hidden="true"></i>
 	    <span class='deal-detail-info-title'>구입 가격</span>
-	    <span class='deal-detail-info-cont'>9,000원</span>
+	    <span class='deal-detail-info-cont'>9,000 원</span>
 	  </div> <!-- deal-detail-info -->
 	  <div class='deal-detail-info'>
       <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
       <span class='deal-detail-info-title'>남은 기간</span>
-      <span class='deal-detail-info-cont'>7일</span>
+      <span class='deal-detail-info-cont'>7 일</span>
     </div> <!-- deal-detail-info -->
 	  <div class='deal-detail-info'>
       <i class="fa fa-users fa-2x" aria-hidden="true"></i>
       <span class='deal-detail-info-title'>모집 인원</span>
-      <span class='deal-detail-info-cont'>50명</span>
+      <span class='deal-detail-info-cont'>50 명</span>
     </div> <!-- deal-detail-info -->
     <div class='deal-detail-info'>
       <i class="fa fa-user-plus fa-2x" aria-hidden="true"></i>
       <span class='deal-detail-info-title'>신청 인원</span>
-      <span class='deal-detail-info-cont'>40명</span>
+      <span class='deal-detail-info-cont'>40 명</span>
     </div> <!-- deal-detail-info -->
     <!-- 퍼센트 바 -->
     <div class="percentbar clearfix" data-percent="30%">
@@ -65,22 +65,35 @@
       </div>
 	  </div>
   </div> <!-- deal-detail-infoset -->
-  
-  
-  <div class='deal-detail-tab'>
-	  <div id="deal-detail-tab-menu">
-	    <ul>
-	      <li><a href="#" title="description" class="active">상품정보</a></li>
-	      <li><a href="#" title="review">상품평</a></li>
-	      <li><a href="#" title="question">제품문의</a></li>
-	    </ul>
-	  </div>
-	  <div class="deal-detail-tab-cont">
-	    <h3>Main content header</h3>
-	    <p>Main content</p>
-	  </div>
-  </div>
-  
+  <!-- 딜 상세 컨텐츠-->
+	<div class='deal-detail-tabs'>
+		<ul id="deal-detail-tab-title">
+	    <li><a href="#" name="#tab1">상품정보</a></li>
+	    <li><a href="#" name="#tab2">상품평</a></li>
+	    <li><a href="#" name="#tab3">제품문의</a></li>
+		</ul>
+		<div id="deal-detail-tab-cont"> 
+	    <div id="tab1">
+	      <img src='../../images/sundung-detail.jpg'>
+	      <img src='../../images/sundung-detail2.jpg'>
+	    </div>
+	    <div id="tab2">
+	      <span>젊줌마 3시간 전<br>
+	      공구 올라올 때마다 구매하고 있어요. 쓸때마다 너무 좋네요<br><br>
+	      </span>
+	      <span>
+	      하랑맘 5시간 전<br>
+        공구로 싸게 사서 좋아요! 다음에 또 했으면 좋겠어요!!<br><br>
+        </span>
+        <span>
+        hahahoho 6시간 전<br>
+        믿고쓰는 제품 순둥이이이이<br><br>
+        </span>
+	    </div>
+	    <div id="tab3">...</div>
+		</div>
+	</div> <!-- deal-detail-tabs -->
+
   
   
 </div><!-- deal-detail-container -->
@@ -94,23 +107,37 @@ jQuery(document).ready(function(){
   });
 });
 
-//상품정보 탭
-google.load("jquery", "1.3.1");
-google.setOnLoadCallback(function()
-{
-  // Just for demonstration purposes, change the contents/active state using jQuery
-  $("#deal-detail-tab-menu ul li a").click(function(e) {
-    e.preventDefault();
-    
-    $("#deal-detail-tab-menu ul li a").each(function() {
-      $(this).removeClass("active");  
+//탭이동
+function resetTabs(){
+    $("#deal-detail-tab-cont > div").hide(); //Hide all content
+    $("#deal-detail-tab-title a").attr("id",""); //Reset id's      
+}
+var myUrl = window.location.href; //get URL
+var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For mywebsite.com/tabs.html#tab2, myUrlTab = #tab2     
+var myUrlTabName = myUrlTab.substring(0,4); // For the above example, myUrlTabName = #tab
+(function(){
+    $("#deal-detail-tab-cont > div").hide(); // Initially hide all content
+    $("#deal-detail-tab-title li:first a").attr("id","current"); // Activate first tab
+    $("#deal-detail-tab-cont > div:first").fadeIn(); // Show first tab content
+    $("#deal-detail-tab-title a").on("click",function(e) {
+        e.preventDefault();
+        if ($(this).attr("id") == "current"){ //detection for current tab
+         return       
+        }
+        else{             
+        resetTabs();
+        $(this).attr("id","current"); // Activate this
+        $($(this).attr('name')).fadeIn(); // Show content for current tab
+        }
     });
-    
-    $(this).addClass("active");
-    
-    $("h3").html($(this).attr("title"));
-  });
-});
+    for (i = 1; i <= $("#deal-detail-tab-title li").length; i++) {
+      if (myUrlTab == myUrlTabName + i) {
+          resetTabs();
+          $("a[name='"+myUrlTab+"']").attr("id","current"); // Activate url tab
+          $(myUrlTab).fadeIn(); // Show url tab content        
+      }
+    }
+})()
 </script>
 </body>
 </html>
