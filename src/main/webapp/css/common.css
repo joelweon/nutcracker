@@ -12,7 +12,7 @@ body {
   background-color: #f1f1f2;
 }
 div {
-	/* border: 1px solid red; */
+	border: 1px solid red;
 }
 .container {
 	width: 100%;
@@ -21,7 +21,7 @@ div {
 	width:100%;
 	background-image: url(http://www.powerpointhintergrund.com/download/grey-ppt-background-522);
 	/* background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg); */
-	background-size: 100% 280px;
+	background-size: 100% 340px;
 	background-repeat: no-repeat;
 }
 #wrap-content {
