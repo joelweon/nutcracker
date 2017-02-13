@@ -70,18 +70,34 @@ function setMenu(){
   page[0] = "boycott";
   page[1] = "review";
   page[2] = "product";
+  page[3] = "deal";
   var url = location.href;
   var getAr0 = url.indexOf(page[0]);
   var getAr1 = url.indexOf(page[1]);
   var getAr2 = url.indexOf(page[2]);
+  var getAr3 = url.indexOf(page[3]);
   if(getAr0 != -1){
     $("a.menu:eq(0)").addClass("on");
-    console.log('불매운동 메뉴 진입');
+    $("a.menu:eq(1)").addClass("off");
+    $("a.menu:eq(2)").addClass("off");
+    $("a.menu:eq(3)").addClass("off");
   };
   if(getAr1 != -1){
+    $("a.menu:eq(0)").addClass("off");
     $("a.menu:eq(1)").addClass("on");
+    $("a.menu:eq(2)").addClass("off");
+    $("a.menu:eq(3)").addClass("off");
   };
   if(getAr2 != -1){
+    $("a.menu:eq(0)").addClass("off");
+    $("a.menu:eq(1)").addClass("off");
     $("a.menu:eq(2)").addClass("on");
+    $("a.menu:eq(3)").addClass("off");
+  };
+  if(getAr3 != -1){
+    $("a.menu:eq(0)").addClass("off");
+    $("a.menu:eq(1)").addClass("off");
+    $("a.menu:eq(2)").addClass("off");
+    $("a.menu:eq(3)").addClass("on");
   };
 }
