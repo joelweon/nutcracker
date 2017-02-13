@@ -1,20 +1,20 @@
 @CHARSET "UTF-8";
 
-@font-face{ 
+/* @font-face{ 
   font-family: godo; 
   src: url(./GODOM.TTF);
 } 
 @font-face{ 
   font-family: bmjua; 
   src: url(./BMJUA_ttf.ttf);
-} 
+}  */
 @font-face{ 
   font-family: bmdohyeon; 
-  src: url(./BMDOHYEON_ttf.ttf);
+  src: url(../font/BMDOHYEON_ttf.ttf);
 } 
 @font-face{ 
   font-family: seoul; 
-  src: url(./seoulM.ttf);
+  src: url(../font/seoulM.ttf);
 } 
 /* font-family: bmdohyen, '궁서'; */
 
