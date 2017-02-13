@@ -21,7 +21,20 @@
       wrapWindowByMask();
       //스크롤막기
       $("body").css({overflow:'hidden'}).bind('touchmove', function(e){e.preventDefault()});
-      $()
+      /* 대체상품 이미지 swiper */
+      var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false,
+        spaceBetween: 30,
+        loop: true
+      });
     });
     //닫기 버튼을 눌렀을 때
     $('.window .close').click(function (e) {  
@@ -40,6 +53,7 @@
     });      
   });
   
+  //스크롤 -active
   var modal = document.querySelectorAll('.modal')[0];
   var modal_content = document.querySelectorAll('.modal-content')[0];
   var sticky = document.getElementById('sticker');
@@ -56,18 +70,4 @@
       }
   }); 
   
-  /* 대체상품 이미지 swiper */
-  var swiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    slidesPerView: 1,
-    paginationClickable: true,
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: 2500,
-    autoplayDisableOnInteraction: false,
-    spaceBetween: 30,
-    loop: true
-  });
-  
+
