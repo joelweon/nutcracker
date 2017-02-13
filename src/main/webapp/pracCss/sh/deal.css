@@ -1,4 +1,12 @@
 @CHARSET "UTF-8";
+#wrap-header {
+  border-bottom: 2px solid #aaa;
+}
+.deal-container {
+	width: 100%;
+  max-width: 960px;
+  margin: auto;
+}
 .deal-box:hover {
 	-moz-box-shadow: 0 0 10px #ccc;
   -webkit-box-shadow: 0 0 10px #ccc;

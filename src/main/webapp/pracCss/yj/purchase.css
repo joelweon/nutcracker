@@ -53,7 +53,7 @@ body {
 	max-width: 960px;
 	position: absolute;
 	background-color: black;
-	min-height: 70px;
+	min-height: 50px;
 	font-size: 1.3em;
 	transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
 	overflow: hidden;
@@ -208,8 +208,8 @@ body {
 	font-size: 0.9em;
 }
 
-.term-list {
-	
+.term-list > span {
+	font: 1.4em bold;
 }
 
 .term-list ul { 
@@ -242,8 +242,12 @@ body {
 .purchase-table { 
 	border: 1px solid #c0c0c0;
 	width: 100%;
-	text-align: center;
 }
+
+.purchase-list-title, .purchase-table-date, 
+.purchase-price, .delivery-date, .purchase-review {
+	text-align: center;
+} 
 
 purchase-table. th {
 	background-color: #cococo;
@@ -253,6 +257,34 @@ purchase-table. th {
 .list-img-span > a > img {
 	max-height: 130px;
 	max-width: 100px;
+	margin: 10px;
+}
+
+.purchase-list-title {
+	background-color: #d5d5d5;
+	margin: 0;
+	text-align: center;
+}
+
+.purchase-list-title th {
+	background-color: #d5d5d5;
+}
+
+.purchase-list {
+	display: inline;
+	text-align: left;
+}
+
+.purchase-list div {
+	float: right;
+	width: 70%;
+	margin: 5px 0px 0px 0px;
+}
+
+.purchase-list p {
+	margin: 0px 0px 0px 0px;
+	font: 0.9em normal;
+	line-height: 150%;
 }
 
 .btn {
@@ -269,22 +301,6 @@ purchase-table. th {
   transform: translate(0px, 5px);
   -webkit-transform: translate(0px, 5px);
   box-shadow: 0px 1px 0px 0px;
-}
-
-.purchase-list-title {
-	background-color: #d5d5d5;
-	margin: 0;
-	text-align: center;
-}
-
-.purchase-list {
-	display: inline;
-	text-align: left;
-}
-
-.purchase-list p {
-	margin: 0px 0px 0px 0px;
-	font: 0.9em normal;
 }
 
 .red {

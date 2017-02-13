@@ -9,7 +9,14 @@ body {
 	margin-top:200px;
 }
 /* 검색 조건 div */
+.product-search-option-set {
+	border:1px solid red;
+	position: absolute;
+	display: block;
+	top: 5px;
+}
 .product-search-option{
+	border:1px solid red;
   width:35%;
   height:50px;
   margin:0 10px 5px 10px;
@@ -114,9 +121,6 @@ body {
   font-feature-settings: 'liga';
 }
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     outline: 0;
 }
 form {

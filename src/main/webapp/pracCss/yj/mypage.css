@@ -51,9 +51,6 @@ body {
 	margin: auto;
 }
 
-#profile-name :target {
-	
-}
 
 /* 토글버튼 구현 */
 .my-top-detail {
