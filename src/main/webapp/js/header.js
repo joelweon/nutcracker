@@ -2,6 +2,11 @@
  * 헤더 JavaScript
  -----------------------------*/
 $(function(event) {
+  /* 현재 메뉴 하이라이팅 하기 함수 */
+  setTimeout(function () {
+    setMenu(); 
+  }, 300); //1 second
+
 	/* 숨은메뉴-버튼 이벤트 */
 	$(document).on('click', '#btn-show-hidden', function() {
 		$('#btn-show-hidden').toggleClass('on');
@@ -16,8 +21,8 @@ $(function(event) {
   });
   /* 검색 마우스 올릴 때 */
 	$(document).bind('mouseover', '.input-search', function(event) {
-	  if ($('#input-search').val().length <= 0 &&
-	      event.toElement.className == 'input-search') {
+	  if (($('#input-search').val().length <= 0) &&
+	      (event.toElement.className == 'input-search')) {
       $(document).find('label.input-search').addClass('hover');
     }
 	  return false;
@@ -44,6 +49,7 @@ $(function(event) {
     }
     return false;
   });
+	
 
   /* 햄버거 메뉴 효과 */
   var burger = $('.menu-trigger');
@@ -56,4 +62,26 @@ $(function(event) {
       $(this).toggleClass('active-' + (index+1));
       })
   });
+  
 });
+
+function setMenu(){
+  var page = new Array;
+  page[0] = "boycott";
+  page[1] = "review";
+  page[2] = "product";
+  var url = location.href;
+  var getAr0 = url.indexOf(page[0]);
+  var getAr1 = url.indexOf(page[1]);
+  var getAr2 = url.indexOf(page[2]);
+  if(getAr0 != -1){
+    $("a.menu:eq(0)").addClass("on");
+    console.log('불매운동 메뉴 진입');
+  };
+  if(getAr1 != -1){
+    $("a.menu:eq(1)").addClass("on");
+  };
+  if(getAr2 != -1){
+    $("a.menu:eq(2)").addClass("on");
+  };
+}
