@@ -3,10 +3,10 @@ body {
   font-size: small;
   background-color: #f1f1f2;
 }
-.container {
+.deal-container {
 	width:100%;
-  /* max-width:960px;
-  margin:auto; */
+  max-width:960px;
+  margin:auto;
 }
 #wrap-content {
 	width: 100%;

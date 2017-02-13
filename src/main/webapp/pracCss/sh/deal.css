@@ -14,6 +14,9 @@
   display: inline-block;
   overflow: hidden;
 }
+.deal-box:hover {
+	cursor: pointer;
+}
 /* 딜 이미지 */
 .deal-img {
   position:absolute;
