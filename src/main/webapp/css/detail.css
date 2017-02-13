@@ -11,7 +11,7 @@ body {
 .modal {
     /* Hidden by default */
     /* Stay in place */
-    margin: 0px auto;
+    /* margin: 0px auto; */
     position: fixed;
     /* Sit on top */
     z-index: 1;
@@ -35,7 +35,7 @@ body {
 .modal-content {
     /* Could be more or less, depending on screen size */
     background-color: #fefefe;
-    left:15%;
+    left:100px;
     /* 5% from the top and centered */
     margin: 5% auto;
     border: 1px;
@@ -154,7 +154,6 @@ ul.reply-list-area {
 
 .reply-box {
   margin:20px 0px;
-  
 }
 
 .reply-id {
@@ -185,14 +184,6 @@ ul.reply-list-area {
 
 
 
-
-
-
-
-.right-area {
-  height:100%;
-}
-
 .content-content2 {
   color:#939598;
   float: left;
@@ -206,7 +197,8 @@ ul.reply-list-area {
 .content-content2.active{
     position: fixed;
     top: 0;
-    left:650px;
+    /* left:650px; */
+    left:600px;
     width:230px;
 }
 
@@ -222,7 +214,6 @@ ul.share-info {
   font-size:1.2em;
   padding:30px 15px;
 }
-
 
 
 li {

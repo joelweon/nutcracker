@@ -1,4 +1,4 @@
-  function wrapWindowByMask(){
+/*  function wrapWindowByMask(){
     //화면의 높이와 너비를 구한다.
     var maskHeight = $(document).height();
     var maskWidth = $(window).width();
@@ -12,13 +12,16 @@
 
     //윈도우 같은 거 띄운다.
     $('.window').show();
-  } 
+  }*/
 
   $(document).ready(function(){
     //검은 막 띄우기
     $('.openMask').click(function(e){
       e.preventDefault();
-      wrapWindowByMask();
+      $('#mask').css({'width':'100%','height':'970px'});
+      $('#mask').fadeIn(700);
+      $('#mask').fadeTo("slow",0.8);
+      $('.window').show();
       //스크롤막기
       $("body").css({overflow:'hidden'}).bind('touchmove', function(e){e.preventDefault()});
       /* 대체상품 이미지 swiper */
