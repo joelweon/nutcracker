@@ -1,5 +1,9 @@
+/* ------------------
+ * html 가져오기
+ ------------------*/
 $(document).ready(function() {
   $('#wrap-header').load('./header.html');
+  $('#div-intro').load('./intro.html');
 });
 
 /*-----------------------------
