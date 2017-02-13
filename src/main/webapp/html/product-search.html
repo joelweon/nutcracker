@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="../../js/common.js"></script>
-<script type="text/javascript" src="../../js/header.js"></script>
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="../../css/common.css">
-<link rel="stylesheet" href="../../css/header.css">
-<link rel="stylesheet" href="../../pracCss/sh/product.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../pracCss/sh/product.css">
 </head>
 <body>
 <div id='wrap-header'></div>
 <div id='div-intro-none'></div>
 <div class='product-container'>
   <!-- 검색창 -->
-  <a href="#product-search-window">search</a>
-  <div id="product-search-window">
+  <div class="product-search-window" id='product-search-window'>
     <form>
 	    <div class='product-search-option-set'>
 	    <div class='product-search-option'>
@@ -40,11 +36,14 @@
 		    </div> <!-- product-search-option class -->
 	    </div> <!-- product-search-option-set class -->
       <input type="search" value="" placeholder="대체 물품을 검색하세요" />
-      <button type="submit" class="btn btn-primary">Search</button>
+      <button type="submit" class="product-btn product-btn-primary">Search</button>
     </form>
   </div>
 </div> <!-- container class -->
 <!-- <div id='footer'></div> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/header.js"></script>
 <script>
 /* on-off 스위치 */
 $(document).ready(function(){
@@ -55,11 +54,8 @@ $(document).ready(function(){
 
 /* 검색창 */
 $(function () {
-  $('a[href="#product-search-window"]').on('click', function(event) {
-    event.preventDefault();
-    $('#product-search-window').addClass('open');
-    $('#product-search-window > form > input[type="search"]').focus();
-	});
+  $('#product-search-window').addClass('open');
+  $('#product-search-window > form > input[type="search"]').focus();
 	$('#product-search-window, #product-search-window button.close').on('click keyup', function(event) {
 	  if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
 	    $(this).removeClass('open');
