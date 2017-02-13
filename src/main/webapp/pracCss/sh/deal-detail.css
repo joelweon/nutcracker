@@ -33,6 +33,18 @@
   top:60px;
   font-size:3em;
 }
+.share-icon:hover {
+	cursor: pointer;
+}
+.share-icon > i:first-child:hover {
+	color:#4099ff;
+}
+.share-icon > i:nth-child(2):hover {
+  color:#3b5998;
+}
+.share-icon > i:last-child:hover {
+  color:#2ac7e1;
+}
 /* 메인 이미지 */
 .deal-detail-img {
 	/* border:1px solid red; */
