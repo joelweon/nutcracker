@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/header.js"></script>
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="../pracCss/sh/common.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../pracCss/sh/deal.css">
 </head>
 <body>
-<!-- <div id='header'></div> -->
+<div id='wrap-header'></div>
+<div id='div-intro-none'></div>
 <div class='deal-container'>
   <!-- 페이지 타이틀 -->
   <div class='title-title'>
@@ -85,27 +89,6 @@
 </div> <!-- deal-container class -->
 <!-- <div id='footer'></div> -->
 <script>
-// 헤더 풋터 가져오기
-window.addEventListener("load", function() {
-  get('header.html', function(result) {
-    document.querySelector('#header').innerHTML = result;
-  });
-  get('footer.html', function(result) {
-    document.querySelector('#footer').innerHTML = result;
-  });
-});
-
-function get(url, success) {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState < 4) 
-      return;
-    success(xhr.responseText);
-  };
-  xhr.open('get', url, true);
-  xhr.send();
-};
-
 // 퍼센트 그래프
 jQuery(document).ready(function(){
   jQuery('.percentbar').each(function(){
