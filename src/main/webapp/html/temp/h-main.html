@@ -13,14 +13,65 @@
 
 <body>
 
+<!-- 헤더(로고, 메뉴, 로그인) -->
 <div class='container main'>
-	<!-- 헤더(로고, 메뉴, 로그인) -->
-  <div id='wrap-header'></div>
+  <div id='wrap-header'>
+    <div id='header'>
+		  <div class='header-sub div-hidden-box'>
+		    <a id="btn-show-hidden" class='menu-trigger' href="#">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		    </a>
+		    <div class='header-sub div-menu-hidden'>
+		      <ul id='nav-menu-hidden' class='nav-memu-hidden'>
+		        <li><a href="./boycott.html">불매운동</a></li>
+		        <li><hr/></li>
+		        <li><a href="./board.html">불량후기</a></li>
+		        <li><hr/></li>
+		        <li><a href="#">대체상품</a></li>
+		        <li><hr/></li>
+		        <li><a href="#">공동구매</a></li>
+		        <li><hr/></li>
+		      </ul>
+		    </div>
+		  </div>
+		  <div class='header-sub div-logo'>
+		    <a id="logo" href="./main.html"><img src='../images/logo.png'></a>
+		  </div>
+		  <div class='header-sub div-menu-search'>
+		    <a id="btn-search" class='search-trigger glyphicon glyphicon-search' href="#">
+		    <!-- <img src='../images/search.PNG'> -->
+		    </a>
+		    <div class='div-search'>
+		      <label for='input-search' class='input-search'>Search</label>
+		      <input id='input-search' class='input-search' type="search" required="required"/>
+		    </div>
+		    <button type='button' class='btn btn-default'>Login</button>
+		  </div>
+		  <div class='header-sub div-menu'>
+		    <ul id='nav-menu'>
+		      <li><a class='menu' href="h-boycott.html">불매운동</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' href="h-review.html">불량후기</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu'  href="#">대체상품</a></li>
+		      <!-- <li><span class='menu-divider'>|</span></li> -->
+		      <li><a class='menu' href="#">공동구매</a></li>
+		    </ul>
+		  </div>
+		</div> <!-- header -->
+  </div>
 
   <!-- 소개글 -->
-	<div id='div-intro'></div>
+	<div id='div-intro'>
+	  <div id='div-intro-text'>
+	    <img id='intro-logo' src='../images/walnut-white.png'><br>
+	    <span>올바른 소비문화와 갑질 근절을 위해 이 세상의 모든 부조리를 까버리는</span><br>
+	    <span>우리는</span><span id='txt-border'> The Nutcracker </span><span>입니다.</span>
+	  </div>
+	</div>
   
-  <!-- 메인페이지 -->
   <div id='wrap-content'>
 	  <!-- 불매/불량 바로가기 -->
 	  <div id='scrollbar'>
@@ -32,7 +83,7 @@
 	  <div id="title-bar-boycott" class="title-bar">
 	      <span class='title-title'>불매운동</span>
 	      <hr style='margin-top:-13px; margin-left: 100px; border-top:1px solid gray;'>
-	      <span class='title-view'><a href='boycott.html'>view more 》</a></span>
+	      <span class='title-view'><a href='h-boycott.html'>view more 》</a></span>
 	  </div>
 	  <!-- 정렬방식 -->
 	  <div class='menu-array'>
@@ -52,7 +103,7 @@
 	  </div>
 	  
 	  <div class='boycott-box'>
-	    <!-- <div class='deal-icon'><a href='#'>공구진행중</a></div> -->
+	    <div class='deal-icon'><a href='#'>공구진행중</a></div>
 	    <a href='#'>
 	      <img class='boycott-img' src='../images/huggies1.png'>
 	    </a>
@@ -83,7 +134,7 @@
 	  <div id="title-bar-review" class="title-bar">
 	      <span class='title-title'>불량후기</span>
 	      <hr style='margin-top:-13px; margin-left: 100px; border-top:1px solid gray;'>
-	      <span class='title-view'><a href='review.html'>view more 》</a></span>
+	      <span class='title-view'><a href='h-review.html'>view more 》</a></span>
 	  </div>
 	  <!-- 정렬방식 -->
 	  <div class='menu-array'>
@@ -218,7 +269,67 @@
 
 </body>
 
-<script src="../js/common.js"></script>
-<script src="../js/header.js"></script>
+<script type="text/javascript">
+/*-----------------------------
+ * 헤더 JavaScript
+ -----------------------------*/
+ $(document).ready(function() {
+	  /* 숨은메뉴-버튼 이벤트 */
+	  $('#btn-show-hidden').click(function() { 
+	    $('#btn-show-hidden').toggleClass('on');
+	    $(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
+	    return false;
+	  });
+	  /* 검색버튼 이벤트 */
+	  $('#btn-search').click(function() {
+	    $('#btn-search').toggleClass('on');
+	    $(this).parent().parent().find('.div-search').toggleClass('on');
+	    return false;
+	  });
+	  /* 검색 마우스 올릴 때 */
+	  $('.input-search').hover(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').addClass('hover');
+	    }
+	  }, function() {
+	    $(this).parent().parent().find('label.input-search').removeClass('hover');
+	  });
+	  /* 검색 input 입력시 */
+	  $('#input-search').focus(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').toggleClass('off');
+	      $(this).parent().parent().find('label.input-search').removeClass('hover');
+	    }
+	    return false;
+	  });
+	  $('#input-search').blur(function() {
+	    if ($('#input-search').val().length <= 0) {
+	      $(this).parent().parent().find('label.input-search').removeClass('off');
+	    }
+	    return false;
+	  });
+
+	/* 햄버거 메뉴 효과 */
+	var burger = $('.menu-trigger');
+
+	burger.each(function(index) {
+	    var $this = $(this);
+	    
+	    $this.on('click', function(e) { 
+	        e.preventDefault();
+	        $(this).toggleClass('active-' + (index+1));
+	    })
+	});
+});
+	
+/*-----------------------------
+ * 메인 JavaScript
+ -----------------------------*/
+//불매 불량 바로가기
+function fnMove(seq){
+    var offset = $("#title-bar-" + seq).offset();
+    $('html, body').animate({scrollTop : offset.top}, 400);
+};
+</script>
 
 </html>

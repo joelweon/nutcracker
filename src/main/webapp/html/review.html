@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+  <!-- <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1"> -->
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/review.css">
+</head>
+
+<body>
+
+<!-- 헤더(로고, 메뉴, 로그인) -->
+<div class='container'>
+  <div id='wrap-header'></div>
+  
+  <!-- 소개글 -->
+	<div id='div-intro-none'></div>
+  
+  <div id='wrap-content'>
+	  <!-- 불매 헤더 -->
+	  <div id="title-bar-boycott" class="title-bar">
+	  	<nav>
+	      <span class='title-title'>불매운동</span><span class='title-sub'>현재 진행중인 불매운동 리스트입니다.</span>
+	  	</nav>
+	  </div>
+	  
+	  <!-- 글쓰기버튼 -->
+	  <div class='btn-toolbar'>
+	    <button id='btn-write' class="btn btn-danger">글쓰기</button>
+	  </div>
+	  
+		<!-- 테이블 -->
+		<div class='container'>
+		  <table class="table table-hover table-review">
+			  <thead>
+		        <tr>
+		          <th id='no'>글번호</th>
+		          <th id='title'>제목</th>
+		          <th id='writer'>작성자</th>
+		          <th id='reg-date'>작성일</th>
+		          <th id='view-cnt'>조회수</th>
+		          <th id='hodu-cnt'>추천수</th>
+		        </tr>
+	      </thead>
+				<tbody>
+				  <tr>
+				    <td>1</td>
+				    <td class='td-title'>
+			        <a href="#" class="table-review-row">
+			          <img src="../images/hong.PNG" class="review-list-img">
+			          <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
+			        </a>
+				    </td>
+				    <td>몸살쟁이</td>
+				    <td>2017.01.15</td>
+				    <td>120</td>
+				    <td>10</td>
+				  </tr>
+				  <tr>
+            <td>2</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/oksusu.PNG" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
+              </a>
+            </td>
+            <td>강냉이</td>
+            <td>2017.01.13</td>
+            <td>120</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/chocomilk1.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
+              </a>
+            </td>
+            <td>시리얼은코코볼</td>
+            <td>2017.01.09</td>
+            <td>498</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/nabang.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
+              </a>
+            </td>
+            <td>사오정육개장</td>
+            <td>2017.01.05</td>
+            <td>91</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/default.png" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
+              </a>
+            </td>
+            <td>안간다이제퉤</td>
+            <td>2016.12.28</td>
+            <td>63</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/hong.PNG" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 홍삼액이 가짜홍삼이라니요. [20]</span>
+              </a>
+            </td>
+            <td>몸살쟁이</td>
+            <td>2017.01.15</td>
+            <td>120</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/oksusu.PNG" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ [50]</span>
+              </a>
+            </td>
+            <td>강냉이</td>
+            <td>2017.01.13</td>
+            <td>120</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/chocomilk1.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 초코에몽이 언제부터 시리얼도 말아서 팔았나요?? [80]</span>
+              </a>
+            </td>
+            <td>시리얼은코코볼</td>
+            <td>2017.01.09</td>
+            <td>498</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/nabang.png" class="review-list-img">
+                <span class='table-review-title'>[불매운동] 나방나온다 나바아아아앙~ [61]</span>
+              </a>
+            </td>
+            <td>사오정육개장</td>
+            <td>2017.01.05</td>
+            <td>91</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td class='td-title'>
+              <a href="#" class="table-review-row">
+                <img src="../images/default.png" class="review-list-img">
+                <span class='table-review-title'>[불량후기] 혜화역 역대급 불친절식당! [19]</span>
+              </a>
+            </td>
+            <td>안간다이제퉤</td>
+            <td>2016.12.28</td>
+            <td>63</td>
+            <td>13</td>
+          </tr>
+				</tbody>
+	    </table>
+	  </div>
+	  
+		<!-- 게시판 검색 -->
+		<div class='row'>
+			<ul class='board-search pull-right'>
+			  <li>
+				  <div class="dropup">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    제목+내용
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">제목</a></li>
+					    <li><a href="#">내용</a></li>
+					    <li><a href="#">작성자</a></li>
+					  </ul>
+					</div>
+				</li>
+				<li><input type='text' class='form-control'></li>
+				<li><button class='btn btn-default'>검색</button></li>
+			</ul>
+		</div>
+		
+	  <!-- 페이지이동 -->
+	  <div class="clearfix">
+			<ul class="pagination">
+			  <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+			  <li class="active"><a href="#">1</a></li>
+			  <li><a href="#">2</a></li>
+			  <li><a href="#">3</a></li>
+			  <li><a href="#">4</a></li>
+			  <li><a href="#">5</a></li>
+			  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+			</ul>
+			
+    </div>
+	  
+	</div> <!-- wrap-content -->
+</div> <!-- container -->
+
+</body>
+
+<script src="../js/common.js"></script>
+<script src="../js/header.js"></script>
+
+</html>
