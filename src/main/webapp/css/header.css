@@ -141,6 +141,12 @@
   padding: 0 10px;
   text-decoration: none;
 }
+.div-menu li > a.on {
+	color: #f00;
+}
+.div-menu li > a.off {
+	color: #777;
+}
 .div-menu li a.menu:hover {
   color: red;
 }
