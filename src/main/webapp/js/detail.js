@@ -19,7 +19,7 @@
     $('.openMask').click(function(e){
       e.preventDefault();
       $('#mask').css({'width':'100%','height':'970px'});
-      $('#mask').fadeIn(700);      
+      $('#mask').fadeIn(700);
       $('#mask').fadeTo("slow",0.8);
       $('.window').show();
       //스크롤막기
