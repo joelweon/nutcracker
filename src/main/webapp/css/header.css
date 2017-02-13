@@ -120,11 +120,11 @@
   color: #c0c0c0;
 }
 /* 로고 */
-.div-logo {
-	padding: auto auto;
-}
 .div-logo img {
 	width: 130px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
   /* height: 50px; */
 }
 

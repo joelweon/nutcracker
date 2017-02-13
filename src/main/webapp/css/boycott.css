@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 .container {
-	min-width: 600px;
+	/* min-width: 600px; */
 }
 #wrap-header {
 	border-bottom: 2px solid #aaa;
@@ -55,4 +55,17 @@
 }
 .boycott-list-btn .list-add-btn {
 	float: right;
+}
+
+@media screen and (max-width: 760px)
+{
+	.boycott-list-detail { width: 78%; padding: 0 0; }
+	.boycott-list-title { font-size: 1.3em; }
+	.boycott-list-text { font-size: 1em; }
+}
+@media screen and (max-width: 500px)
+{
+	#div-year > span { display: none; }
+  .boycott-list-box > a, .boycott-list-box img { display: none; }
+  .boycott-list-detail { width: 100%; }
 }
