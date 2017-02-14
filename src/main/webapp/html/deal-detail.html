@@ -107,7 +107,7 @@
 	    </section>
     </div>
   </div> <!-- deal-detail-tabs -->
-  
+  <!-- <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> -->
 </div><!-- deal-detail-container -->
 <!-- <div id='footer'></div> -->
 </div>
@@ -161,6 +161,7 @@ $(function(){
   // Check the initial Poistion of the Sticky Header
   var stickyHeaderTop = $('.deal-detail-navi').offset().top;
   $(window).scroll(function(){
+  	if() {};
     if( $(window).scrollTop() > stickyHeaderTop ) {
       $('.deal-detail-navi').css({position: 'fixed', top: '0'});
       //$('#stickyalias').css('display', 'block');

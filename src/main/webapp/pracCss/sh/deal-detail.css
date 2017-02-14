@@ -249,4 +249,7 @@
   /* border:1px solid #ff0080; */
   padding:15px 0;
 }
-
+#deal-detail-navi2 .deal-detail-navi-cont-title,
+#deal-detail-navi3 .deal-detail-navi-cont-title {
+	border-bottom:1px solid #808080;
+}

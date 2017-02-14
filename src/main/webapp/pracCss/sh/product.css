@@ -147,5 +147,13 @@
   background-color: #2ac7e1;
   border-color: #2ac7e1;
 }
-
+/* ------------------------------------------
+  가로가 500px 이하일 때 
+--------------------------------------------*/
+@media screen and (max-width: 500px)
+{
+	.product-search-option-set {max-width:400px;}
+	.product-search-option {width:300px;}
+	#product-search-window input[type="search"] {font-size: 2.7em;}
+}
 
