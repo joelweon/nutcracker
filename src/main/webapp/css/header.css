@@ -199,6 +199,6 @@
 	#div-intro span#text-border { font-size: 1.5em; }
 	
 	/* 하단 플로팅 메뉴 */
-	.div-floating { display: table-cell; }
+	/* .div-floating { display: table-cell; } */
 	
 }
