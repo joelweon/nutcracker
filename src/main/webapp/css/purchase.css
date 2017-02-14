@@ -87,12 +87,12 @@ body {
 
 /* mytop이 내려오는 위치 */
 #my-toggle:checked ~ .my-top-basic .my-top-detail {
-	top: 160px;
+	top: 150px;
 }
 
 /* 토글 이후 여백주기 */
 #my-toggle:checked ~ .my-content-area {
-	margin-top: 120px;
+	margin-top: 100px;
 }
 
 #my-toggle:checked+label {
@@ -266,6 +266,11 @@ purchase-table. th {
 
 .purchase-list-title th {
 	background-color: #d5d5d5;
+	text-align: center;
+}
+
+.purchase-table tr {
+	background-color: white;
 }
 
 .purchase-list {
