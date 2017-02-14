@@ -1,16 +1,27 @@
-@charset "utf-8"
-/* 모바일 Device : 0 ~ 640 */
-@media all and (max-width:640px) {
-  .section {
-    width:100%;
-    height: 100%;
+@CHARSET "UTF-8";
+
+/* Tablet Device : 641 ~ 768 */
+/* @media screen and (min-width:641px){
+} */
+/* Desktop Device : 1024 이상 min-width:1024px*/
+/* 모든 Device를 위한 공통 로드 */
+
+
+/* 641이상 */
+body {
+    font-size:small;
+    background-color:#f0f3f6;
+}
+.section {
+    width: 400px;
+    height: 314px;
     margin: 0 auto;
-  }
+}
+
   img {
     text-align:center;
-    width:100%;
-    height:82px;
-    margin: 50px 10px;
+    width:180px;
+    height:90px;
   }
    .nut-join-section {
     margin-bottom:40px;
@@ -24,11 +35,12 @@
     margin: 0 auto 40px;
     }
   h2 {
+    margin-top: 200px;
     margin-bottom: 40px;
     text-align:center;
   }
   .btn-confirm {
-    width:100%;
+    width:400px;
     height:61px;
     background-color:#f84e51;
     display: inline-block;
@@ -63,87 +75,11 @@
   #btn-f {
     background: #fff url(../images/ico_sns_facebook.png) no-repeat 109px center;
   }
-}
-
-/* Tablet Device : 641 ~ 768 */
-/* @media screen and (min-width:641px){
-} */
- 
-/* Desktop Device : 1024 이상 min-width:1024px*/
-@media all and (min-width:641px) {
-	.section {
-	  width: 400px;
-    height: 314px;
-    margin: 0 auto;
-	}
-  img {
-	  text-align:center;
-	  width:180px;
-	  height:90px;
-  }
-   .nut-join-section {
-    margin-bottom:40px;
-  }
-	a {
-		width:240px;
-	  height:82px;
-	  text-decoration:none;
-	  color:black;
-	  clear:left;
-	  margin: 0 auto 40px;
-	  }
-	h2 {
-    margin-top: 200px;
-    margin-bottom: 40px;
-    text-align:center;
-  }
-  .btn-confirm {
-		width:400px;
-		height:61px;
-    background-color:#f84e51;
-    display: inline-block;
-    color: #fff !important;
-    text-align: center;
-    text-decoration: none !important;
-    white-space: nowrap;
-    font-size:1.2em;
-    font-weight:600;
-  }
-  .btn {
-    background-color:#fff;
-    color: #a8aaac;
-    font-weight: 600;
-    padding-left: 77px;
-    border: 1px solid #d5d8dc;
-    overflow: hidden;
-    width: 100%;
-    height: 60px;
-    margin-bottom:10px;
-  }
-  .connect-section {
-    padding-top:30px;
-    border-top: 1px solid #d5d8dc;
-  }
-  #btn-n {
-    background: #fff url(../images/ico-sns-naver.png) no-repeat 114px center;
-  }
-  #btn-k {
-    background: #fff url(../images/ico_sns_kakao.png) no-repeat 120px center;
-  }
-  #btn-f {
-    background: #fff url(../images/ico_sns_facebook.png) no-repeat 109px center;
-  }
-}
- 
-/* 모든 Device를 위한 공통 로드 */
 
  
-body {
-	font-size:small;
-	background-color:#f0f3f6;
-}
+
 /* .footer {
-	position: relative;
+  position: relative;
     padding: 30px 0 29px;
     border-top: 1px solid #d3d5d8;
     background-color: #fff;
@@ -153,3 +89,31 @@ body {
     min-width: 992px;
     
 } */
+/* 모바일 Device : 0 ~ 640 */
+@media screen and (max-width:640px) {
+  .section {
+    width: 100%;
+    height:100%;
+    margin: 0 auto;
+  }
+    .btn-confirm {
+    width:100%;
+    height:61px;
+  }
+    .btn {
+    width: 100%;
+    height: 60px;
+  }
+   #btn-n {
+    background-position: 15% center;
+  }
+  #btn-k {
+    background-position: 15% center;
+  }
+  #btn-f {
+    background-position: 15% center;
+  }
+  h2 {
+  margin-top:80px;
+  }
+}
