@@ -253,3 +253,9 @@
 #deal-detail-navi3 .deal-detail-navi-cont-title {
 	border-bottom:1px solid #808080;
 }
+/* 위로가기 버튼 */
+.scrollup {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}

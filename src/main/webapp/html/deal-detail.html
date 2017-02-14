@@ -107,7 +107,9 @@
 	    </section>
     </div>
   </div> <!-- deal-detail-tabs -->
-  <!-- <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> -->
+  <a href="#" class="scrollup">
+    <i class="fa fa-arrow-circle-up fa-2x" aria-hidden="true"></i>
+  </a>
 </div><!-- deal-detail-container -->
 <!-- <div id='footer'></div> -->
 </div>
@@ -161,7 +163,7 @@ $(function(){
   // Check the initial Poistion of the Sticky Header
   var stickyHeaderTop = $('.deal-detail-navi').offset().top;
   $(window).scroll(function(){
-  	if() {};
+  	//if() {}
     if( $(window).scrollTop() > stickyHeaderTop ) {
       $('.deal-detail-navi').css({position: 'fixed', top: '0'});
       //$('#stickyalias').css('display', 'block');
@@ -170,6 +172,26 @@ $(function(){
       //$('#stickyalias').css('display', 'none');
     }
   });
+});
+
+//위로 :top btn
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 500) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
 });
 </script>
 </body>
