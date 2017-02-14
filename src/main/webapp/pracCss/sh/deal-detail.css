@@ -259,3 +259,91 @@
 	right: 20px;
 	bottom: 20px;
 }
+/* ------------------------------------------
+  가로가 500px 이하일 때 
+--------------------------------------------*/
+@media screen and (max-width: 500px)
+{
+	.deal-detail-title {
+	  position:absolute;
+	  max-width:480px;
+	  width:100%;
+	  font-weight:bold;
+	  text-align:center;
+	  font-size:1.6em;
+	}
+  .share-icon {
+	  top:65px;
+	  font-size:2.5em;
+	}
+  .deal-detail-img {
+    left:0;
+    top:120px;
+    width:100%;
+    max-width:350px;
+  }
+  .deal-detail-infoset {
+    /* border:1px solid red; */
+    top:320px;
+    right:0;
+    width:100%;
+    height:210px;
+  }
+  .deal-detail-info {
+	  border:1px solid red;
+	  position:relative;
+	  width:100%;
+	  min-width:280px;
+	  margin:5px 0 5px 0;
+  }
+  .deal-detail-img {
+    width:100%;
+    min-width:280px;
+  }
+  .deal-detail-img > img {
+	  width:100%;
+	  height:auto;
+	}
+	.percentbar {
+	  top:150px;
+	}
+	.deal-detail-info-cont {
+	  padding-right:20px;
+	}
+	.deal-detail-info-btn {
+	  left: 5px;
+	  margin-top: 25px;
+	}
+	.purchase-btn ul {
+	  left:-30px;
+	}
+	.purchase-btn ul li a {
+	  padding: 8px 20px 0 10px;
+	}
+	.deal-detail-tabs {
+	  /* border:1px solid red; */
+	  top:520px;
+	  width:100%;
+	  min-width:280px;
+	  margin:2em 0;
+	}
+	.deal-detail-navi {
+	  width:100%;
+    min-width:280px;
+	}
+	.deal-detail-navi > ul {
+	  padding:10px 0 0 0;
+	  margin: 0;
+	}
+	.deal-detail-navi > ul li {
+	  margin: 0 5%;
+	}
+	.deal-detail-navi > ul li a {
+	  padding:0;
+	  color: #fff;
+	  font-size: 1.2em;
+	  text-decoration: none;
+	  font-weight: bold;
+	  transition: all 0.2s ease;
+	}
+}
