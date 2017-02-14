@@ -352,5 +352,39 @@ a#more {
     top:100px;
     z-index:10000;
   }
+  .min-close {
+    display:none;
+  }
 
-
+@media screen and (max-width:850px) {
+    .modal {
+      /* overflow-y: hidden; */
+    }
+    .modal-content {
+      top:0;
+      left:0;
+    }
+    .left-area {
+      width:100%;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .reply-button {
+      background-color:#2AA8E0;
+      position:absolute;
+      color:white;
+      width:60px;
+      height:20px;
+      border:0;
+      right:10%;
+    }
+    .right-area {
+      display:none;
+    }
+    .min-close {
+    display:block;
+    position:fixed;
+    top:4%;
+    right:4%;
+    }
+}
