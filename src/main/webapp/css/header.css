@@ -1,28 +1,18 @@
 @CHARSET "UTF-8";
 
-/* @font-face{ 
-  font-family: godo; 
-  src: url(./GODOM.TTF);
-} 
-@font-face{ 
-  font-family: bmjua; 
-  src: url(./BMJUA_ttf.ttf);
-}  */
-@font-face{ 
-  font-family: bmdohyeon; 
-  src: url(../font/BMDOHYEON_ttf.ttf);
-} 
-@font-face{ 
-  font-family: seoul; 
-  src: url(../font/seoulM.ttf);
-} 
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); /*font-family: ‘Noto Sans KR’ ;*/
+@font-face{ font-family: godo; src: url(../font/GODOM.TTF); } 
+@font-face{ font-family: bmjua; src: url(../font/BMJUA_ttf.ttf); } 
+@font-face{ font-family: bmdohyeon; src: url(../font/BMDOHYEON_ttf.ttf); } 
+@font-face{ font-family: seoul; src: url(../font/seoulM.ttf); } 
 /* font-family: bmdohyen, '궁서'; */
 
 #wrap-header {
   width: 100%;
   height: 60px;
   display: table;
-  font-family: bmdohyeon, sans-serif;
+  font-family: 'bmdohyeon', sans-serif;
 }
 #header {
   height: 60px;
@@ -30,63 +20,15 @@
   display: table-cell;
   vertical-align: middle;
 }
-.header-sub {
-  height: 90%;
-  float: left;
-}
+.header-sub { height: 90%; float: left; }
 
 /* 숨은메뉴-토글버튼 */
-.div-hidden-box {
-  display: none;
-  padding-top: 10px;
-}
+.div-hidden-box { display: none; padding-top: 10px; }
 .div-hidden-box #btn-show-hidden {
-  width:25px;
-  height:25px;
+  font-size: 2em;
+  color: #f00;
   border-bottom:0 none;
-}
-
-/* 햄버거 메뉴 효과 */
-.menu-trigger,
-.menu-trigger span {
-    display: inline-block;
-    transition: all .4s;
-    box-sizing: border-box;
-}
-.menu-trigger {
-    position: relative;
-    width: 50px;
-    height: 50px;
-}
-.menu-trigger span {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: #f00;
-    border-radius: 4px;
-}
-.menu-trigger span:nth-of-type(1) {
-    top: 0;
-}
-.menu-trigger span:nth-of-type(2) {
-    bottom: 10px;
-}
-.menu-trigger span:nth-of-type(3) {
-    bottom: 0;
-}
-/* type-01 */
-/* 중앙 라인이 고정된 자리에서 투명하게 사라지며 상하라인 회전하며 엑스자 만들기 */
-.menu-trigger.active-1 span:nth-of-type(1) {
-    -webkit-transform: translateY (10px) rotate (-45deg);
-    transform: translateY(10px) rotate(-45deg);
-}
-.menu-trigger.active-1 span:nth-of-type(2) {
-    opacity: 0;
-}
-.menu-trigger.active-1 span:nth-of-type(3) {
-    -webkit-transform: translateY(-10px) rotate(45deg);
-    transform: translateY(-10px) rotate(45deg);
+  text-decoration: none;
 }
 
 /* 숨은메뉴-메뉴 */
@@ -103,28 +45,22 @@
   -moz-box-sizing:border-box;
   z-index:100;
 }
-.div-hidden-box .div-menu-hidden.on {display:block;}
+.div-hidden-box .div-menu-hidden.on { display:block; }
 
 .div-menu-hidden ul, .div-menu-hidden ul li {
   display: block;
   padding: 0px 20px;
 }
-.div-menu-hidden li:first-child {
-  padding-top: 20px;
-}
-.div-menu-hidden li a {
-  color: #fff;
-  text-decoration: none;
-}
-.div-menu-hidden li a:hover {
-  color: #c0c0c0;
-}
+.div-menu-hidden li:first-child { padding-top: 20px; }
+.div-menu-hidden li a { color: #fff; text-decoration: none; }
+.div-menu-hidden li a:hover { color: #c0c0c0; }
+
 /* 로고 */
-.div-logo {
-	padding: auto auto;
-}
 .div-logo img {
 	width: 130px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
   /* height: 50px; */
 }
 
@@ -135,36 +71,20 @@
   float: right;
   font-size: 1.2em;
 }
-.div-menu li {
-  display: inline;
-}
+.div-menu li { display: inline; }
 .div-menu li a.menu {
   float: left;
-  /* color: #323338; */
   color: #fff;
   padding: 0 10px;
   text-decoration: none;
 }
-.div-menu li > a.on {
-	color: #f00;
-}
-.div-menu li > a.off {
-	color: #777;
-}
-.div-menu li a.menu:hover {
-  color: red;
-}
-.div-menu li span.menu-divider {
-  float: left;
-  color: #323338;
-}
+.div-menu li > a.on { color: #f00; }
+.div-menu li > a.off { color: #777; }
+.div-menu li a.menu:hover { color: red; }
+.div-menu li span.menu-divider { float: left; color: #323338; }
 
 /* 검색 */
-.div-menu-search {
-  display: table-cell;
-  float: right;
-  padding-top: 10px;
-}
+.div-menu-search { display: table-cell; float: right; padding-top: 10px; }
 .div-menu-search #btn-search {
 	text-decoration: none;
 	font-size: 1.5em;
@@ -192,32 +112,17 @@
   width: 100%;
   text-align: center;
 }
-.div-menu-search label.input-search {
-  color: #808080;
-  display: block;
-}
-.div-menu-search label.input-search.focus {
-  color: #c0c0c0;
-}
-.div-menu-search label.input-search.off {
-  color: #fff;
-}
-.div-menu-search label.input-search.hover {
-  color: #343434;
-}
+.div-menu-search label.input-search { color: #808080; display: block; }
+.div-menu-search label.input-search.focus { color: #c0c0c0; }
+.div-menu-search label.input-search.off { color: #fff; }
+.div-menu-search label.input-search.hover { color: #343434; }
 .div-menu-search #input-search {
   border: none;
   background-color: transparent;
   outline: none;
 }
-.div-menu-search .div-search.on {
-  display: block;
-  padding: 0;
-}
-.div-menu-search button {
-	font-size: 1em;
-	float: right;
-}
+.div-menu-search .div-search.on { display: block; padding: 0; }
+.div-menu-search button { font-size: 1em;	float: right; }
 
 /* 소개글 */
 #div-intro {
@@ -232,59 +137,36 @@
   vertical-align: middle;
   text-align: center;
 }
-#div-intro img {
-  width: 10%;
-}
-#div-intro span {
-  font-size: 1.3em;
-  color: #fff;
-  margin-top: 10px;
-}
-#div-intro-text span#text-border {
-  color: #f00;
-  font-size: 2.5em;
-}
-
-#div-intro-none {
-	width: 100%;
-	height: 20px;
-}
+#div-intro img { width: 10%; }
+#div-intro span { font-size: 1.3em; color: #fff; margin-top: 10px; }
+#div-intro-text span#text-border { color: #f00; font-size: 2.5em; }
+#div-intro-none {	width: 100%; height: 20px; }
 
 /* ------------------------------------------
-  가로가 76px 이하일 때 
+  가로가 760px 이하일 때 
 --------------------------------------------*/
 @media screen and (max-width: 760px)
 {
 	/* 숨은 메뉴 */
-	.div-hidden-box {
-	  width: 32%;
-	  display: block;
-	}
-	.div-hidden-box .div-menu-hidden {
-	  display: none;
-	}
-	.div-menu {
-	  display: none;
-	}
+	.div-hidden-box { width: 32%; display: block;	}
+	.div-hidden-box .div-menu-hidden { display: none;	}
+	.div-menu { display: none; }
+	
 	/* 소개글 */
 	.container.main { background-size: 100% 310px; }
 	#div-intro { height: 250px; }
-	#div-intro span {
-	  font-size: 1.1em;
-	}
-	#div-intro span#text-border {
-	  font-size: 2.0em;
-	}
+	#div-intro span { font-size: 1.1em;	}
+	#div-intro span#text-border { font-size: 2.0em;	}
+	
 	/* 로고 */
-	.div-logo {
-	  width: 32%;
-	 /*  margin-left: 35%; */
-	}
+	.div-logo { width: 32%;	}
+	
 	/* 검색 */
-	.div-menu-search {
-	  width: 32%;
-	}
+	.div-menu-search { width: 32%; }
 }
+/* ------------------------------------------
+  가로가 500px 이하일 때 
+--------------------------------------------*/
 @media screen and (max-width: 500px)
 {
 	/* 소개글 */

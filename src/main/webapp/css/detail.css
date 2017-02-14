@@ -11,7 +11,7 @@ body {
 .modal {
     /* Hidden by default */
     /* Stay in place */
-    margin: 0px auto;
+    /* margin: 0px auto; */
     position: fixed;
     /* Sit on top */
     z-index: 1;
@@ -35,7 +35,7 @@ body {
 .modal-content {
     /* Could be more or less, depending on screen size */
     background-color: #fefefe;
-    left:15%;
+    left:100px;
     /* 5% from the top and centered */
     margin: 5% auto;
     border: 1px;
@@ -84,26 +84,47 @@ div.tit-area span.des {
 div.share-area {
     width: 100%;
     text-align: right;
+    /* margin-bottom:120px; */
 }
-.share-area {
-  margin-bottom:120px;
+
+div.share-area.active {
+  width:3%;
+  position:fixed;
+  top:40%;
+  text-align: left;
+  z-index:2000;
+}
+.top {
+  display:none;
+}
+.top.active {
+  display:block;
+  margin-top:20px;
 }
 .share-area > a {
   text-decoration:none;
 }
+.facebook-logo {
+  width:30px;
+  height:30px;
+  border-radius:5px;
+  margin-right:1px;
+  margin-bottom:7px;
+}
 .twitter-logo {
   width:30px;
   height:30px;
-}
-.facebook-logo {
-  width:40px;
-  height:30px;
-  margin-right:-5px;
+  margin-bottom:7px;
 }
  .share-logo {
   width:32px;
   height:30px;
   margin-right:30px;
+  margin-bottom:7px;
+}
+.top-logo {
+  width:32px;
+  height:32px;
 }
 
 /* 콘텐트 시작 */
@@ -154,7 +175,6 @@ ul.reply-list-area {
 
 .reply-box {
   margin:20px 0px;
-  
 }
 
 .reply-id {
@@ -185,14 +205,6 @@ ul.reply-list-area {
 
 
 
-
-
-
-
-.right-area {
-  height:100%;
-}
-
 .content-content2 {
   color:#939598;
   float: left;
@@ -206,7 +218,8 @@ ul.reply-list-area {
 .content-content2.active{
     position: fixed;
     top: 0;
-    left:650px;
+    /* left:650px; */
+    left:600px;
     width:230px;
 }
 
@@ -222,7 +235,6 @@ ul.share-info {
   font-size:1.2em;
   padding:30px 15px;
 }
-
 
 
 li {

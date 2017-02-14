@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
-  <meta name="viewport" content="width=device-width, inital-scale=1.0, 
-  maximum-scale=1.0, minimun-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="../css/detail.css">
@@ -231,15 +231,15 @@
         <div class="left-area">
           <div class="inarea">
   <!-- 제목박스 -->
-            <div class="tit-area">
-              <h1>옥시레킷벤키저 가습기 살균제 사건</h1>
+            <div class="tit-area" id="title-top">
+              <h1>옥시레킷벤키저 가습기 <br />살균제 사건</h1>
               <span class="des"></span>
               <span id="date">2017.01.02 20:00</span>
             </div>
             <span style="margin:10px;"></span>
             
   <!-- SNS공유 -->
-            <div class="share-area">
+            <div class="share-area" id="sns-area">
               <a href='http://www.facebook.com'>
                 <img class='facebook-logo' src="../images/facebook-logo.png"/>
               </a>
@@ -248,6 +248,9 @@
               </a>
               <a href='#'>
                 <img class='share-logo' src="../images/share-logo.png"/>
+              </a>
+              <a href='#title-top' id="top" class="top">
+                <img class='top-logo' src="../images/top.png"/>
               </a>
             </div>
   
