@@ -128,9 +128,9 @@ div.share-area.active {
 }
 
 /* 콘텐트 시작 */
-.detail-area{
-      padding:80px;
-      margin: 0 auto;
+.inarea > .detail-area{
+    padding:80px 80px 0px 80px;
+    margin: 0 auto;
 }
 .detail {
   margin:0 auto 100px;
@@ -138,6 +138,13 @@ div.share-area.active {
   height:100%;
 }
 
+/* 호두 던지기 */
+.inarea > .walnut-area {
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* 댓글 */
 .reply-commit-area {
   background-color:#E4E4E4;
   padding:20px;
@@ -210,7 +217,7 @@ ul.reply-list-area {
   float: left;
   background-color: #424242;
   width: 230px;
-  height: 100%;
+  height: 900px;
   /* Could be more or less, depending on screen size */
   border-top-right-radius:10px;
   border-bottom-right-radius:10px;
@@ -218,20 +225,19 @@ ul.reply-list-area {
 .content-content2.active{
     position: fixed;
     top: 0;
-    /* left:650px; */
     left:600px;
     width:230px;
 }
 
+
+/* 조회수,호두수 등 */
 div.share-info-area {
   margin:10px;
 }
 
 ul.share-info {
-  margin:80px 0px;
+  margin-top:35px;
   border-top:1px solid #6a6e71;
-  border-bottom:1px solid #6a6e71;
-  -webkit-padding-start: 10px;
   font-size:1.2em;
   padding:30px 15px;
 }
@@ -250,6 +256,7 @@ li span.num {
   color:white;
 }
 
+/* 공동구매 */
 div.purchase-area {
   border-top:1px solid #6a6e71;
   border-bottom:1px solid #6a6e71;
@@ -267,7 +274,7 @@ div.purchase-title-area {
 }
 
 span.link {
-  display:inline-block;
+  display:block;
   text-align:center;
   color:#6a6e71;
 }
@@ -328,6 +335,7 @@ span.link {
   font-weight:bold;
 }
 
+/* 대체상품 더보기 */
 a#more {
   color:white;
   margin-top:5px;
@@ -335,6 +343,7 @@ a#more {
   text-decoration: none;
 }
 
+/* 클릭시 배경 */
   #mask {  
     position:absolute;  
     z-index:9000;  

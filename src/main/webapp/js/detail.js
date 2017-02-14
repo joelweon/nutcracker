@@ -46,7 +46,7 @@
         $('#mask, .window').hide();
         $("body").css({overflow:'auto'})
 
-    });       
+    });
 
     //검은 막을 눌렀을 때
     $('#mask').click(function () {  
