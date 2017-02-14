@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="../js/common.js"></script>
-<script type="text/javascript" src="../js/header.js"></script>
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
@@ -22,9 +19,9 @@
     <span>[순둥이] 베이직 무향 물티슈 80매</span>
     <hr style='border-top: 1px solid #333333;'>
   </div>
-  <div id='deal-btn'>
+  <!-- <div id='deal-btn'>
     <button id='deal-list-back-btn' class="btn btn-danger" onclick="location.href='deal-continue.html' ">목록</button>
-  </div>
+  </div> -->
   <div class='share-icon'>
 	  <i class="fa">&#xf081;</i>
 	  <i class="fa">&#xf082;</i>
@@ -76,37 +73,37 @@
   <!-- 딜 상세 컨텐츠-->
 	<div class='deal-detail-tabs'>
 		<ul id="deal-detail-tab-title">
-	    <li><a href="#" name="#tab1">상품정보</a></li>
-	    <li><a href="#" name="#tab2">상품평</a></li>
-	    <li><a href="#" name="#tab3">제품문의</a></li>
+	    <li onclick="fnMove('deal-detail-tab1')"><a href="#">상품정보</a></li>
+	    <li onclick="fnMove('deal-detail-tab2')"><a href="#">상품평</a></li>
+	    <li onclick="fnMove('deal-detail-tab3')"><a href="#">제품문의</a></li>
 		</ul>
 		<div id="deal-detail-tab-cont"> 
-	    <div id="tab1">
+	    <div id="title-bar-deal-detail-tab1">
+	      <div class='h4'><h4>상품정보</h4></div>
 	      <img src='../images/sundung-detail.jpg'>
 	      <img src='../images/sundung-detail2.jpg'>
 	    </div>
-	    <div id="tab2">
-	      <span>젊줌마 3시간 전<br>
-	      공구 올라올 때마다 구매하고 있어요. 쓸때마다 너무 좋네요<br><br>
-	      </span>
-	      <span>
-	      하랑맘 5시간 전<br>
-        공구로 싸게 사서 좋아요! 다음에 또 했으면 좋겠어요!!<br><br>
-        </span>
-        <span>
-        hahahoho 6시간 전<br>
-        믿고쓰는 제품 순둥이이이이<br><br>
-        </span>
+	    <div id="title-bar-deal-detail-tab2">
+	      <div class='h4'><h4>상품평</h4></div>
+	      <span>젊줌마 3시간 전<br></span>
+	      <span>공구 올라올 때마다 구매하고 있어요. 쓸때마다 너무 좋네요<br><br></span>
+	      <span>하랑맘 5시간 전<br></span>
+        <span>공구로 싸게 사서 좋아요! 다음에 또 했으면 좋겠어요!!<br><br></span>
+        <span>hahahoho 6시간 전<br></span>
+        <span>믿고쓰는 제품 순둥이이이이<br><br></span>
 	    </div>
-	    <div id="tab3">...</div>
+	    <div id="title-bar-deal-detail-tab3">
+	      <div class='h4'><h4>제품문의</h4></div>
+	      <span>제품 문의 페이지 준비중입니다..<br><br></span>
+	    </div>
 		</div>
 	</div> <!-- deal-detail-tabs -->
-
-  
-  
 </div><!-- deal-detail-container -->
 <!-- <div id='footer'></div> -->
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/header.js"></script>
 <script>
 //퍼센트 그래프
 jQuery(document).ready(function(){
@@ -118,16 +115,13 @@ jQuery(document).ready(function(){
 
 //탭이동
 function resetTabs(){
-    $("#deal-detail-tab-cont > div").hide(); //Hide all content
     $("#deal-detail-tab-title a").attr("id",""); //Reset id's      
 }
 var myUrl = window.location.href; //get URL
 var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For mywebsite.com/tabs.html#tab2, myUrlTab = #tab2     
 var myUrlTabName = myUrlTab.substring(0,4); // For the above example, myUrlTabName = #tab
 (function(){
-    $("#deal-detail-tab-cont > div").hide(); // Initially hide all content
     $("#deal-detail-tab-title li:first a").attr("id","current"); // Activate first tab
-    $("#deal-detail-tab-cont > div:first").fadeIn(); // Show first tab content
     $("#deal-detail-tab-title a").on("click",function(e) {
         e.preventDefault();
         if ($(this).attr("id") == "current"){ //detection for current tab
@@ -136,17 +130,34 @@ var myUrlTabName = myUrlTab.substring(0,4); // For the above example, myUrlTabNa
         else{             
         resetTabs();
         $(this).attr("id","current"); // Activate this
-        $($(this).attr('name')).fadeIn(); // Show content for current tab
+        //$($(this).attr('name')).fadeIn(); // Show content for current tab
         }
     });
     for (i = 1; i <= $("#deal-detail-tab-title li").length; i++) {
       if (myUrlTab == myUrlTabName + i) {
-          resetTabs();
-          $("a[name='"+myUrlTab+"']").attr("id","current"); // Activate url tab
-          $(myUrlTab).fadeIn(); // Show url tab content        
+        resetTabs();
+        $("a[name='"+myUrlTab+"']").attr("id","current"); // Activate url tab
+        //$(myUrlTab).fadeIn(); // Show url tab content        
       }
     }
 })()
+
+//화면에 따른 탭 이동
+
+//탭 고정
+$(function(){
+  // Check the initial Poistion of the Sticky Header
+  var stickyHeaderTop = $('#deal-detail-tab-title').offset().top;
+  $(window).scroll(function(){
+    if( $(window).scrollTop() > stickyHeaderTop ) {
+      $('#deal-detail-tab-title').css({position: 'fixed', top: '0px'});
+      //$('#stickyalias').css('display', 'block');
+    } else {
+      $('#deal-detail-tab-title').css({position: 'static', top: '0px'});
+      //$('#stickyalias').css('display', 'none');
+    }
+  });
+});
 </script>
 </body>
 </html>
