@@ -1,46 +1,25 @@
 @CHARSET "UTF-8";
 
-#wrap-header {
-	border-bottom: 2px solid #aaa;
-}
+#wrap-header { border-bottom: 2px solid #aaa; }
 
 /*----------------------
   불량후기 리스트
 ----------------------*/
-.div-menu a#review {
-	color: red;
-}
+.div-menu a#review { color: red; }
 
 /* 글쓰기버튼 */
-#btn-write {
-	margin-bottom: 5px;
-	float: right;
-}
+#btn-write { margin-bottom: 5px; float: right; }
 
 /* 불매후기 리스트 테이블 */
-.table-review {
-	width: 100%;
-	font-size: 1.1em;
-}
-.table-review > thead > tr > th {
-  background: #343434;
-  color: #fff;
-}
-.table-review #no {
-	width: 5%;
-}
-.table-review #title {
-	width: 52%;
-}
-.table-review #writer, .table-review #reg-date {
-	width: 12%;
-}
-.table-review #view-cnt, .table-review #hodu-cnt {
-  width: 8%;
-}
-.table-review > tbody > tr {
-	background-color: #fff;
-  border-bottom: 1px solid #ddd;
+.table-review { width: 100%; font-size: 1.1em; }
+.table-review > thead > tr > th { background: #343434; color: #fff; }
+.table-review #no {	width: 5%; }
+.table-review #title { width: 52%; }
+.table-review #writer, .table-review #reg-date { width: 12%; }
+.table-review #view-cnt, .table-review #hodu-cnt { width: 8%; }
+.table-review > tbody > tr { 
+	background-color: #fff; 
+	border-bottom: 1px solid #ddd; 
 }
 .table-review > thead > tr > th, .table-review > tbody > tr > td {
 	padding: 5px;
@@ -48,65 +27,46 @@
 	text-align: center;
 	margin: auto;
 }
-.table-review > tbody > tr > td.td-title {
-	text-align: left;
-}
-.review-list-img {
-	width: 17%;
-}
-.table-review > tbody > tr > td > a.table-review-img {
-	text-decoration: none;
-}
-.table-review-title {
-	width: 80%;
-	display: inline-block;
+.table-review > tbody > tr > td.td-title { text-align: left; }
+.review-list-img { width: 17%; }
+.table-review > tbody > tr > td > a.table-review-img { text-decoration: none; }
+.table-review-title {	
+	width: 80%;	display: 
+	inline-block; 
 	vertical-align: middle; 
 }
-.table-review-title a {
-	color: #343434;
-	text-decoration: none;
-}
-.table-review-title a:hover {
-	text-decoration: underline;
-}
-
+.table-review-title a {	color: #343434;	text-decoration: none; }
+.table-review-title a:hover {	text-decoration: underline; }
 
 /* 게시판검색 */
-.board-search {
-	padding-right: 20px;
+.board-search {	padding-right: 20px; }
+.board-search > li { 
+	list-style: none; 
+	display: inline-table; 
+	vertical-align: middle; 
 }
-.board-search > li {
-	list-style: none;
-	display: inline-table;
-	vertical-align: middle;
-}
-.board-search button {
-	padding: 2px;
-	height: 25px;
-}
-.dropup, .dropup button {
-	width: 100px;
-}
+.board-search button { padding: 2px; height: 25px; }
+.dropup, .dropup button { width: 100px; }
 
 /* 페이지 이동 */
-.pagination {
-	width: 100%;
-	margin: 5px 0px 30px 0px;
-}
-.pagination > li > a {
-	color: gray;
-}
+.pagination { width: 100%; margin: 5px 0px 30px 0px; }
+.pagination > li > a { color: gray; }
 .pagination > li.active > a {
 	background-color: red;
 	color: white;
 	border: 1px solid gray;
 }
 
-
+/* ------------------------------------------
+  가로가 760px 이하일 때 
+--------------------------------------------*/
 @media screen and (max-width: 760px)
 {
 	th#view-cnt, td.view-cnt { display: none; }
 }
+/* ------------------------------------------
+  가로가 500px 이하일 때 
+--------------------------------------------*/
 @media screen and (max-width: 500px)
 {
 	.table-review { font-size: 1em; }

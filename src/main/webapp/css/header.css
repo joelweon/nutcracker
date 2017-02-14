@@ -142,6 +142,29 @@
 #div-intro-text span#text-border { color: #f00; font-size: 2.5em; }
 #div-intro-none {	width: 100%; height: 20px; }
 
+/* 하단 플로팅 메뉴 */
+.div-floating { 
+	display: none; 
+  /* display: table-cell; */
+  position: fixed; 
+  width: 100%;
+  height: 30px;
+  left: 0;
+  bottom: 0; 
+  padding-top: 8px;
+  background-color: #444;
+  z-index: 9999;
+}
+.div-floating li { display: inline; }
+.div-floating a {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  width: 24%;
+}
+.div-floating a:hover { color: #f00; }
+.div-floating .nav-down { bottom: -30px; transition: 0.2s; }
+
 /* ------------------------------------------
   가로가 760px 이하일 때 
 --------------------------------------------*/
@@ -174,4 +197,8 @@
 	#div-intro { height: 220px; }
 	#div-intro span { font-size: 1em;	}
 	#div-intro span#text-border { font-size: 1.5em; }
+	
+	/* 하단 플로팅 메뉴 */
+	.div-floating { display: table-cell; }
+	
 }
