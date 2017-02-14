@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+.deal-detail-tabs {
+  /* border:1px solid red; */
+  position:absolute;
+  bottom:0;
+  width:90%;
+  max-width:900px;
+  height:100%;
+  margin:2em;
+}
+
+.deal-detail-navi {
+  width: 100%;
+  height: 50px; 
+  position: relative; 
+  top: 0;
+  background: rgba(255,0,0,0.5);
+}
+
+.deal-detail-navi > ul {
+  padding: 20px;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+}
+.deal-detail-navi > ul li {
+  display: inline-block;
+  margin: 10px 10px;
+}
+.deal-detail-navi > ul li a {
+  padding: 10px 0;
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.deal-detail-navi > ul li a:hover {
+  color: #34495E;
+}
+.deal-detail-navi a .active {
+  border-bottom: 2px solid #000000;
+}
+.deal-detail-navi-cont {
+	position: relative;
+}
+.deal-detail-navi-cont-title {
+	/* border:1px solid #808080; */
+	width:100%;
+	margin:10px 0 10px 0;
+	font-size:1.5em;
+}
+#deal-detail-navi1, #deal-detail-navi2, #deal-detail-navi3 {
+	/* border:1px solid green; */
+	padding:10px 10px;
+}
+#deal-detail-navi1 img {
+	display:block;
+	margin:auto;
+	width:90%;
+}
+.deal-detail-navi2-review {
+	/* border:1px solid #ff0080; */
+	padding:15px 0;
+}
