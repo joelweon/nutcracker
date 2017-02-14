@@ -72,5 +72,25 @@
           sticky.classList.remove('active');
       }
   }); 
+  //스크롤 -active
+  var modal = document.querySelectorAll('.modal')[0];
+  var modal_content = document.querySelectorAll('.modal-content')[0];
+  var sns = document.getElementById('sns-area');
+  var t = document.getElementById('top');
+  
+  modal.addEventListener('scroll',function(e){
+    
+    var windowTop = e.target.scrollTop;
+    var modalTop = modal_content.offsetTop;
+    
+    if(modalTop<windowTop){
+      sns.classList.add('active');
+      t.classList.add('active');
+      
+    }else{
+      sns.classList.remove('active');
+      t.classList.remove('active');
+    }
+  }); 
   
 

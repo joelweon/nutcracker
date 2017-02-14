@@ -84,26 +84,47 @@ div.tit-area span.des {
 div.share-area {
     width: 100%;
     text-align: right;
+    /* margin-bottom:120px; */
 }
-.share-area {
-  margin-bottom:120px;
+
+div.share-area.active {
+  width:3%;
+  position:fixed;
+  top:40%;
+  text-align: left;
+  z-index:2000;
+}
+.top {
+  display:none;
+}
+.top.active {
+  display:block;
+  margin-top:20px;
 }
 .share-area > a {
   text-decoration:none;
 }
+.facebook-logo {
+  width:30px;
+  height:30px;
+  border-radius:5px;
+  margin-right:1px;
+  margin-bottom:7px;
+}
 .twitter-logo {
   width:30px;
   height:30px;
-}
-.facebook-logo {
-  width:40px;
-  height:30px;
-  margin-right:-5px;
+  margin-bottom:7px;
 }
  .share-logo {
   width:32px;
   height:30px;
   margin-right:30px;
+  margin-bottom:7px;
+}
+.top-logo {
+  width:32px;
+  height:32px;
 }
 
 /* 콘텐트 시작 */
