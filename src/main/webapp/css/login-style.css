@@ -35,10 +35,36 @@ body {
     margin: 0 auto 40px;
     }
   h2 {
-    margin-top: 200px;
+    margin-top: 150px;
     margin-bottom: 40px;
     text-align:center;
   }
+  
+  
+form {
+    border: 3px solid #f1f1f1;
+}
+
+#email, #password{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.login-box {
+    padding: 16px;
+    height:210px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+  
   .btn-confirm {
     width:400px;
     height:61px;
@@ -50,7 +76,12 @@ body {
     white-space: nowrap;
     font-size:1.2em;
     font-weight:600;
+    display:none;
   }
+.btn-login {
+  width:100%;
+  display:block;
+}
   .btn {
     background-color:#fff;
     color: #a8aaac;
@@ -114,6 +145,10 @@ body {
     background-position: 15% center;
   }
   h2 {
-  margin-top:80px;
+  margin-top:0px;
+  margin-bottom:10px;
+  }
+  .nut-join-section {
+    margin-bottom:0px;
   }
 }

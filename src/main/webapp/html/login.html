@@ -17,18 +17,33 @@
 	      <div class="nut-join-section">
 	        <div class="logo-img">
 	          <h2>
-	            <a href="#"><img src="../images/walnut-black.png"/>
+	            <a href="main.html"><img src="../images/walnut-black.png"/>
 	            <br>세상을 바꾸는 The Nutcracker의<br> 회원이 되세요.
 	            </a>
 	          </h2>
-	          <div class="nut-join">
-              <a href="main.html">
+              <!-- 로그인 -->
+              <form action="#" method="post">
+              
+                <div class="login-box">
+                  <label><b>Email</b></label>
+                  <input id="email" type="text" placeholder="이메일" name="id" required>
+              
+                  <label><b>Password</b></label>
+                  <input id="password" type="password" placeholder="비밀번호" name="psw" required>
+                      
+                  <button id="login" type="submit" class="btn-confirm btn-login">로그인</button>
+                </div>
+              
+              </form>
+            </div>
+            
+            
+<!--             <div class="nut-join">
 	            <button type="button" class="btn-confirm" id="nutJoin">
 	             The Nutcracker 신규 가입</button>
-               </a>
-	          </div>
+	          </div> -->
 	        </div>
-	      </div>
+	      
 	      <div class="connect-section">
 		      <div class="naver-join">
 		        <button type="button" class="btn" id="btn-n">
