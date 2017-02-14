@@ -10,6 +10,8 @@ $(function(event) {
 	/* 숨은메뉴-버튼 이벤트 */
 	$(document).on('click', '#btn-show-hidden', function() {
 		$('#btn-show-hidden').toggleClass('on');
+		$(this).parent().parent().find('#btn-show-hidden').toggleClass('glyphicon glyphicon-menu-hamburger');
+		$(this).parent().parent().find('#btn-show-hidden').toggleClass('glyphicon glyphicon-remove');
 		$(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
 		return false;
 	});
@@ -49,20 +51,6 @@ $(function(event) {
     }
     return false;
   });
-	
-
-  /* 햄버거 메뉴 효과 */
-  var burger = $('.menu-trigger');
-  
-  burger.each(function(index) {
-    var $this = $(this);
-    
-    $this.on('click', function(e) { 
-      e.preventDefault();
-      $(this).toggleClass('active-' + (index+1));
-      })
-  });
-  
 });
 
 function setMenu(){

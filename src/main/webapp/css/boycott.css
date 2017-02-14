@@ -1,8 +1,5 @@
 @CHARSET "UTF-8";
 
-.container {
-	/* min-width: 600px; */
-}
 #wrap-header {
 	border-bottom: 2px solid #aaa;
 }
@@ -10,9 +7,7 @@
 /* -------------------------------
   불매운동 리스트
 --------------------------------*/
-.div-menu a#boycott {
-	color: red;
-}
+.div-menu a#boycott {	color: red;}
 .boycott-list-box {
 	width: 98%;
 	border: 1px solid #aaa;
@@ -22,47 +17,32 @@
 	display: table;
 	background-color: #fff;
 }
-.boycott-list-img {
-	width: 18%;
-	margin-right: 10px;
-}
-.boycott-list-detail {
-	width: 80%;
-	float: right;
-	padding: 5px 5px;
-}
-.boycott-list-content {
-	margin-bottom: 20px;
-}
-.boycott-list-content span a {
-	text-decoration: none;
-	color: #000;
-}
-.boycott-list-content span a:hover {
-	text-decoration: underline;
-}
-.boycott-list-title {
-	font-size: 1.5em;
-	font-weight: bold;
-}
-.boycott-list-text {
-	font-size: 1.2em;
-}
+.boycott-list-img {	width: 18%;	margin-right: 10px; }
+.boycott-list-detail { width: 80%; float: right; padding: 5px 5px; }
+.boycott-list-content {	margin-bottom: 20px; }
+.boycott-list-content span a { text-decoration: none;	color: #000; }
+.boycott-list-content span a:hover { text-decoration: underline; }
+.boycott-list-title {	font-size: 1.5em;	font-weight: bold; }
+.boycott-list-text { font-size: 1.2em; }
 .boycott-list-btn .support-cnt {
 	font-size: 1.5em;
 	font-weight: bold;
 	color: red;
 }
-.boycott-list-btn .list-add-btn {
-	float: right;
-}
+.boycott-list-btn .list-add-btn { float: right; }
 
+/* ------------------------------------------
+  가로가 760px 이하일 때 
+--------------------------------------------*/
 @media screen and (max-width: 760px)
 {
 	.boycott-list-detail { width: 78%; padding: 0 0; }
 	.boycott-list-title { font-size: 1.3em; }
 	.boycott-list-text { font-size: 1em; }
 }
+/* ------------------------------------------
+  가로가 500px 이하일 때 
+--------------------------------------------*/
 @media screen and (max-width: 500px)
 {
 	#div-year > span { display: none; }
