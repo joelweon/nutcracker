@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
-#wrap-header { border-bottom: 2px solid #7800f0; background-color: #ffffff;}
-.div-menu li > a.on { color: #7800f0; }
+#wrap-header { border-bottom: 7px solid #ae63e4; background-color: #000000;}
+.div-menu li > a.on { color: #ae63e4; }
 body {background-color: #ffffff;}
 
 .deal-container {

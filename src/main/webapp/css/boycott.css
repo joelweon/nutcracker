@@ -1,8 +1,6 @@
 @CHARSET "UTF-8";
 
-#wrap-header {
-	border-bottom: 2px solid #f97c00;
-}
+#wrap-header {border-bottom: 7px solid #f97c00;}
 .div-menu li > a.on { color: #f97c00; }
 
 /* -------------------------------

@@ -16,6 +16,8 @@ div {
 }
 .container {
 	width: 100%;
+	padding-right: 0px;
+  padding-left: 0px;
 }
 .container.main {
 	width:100%;
