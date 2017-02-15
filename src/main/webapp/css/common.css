@@ -1,6 +1,11 @@
 @CHARSET "UTF-8";
 
 /* 폰트 설정 */
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css); /* font-family: 'Jeju Gothic', serif; */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); /*font-family: ‘Noto Sans KR’ ;*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face{ font-family: godo; src: url(../font/GODOM.TTF); } 
+@font-face{ font-family: bmjua; src: url(../font/BMJUA_ttf.ttf); }
 @font-face{ 
   font-family: seoul; 
   src: url(../font/seoulM.ttf);
@@ -8,8 +13,9 @@
 
 body {
   font-size: small;
-  font-family: seoul, sans-serif;
-  background-color: #f1f1f2;
+  font-family: 'Nanum Gothic', sans-serif;
+  /* background-color: #f1f1f2; */
+  background-color: rgb(25,25,25);
 }
 div {
 	/* border: 1px solid red; */

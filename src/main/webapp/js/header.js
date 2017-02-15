@@ -1,7 +1,7 @@
 /*-----------------------------
  * 헤더 JavaScript
  -----------------------------*/
-$(function(event) {
+/*$(function(event) {*/
   /* 현재 메뉴 하이라이팅 하기 함수 */
   setTimeout(function () {
     setMenu(); 
@@ -51,7 +51,7 @@ $(function(event) {
     }
     return false;
   });
-});
+/*});*/
 
 function setMenu(){
   var page = new Array;
