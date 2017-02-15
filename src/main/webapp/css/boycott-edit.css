@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.edit-text {
+	color: #ddd;
+	font-size: 1.1em;
+}
+.edit-input {
+	width: 100%;
+	border-radius: 5px;
+	margin: 3x 0 3px 0;
+}
+.edit-input.article {
+	width: 50%;
+}
+
+.edit-btn {
+	float: right;
+	margin-left: 5px;
+}
