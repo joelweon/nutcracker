@@ -77,6 +77,10 @@
 	font-size: 1.0em;
 }
 /* 불량후기 */
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
 .list-group-item {
 	margin: 2px 0;
   width: 100%;

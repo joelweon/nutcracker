@@ -1,6 +1,7 @@
 @CHARSET "UTF-8";
 
-#wrap-header { border-bottom: 2px solid #aaa; }
+#wrap-header { border-bottom: 7px solid #009900; }
+.div-menu li > a.on { color: #009900; }
 
 /*----------------------
   불량후기 리스트

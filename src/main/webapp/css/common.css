@@ -14,14 +14,15 @@
 body {
   font-size: small;
   font-family: 'Nanum Gothic', sans-serif;
-  /* background-color: #f1f1f2; */
-  background-color: rgb(25,25,25);
+  background-color: #252525;
 }
 div {
 	/* border: 1px solid red; */
 }
 .container {
 	width: 100%;
+	padding-right: 0px;
+  padding-left: 0px;
 }
 .container.main {
 	width:100%;
@@ -33,6 +34,7 @@ div {
 #wrap-content {
 	width: 100%;
 	max-width: 960px;
+	padding: 0 10px;
 	margin: auto;
 }
 /* 페이지 타이틀 */

@@ -1,10 +1,12 @@
 @CHARSET "UTF-8";
-#wrap-header {
-  border-bottom: 2px solid #aaa;
-}
+#wrap-header { border-bottom: 7px solid #ae63e4; background-color: #000000;}
+.div-menu li > a.on { color: #ae63e4; }
+body {background-color: #ffffff;}
+
 .deal-container {
 	width: 100%;
   max-width: 960px;
+  padding: 0 10px;
   margin: auto;
 }
 .deal-box:hover {
