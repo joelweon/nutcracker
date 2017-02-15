@@ -1,11 +1,6 @@
 @CHARSET "UTF-8";
 
 /* 폰트 설정 */
-@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css); /* font-family: 'Jeju Gothic', serif; */
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); /*font-family: ‘Noto Sans KR’ ;*/
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@font-face{ font-family: godo; src: url(../font/GODOM.TTF); } 
-@font-face{ font-family: bmjua; src: url(../font/BMJUA_ttf.ttf); }
 @font-face{ 
   font-family: seoul; 
   src: url(../font/seoulM.ttf);
@@ -13,29 +8,35 @@
 
 body {
   font-size: small;
-  font-family: 'Nanum Gothic', sans-serif;
-  background-color: #252525;
+  font-family: seoul, sans-serif;
+  /* background-color: #f1f1f2; */
+}
+.container {
+  padding:0;
 }
 div {
 	/* border: 1px solid red; */
 }
 .container {
 	width: 100%;
-	padding-right: 0px;
-  padding-left: 0px;
 }
-.container.main {
+#div-intro {
 	width:100%;
 	background-image: url(http://www.powerpointhintergrund.com/download/grey-ppt-background-522);
 	/* background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg); */
-	background-size: 100% 340px;
+	background-size: 100% 400px;
 	background-repeat: no-repeat;
+	position:fixed;
+	z-index:1;
 }
 #wrap-content {
 	width: 100%;
-	max-width: 960px;
-	padding: 0 10px;
-	margin: auto;
+	/* max-width: 960px; */
+	margin: 400px auto 0px auto;
+	padding:50px 200px;
+	position:relative;
+	z-index:5;
+	background-color: #f1f1f2;
 }
 /* 페이지 타이틀 */
 .title-bar > span, .title-bar > hr {
@@ -49,11 +50,11 @@ div {
 }
 .title-title {
   width: 110px;
-  color: #ffffff;
+  color: black;
   font-size: 1.5em;
   font-weight: bold;
-  background-color: #252525;
-  padding-right:5px;
+  background-color: #f0f0f0;
+  padding-right:10px;
 }
 .title-sub {
 	color: #gray;
