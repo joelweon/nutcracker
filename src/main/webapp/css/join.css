@@ -27,10 +27,10 @@ body {
   img {
     text-align:center;
     width:160px;
-    height:100px;
+    height:90px;
   }
    .nut-join-section {
-    margin-bottom:30px;
+    margin-bottom:40px;
   }
   a {
     width:240px;
@@ -42,88 +42,79 @@ body {
     }
   h2 {
     margin-top: 150px;
+    margin-bottom: 40px;
     text-align:center;
   }
-
-
-#email, #password{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-
-.login-box {
-    padding: 16px;
-    height:210px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-.logo-img > .login-join {
-  text-align:right;
-  font-weight:bold;
-  font-size:1.1em;
-  padding-right:20px;
-  margin-right:10px;
-}
   
-  .btn-confirm {
-    width:400px;
-    height:61px;
-    background-color:#f84e51;
-    display: inline-block;
-    color: #fff !important;
-    text-align: center;
-    text-decoration: none !important;
-    white-space: nowrap;
-    font-size:1.2em;
-    font-weight:600;
-    display:none;
-  }
-.btn-login {
-  width:100%;
+/* 테이블 */
+
+select {
+  height:20px;
+}
+p {
+   font-weight:bold;
+   font-size:1.1em;
+}
+
+table.t {
+  padding: 5px 0 5px 0;
+}
+tbody th {
+  padding:10px;
+}
+
+tbody > tr > td.line {
+  height:2px;
+  background-color:#FFC8C3;
+}
+
+.form {
+  color:white;
+  padding:10px 10px 0px 10px;
+  background-color:#191A14;
+  border-radius:10px;
+  opacity:0.85;
+}
+
+.addr {
+  width:300px;
   display:block;
 }
-/* 계정연동 */
-.connect-section {
-  width:90%;
-  position:relative;
-  left:20px;
-  padding-top:30px;
-  border-top: 1px solid #d5d8dc;
+
+/* 버튼 css */
+.animate {
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
 }
-  .btn {
-    background-color:#fff;
-    color: white;       /* #a8aaac; */
-    font-weight: 600;
-    padding-left: 77px;
-    border: 1px solid #d5d8dc;
-    overflow: hidden;
-    width: 100%;
-    height: 60px;
-    margin-bottom:10px;
-  }
-  /* 계정 버튼 */
-  #btn-n {
-    background: rgba(0, 0, 0, 0.8) url(../images/ico-sns-naver.png) no-repeat 90px center;
-  }
-  #btn-k {
-    background: rgba(0, 0, 0, 0.8) url(../images/ico_sns_kakao.png) no-repeat 96px center;
-  }
-  #btn-f {
-    background: rgba(0, 0, 0, 0.8) url(../images/ico_sns_facebook.png) no-repeat 85px center;
-  }
-input {
-  opacity:0.9;
+
+.action-button {
+  position: relative;
+  margin: 10px 0px 20px 10px;
+  float: right;
+  border-radius: 10px;
+  font-size: 1.1em;
+  color: #1b2458;
+  text-decoration: none;
+  width: 80px;
+  height: 30px;
 }
- 
+
+.yellow {
+  background-color: #F2CF66;
+  border-bottom: 5px solid #D1B358;
+  text-shadow: 0px -2px #D1B358;
+}
+
+.action-button:active {
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid;
+}
+
+
+
+
+
 
 /* .footer {
   position: relative;
@@ -166,5 +157,12 @@ input {
   }
   .nut-join-section {
     margin-bottom:0px;
+  }
+  .form {
+    width:94%;
+  }
+  .addr {
+    width:100%;
+    display:block;
   }
 }

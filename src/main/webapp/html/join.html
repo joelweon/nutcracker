@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi" />
+
+
+<title>The Nutcracker</title>
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../css/join.css">
+</head>
+
+<body>
+  <div class="login_sns_wrap">
+    <div class="container">
+      <div class="section">
+        <div class="nut-join-section">
+          <div class="logo-img">
+            <h2>
+              <a href="main.html"><img
+                src="../images/walnut-white.png" /> <br>세상을 바꾸는 The
+                Nutcracker의<br> 회원이 되세요. </a>
+            </h2>
+          </div>
+        </div>
+        <!-- nut-join-section -->
+
+        <form name="write_form_member" class="form" method="post">
+          <table class="t">
+            <p>필수입력</p>
+            <tbody>
+              <tr>
+                <th>이메일</th>
+                <td>
+                  <input type='text' name="email">
+                  <select name="emailaddr">
+                    <option value="">직접입력</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="empal.com">empal.com</option>
+                    <option value="gmail.com">gmail.com</option>
+                    <option value="hanmail.net">hanmail.net</option>
+                    <option value="msn.com">msn.com</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="nate.com">nate.com</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>닉네임</th>
+                <td><input type="text" name="mbname"></td>
+              </tr>
+              <tr>
+                <th>비밀번호</th>
+                <td><input type="password" name="mbpw"></td>
+              </tr>
+              <tr>
+                <th>비밀번호 확인</th>
+                <td><input type="password" name="mbpw_re"></td>
+              </tr>
+              <tr>
+                <th>전화번호</th>
+                <td>
+                  <select name="emailaddr"><option value="">010</option></select>-
+                  <input type="text" name="cel1" style="width: 40px" />-
+                  <input type="text" name="cel1" style="width: 40px" />
+                </td>
+              </tr>
+              <tr>
+                <th>생년월일</th>
+                <td><select name="emailaddr">
+                    <option value="">2000</option>
+                </select> 년 <select name="emailaddr">
+                    <option value="">01</option>
+                </select> 월 <select name="emailaddr">
+                    <option value="">01</option>
+                </select> 일</td>
+              </tr>
+            </tbody>
+          </table>
+              
+          <table>
+            <tbody>
+              <p>선택입력</p>
+              <tr>
+                <th>주소</th>
+                <td class="addr"><input type="text" name="addr" class="addr"></td>
+                <td class="addr"><input type="text" name="addr" class="addr"></td>
+              </tr>
+              <tr>
+                <th>직업</th>
+                <td>
+                  <select name='job' size='1'>
+                    <option value=''>선택하세요</option>
+                    <option value='39'>학생</option>
+                    <option value='40'>컴퓨터/인터넷</option>
+                    <option value='41'>언론</option>
+                    <option value='42'>공무원</option>
+                    <option value='43'>군인</option>
+                    <option value='44'>서비스업</option>
+                    <option value='45'>교육</option>
+                    <option value='46'>금융/증권/보험업</option>
+                    <option value='47'>유통업</option>
+                    <option value='48'>예술</option>
+                    <option value='49'>의료</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>성별</th>
+                <td class="g">
+                  <input type="radio" name="chk_gender"checked>남성
+                  <input type="radio" name="chk_gender" value="4">여성
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            <!-- <div class="line" style="border-bottom:2px solid #FFC8C3; margin-bottom:10px;"></div> -->
+              <button id ='join-btn' type='button' class='action-button shadow animate yellow'>가입</button>
+              <button id ='cancle-btn' type='button' class='action-button shadow animate yellow'>취소</button>
+            
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="footer"></div>
+  <!-- <div id="layer1" class="cLayer" style="background-color:#ff6666">메뉴1</div> -->
+
+
+</body>
+</html>
