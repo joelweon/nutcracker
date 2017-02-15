@@ -1,4 +1,8 @@
 @CHARSET "UTF-8";
+#wrap-header { border-bottom: 2px solid #7800f0;  background-color: #ffffff;}
+.div-menu li > a.on { color: #7800f0; }
+body {background-color: #ffffff;}
+
 .deal-detail-container {
 	/* border:1px solid red; */
 	height:800px;
@@ -114,7 +118,7 @@
   height: 40px;
   background: #ff0000;
   text-align: center;
-  padding: 8px 30px 0 20px;
+  padding: 8px 30px 0 15px;
   position: absolute;
   margin: 15px 5px 0 0; 
   font-size: 1.2em;
@@ -196,7 +200,6 @@
 
 .deal-detail-navi {
   width: 100%;
-  max-width:860px;
   height: 40px; 
   position: relative;
   background: rgba(255,0,0,0.7);
