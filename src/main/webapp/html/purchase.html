@@ -15,15 +15,13 @@
   <div id='wrap-header'></div>
   
 	<div class='contents-container'>
-	
-	
-		<input type="checkbox" name="toggle" id="my-toggle" /> <label
-			for="my-toggle"></label>
+		
 		<div class="my-top-basic">
 			<span id="my-title">마이페이지</span> <span id="my-photo"> <img
 				id="profile-photo" src="../images/nutc1.PNG"
 				onclick="location.href='#'">
 			</span> <span id="profile-name">cracker 님</span>
+			<button class="detail-togle">toglee</button>
 			<div class="my-top-detail">
 				<div class='my-menu-list'>
 					<ul>
@@ -174,8 +172,6 @@
                 </div>
               </td>
             </tr>
-            
-						
 						
 					</table>
 				</div>
@@ -197,6 +193,14 @@
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/header.js"></script>
+
+<script>
+
+$(".detail-togle").on('click', function() {
+	$(".my-top-detail").toggle("1000");
+});
+
+</script>
 
 </body>
 </html>

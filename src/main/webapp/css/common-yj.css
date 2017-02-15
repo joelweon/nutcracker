@@ -21,6 +21,7 @@ div {
 	width:100%;
 	background-image: url(http://www.powerpointhintergrund.com/download/grey-ppt-background-522);
 	/* background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg); */
+	/* background-image: url("http://www.babaimage.com/images/grey-gradient-background-1906205.jpg"); */
 	background-size: 100% 340px;
 	background-repeat: no-repeat;
 }
@@ -41,11 +42,11 @@ div {
 }
 .title-title {
   width: 110px;
-  color: black;
+  color: white;
   font-size: 1.5em;
   font-weight: bold;
-  background-color: #f0f0f0;
   padding-right:10px;
+  margin-top: 20px;
 }
 .title-sub {
 	color: #gray;
