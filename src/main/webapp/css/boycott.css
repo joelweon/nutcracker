@@ -6,6 +6,9 @@
 /* -------------------------------
   불매운동 리스트
 --------------------------------*/
+#select-year {
+  color:black !important;
+}
 .div-menu a#boycott {	color: red;}
 .boycott-list-box {
 	width: 98%;

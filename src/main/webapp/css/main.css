@@ -18,10 +18,12 @@
 #wrap-boycott .title-bar {
 	margin-bottom: 5px;
 	border-bottom: 5px solid #f97c00;
+	cursor: pointer;
 }
 #wrap-review .title-bar {
 	margin-bottom: 5px;
 	border-bottom: 5px solid #009900;
+	cursor: pointer;
 }
 .title-view {
 	float: right;
@@ -121,13 +123,13 @@
   vertical-align: middle;
 }
 .info {
-  font-size: 0.8em;
+  font-size: 1em;
   display: inline-block;
   color: #777;
 }
 .profile-name > a {
   color: #343434;
-  font-size: 1.0em;
+  font-size: 1.1em;
   font-weight: bold;
   text-decoration: none;
 }
