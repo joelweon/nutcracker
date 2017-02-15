@@ -29,6 +29,7 @@ div {
 #wrap-content {
 	width: 100%;
 	max-width: 960px;
+	padding: 0 10px;
 	margin: auto;
 }
 /* 페이지 타이틀 */

@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-#wrap-header { border-bottom: 2px solid #ae63e4; background-color: #000000;}
+#wrap-header { border-bottom: 7px solid #ae63e4; background-color: #000000;}
 .div-menu li > a.on { color: #ae63e4; }
 body {background-color: #ffffff;}
 
@@ -293,7 +293,7 @@ body {background-color: #ffffff;}
     height:210px;
   }
   .deal-detail-info {
-	  border:1px solid red;
+	  /* border:1px solid red; */
 	  position:relative;
 	  width:100%;
 	  min-width:280px;
