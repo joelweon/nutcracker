@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/header.css">
@@ -165,7 +167,7 @@ $(function(){
   $(window).scroll(function(){
   	//if() {}
     if( $(window).scrollTop() > stickyHeaderTop ) {
-      $('.deal-detail-navi').css({position: 'fixed', top: '0'});
+      $('.deal-detail-navi').css({position: 'fixed', left:'0', top: '0'});
       //$('#stickyalias').css('display', 'block');
     } else {
       $('.deal-detail-navi').css({position: 'static', top: '0px'});

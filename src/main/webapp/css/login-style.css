@@ -8,9 +8,15 @@
 
 
 /* 641이상 */
+
+html {
+  height:100%;
+}
 body {
     font-size:small;
     background-color:#f0f3f6;
+    background: url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/join_login/bg_login-7a6263c6ffe0ef1396835fef16ef16a4e1106ab1b3a908d421b1128cc76439dd.jpg) center center no-repeat;
+    color:white;
 }
 .section {
     width: 400px;
@@ -30,7 +36,7 @@ body {
     width:240px;
     height:82px;
     text-decoration:none;
-    color:black;
+    color:white;
     clear:left;
     margin: 0 auto 40px;
     }
@@ -42,7 +48,7 @@ body {
   
   
 form {
-    border: 3px solid #f1f1f1;
+    border: 3px solid #eeeeee;
 }
 
 #email, #password{
@@ -63,6 +69,11 @@ form {
 span.psw {
     float: right;
     padding-top: 16px;
+}
+
+.j {
+  text-align:right;
+  padding-right:20px;
 }
   
   .btn-confirm {
