@@ -170,15 +170,15 @@ ALTER TABLE COMP
 
 -- 공동구매
 CREATE TABLE PURCHS (
-  PNO      INTEGER      NOT NULL COMMENT '공구일련번호', -- 공구일련번호
-  CPNO     INTEGER      NOT NULL COMMENT '기업일련번호', -- 기업일련번호
-  TITLE    VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
-  PRICE    INTEGER      NOT NULL COMMENT '가격', -- 가격
-  ST_DATE  DATE         NOT NULL COMMENT '시작일', -- 시작일
-  EN_DATE  DATE         NOT NULL COMMENT '종료일', -- 종료일
-  DEV_DATE DATE         NOT NULL COMMENT '배송일', -- 배송일
-  TOTAL_NO INTEGER      NOT NULL COMMENT '모집인원', -- 모집인원
-  APY_CNT  INTEGER      NULL     COMMENT '신청인원' -- 신청인원
+  PNO       INTEGER      NOT NULL COMMENT '공구일련번호', -- 공구일련번호
+  CPNO      INTEGER      NOT NULL COMMENT '기업일련번호', -- 기업일련번호
+  TITLE     VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
+  PRICE     INTEGER      NOT NULL COMMENT '가격', -- 가격
+  ST_DATE   DATE         NOT NULL COMMENT '시작일', -- 시작일
+  EN_DATE   DATE         NOT NULL COMMENT '종료일', -- 종료일
+  DEV_DATE  DATE         NOT NULL COMMENT '배송일', -- 배송일
+  TOTAL_CNT INTEGER      NOT NULL COMMENT '모집인원', -- 모집인원
+  APY_CNT   INTEGER      NULL     COMMENT '신청인원' -- 신청인원
 )
 COMMENT '공동구매';
 
