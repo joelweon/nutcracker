@@ -2,6 +2,30 @@
 #wrap-header { background-color: transparent; }
 #wrap-boycott { display: inline-table; width: 48%; margin-right: 3%;}
 #wrap-review { display: inline-table; width: 48%; }
+
+/* 헤더 고정 및 인트로 설정 */
+#wrap-header {
+	/* background-color:black; */
+  position:fixed;
+  z-index:10;
+}
+#div-intro {
+  width:100%;
+  background-image: url(http://www.powerpointhintergrund.com/download/grey-ppt-background-522);
+  /* background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg); */
+  background-size: 100% 400px;
+  background-repeat: no-repeat;
+  position:fixed;
+  z-index:1;
+}
+#wrap-content {
+	position:relative;
+  margin: 350px auto 0 auto;
+  padding:10px 5%;
+  max-width: none;
+  z-index:5;
+  background-color: #252525;
+}
 /* 불매 불량 바로가기 */
 #scrollbar {
   margin-top: 10px;
@@ -46,7 +70,7 @@
   width:49%;
   height:240px;
   /* min-width:170px; */
-  max-width: 250px;
+  max-width: 320px;
   margin: 2px 2px;
   position:relative;
   display: inline-block;

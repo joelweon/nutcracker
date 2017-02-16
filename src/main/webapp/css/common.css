@@ -35,8 +35,7 @@ div {
 #wrap-content {
 	width: 100%;
 	max-width: 960px;
-	padding: 0 10px;
-	margin: auto;
+	margin:auto;
 }
 /* 페이지 타이틀 */
 .title-bar > span, .title-bar > hr {

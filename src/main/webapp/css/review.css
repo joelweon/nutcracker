@@ -13,7 +13,6 @@
 
 /* 불매후기 리스트 테이블 */
 .table-review { width: 100%; font-size: 1.1em; }
-.table-review > thead > tr > th { background: #343434; color: #fff; }
 .table-review #no {	width: 5%; }
 .table-review #title { width: 52%; }
 .table-review #writer, .table-review #reg-date { width: 12%; }
@@ -22,11 +21,20 @@
 	background-color: #fff; 
 	border-bottom: 1px solid #ddd; 
 }
-.table-review > thead > tr > th, .table-review > tbody > tr > td {
+.table-review > thead > tr th {
+	padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+  margin: auto;
+  background: #343434;
+  color:#ffffff;
+}
+.table-review > tbody > tr > td {
 	padding: 5px;
 	vertical-align: middle;
 	text-align: center;
 	margin: auto;
+	color:black;
 }
 .table-review > tbody > tr > td.td-title { text-align: left; }
 .review-list-img { width: 17%; }

@@ -10,6 +10,7 @@ body {background-color: #ffffff;}
 	max-width:960px;
 	position:relative;
 	margin:auto;
+	color:black;
 }
 /* 딜 제목 */
 .deal-detail-title {
@@ -60,8 +61,8 @@ body {background-color: #ffffff;}
   overflow:hidden;
 }
 .deal-detail-img > img {
-	width:auto;
-	height:100%;
+	width:100%;
+	height:auto;
 	margin-left: auto;
   margin-right: auto;
   display: block;
@@ -277,6 +278,7 @@ body {background-color: #ffffff;}
 	}
   .share-icon {
 	  top:65px;
+	  right:5px;
 	  font-size:2.5em;
 	}
   .deal-detail-img {
@@ -288,7 +290,8 @@ body {background-color: #ffffff;}
   .deal-detail-infoset {
     /* border:1px solid red; */
     top:320px;
-    right:0;
+    right:5px;
+    left:5px;
     width:100%;
     height:210px;
   }
@@ -315,7 +318,7 @@ body {background-color: #ffffff;}
 	}
 	.deal-detail-info-btn {
 	  left: 5px;
-	  margin-top: 25px;
+	  margin-top: 40px;
 	}
 	.purchase-btn ul {
 	  left:-30px;
