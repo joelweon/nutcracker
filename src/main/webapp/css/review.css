@@ -6,6 +6,10 @@
 /*----------------------
   불량후기 리스트
 ----------------------*/
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
 .div-menu a#review { color: red; }
 
 /* 글쓰기버튼 */
@@ -21,12 +25,14 @@
 	background-color: #fff; 
 	border-bottom: 1px solid #ddd; 
 }
+.table-review > thead > tr { border-top: 1px solid #999; }
+}
 .table-review > thead > tr th {
 	padding: 5px;
   vertical-align: middle;
   text-align: center;
   margin: auto;
-  background: #343434;
+  background: transparent;
   color:#ffffff;
 }
 .table-review > tbody > tr > td {
@@ -80,6 +86,7 @@
 --------------------------------------------*/
 @media screen and (max-width: 760px)
 {
+	#title-bar-review { width: 97%; margin-left: 2.5%; }
 	th#view-cnt, td.view-cnt { display: none; }
 }
 /* ------------------------------------------
@@ -87,6 +94,8 @@
 --------------------------------------------*/
 @media screen and (max-width: 500px)
 {
+	#title-bar-review span.title-sub { display: none; }
+	#btn-write { margin-right: 5px; }
 	.table-review { font-size: 1em; }
   img.review-list-img, th#reg-date, td.reg-date { display: none; }
   div.table-review-title { width: 100%; }
