@@ -17,7 +17,7 @@
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 1.1em;
   font-weight: bold;
-  background-color: rgba(0,0,0,0.0);
+  background-color: rgba(0,0,0,1.0);
 }
 #header {
   height: 60px;

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/header_sh.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/footer.css">
   
 </head>
 
@@ -280,6 +281,9 @@
   	  </div>
     </div>
   </div> <!-- wrap-content -->
+  
+  <!-- 풋터 -->
+  <div id='wrap-footer'></div>
 </div> <!-- container -->
 
 
@@ -469,12 +473,12 @@ $(function(){
   var stickyHeaderTop = $('#wrap-content').offset().top;
   $(window).scroll(function(){
     if( $(window).scrollTop() + 60 > stickyHeaderTop) {
-      $('#wrap-header').css({background:'rgba(0,0,0,1.0)'});
+      $('#wrap-header').css({background:'rgba(0,0,0,1.0)',transition:'background-color 1.5s'});
     } else {
-      $('#wrap-header').css({background:'rgba(0,0,0,0.0)'});
+      $('#wrap-header').css({background:'rgba(0,0,0,0.0)',transition:'background-color 1.5s'});
     }
   });
 });
 </script>
 </body>
-</html>                                                        
+</html>
