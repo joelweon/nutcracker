@@ -15,7 +15,7 @@ div.input-text { margin-bottom: 10px; }
 }
 
 div.article { border: 1px solid #999; border-radius: 4px; padding: 0 10px; margin-top: 10px;}
-a#add-article { width: 30px; height: 30px; border-radius: 15px; margin-left: 10px; 
+a#add-article, a#remove-article { width: 30px; height: 30px; border-radius: 15px; margin-left: 10px; 
                 padding: 3px 0; background-color: transparent; color: #fff;
                 font-size: 1.3em; }
 a#add-article:hover { background-color: #525252; }
