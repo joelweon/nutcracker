@@ -47,6 +47,13 @@
 --------------------------------------------*/
 @media screen and (max-width: 500px)
 {
+	#wrap-content {
+    width: 100%;
+    max-width: none;
+    margin:auto;
+    padding:0 5px 0 5px;
+	}
+	.title-sub { width:0; }
 	#div-year > span { display: none; }
   .boycott-list-box > a, .boycott-list-box img { display: none; }
   .boycott-list-detail { width: 100%; }
