@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: small;
+  
+  background-color: rgb(25, 25, 25);
+  
+}
+
+.my-content-area {
+	position: relative;
+	font-size: 1.2em;
+	display: inline-block;
+	max-width: 960px;
+	width:100%;
+	margin: auto;
+}
+
+
+/* main contents area*/
+.main-contents {
+	max-width: 80%;
+	font-size: 1.1em;
+	float: right;
+}
+
+form {
+	border: 3px solid #f1f1f1;
+
+}
+
+#re-email, #re-password {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	color: black;
+}
+
+#re-login {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 10px;
+	margin: 8px 20px;
+	border: none;
+	cursor: pointer;
+	width: 80px;
+	float: right;
+}
+
+.login-box {
+	padding: 16px;
+	height: 270px;
+}
+
+span.psw {
+	float: right;
+	padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+	span.psw {
+		display: block;
+		float: none;
+	}
+}
+
+/* main contents area*/
