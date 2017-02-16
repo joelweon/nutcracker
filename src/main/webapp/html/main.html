@@ -454,6 +454,21 @@
 <script src="https://code.jquery.com/jquery-latest.js"></script> 
 <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="../js/detail.js"></script>
-
+<script>
+/*헤더 고정*/
+$(function(){
+  // Check the initial Poistion of the Sticky Header
+  var stickyHeaderTop = $('#wrap-content').offset().top;
+  $(window).scroll(function(){
+    if( $(window).scrollTop() + 60 > stickyHeaderTop ) {
+      $('#wrap-header').css({background:'rgba(0,0,0,1.0)'});
+      //$('#stickyalias').css('display', 'block');
+    } else {
+      $('#wrap-header').css({background:'rgba(0,0,0,0.0)'});
+      //$('#stickyalias').css('display', 'none');
+    }
+  });
+});
+</script>
 </body>
 </html>                                                        
