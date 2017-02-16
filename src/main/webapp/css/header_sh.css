@@ -64,8 +64,7 @@
 .div-logo img {
   width: 150px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 3px;
   /* height: 50px; */
 }
 
@@ -192,6 +191,7 @@
 	
 	/* 로고 */
 	.div-logo { width: 32%;	}
+  .div-logo img { margin-left:40%;}
 	
 	/* 검색 */
 	.div-menu-search { width: 32%; }
@@ -206,6 +206,14 @@
 	#div-intro { height: 220px; }
 	#div-intro span { font-size: 1em;	}
 	#div-intro span#text-border { font-size: 1.5em; }
+  	/* 로고 */
+  .div-logo img {
+    width: 100px;
+    display: block;
+    margin-left: 40%;
+    margin-right: auto;
+    /* height: 50px; */
+  }
 	
 	/* 하단 플로팅 메뉴 */
 	/* .div-floating { display: table-cell; } */
