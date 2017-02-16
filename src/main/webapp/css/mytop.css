@@ -63,7 +63,7 @@
 
 .my-top-detail {
   
-	
+	display:none;
   max-width: 960px;
   margin: auto;
   background-color: rgb(20, 180, 90);
