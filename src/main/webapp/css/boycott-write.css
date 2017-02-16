@@ -19,6 +19,7 @@ a#add-article, a#remove-article { width: 30px; height: 30px; border-radius: 15px
                 padding: 3px 0; background-color: transparent; color: #fff;
                 font-size: 1.3em; }
 a#add-article:hover { background-color: #525252; }
+#wrap-btn { height: 50px; }
 a#cancel, a#write {
 	float: right;
 	margin-left: 5px;

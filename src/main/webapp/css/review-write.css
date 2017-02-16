@@ -69,6 +69,7 @@ a#add-article { width: 30px; height: 30px; border-radius: 15px; margin-left: 10p
                 padding: 3px 0; background-color: transparent; color: #fff;
                 font-size: 1.3em; }
 a#add-article:hover { background-color: #525252; }
+#wrap-btn { height: 50px; }
 a#write, a#cancel {
 	float: right;
 	margin-left: 5px;
