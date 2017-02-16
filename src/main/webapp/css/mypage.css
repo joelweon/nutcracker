@@ -23,7 +23,7 @@ body {
 
 form {
 	border: 3px solid #f1f1f1;
-
+  background-color: rgb(47, 47, 47);
 }
 
 #re-email, #re-password {
