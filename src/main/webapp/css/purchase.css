@@ -2,19 +2,16 @@
 
 body {
 	font-size: small;
-	margin: auto;
 	background-color: rgb(25, 25, 25);
-	max-width: 960px;
 }
 
 
 .my-content-area {
-	position: relative;
-	font-size: 1.2em;
-	margin-top: 20px;
-	width: 100%;
-	display: inline-block;
-	overflow: hidden;
+  position: relative;
+  font-size: 1.2em;
+  max-width: 960px;
+  width:100%;
+  margin: auto;
 }
 
 .main-contents {
@@ -90,6 +87,7 @@ purchase-table. th {
 
 .purchase-table tr {
 	background-color: white;
+	color: black;
 }
 
 .purchase-list {
