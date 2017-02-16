@@ -72,6 +72,14 @@ div {
   color: #343434;
   font-weight: bold;
 }
+
+/* 공통 버튼 */
+.common-btn-white { color: #fff; background-color: #525252; }
+.common-btn-black { color: #fff; background-color: transparent; }
+.common-btn-white:focus, .common-btn-black:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
 /* 모바일 설정 */
 @media all and (min-divice-width: 320px) and (max-device-width : 414px) {
         container { max-width:320px; }
