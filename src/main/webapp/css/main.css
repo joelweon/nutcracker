@@ -26,6 +26,10 @@
   z-index:5;
   background-color: #252525;
 }
+#wrap-body {
+  max-width:960px;
+  margin:0 auto;
+}
 /* 불매 불량 바로가기 */
 #scrollbar {
   margin-top: 10px;
@@ -63,16 +67,12 @@
   color: #ffffff;
 }
 /* 불매 리스트 */
-#wrap-box {
-  width:100%;
-}
-
 .boycott-box {
-  background-color: #fff;
+  /* background-color: #fff; */
   border: 1px solid #aaa;
   border-radius: 5px;
   width:45%;
-  height:240px;
+  height:150px;
   /* min-width:170px; */
   max-width: 320px;
   margin-top: 3%;
@@ -82,11 +82,12 @@
   overflow: hidden;
   font-size: 1.3em;
   color: #343434;
+  float:left;
 }
 .boycott-img {
 	position:absolute;
 	width:100%;
-	height:75%;
+	height:100%;
 	top:0;
 }
 .boycott-box:hover img {
@@ -96,12 +97,15 @@
 }
 .boycott-text {
 	position:absolute;
-	padding:5px;
+	padding:0px 5px; 
 	width:100%;
 	height:25%;
 	bottom:0;
-	background-color:white;
-	font-size:0.8em;
+	background-color:black;
+	color:white;
+	opacity:0.8;
+	font-size:0.6em;
+	font-weight:100;
 }
 /* 공동구매 아이콘 */
 .deal-icon {
