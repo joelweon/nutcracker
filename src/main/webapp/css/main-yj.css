@@ -1,7 +1,5 @@
 @CHARSET "UTF-8";
-#wrap-header { background-color: transparent; }
-#wrap-boycott { display: inline-table; width: 48%; margin-right: 3%;}
-#wrap-review { display: inline-table; width: 48%; }
+
 /* 불매 불량 바로가기 */
 #scrollbar {
   margin-top: 10px;
@@ -15,49 +13,41 @@
   outline: 0px;
 }
 /* 불매 불량 리스트 헤더 */
-#wrap-boycott .title-bar {
-	margin-bottom: 5px;
-	border-bottom: 5px solid #f97c00;
-	cursor: pointer;
-}
-#wrap-review .title-bar {
-	margin-bottom: 5px;
-	border-bottom: 5px solid #009900;
-	cursor: pointer;
-}
 .title-view {
 	float: right;
   width: 90px;
-  font-size: 0.8em;
-  margin-top: -30px;
-  background-color:#252525;
+  font-size: 1.2em;
+  margin-top: -45px;
   padding-left:10px;
+  
 }
 .title-view a {
   text-decoration: none;
   font-weight: normal;
-  color: #ffffff;
+  color: rgb(14, 190, 255);
+}
+
+.title-view a:HOVER {
+	color: rgb(208, 164, 239);
 }
 /* 불매 리스트 */
 .boycott-box {
-  background-color: #fff;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  width:49%;
-  height:240px;
-  /* min-width:170px; */
-  max-width: 250px;
-  margin: 2px 2px;
+  /* border: 1px solid gray; */
+  background-color: white;
+  width:24%;
+  height:250px;
+  min-width:170px;
   position:relative;
   display: inline-block;
   overflow: hidden;
-  font-size: 1.3em;
-  color: #343434;
+  border: 5px solid rgb(47, 47, 47);
+  border-radius: 2px;
+  margin-left: 5px;
 }
 .boycott-img {
 	position:absolute;
 	width:100%;
-	height:75%;
+	height:80%;
 	top:0;
 }
 .boycott-box:hover img {
@@ -67,12 +57,13 @@
 }
 .boycott-text {
 	position:absolute;
-	padding:5px;
+	padding:0 5px;
 	width:100%;
-	height:25%;
+	height:20%;
 	bottom:0;
-	background-color:white;
-	font-size:0.8em;
+	background-color:rgb(47, 47, 47);
+	font-size:0.7em;
+	color: rgb(153, 153, 153);
 }
 /* 공동구매 아이콘 */
 .deal-icon {
@@ -94,13 +85,11 @@
 	font-size: 1.0em;
 }
 /* 불량후기 */
-.row {
-  margin-right: 0;
-  margin-left: 0;
-}
 .list-group-item {
-	margin: 2px 0;
+	margin: 5px 0 10px 0;
   width: 100%;
+  border: 5px solid rgb(47, 47, 47);
+  border-radius: 2px;
 }
 .profile-teaser-left {
   float: left;
@@ -113,7 +102,6 @@
   width: 100%; 
   min-height: 70px;
   min-width: 70px;
-  
 }
 .profile-teaser-main {
   max-width: 100%;
@@ -123,13 +111,13 @@
   vertical-align: middle;
 }
 .info {
-  font-size: 1em;
+  font-size: 0.8em;
   display: inline-block;
   color: #777;
 }
 .profile-name > a {
   color: #343434;
-  font-size: 1.1em;
+  font-size: 1.0em;
   font-weight: bold;
   text-decoration: none;
 }
