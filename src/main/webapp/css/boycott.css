@@ -6,9 +6,20 @@
 /* -------------------------------
   불매운동 리스트
 --------------------------------*/
-#select-year {
+/* #select-year {
   color:black !important;
+} */
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
 }
+#select-year { display: inline-block;  margin-right: 10px; 
+                  background-color: transparent; color: #ddd; 
+                  border: 1px solid #999; border-radius: 5px; 
+                  padding: 7px 5px; }
+#select-year option { color: #252525;
+                         border: 1px solid #999; border-radius: 5px;
+                         padding: 10px 5px; }
 .div-menu a#boycott {	color: red;}
 .boycott-list-box {
 	width: 98%;
@@ -38,6 +49,8 @@
 --------------------------------------------*/
 @media screen and (max-width: 760px)
 {
+  #title-bar-boycott { width: 97%; margin-left: 2.5%; }
+	.boycott-list-box { width: 95%; }
 	.boycott-list-detail { width: 78%; padding: 0 0; }
 	.boycott-list-title { font-size: 1.3em; }
 	.boycott-list-text { font-size: 1em; }
@@ -47,13 +60,7 @@
 --------------------------------------------*/
 @media screen and (max-width: 500px)
 {
-	#wrap-content {
-    width: 100%;
-    max-width: none;
-    margin:auto;
-    padding:0 5px 0 5px;
-	}
-	.title-sub { width:0; }
+	#title-bar-boycott span.title-sub { display: none; }
 	#div-year > span { display: none; }
   .boycott-list-box > a, .boycott-list-box img { display: none; }
   .boycott-list-detail { width: 100%; }
