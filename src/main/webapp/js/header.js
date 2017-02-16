@@ -3,20 +3,20 @@
  -----------------------------*/
 /*$(function(event) {*/
  /*탭 고정*/
-	$(function(){
-	  // Check the initial Poistion of the Sticky Header
-	  var stickyHeaderTop = ($('#wrap-content').offset().top) - 60;
-	  $(window).scroll(function(){
-	  	//if() {}
-	    if( $(window).scrollTop() > stickyHeaderTop ) {
-	      $('#wrap-header').css({background:'rgba(0,0,0,1.0)'});
-	      //$('#stickyalias').css('display', 'block');
-	    } else {
-	      $('#wrap-header').css({background:'rgba(0,0,0,0.0)'});
-	      //$('#stickyalias').css('display', 'none');
-	    }
-	  });
-	});
+//	$(function(){
+//	  // Check the initial Poistion of the Sticky Header
+//	  var stickyHeaderTop = ($('#wrap-content').offset().top) - 60;
+//	  $(window).scroll(function(){
+//	  	//if() {}
+//	    if( $(window).scrollTop() > stickyHeaderTop ) {
+//	      $('#wrap-header').css({background:'rgba(0,0,0,1.0)'});
+//	      //$('#stickyalias').css('display', 'block');
+//	    } else {
+//	      $('#wrap-header').css({background:'rgba(0,0,0,0.0)'});
+//	      //$('#stickyalias').css('display', 'none');
+//	    }
+//	  });
+//	});
 
   /* 현재 메뉴 하이라이팅 하기 함수 */
   setTimeout(function () {
