@@ -180,6 +180,7 @@
 --------------------------------------------*/
 @media screen and (max-width: 760px)
 {
+	#wrap-content { margin: 200px auto 0 auto; }
   #wrap-boycott { display: block; width: 100%; }
   .boycott-box { width:48%; height: 250px; margin: 2px; }
   #wrap-review { display: block; width: 100%; }
