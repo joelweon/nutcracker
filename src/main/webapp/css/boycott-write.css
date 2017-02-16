@@ -1,5 +1,8 @@
 @CHARSET "UTF-8";
 
+#wrap-header {border-bottom: 7px solid #f97c00;}
+.div-menu li > a.on { color: #f97c00; }
+
 .title-title { background-color: transparent; color: #fff; font-size: 1.6em; }
 .title-sub { color: #ddd; font-size: 1em; }
 
@@ -11,13 +14,17 @@ div.input-text { margin-bottom: 10px; }
 	padding-bottom: 10px;
 }
 
-div.article { border: 1px solid #999; border-radius: 5px; padding: 0 10px; margin-top: 10px;}
-/* .input-text-el.article { width: 50%; } */
-
+div.article { border: 1px solid #999; border-radius: 4px; padding: 0 10px; margin-top: 10px;}
+a#add-article { width: 30px; height: 30px; border-radius: 15px; margin-left: 10px; 
+                padding: 3px 0; background-color: transparent; color: #fff;
+                font-size: 1.3em; }
+a#add-article:hover { background-color: #525252; }
 .edit-btn {
 	float: right;
 	margin-left: 5px;
 }
+.edit-btn#write { color: #fff; background-color: #525252; }
+.edit-btn#cancel { color: #fff; background-color: transparent; }
 
 input[type="text"],
 input[type="password"] {
@@ -42,7 +49,7 @@ input[type="password"]:focus + .separator {
 .separator {
   height: 3px;
   width: 100%;
-  background: #68B3FF;
+  background: #fff;
   display: block;
   -webkit-transform: scaleX(0) translateY(-2px);
           transform: scaleX(0) translateY(-2px);
