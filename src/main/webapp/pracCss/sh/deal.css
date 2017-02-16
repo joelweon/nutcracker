@@ -2,7 +2,7 @@
 #wrap-header { border-bottom: 7px solid #ae63e4; background-color: #000000;}
 .div-menu li > a.on { color: #ae63e4; }
 body {background-color: #ffffff;}
-
+.title-title {color:black; background-color:white;}
 .deal-container {
 	width: 100%;
   max-width: 960px;
@@ -16,6 +16,7 @@ body {background-color: #ffffff;}
 }
 .deal-box {
   background-color: white;
+  color:black;
   width:30%;
   height:300px;
   min-width:230px;

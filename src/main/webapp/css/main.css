@@ -1,5 +1,31 @@
 @CHARSET "UTF-8";
+#wrap-header { background-color: transparent; }
+#wrap-boycott { display: inline-table; width: 48%; margin-right: 3%;}
+#wrap-review { display: inline-table; width: 48%; }
 
+/* 헤더 고정 및 인트로 설정 */
+#wrap-header {
+	/* background-color:black; */
+  position:fixed;
+  z-index:10;
+}
+#div-intro {
+  width:100%;
+  background-image: url(http://www.powerpointhintergrund.com/download/grey-ppt-background-522);
+  /* background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg); */
+  background-size: 100% 400px;
+  background-repeat: no-repeat;
+  position:fixed;
+  z-index:1;
+}
+#wrap-content {
+	position:relative;
+  margin: 350px auto 0 auto;
+  padding:10px 5%;
+  max-width: none;
+  z-index:5;
+  background-color: #252525;
+}
 /* 불매 불량 바로가기 */
 #scrollbar {
   margin-top: 10px;
@@ -13,34 +39,49 @@
   outline: 0px;
 }
 /* 불매 불량 리스트 헤더 */
+#wrap-boycott .title-bar {
+	margin-bottom: 5px;
+	border-bottom: 5px solid #f97c00;
+	cursor: pointer;
+}
+#wrap-review .title-bar {
+	margin-bottom: 5px;
+	border-bottom: 5px solid #009900;
+	cursor: pointer;
+}
 .title-view {
 	float: right;
   width: 90px;
   font-size: 0.8em;
   margin-top: -30px;
-  background-color:#f0f0f0;
+  background-color:#252525;
   padding-left:10px;
 }
 .title-view a {
   text-decoration: none;
   font-weight: normal;
-  color: gray;
+  color: #ffffff;
 }
 /* 불매 리스트 */
 .boycott-box {
-  /* border: 1px solid gray; */
-  background-color: white;
-  width:24%;
-  height:250px;
-  min-width:170px;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  width:49%;
+  height:240px;
+  /* min-width:170px; */
+  max-width: 320px;
+  margin: 2px 2px;
   position:relative;
   display: inline-block;
   overflow: hidden;
+  font-size: 1.3em;
+  color: #343434;
 }
 .boycott-img {
 	position:absolute;
 	width:100%;
-	height:80%;
+	height:75%;
 	top:0;
 }
 .boycott-box:hover img {
@@ -50,12 +91,12 @@
 }
 .boycott-text {
 	position:absolute;
-	padding:0 5px;
+	padding:5px;
 	width:100%;
-	height:20%;
+	height:25%;
 	bottom:0;
 	background-color:white;
-	font-size:0.7em;
+	font-size:0.8em;
 }
 /* 공동구매 아이콘 */
 .deal-icon {
@@ -106,13 +147,13 @@
   vertical-align: middle;
 }
 .info {
-  font-size: 0.8em;
+  font-size: 1em;
   display: inline-block;
   color: #777;
 }
 .profile-name > a {
   color: #343434;
-  font-size: 1.0em;
+  font-size: 1.1em;
   font-weight: bold;
   text-decoration: none;
 }

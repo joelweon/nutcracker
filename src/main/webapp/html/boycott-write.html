@@ -9,13 +9,16 @@
   <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/header.css">
-  <link rel="stylesheet" href="../css/boycott-edit.css">
+  <link rel="stylesheet" href="../css/header_sh.css">
+  <link rel="stylesheet" href="../css/boycott-write.css">
 </head>
 
 <body>
   <!--  헤더 추가 -->
   <div id='wrap-header'></div>
+  
+  <!-- 소개글 -->
+  <div id='div-intro-none'></div>
   
   <!-- 불매운동 페이지 -->
   <div id='wrap-content'>
@@ -35,13 +38,14 @@
 	  <div id="summernote"></div>
 	  
 	  <span class='edit-text'>기사 링크를 추가해주세요 :) (최대 4개)</span>
+	  <a type='button' id='add-article' class='btn btn-default  glyphicon glyphicon-plus'></a>
 	  <div id='wrap-article'>
 	    <div class='input-text article'>
 	      <input type='text' class='input-text-el article' placeholder="URL"><span class="separator input-text-el"></span>
 	      <input type='text' class='input-text-el article' placeholder="Headline"><span class="separator input-text-el"></span>
 	    </div>
 	  </div>
-	  <a type='button' id='cancel' class='btn btn-primary edit-btn' href='#'>Cancel</a><a type='button' id='write' class='btn btn-danger edit-btn' href='#'>Write</a>
+	  <a type='button' id='cancel' class='btn btn-default edit-btn' href='#'>Cancel</a><a type='button' id='write' class='btn btn-default edit-btn' href='#'>Write</a>
   </div>
   
 </body>
