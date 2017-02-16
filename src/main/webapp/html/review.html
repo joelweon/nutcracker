@@ -31,7 +31,7 @@
 	  
 	  <!-- 글쓰기버튼 -->
 	  <div class='btn-toolbar'>
-	    <button id='btn-write' class="btn btn-danger">글쓰기</button>
+	    <a type='button' id='btn-write' class="btn btn-default common-btn-white" href='review-write.html'>글쓰기</a>
 	  </div>
 	  
 		<!-- 테이블 -->
@@ -186,7 +186,12 @@
 		<div class='row'>
 			<ul class='board-search pull-right'>
 			  <li>
-				  <div class="dropup">
+				  <select id='select-search'>
+			      <option value='제목+내용' selected>제목+내용</option>
+			      <option value='제목'>제목</option>
+			      <option value='작성자'>작성자</option>
+			    </select>
+				  <!-- <div class="dropup">
 					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					    제목+내용
 					    <span class="caret"></span>
@@ -196,10 +201,10 @@
 					    <li><a href="#">내용</a></li>
 					    <li><a href="#">작성자</a></li>
 					  </ul>
-					</div>
+					</div> -->
 				</li>
 				<li><input type='text'></li>
-				<li><button class='btn btn-default'>검색</button></li>
+				<li><button class='btn btn-default common-btn-black'>검색</button></li>
 			</ul>
 		</div>
 		
