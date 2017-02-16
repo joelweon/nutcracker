@@ -4,6 +4,7 @@
 $(document).ready(function() {
   $('#wrap-header').load('./header.html');
   $('#div-intro').load('./intro.html');
+  $('#wrap-footer').load('./footer.html');
 });
 
 /*-----------------------------

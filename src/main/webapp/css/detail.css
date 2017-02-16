@@ -29,6 +29,7 @@ body {
     Black w/ opacity
     background-color: rgba(0, 0, 0, 0.3); */
     display:inline;
+    color:black;
 }
 /* Modal Content/Box */
 
@@ -382,7 +383,7 @@ a#more {
       background-color:#2AA8E0;
       position:absolute;
       color:white;
-      width:60px;
+      width:70px;
       height:20px;
       border:0;
       right:10%;

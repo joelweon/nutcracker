@@ -12,8 +12,24 @@ $(document).ready(function(event) {
     var result = $('#summernote').summernote('code');
     $('#textarea1').append(result);
   });
-  $('a#add-article').click(function(event) {
+  /*$('a#add-article').click(function(event) {
+    $('#wrap-article').add($('div.article').attr({id:"div-article2"}));
     console.log("add article!!!");
-    $('div#wrap-article').append($('div.article').html());
+  });*/
+  var cnt = 2;
+  $('a#add-article').click(function (event) {
+    if (cnt < 5) {
+      var wrapdiv = $('#div-article1').clone(true);
+      $('#wrap-article').append(wrapdiv.attr('id', 'div-article'+ cnt));
+      cnt++;
+    }
+  });
+  $('a#remove-article').click(function (event) {
+    console.log("cnt=" + cnt);
+    if (cnt > 2) {
+      var el = '#div-article' + (cnt - 1);
+      $(el).remove();
+      cnt--;
+    }
   });
 });
