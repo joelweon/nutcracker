@@ -1,0 +1,117 @@
+@CHARSET "UTF-8";
+
+body {
+  font-size: small;
+  background-color: rgb(25, 25, 25);
+}
+
+.my-content-area {
+  position: relative;
+  font-size: 1.2em;
+  max-width: 960px;
+  width:100%;
+  margin: 20px auto;
+}
+
+/* main contents area*/
+.main-contents {
+  width: 80%;
+  font-size: 1.1em;
+  float: right;
+}
+
+.board-table { 
+  border: 5px solid rgb(47, 47, 47);
+  width: 100%;
+}
+
+.board-list-title, .board-table-date, 
+.board-reportdate, .board-viewcnt, .board-like {
+  text-align: center;
+} 
+
+.board-reportdate, .board-viewcnt, .board-like {
+  font-size: 0.9em;
+}
+
+.board-table. th {
+  font: bold;
+}
+
+.list-img-span > a > img {
+  width: 20%;
+  margin: 3px 2px;
+}
+
+.board-list-title {
+  background-color: #d5d5d5;
+  margin: 0;
+  text-align: center;
+}
+
+.board-list-title th {
+  background-color: rgb(47, 47, 47);
+  text-align: center;
+  color: white;
+  padding-bottom: 4px;
+}
+
+.board-table tr {
+  background-color: white;
+  color: black;
+  border-bottom: 3px solid rgb(47, 47, 47);
+}
+
+.board-list {
+  text-align: left;
+  width: 60%;
+}
+
+.board-list div {
+  width: 70%;
+  float: right;
+  margin-top: 7%;
+}
+
+.board-list p {
+  margin: 0px 0px 0px 0px;
+  font: 0.9em normal;
+  line-height: 150%;
+}
+
+.board-table-date {
+	width: 5%;
+}
+
+.delete-div {
+	margin-top: 20px;
+}
+
+.delete-btn {
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 1em;
+  text-decoration: none;
+  margin-left:2px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: #e74c3c;
+  box-shadow: 0px 5px 0px 0px #CE3323;
+}
+
+.delete-btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.delete-btn:hover {
+  background-color: #ec5444;
+  text-decoration: none;
+  color: white;
+}
+
+
+
+

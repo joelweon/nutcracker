@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우리는 The Nutcracker 입니다.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header_sh.css">
+  <link rel="stylesheet" href="../css/myboard.css">
+  <link rel="stylesheet" href="../css/mytop.css">
+  <link rel="stylesheet" href="../css/myside.css">
+  <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+<div id='wrap-header'></div>
+
+<!-- 마이페이지 상단 바 -->
+<div id='wrap-mytop'></div>
+
+<div class="my-content-area">
+  <!-- 마이페이지 사이드 메뉴 -->
+  <div id='wrap-myside'></div>
+  
+  <div class="main-contents">
+  
+  
+  
+  </div>
+</div>
+
+
+<div id='wrap-footer'></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/mypage.js"></script>
+
+<script>
+$(document).on('click', '.detail-togle', function() {
+  $(".my-top-detail").toggle("1000");
+});
+
+</script>
+</body>
+</html>

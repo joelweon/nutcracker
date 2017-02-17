@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우리는 The Nutcracker 입니다.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header_sh.css">
+  <link rel="stylesheet" href="../css/mytop.css">
+  <link rel="stylesheet" href="../css/myside.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/myboard.css">
+</head>
+<body>
+<div id='wrap-header'></div>
+
+<!-- 마이페이지 상단 바 -->
+<div id='wrap-mytop'></div>
+
+<div class="my-content-area">
+  <!-- 마이페이지 사이드 메뉴 -->
+  <div id='wrap-myside'></div>
+  
+  <div class="main-contents">
+    <div>
+      <table class="board-table">
+        <tr class="board-list-title">
+	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
+	        <th>제목</th>
+	        <th>작성일</th>
+	        <th>조회수</th>
+	        <th>추천수</th>
+	      </tr>
+	      <tr>
+	        <td class="board-table-date">
+	          <input class="td-check" type="checkbox"/>
+	        </td>
+          <td class="board-list">
+            <span class="list-img-span">
+              <a href="#">
+	              <img src="../images/hong.PNG">
+	            </a>
+            </span>
+	          <div>
+	            <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
+	          </div>
+          </td>
+	        <td class="board-reportdate">2017.01.23</td>
+	        <td class="board-viewcnt">120</td>
+	        <td class="board-like">10</td>
+        </tr>
+        
+        <tr>
+          <td class="board-table-date">
+            <input class="td-check" type="checkbox"/>
+          </td>
+          <td class="board-list">
+            <span class="list-img-span">
+              <a href="#">
+                <img src="../images/hong.PNG">
+              </a>
+            </span>
+            <div>
+              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
+            </div>
+          </td>
+          <td class="board-reportdate">2017.01.23</td>
+          <td class="board-viewcnt">120</td>
+          <td class="board-like">10</td>
+        </tr>
+        
+        <tr>
+          <td class="board-table-date">
+            <input class="td-check" type="checkbox"/>
+          </td>
+          <td class="board-list">
+            <span class="list-img-span">
+              <a href="#">
+                <img src="../images/hong.PNG">
+              </a>
+            </span>
+            <div>
+              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
+            </div>
+          </td>
+          <td class="board-reportdate">2017.01.23</td>
+          <td class="board-viewcnt">120</td>
+          <td class="board-like">10</td>
+        </tr>
+        
+        <tr>
+          <td class="board-table-date">
+            <input class="td-check" type="checkbox"/>
+          </td>
+          <td class="board-list">
+            <span class="list-img-span">
+              <a href="#">
+                <img src="../images/hong.PNG">
+              </a>
+            </span>
+            <div>
+              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
+            </div>
+          </td>
+          <td class="board-reportdate">2017.01.23</td>
+          <td class="board-viewcnt">120</td>
+          <td class="board-like">10</td>
+        </tr>
+        
+        <tr>
+          <td class="board-table-date">
+            <input class="td-check" type="checkbox"/>
+          </td>
+          <td class="board-list">
+            <span class="list-img-span">
+              <a href="#">
+                <img src="../images/hong.PNG">
+              </a>
+            </span>
+            <div>
+              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
+            </div>
+          </td>
+          <td class="board-reportdate">2017.01.23</td>
+          <td class="board-viewcnt">120</td>
+          <td class="board-like">10</td>
+        </tr>
+        
+        <tr>
+          <td class="board-table-date">
+            <input class="td-check" type="checkbox"/>
+          </td>
+          <td class="board-list">
+            <span class="list-img-span">
+              <a href="#">
+                <img src="../images/hong.PNG">
+              </a>
+            </span>
+            <div>
+              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
+            </div>
+          </td>
+          <td class="board-reportdate">2017.01.23</td>
+          <td class="board-viewcnt">120</td>
+          <td class="board-like">10</td>
+        </tr>
+      </table>
+    </div>
+    <div class="delete-div">
+      선택한 게시글을
+      <a href="#" class="delete-btn">삭제</a>
+    </div>
+  </div>
+</div>
+
+
+<div id='wrap-footer'></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/mypage.js"></script>
+
+<script>
+$(document).on('click', '.detail-togle', function() {
+  $(".my-top-detail").toggle("1000");
+});
+
+$(function(){
+  $("#allCheck").click(function(){
+    if($("#allCheck").prop("checked")) {
+			$("input[type=checkbox]").prop("checked",true);
+        } else {
+          $("input[type=checkbox]").prop("checked",false);
+    }
+  })
+})
+
+
+
+
+</script>
+</body>
+</html>
