@@ -1,7 +1,8 @@
 -- 기업정보 -----------------------------------
+-- 옥시
 insert into comp(cpno,cp_name) 
     values(500,'옥시레킷벤키저');
-    
+-- 유한
 insert into comp(cpno,cp_name) 
     values(501,'유한양행');
 insert into comp(cpno,cp_name) 
@@ -20,7 +21,7 @@ insert into comp(cpno,cp_name)
     values(508,'유칼릭스');
 insert into comp(cpno,cp_name) 
     values(509,'엠지');
-    
+-- 신세계
 insert into comp(cpno,cp_name) 
     values(510,'신세계');
 insert into comp(cpno,cp_name) 
@@ -45,8 +46,7 @@ insert into comp(cpno,cp_name)
     values(520,'신세계조선호텔');
 insert into comp(cpno,cp_name) 
     values(521,'신세계첼시');
-
-
+-- 아모레퍼시픽
 insert into comp(cpno,cp_name) 
     values(522,'아모레퍼시픽');
 insert into comp(cpno,cp_name) 
@@ -93,12 +93,7 @@ insert into comp(cpno,cp_name)
     values(543,'댄트롤샴푸');
 insert into comp(cpno,cp_name) 
     values(544,'송염치약');
-insert into comp(cpno,cp_name) 
-    values(544,'오설록');
-insert into comp(cpno,cp_name) 
-    values(544,'바이탈뷰티');
-    
---피앤지
+-- 피앤지
 insert into comp(cpno,cp_name) 
     values(545,'피앤지');
 insert into comp(cpno,cp_name) 
@@ -125,20 +120,68 @@ insert into comp(cpno,cp_name)
     values(556,'오랄비');
 insert into comp(cpno,cp_name) 
     values(557,'팸퍼스');
-
 -- 위메프
 insert into comp(cpno,cp_name) 
     values(558,'위메프');
 insert into comp(cpno,cp_name) 
-    values(559,'워더홀딩스');
+    values(559,'원더윅스');
 insert into comp(cpno,cp_name) 
-    values(560,'위메프');
+    values(560,'너브');
 insert into comp(cpno,cp_name) 
-    values(561,'위메프');
+    values(561,'I-Shoplog');
+insert into comp(cpno,cp_name) 
+    values(562,'원더홀딩스');
+-- 매일유업
+insert into comp(cpno,cp_name) 
+    values(563,'매일유업');
+insert into comp(cpno,cp_name) 
+    values(564,'엠즈씨드');
+insert into comp(cpno,cp_name) 
+    values(565,'레뱅드매일');
+insert into comp(cpno,cp_name) 
+    values(566,'본만제');
+insert into comp(cpno,cp_name) 
+    values(567,'엠즈베버리지');
+insert into comp(cpno,cp_name) 
+    values(568,'엠즈푸드시스템');
+insert into comp(cpno,cp_name) 
+    values(569,'상하농원');
+insert into comp(cpno,cp_name) 
+    values(570,'코리아후드써비스');
+-- 남양유업
+insert into comp(cpno,cp_name) 
+    values(571,'남양유업');
+-- lg
+insert into comp(cpno,cp_name) 
+    values(572,'LG');
+insert into comp(cpno,cp_name) 
+    values(573,'LG디스플레이');
+insert into comp(cpno,cp_name) 
+    values(574,'LG이노텍');
+insert into comp(cpno,cp_name) 
+    values(575,'이노싱크');
+insert into comp(cpno,cp_name) 
+    values(576,'하이로지스틱스');
+insert into comp(cpno,cp_name) 
+    values(577,'씨텍');
+insert into comp(cpno,cp_name) 
+    values(578,'코카콜라음료');
+insert into comp(cpno,cp_name) 
+    values(579,'해태HTB');
+insert into comp(cpno,cp_name) 
+    values(580,'더페이스샵');
+insert into comp(cpno,cp_name) 
+    values(581,'LG-TOSTEM');
+insert into comp(cpno,cp_name) 
+    values(582,'LG경제연구원');
+-- 몽드드
+insert into comp(cpno,cp_name) 
+    values(583,'몽드드');
 
 
---기업관계 ----------------------------------------
---유한
+
+-- 기업관계 ----------------------------------------
+-- 유한
 insert into com_rls(parno,chino) 
     values(501,502);
 insert into com_rls(parno,chino) 
@@ -155,8 +198,7 @@ insert into com_rls(parno,chino)
     values(501,508);
 insert into com_rls(parno,chino) 
     values(501,509);
-
---신세계
+-- 신세계
 insert into com_rls(parno,chino) 
     values(510,511);
 insert into com_rls(parno,chino) 
@@ -179,8 +221,7 @@ insert into com_rls(parno,chino)
     values(510,520);
 insert into com_rls(parno,chino) 
     values(510,521);
-    
---아모레퍼시픽
+-- 아모레퍼시픽
 insert into com_rls(parno,chino)
     values(522,523);
 insert into com_rls(parno,chino)
@@ -250,12 +291,52 @@ insert into com_rls(parno,chino)
     values(545,556);
 insert into com_rls(parno,chino)
     values(545,557);
+-- 위메프
+insert into com_rls(parno,chino)
+    values(558,559);
+insert into com_rls(parno,chino)
+    values(558,560);
+insert into com_rls(parno,chino)
+    values(558,561);
+insert into com_rls(parno,chino)
+    values(558,562);
+-- 매일유업
+insert into com_rls(parno,chino)
+    values(563,564);
+insert into com_rls(parno,chino)
+    values(563,565);
+insert into com_rls(parno,chino)
+    values(563,566);
+insert into com_rls(parno,chino)
+    values(563,567);
+insert into com_rls(parno,chino)
+    values(563,568);
+insert into com_rls(parno,chino)
+    values(563,569);
+insert into com_rls(parno,chino)
+    values(563,570);
 
-
-
-
-
-
+-- LG
+insert into com_rls(parno,chino)
+    values(572,573);
+insert into com_rls(parno,chino)
+    values(572,574);
+insert into com_rls(parno,chino)
+    values(572,575);
+insert into com_rls(parno,chino)
+    values(572,576);
+insert into com_rls(parno,chino)
+    values(572,577);
+insert into com_rls(parno,chino)
+    values(572,578);
+insert into com_rls(parno,chino)
+    values(572,579);
+insert into com_rls(parno,chino)
+    values(572,580);
+insert into com_rls(parno,chino)
+    values(572,581);
+insert into com_rls(parno,chino)
+    values(572,582);
 
 
 
