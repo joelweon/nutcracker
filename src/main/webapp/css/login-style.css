@@ -14,8 +14,8 @@ html {
 }
 body {
     font-size:small;
-    background-color:#f0f3f6;
-    background: url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/join_login/bg_login-7a6263c6ffe0ef1396835fef16ef16a4e1106ab1b3a908d421b1128cc76439dd.jpg) center center no-repeat;
+    background:url(../images/black.jpg) center center no-repeat;
+    background-color:black;
     color:white;
 }
 .section {
