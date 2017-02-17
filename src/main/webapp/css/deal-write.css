@@ -1,0 +1,84 @@
+@CHARSET "UTF-8";
+
+#wrap-header {border-bottom: 7px solid #ae63e4; }
+.div-menu li > a.on { color: #ae63e4; }
+body { background-color: #fff; }
+
+.title-title { background-color: transparent; color: #000; font-size: 1.6em; }
+.title-sub { color: #252525; font-size: 1em; }
+
+.input-text { margin-bottom: 10px; }
+.div-price, .div-volume { width: 35%;} 
+.div-datepicker { width: 30%; display: inline-block; margin-right: 3%; }
+.edit-text { color: #525252; font-size: 1em; }
+
+/* 날짜피커 */
+#ui-datepicker-div { width: 25%; }
+/* 날짜 선택 하이라이트효과 */
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, 
+.ui-widget-header .ui-state-highlight {
+	border: 1px solid #252525;
+	background-color: #525252;
+	color: #fff;
+	font-weight: bold;
+}
+
+/*  */
+div.photo { border: 1px solid #999; border-radius: 4px; padding: 0 10px; margin-top: 10px;}
+a#add-photo, a#remove-photo { width: 30px; height: 30px; border-radius: 15px; margin-left: 10px; 
+                padding: 3px 0; background-color: transparent; color: #999;
+                font-size: 1.3em; }
+a#add-photo:hover, a#remove-photo:hover { background-color: #525252; }
+#wrap-btn { height: 50px; margin-top: 20px; }
+a#cancel, a#write {
+  float: right;
+  margin-left: 5px;
+}
+a#cancel { color: #525252; }
+#wrap-btn { height: 50px; }
+a#cancel, a#write {
+  float: right;
+  margin-left: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 1em 0 12px;
+  padding-left: 0;
+  background: none;
+  color: #252525;
+  font-size: 1.2em;
+  font-weight: 400;
+  border: none;
+  border-bottom: 1px solid #999;
+  /*Some sibling magic happens */
+}
+input[type="text"]:focus + .separator,
+input[type="password"]:focus + .separator {
+  -webkit-transform: scaleX(1) translateY(-2px);
+          transform: scaleX(1) translateY(-2px);
+  opacity: 1;
+}
+
+.separator {
+  height: 3px;
+  width: 100%;
+  background: #525252;
+  display: block;
+  -webkit-transform: scaleX(0) translateY(-2px);
+          transform: scaleX(0) translateY(-2px);
+  -webkit-transform-origin: 50%;
+          transform-origin: 50%;
+  opacity: 0;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+
+/**
+* Form Reset - remove focus highlighting
+*/
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
