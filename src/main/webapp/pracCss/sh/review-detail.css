@@ -1,0 +1,119 @@
+@CHARSET "UTF-8";
+#wrap-content {
+	/* border:1px solid red; */
+}
+/* 후기 타이틀 부분 */
+.review-detail-title {
+	/* border:1px solid red; */
+	position:relative;
+	height:40px;
+}
+#review-detail-title-subject {
+	position:absolute;
+	left:5px;
+	bottom:5px;
+	font-size:1.2em;
+}
+#review-detail-title-title {
+	position:absolute;
+	left:90px;
+  bottom:5px;
+	font-size:1.5em;
+}
+/* 게시글 관련 정보 */
+.review-detail-info {
+	border-top:1px solid #ffffff;
+	border-bottom:1px solid #ffffff;
+	font-size:1.0em;
+	position:relative;
+	width:100%;
+	height:50px;
+	margin:10px auto 0 auto;
+}
+#review-detail-info-image {
+	/* border:1px solid red; */
+  position:absolute;
+  width:40px;
+  height:40px;
+  border-radius:20px;
+  overflow:hidden;
+  left:5px;
+  top:5px;
+}
+#review-detail-info-image > img {
+	width:100%;
+	height:100%;
+}
+#review-detail-info-nickname {
+	/* border:1px solid red; */
+	position:absolute;
+	left:50px;
+	top:15px;
+}
+#review-detail-info-date {
+	/* border:1px solid red; */
+	position:absolute;
+	right:5px;
+	top:5px;
+}
+#review-detail-info-viewcount {
+	/* border:1px solid red; */
+	position:absolute;
+	right:145px;
+	bottom:5px;
+}
+#review-detail-info-hoducount {
+	/* border:1px solid red; */
+	position:absolute;
+	right:40px;
+  bottom:5px;
+}
+/* 게시글 내용 */
+.review-detail-cont-box {
+	border-bottom:1px solid #ffffff;
+	padding:10px 0;
+}
+.review-detail-content {
+	width:98%;
+	margin:auto;
+  padding: 10px;
+  color: #000000;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.review-detail-content > pre {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 0;
+}
+/* 버튼 */
+#wrap-btn {
+	margin:10px auto 0 auto;
+	width:140px;
+}
+/* 댓글 */
+.review-detail-cont-box > span {
+	border:1px solid red;
+	font-size: 1.2em;
+	margin-top:5px;
+	margin-left:5px;
+}
+.review-detail-comment-others {
+	border:1px solid #ffff00;
+	
+}
+.review-detail-comment-input {
+	border:1px solid red;
+}
+
+
+
