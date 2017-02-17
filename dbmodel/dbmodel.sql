@@ -88,7 +88,7 @@ CREATE TABLE REVIEW (
   RV_DATE  DATETIME     NOT NULL COMMENT '작성날짜', -- 작성날짜
   HEAD     VARCHAR(20)  NOT NULL COMMENT '말머리', -- 말머리
   TITLE    VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
-  CONT     TEXT         NOT NULL COMMENT '내용', -- 내용
+  CONT     MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
   VIEW_CNT INTEGER      NULL     COMMENT '조회수', -- 조회수
   HODU_CNT INTEGER      NULL     COMMENT '추천수', -- 추천수
   CMT_CNT  INTEGER      NULL     COMMENT '댓글수', -- 댓글수
@@ -133,7 +133,7 @@ CREATE TABLE BOT (
   BOTNO    INTEGER      NOT NULL COMMENT '불매운동 일련번호', -- 불매운동 일련번호
   BOT_DATE DATETIME     NOT NULL COMMENT '작성날짜', -- 작성날짜
   TITLE    VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
-  COINT    TEXT         NOT NULL COMMENT '내용', -- 내용
+  CONT     MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
   VIEW_CNT INTEGER      NULL     COMMENT '조회수', -- 조회수
   HODU_CNT INTEGER      NULL     COMMENT '추천수', -- 추천수
   CMT_CNT  INTEGER      NULL     COMMENT '댓글수', -- 댓글수

@@ -1,4 +1,4 @@
-1. MEMB
+-- 1. MEMB
 insert into memb(mno,email,name,pwd,path,lst_date) values(1,'admin@test.com','운영자',password('1111'),'admin.jpg','2017-02-17 18:09:12');
 insert into memb(mno,email,name,pwd,path,lst_date) values(2,'user01@test.com','호호아줌마',password('1111'),'user01.jpg','2017-02-04 23:51:48');
 insert into memb(mno,email,name,pwd,path,lst_date) values(3,'user02@test.com','몸살쟁이',password('1111'),'user02.jpg','2017-02-15 21:47:12');
@@ -14,7 +14,7 @@ insert into memb(mno,email,name,pwd,path,lst_date) values(12,'user12@test.com','
 insert into memb(mno,email,name,pwd,path,lst_date) values(13,'user13@test.com','redblood',password('1111'),'user12.jpg','2016-09-20 23:08:16');
 insert into memb(mno,email,name,pwd,path,lst_date) values(14,'user14@test.com','곰돌이푸우',password('1111'),'user13.jpg','2016-12-26 17:01:29');
 
-2. USER
+-- 2. USER
 insert into user(uno,b_day,tel,bas_adr,det_adr,zip,gen,out_type,join_date) values(2,'1989-05-23','010-5489-5547','대전광역시 동구 대성2길 101','동성빌라 201호','34599','w','0','2017-02-08');
 insert into user(uno,b_day,tel,gen,out_type,join_date) values(3,'1992-10-15','010-8895-1234','m','0','2016-04-13');
 insert into user(uno,b_day,tel,job,gen,out_type,join_date) values(4,'1991-04-09','010-2469-6988','영양사','m','0','2016-11-24');
@@ -29,10 +29,10 @@ insert into user(uno,b_day,tel,out_type,join_date) values(12,'1988-06-23','010-4
 insert into user(uno,b_day,tel,out_type,join_date) values(13,'1979-11-25','010-4139-5498','1','2015-07-16');
 insert into user(uno,b_day,tel,out_type,out_cont,join_date) values(14,'1975-09-27','010-5447-1002','2','주기적인 비방 게시글 작성','2016-02-14');
 
-3. WISH
+-- 3. WISH
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(100,2,'남해수산 건미역 1kg','남해수산','11680','2500','wish01.jpg','http://www.nhmarket.kr/goods/content.asp?guid=2545297&cate=1105');
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(101,2,'미역줄기볶음(200g)','몽촌반찬','2700','4000','wish02.jpg','http://www.mcfood.net/shop/shopdetail.html?branduid=20&search=%25B9%25CC%25BF%25AA%25C1%25D9%25B1%25E2&sort=&xcode=002&mcode=002&scode=001&GfDT=bmt1W1w%3D');
-insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(102,3,'[청하간장게장] 간장게장','청하간장게장','78000','무료','wish03.jpg','http://chcrab.com/product/detail.html?product_no=17&cate_no=42&display_group=1');
+insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(102,3,'[청하간장게장] 간장게장','청하간장게장','78000','0','wish03.jpg','http://chcrab.com/product/detail.html?product_no=17&cate_no=42&display_group=1');
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(103,4,'광천 토굴 새우젓 1kg','맛군','14900','3000','wish04.jpg','http://storefarm.naver.com/mggfood/products/252141825?NaPm=ct%3Diz93e63c%7Cci%3Dad8dad47f7e7955e83700f11816315ecf5981477%7Ctr%3Dslsl%7Csn%3D239741%7Cic%3D%7Chk%3Dfe404dc97a53be168dfc92b20977f95a83772357');
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(104,4,'쇼파패드 3인용 4인용','부창인터내셔널','26800','2500','wish05.jpg','http://storefarm.naver.com/contradnaz81/products/495758463?NaPm=ct%3Diz93jvc8%7Cci%3D9e75c561710c676eeeadb3990cdc43953e08297f%7Ctr%3Dslsl%7Csn%3D392126%7Cic%3D%7Chk%3D53b70a384500c4126fa907707bf341508fd24b54');
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(105,4,'스위스밀리터리 스텐 보온도시락 470ml','스위스밀리터리','26900','2500','wish06.jpg','http://storefarm.naver.com/nicemom/products/304575463');
@@ -43,7 +43,7 @@ insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(109,6
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(110,7,'덴마크 인포켓치즈 200G(20G*10입)','(주)동원데어리푸드','9900','2500','wish11.jpg','http://www.lottesuper.co.kr/handler/goods/GoodsDetail?goods_no=1247660&sale_shop_sct_cd=01&sale_shop_id=&template_type_code=&disp_cat_no=1000300002');
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(111,7,'아가프라 매직빨대컵 300ml','아가프라','6700','2500','wish12.jpg','http://storefarm.naver.com/bnpkorea/products/598430082?NaPm=ct%3Diz94y04g%7Cci%3Ddc478cb25cd1ce1bc5abaee99d1c7ba68d8122b4%7Ctr%3Dslc%7Csn%3D445387%7Cic%3D%7Chk%3De7cad63839c92c2c189856290a0cf4095c5be442');
 
-4. PCH_HIST
+-- 4. PCH_HIST
 insert into pch_hist(mno,pno,pch_date,pch_cnt) values(2,400,'2017-02-21 19:08:47',2);
 insert into pch_hist(mno,pno,pch_date,pch_cnt) values(2,402,'2017-02-28 14:51:16',1);
 insert into pch_hist(mno,pno,pch_date,pch_cnt) values(3,401,'2017-02-19 21:42:37',1);
@@ -63,20 +63,20 @@ insert into pch_hist(mno,pno,pch_date,pch_cnt) values(10,402,'2017-03-07 10:08:0
 insert into pch_hist(mno,pno,pch_date,pch_cnt) values(10,404,'2017-03-09 15:24:38',1);
 insert into pch_hist(mno,pno,pch_date,pch_cnt) values(11,400,'2017-03-04 15:42:19',3);
 
-5. REVIEW
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(200,3,'2017-02-24 15:41:02','불매운동','홍삼액이 가짜 홍삼이라니요.','홍삼액이 가짜 홍삼이라니요-내용',73,32);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(201,4,'2017-02-01 19:28:49','불량후기','과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ','불량후기 내용입니다',38,12);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(202,8,'2017-01-30 21:07:34','불량후기','나방나온다아 나바아앙~~~','불량후기 내용입니다',42,11);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(203,6,'2017-02-10 18:03:42','불량후기','혜화역식당, 역대급 불친절!!','불량후기 내용입니다',36,8);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(204,2,'2017-02-02 22:14:28','불매운동','존리는 무죄라네요ㅡㅡ','불량후기 내용입니다',143,57);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(205,7,'2017-02-10 14:37:54','불매운동','하기스 물티슈 판매중지한대요!!','불량후기 내용입니다',132,43);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(206,10,'2017-02-01 19:27:04','불매운동','남양유업 갑질..잊지맙시다!불매불매!','불량후기 내용입니다',98,41);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(207,10,'2017-02-14 22:19:54','불량후기','엄망진창 삼성동 미용실 후기입니다.','불량후기 내용입니다',52,19);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(208,11,'2016-12-10 21:38:05','불량후기','파리바게트 빵에서 나온 무언가...','불량후기 내용입니다',74,26);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(209,4,'2017-02-03 17:04:27','불매운동','제가 질소를 1500원에 샀네요?','불량후기 내용입니다',91,37);
-insert into review(rvno,mno,rv_date,head,title,cont,view_cnt,hodu_cnt) values(210,8,'2017-02-03 13:47:24','불량후기','강남역 고깃집의 충격적인 점심특선!','불량후기 내용입니다',86,29);
+-- 5. REVIEW
+insert into review(rvno,mno,rv_date,head,title,cont) values(200,3,'2017-02-24 15:41:02','불매운동','홍삼액이 가짜 홍삼이라니요.','홍삼액이 가짜 홍삼이라니요-내용');
+insert into review(rvno,mno,rv_date,head,title,cont) values(201,4,'2017-02-01 19:28:49','불량후기','과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(202,8,'2017-01-30 21:07:34','불량후기','나방나온다아 나바아앙~~~','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(203,6,'2017-02-10 18:03:42','불량후기','혜화역식당, 역대급 불친절!!','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(204,2,'2017-02-02 22:14:28','불매운동','존리는 무죄라네요ㅡㅡ','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(205,7,'2017-02-10 14:37:54','불매운동','하기스 물티슈 판매중지한대요!!','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(206,10,'2017-02-01 19:27:04','불매운동','남양유업 갑질..잊지맙시다!불매불매!','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(207,10,'2017-02-14 22:19:54','불량후기','엄망진창 삼성동 미용실 후기입니다.','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(208,11,'2016-12-10 21:38:05','불량후기','파리바게트 빵에서 나온 무언가...','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(209,4,'2017-02-03 17:04:27','불매운동','제가 질소를 1500원에 샀네요?','불량후기 내용입니다');
+insert into review(rvno,mno,rv_date,head,title,cont) values(210,8,'2017-02-03 13:47:24','불량후기','강남역 고깃집의 충격적인 점심특선!','불량후기 내용입니다');
 
-6. REV_PHOT
+-- 6. REV_PHOT
 insert into rev_phot(rpno,rvno,path) values(250,200,'reviw01.jpg');
 insert into rev_phot(rpno,rvno,path) values(251,201,'reviw02.jpg');
 insert into rev_phot(rpno,rvno,path) values(252,202,'reviw03.jpg');

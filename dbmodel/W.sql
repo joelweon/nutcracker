@@ -339,31 +339,29 @@ insert into com_rls(parno,chino)
     values(572,582);
 
 
-
-
-
-
-
-
-
-
-
-
-
---불매기업관계
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- 불매기업관계
+insert into bot_rls(mno,cpno,reg_date)
+    values(2,500,'2017-02-17');
+insert into bot_rls(mno,cpno,reg_date)
+    values(2,512,'2017-02-19');
+insert into bot_rls(mno,cpno,reg_date)
+    values(2,524,'2017-02-17');
+insert into bot_rls(mno,cpno,reg_date)
+    values(3,538,'2017-02-17');
+insert into bot_rls(mno,cpno,reg_date)
+    values(4,542,'2017-02-17');
+insert into bot_rls(mno,cpno,reg_date)
+    values(5,571,'2017-02-20');
+insert into bot_rls(mno,cpno,reg_date)
+    values(7,558,'2017-02-17');
+insert into bot_rls(mno,cpno,reg_date)
+    values(8,545,'2017-03-17');
+insert into bot_rls(mno,cpno,reg_date)
+    values(8,563,'2017-01-17');
+insert into bot_rls(mno,cpno,reg_date)
+    values(9,558,'2017-02-10');
+insert into bot_rls(mno,cpno,reg_date)
+    values(11,583,'2017-02-24');
 
 
 
@@ -392,3 +390,25 @@ insert into pch_phot(ppno,pno,path)
     values(453,404,'tum1.jpg');
 insert into pch_phot(ppno,pno,path) 
     values(454,404,'tum2.jpg');
+
+
+
+-- insert 끝.
+
+
+
+
+
+
+
+
+
+
+-- 부모와 자회사 조인
+/* select s.parno, p1.cp_name, s.chino, p2.cp_name
+  from com_rls s
+    join comp p1 on p1.cpno=s.parno
+    join comp p2 on p2.cpno=s.chino;*/
+
+
+
