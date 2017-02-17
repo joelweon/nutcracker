@@ -27,7 +27,7 @@ insert into user(uno,b_day,tel,out_type,join_date) values(10,'1983-02-07','010-1
 insert into user(uno,b_day,tel,out_type,join_date) values(11,'1990-05-11','010-8544-1543','0','2016-04-24');
 insert into user(uno,b_day,tel,out_type,join_date) values(12,'1988-06-23','010-4522-1542','1','2016-01-03');
 insert into user(uno,b_day,tel,out_type,join_date) values(13,'1979-11-25','010-4139-5498','1','2015-07-16');
-insert into user(uno,b_day,tel,out_type,out_cont,join_date) values(14,'1975-09-27','010-5447-1002','2','주기적으로 비방 게시글 생성','2016-02-14');
+insert into user(uno,b_day,tel,out_type,out_cont,join_date) values(14,'1975-09-27','010-5447-1002','2','주기적인 비방 게시글 작성','2016-02-14');
 
 -- 3. WISH
 insert into wish(wno,mno,pro_name,pro_comp,price,dev_pay,path,link) values(100,2,'남해수산 건미역 1kg','남해수산','11680','2500','wish01.jpg','http://www.nhmarket.kr/goods/content.asp?guid=2545297&cate=1105');
@@ -80,11 +80,10 @@ insert into review(rvno,mno,rv_date,head,title,cont) values(210,8,'2017-02-03 13
 insert into rev_phot(rpno,rvno,path) values(250,200,'reviw01.jpg');
 insert into rev_phot(rpno,rvno,path) values(251,201,'reviw02.jpg');
 insert into rev_phot(rpno,rvno,path) values(252,202,'reviw03.jpg');
-insert into rev_phot(rpno,rvno,path) values(253,203,'reviw04.jpg');
-insert into rev_phot(rpno,rvno,path) values(254,204,'reviw05.jpg');
 insert into rev_phot(rpno,rvno,path) values(255,205,'reviw06.jpg');
 insert into rev_phot(rpno,rvno,path) values(256,206,'reviw07.jpg');
 insert into rev_phot(rpno,rvno,path) values(257,207,'reviw08.jpg');
+insert into rev_phot(rpno,rvno,path) values(257,207,'reviw08_2.jpg');
 insert into rev_phot(rpno,rvno,path) values(258,208,'reviw09.jpg');
 insert into rev_phot(rpno,rvno,path) values(259,209,'reviw10.jpg');
 insert into rev_phot(rpno,rvno,path) values(260,210,'reviw11.jpg');
