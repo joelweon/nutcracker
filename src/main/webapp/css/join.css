@@ -79,6 +79,11 @@ tbody > tr > td.line {
   border-radius:10px;
   opacity:0.85;
 }
+/* 전화번호 박스 간격 */
+.c-width {
+  margin-right:10px;
+}
+
 /* 이메일 박스 크기 줄임 */
 #email {
   width:150px;
@@ -86,6 +91,7 @@ tbody > tr > td.line {
 /* 우편번호 버튼 */
 .btn-zip {
   margin-left:58%;
+  margin-bottom: 5px;
 }
 /* 주소박스 크기 */
 .style {
