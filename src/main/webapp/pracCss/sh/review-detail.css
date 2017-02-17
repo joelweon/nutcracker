@@ -90,7 +90,7 @@
 	margin:auto;
   padding: 10px;
   color: #000000;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -110,11 +110,23 @@
 /* 버튼 */
 #wrap-btn {
 	margin:10px auto 0 auto;
-	width:110px;
+	width:200px;
 }
 #hodu > img {
-	width:25px;
-	height:25px;
+	margin-left:-15px;
+	width:30px;
+	height:30px;
+}
+#hodu {
+	color: #fff;
+	background-color: #525252;
+	border: 1px solid #a4a4a4;
+	width:200px;
+	font-size:1.5em;
+}
+#hodu:hover {
+	background-color: #009900;
+  border: 1px solid #009900;
 }
 /* 댓글 */
 .review-detail-cont-box > span {
