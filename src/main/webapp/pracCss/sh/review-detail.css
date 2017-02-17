@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+#wrap-header { border-bottom: 4px solid #009900; }
+.div-menu li > a.on { color: #009900; }
+
 #wrap-content {
 	/* border:1px solid red; */
 }
