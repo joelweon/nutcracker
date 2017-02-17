@@ -23,17 +23,18 @@
   
   <div id='wrap-content'>
     <div class='review-detail-title'>
-      <span id='review-detail-title-subject'>[불량후기]</span>
-      <span id='review-detail-title-title'>과자먹다가 옥수수 털릴 뻔 했어요.ㅠㅠ</span>
+      <span class='review-detail-title-subject'>[불량후기]</span>
+      <span class='review-detail-title-title'>과자먹다가 옥수수 털릴 뻔 했어요.ㅠㅠ</span>
+      <a type='button' id='report' class='btn btn-default common-btn-black' href='#'>신고</a>
     </div>
     <div class='review-detail-info'>
-      <div id='review-detail-info-image'>
+      <div class='review-detail-info-image'>
         <img src='../../images/user/user03.jpg'>
       </div>
-      <span id='review-detail-info-nickname'>강냉이</span>
-      <span id='review-detail-info-date'>최종수정일 : 2017-02-01 19:28:49</span>
-      <span id='review-detail-info-viewcount'>조회수 : 38</span>
-      <span id='review-detail-info-hoducount'>추천수 : 12</span>
+      <span class='review-detail-info-nickname'>강냉이</span>
+      <span class='review-detail-info-date'>최종수정일 : 2017-02-01 19:28:49</span>
+      <span class='review-detail-info-viewcount'>조회수 : 38</span>
+      <span class='review-detail-info-hoducount'>추천수 : 12</span>
     </div> <!-- review-detail-info -->
     <div class='review-detail-cont-box'>
       <div class='review-detail-content'>
@@ -66,15 +67,30 @@
       </div>
       <!-- 버튼 -->
       <div id='wrap-btn'>
-      <a type='button' id='hodu' class='btn btn-default common-btn-white' href='#'>추천하기</a>
-      <a type='button' id='report' class='btn btn-default common-btn-black' href='#'>신고</a>
-    </div>
+        <a type='button' id='hodu' class='btn btn-default common-btn-white' href='#'><img src='../../images/walnut-black.png'>   추천하기</a>
+      </div>
     </div> <!-- review-detail-cont-box -->
     <div class='review-detail-cont-box'>
       <span>댓글 2</span>
-      <div class='review-detail-comment-others'></div>
+      <div class='review-detail-comment-others'>
+        <div class='review-detail-info-image'>
+	        <img src='../../images/user/user09.jpg'>
+	      </div>
+	      <span class='review-detail-info-nickname review-detail-comment-others-nick'>팽귄맨</span>
+	      <span class='review-detail-comment-others-sentence'>저도 저번에 오리온 과자에서 이물질 나왔었는데... 여기는 제조공정에 좀 문제가 있나봐요.</span>
+      </div> <!-- review-detail-comment-others -->
+      <div class='review-detail-comment-others'>
+        <div class='review-detail-info-image'>
+          <img src='../../images/user/user02.jpg'>
+        </div>
+        <span class='review-detail-info-nickname review-detail-comment-others-nick'>몸살쟁이</span>
+        <span class='review-detail-comment-others-sentence'>가볍게 넘기면 안됩니다. 오리온 불매합시다!!</span>
+      </div> <!-- review-detail-comment-others -->
       <div class='review-detail-comment-input'>
-        
+        <textarea class="form-control" rows="1" placeholder="댓글을 입력하세요"></textarea>
+        <div id='wrap-btn'>
+		      <a type='button' id='report' class='btn btn-default common-btn-black' href='#'>등록</a>
+		    </div>
       </div>
     </div> <!-- review-detail-cont-box -->
   </div> <!-- wrap-content -->

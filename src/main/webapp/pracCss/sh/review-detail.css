@@ -8,17 +8,26 @@
 	position:relative;
 	height:40px;
 }
-#review-detail-title-subject {
+.review-detail-title-subject {
 	position:absolute;
 	left:5px;
 	bottom:5px;
 	font-size:1.2em;
 }
-#review-detail-title-title {
+.review-detail-title-title {
 	position:absolute;
 	left:90px;
   bottom:5px;
 	font-size:1.5em;
+}
+.review-detail-title > a {
+	position:absolute;
+	right:0;
+	bottom:0;
+	font-size:1.0em;
+	line-height: 0.8;
+	height:25px;
+	
 }
 /* 게시글 관련 정보 */
 .review-detail-info {
@@ -30,7 +39,7 @@
 	height:50px;
 	margin:10px auto 0 auto;
 }
-#review-detail-info-image {
+.review-detail-info-image {
 	/* border:1px solid red; */
   position:absolute;
   width:40px;
@@ -40,29 +49,29 @@
   left:5px;
   top:5px;
 }
-#review-detail-info-image > img {
+.review-detail-info-image > img {
 	width:100%;
 	height:100%;
 }
-#review-detail-info-nickname {
+.review-detail-info-nickname {
 	/* border:1px solid red; */
 	position:absolute;
 	left:50px;
 	top:15px;
 }
-#review-detail-info-date {
+.review-detail-info-date {
 	/* border:1px solid red; */
 	position:absolute;
 	right:5px;
 	top:5px;
 }
-#review-detail-info-viewcount {
+.review-detail-info-viewcount {
 	/* border:1px solid red; */
 	position:absolute;
 	right:145px;
 	bottom:5px;
 }
-#review-detail-info-hoducount {
+.review-detail-info-hoducount {
 	/* border:1px solid red; */
 	position:absolute;
 	right:40px;
@@ -98,22 +107,49 @@
 /* 버튼 */
 #wrap-btn {
 	margin:10px auto 0 auto;
-	width:140px;
+	width:110px;
+}
+#hodu > img {
+	width:25px;
+	height:25px;
 }
 /* 댓글 */
 .review-detail-cont-box > span {
-	border:1px solid red;
 	font-size: 1.2em;
 	margin-top:5px;
 	margin-left:5px;
 }
 .review-detail-comment-others {
-	border:1px solid #ffff00;
-	
+	position:relative;
+	height:50px;
+	width:98%;
+	margin:5px auto;
+}
+.review-detail-comment-others-nick {
+	top:5px;
+	left:60px;
+}
+.review-detail-comment-others-sentence {
+	position:absolute;
+	top:25px;
+  left:60px;
 }
 .review-detail-comment-input {
-	border:1px solid red;
+	position:relative;
+	width:98%;
+	height:40px;
+	margin:5px auto;
 }
-
+.form-control {
+	position:absolute;
+	left:0;
+	width:90%;
+}
+.review-detail-comment-input > #wrap-btn {
+	position:absolute;
+	margin:0;
+	right:5px;
+  width:60px;
+}
 
 
