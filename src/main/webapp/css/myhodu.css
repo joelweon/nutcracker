@@ -7,7 +7,7 @@ body {
 
 .my-content-area {
   position: relative;
-  font-size: 1.2em;
+  font-size: 1em;
   max-width: 960px;
   width:100%;
   margin: 20px auto;
@@ -15,7 +15,88 @@ body {
 
 /* main contents area*/
 .main-contents {
-  max-width: 80%;
+  width: 80%;
   font-size: 1.1em;
   float: right;
+}
+
+.hodu-table { 
+  border: 5px solid rgb(47, 47, 47);
+  width: 100%;
+}
+
+.hodu-table. th {
+  font: bold;
+}
+
+.list-img-span > a > img {
+  width: 100%;
+  height: 100%;
+}
+
+.hodu-list-title {
+  background-color: #d5d5d5;
+  margin: 0;
+  text-align: center;
+}
+
+.hodu-list-title th {
+  background-color: rgb(47, 47, 47);
+  text-align: center;
+  color: white;
+  padding-bottom: 4px;
+}
+
+.hodu-table tr {
+  background-color: white;
+  color: black;
+  border-bottom: 3px solid rgb(47, 47, 47);
+}
+
+.hodu-list {
+  text-align: left;
+  display:inline;
+  width: 50%;
+}
+
+.hodu-list span {
+	float: left;
+	max-width: 50px;
+	max-height: 50px;
+	margin: 3px;
+}
+
+.hodu-list div {
+	float: left;
+  width: 70%;
+  margin-left: 10px; 
+  margin-top: 4%;
+}
+
+.hodu-list p {
+  margin: 0px 0px 0px 0px;
+  font: 0.9em normal;
+}
+
+.hodu-no {
+	width: 7%;
+	text-align: center;
+}
+
+.hodu-author {
+	text-align: center;
+}
+
+.hodu-reportdate {
+	text-align: center;
+}
+
+.hodu-viewcnt {
+	width: 7%;
+	text-align: center;
+}
+
+.hodu-like {
+	width: 7%;
+	text-align: center;
 }
