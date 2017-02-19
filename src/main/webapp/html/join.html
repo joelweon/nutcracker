@@ -7,9 +7,10 @@
   maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi" />
 
 
-<title>The Nutcracker</title>
-<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="../css/join.css">
+  <title>The Nutcracker</title>
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../css/join.css">
+  <link rel="stylesheet" href="../css/footer.css">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
               <tr>
                 <th>이메일</th>
                 <td>
-                  <input type='text' name="email">
+                  <input type='text' name="email" placeholder="이메일" class="style" id="email">
                   <select name="emailaddr">
                     <option value="">직접입력</option>
                     <option value="daum.net">daum.net</option>
@@ -49,22 +50,22 @@
               </tr>
               <tr>
                 <th>닉네임</th>
-                <td><input type="text" name="mbname"></td>
+                <td><input type="text" name="mbname" placeholder="닉네임" class="style"></td>
               </tr>
               <tr>
                 <th>비밀번호</th>
-                <td><input type="password" name="mbpw"></td>
+                <td><input type="password" name="mbpw" placeholder="비밀번호" class="style"></td>
               </tr>
               <tr>
                 <th>비밀번호 확인</th>
-                <td><input type="password" name="mbpw_re"></td>
+                <td><input type="password" name="mbpw_re" placeholder="비밀번호 재확인" class="style"></td>
               </tr>
               <tr>
                 <th>전화번호</th>
                 <td>
-                  <select name="emailaddr"><option value="">010</option></select>-
-                  <input type="text" name="cel1" style="width: 40px" />-
-                  <input type="text" name="cel1" style="width: 40px" />
+                  <select name="emailaddr" class=c-width><option value="" >010</option></select>-
+                  <input type="text" name="cel1" style="width: 40px" id=cell class=c-width />-
+                  <input type="text" name="cel1" style="width: 40px" id=cell class=c-width />
                 </td>
               </tr>
               <tr>
@@ -84,12 +85,16 @@
             <tbody>
               <p>선택입력</p>
               <tr>
-                <th>주소</th>
-                <td class="addr"><input type="text" name="addr" class="addr"></td>
-                <td class="addr"><input type="text" name="addr" class="addr"></td>
+                <th class="size" id="size">주소</th>
+                <td class="addr">
+                  <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class=btn-zip><br>
+                  <input type="text" id="postcode" placeholder="우편번호" class="style">
+                  <input type="text" id="address" placeholder="주소"class="style">
+                  <input type="text" id="address2" placeholder="상세주소" class="style">
+                </td>
               </tr>
               <tr>
-                <th>직업</th>
+                <th class="size">직업</th>
                 <td>
                   <select name='job' size='1'>
                     <option value=''>선택하세요</option>
@@ -108,7 +113,7 @@
                 </td>
               </tr>
               <tr>
-                <th>성별</th>
+                <th class="size">성별</th>
                 <td class="g">
                   <input type="radio" name="chk_gender"checked>남성
                   <input type="radio" name="chk_gender" value="4">여성
@@ -124,11 +129,11 @@
 
 
       </div>
-
+      <div id='wrap-footer'></div>
     </div>
   </div>
-  <div class="footer"></div>
-  <!-- <div id="layer1" class="cLayer" style="background-color:#ff6666">메뉴1</div> -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="../js/join-address.js"></script>
 
 
 </body>

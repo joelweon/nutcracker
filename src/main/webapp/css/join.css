@@ -14,9 +14,8 @@ html {
 }
 body {
     font-size:small;
-    background-color:#f0f3f6;
-    background: url(https://d3sz5r0rl9fxuc.cloudfront.net/assets/join_login/bg_login-7a6263c6ffe0ef1396835fef16ef16a4e1106ab1b3a908d421b1128cc76439dd.jpg) center center no-repeat;
-    color:white;
+    background:url(../images/black.jpg) center center no-repeat;
+    background-color:black;
 }
 .section {
     width: 400px;
@@ -24,13 +23,14 @@ body {
     margin: 0 auto;
 }
 
+/* 회원가입 페이지 로고 */
   img {
     text-align:center;
     width:280px;
     height:100px;
   }
    .nut-join-section {
-    margin-bottom:40px;
+    margin-bottom:20px;
   }
   a {
     width:240px;
@@ -39,18 +39,22 @@ body {
     color:white;
     clear:left;
     margin: 0 auto 40px;
-    }
+    } 
   h2 {
     margin-top: 150px;
-    margin-bottom: 40px;
     text-align:center;
   }
   
 /* 테이블 */
 
 select {
-  height:20px;
+  height:31px;
 }
+/* 전화번호 2,3박스 높이 */
+#cell {
+  height:25px;
+}
+
 p {
    font-weight:bold;
    font-size:1.1em;
@@ -59,9 +63,9 @@ p {
 table.t {
   padding: 5px 0 5px 0;
 }
-tbody th {
-  padding:10px;
-}
+/* tbody th {
+  padding:10px; 
+} */
 
 tbody > tr > td.line {
   height:2px;
@@ -70,15 +74,40 @@ tbody > tr > td.line {
 
 .form {
   color:white;
-  padding:10px 10px 0px 10px;
+  padding:5px 10px 0px 10px;
   background-color:#191A14;
   border-radius:10px;
   opacity:0.85;
 }
+/* 전화번호 박스 간격 */
+.c-width {
+  margin-right:10px;
+}
 
-.addr {
-  width:300px;
-  display:block;
+/* 이메일 박스 크기 줄임 */
+#email {
+  width:150px;
+}
+/* 우편번호 버튼 */
+.btn-zip {
+  margin-left:58%;
+  margin-bottom: 5px;
+}
+/* 주소박스 크기 */
+.style {
+  /* box-sizing: border-box; */
+  margin-bottom:2px;
+  /* display:block; */
+  width:90%;
+  height:25px;
+}
+/* 주소,직업,성별 정렬 */
+.size {
+  width:50px;
+  padding:10px;
+}
+#size {
+  padding-bottom:0px;
 }
 
 /* 버튼 css */
@@ -93,16 +122,16 @@ tbody > tr > td.line {
   float: right;
   border-radius: 10px;
   font-size: 1.1em;
-  color: #1b2458;
+  color: #ffffff;
   text-decoration: none;
   width: 80px;
   height: 30px;
 }
 
 .yellow {
-  background-color: #F2CF66;
-  border-bottom: 5px solid #D1B358;
-  text-shadow: 0px -2px #D1B358;
+  background-color: #f84e51;
+  border-bottom: 5px solid #f83d41;
+  text-shadow: 0px -2px #ff0000;
 }
 
 .action-button:active {
@@ -110,9 +139,6 @@ tbody > tr > td.line {
   -webkit-transform: translate(0px,5px);
   border-bottom: 1px solid;
 }
-
-
-
 
 
 
