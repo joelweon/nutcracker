@@ -37,7 +37,7 @@
 }
 
 /* 숨은메뉴-메뉴 */
-.div-hidden-box .div-menu-hidden {
+.div-menu-hidden {
   width:100%;
   height: 100%;
   overflow:hidden;
@@ -48,9 +48,9 @@
   top:60px;
   box-sizing:border-box;
   -moz-box-sizing:border-box;
-  z-index:100;
+  z-index:101;
 }
-.div-hidden-box .div-menu-hidden.on { display:block; }
+.div-menu-hidden.on { display:block; }
 
 .div-menu-hidden ul, .div-menu-hidden ul li {
   display: block;
@@ -100,7 +100,7 @@
 	padding: 5px 3px;
 	float: right;
 }
-.div-menu-search .div-search {
+.div-search {
   width:100%;
   height: 100%;
   overflow:hidden;
@@ -113,23 +113,25 @@
   -moz-box-sizing:border-box;
   z-index:100;
 }
-.div-menu-search .input-search {
+.input-search {
   position: absolute;
-  top: 40%;
+  top: 30%;
   font-size: 5em;
   width: 100%;
   text-align: center;
 }
-.div-menu-search label.input-search { color: #808080; display: block; }
-.div-menu-search label.input-search.focus { color: #c0c0c0; }
-.div-menu-search label.input-search.off { color: #fff; }
-.div-menu-search label.input-search.hover { color: #343434; }
-.div-menu-search #input-search {
+label.input-search { color: #808080; display: block; }
+label.input-search.focus { color: #c0c0c0; }
+label.input-search.off { color: #fff; }
+label.input-search.hover { color: #343434; }
+#input-search {
   border: none;
+  color: #525252;
   background-color: transparent;
   outline: none;
 }
-.div-menu-search .div-search.on { display: block; padding: 0; }
+.div-search.on { display: block; padding: 0; }
+
 .div-menu-search #btn-login { font-size: 1em;	float: right; }
 
 /* 소개글 */
@@ -195,6 +197,7 @@
 	
 	/* 검색 */
 	.div-menu-search { width: 32%; }
+	.input-search { top: 15%; }
 }
 /* ------------------------------------------
   가로가 500px 이하일 때 
@@ -214,7 +217,7 @@
     margin-right: auto;
     /* height: 50px; */
   }
-	
+	.input-search { top: 13%; }
 	/* 하단 플로팅 메뉴 */
 	/* .div-floating { display: table-cell; } */
 	

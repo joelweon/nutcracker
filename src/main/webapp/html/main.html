@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, 
-  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/> -->
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="../css/detail.css">
@@ -20,6 +21,24 @@
 <div class='container main'>
 	<!-- 헤더(로고, 메뉴, 로그인) -->
   <div id='wrap-header'></div>
+  
+  <!-- 숨은 div들 -->
+  <div class='header-sub div-menu-hidden'>
+    <ul id='nav-menu-hidden' class='nav-memu-hidden'>
+      <li><a href="./boycott.html">불매운동</a></li>
+      <li><hr/></li>
+      <li><a href="./review.html">불량후기</a></li>
+      <li><hr/></li>
+      <li><a href="./product-search.html">대체상품</a></li>
+      <li><hr/></li>
+      <li><a href="./deal-continue.html">공동구매</a></li>
+      <li><hr/></li>
+    </ul>
+  </div>
+  <div id='div-search' class='div-search'>
+	  <label for='input-search' class='input-search'>Search</label>
+	  <input id='input-search' class='input-search' type="search" required="required"/>
+	</div>
 
   <!-- 소개글 -->
 	<div id='div-intro'></div>
@@ -462,7 +481,7 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../js/common.js"></script>
-<script src="../js/header.js"></script>
+<!-- <script src="../js/header.js"></script> -->
 <script src="https://code.jquery.com/jquery-latest.js"></script> 
 <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="../js/detail.js"></script>

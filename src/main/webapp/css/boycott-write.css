@@ -66,3 +66,7 @@ input[type="password"]:focus + .separator {
   outline-color: transparent;
   outline-style: none;
 }
+
+/* summnernote customize */
+.modal-title { color: #000; }
+div.note-group-image-url { display: none; }

@@ -14,18 +14,25 @@ $(function(event) {
         ['fontsize', ['fontsize']],
         ['para', ['paragraph']],
         ['insert', ['picture']],
-      ]
+      ],
+      maximumImageFileSize: 1000000 //1MB
     });
   } else {
     //console.log(navigator.userAgent);
-    $('#summernote').summernote({
+    var $summernote = $('#summernote').summernote({
       height: 450,                 // set editor height
       minHeight: null,             // set minimum height of editor
       maxHeight: null,             // set maximum height of editor
       focus: true,                  // set focus to editable area after initializing summernote
-      lang: 'ko-KR'
+      lang: 'ko-KR',
+      maximumImageFileSize: 1000000, //1MB
+      maximumFileSizeError: 'Maximum file size exceeded.'
     });
   }
+  $('#summernote').on('.image.upload.error', function(event) {
+    // upload image to server and create imgNode...
+    console.log(event);
+  });
   
   $('a#write').click(function(event) {
     var result = $('#summernote').summernote('code');

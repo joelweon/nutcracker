@@ -11,44 +11,44 @@
 	/* 숨은메뉴-버튼 이벤트 */
 	$(document).on('click', '#btn-show-hidden', function() {
 		$('#btn-show-hidden').toggleClass('on');
-		$(this).parent().parent().find('#btn-show-hidden').toggleClass('glyphicon glyphicon-menu-hamburger');
-		$(this).parent().parent().find('#btn-show-hidden').toggleClass('glyphicon glyphicon-remove');
-		$(this).parent().parent().find('.div-menu-hidden').toggleClass('on');
+		$('#btn-show-hidden').toggleClass('glyphicon glyphicon-menu-hamburger');
+		$('#btn-show-hidden').toggleClass('glyphicon glyphicon-remove');
+		$('.div-menu-hidden').toggleClass('on');
 		return false;
 	});
 	/* 검색버튼 이벤트 */
 	$(document).on('click', '#btn-search', function() {
   	$('#btn-search').toggleClass('on');
-  	$(this).parent().parent().find('.div-search').toggleClass('on');
+  	$('.div-search').toggleClass('on');
 	  return false;
   });
   /* 검색 마우스 올릴 때 */
 	$(document).bind('mouseover', '.input-search', function(event) {
-	  if (($('#input-search').val().length <= 0) &&
+	  if ($('#input-search').val().length <= 0 &&
 	      (event.toElement.className == 'input-search')) {
-      $(document).find('label.input-search').addClass('hover');
+      $('label.input-search').addClass('hover');
     }
 	  return false;
   });
 	/* 검색 마우스 내릴 때 */
 	$(document).bind('mouseout', '.input-search .hover', function(event) {
     if (event.target.className == 'input-search') {
-      $(document).find('label.input-search').removeClass('hover');
+      $('label.input-search').removeClass('hover');
     }
     return false;
   });
   /* 검색 input 커서in */
 	$(document).on('focusin', '#input-search', function(event) {
     if ($('#input-search').val().length <= 0) {
-      $(this).parent().parent().find('label.input-search').addClass('off');
-      $(this).parent().parent().find('label.input-search').removeClass('hover');
+      $('label.input-search').addClass('off');
+      $('label.input-search').removeClass('hover');
     }
     return false;
   });
 	/* 검색 input 커서out */
 	$(document).on('focusout', '#input-search', function(event) {
     if ($('#input-search').val().length <= 0) {
-      $(this).parent().parent().find('label.input-search').removeClass('off');
+      $('label.input-search').removeClass('off');
     }
     return false;
   });

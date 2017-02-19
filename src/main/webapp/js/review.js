@@ -15,7 +15,8 @@ $(function(event) {
         ['fontsize', ['fontsize']],
         ['para', ['paragraph']],
         ['insert', ['picture']],
-      ]
+      ],
+      maximumImageFileSize: 1000000 //1MB
     });
   } else {
     //console.log(navigator.userAgent);
@@ -24,7 +25,12 @@ $(function(event) {
       minHeight: null,             // set minimum height of editor
       maxHeight: null,             // set maximum height of editor
       focus: true,                  // set focus to editable area after initializing summernote
-      lang: 'ko-KR'
+      lang: 'ko-KR',
+      maximumImageFileSize: 1000000 //1MB
     });
   }
-});
+  //write 버튼 클릭 시 내용이 없는 경우 alert 창 띄우기
+/*  if ($('#summernote').summernote('isEmpty')) {
+    alert('contents is empty');
+  }
+*/});
