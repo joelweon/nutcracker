@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우리는 The Nutcracker 입니다.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header_sh.css">
+  <link rel="stylesheet" href="../css/mydetail.css">
+  <link rel="stylesheet" href="../css/mytop.css">
+  <link rel="stylesheet" href="../css/myside.css">
+  <link rel="stylesheet" href="../css/footer.css">
+</head>
+<body>
+<div id='wrap-header'></div>
+
+<!-- 마이페이지 상단 바 -->
+<div id='wrap-mytop'></div>
+
+<div class="my-content-area">
+  <!-- 마이페이지 사이드 메뉴 -->
+  <div id='wrap-myside'></div>
+  
+  <div class="main-contents">
+  
+  	<div>
+  		<table class="detail-table">
+  			<tr>
+  				<th>이메일</th>
+  				<td>
+  					<input type='text' name="email" value="user01@test.com">
+  					<select name="emailaddr">
+              <option value="">직접입력</option>
+              <option value="@daum.net">daum.net</option>
+              <option value="@gmail.com">gmail.com</option>
+              <option value="@hanmail.net">hanmail.net</option>
+              <option value="@naver.com">naver.com</option>
+              <option value="@nate.com">nate.com</option>
+            </select>
+  					<button>중복확인</button>
+  				</td>
+  			</tr>
+  			<tr>
+  				<th>닉네임</th>
+  				<td>
+  					<input type='text' name="mbname"  value="cracker">
+  				</td>
+  			</tr>
+  			<tr>
+  				<th>비밀번호 변경</th>
+  				<td>
+  					<table class="detail-inner-table">
+  					<tr>
+  						<th>현재 비밀번호</th>
+  						<td><input type="password" name="pwd"></td>
+  					</tr>
+  					<tr>
+  						<th>새 비밀번호</th>
+  						<td><input type="password" name="new-pwd"></td>
+  					</tr>
+  					<tr>
+  						<th>비밀번호 확인</th>
+  						<td><input type="password" name="new-pwd-check"></td>
+  					</tr>
+  					</table>
+  				</td>
+  			</tr>
+  			<tr>
+  				<th>연락처</th>
+  				<td>
+  					<input type='text' name="tel"  value="010-1111-2222">
+  				</td>
+  			</tr>
+  			<tr>
+  				<th>배송지</th>
+  				<td>
+  					<input type="text" id="postcode" class="style">
+  					<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class=btn-zip><br>
+            <input type="text" id="address" class="style"><br>
+            <input type="text" id="address2" class="style">
+  				</td>
+  			</tr>
+  			<tr>
+  				<th>직업</th>
+  				<td>
+            <select name='job' size='1' >
+              <option value=''>선택하세요</option>
+              <option value='39' selected="selected">학생</option>
+              <option value='40'>컴퓨터/인터넷</option>
+              <option value='41'>언론</option>
+              <option value='42'>공무원</option>
+              <option value='43'>군인</option>
+              <option value='44'>서비스업</option>
+              <option value='45'>교육</option>
+              <option value='46'>금융/증권/보험업</option>
+              <option value='47'>유통업</option>
+              <option value='48'>예술</option>
+              <option value='49'>의료</option>
+            </select>
+          </td>
+  			</tr>
+  		</table>
+  		<button>변경하기</button>
+  	</div>
+  
+  
+  </div>
+</div>
+
+
+<div id='wrap-footer'></div>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="../js/join-address.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/mypage.js"></script>
+
+<script>
+$(document).on('click', '.detail-togle', function() {
+  $(".my-top-detail").toggle("1000");
+});
+
+</script>
+</body>
+</html>
