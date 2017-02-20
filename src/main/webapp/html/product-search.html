@@ -8,7 +8,7 @@
 <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/header_sh.css">
+<link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/product.css">
 </head>
 
@@ -50,24 +50,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <!-- <script type="text/javascript" src="../js/header.js"></script> -->
-<script>
-/* on-off 스위치 */
-$(document).ready(function(){
-  $('.product-search-btn').click(function(){
-    $(this).toggleClass("switchon");
-  });
-});
-
-/* 검색창 */
-$(function () {
-  $('#product-search-window').addClass('open');
-  $('#product-search-window > form > input[type="search"]').focus();
-	/* $('#product-search-window').on('click keyup', function(event) {
-	  if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
-	    $(this).removeClass('open');
-	  }
-	}); */
-});
-</script>
+<script type="text/javascript" src="../js/product-search.js"></script>
 </body>
 </html>

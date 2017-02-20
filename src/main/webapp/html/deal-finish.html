@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="../js/common.js"></script>
-<!-- <script type="text/javascript" src="../js/header.js"></script> -->
+
 <head>
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
@@ -11,8 +9,8 @@
 <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/header_sh.css">
-<link rel="stylesheet" href="../pracCss/sh/deal.css">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/deal.css">
 </head>
 <body>
 <div class='container'>
@@ -93,14 +91,9 @@
 </div> <!-- deal-container class -->
 <!-- <div id='footer'></div> -->
 </div>
-<script>
-// 퍼센트 그래프
-jQuery(document).ready(function(){
-  jQuery('.percentbar').each(function(){
-  	var percentage = jQuery(this).attr('data-percent');
-    jQuery(this).find('.percentbar-bar').animate({ width:percentage },1000);
-  });
-});
-</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<!-- <script type="text/javascript" src="../js/header.js"></script> -->
+<script type="text/javascript" src="../js/deal.js"></script>
 </body>
 </html>
