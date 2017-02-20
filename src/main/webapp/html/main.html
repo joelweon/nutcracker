@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="../css/detail.css">
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/header_sh.css">
+  <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/footer.css">
   
@@ -484,20 +484,7 @@
 <!-- <script src="../js/header.js"></script> -->
 <script src="https://code.jquery.com/jquery-latest.js"></script> 
 <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
-<script src="../js/detail.js"></script>
-<script>
-/*헤더 고정*/
-$(function(){
-  // Check the initial Poistion of the Sticky Header
-  var stickyHeaderTop = $('#wrap-content').offset().top;
-  $(window).scroll(function(){
-    if( $(window).scrollTop() + 60 > stickyHeaderTop) {
-      $('#wrap-header').css({background:'rgba(0,0,0,1.0)',transition:'background-color 1.5s'});
-    } else {
-      $('#wrap-header').css({background:'rgba(0,0,0,0.0)',transition:'background-color 1.5s'});
-    }
-  });
-});
-</script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/detail.js"></script>
 </body>
 </html>
