@@ -70,6 +70,9 @@ select[size] {
   border-radius:10px;
   opacity:0.85;
 }
+.required {
+	display:block;
+}
 legend {
   font-size: 160%;
   position: relative;
@@ -98,19 +101,35 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   outline: 0px;
 }
 
-.tel .form-control-feedback {
-  margin-top: -26px;
-}
-.birthday .form-control-feedback {
-  margin-top: -22px;
-}
-
 .tel-box {
   display:inline;
-  width:90px;
+  width:110px;
 }
 .full-box {
   width:95%;
+}
+
+/* 부트스트랩 설정 변경 */
+.tel .form-control-feedback {
+  left: 170px;
+}
+.birthday .form-control-feedback {
+  left: 170px;
+}
+.help-block {
+	position: absolute;
+	top:0;
+	right: 0;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+.tel .help-block {
+  left: 90px;
+}
+.birthday .help-block {
+  left: 90px;
 }
 
 /* 버튼 css */
