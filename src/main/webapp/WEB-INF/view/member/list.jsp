@@ -6,7 +6,7 @@
 
 <h1>회원 정보</h1>
       
-<a href='form.html'>추가</a><br>
+<a href='form.do'>추가</a><br>
 <table border='1'>
 <tr>
   <th>회원번호</th>

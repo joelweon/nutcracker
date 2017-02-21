@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="nutcracker.dao.MemberDao">
+
+  <resultMap type="member" id="member-map">
+    <id     column="mno"        property="memberNo"/>
+    <result column="email"      property="email"/>
+    <result column="name"       property="name"/>
+    <result column="pwd"        property="password"/>
+    <result column='lst_date'   property='lastDate'/>
+    <result column="path"       property="photoPath"/>
+  </resultMap>
+  
+  <select id="getList" resultMap="member-map">
+    select 
+      mno, 
+      email, 
+      name, 
+      lst_date
+    from memb
+  </select>
+  
+  <select id="count" parameterType="string" resultType="int">
+    select count(*) 
+    from memb 
+    where email=#{value}
+  </select>
+  
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*) 
+    from memb 
+    where mno=#{value}
+  </select>
+  
+  <select id="countByEmailPassword" parameterType="map" resultType="int">
+    select count(*) 
+    from memb 
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+  
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
+    insert into memb(email,name,pwd,lst_date) 
+    values(#{email},#{name}, password(#{password}),#{lastDate})      
+  </insert>
+  
+  <update id="update" parameterType="member">
+    update memb set
+      email=#{email}, 
+      name=#{name}, 
+      pwd=password(#{password}), 
+      lst_date=#{lastDate}
+    where mno=#{memberNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+  <![CDATA[
+    delete from memb where mno=#{value}
+  ]]>
+  </delete>
+  
+  <select id="getOneByNo" parameterType="int" resultMap="member-map">
+    select 
+      mno,
+      email, 
+      name, 
+      lst_date
+   from memb
+   where mno=#{value}
+  </select>
+  
+  <select id="getOne" parameterType="string" resultMap="member-map">
+    select
+      mno, 
+      name, 
+      lst_date
+    from memb
+    where email=#{value}
+  </select>
+  
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="member-map">
+    select 
+      mno, 
+      email, 
+      name, 
+      lst_date 
+    from memb 
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+</mapper>
+  

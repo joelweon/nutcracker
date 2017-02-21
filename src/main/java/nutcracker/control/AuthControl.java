@@ -1,5 +1,7 @@
 package nutcracker.control;
 
+import java.util.HashMap;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,7 +35,11 @@ public class AuthControl {
       response.addCookie(cookie);
     }
     
-    Member member = memberDao.getOne(email, password);
+    HashMap<String,String> paramMap = new HashMap<>();
+    paramMap.put("email", email);
+    paramMap.put("password", password);
+    
+    Member member = memberDao.getOneByEmailPassword(paramMap);
     
     if (member != null) {
       session.setAttribute("member", member); // HttpSession에 저장한다.
@@ -42,14 +48,14 @@ public class AuthControl {
       
     response.setHeader("Refresh", "2;url=loginform.do");
     model.addAttribute("title", "로그인");
-    model.addAttribute("contentPage", "/auth/loginfail.jsp");
+    model.addAttribute("contentPage", "auth/loginfail.jsp");
     return "main";
   }
   
   @RequestMapping("/auth/loginform")
   public String loginform(Model model) throws Exception {
     model.addAttribute("title", "로그인");
-    model.addAttribute("contentPage", "/auth/loginform.jsp");
+    model.addAttribute("contentPage", "auth/loginform.jsp");
     return "/main";
   }
   
