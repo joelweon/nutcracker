@@ -209,3 +209,25 @@ window.addEventListener('DOMContentLoaded', setup, false);
 window.addEventListener('beforeunload', function(event){
   return '변경하신 내용을 저장하지 않았습니다.';
 }, false);
+
+
+// db 내 data 등록하기 -> test 중
+	$('#join-btn').click(function() {
+		var param = {
+		  name: $('#name').val(),
+		  password: $('#password').val(),
+		  tel: $('#tel').val(),
+		  birthday: $('#birthday').val(),
+		  postcode: $('#postcode').val(),
+		  address: $('#address').val() + $('#address2').val(),
+		  job: $('#job').val(),
+		  gender: $('#gender').val()
+		};
+		$.post('add.json', param, function(ajaxResult) {
+		  if (ajaxResult.status != "success") {
+		    alert(ajaxResult.data);
+		    return;
+		  }
+		  location.href = 'main.html';
+		}, 'json');
+  });

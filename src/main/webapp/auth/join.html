@@ -85,29 +85,29 @@
             </div>
             <div class="job">
               <label for="job">직업</label>
-              <select name='job' size='1'>
+              <select name='job' id='job' size='1'>
                 <option value=''>선택하세요</option>
-                <option value='39'>학생</option>
-                <option value='40'>컴퓨터/인터넷</option>
-                <option value='41'>언론</option>
-                <option value='42'>공무원</option>
-                <option value='43'>군인</option>
-                <option value='44'>서비스업</option>
-                <option value='45'>교육</option>
-                <option value='46'>금융/증권/보험업</option>
-                <option value='47'>유통업</option>
-                <option value='48'>예술</option>
-                <option value='49'>의료</option>
+                <option value='학생'>학생</option>
+                <option value='컴퓨터/인터넷'>컴퓨터/인터넷</option>
+                <option value='언론'>언론</option>
+                <option value='공무원'>공무원</option>
+                <option value='군인'>군인</option>
+                <option value='서비스업'>서비스업</option>
+                <option value='교육'>교육</option>
+                <option value='금융/증권/보험업'>금융/증권/보험업</option>
+                <option value='유통업'>유통업</option>
+                <option value='예술'>예술</option>
+                <option value='의료'>의료</option>
               </select>
             </div>
             <div class="gender">
-              <label for="job">성별</label>
-              <input type="radio" name="chk_gender">남성
-              <input type="radio" name="chk_gender" value="4">여성
+              <label for="gender">성별</label>
+              <input type="radio" name="chk_gender" id='gender-m' value="m">남성
+              <input type="radio" name="chk_gender" id='gender-w' value="w">여성
             </div>
           </div>
-          <button id ='join-btn' type='submit' class='register action-button shadow animate red'>가입</button>
-          <button id ='cancle-btn' type='button' class='action-button shadow animate red'>취소</button>
+          <button id ='join-btn' type='button' class='register action-button shadow animate red'>가입</button>
+          <button id ='cancle-btn' type='button' class='action-button shadow animate red' onclick='location.href="login.html"'>취소</button>
         </form>
       </div> <!-- section -->
     </div>
