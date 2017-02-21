@@ -3,10 +3,10 @@ $('#btn-login').click(function() {
     email: $('#email').val(),
     password: $('#password').val(),
   };
-  $.post('login.json', param, function(ajaxResult) {
+  $.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
     console.log("로긴성공");
     if (ajaxResult.status == "success") {
-      location.href = "../main"; 
+      location.href = clientRoot + "/main"; 
       return;
     }
     alert(ajaxResult.data);
