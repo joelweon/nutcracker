@@ -97,7 +97,14 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   box-shadow: inset 0px 2px 2px #000;
   outline: 0px;
 }
-  
+
+.tel .form-control-feedback {
+  margin-top: -26px;
+}
+.birthday .form-control-feedback {
+  margin-top: -22px;
+}
+
 .tel-box {
   display:inline;
   width:90px;
