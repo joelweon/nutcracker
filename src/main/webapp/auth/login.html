@@ -19,7 +19,7 @@
 	      <div class="nut-join-section">
 	        <div class="logo-img"><!-- walnut-white.png -->
 	          <h2>
-	            <a href="main.html"><img src="../images/Logo2.png" /></a>
+	            <a href="main.html"><img src="../images/newlogo.png" id="logo"/></a>
 	          </h2>
               <!-- 로그인 -->
               <form>
@@ -46,22 +46,24 @@
 	          </div> -->
 	        </div>
 	      
-	      <div class="connect-section">
-		      <div class="naver-join">
-		        <button type="button" class="btn" id="btn-n">
-		        계정으로 로그인
-		        </button>
-		      </div>
-		      <div class="kakao-join">
-	          <button type="button" class="btn" id="btn-k">
-	          계정으로 로그인
-	          </button>
-		      </div>
-		      <div class="facebook-join">
-		        <button type="button" class="btn" id="btn-f">
-		        계정으로 로그인
-	          </button>
-	        </div>
+        <div class="connect-section">
+          <div class="naver-join" id="naver_id_login">
+            <button type="button" class="btn" id="btn-n">
+            계정으로 로그인
+            </button>
+          </div>
+          <div class="kakao-join" id="kakao-logged-group1">
+            <button type="button" class="btn" id="btn-k">
+            계정으로 로그인
+            </button>
+          </div>
+              <div id="kakao-logged-group"></div>
+              <div id="kakao-profile"></div>    
+          <div class="facebook-join">
+            <button type="button" class="btn" id="btn-f">
+            계정으로 로그인
+            </button>
+          </div>
 	      </div>
       </div>
     </div>
@@ -70,6 +72,10 @@
   
 <script src="../node_modules/jquery/dist/jquery.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="../js/kakao.js"></script>
+<script src="../js/naverLogin_implicit-1.0.2.js"></script>
+<script src="../js/naver.js"></script>
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>
 <script src="login.js"></script>
