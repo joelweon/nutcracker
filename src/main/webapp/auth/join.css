@@ -100,7 +100,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
   
 .tel-box {
   display:inline;
-  width:55px;
+  width:90px;
 }
 .full-box {
   width:95%;
