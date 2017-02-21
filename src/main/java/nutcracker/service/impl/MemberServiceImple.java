@@ -10,7 +10,7 @@ import nutcracker.domain.Member;
 import nutcracker.service.MemberService;
 
 @Service
-public class MemberServiceInple implements MemberService {
+public class MemberServiceImple implements MemberService {
   @Autowired MemberDao memberDao;
 
   @Override

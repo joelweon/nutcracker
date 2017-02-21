@@ -1,62 +1,77 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>로그인</title>
+<meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/> -->
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+
+  <title>The Nutcracker</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/login.css">
 </head>
+ 
 <body>
+  <div class="login_sns_wrap">
+    <div class="container">
+      <div class="section">
+	      <div class="nut-join-section">
+	        <div class="logo-img"><!-- walnut-white.png -->
+	          <h2>
+	            <a href="main.html"><img src="../images/Logo2.png" /></a>
+	          </h2>
+              <!-- 로그인 -->
+              <form>
+              
+                <div class="login-box">
+                  <label><b>Email</b></label>
+                  <input id="email" type="text" placeholder="이메일" name="email" required>
+              
+                  <label><b>Password</b></label>
+                  <input id="password" type="password" placeholder="비밀번호" name="password" required>
+                      
+                  <button id="btn-login" type="button" class="btn-confirm btn-login">로그인</button>
+                </div>
+              </form>
+              <div class="login-join">
+                <a href="join.html" class="join">회원가입</a>
+              </div>
+            </div>
 
-<div id='header' style='background-color:gray; height:40px;position:relative;'></div>
 
-<div id='sidebar' style='background-color:Navy; width:180px; height:400px;'></div>
-
-<div id="content">
-<h1>로그인</h1>
-
-<form action='login.do' method='POST'>
-<table border='1'>
-<tr><th>이메일</th><td><input name='email' type='text' placeholder='예)hong@test.com' value='${cookie.email.value}'></td></tr>
-<tr><th>암호</th><td><input name='password' type='password'></td></tr>
-<tr><th></th><td><input name='saveEmail' type='checkbox'> 이메일 저장</td></tr>
-</table>
-<button type='submit'>로그인</button>
-</form>
-</div>
-
-<div id='footer' style='background-color:gray; height:20px; margin-top:20px;'></div>
-
+<!--             <div class="nut-join">
+	            <button type="button" class="btn-confirm" id="nutJoin">
+	             The Nutcracker 신규 가입</button>
+	          </div> -->
+	        </div>
+	      
+	      <div class="connect-section">
+		      <div class="naver-join">
+		        <button type="button" class="btn" id="btn-n">
+		        계정으로 로그인
+		        </button>
+		      </div>
+		      <div class="kakao-join">
+	          <button type="button" class="btn" id="btn-k">
+	          계정으로 로그인
+	          </button>
+		      </div>
+		      <div class="facebook-join">
+		        <button type="button" class="btn" id="btn-f">
+		        계정으로 로그인
+	          </button>
+	        </div>
+	      </div>
+      </div>
+    </div>
+  </div>
+  <div id='wrap-footer'></div>
+  
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../js/bit.js"></script>
 <script src="../js/common.js"></script>
-<script>
-document.querySelector('#login-btn').onclick = function() {
-  // 이메일 저장이 체크되어 있으면 쿠키에 저장하고, 
-  // 체크되어 있지 않으면 쿠키에서 제거한다.
-  if (document.querySelector('#save-email').checked) {
-    setCookie('email', document.querySelector('#email').value, 30);
-  } else {
-    setCookie('email', '', 0);
-  }
-  
-  var param = {
-    email: document.querySelector('#email').value,
-    password: document.querySelector('#password').value
-  };
-  
-  post('login.json', param, function(jsonText) {
-    var ajaxResult = JSON.parse(jsonText);
-    
-    if (ajaxResult.status == "success") {
-      location.href = "../member/main.html"; 
-      return;
-    }
-    
-    alert(ajaxResult.data);
-    
-  });
-}
-// email 쿠키가 있다면 값을 넣는다.
-document.querySelector('#email').value = getCookie('email').replace(/"/g, '');
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>

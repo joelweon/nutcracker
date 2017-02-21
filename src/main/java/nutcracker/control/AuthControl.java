@@ -18,7 +18,7 @@ import nutcracker.domain.Member;
 public class AuthControl {
   @Autowired MemberDao memberDao;
   
-  @RequestMapping("/auth/login")
+  @RequestMapping("/auth/loginp")
   public String login(String email, String password, boolean saveEmail, String userType,
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
     

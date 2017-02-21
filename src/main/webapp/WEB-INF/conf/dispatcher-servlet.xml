@@ -15,17 +15,20 @@
           @Component, @Controller, @Repository, @Service 애노테이션이 붙은 
           클래스를 찾아 인스턴스를 생성한다.
   -->
-  <context:component-scan base-package="nutcracker.control"/>
-  
+  <context:component-scan base-package="nutcracker.control">
+    <!-- JSON 데이터를 출력하는 페이지 컨트롤러를 제외시킨다. -->
+    <context:exclude-filter type="regex" expression="nutcracker.control.json.*"/>
+  </context:component-scan>
+
   <!--  뷰 컴포넌트 관리자(View Resolver; 뷰 해결사) 등록 -->
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-    
-    <!-- 페이지 컨트롤러가 리턴한 URL 앞에 붙일 값 -->
-    <property name="prefix" value="/WEB-INF/view"/>
-    
-    <!-- 페이지 컨트롤러가 리턴한 URL 뒤에 붙일 값 -->
-    <property name="suffix" value=".jsp"/>
+      <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+      
+      <!-- 페이지 컨트롤러가 리턴한 URL 앞에 붙일 값 -->
+      <property name="prefix" value="/WEB-INF/view/"/>
+      
+      <!-- 페이지 컨트롤러가 리턴한 URL 뒤에 붙일 값 -->
+      <property name="suffix" value=".jsp"/>
   </bean>
   
   <!-- MVC 관련 애노테이션을 처리할 수 있는 객체를 등록한다. -->
@@ -48,6 +51,4 @@
         <bean class="nutcracker.interceptor.LoginCheckInterceptor"/>
     </mvc:interceptor>
   </mvc:interceptors>
-
 </beans>
-

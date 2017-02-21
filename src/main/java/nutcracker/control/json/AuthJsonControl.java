@@ -1,7 +1,5 @@
 package nutcracker.control.json;
 
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -10,22 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import nutcracker.dao.MemberDao;
 import nutcracker.domain.Member;
+import nutcracker.service.AuthService;
 
 @RestController
 public class AuthJsonControl {
-  @Autowired MemberDao memberDao;
+  @Autowired AuthService authService;
   
   @RequestMapping("/auth/login")
-  public AjaxResult login(String email, String password, String userType,
+  public AjaxResult login(String email, String password,
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
     
-    HashMap<String,String> paramMap = new HashMap<>();
-    paramMap.put("email", email);
-    paramMap.put("password", password);
-    Member member = memberDao.getOneByEmailPassword(paramMap);
-        
+    Member member = authService.getMemberInfo(email, password);
+    
     if (member == null) {
       return new AjaxResult(AjaxResult.FAIL, "이메일 또는 암호가 틀리거나, 가입된 회원이 아닙니다.");
     }
