@@ -223,11 +223,12 @@ window.addEventListener('beforeunload', function(event){
 		  job: $('#job').val(),
 		  gender: $('#gender').val()
 		};
-		$.post('add.json', param, function(ajaxResult) {
+		alert(param);
+		/*$.post('add.json', param, function(ajaxResult) {
 		  if (ajaxResult.status != "success") {
 		    alert(ajaxResult.data);
 		    return;
 		  }
 		  location.href = 'main.html';
-		}, 'json');
+		}, 'json');*/
   });

@@ -15,7 +15,7 @@
       
       function createKakaotalkLogin(){
         $("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove();
-        var loginBtn = $("<a/>",{"class":"kakao-login-btn", "href":"javascript:loginWithKakao()","text":"로그인"});
+        var loginBtn = $("<a/>",{"class":"kakao-login-btn","text":"로그인"});
         loginBtn.click(function(){
           Kakao.Auth.login({
             persistAccessToken: true,

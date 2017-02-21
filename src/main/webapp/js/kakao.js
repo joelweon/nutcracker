@@ -1,5 +1,5 @@
-Kakao.init("413a2236a9af2136f9841c01e0335019");
 function createKakaotalkLogin() {
+	Kakao.init("413a2236a9af2136f9841c01e0335019");
   // 로그인 창을 띄웁니다.
   Kakao.Auth.login({
     persistAccessToken: true,
