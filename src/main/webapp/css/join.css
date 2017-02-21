@@ -9,17 +9,18 @@
 
 /* 641이상 */
 
-html {
-  height:100%;
-}
+
 body {
     font-size:small;
+    font-family:'arial';
     background:url(../images/black.jpg) center center no-repeat;
     background-color:black;
+    background-size:cover;
+  /* height:100%;   */
 }
 .section {
+    /* font-size:1.1em; */
     width: 400px;
-    height: 314px;
     margin: 0 auto;
 }
 
@@ -41,73 +42,68 @@ body {
     margin: 0 auto 40px;
     } 
   h2 {
-    margin-top: 150px;
+    margin-top: 50px;
     text-align:center;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
   }
-  
+  h3 {
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+  .col-sm-5 {
+    width:100%;
+  }
 /* 테이블 */
 
-select {
+select[size] {
   height:31px;
-}
-/* 전화번호 2,3박스 높이 */
-#cell {
-  height:25px;
+  color:black;
 }
 
-p {
-   font-weight:bold;
-   font-size:1.1em;
-}
-
-table.t {
-  padding: 5px 0 5px 0;
-}
-/* tbody th {
-  padding:10px; 
-} */
-
-tbody > tr > td.line {
-  height:2px;
-  background-color:#FFC8C3;
-}
-
+/* FORM STYLES */
 .form {
   color:white;
-  padding:5px 10px 0px 10px;
+  padding:5px 20px;
   background-color:#191A14;
   border-radius:10px;
   opacity:0.85;
 }
-/* 전화번호 박스 간격 */
-.c-width {
-  margin-right:10px;
+legend {
+  font-size: 160%;
+  position: relative;
+  color: #fff;}
+.essential legend { top: -0.2em; left: -0.6em;}
+.selection legend { top: -1em; left: -1em;}
+
+span#feedback {
+  color:red;
+  float:right;
+}
+input {
+  border: none;
+  padding: 8px;
+  line-height: 1.2em; 
+  margin-bottom: 4%;
+  font-size: 1.1em;
 }
 
-/* 이메일 박스 크기 줄임 */
-#email {
-  width:150px;
+input {
+    color:black;
 }
-/* 우편번호 버튼 */
-.btn-zip {
-  margin-left:58%;
-  margin-bottom: 5px;
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+  box-shadow: inset 0px 2px 2px #000;
+  outline: 0px;
 }
-/* 주소박스 크기 */
-.style {
-  /* box-sizing: border-box; */
-  margin-bottom:2px;
-  /* display:block; */
-  width:90%;
-  height:25px;
+  
+.tel-box {
+  display:inline;
+  width:40px;
 }
-/* 주소,직업,성별 정렬 */
-.size {
-  width:50px;
-  padding:10px;
-}
-#size {
-  padding-bottom:0px;
+.full-box {
+  width:95%;
 }
 
 /* 버튼 css */
@@ -128,7 +124,7 @@ tbody > tr > td.line {
   height: 30px;
 }
 
-.yellow {
+.red {
   background-color: #f84e51;
   border-bottom: 5px solid #f83d41;
   text-shadow: 0px -2px #ff0000;
@@ -142,17 +138,6 @@ tbody > tr > td.line {
 
 
 
-/* .footer {
-  position: relative;
-    padding: 30px 0 29px;
-    border-top: 1px solid #d3d5d8;
-    background-color: #fff;
-    text-align: center;
-    letter-spacing: -0.1em;
-    line-height: 20px;
-    min-width: 992px;
-    
-} */
 /* 모바일 Device : 0 ~ 640 */
 @media screen and (max-width:640px) {
   .section {
@@ -186,10 +171,6 @@ tbody > tr > td.line {
     margin-bottom:0px;
   }
   .form {
-    width:94%;
-  }
-  .addr {
-    width:100%;
-    display:block;
+    width:88%;
   }
 }
