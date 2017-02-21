@@ -3,9 +3,9 @@
  ------------------*/
 $(document).ready(function() {
   /*$('#wrap-header').load('./header.html');*/
-  $.get('../header.html', function(result) {
+  $.get(clientRoot + '/header.html', function(result) {
     // 서버에서 로그인 사용자 정보를 가져온다.
-    $.getJSON('../auth/loginUser.json', function(ajaxResult) {
+    $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
       $('#wrap-header').html(result);
 
       if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
@@ -15,7 +15,7 @@ $(document).ready(function() {
         // 로그인 버튼의 클릭 이벤트 핸들러 등록하기
         $('#btn-login').click(function(event) {
           event.preventDefault();
-          location.href = '../auth/login.html';
+          location.href = clientRoot + '/auth/login.html';
         });
         return;
       }
@@ -27,22 +27,22 @@ $(document).ready(function() {
       // 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
       $('#btn-logout').click(function(event) {
         event.preventDefault();
-        $.getJSON('../auth/logout.json', function(ajaxResult) {
-          location.href = '../auth/login.html';
+        $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+          location.href = clientRoot + '/auth/login.html';
         });
       });
     });
   });
-  $('#wrap-hidden').load('../hidden.html');
-  $('#div-intro').load('../intro.html');
-  $('#wrap-footer').load('../footer.html');
+  $('#wrap-hidden').load(clientRoot + '/hidden.html');
+  $('#div-intro').load(clientRoot + '/intro.html');
+  $('#wrap-footer').load(clientRoot + '/footer.html');
   //로그인, 회원가입 창에서는 header.js 로딩하지 않음
   if(location.href.indexOf('auth') != -1 ||
       location.href.indexOf('join') != -1) {
     /*console.log("로그인임");*/
   } else {
     /*console.log("로그인 아님");*/
-    addJavascript('../js/header.js');
+    addJavascript(serverRoot + '/js/header.js');
   }
 });
 
