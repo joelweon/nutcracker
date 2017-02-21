@@ -56,10 +56,10 @@ body {
     width:100%;
   }
 /* 테이블 */
-
 select[size] {
   height:31px;
   color:black;
+  margin-bottom:4%;
 }
 
 /* FORM STYLES */
@@ -70,7 +70,7 @@ select[size] {
   border-radius:10px;
   opacity:0.85;
 }
-.required {
+label {
 	display:block;
 }
 legend {
@@ -103,33 +103,30 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
 
 .tel-box {
   display:inline;
-  width:110px;
+  width:80%;
 }
 .full-box {
   width:95%;
 }
+.selection-address, .job, .gender {
+	padding:0 15px;
+}
+#postcode-search {
+	right:0;
+}
+#postcode {
+	width:204px;
+}
 
 /* 부트스트랩 설정 변경 */
-.tel .form-control-feedback {
-  left: 170px;
-}
-.birthday .form-control-feedback {
-  left: 170px;
-}
 .help-block {
 	position: absolute;
 	top:0;
-	right: 0;
+	right: 32px;
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
   color: #737373;
-}
-.tel .help-block {
-  left: 90px;
-}
-.birthday .help-block {
-  left: 90px;
 }
 
 /* 버튼 css */
