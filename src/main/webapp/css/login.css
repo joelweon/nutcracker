@@ -25,11 +25,11 @@ body {
     margin: 0 auto;
 }
 
-  img {
-    text-align:center;
-    width:280px;
-    height:100px;
-  }
+img#logo {
+  text-align:center;
+  width:280px;
+  height:100px;
+}
    .nut-join-section {
     margin-bottom:30px;
   }
@@ -112,7 +112,7 @@ span.psw {
     margin-bottom:10px;
   }
   /* 계정 버튼 */
-  #btn-n {
+/*   #btn-n {
     background: rgba(0, 0, 0, 0.8) url(../images/ico-sns-naver.png) no-repeat 90px center;
   }
   #btn-k {
@@ -120,7 +120,7 @@ span.psw {
   }
   #btn-f {
     background: rgba(0, 0, 0, 0.8) url(../images/ico_sns_facebook.png) no-repeat 85px center;
-  }
+  } */
 input {
   opacity:0.9;
 }
@@ -152,7 +152,7 @@ input {
     width: 100%;
     height: 60px;
   }
-   #btn-n {
+/*    #btn-n {
     background-position: 15% center;
   }
   #btn-k {
@@ -160,7 +160,7 @@ input {
   }
   #btn-f {
     background-position: 15% center;
-  }
+  } */
   h2 {
   margin-top:20px;
   margin-bottom:10px;
