@@ -22,9 +22,7 @@ public class ShoppingDaum {
     urlCon.setRequestProperty("output", output);
     urlCon.setRequestProperty("sort", sort);
     
-    InputStream in0 = urlCon.getInputStream();
-    InputStreamReader in = new InputStreamReader(in0, "UTF-8");
-    BufferedReader buffer = new BufferedReader(in);
+    BufferedReader buffer = new BufferedReader(new InputStreamReader(urlCon.getInputStream(), "UTF-8"));
     String msg = null;
     
     while((msg=buffer.readLine()) != null) {
