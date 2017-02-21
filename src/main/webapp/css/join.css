@@ -93,14 +93,17 @@ input {
     color:black;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="tel"] {
   box-shadow: inset 0px 2px 2px #000;
   outline: 0px;
 }
   
+span.form-control-feedback {
+    top: 0px;
+}
 .tel-box {
   display:inline;
-  width:55px;
+  width:90px;
 }
 .full-box {
   width:95%;
