@@ -43,25 +43,44 @@
 	             The Nutcracker 신규 가입</button>
 	          </div> -->
 	        </div>
-	      
+
         <div class="connect-section">
           <div class="naver-join" id="naver_id_login">
             <button type="button" class="btn" id="btn-n">
             계정으로 로그인
             </button>
           </div>
-          <div class="kakao-join" id="kakao-logged-group1">
+
+<!--           <div class="kakao-join" id="kakao-logged-group">
             <button type="button" class="btn" id="btn-k">
             계정으로 로그인
             </button>
+          </div> -->
+          <div>
+            <a id="custom-login-btn" href="javascript:createKakaotalkLogin()">
+              <img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="300"/>
+            </a>
+            <div id="kakao-logged-group"></div>
+            <div id=kakao-profile></div>
           </div>
-              <div id="kakao-logged-group"></div>
-              <div id="kakao-profile"></div>    
-          <div class="facebook-join">
+          
+<!--               <div id="kakao-logged-group"></div>
+              <div id="kakao-profile"></div>     -->
+              
+<!--           <div class="facebook-join">
             <button type="button" class="btn" id="btn-f">
             계정으로 로그인
             </button>
-          </div>
+          </div> -->
+<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+<!--           <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+          </div> -->
+          
+          
 	      </div>
       </div>
     </div>
@@ -76,5 +95,6 @@
 <script src="js/naver.js"></script>
 <script src="../js/bit.js"></script>
 <script src="login.js"></script>
+<script src="fb.js"></script>
 </body>
 </html>
