@@ -56,10 +56,10 @@ body {
     width:100%;
   }
 /* 테이블 */
-
 select[size] {
   height:31px;
   color:black;
+  margin-bottom:4%;
 }
 
 /* FORM STYLES */
@@ -69,6 +69,9 @@ select[size] {
   background-color:#191A14;
   border-radius:10px;
   opacity:0.85;
+}
+label {
+	display:block;
 }
 legend {
   font-size: 160%;
@@ -93,17 +96,37 @@ input {
     color:black;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="tel"] {
   box-shadow: inset 0px 2px 2px #000;
   outline: 0px;
 }
-  
+
 .tel-box {
   display:inline;
-  width:55px;
+  width:80%;
 }
 .full-box {
   width:95%;
+}
+.selection-address, .job, .gender {
+	padding:0 15px;
+}
+#postcode-search {
+	right:0;
+}
+#postcode {
+	width:204px;
+}
+
+/* 부트스트랩 설정 변경 */
+.help-block {
+	position: absolute;
+	top:0;
+	right: 32px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
 }
 
 /* 버튼 css */
