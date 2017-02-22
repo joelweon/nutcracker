@@ -1,7 +1,6 @@
 package nutcracker.domain;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
@@ -11,7 +10,7 @@ public class Member implements Serializable {
   protected String name;
   protected String password;
   protected String photoPath;
-  protected Timestamp lastDate;
+  protected String lastDate;
   
   public int getMemberNo() {
     return memberNo;
@@ -43,10 +42,10 @@ public class Member implements Serializable {
   public void setPhotoPath(String photoPath) {
     this.photoPath = photoPath;
   }
-  public Timestamp getLastDate() {
+  public String getLastDate() {
     return lastDate;
   }
-  public void setLastDate(Timestamp lastDate) {
+  public void setLastDate(String lastDate) {
     this.lastDate = lastDate;
   }
   
