@@ -60,19 +60,18 @@ DROP TABLE IF EXISTS BOT_PHOT RESTRICT;
 
 -- 일반유저
 CREATE TABLE USER (
-  UNO       INTEGER      NOT NULL COMMENT '유저일련번호', -- 유저일련번호
-  B_DAY     DATE         NOT NULL COMMENT '생년월일', -- 생년월일
-  TEL       VARCHAR(30)  NOT NULL COMMENT '전화번호', -- 전화번호
-  BAS_ADR   VARCHAR(255) NULL     COMMENT '기본주소', -- 기본주소
-  DET_ADR   VARCHAR(255) NULL     COMMENT '상세주소', -- 상세주소
-  ZIP       VARCHAR(6)   NULL     COMMENT '우편번호', -- 우편번호
-  JOB       VARCHAR(50)  NULL     COMMENT '직업', -- 직업
-  GEN       CHAR(1)      NULL     COMMENT '성별', -- 성별
-  OUT_TYPE  CHAR(1)      NULL     COMMENT '탈퇴유형', -- 탈퇴유형
-  OUT_CONT  VARCHAR(255) NULL     COMMENT '탈퇴내용', -- 탈퇴내용
-  JOIN_DATE DATE         NOT NULL COMMENT '가입일' -- 가입일
-)
-COMMENT '일반유저';
+  UNO       INTEGER      NOT NULL, -- 유저일련번호
+  B_DAY     DATE         NOT NULL, -- 생년월일
+  TEL       VARCHAR(30)  NOT NULL, -- 전화번호
+  BAS_ADR   VARCHAR(255) NULL,     -- 기본주소
+  DET_ADR   VARCHAR(255) NULL,     -- 상세주소
+  ZIP       VARCHAR(6)   NULL,     -- 우편번호
+  JOB       VARCHAR(50)  NULL,     -- 직업
+  GEN       CHAR(1)      NULL,     -- 성별
+  OUT_TYPE  CHAR(1)      NULL,     -- 탈퇴유형
+  OUT_CONT  VARCHAR(255) NULL,     -- 탈퇴내용
+  JOIN_DATE DATE         NOT NULL  -- 가입일
+);
 
 -- 일반유저
 ALTER TABLE USER
@@ -83,19 +82,18 @@ ALTER TABLE USER
 
 -- 불량후기
 CREATE TABLE REVIEW (
-  RVNO     INTEGER      NOT NULL COMMENT '불량후기 일련번호', -- 불량후기 일련번호
-  MNO      INTEGER      NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  RV_DATE  DATETIME     NOT NULL COMMENT '작성날짜', -- 작성날짜
-  HEAD     VARCHAR(20)  NOT NULL COMMENT '말머리', -- 말머리
-  TITLE    VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
-  CONT     MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
-  VIEW_CNT INTEGER      NULL     COMMENT '조회수', -- 조회수
-  HODU_CNT INTEGER      NULL     COMMENT '추천수', -- 추천수
-  CMT_CNT  INTEGER      NULL     COMMENT '댓글수', -- 댓글수
-  REP_CNT  INTEGER      NULL     COMMENT '신고수', -- 신고수
-  DEL_YN   CHAR(1)      NULL     COMMENT '삭제여부' -- 삭제여부
-)
-COMMENT '불량후기';
+  RVNO     INTEGER      NOT NULL, -- 불량후기 일련번호
+  MNO      INTEGER      NOT NULL, -- 회원일련번호
+  RV_DATE  DATETIME     NOT NULL, -- 작성날짜
+  HEAD     VARCHAR(20)  NOT NULL, -- 말머리
+  TITLE    VARCHAR(255) NOT NULL, -- 제목
+  CONT     MEDIUMTEXT   NOT NULL, -- 내용
+  VIEW_CNT INTEGER      NULL,     -- 조회수
+  HODU_CNT INTEGER      NULL,     -- 추천수
+  CMT_CNT  INTEGER      NULL,     -- 댓글수
+  REP_CNT  INTEGER      NULL,     -- 신고수
+  DEL_YN   CHAR(1)      NULL      -- 삭제여부
+);
 
 -- 불량후기
 ALTER TABLE REVIEW
@@ -105,18 +103,17 @@ ALTER TABLE REVIEW
     );
 
 ALTER TABLE REVIEW
-  MODIFY COLUMN RVNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '불량후기 일련번호';
+  MODIFY COLUMN RVNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 댓글
 CREATE TABLE CMT (
-  CTNO    INTEGER  NOT NULL COMMENT '댓글일련번호', -- 댓글일련번호
-  MNO     INTEGER  NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  CT_DATE DATETIME NOT NULL COMMENT '작성날짜', -- 작성날짜
-  CONT    TEXT     NOT NULL COMMENT '내용', -- 내용
-  REP_CNT INTEGER  NULL     COMMENT '신고수', -- 신고수
-  DEL_YN  CHAR(1)  NULL     COMMENT '삭제여부' -- 삭제여부
-)
-COMMENT '댓글';
+  CTNO    INTEGER  NOT NULL, -- 댓글일련번호
+  MNO     INTEGER  NOT NULL, -- 회원일련번호
+  CT_DATE DATETIME NOT NULL, -- 작성날짜
+  CONT    TEXT     NOT NULL, -- 내용
+  REP_CNT INTEGER  NULL,     -- 신고수
+  DEL_YN  CHAR(1)  NULL      -- 삭제여부
+);
 
 -- 댓글
 ALTER TABLE CMT
@@ -126,20 +123,19 @@ ALTER TABLE CMT
     );
 
 ALTER TABLE CMT
-  MODIFY COLUMN CTNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '댓글일련번호';
+  MODIFY COLUMN CTNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 불매운동
 CREATE TABLE BOT (
-  BOTNO    INTEGER      NOT NULL COMMENT '불매운동 일련번호', -- 불매운동 일련번호
-  BOT_DATE DATETIME     NOT NULL COMMENT '작성날짜', -- 작성날짜
-  TITLE    VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
-  CONT     MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
-  VIEW_CNT INTEGER      NULL     COMMENT '조회수', -- 조회수
-  HODU_CNT INTEGER      NULL     COMMENT '추천수', -- 추천수
-  CMT_CNT  INTEGER      NULL     COMMENT '댓글수', -- 댓글수
-  SHR_CNT  INTEGER      NULL     COMMENT '공유수' -- 공유수
-)
-COMMENT '불매운동';
+  BOTNO    INTEGER      NOT NULL, -- 불매운동 일련번호
+  BOT_DATE DATETIME     NOT NULL, -- 작성날짜
+  TITLE    VARCHAR(255) NOT NULL, -- 제목
+  CONT     MEDIUMTEXT   NOT NULL, -- 내용
+  VIEW_CNT INTEGER      NULL,     -- 조회수
+  HODU_CNT INTEGER      NULL,     -- 추천수
+  CMT_CNT  INTEGER      NULL,     -- 댓글수
+  SHR_CNT  INTEGER      NULL      -- 공유수
+);
 
 -- 불매운동
 ALTER TABLE BOT
@@ -149,14 +145,13 @@ ALTER TABLE BOT
     );
 
 ALTER TABLE BOT
-  MODIFY COLUMN BOTNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '불매운동 일련번호';
+  MODIFY COLUMN BOTNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 기업정보
 CREATE TABLE COMP (
-  CPNO    INTEGER      NOT NULL COMMENT '기업일련번호', -- 기업일련번호
-  CP_NAME VARCHAR(255) NOT NULL COMMENT '기업명' -- 기업명
-)
-COMMENT '기업정보';
+  CPNO    INTEGER      NOT NULL, -- 기업일련번호
+  CP_NAME VARCHAR(255) NOT NULL  -- 기업명
+);
 
 -- 기업정보
 ALTER TABLE COMP
@@ -166,21 +161,20 @@ ALTER TABLE COMP
     );
 
 ALTER TABLE COMP
-  MODIFY COLUMN CPNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '기업일련번호';
+  MODIFY COLUMN CPNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 공동구매
 CREATE TABLE PURCHS (
-  PNO       INTEGER      NOT NULL COMMENT '공구일련번호', -- 공구일련번호
-  CPNO      INTEGER      NOT NULL COMMENT '기업일련번호', -- 기업일련번호
-  TITLE     VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
-  PRICE     INTEGER      NOT NULL COMMENT '가격', -- 가격
-  ST_DATE   DATE         NOT NULL COMMENT '시작일', -- 시작일
-  EN_DATE   DATE         NOT NULL COMMENT '종료일', -- 종료일
-  DEV_DATE  DATE         NOT NULL COMMENT '배송일', -- 배송일
-  TOTAL_CNT INTEGER      NOT NULL COMMENT '모집인원', -- 모집인원
-  APY_CNT   INTEGER      NULL     COMMENT '신청인원' -- 신청인원
-)
-COMMENT '공동구매';
+  PNO       INTEGER      NOT NULL, -- 공구일련번호
+  CPNO      INTEGER      NOT NULL, -- 기업일련번호
+  TITLE     VARCHAR(255) NOT NULL, -- 제목
+  PRICE     INTEGER      NOT NULL, -- 가격
+  ST_DATE   DATE         NOT NULL, -- 시작일
+  EN_DATE   DATE         NOT NULL, -- 종료일
+  DEV_DATE  DATE         NOT NULL, -- 배송일
+  TOTAL_CNT INTEGER      NOT NULL, -- 모집인원
+  API_CNT   INTEGER      NULL      -- 신청인원
+);
 
 -- 공동구매
 ALTER TABLE PURCHS
@@ -190,20 +184,18 @@ ALTER TABLE PURCHS
     );
 
 ALTER TABLE PURCHS
-  MODIFY COLUMN PNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '공구일련번호';
+  MODIFY COLUMN PNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 위시리스트
 CREATE TABLE WISH (
-  WNO      INTEGER      NOT NULL COMMENT '리스트일련번호', -- 리스트일련번호
-  MNO      INTEGER      NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  PRO_NAME VARCHAR(255) NOT NULL COMMENT '상품명', -- 상품명
-  PRO_COMP VARCHAR(255) NOT NULL COMMENT '제조사', -- 제조사
-  PRICE    INTEGER      NOT NULL COMMENT '가격', -- 가격
-  DEV_PAY  INTEGER      NOT NULL COMMENT '배송비', -- 배송비
-  PATH     VARCHAR(255) NOT NULL COMMENT '사진경로', -- 사진경로
-  LINK     VARCHAR(255) NOT NULL COMMENT '링크주소' -- 링크주소
-)
-COMMENT '위시리스트';
+  WNO      INTEGER      NOT NULL, -- 리스트일련번호
+  MNO      INTEGER      NOT NULL, -- 회원일련번호
+  PRO_NAME VARCHAR(255) NOT NULL, -- 상품명
+  PRO_COMP VARCHAR(255) NOT NULL, -- 제조사
+  PRICE    INTEGER      NOT NULL, -- 가격
+  PATH     VARCHAR(255) NOT NULL, -- 사진경로
+  LINK     VARCHAR(255) NOT NULL  -- 링크주소
+);
 
 -- 위시리스트
 ALTER TABLE WISH
@@ -213,15 +205,14 @@ ALTER TABLE WISH
     );
 
 ALTER TABLE WISH
-  MODIFY COLUMN WNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '리스트일련번호';
+  MODIFY COLUMN WNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 불매기업관계
 CREATE TABLE BOT_RLS (
-  MNO      INTEGER NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  CPNO     INTEGER NOT NULL COMMENT '기업일련번호', -- 기업일련번호
-  REG_DATE DATE    NOT NULL COMMENT '등록일' -- 등록일
-)
-COMMENT '불매기업관계';
+  MNO      INTEGER NOT NULL, -- 회원일련번호
+  CPNO     INTEGER NOT NULL, -- 기업일련번호
+  REG_DATE DATE    NOT NULL  -- 등록일
+);
 
 -- 불매기업관계
 ALTER TABLE BOT_RLS
@@ -232,16 +223,15 @@ ALTER TABLE BOT_RLS
     );
 
 ALTER TABLE BOT_RLS
-  MODIFY COLUMN MNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원일련번호';
+  MODIFY COLUMN MNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 구매내역
 CREATE TABLE PCH_HIST (
-  MNO      INTEGER  NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  PNO      INTEGER  NOT NULL COMMENT '공구일련번호', -- 공구일련번호
-  PCH_DATE DATETIME NOT NULL COMMENT '구매일', -- 구매일
-  PCH_CNT  INTEGER  NOT NULL COMMENT '구매수량' -- 구매수량
-)
-COMMENT '구매내역';
+  MNO      INTEGER  NOT NULL, -- 회원일련번호
+  PNO      INTEGER  NOT NULL, -- 공구일련번호
+  PCH_DATE DATETIME NOT NULL, -- 구매일
+  PCH_CNT  INTEGER  NOT NULL  -- 구매수량
+);
 
 -- 구매내역
 ALTER TABLE PCH_HIST
@@ -253,10 +243,9 @@ ALTER TABLE PCH_HIST
 
 -- 신고사유
 CREATE TABLE REP_WHY (
-  RWNO INTEGER      NOT NULL COMMENT '신고사유일련번호', -- 신고사유일련번호
-  CONT VARCHAR(255) NOT NULL COMMENT '내용' -- 내용
-)
-COMMENT '신고사유';
+  RWNO INTEGER      NOT NULL, -- 신고사유일련번호
+  CONT VARCHAR(255) NOT NULL  -- 내용
+);
 
 -- 신고사유
 ALTER TABLE REP_WHY
@@ -266,15 +255,14 @@ ALTER TABLE REP_WHY
     );
 
 ALTER TABLE REP_WHY
-  MODIFY COLUMN RWNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '신고사유일련번호';
+  MODIFY COLUMN RWNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 게시글신고
 CREATE TABLE BOARD_REP (
-  MNO  INTEGER NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  RVNO INTEGER NOT NULL COMMENT '불량후기 일련번호', -- 불량후기 일련번호
-  RWNO INTEGER NULL     COMMENT '신고사유일련번호' -- 신고사유일련번호
-)
-COMMENT '게시글신고';
+  MNO  INTEGER NOT NULL, -- 회원일련번호
+  RVNO INTEGER NOT NULL, -- 불량후기 일련번호
+  RWNO INTEGER NULL      -- 신고사유일련번호
+);
 
 -- 게시글신고
 ALTER TABLE BOARD_REP
@@ -285,14 +273,13 @@ ALTER TABLE BOARD_REP
     );
 
 ALTER TABLE BOARD_REP
-  MODIFY COLUMN MNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원일련번호';
+  MODIFY COLUMN MNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 기업관계
 CREATE TABLE COM_RLS (
-  PARNO INTEGER NOT NULL COMMENT '부모기업일련번호', -- 부모기업일련번호
-  CHINO INTEGER NOT NULL COMMENT '자식기업일련번호' -- 자식기업일련번호
-)
-COMMENT '기업관계';
+  PARNO INTEGER NOT NULL, -- 부모기업일련번호
+  CHINO INTEGER NOT NULL  -- 자식기업일련번호
+);
 
 -- 기업관계
 ALTER TABLE COM_RLS
@@ -304,14 +291,13 @@ ALTER TABLE COM_RLS
 
 -- 회원
 CREATE TABLE MEMB (
-  MNO      INTEGER      NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  EMAIL    VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
-  NAME     VARCHAR(50)  NOT NULL COMMENT '닉네임', -- 닉네임
-  PWD      VARCHAR(50)  NOT NULL COMMENT '비밀번호', -- 비밀번호
-  PATH     VARCHAR(255) NULL     COMMENT '사진경로', -- 사진경로
-  LST_DATE DATETIME     NOT NULL COMMENT '최종접속일' -- 최종접속일
-)
-COMMENT '회원';
+  MNO      INTEGER      NOT NULL, -- 회원일련번호
+  EMAIL    VARCHAR(40)  NOT NULL, -- 이메일
+  NAME     VARCHAR(50)  NOT NULL, -- 닉네임
+  PWD      VARCHAR(50)  NOT NULL, -- 비밀번호
+  PATH     VARCHAR(255) NULL,     -- 사진경로
+  LST_DATE DATETIME     NOT NULL  -- 최종접속일
+);
 
 -- 회원
 ALTER TABLE MEMB
@@ -328,15 +314,14 @@ CREATE UNIQUE INDEX UIX_MEMB
   );
 
 ALTER TABLE MEMB
-  MODIFY COLUMN MNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원일련번호';
+  MODIFY COLUMN MNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 댓글신고
 CREATE TABLE CMT_REP (
-  CTNO INTEGER NOT NULL COMMENT '댓글일련번호', -- 댓글일련번호
-  MNO  INTEGER NOT NULL COMMENT '회원일련번호', -- 회원일련번호
-  RWNO INTEGER NOT NULL COMMENT '신고사유일련번호' -- 신고사유일련번호
-)
-COMMENT '댓글신고';
+  CTNO INTEGER NOT NULL, -- 댓글일련번호
+  MNO  INTEGER NOT NULL, -- 회원일련번호
+  RWNO INTEGER NOT NULL  -- 신고사유일련번호
+);
 
 -- 댓글신고
 ALTER TABLE CMT_REP
@@ -348,10 +333,9 @@ ALTER TABLE CMT_REP
 
 -- 불매운동댓글
 CREATE TABLE BOT_CMT (
-  CTNO  INTEGER NOT NULL COMMENT '댓글일련번호', -- 댓글일련번호
-  BOTNO INTEGER NOT NULL COMMENT '불매운동 일련번호' -- 불매운동 일련번호
-)
-COMMENT '불매운동댓글';
+  CTNO  INTEGER NOT NULL, -- 댓글일련번호
+  BOTNO INTEGER NOT NULL  -- 불매운동 일련번호
+);
 
 -- 불매운동댓글
 ALTER TABLE BOT_CMT
@@ -363,10 +347,9 @@ ALTER TABLE BOT_CMT
 
 -- 불량후기댓글
 CREATE TABLE REV_CMT (
-  CTNO INTEGER NOT NULL COMMENT '댓글일련번호', -- 댓글일련번호
-  RVNO INTEGER NOT NULL COMMENT '불량후기 일련번호' -- 불량후기 일련번호
-)
-COMMENT '불량후기댓글';
+  CTNO INTEGER NOT NULL, -- 댓글일련번호
+  RVNO INTEGER NOT NULL  -- 불량후기 일련번호
+);
 
 -- 불량후기댓글
 ALTER TABLE REV_CMT
@@ -378,10 +361,9 @@ ALTER TABLE REV_CMT
 
 -- 공동구매상품평
 CREATE TABLE PCH_CMT (
-  PNO  INTEGER NOT NULL COMMENT '공구일련번호', -- 공구일련번호
-  CTNO INTEGER NOT NULL COMMENT '댓글일련번호' -- 댓글일련번호
-)
-COMMENT '공동구매상품평';
+  PNO  INTEGER NOT NULL, -- 공구일련번호
+  CTNO INTEGER NOT NULL  -- 댓글일련번호
+);
 
 -- 공동구매상품평
 ALTER TABLE PCH_CMT
@@ -393,11 +375,10 @@ ALTER TABLE PCH_CMT
 
 -- 공동구매사진
 CREATE TABLE PCH_PHOT (
-  PPNO INTEGER      NOT NULL COMMENT '공동구매사진일련번호', -- 공동구매사진일련번호
-  PNO  INTEGER      NOT NULL COMMENT '공구일련번호', -- 공구일련번호
-  PATH VARCHAR(255) NOT NULL COMMENT '사진경로' -- 사진경로
-)
-COMMENT '공동구매사진';
+  PPNO INTEGER      NOT NULL, -- 공동구매사진일련번호
+  PNO  INTEGER      NOT NULL, -- 공구일련번호
+  PATH VARCHAR(255) NOT NULL  -- 사진경로
+);
 
 -- 공동구매사진
 ALTER TABLE PCH_PHOT
@@ -407,15 +388,14 @@ ALTER TABLE PCH_PHOT
     );
 
 ALTER TABLE PCH_PHOT
-  MODIFY COLUMN PPNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '공동구매사진일련번호';
+  MODIFY COLUMN PPNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 불량후기사진
 CREATE TABLE REV_PHOT (
-  RPNO INTEGER      NOT NULL COMMENT '불량후기사진일련번호', -- 불량후기사진일련번호
-  RVNO INTEGER      NOT NULL COMMENT '불량후기 일련번호', -- 불량후기 일련번호
-  PATH VARCHAR(255) NOT NULL COMMENT '사진경로' -- 사진경로
-)
-COMMENT '불량후기사진';
+  RPNO INTEGER      NOT NULL, -- 불량후기사진일련번호
+  RVNO INTEGER      NOT NULL, -- 불량후기 일련번호
+  PATH VARCHAR(255) NOT NULL  -- 사진경로
+);
 
 -- 불량후기사진
 ALTER TABLE REV_PHOT
@@ -425,15 +405,14 @@ ALTER TABLE REV_PHOT
     );
 
 ALTER TABLE REV_PHOT
-  MODIFY COLUMN RPNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '불량후기사진일련번호';
+  MODIFY COLUMN RPNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 불매운동사진
 CREATE TABLE BOT_PHOT (
-  BPNO  INTEGER      NOT NULL COMMENT '불매운동사진일련번호', -- 불매운동사진일련번호
-  BOTNO INTEGER      NOT NULL COMMENT '불매운동 일련번호', -- 불매운동 일련번호
-  PATH  VARCHAR(255) NOT NULL COMMENT '사진경로' -- 사진경로
-)
-COMMENT '불매운동사진';
+  BPNO  INTEGER      NOT NULL, -- 불매운동사진일련번호
+  BOTNO INTEGER      NOT NULL, -- 불매운동 일련번호
+  PATH  VARCHAR(255) NOT NULL  -- 사진경로
+);
 
 -- 불매운동사진
 ALTER TABLE BOT_PHOT
@@ -443,7 +422,7 @@ ALTER TABLE BOT_PHOT
     );
 
 ALTER TABLE BOT_PHOT
-  MODIFY COLUMN BPNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '불매운동사진일련번호';
+  MODIFY COLUMN BPNO INTEGER NOT NULL AUTO_INCREMENT;
 
 -- 일반유저
 ALTER TABLE USER

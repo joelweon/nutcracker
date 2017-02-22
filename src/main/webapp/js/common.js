@@ -10,7 +10,8 @@ $(document).ready(function() {
 
       if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
         // 로그온 상태 출력 창을 감춘다.
-        $('#btn-logout').css('display', 'none');
+        /*$('#btn-logout').css('display', 'none');*/
+        $('#btn-member').css('display', 'none');
       
         // 로그인 버튼의 클릭 이벤트 핸들러 등록하기
         $('#btn-login').click(function(event) {
@@ -25,6 +26,7 @@ $(document).ready(function() {
       $('#logon-div span').text(ajaxResult.data.name);*/
       
       // 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
+      /*$('#btn-logout').click(function(event) {*/
       $('#btn-logout').click(function(event) {
         event.preventDefault();
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {

@@ -7,7 +7,7 @@ body {
 
 .my-content-area {
   position: relative;
-  font-size: 1em;
+  font-size: 1.2em;
   max-width: 960px;
   width:100%;
   margin: 20px auto;
@@ -16,46 +16,45 @@ body {
 /* main contents area*/
 .main-contents {
   width: 80%;
-  font-size: 1.2em;
+  font-size: 1em;
   float: right;
 }
 
 .detail-table { 
-	width: 100%;
+  width: 100%;
   border: 5px solid rgb(47, 47, 47);
 }
 
 .detail-table th {
-	padding: 5px 5px;
-	font-size: 1.2em;
-	border-bottom: 4px solid rgb(47, 47, 47);
+  padding: 5px 5px;
+  font-size: 1.2em;
+  border-bottom: 4px solid rgb(47, 47, 47);
 }
 
 .detail-table td {
-	border-top: 4px solid rgb(47, 47, 47);
-		background-color: rgb(47, 47, 47);
-	
-	color: black;
-	padding: 5px 5px;
+  border-top: 4px solid rgb(47, 47, 47);
+  background-color: rgb(47, 47, 47);
+  color: black;
+  padding: 5px 5px;
 }
 
 .detail-inner-table th{
-	font-size: 1.0em;
-	color: white;
+  font-size: 1.0em;
+  color: white;
 }
 
 input {
-	color: black;
-	font: 0.9em bold ;
-	padding-left: 10px;
+  color: black;
+  font: 0.9em bold;
+  padding-left: 5px;
 }
 
 #address {
-	margin-top: 10px;
-	width: 60%;
+  margin-top: 10px;
+  width: 60%;
 }
 
 #address2 {
-	margin-top: 5px;
-	width: 60%;
+  margin-top: 5px;
+  width: 60%;
 }
