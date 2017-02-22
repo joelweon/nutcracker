@@ -1,8 +1,8 @@
-    $.validator.setDefaults( {
+    /*$.validator.setDefaults( {
       submitHandler: function () {
         alert( "가입완료!" );
       }
-    } );
+    } );*/
 
     $( document ).ready( function () {
       $( "#signupForm" ).validate( {
