@@ -1,8 +1,8 @@
 package nutcracker.domain;
 
-import java.io.Serializable;
+import java.util.List;
 
-public class Purchase extends Company implements Serializable {
+public class Purchase extends Company {
   private static final long serialVersionUID = 1L;
 
   protected int purchaseNo;
@@ -13,6 +13,7 @@ public class Purchase extends Company implements Serializable {
   protected String deliveryDate;
   protected int totalCount;
   protected int applicantCount;
+  protected List<Photo> photoList;
   
   public int getPurchaseNo() {
     return purchaseNo;
@@ -62,4 +63,11 @@ public class Purchase extends Company implements Serializable {
   public void setApplicantCount(int applicantCount) {
     this.applicantCount = applicantCount;
   }
+  public List<Photo> getPhotoList() {
+    return photoList;
+  }
+  public void setPhotoList(List<Photo> photoList) {
+    this.photoList = photoList;
+  }
+  
 }

@@ -3,30 +3,38 @@ package nutcracker.domain;
 import java.io.Serializable;
 import java.util.List;
 
-public class Boycott implements Serializable {
+public class Review implements Serializable {
   private static final long serialVersionUID = 1L;
   
-  protected int boycottNo;
+  protected int reviewNo;
   protected String postTime;
+  protected String titleHead;
   protected String title;
   protected String content;
   protected int viewCount;
   protected int hoduCount;
   protected int commentCount;
-  protected int shareCount;
+  protected int reportCount;
+  protected boolean postDelete;
   protected List<Photo> photoList;
   
-  public int getBoycottNo() {
-    return boycottNo;
+  public int getReviewNo() {
+    return reviewNo;
   }
-  public void setBoycottNo(int boycottNo) {
-    this.boycottNo = boycottNo;
+  public void setReviewNo(int reviewNo) {
+    this.reviewNo = reviewNo;
   }
   public String getPostTime() {
     return postTime;
   }
   public void setPostTime(String postTime) {
     this.postTime = postTime;
+  }
+  public String getTitleHead() {
+    return titleHead;
+  }
+  public void setTitleHead(String titleHead) {
+    this.titleHead = titleHead;
   }
   public String getTitle() {
     return title;
@@ -58,18 +66,17 @@ public class Boycott implements Serializable {
   public void setCommentCount(int commentCount) {
     this.commentCount = commentCount;
   }
-  public int getShareCount() {
-    return shareCount;
+  public int getReportCount() {
+    return reportCount;
   }
-  public void setShareCount(int shareCount) {
-    this.shareCount = shareCount;
+  public void setReportCount(int reportCount) {
+    this.reportCount = reportCount;
   }
-  public List<Photo> getPhotoList() {
-    return photoList;
+  public boolean isPostDelete() {
+    return postDelete;
   }
-  public void setPhotoList(List<Photo> photoList) {
-    this.photoList = photoList;
+  public void setPostDelete(boolean postDelete) {
+    this.postDelete = postDelete;
   }
   
 }
-

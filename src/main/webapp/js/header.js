@@ -52,6 +52,13 @@
     }
     return false;
   });
+	
+	$(document).on('click', '#btn-member', function() {
+    $('.div-profile').toggleClass('on');
+    $('.triangle').toggleClass('visible');
+    $('.popup').toggleClass('visible');
+    return false;
+  });
 /*});*/
 
 function setMenu(){

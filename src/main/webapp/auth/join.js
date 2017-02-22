@@ -224,11 +224,11 @@ window.addEventListener('beforeunload', function(event){
 		  gender: $('#gender').val()
 		};
 		alert(param);
-		/*$.post('add.json', param, function(ajaxResult) {
+		$.post('add.json', param, function(ajaxResult) {
 		  if (ajaxResult.status != "success") {
 		    alert(ajaxResult.data);
 		    return;
 		  }
 		  location.href = 'main.html';
-		}, 'json');*/
+		}, 'json');
   });
