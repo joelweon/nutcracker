@@ -1,4 +1,4 @@
-package sh;
+package nutcracker.sh;
 
 import java.io.BufferedReader;
 import java.io.IOException;
