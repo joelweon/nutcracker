@@ -367,16 +367,26 @@ insert into bot_rls(mno,cpno,reg_date)
 
 
 -- 공동구매
-insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,apy_cnt) 
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
     values(400,500,'물티슈',1000,'2017-02-16','2017-03-16','2017-03-18',50,30);
-insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,apy_cnt) 
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
     values(401,500,'가습기',3000,'2017-02-16','2017-03-16','2017-03-18',50,30);
-insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,apy_cnt) 
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
     values(402,501,'기저귀',5000,'2017-02-18','2017-03-28','2017-03-30',50,30);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt) 
     values(403,502,'섬유탈취제',10000,'2017-02-24','2017-03-24','2017-03-026',50);
-insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,apy_cnt) 
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
     values(404,503,'텀블러',2000,'2017-02-20','2017-03-20','2017-03-22',50,30);
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
+    values(405,500,'물티슈',1000,'2017-02-16','2017-03-16','2017-03-18',50,30);
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
+    values(406,500,'가습기',3000,'2017-02-16','2017-03-16','2017-03-18',50,30);
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
+    values(407,501,'기저귀',5000,'2017-02-18','2017-03-28','2017-03-30',50,30);
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt) 
+    values(408,502,'섬유탈취제',10000,'2017-02-24','2017-03-24','2017-03-026',50);
+insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
+    values(409,503,'텀블러',2000,'2017-02-20','2017-03-20','2017-03-22',50,30);
 
 
 -- 공동구매사진
@@ -385,11 +395,21 @@ insert into pch_phot(ppno,pno,path)
 insert into pch_phot(ppno,pno,path) 
     values(451,401,'ga.jpg');
 insert into pch_phot(ppno,pno,path) 
-    values(452,403,'sum.jpg');
+    values(452,402,'sum.jpg');
 insert into pch_phot(ppno,pno,path) 
-    values(453,404,'tum1.jpg');
+    values(453,403,'tum1.jpg');
 insert into pch_phot(ppno,pno,path) 
     values(454,404,'tum2.jpg');
+insert into pch_phot(ppno,pno,path) 
+    values(455,405,'mul.jpg');
+insert into pch_phot(ppno,pno,path) 
+    values(456,406,'ga.jpg');
+insert into pch_phot(ppno,pno,path) 
+    values(457,407,'sum.jpg');
+insert into pch_phot(ppno,pno,path) 
+    values(458,408,'tum1.jpg');
+insert into pch_phot(ppno,pno,path) 
+    values(459,409,'tum2.jpg');
 
 
 
