@@ -72,3 +72,4 @@ public class Boycott implements Serializable {
   }
   
 }
+
