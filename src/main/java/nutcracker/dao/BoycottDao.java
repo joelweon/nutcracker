@@ -10,4 +10,5 @@ public interface BoycottDao {
   Boycott getOne(int boycottNo) throws Exception;
   int update(Boycott boycott) throws Exception;
   int delete(int boycottNo) throws Exception;
+  
 }
