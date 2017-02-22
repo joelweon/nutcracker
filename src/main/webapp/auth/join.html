@@ -60,11 +60,11 @@
             </div>
             <div class="tel col-sm-5">
               <label for="tel" class="required">전화번호</label>
-	              <select name='tel' size='1'>
-	                <option value='0'>010</option>
-	                <option value='1'>011</option>
-	                <option value='6'>016</option>
-	                <option value='9'>019</option>
+	              <select name='tel' id='tel' size='1'>
+	                <option value='010'>010</option>
+	                <option value='011'>011</option>
+	                <option value='016'>016</option>
+	                <option value='019'>019</option>
 	              </select>
 	              <input type="tel" class="tel-box" name="tel2" id="tel2">
 	              <!-- <input type="tel" class="tel-box" name="tel3" id="tel3"> -->
@@ -102,8 +102,8 @@
             </div>
             <div class="gender">
               <label for="gender">성별</label>
-              <input type="radio" name="chk_gender" id='gender-m' value="m">남성
-              <input type="radio" name="chk_gender" id='gender-w' value="w">여성
+              <input type="radio" name="chk_gender" id='gender' value="m">남성
+              <input type="radio" name="chk_gender" id='gender' value="w">여성
             </div>
           </div>
           <button id ='join-btn' type='button' class='register action-button shadow animate red'>가입</button>
