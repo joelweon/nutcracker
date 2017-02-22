@@ -17,9 +17,9 @@
     var daumShoppingSearch = {
         /** 초기화. **/
         init : function(){
-            this.apikey = "f441663cfa0af193ce8a411227a7c9f3";
+            this.apikey = "7a03f2ccbc4a1f5b6f74ea1cd48ec6e0";
             this.q = document.getElementById('daumShoppingSearch');
-
+            
             //검색 객체들 초기화.
             daumShopping.init(6);
         },
@@ -68,7 +68,7 @@
         },
         /** PageNumber를 그려줌. **/
         pongPgno : function(pgno,max,func){
-            var maxpg = (pgno+6<max)?pgno+6:max;
+            var maxpg = (pgno+5<max)?pgno+5:max;
             
             var div = document.createElement('div');
             div.align = 'center';
@@ -77,8 +77,8 @@
             //좌측 화살표.
             var left = document.createElement('a');
             left.innerHTML = "<< ";
-            if(pgno-6>1)
-                this.onMouseDown(left,pgno-6,func);
+            if(pgno-5>1)
+                this.onMouseDown(left,pgno-5,func);
             else{
                 left.style.color = "gray";
                 left.style.cursor = "default";
@@ -86,7 +86,7 @@
             div.appendChild(left);
             
             //페이지 번호.
-            for(var i=(pgno-6>1)?pgno-6:1; i<maxpg; i++){
+            for(var i=(pgno-5>1)?pgno-5:1; i<maxpg; i++){
                 var a = document.createElement('a');
                 a.innerHTML = " " + i + " ";
 
@@ -103,7 +103,7 @@
             //우측 화살표.
             var right = document.createElement('a');
             right.innerHTML = ">> ";
-            if(pgno+6<max)
+            if(pgno+5<max)
                 this.onMouseDown(right,pgno+7,func);
             else{
                 right.style.color = "gray";

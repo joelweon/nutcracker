@@ -30,7 +30,7 @@
         getSearch : function(title,content){
             var li = document.createElement('li');
             
-            li.style.height = '150px';
+            /*li.style.height = '150px';*/
             li.appendChild(title);
             li.appendChild(content);
             
@@ -41,18 +41,18 @@
            var div = document.createElement('div');
            var a = document.createElement('a');
            var b = document.createElement('b');
-           var ba1 = document.createElement('a');
-           var ba2 = document.createElement('a');
-           var ba3 = document.createElement('a');
-           var ba4 = document.createElement('a');
-           var ba5 = document.createElement('a');
+           var ba1 = document.createElement('span');
+           var ba2 = document.createElement('span');
+           var ba3 = document.createElement('span');
+           var ba4 = document.createElement('span');
+           /*var ba5 = document.createElement('a');*/
            var img = document.createElement('img');
            var aimg = document.createElement('a');
            
-           img.width = 100;
-           img.height = 100;
+           /*img.width = 100;
+           img.height = 100;*/
            img.src = z.image_url;
-           img.style.paddingRight = '20px';
+           /*img.style.paddingRight = '20px';*/
                       
            aimg.target = '_blank';
            aimg.href = z.link;
