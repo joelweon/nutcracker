@@ -7,7 +7,7 @@ body {
 
 .my-content-area {
   position: relative;
-  font-size: 1em;
+  font-size: 1.2em;
   max-width: 960px;
   width:100%;
   margin: 20px auto;
@@ -16,7 +16,7 @@ body {
 /* main contents area*/
 .main-contents {
   width: 80%;
-  font-size: 1.1em;
+  font-size: 1.0em;
   float: right;
 }
 
@@ -60,14 +60,14 @@ body {
 }
 
 .hodu-list span {
-	float: left;
-	max-width: 50px;
-	max-height: 50px;
-	margin: 3px;
+  float: left;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 3px;
 }
 
 .hodu-list div {
-	float: left;
+  float: left;
   width: 70%;
   margin-left: 10px; 
   margin-top: 4%;
@@ -79,24 +79,24 @@ body {
 }
 
 .hodu-no {
-	width: 7%;
-	text-align: center;
+  width: 7%;
+  text-align: center;
 }
 
 .hodu-author {
-	text-align: center;
+  text-align: center;
 }
 
 .hodu-reportdate {
-	text-align: center;
+  text-align: center;
 }
 
 .hodu-viewcnt {
-	width: 7%;
-	text-align: center;
+  width: 7%;
+  text-align: center;
 }
 
 .hodu-like {
-	width: 7%;
-	text-align: center;
+  width: 7%;
+  text-align: center;
 }
