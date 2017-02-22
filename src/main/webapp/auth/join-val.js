@@ -1,4 +1,30 @@
-    /*$.validator.setDefaults( {
+// db 내 data 등록하기 -> test 중
+	$('#join-btn').click(function() {
+		var param = {
+		  name: $('#name').val(),
+		  password: $('#password').val(),
+		  tel: $('#tel').val() + $('#tel2').val(),
+		  birthday: $('#birthday').val(),
+		  postcode: $('#postcode').val(),
+		  address: $('#address').val() +" "+ $('#address2').val(),
+		  job: $('#job').val(),
+		  gender: $('#gender:checked').val()
+		};
+		console.log(param);
+		$('#signupForm').setAttribute("action","../../java/nutcracker/service/add");
+		$('#signupForm').appendChild(param);
+		$('#signupForm').submit();
+		/*$.post('/user/add', param, function(ajaxResult) {
+		  if (ajaxResult.status != "success") {
+		    alert(ajaxResult.data);
+		    return;
+		  }
+		  location.href = 'main.html';
+		});*/
+  });
+
+
+/*$.validator.setDefaults( {
       submitHandler: function () {
         alert( "가입완료!" );
       }
