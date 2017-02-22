@@ -6,7 +6,7 @@ $('#btn-login').click(function() {
   $.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
     console.log("로긴성공");
     if (ajaxResult.status == "success") {
-      location.href = clientRoot + "/main"; 
+      location.href = clientRoot + "/main.html"; 
       return;
     }
     alert(ajaxResult.data);
