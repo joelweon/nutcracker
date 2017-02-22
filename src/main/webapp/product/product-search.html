@@ -42,18 +42,34 @@
 		      </span>
 		    </div> <!-- product-search-option class -->
 	    </div> <!-- product-search-option-set class -->
-      <input type="search" value="" placeholder="대체 물품을 검색하세요" />
-      <button type="submit" class="product-btn product-btn-primary">Search</button>
+      <!-- <input type="search" value="" placeholder="대체 물품을 검색하세요" />
+      <button type="submit" class="product-btn product-btn-primary">Search</button> -->
     </form>
+    
+      <div id="daumShoppingForm">
+        <input id="daumShoppingSearch" type="text" value="가방" placeholder="대체 물품을 검색하세요"onkeydown="javascript:if(event.keyCode == 13) daumShoppingSearch.search();"/>
+        <input id="daumShoppingSubmit" type="submit" class="product-btn product-btn-primary" value="검색" onclick="javascript:daumShoppingSearch.search()"/>
+      </div >
+      <div id="daumShopping"></div>
+      <div id="daumShoppingScript"></div>
   </div>
 </div> <!-- container class -->
 <!-- <div id='footer'></div> -->
 </div>
 
+<!-- <div id="daumShoppingForm">
+    <input id="daumShoppingSearch" type="text" value=""onkeydown="javascript:if(event.keyCode == 13) daumShoppingSearch.search();"/>
+    <input id="daumShoppingSubmit" type="submit" value="검색" onclick="javascript:daumShoppingSearch.search()"/>
+</div >
+<div id="daumShopping"></div>
+<div id="daumShoppingScript"></div>
+ -->
 <script src="../js/context.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <!-- <script type="text/javascript" src="../js/header.js"></script> -->
 <script type="text/javascript" src="product-search.js"></script>
+<script src="shopping-base.js"></script>
+<script src="shopping-serarch.js"></script>
 </body>
 </html>

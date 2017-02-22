@@ -4,6 +4,14 @@
 .div-menu li > a.on { color: #178bff; }
 body {color:black; background-color: #ffffff;}
 
+/* ul {
+  list-style:none;
+  padding-left:-40px;
+} */
+/* #daumShoppingForm {
+  margin-top:300px;
+} */
+
 .product-container {
 	/* border:1px solid blue; */
 	width:100%;
@@ -105,16 +113,17 @@ body {color:black; background-color: #ffffff;}
   transform: translate(0px, -100%) scale(0, 0); */
 }
 
-.product-search-window.open {
+/* #daumShoppingSearch.open {
   -webkit-transform: translate(0px, 0px) scale(1, 1);
   -moz-transform: translate(0px, 0px) scale(1, 1);
   -o-transform: translate(0px, 0px) scale(1, 1);
   -ms-transform: translate(0px, 0px) scale(1, 1);
   transform: translate(0px, 0px) scale(1, 1); 
   opacity: 1;
-}
+} */
 
-#product-search-window input[type="search"] {
+/* #product-search-window input[type="search"] daumShoppingSearch*/
+#product-search-window {
 	/* border:1px solid red; */
   position: absolute;
   top: 30%;
@@ -147,6 +156,12 @@ body {color:black; background-color: #ffffff;}
   background-color: #178bff;
   border-color: #178bff;
 }
+
+/* #daumShopping {
+  width:80%;
+  margin-top:350px;
+} */
+
 /* ------------------------------------------
   가로가 500px 이하일 때 
 --------------------------------------------*/
