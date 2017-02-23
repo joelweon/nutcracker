@@ -25,15 +25,19 @@
   
   <select id="getList" resultMap="boycott-map">
     select 
-      botno, 
-      bot_date,
-      title,
-      cont,
-      view_cnt,
-      hodu_cnt,
-      cmt_cnt,
-      shr_cnt
-    from bot
+      b.botno, 
+      b.bot_date,
+      b.title,
+      b.cont,
+      b.view_cnt,
+      b.hodu_cnt,
+      b.cmt_cnt,
+      b.shr_cnt,
+      bn.newsno,
+      bn.headline,
+      bn.path
+    from bot b
+    left outer join bot_news bn on b.botno=bn.botno
   </select>
   
   <select id="getOne" parameterType="int" resultMap="boycott-map">

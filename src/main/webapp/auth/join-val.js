@@ -1,19 +1,24 @@
 // db 내 data 등록하기 -> test 중
 	$('#join-btn').click(function() {
 		var param = {
-			emain: $('#email').val(),
+			email: $('#email').val(),
 		  name: $('#name').val(),
 		  password: $('#password').val(),
 		  tel: $('#tel').val() + $('#tel2').val(),
 		  birthday: $('#birthday').val(),
 		  postcode: $('#postcode').val(),
-		  address: $('#address').val() +" "+ $('#address2').val(),
+		  basicAddress: $('#address').val(),
+		  detailAddress: $('#address2').val(),
 		  job: $('#job').val(),
 		  gender: $('#gender:checked').val()
 		};
-		$.post('UserAddServlet.java', param, function() {
-		  location.href = '../main.html';
-		}, "script");
+		$.post(serverRoot+'/user/add.json', param, function(ajaxResult) {
+			if (ajaxResult.status == "success") {
+	      location.href = clientRoot + "/auth/login.html"; 
+	      return;
+	    }
+	    alert(ajaxResult.data);
+		}, "json");
   });
 
 

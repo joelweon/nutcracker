@@ -3,11 +3,13 @@ package nutcracker.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import nutcracker.dao.BoycottDao;
 import nutcracker.domain.Boycott;
 import nutcracker.service.BoycottService;
 
+@Service
 public class BoycottServiceImpl implements BoycottService{
   @Autowired BoycottDao boycottDao;
 
