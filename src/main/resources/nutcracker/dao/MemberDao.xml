@@ -45,7 +45,7 @@
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
     insert into memb(email,name,pwd,lst_date) 
-    values(#{email},#{name}, password(#{password}),#{lastDate})      
+    values(#{email},#{name}, password(#{password}),now())      
   </insert>
   
   <update id="update" parameterType="member">

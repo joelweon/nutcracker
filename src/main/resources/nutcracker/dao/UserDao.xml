@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="nutcracker.dao.UserDao">
+  <resultMap type="user" id="user-map">
+    <id       column="mno"       property="memberNo"/>
+    <result   column="name"      property="name"/>
+    <result   column="email"     property="email"/>
+    <result   column="pwd"       property="password"/>
+    <result   column="path"      property="photoPath"/>
+    <result   column="lst_date"  property="lastDate"/>
+    <result   column="b_day"     property="birthday"/>
+    <result   column="tel"       property="tel"/>
+    <result   column="bas_adr"   property="basicAddress"/>
+    <result   column="det_adr"   property="detailAddress"/>
+    <result   column="zip"       property="postcode"/>
+    <result   column="job"       property="job"/>
+    <result   column="gen"       property="gender"/>
+    <result   column="out_type"  property="outType"/>
+    <result   column="out_cont"  property="outContent"/>
+    <result   column="join_date" property="joinDate"/>
+  </resultMap>
+  
+  <select id="getList" resultMap="user-map">
+    select 
+      m.mno,
+      u.b_day,
+      u.tel,
+      u.zip,
+      u.bas_adr,
+      u.det_adr,
+      u.job,
+      u.gen,
+      m.join_date
+    from user u 
+      left outer join memb m on u.uno=m.mno
+  </select>
+  
+  <select id="getOneByEmail" parameterType="String" resultMap="user-map">
+    select 
+      m.mno,
+      m.email,
+      m.name,
+      u.tel,
+      u.bas_adr,
+      u.det_adr,
+      u.join_date,
+      m.lst_date,
+      u.out_type,
+      u.out_cont
+    from user u
+      left outer join memb m on u.uno = m.mno
+    where m.email=#{value}
+  </select>
+  
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from user u
+      left outer join memb m on u.uno=m.mno
+    where u.uno=#{value}
+  </select>
+  
+  <select id="countByEmail" parameterType="String" resultType="int">
+    select count(*)
+    from user u
+      left outer join memb m on u.uno=m.mno
+    where m.email=#{value}
+  </select>
+  
+  <insert id="insert" parameterType="user">
+    insert into user(uno,b_day,tel,zip,bas_adr,det_adr,job,gen,out_type,join_date)
+    values(
+      #{memberNo},
+      #{birthday},
+      #{tel},
+      #{postcode},
+      #{basicAddress},
+      #{detailAddress},
+      #{job},
+      #{gender},
+      0,
+      now()
+    )
+  </insert>
+  
+  <update id="update" parameterType="user">
+    update user set
+      pwd=#{password},
+      path=#{photoPath},
+      b-day=#{birthday},
+      tel=#{tel},
+      bas_adr=#{basicAddress},
+      det_adr=#{detailAddress},
+      zip=#{postcode},
+      job=#{job},
+      gen=#{gender}
+    where email=#{email}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    <![CDATA[
+      delete from user where uno=#{value}
+    ]]>
+  </delete>
+  
+</mapper>
