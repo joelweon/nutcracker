@@ -53,7 +53,7 @@
 		        </tr>
 	      </thead>
 				<tbody>
-				  <tr>
+				  <!-- <tr>
 				    <td>1</td>
 				    <td class='td-title'>
 			        <a href="#" class="table-review-img">
@@ -182,7 +182,7 @@
             <td class='reg-date'>2016.12.28</td>
             <td class='view-cnt'>63</td>
             <td class='hodu-cnt'>13</td>
-          </tr>
+          </tr> -->
 				</tbody>
 	    </table>
 	  </div><!-- wrap-table -->
@@ -235,8 +235,30 @@
 
 </body>
 
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+<tr>
+  <td>{{reviewNo}}</td>
+  <td class='td-title'>
+    <a href="#" class="table-review-img">
+      <img src="../images/hong.PNG" class="review-list-img">
+    </a>
+    <div class='table-review-title'><a href='#' class='title-link' data-no='{{reviewNo}}'>[{{titleHead}}] {{title}}</a></div>
+  </td>
+  <td class='writer'>{{name}}</td>
+  <td class='reg-date'>{{postTime}}</td>
+  <td class='view-cnt'>{{viewCount}}</td>
+  <td class='hodu-cnt'>{{hoduCount}}</td>
+</tr>
+{{/each}}
+</script>
+
 <script src="../js/context.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../js/common.js"></script>
 <!-- <script src="../js/header.js"></script> -->
+<script src="review.js"></script>
 
 </html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="nutcracker.dao.ReviewDao">
+
+  <resultMap type="hashmap"   id="review-map">
+	  <!-- <constructor>
+	    <idArg column="revno" javaType="java.lang.Integer"/>
+	  </constructor>
+	  <id property="reviewNo" column="rvno"/>
+	  <result property="postTime" column="rv_date"/>
+	  <result property="titleHead" column="head"/>
+	  <result property="title" column="title"/>
+	  <result property="viewCount" column="view_cnt"/>
+	  <result property="hoduCount" column="hodu_cnt"/>
+	  <association property="member" javaType="Member">
+	    <id     column="mno"        property="memberNo"/>
+	    <result column="email"      property="email"/>
+	    <result column="name"       property="name"/>
+	    <result column="pwd"        property="password"/>
+	    <result column='lst_date'   property='lastDate'/>
+	    <result column="path"       property="photoPath"/>
+	  </association> -->
+	    <id     column="rvno"     property="reviewNo"/>
+	    <result column="rv_date"  property="postTime"/>
+	    <result column='head'     property='titleHead'/>
+	    <result column="title"    property="title"/>
+	    <result column="cont"     property="content"/>
+	    <result column="view_cnt" property="viewCount"/>
+	    <result column="hodu_cnt" property="hoduCount"/>
+	    <result column="name"     property="name"/>
+  </resultMap>
+  
+  <select id="getList" resultMap="review-map">
+    select 
+      r.rvno, 
+      m.name, 
+      date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      r.head, 
+      r.title, 
+      ifnull(r.view_cnt, 0) as view_cnt, 
+      ifnull(r.hodu_cnt, 0) as hodu_cnt
+    from review r
+      left outer join memb m 
+    on r.mno=m.mno
+  </select>
+  
+  <select id='getDetail' parameterType="int" resultMap="review-map">
+    select
+		  r.rvno,
+		  m.name,
+		  date_format(r.rv_date,'%Y-%m-%d %H:%m:%s') as rv_date,
+		  r.head,
+		  r.title,
+		  r.cont,
+		  ifnull(r.view_cnt, 0) as view_cnt, 
+		  ifnull(r.hodu_cnt, 0) as hodu_cnt
+		from review r
+		  left outer join memb m on r.mno=m.mno
+		where r.rvno=#{value}
+  </select>
+  
+  
+</mapper>

@@ -17,7 +17,7 @@
         <div class="nut-join-section">
           <div class="logo-img"><!-- walnut-white.png -->
             <h2>
-              <a href="main.html"><img src="../images/newlogo.png" id="logo"/></a>
+              <a href="../"><img src="../images/newlogo.png" id="logo"/></a>
             </h2>
               <!-- 로그인 -->
               <form>
@@ -67,8 +67,7 @@
 <!--               <div id="kakao-logged-group"></div>
               <div id="kakao-profile"></div>     -->
               
-          
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button>
+<fb:login-button data-auto-logout-link="true" data-scope="public_profile,email" data-size="xlarge" onlogin="checkLoginState();"> </fb:login-button>
 <!--  <script>
   FB.login(function(response) { // response 처리 
     }, {scope: 'public_profile,email'});
@@ -81,7 +80,6 @@
             data-show-faces="true">
           </div> -->
     <!--<a href="#" id="auth-logoutlink" style="float:left;font-size: small;" onclick="FB.logout(function() { document.location.reload(); });">[logout]</a><br>-->
-    <a href="#" onclick="FB.logout();">로그아웃</a><br>
     <div align="left">
         <img id="image"/>
         <div id="name"></div>
@@ -102,5 +100,6 @@
 <script src="../js/bit.js"></script>
 <script src="login.js"></script>
 <script src="fb.js"></script>
+<script src="jquery.cookie.js"></script>
 </body>
 </html>
