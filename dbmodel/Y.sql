@@ -1,3 +1,5 @@
+
+-- 불매운동 --
 insert into bot(botno, bot_date, title, cont, view_cnt, hodu_cnt, cmt_cnt, shr_cnt)
   values(300,'2017-02-08','옥시레킷벤키저 가습기 살균제 사건','최근 논란이 되고있는 가습기 살균제 사건입니다',0,0,2,0);
 insert into bot(botno, bot_date, title, cont, view_cnt, hodu_cnt, cmt_cnt, shr_cnt)
@@ -19,6 +21,8 @@ values(308, '2017-02-16', '롯데제과 락스 초코바', '악취와 이상한 
 insert into bot(botno, bot_date, title, cont, view_cnt, hodu_cnt, cmt_cnt, shr_cnt)
 values(309, '2017-02-17', '수미칩, 질소과자 여전', '농심의 수미칩이 국내 유통 중인 감자스낵 중 대표적인 질소 과자로 꼽혔다', 0, 0, 2, 0);
 
+
+-- 불매운동 사진 --
 insert into bot_phot(bpno, botno, path) values(350, 300, 'img1_1.jpg');
 insert into bot_phot(bpno, botno, path) values(351, 300, 'img1_2.jpg');
 insert into bot_phot(bpno, botno, path) values(352, 301, 'img2_1.jpg');
@@ -37,4 +41,62 @@ insert into bot_phot(bpno, botno, path) values(364, 308, 'img9_1.jpg');
 insert into bot_phot(bpno, botno, path) values(365, 309, 'img10_1.jpg');
 insert into bot_phot(bpno, botno, path) values(366, 309, 'img10_2.jpg');
 insert into bot_phot(bpno, botno, path) values(367, 309, 'img10_3.jpg');
+
+
+-- 불매운동 기사 --
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1300, 300, '가습기 살균제 끝나지않은 이야기', 'http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=241&aid=0002640428');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1301, 300, '옥시 가습기 살균제 보고서 조작 서울대 교수, 징역 2년', 'http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=022&aid=0003100922');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1302, 300, '가습기 살균제, 외국인도 피해', 'http://www.hkbs.co.kr/?m=bbs&bid=envplus1&uid=412115');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1303, 300, '가습기 사태 7년형이 법정최고형.. 단죄 한계 드러내', 'http://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=469&aid=0000182058');
+
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1304, 301, 'NEWS HEADLINE 1', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1305, 301, 'NEWS HEADLINE 2', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1306, 301, 'NEWS HEADLINE 3', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1307, 301, 'NEWS HEADLINE 4', 'http://news.naver.com');
+
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1308, 302, 'NEWS HEADLINE 1', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1309, 302, 'NEWS HEADLINE 2', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1310, 302, 'NEWS HEADLINE 3', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1311, 302, 'NEWS HEADLINE 4', 'http://news.naver.com');
+
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1312, 303, 'NEWS HEADLINE 1', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1313, 303, 'NEWS HEADLINE 2', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1314, 303, 'NEWS HEADLINE 3', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1315, 303, 'NEWS HEADLINE 4', 'http://news.naver.com');
+
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1316, 304, 'NEWS HEADLINE 1', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1317, 304, 'NEWS HEADLINE 2', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1318, 304, 'NEWS HEADLINE 3', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1319, 304, 'NEWS HEADLINE 4', 'http://news.naver.com');
+
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1320, 305, 'NEWS HEADLINE 1', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1321, 305, 'NEWS HEADLINE 2', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1322, 305, 'NEWS HEADLINE 3', 'http://news.naver.com');
+insert into bot_news(NEWSNO, BOTNO, HEADLINE, PATH) 
+values(1323, 305, 'NEWS HEADLINE 4', 'http://news.naver.com');
+
+
 

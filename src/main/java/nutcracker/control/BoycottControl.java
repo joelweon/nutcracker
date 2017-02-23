@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import nutcracker.dao.BoycottDao;
 import nutcracker.domain.Boycott;
-import nutcracker.domain.Member;
 
 @Controller
 public class BoycottControl {
