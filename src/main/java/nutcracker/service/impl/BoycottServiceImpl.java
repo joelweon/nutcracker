@@ -16,20 +16,34 @@ public class BoycottServiceImpl implements BoycottService{
   }
 
   public Boycott getDetail(int no) throws Exception {
-    return boycottDao.getOne(no);
+    return boycottDao.getOneWithNews(no);
   }
 
   public int add(Boycott boycott) throws Exception {
+    
+    if (boycott.getNewsList().size() > 0) {
+      boycottDao.insertNews(boycott);
+    }
+    
     return boycottDao.insert(boycott);
   }
 
   public int delete(int no) throws Exception {
+    boycottDao.deleteNews(no);  // 불매운동 기사를 지움
     
     int count = boycottDao.delete(no);
+    
     return count;
   }
 
   public int update(Boycott boycott) throws Exception {
+    
+    boycottDao.deleteNews(boycott.getBoycottNo());
+    
+    if (boycott.getNewsList().size() > 0) {
+      boycottDao.insertNews(boycott);
+    }
+    
     return boycottDao.update(boycott);
   }
 

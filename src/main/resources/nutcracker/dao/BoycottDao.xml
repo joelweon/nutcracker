@@ -20,7 +20,7 @@
     select 
       botno, 
       bot_date,
-      title, 
+      title,
       cont,
       view_cnt,
       hodu_cnt,
@@ -41,6 +41,24 @@
       shr_cnt
    from bot
    where botno=#{value}
+  </select>
+  
+  <select id="getOneWithPhoto" parameterType="int" resultMap="boycott-map">
+    select 
+      b.botno,
+      b.bot_date,
+      b.title, 
+      b.cont,
+      b.view_cnt,
+      b.hodu_cnt,
+      b.cmt_cnt,
+      b.shr_cnt,
+      bn.newsno,
+      bn.headline,
+      bn.path
+   from bot b
+    left outer join bot_news bn on b.botno=bn.botno
+   where b.botno=#{value}
   </select>
   
   <delete id="delete" parameterType="int">
@@ -67,4 +85,14 @@
     where botno=#{boycottNo}
   </update>
 </mapper>
+
+
+ArrayList<Boycott> getList() throws Exception;
+int insert(Boycott boycott) throws Exception;
+Boycott getOne(int boycottNo) throws Exception;
+int update(Boycott boycott) throws Exception;
+int delete(int boycottNo) throws Exception;
+int insertNews(Boycott Boycott) throws Exception;
+Boycott getOneWithNews(int boycottNo) throws Exception;
+int deleteNews(int boycottNo) throws Exception;
   
