@@ -44,8 +44,8 @@
   
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
-    insert into memb(email,name,pwd,lst_date) 
-    values(#{email},#{name}, password(#{password}),now())      
+    insert into memb(email,name,pwd,lst_date, path) 
+    values(#{email},#{name}, password(#{password}),now(),"default.jpg")      
   </insert>
   
   <update id="update" parameterType="member">
@@ -68,7 +68,8 @@
       mno,
       email, 
       name, 
-      lst_date
+      lst_date,
+      path
    from memb
    where mno=#{value}
   </select>
@@ -87,7 +88,7 @@
       mno, 
       email, 
       name, 
-      lst_date 
+      lst_date
     from memb 
     where email=#{email} 
       and pwd=password(#{password})
