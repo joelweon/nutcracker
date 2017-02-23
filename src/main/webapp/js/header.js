@@ -7,6 +7,11 @@
   setTimeout(function () {
     setMenu(); 
   }, 300); //1 second
+  
+  /* 메뉴 클릭 이벤트 */
+  $(document).on('click', '#menu-review', function() {
+    location.href = clientRoot + "/review/review.html"; 
+  })
 
 	/* 숨은메뉴-버튼 이벤트 */
 	$(document).on('click', '#btn-show-hidden', function() {

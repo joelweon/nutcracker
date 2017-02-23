@@ -64,7 +64,7 @@ public class BoycottControl {
   }
 
 
-  @RequestMapping("/member/update")
+  @RequestMapping("/boycott/update")
   public String update(Boycott boycott) throws Exception {
 
     boycottDao.update(boycott);
