@@ -1,4 +1,4 @@
-package nutcracker.sh;
+/*package nutcracker.sh;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -155,3 +155,4 @@ public class UserMysqlDao implements UserDao {
   }
 
 }
+*/

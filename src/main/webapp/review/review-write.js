@@ -30,6 +30,30 @@ if (device.indexOf('Mobile') != -1) {
 /*  if ($('#summernote').summernote('isEmpty')) {
   alert('contents is empty');
 } */
+$('#write').click(function() {
+  var param;
+  $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
+    if (ajaxResult.status != 'success') {
+      return;
+    }
+    console.log("memberNo: " + ajaxResult.data.name);
+    param = {
+      memberNo: ajaxResult.data.memberNo,
+      titleHead: $('#select-subject option:selected').val(),
+      title: $('#input-title').val(),
+      content: $('#summernote').summernote('code')
+    };
+  }, 'json');
+  console.log("파라미터: " + param);
+  $.post(serverRoot + '/review/add.json', param, function(ajaxResult) {
+      if (ajaxResult.status != "success") {
+        alert(ajaxResult.data);
+        return;
+      }
+      location.href = clientRoot + '/review/list.html';
+  }, 'json'); // post();
+  
+}); // click()
 
 $('#cancel').click(function(event) {
   event.preventDefault();

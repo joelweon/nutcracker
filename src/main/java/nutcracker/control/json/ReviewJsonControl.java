@@ -36,4 +36,17 @@ public class ReviewJsonControl {
     }
     return new AjaxResult(AjaxResult.SUCCESS, map);
   }
+  
+  @RequestMapping("/review/add")
+  public AjaxResult add(int memberNo, String titleHead, String title, 
+      String content) throws Exception {
+    HashMap<String, Object> map = new HashMap<>();
+    map.put("memberNo", memberNo);
+    map.put("titleHead", titleHead);
+    map.put("title", title);
+    map.put("content", content);
+    reviewService.add(map);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "불량후기 등록 성공입니다.");
+  }
 }
