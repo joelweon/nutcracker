@@ -1,8 +1,31 @@
+$(function(event) {
+  $.get(serverRoot + '/deal/list.json', function(ajaxResult) {
+    if (ajaxResult.status == "success") {
+      var list = ajaxResult.data;
+      var div = $('.deal-container > .deal-area');
+
+      var template = Handlebars.compile($('#trTemplate').html());
+      div.html(template({"list":list}));
+
+      $('.deal-box').click(function(event) {
+        event.preventDefault();
+        location.href = 'deal-detail.html?purchaseNo=' + $(this).attr("data-no");
+      });
+
+      return;
+    }
+    alert(ajaxResult.data);
+  }, 'json');
+})
+
+
+
 //퍼센트 그래프
-jQuery(document).ready(function(){
-  jQuery('.percentbar').each(function(){
-  	var percentage = jQuery(this).attr('data-percent');
-    jQuery(this).find('.percentbar-bar').animate({ width:percentage },1000);
+$(document).ready(function(){
+  $('.percentbar').each(function(){
+  	var percentage = $(this).attr('data-percent');
+  	console.log(percentage);
+    $(this).find('.percentbar-bar').animate({ width:percentage },1000);
   });
 });
 //탭이동

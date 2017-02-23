@@ -12,6 +12,11 @@
   $(document).on('click', '#menu-review', function() {
     location.href = clientRoot + "/review/review.html"; 
   })
+  
+  /* 메뉴 클릭 이벤트 */
+  $(document).on('click', '#menu-deal', function() {
+    location.href = clientRoot + "/deal/deal.html"; 
+  })
 
 	/* 숨은메뉴-버튼 이벤트 */
 	$(document).on('click', '#btn-show-hidden', function() {

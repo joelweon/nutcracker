@@ -22,82 +22,111 @@
   <div class='title-title'>
    <span>공동구매</span>
   </div>
+  <!-- 글쓰기버튼 -->
+  <div style="float:right;"><a type='button' class="btn btn-default common-btn-white" href="deal-write.html">글쓰기</a></div>
   <!-- 정렬방식 -->
   <div class='menu-array'>
-    <span><a id='selected' href='deal-continue.html'>진행 중인 공구</a></span>
+    <span><a id='selected' href='deal.html'>진행 중인 공구</a></span>
     <span> | </span>
     <span><a href='deal-finish.html'>종료된 공구</a></span>
   </div>
+  <div class='deal-area'></div>
   <!-- 공동구매 진행딜 -->
-  <div class='deal-box'>
+<!--   <div class='deal-box'>
     <img class='deal-img' src='../images/barun.png'>
     <div class='deal-title'><span><b>바른두유 플레인 진한영양 20개입</b></span></div>
     <div class='deal-price'>29,000원</div>
-    <!-- 퍼센트 바 -->
+    퍼센트 바
     <div class="percentbar clearfix" data-percent="30%">
     <div class="percentbar-bar" style='background-color:#ff0000'></div>
     <div class="percentbar-text">30%</div>
-    </div> <!-- 퍼센트 바 끝 -->
+    </div> 퍼센트 바 끝
     <div class='deal-detail'>
       <div class='deal-detail-recruit'><span>모집 인원<br>60 명</span></div>
       <div class='deal-detail-register'><span>신청 인원<br>18 명</span></div>
       <div class='deal-detail-date'><span>남은 기간<br>13 일</span></div>
     </div>
-  </div> <!-- content-box class -->
+  </div> content-box class
   
   <div class='deal-box'>
     <img class='deal-img' src='../images/nare.png'>
     <div class='deal-title'><span><b>나래농장 내몸에 착한 100% 홍삼액</b></span></div>
     <div class='deal-price'>71,000원</div>
-    <!-- 퍼센트 바 -->
+    퍼센트 바
     <div class="percentbar clearfix" data-percent="46%">
     <div class="percentbar-bar" style='background-color:#ff0000'></div>
     <div class="percentbar-text">46%</div>
-    </div> <!-- 퍼센트 바 끝 -->
+    </div> 퍼센트 바 끝
     <div class='deal-detail'>
       <div class='deal-detail-recruit'><span>모집 인원<br>30 명</span></div>
       <div class='deal-detail-register'><span>신청 인원<br>14 명</span></div>
       <div class='deal-detail-date'><span>남은 기간<br>9 일</span></div>
     </div>
-  </div> <!-- content-box class -->
+  </div> content-box class -->
   
-  <div class='deal-box' onclick="location.href='deal-detail.html';">
+<!--   <div class='deal-box' onclick="location.href='deal-detail.html';">
     <img class='deal-img' src='../images/sundung.png'>
     <div class='deal-title'><span><b>순둥이 베이직 무향 물티슈 80매</b></span></div>
     <div class='deal-price'>16,500원</div>
-    <!-- 퍼센트 바 -->
+    퍼센트 바
     <div class="percentbar clearfix" data-percent="80%">
     <div class="percentbar-bar" style='background-color:#008040'></div>
     <div class="percentbar-text">80%</div>
-    </div> <!-- 퍼센트 바 끝 -->
+    </div> 퍼센트 바 끝
     <div class='deal-detail'>
 	    <div class='deal-detail-recruit'><span>모집 인원<br>50 명</span></div>
 	    <div class='deal-detail-register'><span>신청 인원<br>40 명</span></div>
 	    <div class='deal-detail-date'><span>남은 기간<br>7 일</span></div>
     </div>
-  </div> <!-- content-box class -->
+  </div> content-box class -->
   
-  <div class='deal-box'>
+  
+<!--   <div class='deal-box'>
     <img class='deal-img' src='../images/kindoh.png'>
     <div class='deal-title'><span><b>킨도 프리미엄 기저귀 대형 48매</b></span></div>
     <div class='deal-price'>16,000원</div>
-    <!-- 퍼센트 바 -->
+    퍼센트 바
     <div class="percentbar clearfix" data-percent="64%">
     <div class="percentbar-bar" style='background-color:#008040'></div>
     <div class="percentbar-text">64%</div>
-    </div> <!-- 퍼센트 바 끝 -->
+    </div> 퍼센트 바 끝
     <div class='deal-detail'>
       <div class='deal-detail-recruit'><span>모집 인원<br>50 명</span></div>
       <div class='deal-detail-register'><span>신청 인원<br>32 명</span></div>
       <div class='deal-detail-date'><span>남은 기간<br>4 일</span></div>
     </div>
-  </div> <!-- content-box class -->
+  </div> content-box class -->
 </div> <!-- deal-container class -->
 <!-- <div id='footer'></div> -->
 </div>
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+  <div class='deal-box' data-no={{purchaseNo}}>
+    <img class='deal-img' src='../images/sundung.png'>
+    <div class='deal-title'><span><b>{{title}}</b></span></div>
+    <div class='deal-price'>{{price}}원</div>
+
+    <div class="percentbar clearfix" data-percent=62%>
+      <div class="percentbar-bar" style='background-color:#008040'></div>
+      <div class="percentbar-text">62%</div>
+    </div>
+    <div class='deal-detail'>
+      <div class='deal-detail-recruit'><span>모집 인원<br>{{totalCount}}</span></div>
+      <div class='deal-detail-register'><span>신청 인원<br>{{applicantCount}}</span></div>
+      <div class='deal-detail-date'><span>남은 기간<br>{{startDate}}</span></div>
+    </div>
+  </div>
+{{/each}}
+</script>
+
+
+<script type="text/javascript" src="../js/context.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <!-- <script type="text/javascript" src="../js/header.js"></script> -->
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="deal.js"></script>
+
 </body>
 </html>

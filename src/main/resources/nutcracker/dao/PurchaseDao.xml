@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="nutcracker.dao.PurchaseDao">
+  
+  <resultMap type="hashmap"      id="purchase-map">
+    <id     column="PNO"         property="purchaseNo"/>
+    <result column="TITLE"       property="title"/>
+    <result column="PRICE"       property="price"/>
+    <result column="ST_DATE"     property="startDate"/>
+    <result column="EN_DATE"     property="endDate"/>
+    <result column="DEV_DATE"    property="deliveryDate"/>
+    <result column="TOTAL_CNT"   property="totalCount"/>
+    <result column="API_CNT"     property="applicantCount"/>
+  </resultMap>
+  
+  <select id="getList" resultMap="purchase-map">
+    select 
+      PNO, 
+      TITLE,
+      PRICE, 
+      date_format(ST_DATE,'%Y-%m-%d') as ST_DATE, 
+      date_format(EN_DATE,'%Y-%m-%d') as EN_DATE, 
+      date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
+      TOTAL_CNT,
+      ifnull(API_CNT, 0) as API_CNT
+    from PURCHS
+  </select>
+
+<!--   <select id="getOne" parameterType="int" resultMap="purchase-map">
+    select 
+      PNO, 
+      TITLE,
+      PRICE, 
+      date_format(ST_DATE,'%Y-%m-%d') as ST_DATE, 
+      date_format(EN_DATE,'%Y-%m-%d') as EN_DATE, 
+      date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
+      TOTAL_CNT,
+      ifnull(API_CNT, 0) as API_CNT
+   from PURCHS
+   where PNO=#{value}
+  </select>
+  
+  <delete id="delete" parameterType="int">
+  <![CDATA[
+    delete from PURCHASE where PNO=#{value}
+  ]]>
+  </delete>
+  
+  <insert id="insert" parameterType="purchase" 
+          useGeneratedKeys="true" keyColumn="PNO" keyProperty="purchaseNo">
+    insert into PURCHS(TITLE,PRICE,ST_DATE,EN_DATE,DEV_DATE,TOTAL_CNT)
+    values(#{title},#{price},#{startDate},#{endDate},#{deliveryDate},#{totalCount})
+  </insert>
+  
+  <update id="update" parameterType="purchase">
+    update PURCHS set
+      TITLE=#{title},
+      PRICE=#{price},
+      ST_DATE=#{startDate},
+      EN_DATE=#{endDate},
+      DEV_DATE=#{deliveryDate},
+      TOTAL_CNT=#{totalCount}
+    where PNO=#{purchaseNo}
+  </update> -->
+</mapper>
