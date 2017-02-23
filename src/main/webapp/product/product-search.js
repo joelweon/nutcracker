@@ -6,12 +6,12 @@ $(document).ready(function(){
 });
 
 /* 검색창 */
-$(function () {
+/*$(function () {
   $('#product-search-window').addClass('open');
   $('#product-search-window > form > input[type="search"]').focus();
-	/* $('#product-search-window').on('click keyup', function(event) {
+	 $('#product-search-window').on('click keyup', function(event) {
 	  if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
 	    $(this).removeClass('open');
 	  }
-	}); */
-});
+	}); 
+});*/

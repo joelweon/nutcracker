@@ -23,7 +23,7 @@ function statusChangeCallback(response) {
         FB.api('/me', function(user) {
           if (user) {
             console.log(user.name);
-    
+
             var image = document.getElementById('image');
             image.src = 'http://graph.facebook.com/' + user.id + '/picture';
             var name = document.getElementById('name');
@@ -98,7 +98,6 @@ window.fbAsyncInit = function() {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js";
+  js.src = "//connect.facebook.net/ko_KR/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
-  scope: 'public_profile,email'
 }(document, 'script', 'facebook-jssdk'));

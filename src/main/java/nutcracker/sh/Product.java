@@ -1,4 +1,4 @@
-package sh;
+package nutcracker.sh;
 
 public class Product {
   protected String title;
