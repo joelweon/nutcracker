@@ -68,7 +68,8 @@
       mno,
       email, 
       name, 
-      lst_date
+      lst_date,
+      path
    from memb
    where mno=#{value}
   </select>
@@ -87,7 +88,7 @@
       mno, 
       email, 
       name, 
-      lst_date 
+      lst_date
     from memb 
     where email=#{email} 
       and pwd=password(#{password})
