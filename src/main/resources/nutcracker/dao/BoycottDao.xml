@@ -14,6 +14,13 @@
     <result column="hodu_cnt"   property="hoduCount"/>
     <result column="cmt_cnt"    property="commentCount"/>
     <result column="shr_cnt"    property="shareCount"/>
+    
+    <collection property="newsList" ofType="BoycottNews">
+      <id       column="newsno"     property="newsNo"/>
+      <result   column="headline"   property="headLine"/>
+      <result   column="path"       property="path"/>
+    </collection>
+    
   </resultMap>
   
   <select id="getList" resultMap="boycott-map">
@@ -62,10 +69,13 @@
   </select>
   
   <delete id="delete" parameterType="int">
-  <![CDATA[
     delete from bot where botno=#{value}
-  ]]>
   </delete>
+  
+  <delete id="deleteNews" parameterType="int">
+    delete from bot_news where botno=#{value}
+  </delete>
+  
   
   <insert id="insert" parameterType="boycott" 
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
@@ -73,26 +83,37 @@
     values(#{postTime},#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
   </insert>
   
+  <insert id="insertNews" parameterType="boycott">
+    insert into bot_news(newsno,botno,headline,path) 
+    values
+    <foreach collection="newsList" item="BoycottNews" separator=",">
+      (#{BoycottNews.newsNo}, #{boycottNo}, #{BoycottNews.headLine}, #{BoycottNews.path})
+    </foreach>
+  </insert> 
+  
   <update id="update" parameterType="member">
     update bot set
       bot_date=#{postTime}, 
       title=#{title}, 
       cont=#{content}, 
-      view_cnt=#{viewCount}
-      hodu_cnt=#{hoduCount}
-      cmt_cnt=#{commentCount}
+      view_cnt=#{viewCount},
+      hodu_cnt=#{hoduCount},
+      cmt_cnt=#{commentCount},
       shr_cnt=#{shareCount}
     where botno=#{boycottNo}
   </update>
 </mapper>
 
 
-ArrayList<Boycott> getList() throws Exception;
-int insert(Boycott boycott) throws Exception;
+
+<!--
+ ArrayList<Boycott> getList() throws Exception;
 Boycott getOne(int boycottNo) throws Exception;
 int update(Boycott boycott) throws Exception;
-int delete(int boycottNo) throws Exception;
-int insertNews(Boycott Boycott) throws Exception;
-Boycott getOneWithNews(int boycottNo) throws Exception;
-int deleteNews(int boycottNo) throws Exception;
+ -->
+  
+
+  
+  
+  
   

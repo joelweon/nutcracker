@@ -138,6 +138,7 @@
 </div> <!-- container -->
 
 <script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
 <div class='boycott-list-box'>
       <a href='../je/b.html'>
         <img class='boycott-list-img' src='../images/oxy2.PNG'>
@@ -146,9 +147,9 @@
         <div class='boycott-list-content'>
           <span class='boycott-list-title'><a href='#'>[옥시레킷벤키저 가습기 살균제 사건]</a></span><br>
           <span class='boycott-list-text'><a href='#'>▶ '가습기 살균제 사건' 신현우 옥시 전 대표 징역 7년.. 존 리는 무죄</a></span><br>
-          <span class='boycott-list-text'><a href='#'>▶ 국민 10명중 8명 "가습기 살균제 옥시 전 대표, 중형 선고 해야"</a></span><br>
-          <span class='boycott-list-text'><a href='#'>▶ "인과관계 인정"...'가습기 살균제' 제조사 중형 선고</a></span><br>
-          <span class='boycott-list-text'><a href='#'>▶ 환경부, 가습기 살균제 피해 18명 추가...총 276명으로 늘어</a></span>
+          <span class='boycott-list-text'><a href='#'>{{headLine}}</a></span><br>
+          <span class='boycott-list-text'><a href='#'></a></span><br>
+          <span class='boycott-list-text'><a href='#'></a></span>
         </div>
         <div class='boycott-list-btn'>
           <span class='support-cnt glyphicon glyphicon-user'>1234</span>
@@ -159,6 +160,7 @@
         </div>
       </div> <!-- boycott-list-detail -->
     </div>
+{{/each}}
 </script>
 
 
