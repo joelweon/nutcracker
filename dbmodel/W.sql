@@ -368,48 +368,48 @@ insert into bot_rls(mno,cpno,reg_date)
 
 -- 공동구매
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(400,500,'물티슈',1000,'2017-02-16','2017-03-16','2017-03-18',50,30);
+    values(400,500,'바른두유 플레인 진한영양 20개입',29000,'2017-02-23','2017-03-16','2017-03-18',50,50);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(401,500,'가습기',3000,'2017-02-16','2017-03-16','2017-03-18',50,30);
+    values(401,500,'나래농장 내몸에 착한 100% 홍삼액',71000,'2017-02-15','2017-03-16','2017-03-18',50,30);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(402,501,'기저귀',5000,'2017-02-18','2017-03-28','2017-03-30',50,30);
+    values(402,501,'순둥이 베이직 무향 물티슈 80매',10000,'2017-02-18','2017-03-28','2017-03-30',50,30);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt) 
-    values(403,502,'섬유탈취제',10000,'2017-02-24','2017-03-24','2017-03-026',50);
+    values(403,502,'킨도 프리미엄 기저귀 대형 48매',16000,'2017-02-24','2017-03-24','2017-03-26',50);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(404,503,'텀블러',2000,'2017-02-20','2017-03-20','2017-03-22',50,30);
+    values(404,503,'락앤락 별자리 텀블러 400ml',12120,'2017-03-10','2017-03-20','2017-03-22',50,10);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(405,500,'물티슈',1000,'2017-02-16','2017-03-16','2017-03-18',50,30);
+    values(405,500,'듀플렉스 초음파식 가습기',14710,'2017-03-22','2017-03-28','2017-03-30',50,15);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(406,500,'가습기',3000,'2017-02-16','2017-03-16','2017-03-18',50,30);
+    values(406,500,'삼성전자 갤럭시 노트5 32GB',799800,'2017-03-01','2017-03-16','2017-03-18',50,30);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(407,501,'기저귀',5000,'2017-02-18','2017-03-28','2017-03-30',50,30);
+    values(407,501,'보솜이 프리미엄 천연코튼(밴드/팬티) 4팩',32940,'2017-02-18','2017-03-28','2017-03-30',50,30);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt) 
-    values(408,502,'섬유탈취제',10000,'2017-02-24','2017-03-24','2017-03-026',50);
+    values(408,502,'LG생활건강 샤프란 케어 섬유 탈취제',10000,'2017-02-24','2017-03-24','2017-03-26',50);
 insert into purchs(pno,cpno,title,price,st_date,en_date,dev_date,total_cnt,api_cnt) 
-    values(409,503,'텀블러',2000,'2017-02-20','2017-03-20','2017-03-22',50,30);
+    values(409,503,'매일유업 요미요미 유기농 쌀과자',2450,'2017-02-20','2017-03-20','2017-03-22',50,40);
 
 
 -- 공동구매사진
 insert into pch_phot(ppno,pno,path) 
-    values(450,400,'mul.jpg');
+    values(450,400,'../images/barun.png');
 insert into pch_phot(ppno,pno,path) 
-    values(451,401,'ga.jpg');
+    values(451,401,'../images/nare.png');
 insert into pch_phot(ppno,pno,path) 
-    values(452,402,'sum.jpg');
+    values(452,402,'../images/sundung.png');
 insert into pch_phot(ppno,pno,path) 
-    values(453,403,'tum1.jpg');
+    values(453,403,'../images/kindoh.png');
 insert into pch_phot(ppno,pno,path) 
-    values(454,404,'tum2.jpg');
+    values(454,404,'../images/product/tum.jpg');
 insert into pch_phot(ppno,pno,path) 
-    values(455,405,'mul.jpg');
+    values(455,405,'../images/product/ga.jpg');
 insert into pch_phot(ppno,pno,path) 
-    values(456,406,'ga.jpg');
+    values(456,406,'../images/product/not5.jpg');
 insert into pch_phot(ppno,pno,path) 
-    values(457,407,'sum.jpg');
+    values(457,407,'../images/product/bo.jpg');
 insert into pch_phot(ppno,pno,path) 
-    values(458,408,'tum1.jpg');
+    values(458,408,'../images/product/sha.jpg');
 insert into pch_phot(ppno,pno,path) 
-    values(459,409,'tum2.jpg');
+    values(459,409,'../images/product/ssal.jpg');
 
 
 

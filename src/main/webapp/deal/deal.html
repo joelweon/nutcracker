@@ -18,12 +18,12 @@
 <div id='wrap-hidden'></div>
 <div id='div-intro-none'></div>
 <div class='deal-container'>
+  <!-- 글쓰기버튼 -->
+  <div style="float:right;"><a type='button' class="btn btn-default common-btn-white" href="deal-write.html">글쓰기</a></div>
   <!-- 페이지 타이틀 -->
   <div class='title-title'>
    <span>공동구매</span>
   </div>
-  <!-- 글쓰기버튼 -->
-  <div style="float:right;"><a type='button' class="btn btn-default common-btn-white" href="deal-write.html">글쓰기</a></div>
   <!-- 정렬방식 -->
   <div class='menu-array'>
     <span><a id='selected' href='deal.html'>진행 중인 공구</a></span>
@@ -78,15 +78,15 @@
 	    <div class='deal-detail-register'><span>신청 인원<br>40 명</span></div>
 	    <div class='deal-detail-date'><span>남은 기간<br>7 일</span></div>
     </div>
-  </div> content-box class -->
+  </div> content-box class 
   
   
-<!--   <div class='deal-box'>
+   <div class='deal-box'>
     <img class='deal-img' src='../images/kindoh.png'>
     <div class='deal-title'><span><b>킨도 프리미엄 기저귀 대형 48매</b></span></div>
     <div class='deal-price'>16,000원</div>
     퍼센트 바
-    <div class="percentbar clearfix" data-percent="64%">
+    <div class="percentbar clearfix" data-percent=32>
     <div class="percentbar-bar" style='background-color:#008040'></div>
     <div class="percentbar-text">64%</div>
     </div> 퍼센트 바 끝
@@ -103,18 +103,18 @@
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
   <div class='deal-box' data-no={{purchaseNo}}>
-    <img class='deal-img' src='../images/sundung.png'>
+    <img class='deal-img' src={{path}}>
     <div class='deal-title'><span><b>{{title}}</b></span></div>
     <div class='deal-price'>{{price}}원</div>
 
-    <div class="percentbar clearfix" data-percent=62%>
+    <div class="percentbar clearfix" data-percent={{percent}}%>
       <div class="percentbar-bar" style='background-color:#008040'></div>
-      <div class="percentbar-text">62%</div>
+      <div class="percentbar-text">{{percent}}%</div>
     </div>
     <div class='deal-detail'>
       <div class='deal-detail-recruit'><span>모집 인원<br>{{totalCount}}</span></div>
       <div class='deal-detail-register'><span>신청 인원<br>{{applicantCount}}</span></div>
-      <div class='deal-detail-date'><span>남은 기간<br>{{startDate}}</span></div>
+      <div class='deal-detail-date'><span>남은 기간<br>{{rest}}일</span></div>
     </div>
   </div>
 {{/each}}
@@ -125,8 +125,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <!-- <script type="text/javascript" src="../js/header.js"></script> -->
-<script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="deal.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
 
 </body>
 </html>

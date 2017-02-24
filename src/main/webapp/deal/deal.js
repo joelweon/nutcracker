@@ -7,9 +7,18 @@ $(function(event) {
       var template = Handlebars.compile($('#trTemplate').html());
       div.html(template({"list":list}));
 
+      // 디테일 링크
       $('.deal-box').click(function(event) {
         event.preventDefault();
         location.href = 'deal-detail.html?purchaseNo=' + $(this).attr("data-no");
+      });
+      
+      
+      //퍼센트 그래프
+      $('.percentbar').each(function(){
+        var percentage = $(this).attr('data-percent');
+        console.log(percentage);
+        $(this).find('.percentbar-bar').animate({ width:percentage },1000);
       });
 
       return;
@@ -19,15 +28,6 @@ $(function(event) {
 })
 
 
-
-//퍼센트 그래프
-$(document).ready(function(){
-  $('.percentbar').each(function(){
-  	var percentage = $(this).attr('data-percent');
-  	console.log(percentage);
-    $(this).find('.percentbar-bar').animate({ width:percentage },1000);
-  });
-});
 //탭이동
 var sections = $('deal-detail-navi-cont')
 , nav = $('deal-detail-navi')
