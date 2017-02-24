@@ -22,8 +22,10 @@ $(document).ready(function() {
       }
       // 로그인 되었으면 로그오프 출력 창을 감춘다.
       $('#btn-login').css('display', 'none');
-      /*$('#logon-div img').attr('src', '../upload/' + ajaxResult.data.photoPath);
-      $('#logon-div span').text(ajaxResult.data.name);*/
+      $('#profile-img').attr('src', clientRoot+'/images/user/'+ajaxResult.data.photoPath);
+      $('#profile-img-big').attr('src', clientRoot+'/images/user/'+ajaxResult.data.photoPath);
+      $('#user-name').text(ajaxResult.data.name);
+      $('#user-email').text(ajaxResult.data.email);
       
       // 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
       /*$('#btn-logout').click(function(event) {*/
