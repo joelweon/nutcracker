@@ -17,7 +17,6 @@ $(function(event) {
       //퍼센트 그래프
       $('.percentbar').each(function(){
         var percentage = $(this).attr('data-percent');
-        console.log(percentage);
         $(this).find('.percentbar-bar').animate({ width:percentage },1000);
       });
 
