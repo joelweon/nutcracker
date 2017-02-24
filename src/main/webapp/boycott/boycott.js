@@ -1,61 +1,31 @@
 /* 썸머노트 가져오기 */
 $(function(event) {
-  var device = navigator.userAgent;
-  if (device.indexOf('Mobile') != -1) {
-    // 모바일로 접속 시 툴바 제한
-    //console.log('모바일임');
-    $('#summernote').summernote({
-      height: 300,                 // set editor height
-      minHeight: null,             // set minimum height of editor
-      maxHeight: null,             // set maximum height of editor
-      focus: true,                  // set focus to editable area after initializing summernote
-      lang: 'ko-KR',
-      toolbar: [
-        ['fontsize', ['fontsize']],
-        ['para', ['paragraph']],
-        ['insert', ['picture']],
-      ],
-      maximumImageFileSize: 1000000 //1MB
-    });
-  } else {
-    //console.log(navigator.userAgent);
-    var $summernote = $('#summernote').summernote({
-      height: 450,                 // set editor height
-      minHeight: null,             // set minimum height of editor
-      maxHeight: null,             // set maximum height of editor
-      focus: true,                  // set focus to editable area after initializing summernote
-      lang: 'ko-KR',
-      maximumImageFileSize: 1000000, //1MB
-      maximumFileSizeError: 'Maximum file size exceeded.'
-    });
-  }
-  $('#summernote').on('.image.upload.error', function(event) {
-    // upload image to server and create imgNode...
-    console.log(event);
+//학생 목록 가져와서 tr 태그를 만들어 붙인다.
+  $.get(serverRoot + '/boycott/list.json', function(ajaxResult) {
+	  var status = ajaxResult.status;
+	  console.log(status);
+	  if (status != "success")
+		  return;
+	  
+	  var list = ajaxResult.data;
+	  var tbody = $('#test1');
+	  
+	  // 템플릿 텍스트를 처리하여 HTML을 생성해 줄 함수 얻기
+	  var template = Handlebars.compile($('#trTemplate').html());
+	  
+	  // 템플릿 엔진을 통해 생성된 HTML을 tbody에 넣는다.
+	  tbody.html(template({"list": list}));
+	  
+	  // 학생 목록에서 이름 링크에 click 이벤트를 처리한다.
+	  $('.name-link').click(function(event) {
+		  event.preventDefault();
+		  location.href = 'view.html?memberNo=' + $(this).attr("data-no");
+	  });
   });
   
-  $('a#write').click(function(event) {
-    var result = $('#summernote').summernote('code');
-    $('#textarea1').append(result);
-  });
-  /*$('a#add-article').click(function(event) {
-    $('#wrap-article').add($('div.article').attr({id:"div-article2"}));
-    console.log("add article!!!");
-  });*/
-  var cnt = 2;
-  $('a#add-article').click(function (event) {
-    if (cnt < 5) {
-      var wrapdiv = $('#div-article1').clone(true);
-      $('#wrap-article').append(wrapdiv.attr('id', 'div-article'+ cnt));
-      cnt++;
-    }
-  });
-  $('a#remove-article').click(function (event) {
-    console.log("cnt=" + cnt);
-    if (cnt > 2) {
-      var el = '#div-article' + (cnt - 1);
-      $(el).remove();
-      cnt--;
-    }
+  $('#new-btn').click(function(event) {
+	  event.preventDefault(); 
+	  location.href = 'view.html';
   });
 });
+

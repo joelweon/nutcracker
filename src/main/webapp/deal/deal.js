@@ -1,10 +1,32 @@
-//퍼센트 그래프
-jQuery(document).ready(function(){
-  jQuery('.percentbar').each(function(){
-  	var percentage = jQuery(this).attr('data-percent');
-    jQuery(this).find('.percentbar-bar').animate({ width:percentage },1000);
-  });
-});
+$(function(event) {
+  $.get(serverRoot + '/deal/list.json', function(ajaxResult) {
+    if (ajaxResult.status == "success") {
+      var list = ajaxResult.data;
+      var div = $('.deal-container > .deal-area');
+
+      var template = Handlebars.compile($('#trTemplate').html());
+      div.html(template({"list":list}));
+
+      // 디테일 링크
+      $('.deal-box').click(function(event) {
+        event.preventDefault();
+        location.href = 'deal-detail.html?purchaseNo=' + $(this).attr("data-no");
+      });
+      
+      
+      //퍼센트 그래프
+      $('.percentbar').each(function(){
+        var percentage = $(this).attr('data-percent');
+        $(this).find('.percentbar-bar').animate({ width:percentage },1000);
+      });
+
+      return;
+    }
+    alert(ajaxResult.data);
+  }, 'json');
+})
+
+
 //탭이동
 var sections = $('deal-detail-navi-cont')
 , nav = $('deal-detail-navi')

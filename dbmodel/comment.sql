@@ -1,4 +1,4 @@
---댓글
+-- 댓글
 insert into cmt(ctno,mno,ct_date,cont,rep_cnt,del_yn) values(600,2,'2017-02-17 04:04:04.0','1번 불량후기댓글입니다',1,'n');
 insert into cmt(ctno,mno,ct_date,cont,rep_cnt,del_yn) values(601,3,'2017-02-17 04:04:04.0','2번 불량후기댓글입니다',1,'n');
 insert into cmt(ctno,mno,ct_date,cont,rep_cnt,del_yn) values(602,4,'2017-02-17 04:04:04.0','3번 불량후기댓글입니다',0,'n');
@@ -63,7 +63,7 @@ insert into cmt(ctno,mno,ct_date,cont,rep_cnt,del_yn) values(658,10,'2017-02-17 
 insert into cmt(ctno,mno,ct_date,cont,rep_cnt,del_yn) values(659,11,'2017-02-17 04:04:04.0','20번 공동구매상품평입니다.',0,'n');
 
 
---불량운동댓글
+-- 불량운동댓글
 insert into rev_cmt(ctno,rvno) values(600,200);
 insert into rev_cmt(ctno,rvno) values(601,200);
 insert into rev_cmt(ctno,rvno) values(602,201);
@@ -86,7 +86,7 @@ insert into rev_cmt(ctno,rvno) values(618,209);
 insert into rev_cmt(ctno,rvno) values(619,209);
 
 
---불매운동댓글
+-- 불매운동댓글
 insert into bot_cmt(ctno,botno) values(620,300);
 insert into bot_cmt(ctno,botno) values(621,300);
 insert into bot_cmt(ctno,botno) values(622,301);
@@ -109,7 +109,7 @@ insert into bot_cmt(ctno,botno) values(638,309);
 insert into bot_cmt(ctno,botno) values(639,309);
 
 
---공동구매상품평
+-- 공동구매상품평
 insert into pch_cmt(ctno,pno) values(640,400);
 insert into pch_cmt(ctno,pno) values(641,400);
 insert into pch_cmt(ctno,pno) values(642,401);
@@ -132,7 +132,7 @@ insert into pch_cmt(ctno,pno) values(658,409);
 insert into pch_cmt(ctno,pno) values(659,409);
 
 
---댓글신고
+-- 댓글신고
 insert into cmt_rep(ctno,mno,rwno) values(600,2,700);
 insert into cmt_rep(ctno,mno,rwno) values(601,3,701);
 insert into cmt_rep(ctno,mno,rwno) values(618,10,702);

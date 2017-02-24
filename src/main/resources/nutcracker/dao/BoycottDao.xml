@@ -14,19 +14,30 @@
     <result column="hodu_cnt"   property="hoduCount"/>
     <result column="cmt_cnt"    property="commentCount"/>
     <result column="shr_cnt"    property="shareCount"/>
+    
+    <collection property="newsList" ofType="BoycottNews">
+      <id       column="newsno"     property="newsNo"/>
+      <result   column="headline"   property="headLine"/>
+      <result   column="path"       property="path"/>
+    </collection>
+    
   </resultMap>
   
   <select id="getList" resultMap="boycott-map">
     select 
-      botno, 
-      bot_date,
-      title, 
-      cont,
-      view_cnt,
-      hodu_cnt,
-      cmt_cnt,
-      shr_cnt
-    from bot
+      b.botno, 
+      b.bot_date,
+      b.title,
+      b.cont,
+      b.view_cnt,
+      b.hodu_cnt,
+      b.cmt_cnt,
+      b.shr_cnt,
+      bn.newsno,
+      bn.headline,
+      bn.path
+    from bot b
+    left outer join bot_news bn on b.botno=bn.botno
   </select>
   
   <select id="getOne" parameterType="int" resultMap="boycott-map">
@@ -43,11 +54,32 @@
    where botno=#{value}
   </select>
   
+  <select id="getOneWithPhoto" parameterType="int" resultMap="boycott-map">
+    select 
+      b.botno,
+      b.bot_date,
+      b.title, 
+      b.cont,
+      b.view_cnt,
+      b.hodu_cnt,
+      b.cmt_cnt,
+      b.shr_cnt,
+      bn.newsno,
+      bn.headline,
+      bn.path
+   from bot b
+    left outer join bot_news bn on b.botno=bn.botno
+   where b.botno=#{value}
+  </select>
+  
   <delete id="delete" parameterType="int">
-  <![CDATA[
     delete from bot where botno=#{value}
-  ]]>
   </delete>
+  
+  <delete id="deleteNews" parameterType="int">
+    delete from bot_news where botno=#{value}
+  </delete>
+  
   
   <insert id="insert" parameterType="boycott" 
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
@@ -55,16 +87,37 @@
     values(#{postTime},#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
   </insert>
   
+  <insert id="insertNews" parameterType="boycott">
+    insert into bot_news(newsno,botno,headline,path) 
+    values
+    <foreach collection="newsList" item="BoycottNews" separator=",">
+      (#{BoycottNews.newsNo}, #{boycottNo}, #{BoycottNews.headLine}, #{BoycottNews.path})
+    </foreach>
+  </insert> 
+  
   <update id="update" parameterType="member">
     update bot set
       bot_date=#{postTime}, 
       title=#{title}, 
       cont=#{content}, 
-      view_cnt=#{viewCount}
-      hodu_cnt=#{hoduCount}
-      cmt_cnt=#{commentCount}
+      view_cnt=#{viewCount},
+      hodu_cnt=#{hoduCount},
+      cmt_cnt=#{commentCount},
       shr_cnt=#{shareCount}
     where botno=#{boycottNo}
   </update>
 </mapper>
+
+
+
+<!--
+ ArrayList<Boycott> getList() throws Exception;
+Boycott getOne(int boycottNo) throws Exception;
+int update(Boycott boycott) throws Exception;
+ -->
+  
+
+  
+  
+  
   

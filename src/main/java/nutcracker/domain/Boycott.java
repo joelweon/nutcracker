@@ -15,7 +15,14 @@ public class Boycott implements Serializable {
   protected int commentCount;
   protected int shareCount;
   protected List<Photo> photoList;
+  protected List<BoycottNews> newsList;
   
+  public List<BoycottNews> getNewsList() {
+    return newsList;
+  }
+  public void setNewsList(List<BoycottNews> newsList) {
+    this.newsList = newsList;
+  }
   public int getBoycottNo() {
     return boycottNo;
   }
