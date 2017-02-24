@@ -30,6 +30,8 @@ function statusChangeCallback(response) {
             name.innerHTML = user.name
             var id = document.getElementById('id');
             id.innerHTML = user.id
+            
+            
 
           }
         }); 
@@ -84,11 +86,12 @@ window.fbAsyncInit = function() {
 
   //로그인 되는 순간 호출
   FB.Event.subscribe('auth.login', function(response) {
-    /*document.location.href=".././";*/
+    /*document.location.href= clientRoot + "/main.html";*/
   });
   //로그아웃 되는 순간 호출
   FB.Event.subscribe('auth.logout', function(response) {
     document.location.reload();
+    document.location.href= clientRoot + "/auth/login.html";
   });
 
 };

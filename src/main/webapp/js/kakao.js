@@ -5,41 +5,44 @@ function createKakaotalkLogin() {
     persistAccessToken: true,
     persistRefreshToken: true,
     success: function(authObj) {
-      getKakaotalkUserProfile();
-      createKakaotalkLogout();
+    	createKakaotalkLogout();
+    	Kakao.API.request({
+        url: '/v1/user/me',
+        success: function(res) {
+        	var param = {
+        		name: res.properties.nickname,
+        		photoPath: res.properties.profile_image
+        	}
+        	$.post(serverRoot+"/auth/snsLogin.json", param, function(ajaxResult) {
+          	location.href=serverRoot+"/main.html";
+          }, "json");
+        },
+        fail: function(error) {
+          console.log(error);
+        }
+      });
     },
     fail: function(err) {
       console.log(err);
     }
   });
 }
-function getKakaotalkUserProfile(){
-  $("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove();
-  Kakao.API.request({
-    url: '/v1/user/me',
-    success: function(res) {
-      $("#kakao-profile").append(res.properties.nickname);
-      $("#kakao-profile").append($("<img />",{"src":res.properties.profile_image,"alt":res.properties.nickname+"님의 프로필 사진"}).css("width","20px"));
-    },
-    fail: function(error) {
-      console.log(error);
-    }
-  });
-}
 function createKakaotalkLogout(){
-  $("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove();
-  var logoutBtn = $("<a/>",{"class":"kakao-logout-btn","text":"로그아웃"});
-  logoutBtn.click(function(){
-    Kakao.Auth.logout();
-    createKakaotalkLogin();
-    $("#kakao-profile").text("");
+  $('#btn-logout').click(function(){
+  	event.preventDefault();
+    Kakao.Auth.logout(function() {
+    	setTimeout(function() {
+    		location.href = clientRoot + '/main.html';
+    	}, 1000);
+    });
+    $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+    	location.href = clientRoot + '/main.html';
+    });
   });
-  $("#kakao-logged-group").prepend(logoutBtn);
 }
 
-if(Kakao.Auth.getRefreshToken()!=undefined&&Kakao.Auth.getRefreshToken().replace(/ /gi,"")!=""){
+if(Kakao.Auth.getRefreshToken()!=undefined && Kakao.Auth.getRefreshToken().replace(/ /gi,"")!=""){
   createKakaotalkLogout();
-  getKakaotalkUserProfile();
 }else{
   createKakaotalkLogin();
 }

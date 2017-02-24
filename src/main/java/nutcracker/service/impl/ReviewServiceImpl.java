@@ -22,4 +22,11 @@ public class ReviewServiceImpl implements ReviewService {
   public HashMap<String, Object> getDetail(int reviewNo) throws Exception {
     return reviewDao.getDetail(reviewNo);
   }
+
+  @Override
+  public int add(HashMap<String, Object> map) throws Exception {
+    return reviewDao.insert(map);
+  }
+  
+  
 }

@@ -183,6 +183,7 @@ label.input-search.hover { color: #343434; }
 }
 .div-popup-menu:hover {
   font-weight: bolder;
+  cursor: pointer;
 }
 .div-user { vertical-align: top; width: 49%; display: inline-block; }
 #div-user-info { display: inline-block; text-align: left; }
