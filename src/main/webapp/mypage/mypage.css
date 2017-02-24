@@ -36,6 +36,10 @@ form {
 	color: black;
 }
 
+#re-email::-webkit-input-placeholder {
+	color: black;
+}
+
 #re-login {
 	background-color: #4CAF50;
 	color: white;

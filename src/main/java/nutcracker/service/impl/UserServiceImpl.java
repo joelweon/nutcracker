@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User getOnebyEmail(String email) throws Exception {
-    return userDao.getOnebyEmail(email);
+  public User getOneByEmail(String email) throws Exception {
+    return userDao.getOneByEmail(email);
   }
 
   @Override

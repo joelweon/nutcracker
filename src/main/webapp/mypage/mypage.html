@@ -38,11 +38,11 @@
 		<form action="#" method="post">
 			<!-- 비밀번호 재확인 박스 -->
 			<div class="login-box">
-				<label><b>Email</b></label> <input id="re-email" type="text"
-					placeholder="Enter Email" name="id" required> <label><b>Password</b></label>
-				<input id="re-password" type="password"
-					placeholder="Enter Password" name="psw" required>
-				<button id="re-login" type="submit">로그인</button>
+				<label><b>Email</b></label>
+				<input id="re-email" type="text" placeholder="" name="id" readonly>
+				<label><b>Password</b></label>
+				<input id="re-password" type="password" placeholder="Enter Password" name="psw" required>
+				<button id="re-login" type="submit">확인</button>
 			</div>
 		</form>
 	</div>
@@ -57,14 +57,6 @@
 <script src="../js/common.js"></script>
 <!-- <script src="../js/header.js"></script> -->
 <script src="mypage.js"></script>
-
-<script>
-$(document).on('click', '.detail-togle', function() {
-  $(".my-top-detail").toggle("1000");
-});
-
-</script>
-
 
 </body>
 </html>

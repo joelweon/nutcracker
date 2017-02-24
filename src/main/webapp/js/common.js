@@ -25,7 +25,7 @@ $(document).ready(function() {
       if (ajaxResult.data.photoUrl == null) { //일반계정으로 로그인한 경우
       	$('#profile-img').attr('src', clientRoot+'/images/user/'+ajaxResult.data.photoPath);
       	$('#profile-img-big').attr('src', clientRoot+'/images/user/'+ajaxResult.data.photoPath);
-      } else { //카카오계정으로 로그인한 경우
+      } else { //sns계정으로 로그인한 경우
       	$('#profile-img').attr('src', ajaxResult.data.photoUrl);
       	$('#profile-img-big').attr('src', ajaxResult.data.photoUrl);
       }
@@ -38,6 +38,14 @@ $(document).ready(function() {
         event.preventDefault();
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
           location.href = clientRoot + '/main.html';
+        });
+      });
+      
+      // 마이페이지 버튼의 클릭 이벤트 등록
+      $('#btn-go-mypage').click(function(event) {
+      	event.preventDefault();
+      	$.getJSON(serverRoot + '/user/detail.json', function(ajaxResult) {
+          location.href = clientRoot + '/mypage/mypage.html';
         });
       });
     });

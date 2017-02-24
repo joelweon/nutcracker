@@ -1,7 +1,6 @@
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
   /*console.log('statusChangeCallback');*/
-  console.log('response => ',response);
 //response 객체는 현재 로그인 상태를 나타내는 정보를 보여준다. 
   // - connected: 현재 사용자가 페이스북과 앱에 함께 로그인 되어있다.
   // - not_authorized: 사용자가 페이스북에는 로그인 되어있으나, 앱에는 로그인되어 있지 않다.
@@ -13,8 +12,6 @@ function statusChangeCallback(response) {
 //  - signedRequest: 앱을 사용하는 사용자에 대한 서명된 파라미터 정보
 //  - userID: 앱을 사용하는 사용자의 ID
 
-
-
   if (response.status === 'connected') {
  // 페이스북을 통해서 로그인이 되어있다.
     FB.getLoginStatus(function(response) {
@@ -22,22 +19,18 @@ function statusChangeCallback(response) {
         
         FB.api('/me', function(user) {
           if (user) {
-            console.log(user.name);
-
-            var image = document.getElementById('image');
-            image.src = 'http://graph.facebook.com/' + user.id + '/picture';
-            var name = document.getElementById('name');
-            name.innerHTML = user.name
-            var id = document.getElementById('id');
-            id.innerHTML = user.id
-            
-            
+          	var param = {
+          			name: user.name,
+          			photoPath: 'http://graph.facebook.com/' + user.id + '/picture'
+          	}
+          	$.post(serverRoot+"/auth/snsLogin.json", param, function(ajaxResult) {
+          		/*location.href=serverRoot+"/main.html";*/
+            }, "json");
 
           }
         }); 
         var uid = response.authResponse.userID;
         var accessToken = response.authResponse.accessToken;
-         console.log(accessToken);
       }
     });
   }/* else if (response.status === 'not_authorized') {
@@ -81,8 +74,6 @@ window.fbAsyncInit = function() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
- 
-
 
   //로그인 되는 순간 호출
   FB.Event.subscribe('auth.login', function(response) {

@@ -23,6 +23,17 @@ public class UserJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/user/detail")
+  public AjaxResult detail(String email) throws Exception {
+    User user = userService.getOneByEmail(email);
+    
+    if (user == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+    }
+    
+    return new AjaxResult(AjaxResult.SUCCESS, user);
+  }
+  
   @RequestMapping("/user/add")
   public AjaxResult add(User user) throws Exception {
     userService.add(user);
