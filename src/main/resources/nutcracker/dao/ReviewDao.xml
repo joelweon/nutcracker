@@ -62,5 +62,13 @@
 		where r.rvno=#{value}
   </select>
   
+  <insert id="insert" parameterType="map"
+          useGeneratedKeys="true" keyColumn="rvno" keyProperty="reviewNo">
+    insert into review(rvno,rv_date,head,title,cont,mno) 
+    values(#{reviewNo},now(),#{titleHead},#{title},#{content},#{memberNo});
+  </insert>
+  
+  <!-- <select in="count" parameterType="int" re -->
+  
   
 </mapper>

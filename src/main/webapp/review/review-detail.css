@@ -87,14 +87,16 @@
 }
 .review-detail-content {
 	width:98%;
+	min-height: 570px;
 	margin:auto;
   padding: 10px;
   color: #000000;
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 4px;
+  overflow: hidden;
 }
-.review-detail-content > pre {
+/* .review-detail-content > pre {
   display: block;
   padding: 0;
   margin: 0;
@@ -106,7 +108,7 @@
   background-color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 0;
-}
+} */
 /* 버튼 */
 #wrap-btn {
 	margin:10px auto 0 auto;
@@ -218,6 +220,7 @@
 	  right:5px;
 	  bottom:30px;
 	}
-	.review-detail-content > pre {font-size:0.9em;}
+	.review-detail-content { min-height: 400px; }
+	/* .review-detail-content > pre {font-size:0.9em;} */
 }
 

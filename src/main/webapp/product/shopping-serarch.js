@@ -45,7 +45,7 @@
            var ba2 = document.createElement('span');
            var ba3 = document.createElement('span');
            var ba4 = document.createElement('span');
-           /*var ba5 = document.createElement('a');*/
+           var ba5 = document.createElement('span');
            var img = document.createElement('img');
            var aimg = document.createElement('a');
            
@@ -69,12 +69,14 @@
              + daumShoppingSearch.escapeHtml(z.brand) + '<br'+'/>';
            ba4.innerHTML = '출시일 : ' 
                 + daumShoppingSearch.escapeHtml(z.publish_date) + '<br'+'/>';
+           ba5.innerHTML = '쇼핑몰명 : ' 
+             + daumShoppingSearch.escapeHtml(z.shoppingmall) + '<br'+'/>';
 
            b.appendChild(ba1);
            b.appendChild(ba2);
            b.appendChild(ba3);
            b.appendChild(ba4);
-           /*b.appendChild(ba5);*/
+           b.appendChild(ba5);
            
            div.appendChild(aimg);
            div.appendChild(b);

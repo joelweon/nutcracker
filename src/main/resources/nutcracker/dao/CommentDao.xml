@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="nutcracker.dao.CommentDao">
+
+  <resultMap type="hashmap"   id="comment-map">
+    <id     column="ctno"     property="commentNo"/>
+    <result column="mno"      property="memberNo"/>
+    <result column="name"     property="name"/>
+    <result column="path"     property="photoPath"/>
+    <result column="ct_date"  property="postTime"/>
+    <result column='cont'     property='content'/>
+    <result column="rep_cnt"  property="reportCount"/>
+    <result column="del_yn"   property="commentDelete"/>
+  </resultMap>
+  
+  <select id='getCommentList' parameterType="int" resultMap="comment-map">
+    select
+		  cm.ctno,
+		  m.mno,
+		  m.name,
+		  m.path,
+		  cm.ct_date,
+		  cm.cont,
+		  cm.rep_cnt,
+		  cm.del_yn
+		from cmt cm, memb m
+		where ctno in (select ctno from rev_cmt where rvno=#{value}) and
+		  cm.mno=m.mno
+  </select>
+</mapper>

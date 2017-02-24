@@ -14,19 +14,26 @@
     <result column="DEV_DATE"    property="deliveryDate"/>
     <result column="TOTAL_CNT"   property="totalCount"/>
     <result column="API_CNT"     property="applicantCount"/>
+    <result column="PERCENT"     property="percent"/>
+    <result column="REST"     property="rest"/>
+    <result column="PATH"     property="path"/>
   </resultMap>
   
   <select id="getList" resultMap="purchase-map">
     select 
-      PNO, 
-      TITLE,
-      PRICE, 
+      P.PNO, 
+      P.TITLE,
+      P.PRICE, 
       date_format(ST_DATE,'%Y-%m-%d') as ST_DATE, 
       date_format(EN_DATE,'%Y-%m-%d') as EN_DATE, 
       date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
-      TOTAL_CNT,
-      ifnull(API_CNT, 0) as API_CNT
-    from PURCHS
+      P.TOTAL_CNT,
+      ifnull(API_CNT, 0) as API_CNT,
+      ifnull(API_CNT*100/TOTAL_CNT, 0) as PERCENT,
+      datediff(EN_DATE,ST_DATE) as REST,
+      PP.PATH as PATH
+    from PURCHS P
+      left outer join PCH_PHOT PP on P.PNO = PP.PNO
   </select>
 
 <!--   <select id="getOne" parameterType="int" resultMap="purchase-map">
