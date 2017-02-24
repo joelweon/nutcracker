@@ -80,10 +80,10 @@ insert into review(rvno,mno,rv_date,head,title,cont) values(210,8,'2017-02-03 13
 insert into rev_phot(rpno,rvno,path) values(250,200,'reviw01.jpg');
 insert into rev_phot(rpno,rvno,path) values(251,201,'reviw02.jpg');
 insert into rev_phot(rpno,rvno,path) values(252,202,'reviw03.jpg');
-insert into rev_phot(rpno,rvno,path) values(255,205,'reviw06.jpg');
-insert into rev_phot(rpno,rvno,path) values(256,206,'reviw07.jpg');
-insert into rev_phot(rpno,rvno,path) values(257,207,'reviw08.jpg');
-insert into rev_phot(rpno,rvno,path) values(257,207,'reviw08_2.jpg');
-insert into rev_phot(rpno,rvno,path) values(258,208,'reviw09.jpg');
-insert into rev_phot(rpno,rvno,path) values(259,209,'reviw10.jpg');
-insert into rev_phot(rpno,rvno,path) values(260,210,'reviw11.jpg');
+insert into rev_phot(rpno,rvno,path) values(253,205,'reviw06.jpg');
+insert into rev_phot(rpno,rvno,path) values(254,206,'reviw07.jpg');
+insert into rev_phot(rpno,rvno,path) values(255,207,'reviw08.jpg');
+insert into rev_phot(rpno,rvno,path) values(256,207,'reviw08_2.jpg');
+insert into rev_phot(rpno,rvno,path) values(257,208,'reviw09.jpg');
+insert into rev_phot(rpno,rvno,path) values(258,209,'reviw10.jpg');
+insert into rev_phot(rpno,rvno,path) values(259,210,'reviw11.jpg');

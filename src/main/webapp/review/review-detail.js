@@ -15,10 +15,10 @@ function prepareViewForm(reviewNo) {
   // 등록 버튼은 감춘다.
   /*$('.new-form').css('display', 'none');*/
   //
-  $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
+  /*$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
     if (ajaxResult.status != 'success') {
       return;
-    }
+    }*/
     
   $.get(serverRoot + '/review/detail.json?reviewNo=' + reviewNo, function(ajaxResult) {
     var status = ajaxResult.status;
