@@ -1,5 +1,8 @@
 package nutcracker.control.json;
 
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -40,9 +43,27 @@ public class AuthJsonControl {
     Member member = (Member)session.getAttribute("member");
 
     if (member == null) { // 로그인이 되지 않은 상태
-      return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
+      HashMap<String,String> snsUser = new HashMap<>(); // 카카오 계정 로그인 확인
+      String name = (String)session.getAttribute("name");
+      String photoUrl = (String)session.getAttribute("photoUrl");
+      snsUser.put("name", name);
+      snsUser.put("photoUrl", photoUrl);
+      if (session.getAttribute("name") == null) {
+        return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
+      }
+      return new AjaxResult(AjaxResult.SUCCESS, snsUser); // 카카오 계정 로그인 성공한 경우
     }
-    
-    return new AjaxResult(AjaxResult.SUCCESS, member);
+    return new AjaxResult(AjaxResult.SUCCESS, member);// 일반 계정 로그인 성공한 경우
   }
+  
+  // 카카오 계정 로그인 확인
+  @RequestMapping("/auth/snsLogin")
+  public AjaxResult sns(HttpSession session, HttpServletRequest request) throws Exception {
+    String name = request.getParameter("name");
+    String photoUrl = request.getParameter("photoPath");
+    session.setAttribute("name", name);
+    session.setAttribute("photoUrl", photoUrl);
+    return new AjaxResult(AjaxResult.SUCCESS, "로그인 성공!");
+  }
+  
 }
