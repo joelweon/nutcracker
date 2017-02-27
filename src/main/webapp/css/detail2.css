@@ -1,62 +1,36 @@
-@CHARSET "UTF-8";
-
+ @CHARSET "UTF-8";
+ 
+div {border:1px solid red;}
 body {
-  font-size:small;
-  font-family: '돋움',Dotum,sans-serif;
+    overflow-y: auto;
+  
 }
-
-.modal {
-    /* Hidden by default */
-    /* Stay in place */
-    /* margin: 0px auto; */
-    position: fixed;
-    /* Sit on top */
-    z-index: 1;
-     /* left: 10%;  */
+.wrap {
     top: 0;
-    /* Full width */
-     width: 100%;
-    /* Full height*/
-    height: 100%; 
-    /* Enable scroll if needed */
-    overflow-y: scroll;
-    overflow-x: hidden;
-/*     background-color: rgb(0, 0, 0);
-    Fallback color
-    Black w/ opacity
-    background-color: rgba(0, 0, 0, 0.3); */
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position:fixed;
+    max-width:960px;
+    margin:auto; 
     display:inline;
     color:black;
 }
-/* Modal Content/Box */
-
 .modal-content {
-    /* Could be more or less, depending on screen size */
-    background-color: #fefefe;
-    /* left:100px; */
-    /* 5% from the top and centered */
-    margin: auto;
     border: 1px;
     border-radius: 20px;
 }
-
-
-
 /* Left */
 .left-area {
-  float: left;
-  width: 500px;
+  top:100px;
+  width:73%;
   background: #fff;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  margin: 0 auto;
-  height:100%;
+  float:left;
+  position:relative;
 }
-
-.inarea {
-  padding: 0 0 30px;
-}
-
+/* 제목부분 */
 div.tit-area {
   padding: 30px 0 8px;
   margin: 0 30px;
@@ -82,7 +56,7 @@ div.tit-area span.des {
 div.share-area {
     width: 100%;
     text-align: right;
-    /* margin-bottom:120px; */
+    margin-bottom:120px;
 }
 
 div.share-area.active {
@@ -124,9 +98,8 @@ div.share-area.active {
   width:32px;
   height:32px;
 }
-
-/* 콘텐트 시작 */
-.inarea > .detail-area{
+/* 콘텐츠 시작 */
+.detail-area{
     padding:80px 80px 0px 80px;
     margin: 0 auto;
 }
@@ -137,7 +110,7 @@ div.share-area.active {
 }
 
 /* 호두 던지기 */
-.inarea > .walnut-area {
+.walnut-area {
   text-align:center;
   margin-bottom:30px;
 }
@@ -200,36 +173,30 @@ ul.reply-list-area {
 }
 
 
-div {
-  border:1px solid red;
-}
 
 
-
-
-
-/* Right */
+/* ----------------Right ------------------*/
 .right-area {
-  color:#939598;
-  float: left;
-  background-color: #424242;
-  width: 230px;
-  /* Could be more or less, depending on screen size */
+  width: 27%;
+  top:100px;
   border-top-right-radius:10px;
   border-bottom-right-radius:10px;
-  
+  float:left;
+  position:relative;
 }
-
 
 .content-content2 {
-}
-.content-content2.active{
-    position: fixed;
-    top: 0;
-    left:600px;
-    width:230px;
+  color:#939598;
+  background-color: #424242;
 }
 
+.content-content2.active{
+  width: 250px;
+     position: fixed;
+/*    top: 0;
+    left:600px;
+    width:230px; */
+}
 
 /* 조회수,호두수 등 */
 div.share-info-area {
@@ -295,7 +262,7 @@ span.link {
 }
 
 
-/* 대체상품  이미지 Loop Mode*/
+/* 대체상품  이미지 Loop Mode */
 .swiper-container {
         margin:30px 20px;
 }
@@ -303,7 +270,6 @@ span.link {
     text-align: center;
     font-size: 1em;
     background: #fff;
-    /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -343,8 +309,145 @@ a#more {
   float:right;
   text-decoration: none;
 }
+/*
 
-/* 클릭시 배경 */
+
+.right-area {
+  color:#939598;
+  float: left;
+  background-color: #424242;
+  width: 230px;
+  Could be more or less, depending on screen size
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
+  
+}
+
+
+.content-content2 {
+}
+.content-content2.active{
+    position: fixed;
+    top: 0;
+    left:600px;
+    width:230px;
+}
+
+
+조회수,호두수 등
+div.share-info-area {
+  margin:10px;
+}
+
+ul.share-info {
+  margin-top:35px;
+  border-top:1px solid #6a6e71;
+  font-size:1.2em;
+  padding:30px 15px;
+}
+
+
+li {
+  list-style-type:none;
+  padding:5px 0px;
+}
+
+li span.num {
+  float: right;
+  font-size: 1em;
+  display: inline-block;
+  margin-right:5px;
+  color:white;
+}
+
+공동구매
+div.purchase-area {
+  border-top:1px solid #6a6e71;
+  border-bottom:1px solid #6a6e71;
+  margin:10px;
+  padding-top:10px;
+  padding-bottom:40px;
+}
+
+div.purchase-title-area {
+  text-align:center;
+  font-size:1.3em;
+  font-weight:bold;
+  color:white;
+  padding:10px 0px;
+}
+
+span.link {
+  display:block;
+  text-align:center;
+  color:#6a6e71;
+}
+.purchase-img {
+  width:170px;
+  height:150px;
+  padding-left:25px;
+}
+
+
+
+.right-image {
+  width:100%;
+  height:100%;
+  border-radius:10px;
+  color:black;
+}
+
+
+대체상품  이미지 Loop Mode
+.swiper-container {
+        margin:30px 20px;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 1em;
+    background: #fff;
+    Center slide text vertically
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding:0px 0px 30px 0px;
+    border-radius:10px;
+}
+.swiper-button-next, .swiper-button-prev {
+  margin-top:-15px;
+  width: 27px;
+  height: 20px;
+}
+
+.alta-title {
+  color:white;
+  margin-bottom: 10px;
+}
+
+.alternative-goods {
+  display:inline-block;
+  font-size:1.4em;
+  font-weight:bold;
+}
+
+대체상품 더보기
+a#more {
+  color:white;
+  margin-top:5px;
+  float:right;
+  text-decoration: none;
+}
+
+클릭시 배경
   #mask {  
     position:absolute;  
     z-index:9000;  
@@ -368,7 +471,7 @@ a#more {
 
 @media screen and (max-width:850px) {
     .modal {
-      /* overflow-y: hidden; */
+      overflow-y: hidden;
     }
     .modal-content {
       top:0;
@@ -398,3 +501,4 @@ a#more {
     right:4%;
     }
 }
+ */
