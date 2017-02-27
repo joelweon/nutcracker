@@ -19,7 +19,7 @@ if (memberNo > 0) {
     $('#user-job select').val(JSON.parse(users).job);
     
     $('#user-email').attr('readOnly', '');
-    
+
 /*    if (status != "success") {
       alert(ajaxResult.data);
       return;
