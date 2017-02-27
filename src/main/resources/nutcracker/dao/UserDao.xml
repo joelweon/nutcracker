@@ -38,11 +38,12 @@
       left outer join memb m on u.uno=m.mno
   </select>
   
-  <select id="getOneByEmail" parameterType="String" resultMap="user-map">
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="user-map">
     select 
       m.mno,
       m.email,
       m.name,
+      m.pwd,
       u.tel,
       u.bas_adr,
       u.det_adr,
@@ -52,7 +53,8 @@
       u.out_cont
     from user u
       left outer join memb m on u.uno = m.mno
-    where m.email=#{value}
+    where m.email=#{email} 
+      and m.pwd=password(#{password})
   </select>
   
   <select id="countByNo" parameterType="int" resultType="int">
