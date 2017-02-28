@@ -19,6 +19,18 @@ $(function() {
 	// 사용자 정보 가져오기
 	var users = window.sessionStorage.getItem('user');
 	$('#rep-img').attr('src', clientRoot+'/images/user/'+JSON.parse(users).photoPath);
+	});
+
+	// 댓글 정보 가져오기
+	
+
+	// 공구 정보 가져오기
+var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
+$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
+	console.log(ajaxResult.data.path);
+	console.log(ajaxResult.data.title);
+	$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
+	$('.link').text(ajaxResult.data.title);
 });
 
 // 화면 구성 관련 js

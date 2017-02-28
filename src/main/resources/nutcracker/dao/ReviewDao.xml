@@ -28,14 +28,14 @@
       r.rvno, 
       m.name, 
       date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
-      r.path,
+      rp.path,
       r.head, 
       r.title, 
       ifnull(r.view_cnt, 0) as view_cnt, 
       ifnull(r.hodu_cnt, 0) as hodu_cnt
     from review r
-      left outer join memb m 
-    on r.mno=m.mno
+      left outer join memb m on r.mno=m.mno
+      left outer join rev_phot rp on r.rvno=rp.rvno
   </select>
   
   <select id='getDetail' parameterType="int" resultMap="map">
