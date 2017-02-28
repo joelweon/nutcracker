@@ -1,5 +1,6 @@
 package nutcracker.control.json;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import nutcracker.domain.Boycott;
+import nutcracker.domain.BoycottNews;
 import nutcracker.service.BoycottService;
 
 @RestController
@@ -22,6 +24,27 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/boycott/add")
+  public AjaxResult add(Boycott boycott) throws Exception {
+    System.out.println("json1");
+    ArrayList<BoycottNews> newsList = new ArrayList<>();
+    boycott.setNewsList(newsList);
+    
+    boycottService.add(boycott);
+    
+    System.out.println("json2");
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  @RequestMapping("/boycott/detail")
+  public AjaxResult detail(int boycottNo) throws Exception {
+    Boycott boycott = boycottService.getOne(boycottNo);
+    if (boycott == null) {
+      return new AjaxResult(AjaxResult.FAIL, "데이터를 불러오지 못했습니다.");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, boycott);
+  }
   
   
   

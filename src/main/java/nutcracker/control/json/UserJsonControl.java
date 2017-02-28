@@ -24,13 +24,14 @@ public class UserJsonControl {
   }
   
   @RequestMapping("/user/detail")
-  public AjaxResult detail(String email) throws Exception {
-    User user = userService.getOneByEmail(email);
+  public AjaxResult detail(String email, String password) throws Exception {
+    User user = userService.getOneByEmailPassword(email, password);
     
     if (user == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 회원이 없습니다.");
+      return new AjaxResult(AjaxResult.FAIL, "비밀번호를 다시 확인하세요.");
     }
     
+    /*user = (User)session.getAttribute("user");*/
     return new AjaxResult(AjaxResult.SUCCESS, user);
   }
   

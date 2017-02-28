@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>우리는 The Nutcracker 입니다.</title>
+<title>The Nutcracker</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, 
   maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
@@ -25,15 +25,13 @@
 <div class="my-content-area">
   <!-- 마이페이지 사이드 메뉴 -->
   <div id='wrap-myside'></div>
-  
   <div class="main-contents">
-  
   	<div>
   		<table class="detail-table">
   			<tr>
   				<th>이메일</th>
   				<td>
-  					<input type='text' name="email" value="user01@test.com">
+  					<input id="user-email" type='text' name="email" value="">
   					<select name="emailaddr">
               <option value="">직접입력</option>
               <option value="@daum.net">daum.net</option>
@@ -48,7 +46,7 @@
   			<tr>
   				<th>닉네임</th>
   				<td>
-  					<input type='text' name="mbname"  value="cracker">
+  					<input id="user-name" type='text' name="mbname"  value="">
   				</td>
   			</tr>
   			<tr>
@@ -57,15 +55,15 @@
   					<table class="detail-inner-table">
   					<tr>
   						<th>현재 비밀번호</th>
-  						<td><input type="password" name="pwd"></td>
+  						<td><input id="user-password-current" type="password" name="pwd"></td>
   					</tr>
   					<tr>
   						<th>새 비밀번호</th>
-  						<td><input type="password" name="new-pwd"></td>
+  						<td><input id="user-password-new" type="password" name="new-pwd"></td>
   					</tr>
   					<tr>
   						<th>비밀번호 확인</th>
-  						<td><input type="password" name="new-pwd-check"></td>
+  						<td><input id="user-password-new-check" type="password" name="new-pwd-check"></td>
   					</tr>
   					</table>
   				</td>
@@ -73,7 +71,7 @@
   			<tr>
   				<th>연락처</th>
   				<td>
-  					<input type='text' name="tel"  value="010-1111-2222">
+  					<input id="user-tel" type='text' name="tel" value="">
   				</td>
   			</tr>
   			<tr>
@@ -88,30 +86,27 @@
   			<tr>
   				<th>직업</th>
   				<td>
-            <select name='job' size='1' >
+            <select id="user-job" name='job' size='1' >
               <option value=''>선택하세요</option>
-              <option value='39' selected="selected">학생</option>
-              <option value='40'>컴퓨터/인터넷</option>
-              <option value='41'>언론</option>
-              <option value='42'>공무원</option>
-              <option value='43'>군인</option>
-              <option value='44'>서비스업</option>
-              <option value='45'>교육</option>
-              <option value='46'>금융/증권/보험업</option>
-              <option value='47'>유통업</option>
-              <option value='48'>예술</option>
-              <option value='49'>의료</option>
+              <option value='학생'>학생</option>
+              <option value='컴퓨터/인터넷'>컴퓨터/인터넷</option>
+              <option value='언론'>언론</option>
+              <option value='공무원'>공무원</option>
+              <option value='군인'>군인</option>
+              <option value='서비스업'>서비스업</option>
+              <option value='교육'>교육</option>
+              <option value='금융/증권/보험업'>금융/증권/보험업</option>
+              <option value='유통업'>유통업</option>
+              <option value='예술'>예술</option>
+              <option value='의료'>의료</option>
             </select>
           </td>
   			</tr>
   		</table>
-  		<button>변경하기</button>
+  		<button id="user-update-btn" type="button">변경하기</button>
   	</div>
-  
-  
-  </div>
-</div>
-
+  </div> <!-- main-contents -->
+</div> <!-- my-content-area -->
 
 <div id='wrap-footer'></div>
 
@@ -121,14 +116,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/common.js"></script>
-<!-- <script src="../js/header.js"></script> -->
 <script src="mypage.js"></script>
+<script src="mydetail.js"></script>
 
-<script>
-$(document).on('click', '.detail-togle', function() {
-  $(".my-top-detail").toggle("1000");
-});
-
-</script>
 </body>
 </html>

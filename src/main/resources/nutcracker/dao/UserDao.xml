@@ -13,9 +13,9 @@
     <result   column="lst_date"  property="lastDate"/>
     <result   column="b_day"     property="birthday"/>
     <result   column="tel"       property="tel"/>
+    <result   column="zip"       property="postcode"/>
     <result   column="bas_adr"   property="basicAddress"/>
     <result   column="det_adr"   property="detailAddress"/>
-    <result   column="zip"       property="postcode"/>
     <result   column="job"       property="job"/>
     <result   column="gen"       property="gender"/>
     <result   column="out_type"  property="outType"/>
@@ -38,21 +38,25 @@
       left outer join memb m on u.uno=m.mno
   </select>
   
-  <select id="getOneByEmail" parameterType="String" resultMap="user-map">
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="user-map">
     select 
       m.mno,
       m.email,
       m.name,
+      m.pwd,
       u.tel,
+      u.zip,
       u.bas_adr,
       u.det_adr,
       u.join_date,
+      u.job,
       m.lst_date,
       u.out_type,
       u.out_cont
     from user u
       left outer join memb m on u.uno = m.mno
-    where m.email=#{value}
+    where m.email=#{email} 
+      and m.pwd=password(#{password})
   </select>
   
   <select id="countByNo" parameterType="int" resultType="int">

@@ -43,6 +43,7 @@
   <select id="getOne" parameterType="int" resultMap="boycott-map">
     select 
       botno,
+      cpno,
       bot_date,
       title, 
       cont,
@@ -83,15 +84,15 @@
   
   <insert id="insert" parameterType="boycott" 
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
-    insert into bot(bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt) 
+    insert into bot(bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt)
     values(#{postTime},#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
   </insert>
   
   <insert id="insertNews" parameterType="boycott">
-    insert into bot_news(newsno,botno,headline,path) 
+    insert into bot_news(botno,headline,path) 
     values
     <foreach collection="newsList" item="BoycottNews" separator=",">
-      (#{BoycottNews.newsNo}, #{boycottNo}, #{BoycottNews.headLine}, #{BoycottNews.path})
+      (#{boycottNo}, #{BoycottNews.headLine}, #{BoycottNews.path})
     </foreach>
   </insert> 
   
