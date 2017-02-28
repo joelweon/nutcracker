@@ -21,7 +21,7 @@
       $('#mask').css({'width':'100%','height':'970px'});
       $('#mask').fadeIn(700);
       $('#mask').fadeTo("slow",0.8);*/
-      $('.wrap-body').show();
+      $('.window').show();
       //스크롤막기
       /*$("body").css({overflow:'hidden'}).bind('touchmove', function(e){e.preventDefault()});*/
       /* 대체상품 이미지 swiper */
@@ -40,7 +40,7 @@
       /*});*/
     });
     //닫기 버튼을 눌렀을 때
-    $('.wrap-body .close').click(function (e) {  
+    $('.window .close').click(function (e) {  
         //링크 기본동작은 작동하지 않도록 한다.
         e.preventDefault();  
         history.back();
@@ -58,8 +58,8 @@
   });
   
   //스크롤 -active
-/*  var modal = document.querySelectorAll('.modal')[0];
-  var modal_content = document.querySelectorAll('.left-area')[0];
+  var modal = document.querySelectorAll('.modal')[0];
+  var modal_content = document.querySelectorAll('.modal-content')[0];
   var sticky = document.getElementById('sticker');
         
   modal.addEventListener('scroll',function(e){
@@ -72,29 +72,23 @@
       }else{
           sticky.classList.remove('active');
       }
-  }); */
+  }); 
   //스크롤 -active
-  var modal = document.querySelectorAll('.wrap')[0];
-  var modal_content = document.querySelectorAll('.left-area')[0];
-  var sticky = document.getElementById('sticker');
+  var modal = document.querySelectorAll('.modal')[0];
+  var modal_content = document.querySelectorAll('.modal-content')[0];
   var sns = document.getElementById('sns-area');
   var t = document.getElementById('top');
-  var body = $('body')
+  
   modal.addEventListener('scroll',function(e){
     
     var windowTop = e.target.scrollTop;
     var modalTop = modal_content.offsetTop;
-    var snsTop = sns.offsetTop;
     
     if(modalTop<windowTop){
-      if(snsTop<windowTop) {
-        sns.classList.add('active');
-        t.classList.add('active');
-      }
-      sticky.classList.add('active');
+      sns.classList.add('active');
+      t.classList.add('active');
       
     }else{
-      sticky.classList.remove('active');
       sns.classList.remove('active');
       t.classList.remove('active');
     }

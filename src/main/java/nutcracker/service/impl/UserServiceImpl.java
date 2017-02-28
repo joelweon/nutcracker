@@ -1,6 +1,7 @@
 package nutcracker.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,17 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User getOneByEmail(String email) throws Exception {
-    return userDao.getOneByEmail(email);
+  public User getOneByEmailPassword(String email, String password) throws Exception {
+    HashMap<String,String> paramMap = new HashMap<>();
+    paramMap.put("email", email);
+    paramMap.put("password", password);
+    
+    User user = userDao.getOneByEmailPassword(paramMap);
+    
+    if (user == null) {
+      return null;
+    }
+    return user;
   }
 
   @Override
