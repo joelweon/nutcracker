@@ -74,30 +74,69 @@
       }
   }); */
   //스크롤 -active
-  var modal = document.querySelectorAll('.wrap')[0];
-  var modal_content = document.querySelectorAll('.left-area')[0];
-  var sticky = document.getElementById('sticker');
+  /*var modal = document.querySelectorAll('.modal')[0];
+  var modal_content = document.querySelectorAll('.modal-content')[0];
   var sns = document.getElementById('sns-area');
   var t = document.getElementById('top');
-  var body = $('body')
+  
   modal.addEventListener('scroll',function(e){
     
     var windowTop = e.target.scrollTop;
     var modalTop = modal_content.offsetTop;
-    var snsTop = sns.offsetTop;
     
     if(modalTop<windowTop){
-      if(snsTop<windowTop) {
-        sns.classList.add('active');
-        t.classList.add('active');
-      }
-      sticky.classList.add('active');
+      sns.classList.add('active');
+      t.classList.add('active');
       
     }else{
-      sticky.classList.remove('active');
       sns.classList.remove('active');
       t.classList.remove('active');
     }
-  }); 
+  }); */
   
+  // 스크롤 - active (sh)
+  $(function () {
+  	var snsTop = $('#sns-area').offset().top;
+  	var stikerTop = $('.right-area').offset().top;
+  	var rightHeight = $('.left-area').height();
+  	$('#sticker').css('height',rightHeight - 100);
+    $(window).scroll(function() {
+    	// 오른쪽 바 상단 고정
+    	if ( $(window).scrollTop() < stikerTop || $(window).scrollTop() == stikerTop ) {
+    		$('#sticker').css('height',rightHeight - 100);
+    		$('#sticker').css('position','absolute').css('top','0');
+    		$('#sticker').css('position','absolute').css('bottom','0');
+    	}
+    	else if ( $(window).scrollTop() > stikerTop && $(window).scrollTop() < rightHeight - $(window).height() ) {
+    		/*$('.content-content2').addClass("active");*/
+    		$('#sticker').css('height','100%');
+    		$('#sticker').css('position','fixed').css('top','0');
+    		$('#sticker').css('position','fixed').css('bottom','0');
+    	}
+    	else {
+    		/*$('.content-content2').removeClass("active");*/
+    		$('#sticker').css('height',$(window).height()-100);
+    		$('#sticker').css('position','fixed').css('top',0);
+    		$('#sticker').css('position','fixed').css('bottom','100px');
+    	}
+    	
+    	// 공유하기 버튼 이동
+      if ( $(window).scrollTop() > snsTop ) {
+      	$('#sns-area').css('position', 'fixed');
+        $('.share-area').addClass("active");
+        $('.top').addClass("active");
+      }
+      else {
+      	$('#sns-area').css('position', 'absolute');
+      	$('.share-area').removeClass("active");
+      	$('.top').removeClass("active");
+      }
+    });
+  });
+  
+  // myModal 중앙 배치 (sh)
+  $('.wrap-body').css({
+  	right:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px',
+    left:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px'
+  });
 
