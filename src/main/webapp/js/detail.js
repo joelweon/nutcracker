@@ -1,19 +1,11 @@
-/*  function wrapWindowByMask(){
-    //화면의 높이와 너비를 구한다.
-    var maskHeight = $(document).height();
-    var maskWidth = $(window).width();
+// 데이터 관련 js
+$(function() {
+	$.getJSON(serverRoot + '/boycott/detail.json', function(ajaxResult) {
+		
+	});
+});
 
-    //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
-    $('#mask').css({'width':maskWidth,'height':maskHeight});
-
-    //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
-    $('#mask').fadeIn(700);      
-    $('#mask').fadeTo("slow",0.8);    
-
-    //윈도우 같은 거 띄운다.
-    $('.window').show();
-  }*/
-
+// 화면 구성 관련 js
   $(document).ready(function(){
     //검은 막 띄우기
     /*$('.openMask').click(function(e){
@@ -57,44 +49,7 @@
     });      */
   });
   
-  //스크롤 -active
-/*  var modal = document.querySelectorAll('.modal')[0];
-  var modal_content = document.querySelectorAll('.left-area')[0];
-  var sticky = document.getElementById('sticker');
-        
-  modal.addEventListener('scroll',function(e){
-      
-      var windowTop = e.target.scrollTop;
-      var modalTop = modal_content.offsetTop;
-                              
-      if(modalTop<windowTop){
-          sticky.classList.add('active');
-      }else{
-          sticky.classList.remove('active');
-      }
-  }); */
-  //스크롤 -active
-  /*var modal = document.querySelectorAll('.modal')[0];
-  var modal_content = document.querySelectorAll('.modal-content')[0];
-  var sns = document.getElementById('sns-area');
-  var t = document.getElementById('top');
-  
-  modal.addEventListener('scroll',function(e){
-    
-    var windowTop = e.target.scrollTop;
-    var modalTop = modal_content.offsetTop;
-    
-    if(modalTop<windowTop){
-      sns.classList.add('active');
-      t.classList.add('active');
-      
-    }else{
-      sns.classList.remove('active');
-      t.classList.remove('active');
-    }
-  }); */
-  
-  // 스크롤 - active (sh)
+  // 스크롤 - active
   $(function () {
   	var snsTop = $('#sns-area').offset().top;
   	var stikerTop = $('.right-area').offset().top;
@@ -134,7 +89,7 @@
     });
   });
   
-  // myModal 중앙 배치 (sh)
+  // myModal 중앙 배치
   $('.wrap-body').css({
   	right:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px',
     left:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px'

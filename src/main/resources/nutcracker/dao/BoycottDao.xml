@@ -43,6 +43,7 @@
   <select id="getOne" parameterType="int" resultMap="boycott-map">
     select 
       botno,
+      cpno,
       bot_date,
       title, 
       cont,

@@ -20,6 +20,10 @@ public class BoycottServiceImpl implements BoycottService{
   public Boycott getDetail(int no) throws Exception {
     return boycottDao.getOneWithNews(no);
   }
+  
+  public Boycott getOne(int boycottNo) throws Exception {
+    return boycottDao.getOne(boycottNo);
+  }
 
   public int add(Boycott boycott) throws Exception {
     System.out.println("11111");
