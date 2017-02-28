@@ -21,4 +21,11 @@ public class CommentJsonControl {
     List<HashMap<String, Object>> list = commentService.getList(ownNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
+  
+  @RequestMapping("/comment/boycottcomments")
+  public AjaxResult boycottComments(int ownNo) throws Exception {
+    List<HashMap<String, Object>> list = commentService.getBoycottCmtList(ownNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
 }

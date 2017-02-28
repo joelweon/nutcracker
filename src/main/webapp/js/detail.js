@@ -22,15 +22,20 @@ $(function() {
 	});
 
 	// 댓글 정보 가져오기
-	
+$.get(serverRoot + '/comment/boycottcomments.json?ownNo=' + boycottNo, function(ajaxResult) {
+	var list = ajaxResult.data;
+	var div = $('.reply-list-area:last-child');
+  
+  var template = Handlebars.compile($('#divTemplate').html());
+  div.html(template({"list":list}));
+  return;
+});
 
 	// 공구 정보 가져오기
 var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
 $.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
-	console.log(ajaxResult.data.path);
-	console.log(ajaxResult.data.title);
 	$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
-	$('.link').text(ajaxResult.data.title);
+	$('.purchase-subtitle').text(ajaxResult.data.title);
 });
 
 // 화면 구성 관련 js

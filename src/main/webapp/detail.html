@@ -88,7 +88,7 @@
                 </div>
                 <div class="purchase-img">
                   <img src="" class="right-image"/>
-                  <span class="link" style="color:black;"></span>
+                  <span class="link purchase-subtitle" style="color:black;"></span>
                 </div>
               </div>
               <div id="hidden-alternative-goods">
@@ -132,7 +132,10 @@
               </div>
             </div>
   <!-- 댓글목록 -->
-            <ul class="reply-list-area">
+            <div class='reply-list-area'>
+            </div>
+
+            <!-- <ul class="reply-list-area">
               <li>
                 <div class="reply-box">
                   <div><img id="rep-img" src="./images/nutc1.PNG" /></div>
@@ -163,7 +166,7 @@
                   </div>
                 </div>
               </li>
-            </ul>
+            </ul> -->
       </div><!-- left-area -->
 <!-- 오른쪽 -->
         <div class="right-area">
@@ -199,7 +202,7 @@
                 <div class="purchase-img">
                   <img src="" class="right-image"/>
                 </div>
-                <span class="link" style="color:white;"></span>
+                <span class="link purchase-subtitle" style="color:white;"></span>
               </div>
   <!-- 대체상품 -->
               <div class="swiper-container">
@@ -239,9 +242,27 @@
     </div><!-- modal -->
   </div><!-- window -->
 <!-- 디테일 끝 -->
+<script id="divTemplate" type="text/x-handlebars-template">
+  {{#each list}}
+    <div class="reply-box">
+      <div><img id="rep-img" src="./images/user/{{photoPath}}" /></div>
+      <div class="reply-info">
+      <span class="reply-id">{{name}}</span>
+        <div class="infotext-area">
+          <span class="infotext">{{content}}</span>
+          <div class="c-time">
+            <img class="clock" src="./images/clock.PNG" />
+            <span class="time">{{postTime}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</script>
 <script src="./js/context.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script> 
 <script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="./js/detail.js"></script>
 </body>
 </html>
