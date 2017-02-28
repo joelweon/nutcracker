@@ -1,92 +1,82 @@
-/*try {
-  var memberNo = location.href.split('?')[1].split('=')[1];
-} catch (error) {
-  var memberNo = -1;
-}
-
-if (memberNo > 0) {
-  prepareViewForm();
-} else {
-  prepareNewForm();
-}*/
   var users = window.sessionStorage.getItem('user');
-    $('#user-email').val(JSON.parse(users).email);
-    $('#user-name').val(JSON.parse(users).name);
-    $('#user-tel').val(JSON.parse(users).tel);
+    $('#user-email-update').val(JSON.parse(users).email);
+    $('#user-name-update').val(JSON.parse(users).name);
+    $('#tel').val((JSON.parse(users).tel).substring(0,3));
+    $('#user-tel').val((JSON.parse(users).tel).substring(3,11));
     $('#postcode').val(JSON.parse(users).postcode);
     $('#address').val(JSON.parse(users).basicAddress);
     $('#address2').val(JSON.parse(users).detailAddress);
-    $('#user-job select').val(JSON.parse(users).job);
-    
-    $('#user-email').attr('readOnly', '');
+    $('#user-job').val(JSON.parse(users).job);
+    $('#user-email-update').attr('readOnly', '');
 
-/*    if (status != "success") {
-      alert(ajaxResult.data);
+    //업데이트 클릭
+  $('#user-update-btn').click(function() {
+    if(!checkName()) {
       return;
-    }*/
+    };
+    if (!checkPassword()) {
+      return;
+    };
+    if (!checkTel()) {
+      return;
+    }
+    //비밀번호 확인 검사
+    if ($('#user-password-new').val() != $('#user-password-new-check').val()) {
+      alert('비밀번호를 확인해주세요.');
+      return;
+    }
 
-  // 삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
-/*  $('#delete-btn').click(function() {
-    $.getJSON('delete.json?memberNo=' + memberNo, function(ajaxResult) {
-      if (ajaxResult.status != "success") { 
-        alert(ajaxResult.data);
-        return;
-      }
-      location.href = 'main.html';
-    }); // getJSON()
-  }); // click()
-*/  
-/*  $('#update-btn').click(function() {
       var param = {
-        "memberNo": memberNo, 
-        "name": $('#name').val(),
-        "tel": $('#tel').val(),
-        "email": $('#email').val(),
-        "password": $('#password').val(),
-        "working": $('#working').is(':checked'),
-        "grade": $('#grade').val(),
-        "schoolName": $('#school-name').val()
+        "memberNo": JSON.parse(users).memberNo, 
+        "email": $('#user-email-update').val(),
+        "password": $('#user-password-new').val(),
+        "name": $('#user-name-update').val(),
+        "tel": $('#tel').val() + $('#user-tel').val(),
+        "postcode": $('#postcode').val(),
+        "basicAddress": $('#address').val(),
+        "detailAddress": $('#address2').val(),
+        "job": $('#user-job').val()
       };
-      
-      $.post('update.json', param, function(ajaxResult) {
+      console.log($('#tel').val() + $('#user-tel').val());
+
+      $.post(serverRoot + '/user/update.json', param, function(ajaxResult) {
         if (ajaxResult.status != "success") {
           alert(ajaxResult.data);
           return;
         }
-        location.href = 'main.html';
+        location.href = serverRoot + '/main.html';
       }, 'json');
-      
   }); // click()
-*/  
-
-/*function prepareNewForm() {
-  // 변경,삭제 버튼을 감춘다.
-    $('.view-form').css('display', 'none');
-  
-    $('#add-btn').click(function() {
-      var param = {
-        "name": $('#name').val(),
-        "tel": $('#tel').val(),
-        "email": $('#email').val(),
-        "password": $('#password').val(),
-        "working": $('#working').is(':checked'),
-        "grade": $('#grade').val(),
-        "schoolName": $('#school-name').val()
-      };
-      
-      $.post('add.json', param, function(ajaxResult) {
-          if (ajaxResult.status != "success") {
-            alert(ajaxResult.data);
-            return;
-          }
-          location.href = 'main.html';
-      }, 'json'); // post();
-      
-  }); // click()
-}*/
 
 
-
-
-
-
+  // 닉네임 2자 유효성검사
+  function checkName() {
+    var elName = document.getElementById('user-name-update');
+    if (elName.value.length < 2) {
+      alert('닉네임은 2자 이상이여야 합니다.');
+      return false;
+    } else {
+      return true;
+    }
+  }
+  // 패스워드 6자 유효성검사
+  function checkPassword() {
+    var elPassword = document.getElementById('user-password-new');
+    if (elPassword.value.length < 6 || elPassword.value.length > 16) {
+      alert('비밀번호는 6글자 이상 16자 이하여야 합니다.');
+      return false;
+    } else {
+      return true;
+    }
+  }
+  // 연락처 6자 유효성검사
+  function checkTel() {
+    var re = /^[0-9]+$/;
+    var elTel = document.getElementById('user-tel');
+    if (elTel.value.length < 7 || elTel.value.length > 8 || !re.test(elTel.value)) {
+      alert('올바른 연락처를 입력해주세요.');
+      return false;
+    } else {
+      return true;
+    }
+  }

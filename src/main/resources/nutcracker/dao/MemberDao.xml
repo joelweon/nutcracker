@@ -53,7 +53,7 @@
       email=#{email}, 
       name=#{name}, 
       pwd=password(#{password}), 
-      lst_date=#{lastDate}
+      lst_date=now()
     where mno=#{memberNo}
   </update>
   

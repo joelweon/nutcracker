@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public int update(User user) throws Exception {
-    if (userDao.countByEmail(user.getEmail()) == 0) {
+    if (userDao.countByNo(user.getMemberNo()) == 0) {
       throw new Exception("회원정보를 다시 확인해주세요");
     }
     memberDao.update(user);
