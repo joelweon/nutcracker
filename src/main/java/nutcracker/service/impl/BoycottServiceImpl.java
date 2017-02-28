@@ -22,12 +22,15 @@ public class BoycottServiceImpl implements BoycottService{
   }
 
   public int add(Boycott boycott) throws Exception {
+    System.out.println("11111");
     
-    if (boycott.getNewsList().size() > 0) {
+    boycottDao.insert(boycott);
+    
+    if(boycott.getNewsList().size() > 0) {
       boycottDao.insertNews(boycott);
     }
-    
-    return boycottDao.insert(boycott);
+    System.out.println("222222");
+    return 0;
   }
 
   public int delete(int no) throws Exception {

@@ -50,9 +50,7 @@ public class BoycottControl {
 
   @RequestMapping("/boycott/add")
   public String add(Boycott boycott) throws Exception {
-
     boycottDao.insert(boycott);
-
     return "redirect:list.do";
   }
 
