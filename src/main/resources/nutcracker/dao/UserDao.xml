@@ -6,11 +6,11 @@
 <mapper namespace="nutcracker.dao.UserDao">
   <resultMap type="user" id="user-map">
     <id       column="mno"       property="memberNo"/>
-    <result   column="name"      property="name"/>
     <result   column="email"     property="email"/>
+    <result   column="name"      property="name"/>
     <result   column="pwd"       property="password"/>
-    <result   column="path"      property="photoPath"/>
     <result   column="lst_date"  property="lastDate"/>
+    <result   column="path"      property="photoPath"/>
     <result   column="b_day"     property="birthday"/>
     <result   column="tel"       property="tel"/>
     <result   column="zip"       property="postcode"/>
@@ -44,6 +44,7 @@
       m.email,
       m.name,
       m.pwd,
+      m.path,
       u.tel,
       u.zip,
       u.bas_adr,
@@ -90,17 +91,19 @@
   </insert>
   
   <update id="update" parameterType="user">
-    update user set
-      pwd=#{password},
-      path=#{photoPath},
-      b-day=#{birthday},
-      tel=#{tel},
-      bas_adr=#{basicAddress},
-      det_adr=#{detailAddress},
-      zip=#{postcode},
-      job=#{job},
-      gen=#{gender}
-    where email=#{email}
+    update user u 
+    left outer join memb m on u.uno=m.mno
+    set
+      m.email=#{email},
+      m.pwd=password(#{password}),
+      m.name=#{name},
+      u.tel=#{tel},
+      u.zip=#{postcode},
+      u.bas_adr=#{basicAddress},
+      u.det_adr=#{detailAddress},
+      u.job=#{job},
+      m.lst_date=now()
+    where uno=#{memberNo}
   </update>
   
   <delete id="delete" parameterType="int">

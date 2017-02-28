@@ -1,8 +1,41 @@
 // 데이터 관련 js
+try {
+  var boycottNo = location.href.split('?')[1].split('=')[1];
+} catch (error) {
+	console.log(error);
+}
 $(function() {
-	$.getJSON(serverRoot + '/boycott/detail.json', function(ajaxResult) {
-		
+	// 불매운동 정보 가져오기
+	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
+		$('#title-top h1').text(ajaxResult.data.title);
+		$('#date').text(ajaxResult.data.postTime);
+		$('.viewcount').text(ajaxResult.data.viewCount);
+		$('.hoducount').text(ajaxResult.data.hoduCount);
+		$('.commentcount').text(ajaxResult.data.commentCount);
+		$('.sharecount').text(ajaxResult.data.shareCount);
+		/*$('#profile-img').attr('src', clientRoot+'/images/detail/'+ajaxResult.data.photoPath);*/
 	});
+	
+	// 사용자 정보 가져오기
+	var users = window.sessionStorage.getItem('user');
+	$('#rep-img').attr('src', clientRoot+'/images/user/'+JSON.parse(users).photoPath);
+	});
+
+	// 댓글 정보 가져오기
+$.get(serverRoot + '/comment/boycottcomments.json?ownNo=' + boycottNo, function(ajaxResult) {
+	var list = ajaxResult.data;
+	var div = $('.reply-list-area:last-child');
+  
+  var template = Handlebars.compile($('#divTemplate').html());
+  div.html(template({"list":list}));
+  return;
+});
+
+	// 공구 정보 가져오기
+var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
+$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
+	$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
+	$('.purchase-subtitle').text(ajaxResult.data.title);
 });
 
 // 화면 구성 관련 js

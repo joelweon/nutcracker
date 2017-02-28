@@ -5,6 +5,7 @@ $('#btn-login').click(function() {
   };
   $.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
     if (ajaxResult.status == "success") {
+    	window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
       location.href = clientRoot + "/main.html"; 
       return;
     }

@@ -37,7 +37,6 @@ $("#re-login").click(function() {
 
   $.post(serverRoot + '/user/detail.json',param,function(ajaxResult) {
     if (ajaxResult.status == "success") {
-      window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
       location.href = clientRoot + "/mypage/mydetail.html"; 
       return;
     }
