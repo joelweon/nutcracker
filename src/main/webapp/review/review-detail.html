@@ -29,17 +29,17 @@
       <span id='title' class='review-detail-title-title'></span>
       <a type='button' id='report' class='btn btn-default common-btn-black' href='#'>신고</a>
     </div>
-    <div class='review-detail-info'>
+    <div id='review-detail-info' class='review-detail-info'>
       <div class='review-detail-info-image'>
-        <img src='../images/user/user03.jpg'>
+        <img id='auth-image'>
       </div>
-      <span class='review-detail-info-nickname'></span>
-      <span class='review-detail-info-date'></span>
-      <span class='review-detail-info-viewcount'></span>
-      <span class='review-detail-info-hoducount'></span>
+      <span id='nickname' class='review-detail-info-nickname'></span>
+      <span id='date' class='review-detail-info-date'></span>
+      <span id='viewcount' class='review-detail-info-viewcount'></span>
+      <span id='hoducount' class='review-detail-info-hoducount'></span>
     </div> <!-- review-detail-info -->
-    <div class='review-detail-cont-box'>
-      <div class='review-detail-content'>
+    <div id='review-detail-cont-box' class='review-detail-cont-box'>
+      <div id='content' class='review-detail-content'>
         <!-- <pre>
 
         </pre>
@@ -83,8 +83,8 @@
   <span>댓글 {{list.length}}</span>
 
   {{#each list}}
-  <div class='review-detail-comment-others'>
-  <div class='review-detail-info-image'>
+  <div id='review-detail-comment-others' class='review-detail-comment-others'>
+  <div id='review-detail-info-image' class='review-detail-info-image'>
     <img src='../images/user/{{photoPath}}'>
   </div>
   <span class='review-detail-info-nickname review-detail-comment-others-nick'>{{name}}</span>
@@ -105,7 +105,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../js/common.js"></script>
 <script src="https://code.jquery.com/jquery-latest.js"></script> 
-<script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="review-detail.js"></script>
 </html>

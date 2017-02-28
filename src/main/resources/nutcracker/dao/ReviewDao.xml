@@ -5,39 +5,30 @@
   
 <mapper namespace="nutcracker.dao.ReviewDao">
 
-  <resultMap type="hashmap"   id="review-map">
-	  <!-- <constructor>
-	    <idArg column="revno" javaType="java.lang.Integer"/>
-	  </constructor>
-	  <id property="reviewNo" column="rvno"/>
-	  <result property="postTime" column="rv_date"/>
-	  <result property="titleHead" column="head"/>
-	  <result property="title" column="title"/>
-	  <result property="viewCount" column="view_cnt"/>
-	  <result property="hoduCount" column="hodu_cnt"/>
-	  <association property="member" javaType="Member">
-	    <id     column="mno"        property="memberNo"/>
-	    <result column="email"      property="email"/>
-	    <result column="name"       property="name"/>
-	    <result column="pwd"        property="password"/>
-	    <result column='lst_date'   property='lastDate'/>
-	    <result column="path"       property="photoPath"/>
-	  </association> -->
-	    <id     column="rvno"     property="reviewNo"/>
-	    <result column="rv_date"  property="postTime"/>
-	    <result column='head'     property='titleHead'/>
-	    <result column="title"    property="title"/>
-	    <result column="cont"     property="content"/>
-	    <result column="view_cnt" property="viewCount"/>
-	    <result column="hodu_cnt" property="hoduCount"/>
-	    <result column="name"     property="name"/>
+  <resultMap type="hashmap"   id="map">
+    <id     column="rvno"     property="reviewNo"/>
+    <result column="mno"      property="memberNo"/>
+    <result column="name"     property="name"/>
+    <result column="path"     property="photoPath"/>
+    <result column="rv_date"  property="postTime"/>
+    <result column='head'     property='titleHead'/>
+    <result column="title"    property="title"/>
+    <result column="cont"     property="content"/>
+    <result column="view_cnt" property="viewCount"/>
+    <result column="hodu_cnt" property="hoduCount"/>
+    
+    <collection property="photoList" ofType="photo">
+      <id     column="rpno"   property="photoNo"/>
+      <result column="path"   property="photoPath"/>
+    </collection>
   </resultMap>
   
-  <select id="getList" resultMap="review-map">
+  <select id="getList" resultMap="map">
     select 
       r.rvno, 
       m.name, 
       date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      r.path,
       r.head, 
       r.title, 
       ifnull(r.view_cnt, 0) as view_cnt, 
@@ -47,10 +38,11 @@
     on r.mno=m.mno
   </select>
   
-  <select id='getDetail' parameterType="int" resultMap="review-map">
+  <select id='getDetail' parameterType="int" resultMap="map">
     select
 		  r.rvno,
 		  m.name,
+		  m.path,
 		  date_format(r.rv_date,'%Y-%m-%d %H:%m:%s') as rv_date,
 		  r.head,
 		  r.title,
@@ -62,10 +54,17 @@
 		where r.rvno=#{value}
   </select>
   
-  <insert id="insert" parameterType="map"
-          useGeneratedKeys="true" keyColumn="rvno" keyProperty="reviewNo">
-    insert into review(rvno,rv_date,head,title,cont,mno) 
-    values(#{reviewNo},now(),#{titleHead},#{title},#{content},#{memberNo});
+  <insert id="insert" parameterType="map">
+    insert into review(rvno, rv_date,head,title,cont,mno,path) 
+    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath});
+  </insert>
+  
+  <insert id="insertPhoto" parameterType="map">
+    insert into rev_phot(rvno, path)
+    values
+    <foreach collection="photoList" item="photo" separator=",">
+      (#{reviewNo}, #{photoPath})
+    </foreach>        
   </insert>
   
   <!-- <select in="count" parameterType="int" re -->
