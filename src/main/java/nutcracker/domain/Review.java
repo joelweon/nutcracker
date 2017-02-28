@@ -16,7 +16,9 @@ public class Review implements Serializable {
   protected int commentCount;
   protected int reportCount;
   protected boolean postDelete;
+  protected String photoPath;
   protected List<Photo> photoList;
+  
   
   public int getReviewNo() {
     return reviewNo;
@@ -78,5 +80,19 @@ public class Review implements Serializable {
   public void setPostDelete(boolean postDelete) {
     this.postDelete = postDelete;
   }
+  public String getPhotoPath() {
+    return photoPath;
+  }
+  public void setPhotoPath(String photoPath) {
+    this.photoPath = photoPath;
+  }
+  public List<Photo> getPhotoList() {
+    return photoList;
+  }
+  public void setPhotoList(List<Photo> photoList) {
+    this.photoList = photoList;
+  }
+  
+  
   
 }
