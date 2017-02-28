@@ -4,6 +4,7 @@ try {
 } catch (error) {
 	console.log(error);
 }
+
 $(function() {
 	// 불매운동 정보 가져오기
 	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
@@ -19,24 +20,38 @@ $(function() {
 	// 사용자 정보 가져오기
 	var users = window.sessionStorage.getItem('user');
 	$('#rep-img').attr('src', clientRoot+'/images/user/'+JSON.parse(users).photoPath);
-	});
 
 	// 댓글 정보 가져오기
-$.get(serverRoot + '/comment/boycottcomments.json?ownNo=' + boycottNo, function(ajaxResult) {
-	var list = ajaxResult.data;
-	var div = $('.reply-list-area:last-child');
-  
-  var template = Handlebars.compile($('#divTemplate').html());
-  div.html(template({"list":list}));
-  return;
-});
+	$.get(serverRoot + '/comment/boycottcomments.json?ownNo=' + boycottNo, function(ajaxResult) {
+		var list = ajaxResult.data;
+		var div = $('.reply-list-area:last-child');
+	  
+	  var template = Handlebars.compile($('#divTemplate').html());
+	  div.html(template({"list":list}));
+	  return;
+	});
 
 	// 공구 정보 가져오기
-var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
-$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
-	$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
-	$('.purchase-subtitle').text(ajaxResult.data.title);
-});
+	var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
+	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
+		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
+		$('.purchase-subtitle').text(ajaxResult.data.title);
+	});
+	
+	// 대체상품 정보 가져오기 : 검색어를 지정하여 상위아이템 정보 뿌리기!
+	// 추후 불매기업 블로킹 적용된 검색결과 뿌리기로 수정!
+	var keyword = "물티슈";
+	var init = function(){
+    this.apikey = "7a03f2ccbc4a1f5b6f74ea1cd48ec6e0";
+    this.q = document.getElementById('daumShoppingSearch');
+	};
+	var search = function(){
+    this.query = '?apikey=' + this.apikey + '&output=json&q=' + encodeURI(keyword);
+	};
+	
+
+}); // db 관련 js 끝
+
 
 // 화면 구성 관련 js
   $(document).ready(function(){
