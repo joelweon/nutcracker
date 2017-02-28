@@ -77,6 +77,12 @@ public class Boycott implements Serializable {
   public void setPhotoList(List<Photo> photoList) {
     this.photoList = photoList;
   }
+  @Override
+  public String toString() {
+    return "Boycott [boycottNo=" + boycottNo + ", postTime=" + postTime + ", title=" + title + ", content=" + content
+        + ", viewCount=" + viewCount + ", hoduCount=" + hoduCount + ", commentCount=" + commentCount + ", shareCount="
+        + shareCount + ", photoList=" + photoList + ", newsList=" + newsList + "]";
+  }
   
 }
 

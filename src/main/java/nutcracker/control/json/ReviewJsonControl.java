@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.geometry.Positions;
 import nutcracker.service.ReviewService;
 import nutcracker.util.MultipartUtil;
 
@@ -68,8 +70,14 @@ public class ReviewJsonControl {
           String newFilename = MultipartUtil.generateFilename();
           file.transferTo(new File(sc.getRealPath("/upload/review/" + newFilename)));
           images.add(newFilename);
-          System.out.println("filename: " + newFilename);
           /*Thread.sleep(3000);*/
+          File original = new File(sc.getRealPath("/upload/review/" + newFilename)); 
+          File thumbnail = new File(sc.getRealPath("/upload/review/thumb/" + newFilename)); 
+          if (original.exists()) { 
+            thumbnail.getParentFile().mkdirs(); 
+            Thumbnails.of(original).crop(Positions.CENTER).size(200, 200).outputFormat("jpg").toFile(thumbnail); 
+            //Thumbnails.of(inputStream).crop(Positions.CENTER_LEFT).size(100,100).keepAspectRatio(true).toOutputStream(outputStream);
+          }
           return new AjaxResult(AjaxResult.SUCCESS, newFilename);
         }
       }
