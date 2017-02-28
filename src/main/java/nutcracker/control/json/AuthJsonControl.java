@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import nutcracker.domain.Member;
+import nutcracker.domain.User;
 import nutcracker.service.AuthService;
+import nutcracker.service.UserService;
 
 @RestController
 public class AuthJsonControl {
   @Autowired AuthService authService;
+  @Autowired UserService userService;
   
   @RequestMapping("/auth/login")
   public AjaxResult login(String email, String password,
@@ -29,7 +32,9 @@ public class AuthJsonControl {
     }
     
     session.setAttribute("member", member); // HttpSession에 저장한다.
-    return new AjaxResult(AjaxResult.SUCCESS, "로그인 성공!");
+    
+    User user = userService.getOneByEmailPassword(email, password);
+    return new AjaxResult(AjaxResult.SUCCESS, user);
   }
   
   @RequestMapping("/auth/logout")
