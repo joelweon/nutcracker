@@ -29,13 +29,14 @@ function prepareViewForm(reviewNo) {
     
     var review = ajaxResult.data;
     
-    $('.review-detail-title-subject').text('[' + review.titleHead + ']');
-    $('.review-detail-title-title').text(review.title);
-    $('.review-detail-info-nickname').text(review.name);
-    $('.review-detail-info-date').text("최종수정일: " + review.postTime);
-    $('.review-detail-info-viewcount').text("조회수: " + review.viewCount);
-    $('.review-detail-info-hoducount').text("추천수: " + review.hoduCount);
-    $('.review-detail-content').html(review.content);
+    $('#titleHead').text('[' + review.titleHead + ']');
+    $('#title').text(review.title);
+    $('#nickname').text(review.name);
+    $('#auth-image').attr('src', "/nutcracker/images/user/" + review.photoPath);
+    $('#date').text("최종수정일: " + review.postTime);
+    $('#viewcount').text("조회수: " + review.viewCount);
+    $('#hoducount').text("추천수: " + review.hoduCount);
+    $('#content').html(review.content);
     
     return;
   }, 'json');
@@ -48,27 +49,30 @@ function prepareViewForm(reviewNo) {
     }
     
     var list = ajaxResult.data;
-    console.log(list[0].name);
-    console.log(list[1].name);
-    var div = $('.review-detail-cont-box:last-child');
+    if (list.length < 1) { 
+      return;
+    } else {
     
-    var template = Handlebars.compile($('#divTemplate').html());
-    div.html(template({"list":list}));
-    
-    /*$('#report').click(function(event) {
-      event.preventDefault();
-      var param = {
-        memberNo: 
-        content: $('#comment').val()
-      }
-      $.get(serverRoot + '/comment/add.json', param, function(ajaxResult) {
-        if (ajax)
-      });
-      location.href = 'review-detail.html?reviewNo=' + $(this).attr("data-no");
-    });*/
-    
-    
-    return;
+      var div = $('.review-detail-cont-box:last-child');
+      
+      var template = Handlebars.compile($('#divTemplate').html());
+      div.html(template({"list":list}));
+      
+      /*$('#report').click(function(event) {
+        event.preventDefault();
+        var param = {
+          memberNo: 
+          content: $('#comment').val()
+        }
+        $.get(serverRoot + '/comment/add.json', param, function(ajaxResult) {
+          if (ajax)
+        });
+        location.href = 'review-detail.html?reviewNo=' + $(this).attr("data-no");
+      });*/
+      
+      
+      return;
+    }
     
   }, 'json');
   

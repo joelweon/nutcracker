@@ -1,19 +1,39 @@
-/*  function wrapWindowByMask(){
-    //화면의 높이와 너비를 구한다.
-    var maskHeight = $(document).height();
-    var maskWidth = $(window).width();
+// 데이터 관련 js
+try {
+  var boycottNo = location.href.split('?')[1].split('=')[1];
+} catch (error) {
+	console.log(error);
+}
+$(function() {
+	// 불매운동 정보 가져오기
+	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
+		$('#title-top h1').text(ajaxResult.data.title);
+		$('#date').text(ajaxResult.data.postTime);
+		$('.viewcount').text(ajaxResult.data.viewCount);
+		$('.hoducount').text(ajaxResult.data.hoduCount);
+		$('.commentcount').text(ajaxResult.data.commentCount);
+		$('.sharecount').text(ajaxResult.data.shareCount);
+		/*$('#profile-img').attr('src', clientRoot+'/images/detail/'+ajaxResult.data.photoPath);*/
+	});
+	
+	// 사용자 정보 가져오기
+	var users = window.sessionStorage.getItem('user');
+	$('#rep-img').attr('src', clientRoot+'/images/user/'+JSON.parse(users).photoPath);
+	});
 
-    //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
-    $('#mask').css({'width':maskWidth,'height':maskHeight});
+	// 댓글 정보 가져오기
+	
 
-    //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
-    $('#mask').fadeIn(700);      
-    $('#mask').fadeTo("slow",0.8);    
+	// 공구 정보 가져오기
+var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
+$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
+	console.log(ajaxResult.data.path);
+	console.log(ajaxResult.data.title);
+	$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
+	$('.link').text(ajaxResult.data.title);
+});
 
-    //윈도우 같은 거 띄운다.
-    $('.window').show();
-  }*/
-
+// 화면 구성 관련 js
   $(document).ready(function(){
     //검은 막 띄우기
     /*$('.openMask').click(function(e){
@@ -57,44 +77,7 @@
     });      */
   });
   
-  //스크롤 -active
-/*  var modal = document.querySelectorAll('.modal')[0];
-  var modal_content = document.querySelectorAll('.left-area')[0];
-  var sticky = document.getElementById('sticker');
-        
-  modal.addEventListener('scroll',function(e){
-      
-      var windowTop = e.target.scrollTop;
-      var modalTop = modal_content.offsetTop;
-                              
-      if(modalTop<windowTop){
-          sticky.classList.add('active');
-      }else{
-          sticky.classList.remove('active');
-      }
-  }); */
-  //스크롤 -active
-  /*var modal = document.querySelectorAll('.modal')[0];
-  var modal_content = document.querySelectorAll('.modal-content')[0];
-  var sns = document.getElementById('sns-area');
-  var t = document.getElementById('top');
-  
-  modal.addEventListener('scroll',function(e){
-    
-    var windowTop = e.target.scrollTop;
-    var modalTop = modal_content.offsetTop;
-    
-    if(modalTop<windowTop){
-      sns.classList.add('active');
-      t.classList.add('active');
-      
-    }else{
-      sns.classList.remove('active');
-      t.classList.remove('active');
-    }
-  }); */
-  
-  // 스크롤 - active (sh)
+  // 스크롤 - active
   $(function () {
   	var snsTop = $('#sns-area').offset().top;
   	var stikerTop = $('.right-area').offset().top;
@@ -134,7 +117,7 @@
     });
   });
   
-  // myModal 중앙 배치 (sh)
+  // myModal 중앙 배치
   $('.wrap-body').css({
   	right:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px',
     left:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px'

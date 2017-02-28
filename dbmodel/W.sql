@@ -177,7 +177,37 @@ insert into comp(cpno,cp_name)
 -- 몽드드
 insert into comp(cpno,cp_name) 
     values(583,'몽드드');
-
+-- 동서식품
+insert into comp(cpno,cp_name) 
+    values(584,'동서식품');
+insert into comp(cpno,cp_name) 
+    values(585,'맥심');
+insert into comp(cpno,cp_name) 
+    values(586,'포스트');
+-- 롯데제과
+insert into comp(cpno,cp_name) 
+    values(587,'롯데제과');
+-- 농심
+insert into comp(cpno,cp_name) 
+    values(588,'농심');
+insert into comp(cpno,cp_name) 
+    values(589,'농심홀딩스');
+insert into comp(cpno,cp_name) 
+    values(590,'율촌화학');
+insert into comp(cpno,cp_name) 
+    values(591,'메가마트');
+insert into comp(cpno,cp_name) 
+    values(592,'태경농산');
+insert into comp(cpno,cp_name) 
+    values(593,'농심기획');
+insert into comp(cpno,cp_name) 
+    values(594,'호텔농심');
+insert into comp(cpno,cp_name) 
+    values(595,'엔디에스');
+insert into comp(cpno,cp_name) 
+    values(596,'농심캐피탈');
+insert into comp(cpno,cp_name) 
+    values(597,'농심엔지니어링');
 
 
 -- 기업관계 ----------------------------------------
@@ -337,7 +367,32 @@ insert into com_rls(parno,chino)
     values(572,581);
 insert into com_rls(parno,chino)
     values(572,582);
-
+    
+-- 동서식품
+insert into com_rls(parno,chino)
+    values(584,585);
+insert into com_rls(parno,chino)
+    values(584,586);
+    
+-- 농심
+insert into com_rls(parno,chino)
+    values(588,589);
+insert into com_rls(parno,chino)
+    values(588,590);
+insert into com_rls(parno,chino)
+    values(588,591);
+insert into com_rls(parno,chino)
+    values(588,592);
+insert into com_rls(parno,chino)
+    values(588,593);
+insert into com_rls(parno,chino)
+    values(588,594);
+insert into com_rls(parno,chino)
+    values(588,595);
+insert into com_rls(parno,chino)
+    values(588,596);
+insert into com_rls(parno,chino)
+    values(588,597);
 
 -- 불매기업관계
 insert into bot_rls(mno,cpno,reg_date)

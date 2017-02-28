@@ -19,8 +19,6 @@ public class CommentJsonControl {
   @RequestMapping("/comment/list")
   public AjaxResult list(int ownNo) throws Exception {
     List<HashMap<String, Object>> list = commentService.getList(ownNo);
-    System.out.println(list.get(0).get("name"));
-    System.out.println(list.get(1).get("name"));
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
 }

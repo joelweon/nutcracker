@@ -25,7 +25,13 @@ public class ReviewServiceImpl implements ReviewService {
 
   @Override
   public int add(HashMap<String, Object> map) throws Exception {
-    return reviewDao.insert(map);
+    int insertCnt =  reviewDao.insert(map);
+    System.out.println("insertCnt : " + insertCnt);
+    if (insertCnt <= 0) { return 0; }
+    /*int insertPhotoCnt = reviewDao.insertPhoto(map);
+    System.out.println("insertCnt : " + insertCnt);
+    if (insertPhotoCnt <= 0) { return 0; }*/
+    return insertCnt;
   }
   
   
