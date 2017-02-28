@@ -31,6 +31,7 @@ public class UserJsonControl {
       return new AjaxResult(AjaxResult.FAIL, "비밀번호를 다시 확인하세요.");
     }
     
+    /*user = (User)session.getAttribute("user");*/
     return new AjaxResult(AjaxResult.SUCCESS, user);
   }
   
