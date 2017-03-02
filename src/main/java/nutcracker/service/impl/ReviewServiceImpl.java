@@ -12,10 +12,18 @@ import nutcracker.service.ReviewService;
 @Service
 public class ReviewServiceImpl implements ReviewService {
   @Autowired ReviewDao reviewDao;
+  
+  @Override
+  public int getSize() throws Exception {
+    return reviewDao.countAll();
+  }
 
   @Override
-  public List<HashMap<String, Object>> getList() throws Exception {
-    return reviewDao.getList();
+  public List<HashMap<String, Object>> getList(int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    return reviewDao.getList(paramMap);
   }
 
   @Override

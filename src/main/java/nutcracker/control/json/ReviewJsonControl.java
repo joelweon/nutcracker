@@ -24,8 +24,22 @@ public class ReviewJsonControl {
   @Autowired ReviewService reviewService;
   
   @RequestMapping("/review/list")
-  public AjaxResult list() throws Exception {
-    List<HashMap<String, Object>> list = reviewService.getList();
+  public AjaxResult list(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="5") int pageSize) throws Exception {
+    
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    if (pageSize < 5 || pageSize > 10) {
+      pageSize = 5;
+    }
+    List<HashMap<String, Object>> list = reviewService.getList(pageNo, pageSize);
+    int totalCount = reviewService.getSize();
+    
+    HashMap<String, Object> resultMap = new HashMap<>();
+    resultMap.put("list",  list);
+    resultMap.put("totalCount",  totalCount);
     
     /*for (HashMap<String, Object> map : list) {
       String content = (String) map.get("content");
@@ -39,7 +53,7 @@ public class ReviewJsonControl {
         map.put("thumb", "/nutcracker/images/default.png");
       }
     }*/
-    return new AjaxResult(AjaxResult.SUCCESS, list);
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
   @RequestMapping("/review/detail")
