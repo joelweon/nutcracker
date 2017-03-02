@@ -98,4 +98,11 @@ public class ReviewJsonControl {
     }
     return new AjaxResult(AjaxResult.FAIL, "[Review]이미지를 업로드하지 못했습니다.");
   }
+  
+  @RequestMapping("/review/update")
+  public AjaxResult update(@RequestParam HashMap<String, Object> map) throws Exception {
+    reviewService.update(map);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
+  }
 }

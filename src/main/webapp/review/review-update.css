@@ -2,6 +2,55 @@
 #wrap-header { border-bottom: 4px solid #009900; }
 .div-menu li > a.on { color: #009900; }
 
+/* 말머리 */
+div.input-text { margin-bottom: 10px; }
+#select-subject { display: inline; width: 13%; margin-right: 10px; 
+                  background-color: transparent; color: #ddd; 
+                  border: 1px solid #999; border-radius: 5px; 
+                  padding: 7px 5px; }
+#select-subject option { color: #252525;
+                         border: 1px solid #999; border-radius: 5px;
+                         padding: 10px 5px; }
+div#div-title { display: inline-block; width: 85%; right: 0; }
+
+/* input 강조효과 */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 1em 0 12px;
+  padding-left: 0;
+  background: none;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 400;
+  border: none;
+  border-bottom: 1px solid #999;
+  /*Some sibling magic happens */
+}
+input[type="text"]:focus + .separator,
+input[type="password"]:focus + .separator {
+  -webkit-transform: scaleX(1) translateY(-2px);
+          transform: scaleX(1) translateY(-2px);
+  opacity: 1;
+}
+.separator {
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  display: block;
+  -webkit-transform: scaleX(0) translateY(-2px);
+          transform: scaleX(0) translateY(-2px);
+  -webkit-transform-origin: 50%;
+          transform-origin: 50%;
+  opacity: 0;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
 #wrap-content {
 	/* border:1px solid red; */
 }
@@ -112,26 +161,11 @@
 /* 버튼 */
 #wrap-btn {
 	margin:10px auto 0 auto;
-	width:250px;
 }
-#hodu > img {
-	margin-left:-15px;
-	width:30px;
-	height:30px;
+#btn-update, #btn-cancel {
+	margin-left: 5px; float: right;
 }
-#hodu {
-	color: #fff;
-	background-color: #525252;
-	border: 1px solid #8e8e8e;
-	width:250px;
-	font-size:1.3em;
-}
-#hodu:hover {
-	background-color: #009900;
-  border: 1px solid #009900;
-}
-#btn-update, #btn-list, #btn-delete { 
-	margin-bottom: 5px; margin-top: 10px; float: right; }
+
 
 /* 댓글 */
 .review-detail-cont-box > span {

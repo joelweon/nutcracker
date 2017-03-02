@@ -72,6 +72,15 @@
     </foreach>        
   </insert>
   
+  <update id="update" parameterType="map">
+    update review set
+		  head=#{titleHead},
+		  title=#{title},
+		  cont=#{content},
+		  path=#{photoPath}
+		where rvno=#{reviewNo}
+  </update>
+  
   <!-- <select in="count" parameterType="int" re -->
   
   

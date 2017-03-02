@@ -5,6 +5,19 @@ var pageGpSize = 5; // 페이지그룹 크기
 var pRCnt = parseInt(curPageNo / pageGpSize); // 페이지그룹 번호
 var maxPageNo; // 총 페이지 수
 
+// 비로그인 상태일 때 글쓰기 버튼 숨기기
+$.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+  if (ajaxResult.status != 'success') {
+    $('#btn-write').css('visibility', 'hidden');
+  } else {
+    $('#btn-write').css('visibility', 'visible');
+  }
+});
+
+$('#btn-write').click(function() {
+  location.href = clientRoot + '/review/review-write.html';
+});
+  
 loadList(curPageNo, pageSize);
 
 // 버튼 이벤트 등록
@@ -34,7 +47,7 @@ function loadList(pageNo, pageSize) {
  
     $('.title-link').click(function(event) {
       event.preventDefault();
-      location.href = 'review-detail.html?reviewNo=' + $(this).attr("data-no");
+      location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
     });
  
     // 페이지 버튼 설정
