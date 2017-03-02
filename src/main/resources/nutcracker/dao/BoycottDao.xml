@@ -110,7 +110,7 @@
   
   <update id="updateHodu" parameterType="int">
     update bot set
-      hodu_cnt++
+      hodu_cnt = hodu_cnt+1
     where botno=#{boycottNo}
   </update>
   

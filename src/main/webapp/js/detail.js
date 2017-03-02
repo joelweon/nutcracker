@@ -84,6 +84,8 @@ $(function() {
 
 
 // 화면 구성 관련 js
+
+  
   $(document).ready(function(){
     //검은 막 띄우기
     /*$('.openMask').click(function(e){
@@ -175,9 +177,9 @@ $(function() {
   
   //호두 던지기
   $('.walnut-stamp').click(function(event) {
-  	$.getJSON(serverRoot + '/boycott/hoduUpdate.json', boycottNo, function(ajaxResult) {
+  	$.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
   		event.preventDefault();
-  		console.log(ajaxResult.data);
+  		window.location.reload(true);
   	});
   });
 

@@ -50,12 +50,13 @@ public class BoycottJsonControl {
   }*/
   
   @RequestMapping("/boycott/hoduUpdate")
-  public AjaxResult hoduUpdate(int BoycottNo) throws Exception {
-    int count = boycottService.updateHoduCount(BoycottNo);
-    if (count == 0) {
-      return new AjaxResult(AjaxResult.FAIL, "업데이트 실패");
+  public AjaxResult hoduUpdate(int boycottNo) throws Exception {
+    Boycott boycott = boycottService.getOne(boycottNo);
+    if (boycott != null) {
+      boycottService.updateHoduCount(boycott.getBoycottNo());
+      return new AjaxResult(AjaxResult.SUCCESS, "업데이트 성공");
     }
-    return new AjaxResult(AjaxResult.SUCCESS, "업데이트 성공");
+    return new AjaxResult(AjaxResult.FAIL, "업데이트 실패");
   }
   
 }
