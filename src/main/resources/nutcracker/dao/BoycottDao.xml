@@ -96,7 +96,7 @@
     </foreach>
   </insert> 
   
-  <update id="update" parameterType="member">
+  <update id="update" parameterType="boycott">
     update bot set
       bot_date=#{postTime}, 
       title=#{title}, 
@@ -107,6 +107,13 @@
       shr_cnt=#{shareCount}
     where botno=#{boycottNo}
   </update>
+  
+  <update id="updateHodu" parameterType="int">
+    update bot set
+      hodu_cnt++
+    where botno=#{boycottNo}
+  </update>
+  
 </mapper>
 
 

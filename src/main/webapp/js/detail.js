@@ -16,20 +16,6 @@ $(function() {
 		$('.sharecount').text(ajaxResult.data.shareCount);
 		/*$('#profile-img').attr('src', clientRoot+'/images/detail/'+ajaxResult.data.photoPath);*/
 	});
-	
-	// 사용자 정보 가져오기
-	var users = window.sessionStorage.getItem('user');
-	$('#rep-img').attr('src', clientRoot+'/images/user/'+JSON.parse(users).photoPath);
-
-	// 댓글 정보 가져오기
-	$.get(serverRoot + '/comment/boycottcomments.json?ownNo=' + boycottNo, function(ajaxResult) {
-		var list = ajaxResult.data;
-		var div = $('.reply-list-area:last-child');
-	  
-	  var template = Handlebars.compile($('#divTemplate').html());
-	  div.html(template({"list":list}));
-	  return;
-	});
 
 	// 공구 정보 가져오기
 	var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
@@ -38,18 +24,62 @@ $(function() {
 		$('.purchase-subtitle').text(ajaxResult.data.title);
 	});
 	
+	// 댓글 정보 가져오기
+	$.get(serverRoot + '/comment/boycottcomments.json?ownNo=' + boycottNo, function(ajaxResult) {
+		var list = ajaxResult.data;
+		var div = $('.reply-list-area:last-child');
+		
+		var template = Handlebars.compile($('#divTemplate').html());
+		div.html(template({"list":list}));
+		return;
+	});
+	
+	// 사용자 정보 가져오기
+	var users = window.sessionStorage.getItem('user');
+	if (users != null) {
+		$('#rep-img').attr('src', clientRoot+'/images/user/'+JSON.parse(users).photoPath);
+		$('#textarea').attr('placeholder', '댓글을 입력하세요.');
+	} else {
+		$('#rep-img').attr('src', clientRoot+'/images/user/default.jpg');
+		$('#textarea').attr('placeholder', '로그인이 필요합니다.');
+		$('#textarea').attr('readonly', true);
+	}
+
 	// 대체상품 정보 가져오기 : 검색어를 지정하여 상위아이템 정보 뿌리기!
 	// 추후 불매기업 블로킹 적용된 검색결과 뿌리기로 수정!
 	var keyword = "물티슈";
-	var init = function(){
-    this.apikey = "7a03f2ccbc4a1f5b6f74ea1cd48ec6e0";
-    this.q = document.getElementById('daumShoppingSearch');
+	var daumShopping = {
+			init : function(r){
+				daumShopping.api = 'http://apis.daum.net/shopping/search';
+				daumShopping.pgno = 1;
+				daumShopping.result = r;
+			},
+			search : function(){
+				daumShoppingSearch.query = '?apikey=' + daumShoppingSearch.apikey + '&output=json&q=' + encodeURI(keyword);
+			},
+			pingSearch : function(pgno){
+        daumShopping.pgno = pgno;
+        var ds = document.getElementById('daumShoppingScript');
+        var callback = 'daumShopping.pongSearch';
+        daumShoppingSearch.pingSearch(ds,daumShopping.api, daumShopping.pgno, callback, daumShopping.result);  
+      },
+			pongSearch : function(z){
+				var dv = document.getElementById('daumShopping');
+				dv.innerHTML ="";
+				dv.appendChild(daumShoppingSearch.pongSearch(this, z));
+			},
+			getSearch : function(title,content){
+				$('.swiper-slide .link').text(title);
+			},
+			getContent : function(z){
+				$('.swiper-slide a').href = z.link;
+				$('.swiper-slide img').src = z.image_url;
+			}
 	};
-	var search = function(){
-    this.query = '?apikey=' + this.apikey + '&output=json&q=' + encodeURI(keyword);
-	};
+	var shoppingDiv = $('.swiper-wrapper:last-child');
+	var shoppingTemplate = Handlebars.compile($('#daumResult').html());
+	shoppingDiv.html(shoppingTemplate({"list":z}));
 	
-
 }); // db 관련 js 끝
 
 
@@ -141,5 +171,13 @@ $(function() {
   $('.wrap-body').css({
   	right:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px',
     left:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px'
+  });
+  
+  //호두 던지기
+  $('.walnut-stamp').click(function(event) {
+  	$.getJSON(serverRoot + '/boycott/hoduUpdate.json', boycottNo, function(ajaxResult) {
+  		event.preventDefault();
+  		console.log(ajaxResult.data);
+  	});
   });
 

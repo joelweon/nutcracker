@@ -36,6 +36,7 @@ $(document).ready(function() {
       /*$('#btn-logout').click(function(event) {*/
       $('#btn-logout').click(function(event) {
         event.preventDefault();
+        window.sessionStorage.removeItem('user');
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
           location.href = clientRoot + '/main.html';
         });
