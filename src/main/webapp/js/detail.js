@@ -5,6 +5,11 @@ try {
 	console.log(error);
 }
 
+//불매 조회수
+$(document).ready(function() {
+	$.getJSON(serverRoot + '/boycott/viewUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {});
+});
+
 $(function() {
 	// 불매운동 정보 가져오기
 	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
@@ -79,8 +84,16 @@ $(function() {
 	var shoppingDiv = $('.swiper-wrapper:last-child');
 	var shoppingTemplate = Handlebars.compile($('#daumResult').html());
 	shoppingDiv.html(shoppingTemplate({"list":z}));
-	
+  
 }); // db 관련 js 끝
+  
+//호두 던지기
+$('.walnut-stamp').click(function(event) {
+	$.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
+		event.preventDefault();
+		window.location.reload(true);
+	});
+});
 
 
 // 화면 구성 관련 js
@@ -174,12 +187,5 @@ $(function() {
   	right:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px',
     left:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px'
   });
-  
-  //호두 던지기
-  $('.walnut-stamp').click(function(event) {
-  	$.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
-  		event.preventDefault();
-  		window.location.reload(true);
-  	});
-  });
+
 
