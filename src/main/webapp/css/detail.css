@@ -3,6 +3,8 @@
 /* div {border:1px solid red;} */
 body {
     overflow-y: auto;
+    onload:"document.body.scrollTop=document.cookie";
+    onunload:"document.cookie=document.body.scrollTop";
 }
 .wrap {
     right: 0;
