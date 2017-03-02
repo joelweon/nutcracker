@@ -25,10 +25,8 @@ public class BoycottJsonControl {
   
   @RequestMapping("/boycott/add")
   public AjaxResult add(@RequestBody Boycott boycott) throws Exception {
-    System.out.println(boycott);
-    //System.out.println(newsListJson);
-    //System.out.println("newsList.size: " + boycott.getNewsList().size());
-    //boycottService.add(boycott);
+//    System.out.println(boycott);
+    boycottService.add(boycott);
     
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
@@ -42,6 +40,24 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, boycott);
   }
   
+  @RequestMapping("/boycott/viewUpdate")
+  public AjaxResult viewUpdate(int boycottNo) throws Exception {
+    Boycott boycott = boycottService.getOne(boycottNo);
+    if (boycott != null) {
+      boycottService.updateViewCount(boycott.getBoycottNo());
+      return new AjaxResult(AjaxResult.SUCCESS, "업데이트 성공");
+    }
+    return new AjaxResult(AjaxResult.FAIL, "업데이트 실패");
+  }
   
+  @RequestMapping("/boycott/hoduUpdate")
+  public AjaxResult hoduUpdate(int boycottNo) throws Exception {
+    Boycott boycott = boycottService.getOne(boycottNo);
+    if (boycott != null) {
+      boycottService.updateHoduCount(boycott.getBoycottNo());
+      return new AjaxResult(AjaxResult.SUCCESS, "업데이트 성공");
+    }
+    return new AjaxResult(AjaxResult.FAIL, "업데이트 실패");
+  }
   
 }

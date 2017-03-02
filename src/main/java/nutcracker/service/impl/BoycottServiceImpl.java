@@ -13,30 +13,33 @@ import nutcracker.service.BoycottService;
 public class BoycottServiceImpl implements BoycottService{
   @Autowired BoycottDao boycottDao;
 
+  @Override
   public List<Boycott> getList() throws Exception {
     return boycottDao.getList();
   }
 
+  @Override
   public Boycott getDetail(int no) throws Exception {
     return boycottDao.getOneWithNews(no);
   }
   
+  @Override
   public Boycott getOne(int boycottNo) throws Exception {
     return boycottDao.getOne(boycottNo);
   }
 
+  @Override
   public int add(Boycott boycott) throws Exception {
-    System.out.println("11111");
     
     boycottDao.insert(boycott);
     
     if(boycott.getNewsList().size() > 0) {
       boycottDao.insertNews(boycott);
     }
-    System.out.println("222222");
     return 0;
   }
 
+  @Override
   public int delete(int no) throws Exception {
     boycottDao.deleteNews(no);  // 불매운동 기사를 지움
     
@@ -45,6 +48,7 @@ public class BoycottServiceImpl implements BoycottService{
     return count;
   }
 
+  @Override
   public int update(Boycott boycott) throws Exception {
     
     boycottDao.deleteNews(boycott.getBoycottNo());
@@ -54,6 +58,16 @@ public class BoycottServiceImpl implements BoycottService{
     }
     
     return boycottDao.update(boycott);
+  }
+
+  @Override
+  public int updateViewCount(int boycottNo) throws Exception {
+    return boycottDao.updateView(boycottNo);
+  }
+
+  @Override
+  public int updateHoduCount(int boycottNo) throws Exception {
+    return boycottDao.updateHodu(boycottNo); 
   }
 
 }

@@ -36,6 +36,7 @@ $(document).ready(function() {
       /*$('#btn-logout').click(function(event) {*/
       $('#btn-logout').click(function(event) {
         event.preventDefault();
+        window.sessionStorage.removeItem('user');
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
           location.href = clientRoot + '/main.html';
         });
@@ -74,6 +75,7 @@ function addJavascript(jsname) {
 /*-----------------------------
  * 메인 JavaScript
  -----------------------------*/
+
 //불매 불량 바로가기
 function fnMove(seq){
     var offset = $("#title-bar-" + seq).offset();

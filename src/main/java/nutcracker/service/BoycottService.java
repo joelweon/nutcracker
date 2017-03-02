@@ -11,4 +11,6 @@ public interface BoycottService {
   int add(Boycott boycott) throws Exception;
   int delete(int no) throws Exception;
   int update(Boycott boycott) throws Exception;
+  int updateViewCount(int BoycottNo) throws Exception;
+  int updateHoduCount(int BoycottNo) throws Exception;
 }

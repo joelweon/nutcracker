@@ -85,7 +85,7 @@
   <insert id="insert" parameterType="boycott" 
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
     insert into bot(bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt)
-    values(#{postTime},#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
+    values(now(),#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
   </insert>
   
   <insert id="insertNews" parameterType="boycott">
@@ -96,7 +96,7 @@
     </foreach>
   </insert> 
   
-  <update id="update" parameterType="member">
+  <update id="update" parameterType="boycott">
     update bot set
       bot_date=#{postTime}, 
       title=#{title}, 
@@ -107,6 +107,19 @@
       shr_cnt=#{shareCount}
     where botno=#{boycottNo}
   </update>
+  
+  <update id="updateView" parameterType="int">
+    update bot set
+      view_cnt = view_cnt+1
+    where botno=#{boycottNo}
+  </update>
+  
+  <update id="updateHodu" parameterType="int">
+    update bot set
+      hodu_cnt = hodu_cnt+1
+    where botno=#{boycottNo}
+  </update>
+  
 </mapper>
 
 

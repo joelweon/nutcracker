@@ -74,7 +74,7 @@
             </div>
             <div class="walnut-area">
               <div class="walnut-stamp">
-                <a href="#"><img src="./images/walnut-stamp.PNG" /></a>
+                <a><img src="./images/walnut-stamp.PNG" /></a>
               </div>
               <span class="attend">불매운동에 동참하신다면 호두를 던져주세요!</span>
             </div>
@@ -95,8 +95,8 @@
                   <span class="alternative-goods">대체상품</span>
                   <span><a href="./deal/deal.html" id="more">more &gt;</a></span>
                 </div>
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                <div class="swiper-wrapper" id="daumShopping">
+                    <!-- <div class="swiper-slide">
                       <a href="#">
                         <img src="./images/bit1.PNG" class="right-image alta-image"/>
                         <span class="link">바르는 찌든때 비트</span>
@@ -113,7 +113,7 @@
                         <img src="./images/living.PNG" class="right-image alta-image"/>
                         <span class="link">얼룩제거제</span>
                       </a>
-                    </div>
+                    </div> -->
                 </div> <!-- swiper-wrapper -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -125,14 +125,14 @@
             <div class="reply-commit-area">
               <div class="reply-commit">
                 <img id="rep-img" src=""/>
-                <textarea id="textarea" rows="5" cols="50" maxlength="50" placeholder="로그인이 필요합니다."></textarea>
+                <textarea id="textarea" rows="5" cols="50" maxlength="50" placeholder=""></textarea>
                 <button class="reply-button" type="button">댓글 등록</button>
               </div>
             </div>
   <!-- 댓글목록 -->
-            <div class='reply-list-area'>
-            </div>
+            <div class='reply-list-area'></div>
       </div><!-- left-area -->
+      
 <!-- 오른쪽 -->
         <div class="right-area">
           <div id="sticker" class="content-content2">
@@ -176,7 +176,7 @@
                   <span><a href="#" id="more">more &gt;</a></span>
                 </div>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                       <a href="#">
                         <img src="./images/bit1.PNG" class="right-image alta-image"/>
                         <span class="link">바르는 찌든때 비트</span>
@@ -193,8 +193,9 @@
                         <img src="./images/living.PNG" class="right-image alta-image"/>
                         <span class="link">얼룩제거제</span>
                       </a>
-                    </div>
+                    </div> -->
                 </div>
+                <div id="daumShoppingScript"></div>
   <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
   <!-- Add Arrows -->
@@ -203,6 +204,7 @@
               </div><!-- swiper-container -->
           </div>
         </div><!-- right -->
+        
       </div>
     </div><!-- modal -->
   </div><!-- window -->
@@ -224,10 +226,21 @@
     </div>
   {{/each}}
 </script>
+<script id="daumResult" type="text/x-handlebars-template">
+  {{#each list}}
+    <div class="swiper-slide">
+      <a href="#">
+        <img src="" class="right-image alta-image">
+        <span class="link"></span>
+      </a>
+    </div>
+  {{/each}}
+</script>
 <script src="./js/context.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script> 
 <script src="./node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+<script type="text/javascript" src="./product/shopping-base.js"></script>
 <script type="text/javascript" src="./js/detail.js"></script>
 </body>
 </html>
