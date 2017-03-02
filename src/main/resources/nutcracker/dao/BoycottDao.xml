@@ -85,7 +85,7 @@
   <insert id="insert" parameterType="boycott" 
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
     insert into bot(bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt)
-    values(#{postTime},#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
+    values(now(),#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
   </insert>
   
   <insert id="insertNews" parameterType="boycott">

@@ -25,10 +25,8 @@ public class BoycottJsonControl {
   
   @RequestMapping("/boycott/add")
   public AjaxResult add(@RequestBody Boycott boycott) throws Exception {
-    System.out.println(boycott);
-    //System.out.println(newsListJson);
-    //System.out.println("newsList.size: " + boycott.getNewsList().size());
-    //boycottService.add(boycott);
+//    System.out.println(boycott);
+    boycottService.add(boycott);
     
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }

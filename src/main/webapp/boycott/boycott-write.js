@@ -34,29 +34,13 @@ $('#summernote').on('.image.upload.error', function(event) {
 });
 
 $('a#write').click(function(event) {
-	/*console.log(arrayToJson($("input[name=list-headLine]"));
-	console.log(arrayToJson($("input[name=list-url]"));*/
-//	var arrNewsList = {
-//			"headLine":arrayToJson($("input[name=list-headLine]")),
-//			"path":arrayToJson($("input[name=list-url]"))	
-//	};
-  /*var news = arrayToJson();
-  news = JSON.stringify({news});
-  console.log(news);*/
   console.log(JSON.stringify({"newsList" : arrayToJson()}));
 	param = {
-		title: 	$('#input-title').val(),
-		content: 	$('#summernote').summernote('code'),
-		newsList:	arrayToJson()
+		title		:	 	$('#input-title').val(),
+		content		: 		$('#summernote').summernote('code'),
+		newsList	:		arrayToJson()
 	};  
 
-//	$.post(serverRoot + '/boycott/add.json', JSON.stringify(param), function(ajaxResult) {
-//    if (ajaxResult.status != "success") {
-//      alert(ajaxResult.data);
-//      return;
-//    }
-//    //location.href = clientRoot + '/boycott/boycott.html';
-//  }, 'json'); // post();
 	
 	 $.ajax({
 	   url: serverRoot + '/boycott/add.json',
@@ -74,10 +58,7 @@ $('a#write').click(function(event) {
 	    }
 	 });
 });
-/*$('a#add-article').click(function(event) {
-  $('#wrap-article').add($('div.article').attr({id:"div-article2"}));
-  console.log("add article!!!");
-});*/
+
 var cnt = 2;
 $('a#add-article').click(function (event) {
   if (cnt < 5) {
@@ -97,26 +78,16 @@ $('a#remove-article').click(function (event) {
 function arrayToJson() {
   var result = [];
   var cntDiv = $('#wrap-article > div').length;
+  var i = 1;
   while (cntDiv > 0) {
-    var headline = $('#div-article1 > input[name=list-headLine]').val();
-    var url = $('#div-article1 > input[name=list-url]').val();
+    var headline = $('#div-article'+i+' > input[name=list-headLine]').val();
+    var url = $('#div-article'+i+' > input[name=list-url]').val();
     result.push({"headLine":headline, "path":url});
+    i++;
     cntDiv--;
   }
   console.log("결과값: " + result);
   return result; //JSON.stringify(result);
 }
-
-/*var arrayToJson = function(list) {
-  var result = '';
-  for (var i = 0; i < list.length; i++) {
-	  if (i != 0) {
-		  result += ',';
-	  }
-	  result += list.eq(i).val();
-  }
-  result += '';
-  return result;
-}*/
   
   
