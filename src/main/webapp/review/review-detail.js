@@ -81,9 +81,22 @@ function prepareViewForm(reviewNo) {
   $('#btn-update').click(function() {
     location.href = clientRoot + '/review/review-update.html?reviewNo=' + reviewNo;
   }); // click()
+  $('#btn-delete').click(function() {
+    if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+      $.get(serverRoot + '/review/delete.json?reviewNo=' + reviewNo, function(ajaxResult) {
+        if (ajaxResult.status != 'success') {
+          return;
+        }
+        location.href = clientRoot + '/review/review.html';
+      });
+    } else {   //취소
+      return;
+    }
+  }); // click()
   $('#btn-list').click(function() {
     location.href = clientRoot + '/review/review.html';
   }); // click()
+  
   
 } // prepareViewForm()
 
