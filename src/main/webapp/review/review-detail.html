@@ -45,6 +45,7 @@
         </pre>
         <img src='../images/oksusu.PNG'> -->
       </div>
+      
       <!-- 버튼 -->
       <div id='wrap-btn'>
         <a type='button' id='hodu' class='btn btn-default common-btn-white' href='#'>
@@ -52,7 +53,16 @@
       </div>
     </div> <!-- review-detail-cont-box -->
     <hr style='margin-top: 0; margin-bottom: 0;'>
-    <div class='review-detail-cont-box'>
+    
+    <!-- 글쓰기버튼 -->
+    <div class='btn-toolbar'>
+      <a type='button' id='btn-list' class="btn btn-default common-btn-black">List</a>
+      <a type='button' id='btn-delete' class="btn btn-default common-btn-black">Delete</a>
+      <a type='button' id='btn-update' class="btn btn-default common-btn-white">Update</a>
+    </div>
+    
+    <!-- 댓글 -->
+    <div id='div-commentList' class='review-detail-cont-box'>
       
  <!-- <div class='review-detail-comment-others'>
         <div class='review-detail-info-image'>
@@ -73,6 +83,14 @@
       
       
     </div> <!-- review-detail-cont-box -->
+    <div>
+	    <div class='review-detail-comment-input'>
+		    <textarea id='comment' class="form-control" rows="1" placeholder="댓글을 입력하세요"></textarea>
+		    <div id='wrap-btn'>
+		      <a type='button' id='report' class='btn btn-default common-btn-black' href='#'>등록</a>
+		    </div>
+	    </div>
+    </div>
   </div> <!-- wrap-content -->
   <!-- 풋터 -->
   <div id='wrap-footer'></div>
@@ -92,13 +110,6 @@
     <a type='button' class='btn btn-default common-btn-black comment-report' href='#'>댓글 신고</a>
   </div>
   {{/each}}
-
-  <div class='review-detail-comment-input'>
-    <textarea id='comment' class="form-control" rows="1" placeholder="댓글을 입력하세요"></textarea>
-    <div id='wrap-btn'>
-      <a type='button' id='report' class='btn btn-default common-btn-black' href='#'>등록</a>
-    </div>
-  </div>
 </script>
 
 <script src="../js/context.js"></script>

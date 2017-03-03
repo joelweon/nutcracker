@@ -12,10 +12,18 @@ import nutcracker.service.ReviewService;
 @Service
 public class ReviewServiceImpl implements ReviewService {
   @Autowired ReviewDao reviewDao;
+  
+  @Override
+  public int getSize() throws Exception {
+    return reviewDao.countAll();
+  }
 
   @Override
-  public List<HashMap<String, Object>> getList() throws Exception {
-    return reviewDao.getList();
+  public List<HashMap<String, Object>> getList(int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    return reviewDao.getList(paramMap);
   }
 
   @Override
@@ -26,12 +34,18 @@ public class ReviewServiceImpl implements ReviewService {
   @Override
   public int add(HashMap<String, Object> map) throws Exception {
     int insertCnt =  reviewDao.insert(map);
-    System.out.println("insertCnt : " + insertCnt);
     if (insertCnt <= 0) { return 0; }
     /*int insertPhotoCnt = reviewDao.insertPhoto(map);
     System.out.println("insertCnt : " + insertCnt);
     if (insertPhotoCnt <= 0) { return 0; }*/
     return insertCnt;
+  }
+  
+  @Override
+  public int update(HashMap<String, Object> map) throws Exception {
+    int updateCnt = reviewDao.update(map);
+    if (updateCnt <= 0) { return 0; }
+    return updateCnt;
   }
   
   
