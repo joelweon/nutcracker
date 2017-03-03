@@ -30,7 +30,8 @@ function prepareViewForm(reviewNo) {
     return;
   }, 'json');
   
-  $.get(serverRoot + '/comment/list.json?ownNo=' + reviewNo, function(ajaxResult) {
+  var ownNo = reviewNo;
+  $.get(serverRoot + '/comment/reviewCmtList.json?ownNo=' + ownNo, function(ajaxResult) {
     var status = ajaxResult.status;
     if (status != "success") {
       alert(ajaxResult.data);
@@ -47,19 +48,6 @@ function prepareViewForm(reviewNo) {
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
       
-      /*$('#report').click(function(event) {
-        event.preventDefault();
-        var param = {
-          memberNo: 
-          content: $('#comment').val()
-        }
-        $.get(serverRoot + '/comment/add.json', param, function(ajaxResult) {
-          if (ajax)
-        });
-        location.href = 'review-detail.html?reviewNo=' + $(this).attr("data-no");
-      });*/
-      
-      
       return;
     }
     
@@ -67,20 +55,10 @@ function prepareViewForm(reviewNo) {
   
   
   // 삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
-  
-  /*$('#delete-btn').click(function() {
-    $.getJSON('delete.json?memberNo=' + memberNo, function(ajaxResult) {
-      if (ajaxResult.status != "success") { 
-        alert(ajaxResult.data);
-        return;
-      }
-      location.href = 'main.html';
-    }); // getJSON()
-  }); // click()*/
-  
   $('#btn-update').click(function() {
     location.href = clientRoot + '/review/review-update.html?reviewNo=' + reviewNo;
   }); // click()
+  
   $('#btn-delete').click(function() {
     if (confirm("정말 삭제하시겠습니까??") == true){    //확인
       $.get(serverRoot + '/review/delete.json?reviewNo=' + reviewNo, function(ajaxResult) {
@@ -93,10 +71,34 @@ function prepareViewForm(reviewNo) {
       return;
     }
   }); // click()
+  
   $('#btn-list').click(function() {
     location.href = clientRoot + '/review/review.html';
   }); // click()
   
-  
+  $('#btn-report').click(function() {
+    event.preventDefault();
+    console.log("댓글등록버튼 이벤트 진입");
+    var cmtParam;
+    $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+      if (ajaxResult.status != 'success') {
+        console.log("[ReviewComment] 세션값 없음");
+        return;
+      }
+      cmtParam = {
+        memberNo: ajaxResult.data.memberNo,
+        content: $('#comment').val(),
+        reviewNo: reviewNo
+      };
+      console.log("cmtParam.memberNo: " + cmtParam.memberNo);
+      $.get(serverRoot + '/comment/reviewCmtAdd.json', cmtParam, function(ajaxResult) {
+        if (ajaxResult.status != 'success') {
+          console.log("댓글등록실패");
+          return;
+        }
+        location.href = 'review-detail.html?reviewNo=' + reviewNo;
+      });
+    });
+  });
 } // prepareViewForm()
 

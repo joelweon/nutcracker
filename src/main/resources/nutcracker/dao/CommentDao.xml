@@ -17,7 +17,7 @@
     <result column="botno"   property="boycottNo"/>
   </resultMap>
   
-  <select id='getCommentList' parameterType="int" resultMap="map">
+  <select id='getReviewCmtList' parameterType="int" resultMap="map">
     select
 		  cm.ctno,
 		  m.mno,
@@ -31,6 +31,17 @@
 		where ctno in (select ctno from rev_cmt where rvno=#{value}) and
 		  cm.mno=m.mno
   </select>
+  
+  <insert id="insertReviewCmt" parameterType="map" 
+          useGeneratedKeys="true" keyProperty="commentNo" keyColumn="ctno">
+    insert into cmt(ctno, mno, ct_date, cont, rep_cnt, del_yn)
+    values (#{commentNo}, #{memberNo}, now(), #{content}, 0, 'n')
+  </insert>
+  
+  <insert id="insertReviewCmtCon" parameterType="map">
+    insert into rev_cmt(ctno, rvno)
+    values (LAST_INSERT_ID(), #{reviewNo})
+  </insert>
   
   <select id='getBoycottCommentList' parameterType="int" resultMap="map">
     select

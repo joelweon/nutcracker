@@ -60,6 +60,10 @@ input[type="password"]:focus + .separator {
           transform: scaleX(1) translateY(-2px);
   opacity: 1;
 }
+input[type="file"] {
+  color:black;
+  float:left;
+}
 
 .separator {
   height: 3px;

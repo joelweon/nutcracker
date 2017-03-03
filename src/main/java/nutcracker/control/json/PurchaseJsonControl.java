@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import nutcracker.domain.Purchase;
 import nutcracker.service.PurchaseService;
 
 @RestController
@@ -31,6 +32,12 @@ public class PurchaseJsonControl {
       return new AjaxResult(AjaxResult.FAIL, "해당 리뷰가 없습니다.");
     }
     return new AjaxResult(AjaxResult.SUCCESS, map);
+  }
+  
+  @RequestMapping("/deal/add")
+  public AjaxResult add(Purchase purchase) throws Exception {
+    purchaseService.add(purchase);
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
 
 }
