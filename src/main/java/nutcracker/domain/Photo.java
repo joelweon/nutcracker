@@ -9,6 +9,22 @@ public class Photo implements Serializable {
   protected int ownerNo;
   protected String photoPath;
   
+  public Photo() {
+    super();
+  }
+  
+  public Photo(String photoPath) {
+    super();
+    this.photoPath = photoPath;
+  }
+
+  public Photo(int photoNo, int ownerNo, String photoPath) {
+    super();
+    this.photoNo = photoNo;
+    this.ownerNo = ownerNo;
+    this.photoPath = photoPath;
+  }
+
   public int getPhotoNo() {
     return photoNo;
   }

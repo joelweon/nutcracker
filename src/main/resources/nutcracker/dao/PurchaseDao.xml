@@ -16,7 +16,13 @@
     <result column="API_CNT"     property="applicantCount"/>
     <result column="PERCENT"     property="percent"/>
     <result column="REST"     property="rest"/>
-    <result column="PATH"     property="path"/>
+    <result column="cpno"       property="companyNo"/>
+    
+    <collection property="photoList" ofType="Photo">
+      <id       column="PPNO"     property="photoNo"/>
+      <result   column="PNO"   property="ownerNo"/>
+      <result   column="PATH"       property="photoPath"/>
+    </collection>
   </resultMap>
   
   <select id="getList" resultMap="purchase-map">
@@ -54,14 +60,22 @@
   
   <insert id="insert" parameterType="purchase" >
     insert into PURCHS(
+      CPNO,
       TITLE,
       PRICE,
       ST_DATE,
       EN_DATE, 
       DEV_DATE, 
-      TOTAL_CNT,
-      PATH)
-    values(#{title},#{price},#{startDate},#{endDate},#{deliveryDate},#{totalCount},#{path})
+      TOTAL_CNT)
+    values(#{companyNo},#{title},#{price},#{startDate},#{endDate},#{deliveryDate},#{totalCount})
+  </insert>
+  
+  <insert id="insertPhoto" parameterType="purchase" >
+    insert into PCH_PHOT(PPNO,PNO,PATH)
+    values
+      <foreach collection="photoList" item="photo" separator=",">
+      (#{photoNo},#{purchaseNo},#{photoPath})
+      </foreach>
   </insert>
   
 <!--   <insert id="insertPhoto" parameterType="purchase" >

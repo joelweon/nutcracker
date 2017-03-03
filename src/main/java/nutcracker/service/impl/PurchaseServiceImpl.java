@@ -26,12 +26,10 @@ public class PurchaseServiceImpl implements PurchaseService {
 
   @Override
   public int add(Purchase purchase) throws Exception {
-    int count = purchaseDao.insert(purchase);
-    
-    if (purchase.getPhotoList().size() > 0) {
-      purchaseDao.insertPhoto(purchase);
-    }
-    
-    return count;
+      int count = purchaseDao.insert(purchase);
+      if (purchase.getPhotoList().size() > 0) {
+        purchaseDao.insertPhoto(purchase);
+      }
+      return count;
   }
 }
