@@ -23,7 +23,7 @@
             s.type = 'text/javascript';
             s.charset = 'utf-8';
             s.src = api + this.query + '&pageno=' + pgno + '&callback=' 
-                + callback + '&result='+'3' ; 
+                + callback + '&result='+'1' ; 
             
             ds.appendChild(s);
         },
