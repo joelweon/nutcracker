@@ -92,6 +92,7 @@ public class ReviewJsonControl {
             Thumbnails.of(original).crop(Positions.CENTER).size(200, 200).outputFormat("jpg").toFile(thumbnail); 
             //Thumbnails.of(inputStream).crop(Positions.CENTER_LEFT).size(100,100).keepAspectRatio(true).toOutputStream(outputStream);
           }
+          Thread.sleep(3000);
           return new AjaxResult(AjaxResult.SUCCESS, newFilename);
         }
       }
@@ -101,7 +102,16 @@ public class ReviewJsonControl {
   
   @RequestMapping("/review/update")
   public AjaxResult update(@RequestParam HashMap<String, Object> map) throws Exception {
+    System.out.println("content:" + map.get("content"));
+    System.out.println("photoPath:" + map.get("photoPath"));
     reviewService.update(map);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
+  }
+  
+  @RequestMapping("/review/delete")
+  public AjaxResult delete(int reviewNo) throws Exception {
+    reviewService.delete(reviewNo);
     
     return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
   }

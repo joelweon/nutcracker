@@ -2,17 +2,6 @@
 #wrap-header { border-bottom: 4px solid #009900; }
 .div-menu li > a.on { color: #009900; }
 
-/* 말머리 */
-div.input-text { margin-bottom: 10px; }
-#select-subject { display: inline; width: 13%; margin-right: 10px; 
-                  background-color: transparent; color: #ddd; 
-                  border: 1px solid #999; border-radius: 5px; 
-                  padding: 7px 5px; }
-#select-subject option { color: #252525;
-                         border: 1px solid #999; border-radius: 5px;
-                         padding: 10px 5px; }
-div#div-title { display: inline-block; width: 85%; right: 0; }
-
 /* input 강조효과 */
 input[type="text"],
 input[type="password"] {
@@ -51,113 +40,21 @@ input[type="password"]:focus + .separator {
   outline-style: none;
 }
 
+/* 기타 설정 */
+/* 말머리 */
+div.input-text { margin-bottom: 10px; }
+#select-subject { display: inline; width: 13%; margin-right: 10px; 
+                  background-color: transparent; color: #ddd; 
+                  border: 1px solid #999; border-radius: 5px; 
+                  padding: 7px 5px; }
+#select-subject option { color: #252525;
+                         border: 1px solid #999; border-radius: 5px;
+                         padding: 10px 5px; }
+div#div-title { display: inline-block; width: 85%; right: 0; }
 #wrap-content {
 	/* border:1px solid red; */
 }
-/* 후기 타이틀 부분 */
-.review-detail-title {
-	/* border:1px solid red; */
-	position:relative;
-	height:40px;
-}
-.review-detail-title-subject {
-	position:absolute;
-	left:5px;
-	bottom:5px;
-	font-size:1.2em;
-}
-.review-detail-title-title {
-	position:absolute;
-	left:90px;
-  bottom:5px;
-	font-size:1.5em;
-}
-.review-detail-title > a {
-	position:absolute;
-	right:5px;
-	bottom:0;
-	font-size:1.0em;
-	line-height: 0.8;
-	height:25px;
-}
-/* 게시글 관련 정보 */
-.review-detail-info {
-	border-top:1px solid #ffffff;
-	border-bottom:1px solid #ffffff;
-	font-size:1.0em;
-	position:relative;
-	width:100%;
-	height:50px;
-	margin:10px auto 0 auto;
-}
-.review-detail-info-image {
-	/* border:1px solid red; */
-  position:absolute;
-  width:40px;
-  height:40px;
-  border-radius:20px;
-  overflow:hidden;
-  left:5px;
-  top:5px;
-}
-.review-detail-info-image > img {
-	width:100%;
-	height:100%;
-}
-.review-detail-info-nickname {
-	/* border:1px solid red; */
-	position:absolute;
-	left:50px;
-	top:15px;
-}
-.review-detail-info-date {
-	/* border:1px solid red; */
-	position:absolute;
-	right:5px;
-	top:5px;
-}
-.review-detail-info-viewcount {
-	/* border:1px solid red; */
-	position:absolute;
-	right:145px;
-	bottom:5px;
-}
-.review-detail-info-hoducount {
-	/* border:1px solid red; */
-	position:absolute;
-	right:40px;
-  bottom:5px;
-}
-/* 게시글 내용 */
-.review-detail-cont-box {
-	/* border-bottom:1px solid #ffffff; */
-	padding:10px 0;
-	margin-bottom:10px;
-}
-.review-detail-content {
-	width:98%;
-	min-height: 570px;
-	margin:auto;
-  padding: 10px;
-  color: #000000;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-}
-/* .review-detail-content > pre {
-  display: block;
-  padding: 0;
-  margin: 0;
-  font-size: 1em;
-  line-height: 1.42857143;
-  color: #333;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 0;
-} */
+
 /* 버튼 */
 #wrap-btn {
 	margin:10px auto 0 auto;
@@ -166,58 +63,9 @@ input[type="password"]:focus + .separator {
 	margin-left: 5px; float: right;
 }
 
-
-/* 댓글 */
-.review-detail-cont-box > span {
-	font-size: 1.2em;
-	margin-top:5px;
-	margin-left:5px;
-}
-.review-detail-comment-others {
-	position:relative;
-	height:50px;
-	width:98%;
-	margin:5px auto;
-}
-.review-detail-comment-others:hover > .comment-report {
-	visibility:visible;
-}
-.comment-report {
-	visibility:hidden;
-	position:absolute;
-	margin:0;
-	top:10px;
-  right:5px;
-  width:80px;
-  height:25px;
-  line-height:0.8;
-}
-.review-detail-comment-others-nick {
-	top:5px;
-	left:60px;
-}
-.review-detail-comment-others-sentence {
-	position:absolute;
-	top:25px;
-  left:60px;
-}
-.review-detail-comment-input {
-	position:relative;
-	width:98%;
-	height:40px;
-	margin:5px auto;
-}
-.form-control {
-	position:absolute;
-	left:0;
-	width:90%;
-}
-.review-detail-comment-input > #wrap-btn {
-	position:absolute;
-	margin:0;
-	right:5px;
-  width:60px;
-}
+/* summnernote customize */
+.modal-title { color: #000; }
+div.note-group-image-url { display: none; }
 
 /* ------------------------------------------
   가로가 760px 이하일 때 

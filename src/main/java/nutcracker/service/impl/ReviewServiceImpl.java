@@ -48,5 +48,10 @@ public class ReviewServiceImpl implements ReviewService {
     return updateCnt;
   }
   
-  
+  @Override
+  public int delete(int reviewNo) throws Exception {
+    int deleteCnt = reviewDao.delete(reviewNo);
+    if (deleteCnt <= 0) { return 0; }
+    return deleteCnt;
+  }
 }

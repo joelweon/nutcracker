@@ -26,7 +26,7 @@ if (device.indexOf('Mobile') != -1) {
       ['para', ['paragraph']],
       ['insert', ['picture']],
     ],
-    maximumImageFileSize: 1000000 //1MB
+    //maximumImageFileSize: 1000000 //1MB
   });
 } else {
   //console.log(navigator.userAgent);
@@ -36,7 +36,7 @@ if (device.indexOf('Mobile') != -1) {
     maxHeight: null,             // set maximum height of editor
     focus: true,                  // set focus to editable area after initializing summernote
     lang: 'ko-KR',
-    maximumImageFileSize: 1000000, //1MB
+    //maximumImageFileSize: 1000000, //1MB
     /*callbacks : {
       onImageUpload: function(image) {
         uploadImage(image[0]);
@@ -72,17 +72,20 @@ $('#btn-update').click(function() {
   var param;
   $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
     if (ajaxResult.status != 'success') {
-      return;
+      alert("로그인 후 가능합니다.");
     }
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
+    console.log("contents1: " + contents.length);
     var start = contents.indexOf('<img src=');
     var end = contents.indexOf('data-filename', start);
     dataURL = contents.substring(start + 10, end - 2);
+    console.log("dataURL: " + dataURL);
     var blob = dataURItoBlob(dataURL);
     /*var fd = new FormData(document.forms[0]);
     fd.append("image", blob);*/
     uploadImage(blob);
+    console.log("contents2: " + contents.length);
     console.log("thumbnail: " + thumbnail);
     
     param = {
@@ -92,6 +95,7 @@ $('#btn-update').click(function() {
       content: contents,
       photoPath: thumbnail,
     };
+    console.log("contents3: " + contents.length);
     $.post(serverRoot + '/review/update.json', param, function(ajaxResult) {
       if (ajaxResult.status != "success") {
         alert(ajaxResult.data);

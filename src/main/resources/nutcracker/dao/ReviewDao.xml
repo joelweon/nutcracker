@@ -81,6 +81,9 @@
 		where rvno=#{reviewNo}
   </update>
   
+  <delete id="delete" parameterType="int">
+    delete from review where rvno=#{value}
+  </delete>
   <!-- <select in="count" parameterType="int" re -->
   
   
