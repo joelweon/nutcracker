@@ -17,9 +17,11 @@ $(function() {
 		$('#date').text(ajaxResult.data.postTime);
 		$('.viewcount').text(ajaxResult.data.viewCount);
 		$('.hoducount').text(ajaxResult.data.hoduCount);
-		$('.commentcount').text(ajaxResult.data.commentCount);
 		$('.sharecount').text(ajaxResult.data.shareCount);
 		/*$('#profile-img').attr('src', clientRoot+'/images/detail/'+ajaxResult.data.photoPath);*/
+	});
+	$.getJSON(serverRoot + '/comment/boycottcmtcount.json', 'boycottNo='+boycottNo, function(ajaxResult) {
+		$('.commentcount').text(ajaxResult.data);
 	});
 
 	// 공구 정보 가져오기
@@ -27,16 +29,6 @@ $(function() {
 	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
 		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
 		$('.purchase-subtitle').text(ajaxResult.data.title);
-	});
-	
-	// 댓글 정보 가져오기
-	$.get(serverRoot + '/comment/boycottcomments.json?ownNo=' + boycottNo, function(ajaxResult) {
-		var list = ajaxResult.data;
-		var div = $('.reply-list-area:last-child');
-		
-		var template = Handlebars.compile($('#divTemplate').html());
-		div.html(template({"list":list}));
-		return;
 	});
 	
 	// 사용자 정보 가져오기
@@ -49,10 +41,46 @@ $(function() {
 		$('#textarea').attr('placeholder', '로그인이 필요합니다.');
 		$('#textarea').attr('readonly', true);
 	}
+	
+	// 댓글 정보 가져오기
+	$.get(serverRoot + '/comment/boycottcomments.json?boycottNo=' + boycottNo, function(ajaxResult) {
+		var list = ajaxResult.data;
+		var div = $('.reply-list-area:last-child');
+		
+		var template = Handlebars.compile($('#divTemplate').html());
+		div.html(template({"list":list}));
+		return;
+	});
+	
+	// handlebars helper 등록
+	/*var context = {
+	    postDate   : Date.now() - (1000 * 60 * 60 * 24),
+	    commentDate: Date.now() - (1000 * 60 * 60 * 2),
+	    meetingDate: Date.now() + (1000 * 60 * 51)
+	};
+	var intlData = {
+			"locales": "en-US"
+	};
+	var html = template(context, {
+		data: {intl: intlData}
+	});
+	Handlebars.registerHelper('formatDate', function(date) {
+		return;
+	});*/
+	
+	// 댓글 작성
+	$('.reply-button').click(function() {
+		var param = {
+				memberNo: JSON.parse(users).memberNo,
+				content: $('#textarea').val(),
+				boycottNo: boycottNo,
+		};
+		$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {});
+	});
 
 	// 대체상품 정보 가져오기 : 검색어를 지정하여 상위아이템 정보 뿌리기!
 	// 추후 불매기업 블로킹 적용된 검색결과 뿌리기로 수정!
-	var keyword = "물티슈";
+	/*var keyword = "물티슈";
 	var daumShopping = {
 			init : function(r){
 				daumShopping.api = 'http://apis.daum.net/shopping/search';
@@ -83,7 +111,7 @@ $(function() {
 	};
 	var shoppingDiv = $('.swiper-wrapper:last-child');
 	var shoppingTemplate = Handlebars.compile($('#daumResult').html());
-	shoppingDiv.html(shoppingTemplate({"list":z}));
+	shoppingDiv.html(shoppingTemplate({"list":z}));*/
   
 }); // db 관련 js 끝
   
