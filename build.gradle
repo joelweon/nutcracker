@@ -15,9 +15,9 @@ dependencies {
 
   // sh test
   // https://mvnrepository.com/artifact/pull-parser/pull-parser
-  compile group: 'pull-parser', name: 'pull-parser', version: '2'
+  //compile group: 'pull-parser', name: 'pull-parser', version: '2'
   // https://mvnrepository.com/artifact/xml-apis/xml-apis
-  compile group: 'xml-apis', name: 'xml-apis', version: '1.4.01'
+  //compile group: 'xml-apis', name: 'xml-apis', version: '1.4.01'
 
 
   // 로컬에서 의존 라이브러리 가져오기

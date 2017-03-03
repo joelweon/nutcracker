@@ -27,14 +27,9 @@ if (device.indexOf('Mobile') != -1) {
     focus: true,                  // set focus to editable area after initializing summernote
     lang: 'ko-KR',
     maximumImageFileSize: 1000000, //1MB
-    maximumFileSizeError: 'Maximum file size exceeded.'
   });
 }
 
-$('#summernote').on('.image.upload.error', function(event) {
-  // upload image to server and create imgNode...
-  console.log(event);
-});
 
 $('a#write').click(function(event) {
   console.log(JSON.stringify({"newsList" : arrayToJson()}));

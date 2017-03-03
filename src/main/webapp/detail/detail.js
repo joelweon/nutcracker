@@ -78,40 +78,7 @@ $(function() {
 		$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {});
 	});
 
-	// 대체상품 정보 가져오기 : 검색어를 지정하여 상위아이템 정보 뿌리기!
-	// 추후 불매기업 블로킹 적용된 검색결과 뿌리기로 수정!
-	/*var keyword = "물티슈";
-	var daumShopping = {
-			init : function(r){
-				daumShopping.api = 'http://apis.daum.net/shopping/search';
-				daumShopping.pgno = 1;
-				daumShopping.result = r;
-			},
-			search : function(){
-				daumShoppingSearch.query = '?apikey=' + daumShoppingSearch.apikey + '&output=json&q=' + encodeURI(keyword);
-			},
-			pingSearch : function(pgno){
-        daumShopping.pgno = pgno;
-        var ds = document.getElementById('daumShoppingScript');
-        var callback = 'daumShopping.pongSearch';
-        daumShoppingSearch.pingSearch(ds,daumShopping.api, daumShopping.pgno, callback, daumShopping.result);  
-      },
-			pongSearch : function(z){
-				var dv = document.getElementById('daumShopping');
-				dv.innerHTML ="";
-				dv.appendChild(daumShoppingSearch.pongSearch(this, z));
-			},
-			getSearch : function(title,content){
-				$('.swiper-slide .link').text(title);
-			},
-			getContent : function(z){
-				$('.swiper-slide a').href = z.link;
-				$('.swiper-slide img').src = z.image_url;
-			}
-	};
-	var shoppingDiv = $('.swiper-wrapper:last-child');
-	var shoppingTemplate = Handlebars.compile($('#daumResult').html());
-	shoppingDiv.html(shoppingTemplate({"list":z}));*/
+
   
 }); // db 관련 js 끝
   
@@ -192,8 +159,8 @@ $('.walnut-stamp').click(function(event) {
     	else {
     		/*$('.content-content2').removeClass("active");*/
     		$('#sticker').css('height',$(window).height()-100);
-    		$('#sticker').css('position','fixed').css('top',0);
-    		$('#sticker').css('position','fixed').css('bottom','100px');
+    		$('#sticker').css('position','fixed').css('top','0');
+    		$('#sticker').css('position','fixed').css('bottom','0');
     	}
     	
     	// 공유하기 버튼 이동
