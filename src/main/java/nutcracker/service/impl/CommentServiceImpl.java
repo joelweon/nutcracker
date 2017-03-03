@@ -14,8 +14,18 @@ public class CommentServiceImpl implements CommentService {
   @Autowired CommentDao commentDao;
 
   @Override
-  public List<HashMap<String, Object>> getList(int ownNo) throws Exception {
-    return commentDao.getCommentList(ownNo);
+  public List<HashMap<String, Object>> getReviewCmtList(int ownNo) throws Exception {
+    return commentDao.getReviewCmtList(ownNo);
+  }
+  
+  @Override
+  public int addReviewCmt(HashMap<String, Object> map) throws Exception {
+    return commentDao.insertReviewCmt(map);
+  }
+  
+  @Override
+  public int addReviewCmtCon(HashMap<String, Object> map) throws Exception {
+    return commentDao.insertReviewCmtCon(map);
   }
   
   @Override

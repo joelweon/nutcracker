@@ -17,10 +17,23 @@ public class CommentJsonControl {
   @Autowired ServletContext sc;
   @Autowired CommentService commentService;
   
-  @RequestMapping("/comment/list")
-  public AjaxResult list(int ownNo) throws Exception {
-    List<HashMap<String, Object>> list = commentService.getList(ownNo);
+  @RequestMapping("/comment/reviewCmtList")
+  public AjaxResult reviewCmtList(int ownNo) throws Exception {
+    List<HashMap<String, Object>> list = commentService.getReviewCmtList(ownNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  @RequestMapping("/comment/reviewCmtAdd")
+  public AjaxResult reviewCmtAdd(@RequestParam HashMap<String, Object> map) throws Exception {
+    System.out.println("memberNo: " + map.get("memberNo"));
+    int commentNo = commentService.addReviewCmt(map);
+    System.out.println("commentNo: " + commentNo);
+    map.put("commentNo", commentNo);
+    int count = commentService.addReviewCmtCon(map);
+    if (count <= 0) {
+      return new AjaxResult(AjaxResult.FAIL, "댓글 등록 실패");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "댓글 등록 완료");
   }
   
   // 불매 관련 사항
