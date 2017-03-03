@@ -5,7 +5,7 @@
   
 <mapper namespace="nutcracker.dao.CommentDao">
 
-  <resultMap type="hashmap"   id="comment-map">
+  <resultMap type="hashmap"   id="map">
     <id     column="ctno"     property="commentNo"/>
     <result column="mno"      property="memberNo"/>
     <result column="name"     property="name"/>
@@ -14,9 +14,10 @@
     <result column='cont'     property='content'/>
     <result column="rep_cnt"  property="reportCount"/>
     <result column="del_yn"   property="commentDelete"/>
+    <result column="botno"   property="boycottNo"/>
   </resultMap>
   
-  <select id='getCommentList' parameterType="int" resultMap="comment-map">
+  <select id='getCommentList' parameterType="int" resultMap="map">
     select
 		  cm.ctno,
 		  m.mno,
@@ -31,13 +32,13 @@
 		  cm.mno=m.mno
   </select>
   
-  <select id='getBoycottCommentList' parameterType="int" resultMap="comment-map">
+  <select id='getBoycottCommentList' parameterType="int" resultMap="map">
     select
       cm.ctno,
       m.mno,
       m.name,
       m.path,
-      cm.ct_date,
+      date_format(cm.ct_date,'%Y-%m-%d %T') as ct_date,
       cm.cont,
       cm.rep_cnt,
       cm.del_yn
@@ -45,4 +46,33 @@
     where ctno in (select ctno from bot_cmt where botno=#{value}) and
       cm.mno=m.mno
   </select>
+  
+  <select id='getBoycottCommentCount' parameterType="int" resultType="int">
+    select count(*)
+    from bot_cmt bc
+      left outer join bot b on bc.botno = b.botno
+    where b.botno=#{value}
+  </select>
+  
+  <insert id='insertBoycottComment' parameterType="map">
+    insert into cmt(
+      ctno,
+      mno,
+      ct_date,
+      cont,
+      rep_cnt,
+      del_yn)
+    values(
+      #{commentNo},
+      #{memberNo},
+      now(),
+      #{content},
+      0,
+      'n')
+  </insert>
+  <!-- <insert id='insertBoycottCommentRel' parameterType="map">
+    insert into bot_cmt(ctno,botno)
+    values((select ctno from cmt where...),#{boycottNo})
+  </insert> -->
+  
 </mapper>
