@@ -17,25 +17,30 @@
     <result column="view_cnt" property="viewCount"/>
     <result column="hodu_cnt" property="hoduCount"/>
     
-    <collection property="photoList" ofType="photo">
+    <!-- <collection property="photoList" ofType="photo">
       <id     column="rpno"   property="photoNo"/>
       <result column="path"   property="photoPath"/>
-    </collection>
+    </collection> -->
   </resultMap>
   
-  <select id="getList" resultMap="map">
+  <select id="countAll" resultType="int">
+    select count(*) from review;
+  </select>
+  
+  <select id="getList" parameterType="map" resultMap="map">
     select 
       r.rvno, 
       m.name, 
       date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
-      rp.path,
+      r.path,
       r.head, 
       r.title, 
       ifnull(r.view_cnt, 0) as view_cnt, 
       ifnull(r.hodu_cnt, 0) as hodu_cnt
     from review r
       left outer join memb m on r.mno=m.mno
-      left outer join rev_phot rp on r.rvno=rp.rvno
+    order by r.rvno desc
+    limit #{startRowIndex}, #{rowSize}
   </select>
   
   <select id='getDetail' parameterType="int" resultMap="map">
@@ -66,6 +71,15 @@
       (#{reviewNo}, #{photoPath})
     </foreach>        
   </insert>
+  
+  <update id="update" parameterType="map">
+    update review set
+		  head=#{titleHead},
+		  title=#{title},
+		  cont=#{content},
+		  path=#{photoPath}
+		where rvno=#{reviewNo}
+  </update>
   
   <!-- <select in="count" parameterType="int" re -->
   

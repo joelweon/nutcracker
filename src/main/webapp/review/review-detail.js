@@ -7,19 +7,8 @@ try {
 if (reviewNo > 0) {
   prepareViewForm(reviewNo);
 } 
-/*else {
-  prepareNewForm();
-}*/
 
 function prepareViewForm(reviewNo) {
-  // 등록 버튼은 감춘다.
-  /*$('.new-form').css('display', 'none');*/
-  //
-  /*$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
-    if (ajaxResult.status != 'success') {
-      return;
-    }*/
-    
   $.get(serverRoot + '/review/detail.json?reviewNo=' + reviewNo, function(ajaxResult) {
     var status = ajaxResult.status;
     if (status != "success") {
@@ -53,7 +42,7 @@ function prepareViewForm(reviewNo) {
       return;
     } else {
     
-      var div = $('.review-detail-cont-box:last-child');
+      var div = $('#div-commentList');
       
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
@@ -78,6 +67,7 @@ function prepareViewForm(reviewNo) {
   
   
   // 삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
+  
   /*$('#delete-btn').click(function() {
     $.getJSON('delete.json?memberNo=' + memberNo, function(ajaxResult) {
       if (ajaxResult.status != "success") { 
@@ -86,29 +76,14 @@ function prepareViewForm(reviewNo) {
       }
       location.href = 'main.html';
     }); // getJSON()
+  }); // click()*/
+  
+  $('#btn-update').click(function() {
+    location.href = clientRoot + '/review/review-update.html?reviewNo=' + reviewNo;
+  }); // click()
+  $('#btn-list').click(function() {
+    location.href = clientRoot + '/review/review.html';
   }); // click()
   
-  $('#update-btn').click(function() {
-      var param = {
-        "memberNo": memberNo, 
-        "name": $('#name').val(),
-        "tel": $('#tel').val(),
-        "email": $('#email').val(),
-        "password": $('#password').val(),
-        "working": $('#working').is(':checked'),
-        "grade": $('#grade').val(),
-        "schoolName": $('#school-name').val()
-      };
-      
-      $.post('update.json', param, function(ajaxResult) {
-        if (ajaxResult.status != "success") {
-          alert(ajaxResult.data);
-          return;
-        }
-        location.href = 'main.html';
-      }, 'json');
-      
-  }); // click()
-*/  
 } // prepareViewForm()
 

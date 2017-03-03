@@ -44,14 +44,15 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, boycott);
   }
   
-  /*@RequestMapping("/boycott/viewUpdate")
-  public AjaxResult viewUpdate(int BoycottNo) throws Exception {
-    int count = boycottService.updateViewCount(BoycottNo);
-    if (count == 0) {
-      return new AjaxResult(AjaxResult.FAIL, "업데이트 실패");
+  @RequestMapping("/boycott/viewUpdate")
+  public AjaxResult viewUpdate(int boycottNo) throws Exception {
+    Boycott boycott = boycottService.getOne(boycottNo);
+    if (boycott != null) {
+      boycottService.updateViewCount(boycott.getBoycottNo());
+      return new AjaxResult(AjaxResult.SUCCESS, "업데이트 성공");
     }
-    return new AjaxResult(AjaxResult.SUCCESS, "업데이트 완료");
-  }*/
+    return new AjaxResult(AjaxResult.FAIL, "업데이트 실패");
+  }
   
   @RequestMapping("/boycott/hoduUpdate")
   public AjaxResult hoduUpdate(int boycottNo) throws Exception {
