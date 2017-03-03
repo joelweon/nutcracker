@@ -1,3 +1,6 @@
+var imgList = [];
+var dataURL = '';
+var thumbnail = '';
 var device = navigator.userAgent;
 if (device.indexOf('Mobile') != -1) {
   // 모바일로 접속 시 툴바 제한
@@ -35,28 +38,48 @@ $('#summernote').on('.image.upload.error', function(event) {
 
 $('a#write').click(function(event) {
   console.log(JSON.stringify({"newsList" : arrayToJson()}));
+  	
+    /* 썸네일 사진 업로드 */
+    var contents = $('#summernote').summernote('code');
+    var start = contents.indexOf('<img src=');
+    var end = contents.indexOf('data-filename', start);
+    dataURL = contents.substring(start + 10, end - 2);
+    var blob = dataURItoBlob(dataURL);
+    /*var fd = new FormData(document.forms[0]);
+    fd.append("image", blob);*/
+    uploadImage(blob);
+    console.log("thumbnail: " + thumbnail);
+  
+  
 	param = {
 		title		:	 	$('#input-title').val(),
 		content		: 		$('#summernote').summernote('code'),
+		photoPath	: 		thumbnail,
+		companyNo	:		$('#input-company').val(),
 		newsList	:		arrayToJson()
 	};  
 
 	
-	 $.ajax({
-	   url: serverRoot + '/boycott/add.json',
-	   method: 'post',
-	   dataType: 'json', 
-	   data: JSON.stringify(param),
-	   headers: {
-	     "Content-Type": "application/json; charset=UTF-8"
-	   },
-	   success: function(ajaxResult) {
-	      if (ajaxResult.status != "success") {
-	        alert(ajaxResult.data);
-	        return;
-	      }
-	    }
-	 });
+	$.ajax({
+	url: serverRoot + '/boycott/add.json',
+    method: 'post',
+    dataType: 'json', 
+    data: JSON.stringify(param),
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8"
+    },
+    success: function(ajaxResult) {
+       if (ajaxResult.status != "success") {
+         alert(ajaxResult.data);
+         return;
+       }
+     }
+  });
+});
+
+$('#cancel').click(function(event) {
+  event.preventDefault();
+  location.href = clientRoot + "/boycott/boycott.html";
 });
 
 var cnt = 2;
@@ -90,4 +113,51 @@ function arrayToJson() {
   return result; //JSON.stringify(result);
 }
   
+
+function dataURItoBlob(dataURI) {
+  // convert base64/URLEncoded data component to raw binary data held in a string
+  var byteString;
+  if (dataURI.split(',')[0].indexOf('base64') >= 0) {
+      byteString = atob(dataURI.split(',')[1]);
+  } else {
+      byteString = unescape(dataURI.split(',')[1]);
+  }
+
+  // separate out the mime component
+  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+  // write the bytes of the string to a typed array
+  var ia = new Uint8Array(byteString.length);
+  for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+  }
+
+  return new Blob([ia], {type:mimeString});
+}
+
+function uploadImage(image) {
+  var IMAGE_PATH = serverRoot + '/upload/boycott/';
+
+  var data = new FormData();
+  data.append("image",image);
+  $.ajax ({
+    async: false,
+    data: data,
+    dataType : "json",
+    type: "POST",
+    url: serverRoot + "/boycott/imgUpload.json",
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function(ajaxResult) {
+      /*$('#summernote').summernote("insertImage", IMAGE_PATH + result.data, result.data);*/
+      thumbnail = ajaxResult.data;
+      console.log("성공: " + thumbnail);
+      return thumbnail;
+    },
+    error: function(result) {
+      console.log("실패: " + result);
+    }
+  });
+}
   

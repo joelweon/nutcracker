@@ -24,8 +24,8 @@
       P.PNO, 
       P.TITLE,
       P.PRICE, 
-      date_format(ST_DATE,'%Y-%m-%d') as ST_DATE, 
-      date_format(EN_DATE,'%Y-%m-%d') as EN_DATE, 
+      date_format(ST_DATE, '%Y-%m-%d') as ST_DATE, 
+      date_format(EN_DATE, '%Y-%m-%d') as EN_DATE, 
       date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
       P.TOTAL_CNT,
       ifnull(API_CNT, 0) as API_CNT,
@@ -42,8 +42,8 @@
       PP.PATH,
       P.TITLE,
       P.PRICE, 
-      date_format(ST_DATE,'%Y-%m-%d') as ST_DATE, 
-      date_format(EN_DATE,'%Y-%m-%d') as EN_DATE, 
+      date_format(ST_DATE, '%Y-%m-%d') as ST_DATE, 
+      date_format(EN_DATE, '%Y-%m-%d') as EN_DATE, 
       date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
       TOTAL_CNT,
       ifnull(API_CNT, 0) as API_CNT
@@ -52,17 +52,32 @@
    where P.PNO=#{value}
   </select>
   
+  <insert id="insert" parameterType="purchase" >
+    insert into PURCHS(
+      TITLE,
+      PRICE,
+      ST_DATE,
+      EN_DATE, 
+      DEV_DATE, 
+      TOTAL_CNT,
+      PATH)
+    values(#{title},#{price},#{startDate},#{endDate},#{deliveryDate},#{totalCount},#{path})
+  </insert>
+  
+<!--   <insert id="insertPhoto" parameterType="purchase" >
+    insert into PURCHS(pno,path)
+    values
+      <foreach collection="photoList" item="photo" separator=",">
+        (#{purchaseNo},#{photo.path})
+      </foreach>
+  </insert> -->
+  
 <!--  <delete id="delete" parameterType="int">
   <![CDATA[
     delete from PURCHASE where PNO=#{value}
   ]]>
   </delete>
   
-  <insert id="insert" parameterType="purchase" 
-          useGeneratedKeys="true" keyColumn="PNO" keyProperty="purchaseNo">
-    insert into PURCHS(TITLE,PRICE,ST_DATE,EN_DATE,DEV_DATE,TOTAL_CNT)
-    values(#{title},#{price},#{startDate},#{endDate},#{deliveryDate},#{totalCount})
-  </insert>
   
   <update id="update" parameterType="purchase">
     update PURCHS set

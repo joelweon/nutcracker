@@ -14,14 +14,17 @@ public class Boycott implements Serializable {
   protected int hoduCount;
   protected int commentCount;
   protected int shareCount;
+  protected String photoPath;
+  protected int companyNo;
   protected List<Photo> photoList;
   protected List<BoycottNews> newsList;
   
-  public List<BoycottNews> getNewsList() {
-    return newsList;
+  
+  public int getCompanyNo() {
+    return companyNo;
   }
-  public void setNewsList(List<BoycottNews> newsList) {
-    this.newsList = newsList;
+  public void setCompanyNo(int companyNo) {
+    this.companyNo = companyNo;
   }
   public int getBoycottNo() {
     return boycottNo;
@@ -71,18 +74,36 @@ public class Boycott implements Serializable {
   public void setShareCount(int shareCount) {
     this.shareCount = shareCount;
   }
+  public String getPhotoPath() {
+    return photoPath;
+  }
+  public void setPhotoPath(String photoPath) {
+    this.photoPath = photoPath;
+  }
   public List<Photo> getPhotoList() {
     return photoList;
   }
   public void setPhotoList(List<Photo> photoList) {
     this.photoList = photoList;
   }
+  public List<BoycottNews> getNewsList() {
+    return newsList;
+  }
+  public void setNewsList(List<BoycottNews> newsList) {
+    this.newsList = newsList;
+  }
   @Override
   public String toString() {
     return "Boycott [boycottNo=" + boycottNo + ", postTime=" + postTime + ", title=" + title + ", content=" + content
         + ", viewCount=" + viewCount + ", hoduCount=" + hoduCount + ", commentCount=" + commentCount + ", shareCount="
-        + shareCount + ", photoList=" + photoList + ", newsList=" + newsList + "]";
+        + shareCount + ", photoPath=" + photoPath + ", photoList=" + photoList + ", newsList=" + newsList
+        + ", companyList=" + "]";
   }
+  
+  
+  
+  
+  
   
 }
 
