@@ -23,14 +23,14 @@
             s.type = 'text/javascript';
             s.charset = 'utf-8';
             s.src = api + this.query + '&pageno=' + pgno + '&callback=' 
-                + callback + '&result='+'1' ; 
+                + callback + '&result='+ '3' ; 
             
             ds.appendChild(s);
         },
         /** 결과를 뿌려줌. **/
         pongSearch : function(search, z){
             var div = document.createElement('div');
-            div.className += "swiper-slide";
+            div.className += "swiper-wrapper";
             
             for(var i=0; i<z.channel.item.length; i++){
                 //title 정보를 얻음.
@@ -38,9 +38,8 @@
                 var a = document.createElement('a');
                 a.href = z.channel.item[i].link;
                 a.target = '_blank';
-                a.innerHTML = this.escapeHtml(z.channel.item[i].title) 
-                    + '<br'+'/>';
-
+                a.innerHTML = this.escapeHtml(z.channel.item[i].title);
+                
                 title.appendChild(a);
                 
                 //세부 내용을 얻음.
