@@ -138,6 +138,7 @@ CREATE TABLE BOT (
   BOT_DATE DATETIME     NOT NULL COMMENT '작성날짜', -- 작성날짜
   TITLE    VARCHAR(255) NOT NULL COMMENT '제목', -- 제목
   CONT     MEDIUMTEXT   NOT NULL COMMENT '내용', -- 내용
+  PATH     VARCHAR(255) NULL     COMMENT '사진경로', -- 사진경로
   VIEW_CNT INTEGER      NULL     COMMENT '조회수', -- 조회수
   HODU_CNT INTEGER      NULL     COMMENT '추천수', -- 추천수
   CMT_CNT  INTEGER      NULL     COMMENT '댓글수', -- 댓글수

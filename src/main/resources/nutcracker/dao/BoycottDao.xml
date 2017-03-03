@@ -10,17 +10,18 @@
     <result column="bot_date"   property="postTime"/>
     <result column="title"      property="title"/>
     <result column="cont"       property="content"/>
+    <result column="path"       property="photoPath"/>
     <result column="view_cnt"   property="viewCount"/>
     <result column="hodu_cnt"   property="hoduCount"/>
     <result column="cmt_cnt"    property="commentCount"/>
     <result column="shr_cnt"    property="shareCount"/>
+    <result column="cpno"       property="companyNo"/>
     
     <collection property="newsList" ofType="BoycottNews">
       <id       column="newsno"     property="newsNo"/>
       <result   column="headline"   property="headLine"/>
       <result   column="path"       property="path"/>
     </collection>
-    
   </resultMap>
   
   <select id="getList" resultMap="boycott-map">
@@ -33,6 +34,7 @@
       b.hodu_cnt,
       b.cmt_cnt,
       b.shr_cnt,
+      b.path,
       bn.newsno,
       bn.headline,
       bn.path
@@ -82,10 +84,10 @@
   </delete>
   
   
-  <insert id="insert" parameterType="boycott" 
+  <insert id="insert" parameterType="boycott"
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
-    insert into bot(bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt)
-    values(now(),#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount})      
+    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,path)
+    values(#{companyNo},now(),#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount},#{photoPath})      
   </insert>
   
   <insert id="insertNews" parameterType="boycott">
@@ -117,13 +119,6 @@
 </mapper>
 
 
-
-<!--
- ArrayList<Boycott> getList() throws Exception;
-Boycott getOne(int boycottNo) throws Exception;
-int update(Boycott boycott) throws Exception;
- -->
-  
 
   
   
