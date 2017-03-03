@@ -28,20 +28,21 @@
         
         /** li setting **/
         getSearch : function(title,content){
-            var li = document.createElement('li');
+            var l = document.createElement('div');
             
             /*li.style.height = '150px';*/
-            li.appendChild(title);
-            li.appendChild(content);
+            l.appendChild(title);
+            l.appendChild(content);
+            l.className += "swiper-slide";
             
-            return li;
+            return l;
         },
         /** 설명 return **/
        getContent : function(z){
            var div = document.createElement('div');
-           var a = document.createElement('a');
-           var b = document.createElement('b');
-/*           var ba1 = document.createElement('span');
+          var a = document.createElement('a');
+/*           var b = document.createElement('b');
+           var ba1 = document.createElement('span');
            var ba2 = document.createElement('span');
            var ba3 = document.createElement('span');
            var ba4 = document.createElement('span');
@@ -52,6 +53,7 @@
            /*img.width = 100;
            img.height = 100;*/
            img.src = z.image_url;
+           img.className += "right-image alta-image";
            /*img.style.paddingRight = '20px';*/
                       
            aimg.target = '_blank';
@@ -79,8 +81,8 @@
            b.appendChild(ba5);*/
            
            div.appendChild(aimg);
-           div.appendChild(b);
-           div.appendChild(a);
+           /*div.appendChild(b);*/
+           /*div.appendChild(a);*/
                       
            return div;
        }

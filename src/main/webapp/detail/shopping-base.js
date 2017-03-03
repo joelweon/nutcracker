@@ -23,13 +23,14 @@
             s.type = 'text/javascript';
             s.charset = 'utf-8';
             s.src = api + this.query + '&pageno=' + pgno + '&callback=' 
-                + callback + '&result='+'1' ; 
+                + callback + '&result='+'3' ; 
             
             ds.appendChild(s);
         },
         /** 결과를 뿌려줌. **/
         pongSearch : function(search, z){
-            var ul = document.createElement('ul');
+            var div = document.createElement('div');
+            div.className += "swiper-slide";
             
             for(var i=0; i<z.channel.item.length; i++){
                 //title 정보를 얻음.
@@ -46,9 +47,9 @@
                 var content = search.getContent(z.channel.item[i]);
                 
                 //리스트 화.
-                ul.appendChild(search.getSearch(title,content));
+                div.appendChild(search.getSearch(title,content));
             }
-            return ul;
+            return div;
         },
         /** PageNumber를 그려줌. **/
         pongPgno : function(pgno,max,func){
