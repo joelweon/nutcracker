@@ -22,4 +22,16 @@ public class CommentServiceImpl implements CommentService {
   public List<HashMap<String, Object>> getBoycottCmtList(int ownNo) throws Exception {
     return commentDao.getBoycottCommentList(ownNo);
   }
+
+  @Override
+  public int getBoycottCmtCount(int ownNo) throws Exception {
+    return commentDao.getBoycottCommentCount(ownNo);
+  }
+
+  @Override
+  public int addBoycottCmt(HashMap<String, String> map) throws Exception {
+    int count = commentDao.insertBoycottComment(map);
+    /*commentDao.insertBoycottCommentRel(map);*/
+    return count;
+  }
 }
