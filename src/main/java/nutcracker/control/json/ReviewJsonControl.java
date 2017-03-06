@@ -57,6 +57,24 @@ public class ReviewJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
+  @RequestMapping("/review/updateReviewRead")
+  public AjaxResult updateReviewRead(String reviewNo) throws Exception {
+    int cnt = reviewService.updateRead(reviewNo);
+    if (cnt <= 0) {
+      return new AjaxResult(AjaxResult.FAIL, "조회수 증가 실패");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "조회수 증가 성공");
+  }
+  
+  @RequestMapping("/review/updateReviewHodu")
+  public AjaxResult updateReviewHodu(String reviewNo) throws Exception {
+    int cnt = reviewService.updateHodu(reviewNo);
+    if (cnt <= 0) {
+      return new AjaxResult(AjaxResult.FAIL, "호두수 증가 실패");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "호두수 증가 성공");
+  }
+  
   @RequestMapping("/review/detail")
   public AjaxResult detail(int reviewNo) throws Exception {
     HashMap<String, Object> map = reviewService.getDetail(reviewNo);

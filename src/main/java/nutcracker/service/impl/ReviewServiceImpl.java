@@ -25,6 +25,16 @@ public class ReviewServiceImpl implements ReviewService {
     paramMap.put("rowSize", pageSize);
     return reviewDao.getList(paramMap);
   }
+  
+  @Override
+  public int updateRead(String reviewNo) throws Exception {
+    return reviewDao.updateRead(reviewNo);
+  }
+  
+  @Override
+  public int updateHodu(String reviewNo) throws Exception {
+    return reviewDao.updateHodu(reviewNo);
+  }
 
   @Override
   public HashMap<String, Object> getDetail(int reviewNo) throws Exception {

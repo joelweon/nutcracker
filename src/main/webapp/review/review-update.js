@@ -68,8 +68,15 @@ function prepareViewForm(reviewNo) {
 } // prepareViewForm()
   
 // 삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
-$('#btn-update').click(function() {
-  console.log('수정 버튼 클릭....')
+$('#btn-update').click(function(event) {
+  event.preventDefault();
+  $('#loading-img').fadeIn('slow');
+  /*var loading = $('#loading-img');
+  console.log("x= " + (window.innerWidth - $('#loading-img').width) / 2);
+  console.log("y= " + (window.innerHeight - $('#loading-img').height) / 2);
+  $('#loading-img').css('left', (window.innerWidth - $('#loading-img').width) / 2 + 'px');
+  $('#loading-img').css('top', (window.innerHeight - $('#loading-img').height) / 2 + 'px');
+*/
   var param;
   $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
     if (ajaxResult.status != 'success') {
@@ -115,7 +122,6 @@ function dataURItoBlob(dataURI) {
 }
 
 function uploadImage(image) {
-  console.log('uploadImage()....');
   var IMAGE_PATH = serverRoot + '/upload/review/';
 
   var data = new FormData();
@@ -132,9 +138,7 @@ function uploadImage(image) {
     success: function(ajaxResult) {
       /*$('#summernote').summernote("insertImage", IMAGE_PATH + result.data, result.data);*/
       thumbnail = ajaxResult.data;
-      console.log('uploadImage()....성공:', thumbnail);
       doUpdate(thumbnail);
-      console.log('uploadImage()....끝!');
     },
     error: function(result) {
       console.log("실패: " + result);
@@ -143,7 +147,6 @@ function uploadImage(image) {
 }
 
 function doUpdate(thumbnail) {
-  console.log('doUpdate()....');
   var param = {
       reviewNo: reviewNo,
       titleHead: $('#select-subject option:selected').val(),
@@ -151,19 +154,7 @@ function doUpdate(thumbnail) {
       content: $('#summernote').summernote('code'),
       photoPath: thumbnail
     };
-  console.log("content.length: " + param.content.length);
-  console.log(param);
   
-  /*
-  $.post(serverRoot + '/review/update.json', param, function(ajaxResult) {
-    if (ajaxResult.status != "success") {
-      alert(ajaxResult.data);
-      return;
-    }
-    console.log('doUpdate()....성공');
-    //location.href = clientRoot + '/review/review.html';
-   }, 'json'); // post();
-   */
   $.ajax({
     url: serverRoot + '/review/update.json',
     method: 'post',
@@ -172,8 +163,8 @@ function doUpdate(thumbnail) {
     contentType: "application/json; charset=UTF-8",
     timeout: 40000,
     success: function(ajaxResult) {
-      console.log(ajaxResult)
-      //location.href = clientRoot + '/review/review.html';
+      /*$('#loading-img').css('display', 'none');*/
+      location.href = clientRoot + '/review/review.html';
     }
   });
 }

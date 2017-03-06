@@ -43,6 +43,18 @@
     limit #{startRowIndex}, #{rowSize}
   </select>
   
+  <update id="updateRead" parameterType="String">
+    update review
+    set view_cnt=view_cnt + 1
+    where rvno=#{reviewNo}
+  </update>
+  
+  <update id="updateHodu" parameterType="String">
+    update review
+    set hodu_cnt=hodu_cnt + 1
+    where rvno=#{reviewNo}
+  </update>
+  
   <select id='getDetail' parameterType="int" resultMap="map">
     select
 		  r.rvno,
@@ -60,8 +72,8 @@
   </select>
   
   <insert id="insert" parameterType="map">
-    insert into review(rvno, rv_date,head,title,cont,mno,path) 
-    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath});
+    insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt) 
+    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath} 0, 0);
   </insert>
   
   <insert id="insertPhoto" parameterType="map">
