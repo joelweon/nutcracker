@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -92,7 +93,6 @@ public class ReviewJsonControl {
             Thumbnails.of(original).crop(Positions.CENTER).size(200, 200).outputFormat("jpg").toFile(thumbnail); 
             //Thumbnails.of(inputStream).crop(Positions.CENTER_LEFT).size(100,100).keepAspectRatio(true).toOutputStream(outputStream);
           }
-          Thread.sleep(3000);
           return new AjaxResult(AjaxResult.SUCCESS, newFilename);
         }
       }
@@ -101,12 +101,16 @@ public class ReviewJsonControl {
   }
   
   @RequestMapping("/review/update")
-  public AjaxResult update(@RequestParam HashMap<String, Object> map) throws Exception {
-    System.out.println("content:" + map.get("content"));
-    System.out.println("photoPath:" + map.get("photoPath"));
-    reviewService.update(map);
-    
-    return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
+  public AjaxResult update(@RequestBody HashMap<String,Object> params) throws Exception {
+    System.out.println("=>content:" + params.get("content"));
+    System.out.println("=>photoPath:" + params.get("photoPath"));
+    try {
+      reviewService.update(params);
+      return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new AjaxResult(AjaxResult.FAIL, "불량후기 수정 실패입니다.");
+    }
   }
   
   @RequestMapping("/review/delete")
