@@ -69,7 +69,9 @@
 <!--         <a type='button' id='add-photo' class='btn btn-default  glyphicon glyphicon-plus'></a>
 		    <a type='button' id='remove-photo' class='btn btn-default  glyphicon glyphicon-minus'></a> -->
  		    <div id='wrap-photo'>
-	        <input id='input-photo' type='file' class='photo' name="files[]" multiple />
+		    <form enctype="multipart/form-data">
+	        <input id='input-photo' type='file' class='photo' name="photoPath" multiple />
+		    </form>
 		      <div id='div-photo' class='input-text photo'>
             <img id='photo-img' height='80'>
             <input id='photo-path' type='hidden'>
