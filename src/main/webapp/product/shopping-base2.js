@@ -10,7 +10,7 @@
         /** 검색 **/
         search : function(){
             this.query = '?apikey=' + this.apikey + '&output=json&q=' 
-                + '가습';
+                + encodeURI(this.q.value);
             
             //검색어에 맞게 각각 첫페이지를 띄움.
             daumShopping.pingSearch(1);
@@ -23,37 +23,36 @@
             s.type = 'text/javascript';
             s.charset = 'utf-8';
             s.src = api + this.query + '&pageno=' + pgno + '&callback=' 
-                + callback + '&result='+ '1' ; 
+                + callback + '&result='+result ; 
             
             ds.appendChild(s);
         },
         /** 결과를 뿌려줌. **/
         pongSearch : function(search, z){
-            var div = document.createElement('div');
-            //div.className += "swiper-wrapper";
+            var ul = document.createElement('ul');
             
             for(var i=0; i<z.channel.item.length; i++){
                 //title 정보를 얻음.
-                var title = document.createElement('h5');
+                var title = document.createElement('h4');
                 var a = document.createElement('a');
                 a.href = z.channel.item[i].link;
                 a.target = '_blank';
-                a.innerHTML = this.escapeHtml(z.channel.item[i].title);
-                a.style.color = "white";
-                
+                a.innerHTML = this.escapeHtml(z.channel.item[i].title) 
+                    + '<br'+'/>';
+
                 title.appendChild(a);
                 
                 //세부 내용을 얻음.
                 var content = search.getContent(z.channel.item[i]);
                 
                 //리스트 화.
-                div.appendChild(search.getSearch(title,content));
+                ul.appendChild(search.getSearch(title,content));
             }
-            return div;
+            return ul;
         },
         /** PageNumber를 그려줌. **/
         pongPgno : function(pgno,max,func){
-            /*var maxpg = (pgno+5<max)?pgno+5:max;
+            var maxpg = (pgno+5<max)?pgno+5:max;
             
             var div = document.createElement('div');
             div.align = 'center';
@@ -96,7 +95,7 @@
             }
             div.appendChild(right);
             
-            return div;*/
+            return div;
         },
         /** 마우스 이벤트. **/
         onMouseDown: function(a, i, func){
