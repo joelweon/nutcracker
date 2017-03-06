@@ -159,8 +159,8 @@ $('.walnut-stamp').click(function(event) {
     	else {
     		/*$('.content-content2').removeClass("active");*/
     		$('#sticker').css('height',$(window).height()-100);
-    		$('#sticker').css('position','fixed').css('top',0);
-    		$('#sticker').css('position','fixed').css('bottom','100px');
+    		$('#sticker').css('position','fixed').css('top','0');
+    		$('#sticker').css('position','fixed').css('bottom','0');
     	}
     	
     	// 공유하기 버튼 이동
