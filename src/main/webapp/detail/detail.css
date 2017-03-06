@@ -320,6 +320,10 @@ a#more {
   text-decoration: none;
 }
 
+h5 {
+  text-align:center;
+}
+
 @media screen and (max-width:850px) {
     .modal {
       overflow-y: hidden;

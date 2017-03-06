@@ -25,9 +25,9 @@ $(function() {
 	});
 
 	// 공구 정보 가져오기
-	var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
+	var purchaseNo = '405'; //번호를 어디서 받아오는건지 모르겠어요
 	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
-		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
+		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.photoList.photoPath);
 		$('.purchase-subtitle').text(ajaxResult.data.title);
 	});
 	
@@ -149,8 +149,8 @@ $('.walnut-stamp').click(function(event) {
     		$('#sticker').css('height',rightHeight - 100);
     		$('#sticker').css('position','absolute').css('top','0');
     		$('#sticker').css('position','absolute').css('bottom','0');
-    	}
-    	else if ( $(window).scrollTop() > stikerTop && $(window).scrollTop() < rightHeight - $(window).height() ) {
+    	}                    
+    	else if ( $(window).scrollTop() +170 > stikerTop && $(window).scrollTop() < rightHeight - $(window).height() + 235) {
     		/*$('.content-content2').addClass("active");*/
     		$('#sticker').css('height','100%');
     		$('#sticker').css('position','fixed').css('top','0');
