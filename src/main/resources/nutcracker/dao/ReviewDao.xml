@@ -98,5 +98,55 @@
   </delete>
   <!-- <select in="count" parameterType="int" re -->
   
+  <select id='searchInTitleContent' parameterType="map" resultMap="map">
+    select 
+      r.rvno, 
+      m.name, 
+      date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      r.path,
+      r.head, 
+      r.title, 
+      ifnull(r.view_cnt, 0) as view_cnt, 
+      ifnull(r.hodu_cnt, 0) as hodu_cnt
+    from review r
+      left outer join memb m on r.mno=m.mno 
+    where r.title like concat('%',#{keyword},'%') or r.cont like concat('%',#{keyword},'%')
+    order by r.rvno desc
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+  <select id='searchInTitle' parameterType="map" resultMap="map">
+    select 
+      r.rvno, 
+      m.name, 
+      date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      r.path,
+      r.head, 
+      r.title, 
+      ifnull(r.view_cnt, 0) as view_cnt, 
+      ifnull(r.hodu_cnt, 0) as hodu_cnt
+    from review r
+      left outer join memb m on r.mno=m.mno 
+    where r.title like concat('%',#{keyword},'%')
+    order by r.rvno desc
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+  <select id='searchInAuth' parameterType="map" resultMap="map">
+    select 
+      r.rvno, 
+      m.name, 
+      date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      r.path,
+      r.head, 
+      r.title, 
+      ifnull(r.view_cnt, 0) as view_cnt, 
+      ifnull(r.hodu_cnt, 0) as hodu_cnt
+    from review r
+      left outer join memb m on r.mno=m.mno 
+    where m.name like concat('%',#{keyword},'%')
+    order by r.rvno desc
+    limit #{startRowIndex}, #{rowSize}
+  </select>
   
 </mapper>

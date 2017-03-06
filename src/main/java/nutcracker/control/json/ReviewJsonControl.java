@@ -137,4 +137,27 @@ public class ReviewJsonControl {
     
     return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
   }
+  
+  @RequestMapping("/review/search")
+  public AjaxResult search(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="5") int pageSize,
+      @RequestParam String range,
+      @RequestParam String keyword) throws Exception {
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    if (pageSize < 5 || pageSize > 10) {
+      pageSize = 5;
+    }
+    List<HashMap<String, Object>> list = reviewService.search(pageNo, pageSize, range, keyword);
+    int totalCount = list.size();
+    
+    System.out.println("list: " + list.get(0));
+    HashMap<String, Object> resultMap = new HashMap<>();
+    resultMap.put("list",  list);
+    resultMap.put("totalCount",  totalCount);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
 }

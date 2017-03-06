@@ -64,4 +64,20 @@ public class ReviewServiceImpl implements ReviewService {
     if (deleteCnt <= 0) { return 0; }
     return deleteCnt;
   }
+  
+  @Override
+  public List<HashMap<String, Object>> search(int pageNo, int pageSize, String range, String keyword) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    paramMap.put("keyword", keyword);
+    System.out.println("Impe.keyword: " + keyword);
+    if ("제목+내용".equals(range)) {
+      return reviewDao.searchInTitleContent(paramMap);
+    } else if ("제목".equals(range)) {
+      return reviewDao.searchInTitle(paramMap);
+    } else {
+      return reviewDao.searchInAuth(paramMap);
+    }
+  }
 }
