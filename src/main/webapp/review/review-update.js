@@ -69,6 +69,7 @@ function prepareViewForm(reviewNo) {
   
 // 삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
 $('#btn-update').click(function() {
+  console.log('수정 버튼 클릭....')
   var param;
   $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
     if (ajaxResult.status != 'success') {
@@ -76,34 +77,13 @@ $('#btn-update').click(function() {
     }
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
-    console.log("contents1: " + contents.length);
     var start = contents.indexOf('<img src=');
     var end = contents.indexOf('data-filename', start);
     dataURL = contents.substring(start + 10, end - 2);
-    console.log("dataURL: " + dataURL);
     var blob = dataURItoBlob(dataURL);
     /*var fd = new FormData(document.forms[0]);
     fd.append("image", blob);*/
     uploadImage(blob);
-    console.log("contents2: " + contents.length);
-    console.log("thumbnail: " + thumbnail);
-    
-    param = {
-      reviewNo: reviewNo,
-      titleHead: $('#select-subject option:selected').val(),
-      title: $('#input-title').val(),
-      content: contents,
-      photoPath: thumbnail,
-    };
-    console.log("contents3: " + contents.length);
-    $.post(serverRoot + '/review/update.json', param, function(ajaxResult) {
-      if (ajaxResult.status != "success") {
-        alert(ajaxResult.data);
-        return;
-      }
-      
-      location.href = clientRoot + '/review/review.html';
-    }, 'json'); // post();
   }, 'json');
   
 }); // click()
@@ -135,6 +115,7 @@ function dataURItoBlob(dataURI) {
 }
 
 function uploadImage(image) {
+  console.log('uploadImage()....');
   var IMAGE_PATH = serverRoot + '/upload/review/';
 
   var data = new FormData();
@@ -151,12 +132,51 @@ function uploadImage(image) {
     success: function(ajaxResult) {
       /*$('#summernote').summernote("insertImage", IMAGE_PATH + result.data, result.data);*/
       thumbnail = ajaxResult.data;
-      console.log("성공: " + thumbnail);
-      return thumbnail;
+      console.log('uploadImage()....성공:', thumbnail);
+      doUpdate(thumbnail);
+      console.log('uploadImage()....끝!');
     },
     error: function(result) {
       console.log("실패: " + result);
     }
   });
 }
+
+function doUpdate(thumbnail) {
+  console.log('doUpdate()....');
+  var param = {
+      reviewNo: reviewNo,
+      titleHead: $('#select-subject option:selected').val(),
+      title: $('#input-title').val(),
+      content: $('#summernote').summernote('code'),
+      photoPath: thumbnail
+    };
+  console.log("content.length: " + param.content.length);
+  console.log(param);
+  
+  /*
+  $.post(serverRoot + '/review/update.json', param, function(ajaxResult) {
+    if (ajaxResult.status != "success") {
+      alert(ajaxResult.data);
+      return;
+    }
+    console.log('doUpdate()....성공');
+    //location.href = clientRoot + '/review/review.html';
+   }, 'json'); // post();
+   */
+  $.ajax({
+    url: serverRoot + '/review/update.json',
+    method: 'post',
+    dataType: 'json',
+    data: JSON.stringify(param),
+    contentType: "application/json; charset=UTF-8",
+    timeout: 40000,
+    success: function(ajaxResult) {
+      console.log(ajaxResult)
+      //location.href = clientRoot + '/review/review.html';
+    }
+  });
+}
+
+
 
