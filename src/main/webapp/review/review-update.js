@@ -68,7 +68,15 @@ function prepareViewForm(reviewNo) {
 } // prepareViewForm()
   
 // 삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
-$('#btn-update').click(function() {
+$('#btn-update').click(function(event) {
+  event.preventDefault();
+  $('#loading-img').fadeIn('slow');
+  /*var loading = $('#loading-img');
+  console.log("x= " + (window.innerWidth - $('#loading-img').width) / 2);
+  console.log("y= " + (window.innerHeight - $('#loading-img').height) / 2);
+  $('#loading-img').css('left', (window.innerWidth - $('#loading-img').width) / 2 + 'px');
+  $('#loading-img').css('top', (window.innerHeight - $('#loading-img').height) / 2 + 'px');
+*/
   var param;
   $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
     if (ajaxResult.status != 'success') {
@@ -76,34 +84,13 @@ $('#btn-update').click(function() {
     }
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
-    console.log("contents1: " + contents.length);
     var start = contents.indexOf('<img src=');
     var end = contents.indexOf('data-filename', start);
     dataURL = contents.substring(start + 10, end - 2);
-    console.log("dataURL: " + dataURL);
     var blob = dataURItoBlob(dataURL);
     /*var fd = new FormData(document.forms[0]);
     fd.append("image", blob);*/
     uploadImage(blob);
-    console.log("contents2: " + contents.length);
-    console.log("thumbnail: " + thumbnail);
-    
-    param = {
-      reviewNo: reviewNo,
-      titleHead: $('#select-subject option:selected').val(),
-      title: $('#input-title').val(),
-      content: contents,
-      photoPath: thumbnail,
-    };
-    console.log("contents3: " + contents.length);
-    $.post(serverRoot + '/review/update.json', param, function(ajaxResult) {
-      if (ajaxResult.status != "success") {
-        alert(ajaxResult.data);
-        return;
-      }
-      
-      location.href = clientRoot + '/review/review.html';
-    }, 'json'); // post();
   }, 'json');
   
 }); // click()
@@ -151,12 +138,36 @@ function uploadImage(image) {
     success: function(ajaxResult) {
       /*$('#summernote').summernote("insertImage", IMAGE_PATH + result.data, result.data);*/
       thumbnail = ajaxResult.data;
-      console.log("성공: " + thumbnail);
-      return thumbnail;
+      doUpdate(thumbnail);
     },
     error: function(result) {
       console.log("실패: " + result);
     }
   });
 }
+
+function doUpdate(thumbnail) {
+  var param = {
+      reviewNo: reviewNo,
+      titleHead: $('#select-subject option:selected').val(),
+      title: $('#input-title').val(),
+      content: $('#summernote').summernote('code'),
+      photoPath: thumbnail
+    };
+  
+  $.ajax({
+    url: serverRoot + '/review/update.json',
+    method: 'post',
+    dataType: 'json',
+    data: JSON.stringify(param),
+    contentType: "application/json; charset=UTF-8",
+    timeout: 40000,
+    success: function(ajaxResult) {
+      /*$('#loading-img').css('display', 'none');*/
+      location.href = clientRoot + '/review/review.html';
+    }
+  });
+}
+
+
 

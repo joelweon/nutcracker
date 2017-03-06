@@ -67,9 +67,9 @@
 	display: inline-table; 
 	vertical-align: middle; 
 }
-.board-search > li > input { padding: 5px 0; background-color: #252525; 
+.board-search > li > #input-reviewSearch { padding: 5px 0; background-color: #252525; 
                              border: 1px solid #999; border-radius: 5px; }
-.board-search button { padding: 4px; height: 30px; }
+.board-search #btn-reviewSearch { padding: 4px; height: 30px; }
 .dropup, .dropup button { width: 100px; }
 
 /* 페이지 이동 */

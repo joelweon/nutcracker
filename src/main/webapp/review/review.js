@@ -5,6 +5,10 @@ var pageGpSize = 5; // 페이지그룹 크기
 var pRCnt = parseInt(curPageNo / pageGpSize); // 페이지그룹 번호
 var maxPageNo; // 총 페이지 수
 
+var listSearch = 'list'; //단순리스팅 or 검색리스팅
+var range; // 검색범위
+var keyword; // 검색어
+
 // 비로그인 상태일 때 글쓰기 버튼 숨기기
 $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
   if (ajaxResult.status != 'success') {
@@ -32,28 +36,57 @@ $('.pgBtn > a').click(function() {
 });
 
 function loadList(pageNo, pageSize) {
-  $.get(serverRoot + '/review/list.json', {
-    "pageNo" : pageNo,
-    "pageSize" : pageSize
-  }, function(ajaxResult) {
-    if (ajaxResult.status != "success") {
-      return;
-    }
-    var list = ajaxResult.data.list;
-    var tbody = $('.table-review > tbody');
- 
-    var template = Handlebars.compile($('#trTemplate').html());
-    tbody.html(template({"list":list}));
- 
-    $('.title-link').click(function(event) {
-      event.preventDefault();
-      location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
+  var ajaxResult;
+  var list;
+  if (listSearch == 'list') {
+    $.get(serverRoot + '/review/list.json', {
+      "pageNo" : pageNo,
+      "pageSize" : pageSize
+    }, function(ajaxResult) {
+      if (ajaxResult.status != "success") {
+        return;
+      }
+      list = ajaxResult.data.list;
+      var tbody = $('.table-review > tbody');
+      
+      var template = Handlebars.compile($('#trTemplate').html());
+      tbody.html(template({"list":list}));
+   
+      $('.title-link').click(function(event) {
+        event.preventDefault();
+        location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
+      });
+   
+      // 페이지 버튼 설정
+      preparePagingButton(ajaxResult.data.totalCount);
     });
- 
-    // 페이지 버튼 설정
-    preparePagingButton(ajaxResult.data.totalCount);
+  } else if (listSearch == 'search') {
+    $.get(serverRoot + '/review/search.json', {
+      "pageNo" : pageNo,
+      "pageSize" : pageSize,
+      "range" : range,
+      "keyword" : keyword
+    }, function(ajaxResult) {
+      if(ajaxResult.status != 'success') {
+        console.log('[Review] 검색 실패');
+        return;
+      }
+      list = ajaxResult.data.list;
+      var tbody = $('.table-review > tbody');
+      
+      var template = Handlebars.compile($('#trTemplate').html());
+      tbody.html(template({"list":list}));
+   
+      $('.title-link').click(function(event) {
+        event.preventDefault();
+        location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
+      });
+   
+      // 페이지 버튼 설정
+      preparePagingButton(ajaxResult.data.totalCount);
+    });
+  }
     
-  });
 }
 
 function preparePagingButton(totalCount) {
@@ -95,3 +128,12 @@ function preparePagingButton(totalCount) {
     $('#nextPgBtn').addClass('disabled');
   }
 }
+
+$('#btn-reviewSearch').click(function() {
+  range = $('#select-search').val();
+  console.log("range: " + range);
+  keyword = $('#input-reviewSearch').val();
+  console.log("keyword: " + keyword);
+  listSearch = 'search';
+  loadList(curPageNo, pageSize);
+});
