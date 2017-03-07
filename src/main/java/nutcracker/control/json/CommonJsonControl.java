@@ -29,12 +29,11 @@ public class CommonJsonControl {
       for (MultipartFile file : files) {
         if (file.getSize() > 0) {
           String newFilename = MultipartUtil.generateFilename();
-          System.out.println("newFilename : "+newFilename);
           file.transferTo(new File(sc.getRealPath("/upload/deal/" + newFilename)));
           filenames.add(newFilename);
         }
       }
-      return new AjaxResult(AjaxResult.SUCCESS, filenames.toString().replace("[", "").replace("]", ""));
+      return new AjaxResult(AjaxResult.SUCCESS, filenames.toString().replace("[", "").replace("]", "").trim());
     }
   }
 }

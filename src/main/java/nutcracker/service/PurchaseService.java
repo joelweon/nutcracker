@@ -6,5 +6,5 @@ import java.util.List;
 public interface PurchaseService {
   List<HashMap<String, Object>> getList() throws Exception;
   HashMap<String, Object> getDetail(int purchaseNo) throws Exception;
-  int add(HashMap<String,String> map) throws Exception;
+  int add(HashMap<String,Object> map) throws Exception;
 }
