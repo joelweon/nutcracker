@@ -5,9 +5,17 @@ try {
 	console.log(error);
 }
 
-if ($(document).width < 850) {
+// 크기에 따른 대체상품 위치변경
+if ($(window).width() < 850) {
+  $('#sticker > #daumShopping').remove();
+  $('#sticker > #daumShoppingScript').remove();
   $dm = $('<div id=daumShopping></div><div id=daumShoppingScript></div>');
   $('#hidden-alternative-goods').append($dm);
+} else {
+  $('#hidden-alternative-goods > #daumShopping').remove();
+  $('#hidden-alternative-goods > #daumShoppingScript').remove();
+  $wide = $('<div id=daumShopping></div><div id=daumShoppingScript></div>');
+  $('#sticker').append($wide);
 }
 
 //불매 조회수
@@ -124,7 +132,7 @@ $('.walnut-stamp').click(function(event) {
       //스크롤막기
       /*$("body").css({overflow:'hidden'}).bind('touchmove', function(e){e.preventDefault()});*/
       /* 대체상품 이미지 swiper */
-      var swiper = new Swiper('.swiper-container', {
+/*      var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
@@ -136,8 +144,8 @@ $('.walnut-stamp').click(function(event) {
         autoplayDisableOnInteraction: false,
         spaceBetween: 30,
         loop: true
-      /*});*/
-    });
+      });
+    });*/
     //닫기 버튼을 눌렀을 때
     $('.wrap-body .close').click(function (e) {  
         //링크 기본동작은 작동하지 않도록 한다.
