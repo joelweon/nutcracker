@@ -74,8 +74,6 @@
     insert into PCH_PHOT(PNO,PATH)
     values
       (LAST_INSERT_ID(),#{photoPath})
-      <!-- <foreach collection="map" item="photo" separator=",">
-      </foreach> -->
   </insert>
   
 <!--  <delete id="delete" parameterType="int">
