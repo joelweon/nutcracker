@@ -40,7 +40,7 @@
   
   <insert id="insertReviewCmtCon" parameterType="map">
     insert into rev_cmt(ctno, rvno)
-    values (LAST_INSERT_ID(), #{reviewNo})
+    values (#{commentNo}, #{reviewNo})
   </insert>
   
   <delete id='deleteReviewCmts' parameterType='String'>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="nutcracker.dao.CompanyDao">
+
+  <resultMap type="hashmap" id="map">
+    <id     column="cpno"     property="companyNo"/>
+    <result column="cp_name"  property="companyName"/>
+    <result column="parno"    property="parentNo"/>
+  </resultMap>
+  
+  <select id="getParents" resultMap="map">
+    select distinct parno from com_rls
+  </select>
+</mapper>

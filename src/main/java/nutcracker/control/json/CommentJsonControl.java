@@ -25,16 +25,18 @@ public class CommentJsonControl {
   
   @RequestMapping("/comment/addReviewCmt")
   public AjaxResult addReviewCmt(@RequestParam HashMap<String, Object> map) throws Exception {
-    System.out.println("memberNo: " + map.get("memberNo"));
     int commentNo = commentService.addReviewCmt(map);
-    System.out.println("commentNo: " + commentNo);
-    map.put("commentNo", commentNo);
-    int count = commentService.addReviewCmtCon(map);
-    if (count <= 0) {
-      return new AjaxResult(AjaxResult.FAIL, "[comment] 불량후기 댓글 등록 실패");
-    }
+    if (commentNo != 0) {
+      map.put("commentNo", commentNo);
+      System.out.println("commentNo: " + commentNo);
+      int count = commentService.addReviewCmtCon(map);
+      if (count <= 0) {
+        return new AjaxResult(AjaxResult.FAIL, "[comment] 불량후기 댓글 등록 실패");
+      }
+    } 
     return new AjaxResult(AjaxResult.SUCCESS, "[comment] 불량후기 댓글 등록 완료");
   }
+    
   
   @RequestMapping("/comment/deleteReviewCmts")
   public AjaxResult deleteReviewCmts(String ownNo) throws Exception {
