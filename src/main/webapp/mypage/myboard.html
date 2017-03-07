@@ -29,127 +29,30 @@
   <div class="main-contents">
     <div>
       <table class="board-table">
-        <tr class="board-list-title">
-	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
-	        <th>제목</th>
-	        <th>작성일</th>
-	        <th>조회수</th>
-	        <th>추천수</th>
-	      </tr>
-	      <tr>
-	        <td class="board-table-date">
-	          <input class="td-check" type="checkbox"/>
-	        </td>
-          <td class="board-list">
-            <span class="list-img-span">
-              <a href="#">
-	              <img src="../images/hong.PNG">
-	            </a>
-            </span>
-	          <div>
-	            <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
-	          </div>
-          </td>
-	        <td class="board-reportdate">2017.01.23</td>
-	        <td class="board-viewcnt">120</td>
-	        <td class="board-like">10</td>
-        </tr>
-        
-        <tr>
-          <td class="board-table-date">
-            <input class="td-check" type="checkbox"/>
-          </td>
-          <td class="board-list">
-            <span class="list-img-span">
-              <a href="#">
-                <img src="../images/hong.PNG">
-              </a>
-            </span>
-            <div>
-              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
-            </div>
-          </td>
-          <td class="board-reportdate">2017.01.23</td>
-          <td class="board-viewcnt">120</td>
-          <td class="board-like">10</td>
-        </tr>
-        
-        <tr>
-          <td class="board-table-date">
-            <input class="td-check" type="checkbox"/>
-          </td>
-          <td class="board-list">
-            <span class="list-img-span">
-              <a href="#">
-                <img src="../images/hong.PNG">
-              </a>
-            </span>
-            <div>
-              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
-            </div>
-          </td>
-          <td class="board-reportdate">2017.01.23</td>
-          <td class="board-viewcnt">120</td>
-          <td class="board-like">10</td>
-        </tr>
-        
-        <tr>
-          <td class="board-table-date">
-            <input class="td-check" type="checkbox"/>
-          </td>
-          <td class="board-list">
-            <span class="list-img-span">
-              <a href="#">
-                <img src="../images/hong.PNG">
-              </a>
-            </span>
-            <div>
-              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
-            </div>
-          </td>
-          <td class="board-reportdate">2017.01.23</td>
-          <td class="board-viewcnt">120</td>
-          <td class="board-like">10</td>
-        </tr>
-        
-        <tr>
-          <td class="board-table-date">
-            <input class="td-check" type="checkbox"/>
-          </td>
-          <td class="board-list">
-            <span class="list-img-span">
-              <a href="#">
-                <img src="../images/hong.PNG">
-              </a>
-            </span>
-            <div>
-              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
-            </div>
-          </td>
-          <td class="board-reportdate">2017.01.23</td>
-          <td class="board-viewcnt">120</td>
-          <td class="board-like">10</td>
-        </tr>
-        
-        <tr>
-          <td class="board-table-date">
-            <input class="td-check" type="checkbox"/>
-          </td>
-          <td class="board-list">
-            <span class="list-img-span">
-              <a href="#">
-                <img src="../images/hong.PNG">
-              </a>
-            </span>
-            <div>
-              <p>홍삼액이 가짜 라니요 ㅠㅠ</p>
-            </div>
-          </td>
-          <td class="board-reportdate">2017.01.23</td>
-          <td class="board-viewcnt">120</td>
-          <td class="board-like">10</td>
-        </tr>
+        <thead>
+          <tr class="board-list-title">
+  	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
+  	        <th>제목</th>
+  	        <th>작성일</th>
+  	        <th>조회수</th>
+  	        <th>추천수</th>
+  	      </tr>
+        </thead>
+        <tbody></tbody>
       </table>
+    </div>
+        <!-- 페이지이동 -->
+    <div class="clearfix">
+      <ul class="pagination">
+        <li id='prevPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        <li class='pgBtn'><a id='pg1' href="#"></a></li>
+        <li class='pgBtn'><a id='pg2' href="#"></a></li>
+        <li class='pgBtn'><a id='pg3' href="#"></a></li>
+        <li class='pgBtn'><a id='pg4' href="#"></a></li>
+        <li class='pgBtn'><a id='pg5' href="#"></a></li>
+        <li id='nextPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+      </ul>
+      
     </div>
     <div class="delete-div">
       선택한 게시글을
@@ -160,13 +63,36 @@
 
 
 <div id='wrap-footer'></div>
-
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+        <tr>
+          <td class="board-table-date">
+            <input class="td-check" type="checkbox"/>
+          </td>
+          <td class="board-list">
+            <span class="list-img-span">
+              <a href="#">
+                <img >
+              </a>
+            </span>
+            <div>
+              <p>{{title}}</p>
+            </div>
+          </td>
+          <td class="board-reportdate">{{postTime}}</td>
+          <td class="board-viewcnt">{{viewCount}}</td>
+          <td class="board-like">{{hoduCount}}</td>
+        </tr>
+{{/each}}
+</script>
 <script src="../js/context.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/common.js"></script>
 <!-- <script src="../js/header.js"></script> -->
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="mypage.js"></script>
+<script src="myboard.js"></script>
 
 <script>
 $(document).on('click', '.detail-togle', function() {
@@ -182,10 +108,6 @@ $(function(){
     }
   })
 })
-
-
-
-
 </script>
 </body>
 </html>
