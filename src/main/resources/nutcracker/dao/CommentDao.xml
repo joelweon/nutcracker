@@ -43,6 +43,10 @@
     values (LAST_INSERT_ID(), #{reviewNo})
   </insert>
   
+  <delete id='deleteReviewCmts' parameterType='String'>
+    delete from rev_cmt where rvno=#{ownNo}
+  </delete>
+  
   <select id='getBoycottCommentList' parameterType="int" resultMap="map">
     select
       cm.ctno,

@@ -1,5 +1,10 @@
-// 처음에는 1페이지 20개를 로딩한다.
-var curPageNo = 1; // 현재페이지
+// 처음에는 1페이지 10개를 로딩한다.
+try {
+  var params = location.href.split('?')[1];
+  var curPageNo = params.split('&')[0].split('=')[1];
+} catch (error) {
+  var curPageNo = 1; // 현재페이지
+}
 var pageSize = 10; // 한 페이지에 보여줄 글 갯수
 var pageGpSize = 5; // 페이지그룹 크기
 var pRCnt = parseInt(curPageNo / pageGpSize); // 페이지그룹 번호
@@ -26,13 +31,19 @@ loadList(curPageNo, pageSize);
 
 // 버튼 이벤트 등록
 $('#prevPgBtn').click(function() {
-  loadList(--curPageNo, pageSize);
+  event.preventDefault();
+  //loadList(--curPageNo, pageSize);
+  location.href = clientRoot + '/review/review.html?pageNo=' + --curPageNo + '&pageSize=' + pageSize;
 });
 $('#nextPgBtn').click(function() {
-  loadList(++curPageNo, pageSize);
+  event.preventDefault();
+  //loadList(++curPageNo, pageSize);
+  location.href = clientRoot + '/review/review.html?pageNo=' + ++curPageNo + '&pageSize=' + pageSize;
 });
 $('.pgBtn > a').click(function() {
-  loadList(curPageNo = $(this).text(), pageSize);
+  event.preventDefault();
+  location.href = clientRoot + '/review/review.html?pageNo=' + $(this).text() + '&pageSize=' + pageSize;
+  //loadList(curPageNo = $(this).text(), pageSize);
 });
 
 function loadList(pageNo, pageSize) {
@@ -41,9 +52,9 @@ function loadList(pageNo, pageSize) {
   if (listSearch == 'list') {
     $.get(serverRoot + '/review/list.json', {
       "pageNo" : pageNo,
-      "pageSize" : pageSize
-    }, function(ajaxResult) {
+      "pageSize" : pageSize }, function(ajaxResult) {
       if (ajaxResult.status != "success") {
+        console.log(ajaxResult.data);
         return;
       }
       list = ajaxResult.data.list;

@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
-import nutcracker.service.CommentService;
 import nutcracker.service.ReviewService;
 import nutcracker.util.MultipartUtil;
 
@@ -134,7 +133,6 @@ public class ReviewJsonControl {
   
   @RequestMapping("/review/delete")
   public AjaxResult delete(int reviewNo) throws Exception {
-    CommentService.deleteReviewComments(reviewNo);
     reviewService.delete(reviewNo);
     
     return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");

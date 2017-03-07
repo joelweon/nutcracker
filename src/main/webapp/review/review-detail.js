@@ -46,10 +46,10 @@ function getContent(reviewNo) {
 }
 
 function getComments(ownNo){
-  $.get(serverRoot + '/comment/reviewCmtList.json?ownNo=' + ownNo, function(ajaxResult) {
+  $.get(serverRoot + '/comment/listReviewCmt.json?ownNo=' + ownNo, function(ajaxResult) {
     var status = ajaxResult.status;
     if (status != "success") {
-      console.log('[ReviewComment] ' + ajaxResult.data);
+      console.log(ajaxResult.data);
       return;
     }
     
@@ -76,12 +76,21 @@ $('#btn-update').click(function() {
 
 $('#btn-delete').click(function() {
   if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-    $.get(serverRoot + '/review/delete.json?reviewNo=' + reviewNo, function(ajaxResult) {
+    var param = {"ownNo" : reviewNo};
+    console.log('param.ownNo: ' + param.ownNo);
+    $.post(serverRoot + '/comment/deleteReviewCmts.json', param, function(ajaxResult) {
       if (ajaxResult.status != 'success') {
-        console.log('[Review] ' + ajaxResult.data);
+        console.log(ajaxResult.data);
         return;
       }
-      location.href = clientRoot + '/review/review.html';
+      param = {"reviewNo" : reviewNo};
+      $.post(serverRoot + '/review/delete.json', param, function(ajaxResult) {
+        if (ajaxResult.status != 'success') {
+          console.log(ajaxResult.data);
+          return;
+        }
+        location.href = clientRoot + '/review/review.html';
+      });
     });
   } else {   //취소
     return;
@@ -116,7 +125,7 @@ $('#btn-report').click(function() {
       content: $('#comment').val(),
       reviewNo: reviewNo
     };
-    $.get(serverRoot + '/comment/reviewCmtAdd.json', cmtParam, function(ajaxResult) {
+    $.get(serverRoot + '/comment/addReviewCmt.json', cmtParam, function(ajaxResult) {
       if (ajaxResult.status != 'success') {
         console.log("[ReviewComment] 댓글 등록 실패");
         return;

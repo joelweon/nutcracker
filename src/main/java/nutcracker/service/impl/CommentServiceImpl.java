@@ -29,6 +29,11 @@ public class CommentServiceImpl implements CommentService {
   }
   
   @Override
+  public int deleteReviewCmts(String ownNo) throws Exception {
+    return commentDao.deleteReviewCmts(ownNo);
+  }
+  
+  @Override
   public List<HashMap<String, Object>> getBoycottCmtList(int ownNo) throws Exception {
     return commentDao.getBoycottCommentList(ownNo);
   }
