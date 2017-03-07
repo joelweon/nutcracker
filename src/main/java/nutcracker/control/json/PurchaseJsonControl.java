@@ -20,7 +20,6 @@ public class PurchaseJsonControl {
   @RequestMapping("/deal/list")
   public AjaxResult list() throws Exception {
     List<HashMap<String, Object>> list = purchaseService.getList();
-    
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   

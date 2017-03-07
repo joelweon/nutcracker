@@ -30,7 +30,7 @@ public class CommonJsonControl {
         if (file.getSize() > 0) {
           String newFilename = MultipartUtil.generateFilename();
           System.out.println("newFilename : "+newFilename);
-          file.transferTo(new File(sc.getRealPath("/upload/" + newFilename)));
+          file.transferTo(new File(sc.getRealPath("/upload/deal/" + newFilename)));
           filenames.add(newFilename);
         }
       }
