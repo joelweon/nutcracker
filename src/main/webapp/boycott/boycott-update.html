@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Nutcracker</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/> -->
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="boycott-update.css">
+  <link rel="stylesheet" href="../css/footer.css">
+</head>
+
+<body>
+<div class='container'>
+  <!--  헤더 추가 -->
+  <div id='wrap-header'></div>
+  
+  <!-- 숨은메뉴, 숨은검색 -->
+  <div id='wrap-hidden'></div>
+  
+  <!-- 소개글 -->
+  <div id='div-intro-none'></div>
+  
+  <!-- 불매운동 페이지 -->
+  <div id='wrap-content'>
+    <!-- 불매 헤더 -->
+    <div id="title-bar-boycott" class="title-bar">
+      <nav>
+        <span class='title-title'>Boycott_Update</span><span class='title-sub edit-text'>불매운동 글을 수정해주세요 :)</span>
+      </nav>
+    </div>
+    
+    <!-- 글 작성 폼 -->
+    <div class='input-text'>
+	    <input type="text" id='input-title' class='input-text-el' placeholder="Title">
+	    <span class="separator input-text-el"></span>
+	    <input type="text" id='input-company' class='input-text-el' placeholder="기업번호">
+      <span class="separator input-text-el"></span>
+    </div>
+    <!-- 썸머노트 -->
+	  <div id="summernote"></div>
+	  
+	  <span class='edit-text'>기사 링크를 추가해주세요 :) (최대 4개)</span>
+	  <a type='button' id='add-article' class='btn btn-default  glyphicon glyphicon-plus'></a>
+	  <a type='button' id='remove-article' class='btn btn-default  glyphicon glyphicon-minus'></a>
+	  <div id='wrap-article'>
+	    <div id='div-article1' class='input-text article'>
+	      <input type='text' class='input-text-el article' name='list-url' placeholder="URL"><span class="separator input-text-el"></span>
+	      <input type='text' class='input-text-el article' name='list-headLine' placeholder="Headline"><span class="separator input-text-el"></span>
+	    </div>
+	  </div>
+	  <div id='wrap-btn'>
+		  <a type='button' id='cancel' class='btn btn-default common-btn-black' href='#'>Cancel</a>
+		  <a type='button' id='btn-update' class='btn btn-default common-btn-update' href='#'>Update</a>
+	  </div>
+	  
+  </div> <!-- wrap-content -->
+
+  <!-- 풋터 -->
+  <div id='wrap-footer'></div>
+</div>
+</body>
+
+  <script src="../js/context.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+  <script src='../js/common.js'></script>
+<!--   <script src='../js/header.js'></script> -->
+  <script src='boycott-update.js'></script>
+</html>

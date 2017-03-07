@@ -10,7 +10,7 @@
     <result column="bot_date"   property="postTime"/>
     <result column="title"      property="title"/>
     <result column="cont"       property="content"/>
-    <result column="path"       property="photoPath"/>
+    <result column="pt_path"       property="photoPath"/>
     <result column="view_cnt"   property="viewCount"/>
     <result column="hodu_cnt"   property="hoduCount"/>
     <result column="cmt_cnt"    property="commentCount"/>
@@ -30,11 +30,11 @@
       b.bot_date,
       b.title,
       b.cont,
-      b.view_cnt,
+      b.view_cnt, 
       b.hodu_cnt,
       b.cmt_cnt,
       b.shr_cnt,
-      b.path,
+      b.pt_path,
       bn.newsno,
       bn.headline,
       bn.path
@@ -44,17 +44,23 @@
   
   <select id="getOne" parameterType="int" resultMap="boycott-map">
     select 
-      botno,
-      cpno,
-      bot_date,
-      title, 
-      cont,
-      view_cnt,
-      hodu_cnt,
-      cmt_cnt,
-      shr_cnt
-   from bot
-   where botno=#{value}
+      b.botno, 
+      b.bot_date,
+      b.title,
+      b.cont,
+      b.view_cnt, 
+      b.hodu_cnt,
+      b.cmt_cnt,
+      b.shr_cnt,
+      b.pt_path,
+      b.cpno,
+      bn.newsno,
+      bn.headline,
+      bn.path
+    from bot b
+    left outer join bot_news bn on b.botno=bn.botno
+    left outer join comp cp on b.cpno=cp.cpno 
+    where b.botno=#{value}
   </select>
   
   <select id="getOneWithPhoto" parameterType="int" resultMap="boycott-map">
@@ -86,7 +92,7 @@
   
   <insert id="insert" parameterType="boycott"
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
-    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,path)
+    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,pt_path)
     values(#{companyNo},now(),#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount},#{photoPath})      
   </insert>
   

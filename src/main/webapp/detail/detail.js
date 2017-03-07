@@ -5,6 +5,19 @@ try {
 	console.log(error);
 }
 
+// 크기에 따른 대체상품 위치변경
+if ($(window).width() < 850) {
+  $('#sticker > #daumShopping').remove();
+  $('#sticker > #daumShoppingScript').remove();
+  $dm = $('<div id=daumShopping></div><div id=daumShoppingScript></div>');
+  $('#hidden-alternative-goods').append($dm);
+} else {
+  $('#hidden-alternative-goods > #daumShopping').remove();
+  $('#hidden-alternative-goods > #daumShoppingScript').remove();
+  $wide = $('<div id=daumShopping></div><div id=daumShoppingScript></div>');
+  $('#sticker').append($wide);
+}
+
 //불매 조회수
 $(document).ready(function() {
 	$.getJSON(serverRoot + '/boycott/viewUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {});
@@ -42,15 +55,23 @@ $(function() {
 		$('#textarea').attr('readonly', true);
 	}
 	
-	// 댓글 정보 가져오기
-	$.get(serverRoot + '/comment/boycottcomments.json?boycottNo=' + boycottNo, function(ajaxResult) {
-		var list = ajaxResult.data;
-		var div = $('.reply-list-area:last-child');
-		
-		var template = Handlebars.compile($('#divTemplate').html());
-		div.html(template({"list":list}));
-		return;
+	getComments(boycottNo);
+	
+	
+//댓글 작성
+	$('.reply-button').click(function() {
+	  var param = {
+	      memberNo: JSON.parse(users).memberNo,
+	      content: $('#textarea').val(),
+	      boycottNo: boycottNo,
+	  };
+	  $.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
+	    getComments(boycottNo);
+	  });
+	  
 	});
+	
+
 	
 	// handlebars helper 등록
 	/*var context = {
@@ -67,28 +88,34 @@ $(function() {
 	Handlebars.registerHelper('formatDate', function(date) {
 		return;
 	});*/
-	
-	// 댓글 작성
-	$('.reply-button').click(function() {
-		var param = {
-				memberNo: JSON.parse(users).memberNo,
-				content: $('#textarea').val(),
-				boycottNo: boycottNo,
-		};
-		$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {});
-	});
-
-
-  
 }); // db 관련 js 끝
+
+// 댓글 정보 가져오기
+function getComments(boycottNo) {
+  $.get(serverRoot + '/comment/boycottcomments.json?boycottNo=' + boycottNo, function(ajaxResult) {
+    var list = ajaxResult.data;
+    if (list.legth < 1) {
+      return;
+    } else {
+      $('#textarea').val("");
+      var div = $('.reply-list-area:last-child');
+      var template = Handlebars.compile($('#divTemplate').html());
+      div.html(template({"list":list}));
+      
+      return;
+    }
+  }, 'json');
+}
+
   
 //호두 던지기
 $('.walnut-stamp').click(function(event) {
-	$.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
+  $.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
 		event.preventDefault();
-		window.location.reload(true);
+		$("span.hoducount").text(ajaxResult.data);
 	});
 });
+
 
 
 // 화면 구성 관련 js
@@ -105,7 +132,7 @@ $('.walnut-stamp').click(function(event) {
       //스크롤막기
       /*$("body").css({overflow:'hidden'}).bind('touchmove', function(e){e.preventDefault()});*/
       /* 대체상품 이미지 swiper */
-      var swiper = new Swiper('.swiper-container', {
+/*      var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
@@ -117,8 +144,8 @@ $('.walnut-stamp').click(function(event) {
         autoplayDisableOnInteraction: false,
         spaceBetween: 30,
         loop: true
-      /*});*/
-    });
+      });
+    });*/
     //닫기 버튼을 눌렀을 때
     $('.wrap-body .close').click(function (e) {  
         //링크 기본동작은 작동하지 않도록 한다.
@@ -142,7 +169,7 @@ $('.walnut-stamp').click(function(event) {
   	var snsTop = $('#sns-area').offset().top;
   	var stikerTop = $('.right-area').offset().top;
   	var rightHeight = $('.left-area').height();
-  	$('#sticker').css('height',rightHeight - 100);
+  	$('#sticker').css('height',rightHeight);
     $(window).scroll(function() {
     	// 오른쪽 바 상단 고정
     	if ( $(window).scrollTop() < stikerTop || $(window).scrollTop() == stikerTop ) {
@@ -150,15 +177,9 @@ $('.walnut-stamp').click(function(event) {
     		$('#sticker').css('position','absolute').css('top','0');
     		$('#sticker').css('position','absolute').css('bottom','0');
     	}                    
-    	else if ( $(window).scrollTop() +170 > stikerTop && $(window).scrollTop() < rightHeight - $(window).height() + 235) {
-    		/*$('.content-content2').addClass("active");*/
-    		$('#sticker').css('height','100%');
-    		$('#sticker').css('position','fixed').css('top','0');
-    		$('#sticker').css('position','fixed').css('bottom','0');
-    	}
     	else {
     		/*$('.content-content2').removeClass("active");*/
-    		$('#sticker').css('height',$(window).height()-100);
+    		$('#sticker').css('height','100%');
     		$('#sticker').css('position','fixed').css('top','0');
     		$('#sticker').css('position','fixed').css('bottom','0');
     	}

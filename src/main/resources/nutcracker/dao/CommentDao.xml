@@ -43,6 +43,10 @@
     values (LAST_INSERT_ID(), #{reviewNo})
   </insert>
   
+  <delete id='deleteReviewCmts' parameterType='String'>
+    delete from rev_cmt where rvno=#{ownNo}
+  </delete>
+  
   <select id='getBoycottCommentList' parameterType="int" resultMap="map">
     select
       cm.ctno,
@@ -66,24 +70,15 @@
   </select>
   
   <insert id='insertBoycottComment' parameterType="map">
-    insert into cmt(
-      ctno,
-      mno,
-      ct_date,
-      cont,
-      rep_cnt,
-      del_yn)
-    values(
-      #{commentNo},
-      #{memberNo},
-      now(),
-      #{content},
-      0,
-      'n')
+    insert into cmt
+      (ctno,mno,ct_date,cont,rep_cnt,del_yn)
+    values
+      (#{commentNo},#{memberNo},now(),#{content},0,'n')
   </insert>
-  <!-- <insert id='insertBoycottCommentRel' parameterType="map">
+  
+   <insert id='insertBoycottCommentRel' parameterType="map">
     insert into bot_cmt(ctno,botno)
-    values((select ctno from cmt where...),#{boycottNo})
-  </insert> -->
+    values (LAST_INSERT_ID(), #{boycottNo})
+  </insert>
   
 </mapper>

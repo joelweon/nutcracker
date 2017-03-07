@@ -73,7 +73,7 @@
   
   <insert id="insert" parameterType="map">
     insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt) 
-    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath} 0, 0);
+    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath}, 0, 0);
   </insert>
   
   <insert id="insertPhoto" parameterType="map">

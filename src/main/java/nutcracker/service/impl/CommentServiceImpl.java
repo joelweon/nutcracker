@@ -29,6 +29,11 @@ public class CommentServiceImpl implements CommentService {
   }
   
   @Override
+  public int deleteReviewCmts(String ownNo) throws Exception {
+    return commentDao.deleteReviewCmts(ownNo);
+  }
+  
+  @Override
   public List<HashMap<String, Object>> getBoycottCmtList(int ownNo) throws Exception {
     return commentDao.getBoycottCommentList(ownNo);
   }
@@ -43,5 +48,11 @@ public class CommentServiceImpl implements CommentService {
     int count = commentDao.insertBoycottComment(map);
     /*commentDao.insertBoycottCommentRel(map);*/
     return count;
+  }
+
+  @Override
+  public int addBoycottCmtRel(HashMap<String, String> map) throws Exception {
+    int count = commentDao.insertBoycottCommentRel(map);
+    return count; 
   }
 }

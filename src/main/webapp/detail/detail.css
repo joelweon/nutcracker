@@ -22,13 +22,16 @@ body {
 /* Left */
 .left-area {
   top:100px;
-  margin-bottom:100px;
+  /* margin-bottom:100px; */
   width:73%;
   background: #fff;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   float:left;
   position:relative;
+}
+.close {
+  border-top-right-radius: 10px;
 }
 .min-close {
 	display: none;
@@ -182,8 +185,6 @@ ul.reply-list-area {
 .right-area {
   width: 27%;
   top:100px;
-  border-top-right-radius:10px;
-  border-bottom-right-radius:10px;
   float:left;
   position:relative;
   margin-bottom:100px;
@@ -199,6 +200,8 @@ ul.reply-list-area {
 #sticker {
   height:100%;
   background-color: #424242;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
 }
 
 .content-content2.active{
@@ -323,7 +326,9 @@ a#more {
 h5 {
   text-align:center;
 }
-
+/* #daumShopping, #daumShoppingScript {
+  display:none;
+} */
 @media screen and (max-width:850px) {
     .modal {
       overflow-y: hidden;
