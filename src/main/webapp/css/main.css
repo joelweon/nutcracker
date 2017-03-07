@@ -46,12 +46,10 @@
 #wrap-boycott .title-bar {
 	margin-bottom: 5px;
 	border-bottom: 5px solid #f97c00;
-	cursor: pointer;
 }
 #wrap-review .title-bar {
 	margin-bottom: 5px;
 	border-bottom: 5px solid #009900;
-	cursor: pointer;
 }
 .title-view {
 	float: right;

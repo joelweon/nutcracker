@@ -42,14 +42,17 @@ public class CommentJsonControl {
     List<HashMap<String, Object>> list = commentService.getBoycottCmtList(boycottNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
+  
   @RequestMapping("/comment/boycottcommentadd")
   public AjaxResult boycottCommentAdd(@RequestParam HashMap<String,String> map) throws Exception {
     int count = commentService.addBoycottCmt(map);
+    commentService.addBoycottCmtRel(map);
     if (count == 0) {
       return new AjaxResult(AjaxResult.FAIL, "댓글 등록 실패");
     }
     return new AjaxResult(AjaxResult.SUCCESS, "댓글 등록 완료");
   }
+  
   @RequestMapping("/comment/boycottcmtcount")
   public AjaxResult boycottCmtCount(int boycottNo) throws Exception {
     int commentCount = commentService.getBoycottCmtCount(boycottNo);
