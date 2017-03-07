@@ -57,6 +57,24 @@ public class ReviewJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
+  @RequestMapping("/review/updateReviewRead")
+  public AjaxResult updateReviewRead(String reviewNo) throws Exception {
+    int cnt = reviewService.updateRead(reviewNo);
+    if (cnt <= 0) {
+      return new AjaxResult(AjaxResult.FAIL, "조회수 증가 실패");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "조회수 증가 성공");
+  }
+  
+  @RequestMapping("/review/updateReviewHodu")
+  public AjaxResult updateReviewHodu(String reviewNo) throws Exception {
+    int cnt = reviewService.updateHodu(reviewNo);
+    if (cnt <= 0) {
+      return new AjaxResult(AjaxResult.FAIL, "호두수 증가 실패");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "호두수 증가 성공");
+  }
+  
   @RequestMapping("/review/detail")
   public AjaxResult detail(int reviewNo) throws Exception {
     HashMap<String, Object> map = reviewService.getDetail(reviewNo);
@@ -118,5 +136,28 @@ public class ReviewJsonControl {
     reviewService.delete(reviewNo);
     
     return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
+  }
+  
+  @RequestMapping("/review/search")
+  public AjaxResult search(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="5") int pageSize,
+      @RequestParam String range,
+      @RequestParam String keyword) throws Exception {
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    if (pageSize < 5 || pageSize > 10) {
+      pageSize = 5;
+    }
+    List<HashMap<String, Object>> list = reviewService.search(pageNo, pageSize, range, keyword);
+    int totalCount = list.size();
+    
+    System.out.println("list: " + list.get(0));
+    HashMap<String, Object> resultMap = new HashMap<>();
+    resultMap.put("list",  list);
+    resultMap.put("totalCount",  totalCount);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
 }

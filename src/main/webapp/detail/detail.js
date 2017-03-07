@@ -5,6 +5,11 @@ try {
 	console.log(error);
 }
 
+if ($(document).width < 850) {
+  $dm = $('<div id=daumShopping></div><div id=daumShoppingScript></div>');
+  $('#hidden-alternative-goods').append($dm);
+}
+
 //불매 조회수
 $(document).ready(function() {
 	$.getJSON(serverRoot + '/boycott/viewUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {});
@@ -25,9 +30,9 @@ $(function() {
 	});
 
 	// 공구 정보 가져오기
-	var purchaseNo = '402'; //번호를 어디서 받아오는건지 모르겠어요
+	var purchaseNo = '405'; //번호를 어디서 받아오는건지 모르겠어요
 	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
-		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.path);
+		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.photoList.photoPath);
 		$('.purchase-subtitle').text(ajaxResult.data.title);
 	});
 	
@@ -42,15 +47,23 @@ $(function() {
 		$('#textarea').attr('readonly', true);
 	}
 	
-	// 댓글 정보 가져오기
-	$.get(serverRoot + '/comment/boycottcomments.json?boycottNo=' + boycottNo, function(ajaxResult) {
-		var list = ajaxResult.data;
-		var div = $('.reply-list-area:last-child');
-		
-		var template = Handlebars.compile($('#divTemplate').html());
-		div.html(template({"list":list}));
-		return;
+	getComments(boycottNo);
+	
+	
+//댓글 작성
+	$('.reply-button').click(function() {
+	  var param = {
+	      memberNo: JSON.parse(users).memberNo,
+	      content: $('#textarea').val(),
+	      boycottNo: boycottNo,
+	  };
+	  $.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
+	    getComments(boycottNo);
+	  });
+	  
 	});
+	
+
 	
 	// handlebars helper 등록
 	/*var context = {
@@ -67,28 +80,34 @@ $(function() {
 	Handlebars.registerHelper('formatDate', function(date) {
 		return;
 	});*/
-	
-	// 댓글 작성
-	$('.reply-button').click(function() {
-		var param = {
-				memberNo: JSON.parse(users).memberNo,
-				content: $('#textarea').val(),
-				boycottNo: boycottNo,
-		};
-		$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {});
-	});
-
-
-  
 }); // db 관련 js 끝
+
+// 댓글 정보 가져오기
+function getComments(boycottNo) {
+  $.get(serverRoot + '/comment/boycottcomments.json?boycottNo=' + boycottNo, function(ajaxResult) {
+    var list = ajaxResult.data;
+    if (list.legth < 1) {
+      return;
+    } else {
+      $('#textarea').val("");
+      var div = $('.reply-list-area:last-child');
+      var template = Handlebars.compile($('#divTemplate').html());
+      div.html(template({"list":list}));
+      
+      return;
+    }
+  }, 'json');
+}
+
   
 //호두 던지기
 $('.walnut-stamp').click(function(event) {
-	$.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
+  $.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
 		event.preventDefault();
-		window.location.reload(true);
+		$("span.hoducount").text(ajaxResult.data);
 	});
 });
+
 
 
 // 화면 구성 관련 js
@@ -142,23 +161,17 @@ $('.walnut-stamp').click(function(event) {
   	var snsTop = $('#sns-area').offset().top;
   	var stikerTop = $('.right-area').offset().top;
   	var rightHeight = $('.left-area').height();
-  	$('#sticker').css('height',rightHeight - 100);
+  	$('#sticker').css('height',rightHeight);
     $(window).scroll(function() {
     	// 오른쪽 바 상단 고정
     	if ( $(window).scrollTop() < stikerTop || $(window).scrollTop() == stikerTop ) {
     		$('#sticker').css('height',rightHeight - 100);
     		$('#sticker').css('position','absolute').css('top','0');
     		$('#sticker').css('position','absolute').css('bottom','0');
-    	}
-    	else if ( $(window).scrollTop() > stikerTop && $(window).scrollTop() < rightHeight - $(window).height() ) {
-    		/*$('.content-content2').addClass("active");*/
-    		$('#sticker').css('height','100%');
-    		$('#sticker').css('position','fixed').css('top','0');
-    		$('#sticker').css('position','fixed').css('bottom','0');
-    	}
+    	}                    
     	else {
     		/*$('.content-content2').removeClass("active");*/
-    		$('#sticker').css('height',$(window).height()-100);
+    		$('#sticker').css('height','100%');
     		$('#sticker').css('position','fixed').css('top','0');
     		$('#sticker').css('position','fixed').css('bottom','0');
     	}

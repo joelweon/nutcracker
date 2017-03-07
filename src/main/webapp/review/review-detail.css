@@ -114,19 +114,19 @@
 	margin:10px auto 0 auto;
 	width:250px;
 }
-#hodu > img {
+#btn-hodu > img {
 	margin-left:-15px;
 	width:30px;
 	height:30px;
 }
-#hodu {
+#btn-hodu {
 	color: #fff;
 	background-color: #525252;
 	border: 1px solid #8e8e8e;
 	width:250px;
 	font-size:1.3em;
 }
-#hodu:hover {
+#btn-hodu:hover {
 	background-color: #009900;
   border: 1px solid #009900;
 }

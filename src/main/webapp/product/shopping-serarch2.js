@@ -21,53 +21,47 @@
             var dv = document.getElementById('daumShopping');
             dv.innerHTML ="";
             dv.appendChild(daumShoppingSearch.pongSearch(this, z));
-            /*dv.appendChild(daumShoppingSearch.pongPgno(daumShopping.pgno, 
-              z.channel.totalCount/daumShopping.result,daumShopping.pingSearch));*/
+            dv.appendChild(daumShoppingSearch.pongPgno(daumShopping.pgno, 
+              z.channel.totalCount/daumShopping.result,daumShopping.pingSearch));
         },
         
         
         /** li setting **/
         getSearch : function(title,content){
-            var l = document.createElement('div');
+            var li = document.createElement('li');
             
             /*li.style.height = '150px';*/
-            l.appendChild(title);
-            l.appendChild(content);
-            //l.className += "swiper-slide";
+            li.appendChild(title);
+            li.appendChild(content);
             
-            
-            return l;
+            return li;
         },
         /** 설명 return **/
        getContent : function(z){
            var div = document.createElement('div');
            var a = document.createElement('a');
-/*           var b = document.createElement('b');
+           var b = document.createElement('b');
            var ba1 = document.createElement('span');
            var ba2 = document.createElement('span');
            var ba3 = document.createElement('span');
            var ba4 = document.createElement('span');
-           var ba5 = document.createElement('span');*/
+           var ba5 = document.createElement('span');
            var img = document.createElement('img');
            var aimg = document.createElement('a');
            
            /*img.width = 100;
            img.height = 100;*/
            img.src = z.image_url;
-           img.className += "right-image alta-image";
-           img.style.padding = '10px 40px 40px 40px'
-           img.style.borderRadius= '10px'
-           
-           //img.style.width = '170px';
+           /*img.style.paddingRight = '20px';*/
                       
            aimg.target = '_blank';
            aimg.href = z.link;
-           //aimg.style.float = 'left';
+           aimg.style.float = 'left';
            
            aimg.appendChild(img);
            
            
-/*           ba1.innerHTML = '가격 : ' 
+           ba1.innerHTML = '가격 : ' 
                 + z.price_min + '원 ~ ' + z.price_max + '원<br'+'/>';
            ba2.innerHTML = '제조사 : ' 
                 + daumShoppingSearch.escapeHtml(z.maker) + '<br'+'/>';
@@ -82,11 +76,11 @@
            b.appendChild(ba2);
            b.appendChild(ba3);
            b.appendChild(ba4);
-           b.appendChild(ba5);*/
+           b.appendChild(ba5);
            
            div.appendChild(aimg);
-           /*div.appendChild(b);*/
-           /*div.appendChild(a);*/
+           div.appendChild(b);
+           div.appendChild(a);
                       
            return div;
        }

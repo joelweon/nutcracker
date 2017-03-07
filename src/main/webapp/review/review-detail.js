@@ -9,10 +9,24 @@ if (reviewNo > 0) {
 } 
 
 function prepareViewForm(reviewNo) {
+  var param = { "reviewNo" : reviewNo };
+  $.post(serverRoot + '/review/updateReviewRead.json', param, function(ajaxResult) {
+    if (ajaxResult.status != "success") { 
+      console.log("[Review] 조회수 증가 실패"); 
+      return; 
+    }
+  
+    getContent(reviewNo);
+    getComments(reviewNo);
+    
+  });
+} // prepareViewForm()
+
+function getContent(reviewNo) {
   $.get(serverRoot + '/review/detail.json?reviewNo=' + reviewNo, function(ajaxResult) {
     var status = ajaxResult.status;
     if (status != "success") {
-      alert(ajaxResult.data);
+      console.log('[Review] ' + ajaxResult.data);
       return;
     }
     
@@ -29,12 +43,13 @@ function prepareViewForm(reviewNo) {
     
     return;
   }, 'json');
-  
-  var ownNo = reviewNo;
+}
+
+function getComments(ownNo){
   $.get(serverRoot + '/comment/reviewCmtList.json?ownNo=' + ownNo, function(ajaxResult) {
     var status = ajaxResult.status;
     if (status != "success") {
-      alert(ajaxResult.data);
+      console.log('[ReviewComment] ' + ajaxResult.data);
       return;
     }
     
@@ -42,63 +57,73 @@ function prepareViewForm(reviewNo) {
     if (list.length < 1) { 
       return;
     } else {
+      $('#comment').val("");
     
       var div = $('#div-commentList');
       
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
-      
+
       return;
     }
-    
   }, 'json');
-  
-  
-  // 삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
-  $('#btn-update').click(function() {
-    location.href = clientRoot + '/review/review-update.html?reviewNo=' + reviewNo;
-  }); // click()
-  
-  $('#btn-delete').click(function() {
-    if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-      $.get(serverRoot + '/review/delete.json?reviewNo=' + reviewNo, function(ajaxResult) {
-        if (ajaxResult.status != 'success') {
-          return;
-        }
-        location.href = clientRoot + '/review/review.html';
-      });
-    } else {   //취소
-      return;
-    }
-  }); // click()
-  
-  $('#btn-list').click(function() {
-    location.href = clientRoot + '/review/review.html';
-  }); // click()
-  
-  $('#btn-report').click(function() {
-    event.preventDefault();
-    console.log("댓글등록버튼 이벤트 진입");
-    var cmtParam;
-    $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+}
+
+//삭제, 변경 버튼을 클릭 했을 때 호출될 함수(클릭 이벤트 핸들러) 등록
+$('#btn-update').click(function() {
+  location.href = clientRoot + '/review/review-update.html?reviewNo=' + reviewNo;
+}); // click()
+
+$('#btn-delete').click(function() {
+  if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+    $.get(serverRoot + '/review/delete.json?reviewNo=' + reviewNo, function(ajaxResult) {
       if (ajaxResult.status != 'success') {
-        console.log("[ReviewComment] 세션값 없음");
+        console.log('[Review] ' + ajaxResult.data);
         return;
       }
-      cmtParam = {
-        memberNo: ajaxResult.data.memberNo,
-        content: $('#comment').val(),
-        reviewNo: reviewNo
-      };
-      console.log("cmtParam.memberNo: " + cmtParam.memberNo);
-      $.get(serverRoot + '/comment/reviewCmtAdd.json', cmtParam, function(ajaxResult) {
-        if (ajaxResult.status != 'success') {
-          console.log("댓글등록실패");
-          return;
-        }
-        location.href = 'review-detail.html?reviewNo=' + reviewNo;
-      });
+      location.href = clientRoot + '/review/review.html';
+    });
+  } else {   //취소
+    return;
+  }
+}); // click()
+
+$('#btn-list').click(function() {
+  location.href = clientRoot + '/review/review.html';
+}); // click()
+
+$('#btn-hodu').click(function() {
+  event.preventDefault();
+  var param = { "reviewNo" : reviewNo };
+  $.post(serverRoot + '/review/updateReviewHodu.json', param, function(ajaxResult) {
+    if (ajaxResult.status != 'success') {
+      console.log('[ReviewHodu] 호두값 증가 실패');
+    }
+    getContent(reviewNo);
+  });
+});
+
+$('#btn-report').click(function() {
+  event.preventDefault();
+  var cmtParam;
+  $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+    if (ajaxResult.status != 'success') {
+      console.log("[ReviewComment] 세션값 없음");
+      return;
+    }
+    cmtParam = {
+      memberNo: ajaxResult.data.memberNo,
+      content: $('#comment').val(),
+      reviewNo: reviewNo
+    };
+    $.get(serverRoot + '/comment/reviewCmtAdd.json', cmtParam, function(ajaxResult) {
+      if (ajaxResult.status != 'success') {
+        console.log("[ReviewComment] 댓글 등록 실패");
+        return;
+      }
+      //location.href = 'review-detail.html?reviewNo=' + reviewNo;
+      getComments(reviewNo);
     });
   });
-} // prepareViewForm()
+});
 

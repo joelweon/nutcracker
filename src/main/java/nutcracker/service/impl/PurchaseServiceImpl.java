@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import nutcracker.dao.PurchaseDao;
-import nutcracker.domain.Purchase;
 import nutcracker.service.PurchaseService;
 
 @Service
@@ -25,11 +24,14 @@ public class PurchaseServiceImpl implements PurchaseService {
   }
 
   @Override
-  public int add(Purchase purchase) throws Exception {
-      int count = purchaseDao.insert(purchase);
-      if (purchase.getPhotoList().size() > 0) {
-        purchaseDao.insertPhoto(purchase);
+  public int add(HashMap<String,String> map) throws Exception {
+      int count = purchaseDao.insert(map);
+      HashMap<String,String> photoList = new HashMap<>();
+      String path = map.get("photoList");
+      if (path.length() > 0) {
+        photoList.put("photoPath", path);
       }
+      purchaseDao.insertPhoto(photoList);
       return count;
   }
 }

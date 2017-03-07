@@ -37,7 +37,7 @@
       ifnull(API_CNT, 0) as API_CNT,
       ifnull(API_CNT*100/TOTAL_CNT, 0) as PERCENT,
       datediff(EN_DATE,ST_DATE) as REST,
-      PP.PATH as PATH
+      PP.PATH
     from PURCHS P
       left outer join PCH_PHOT PP on P.PNO = PP.PNO
   </select>
@@ -58,7 +58,7 @@
    where P.PNO=#{value}
   </select>
   
-  <insert id="insert" parameterType="purchase" >
+  <insert id="insert" parameterType="map" >
     insert into PURCHS(
       CPNO,
       TITLE,
@@ -70,21 +70,13 @@
     values(#{companyNo},#{title},#{price},#{startDate},#{endDate},#{deliveryDate},#{totalCount})
   </insert>
   
-  <insert id="insertPhoto" parameterType="purchase" >
-    insert into PCH_PHOT(PPNO,PNO,PATH)
+  <insert id="insertPhoto" parameterType="map" >
+    insert into PCH_PHOT(PNO,PATH)
     values
-      <foreach collection="photoList" item="photo" separator=",">
-      (#{photoNo},#{purchaseNo},#{photoPath})
-      </foreach>
+      (LAST_INSERT_ID(),#{photoPath})
+      <!-- <foreach collection="map" item="photo" separator=",">
+      </foreach> -->
   </insert>
-  
-<!--   <insert id="insertPhoto" parameterType="purchase" >
-    insert into PURCHS(pno,path)
-    values
-      <foreach collection="photoList" item="photo" separator=",">
-        (#{purchaseNo},#{photo.path})
-      </foreach>
-  </insert> -->
   
 <!--  <delete id="delete" parameterType="int">
   <![CDATA[

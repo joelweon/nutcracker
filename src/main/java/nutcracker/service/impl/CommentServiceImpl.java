@@ -44,4 +44,10 @@ public class CommentServiceImpl implements CommentService {
     /*commentDao.insertBoycottCommentRel(map);*/
     return count;
   }
+
+  @Override
+  public int addBoycottCmtRel(HashMap<String, String> map) throws Exception {
+    int count = commentDao.insertBoycottCommentRel(map);
+    return count; 
+  }
 }
