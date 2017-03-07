@@ -91,6 +91,7 @@ span.psw {
 .btn-login {
   width:100%;
   display:block;
+  cursor:pointer;
 }
 /* 계정연동 */
 .connect-section {

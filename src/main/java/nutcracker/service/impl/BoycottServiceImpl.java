@@ -20,7 +20,7 @@ public class BoycottServiceImpl implements BoycottService{
 
   @Override
   public Boycott getDetail(int no) throws Exception {
-    return boycottDao.getOneWithNews(no);
+    return boycottDao.getOne(no);
   }
   
   @Override
