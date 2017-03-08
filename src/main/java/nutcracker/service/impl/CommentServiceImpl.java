@@ -20,12 +20,21 @@ public class CommentServiceImpl implements CommentService {
   
   @Override
   public int addReviewCmt(HashMap<String, Object> map) throws Exception {
-    return commentDao.insertReviewCmt(map);
+    if (commentDao.insertReviewCmt(map) > 0) {
+     return Integer.parseInt(map.get("commentNo").toString());
+    } else {
+      return 0;
+    }
   }
   
   @Override
   public int addReviewCmtCon(HashMap<String, Object> map) throws Exception {
     return commentDao.insertReviewCmtCon(map);
+  }
+  
+  @Override
+  public int deleteReviewCmts(String ownNo) throws Exception {
+    return commentDao.deleteReviewCmts(ownNo);
   }
   
   @Override

@@ -24,14 +24,19 @@ public class PurchaseServiceImpl implements PurchaseService {
   }
 
   @Override
-  public int add(HashMap<String,String> map) throws Exception {
+  public int add(HashMap<String,Object> map) throws Exception {
       int count = purchaseDao.insert(map);
-      HashMap<String,String> photoList = new HashMap<>();
-      String path = map.get("photoList");
-      if (path.length() > 0) {
-        photoList.put("photoPath", path);
+      
+      HashMap<String,Object> photoMap = new HashMap<>();
+      if (map.get("photoList") != null) {
+        String[] photo = map.get("photoList").toString().split(",");
+        for (int i = 0; i < photo.length; i++) {
+          photoMap.put("purchaseNo", map.get("purchaseNo"));
+          photoMap.put("photoPath", photo[i]);
+          purchaseDao.insertPhoto(photoMap);
+        }
       }
-      purchaseDao.insertPhoto(photoList);
+      
       return count;
   }
 }

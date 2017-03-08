@@ -19,22 +19,22 @@ public class CommonJsonControl {
   @Autowired ServletContext sc;
   
   @RequestMapping("fileupload")
-  public AjaxResult fileupload(@RequestParam MultipartFile[] files) throws Exception {
-    System.out.println("1번");
+  public AjaxResult fileupload(@RequestParam("photoList") MultipartFile[] files) throws Exception {
     ArrayList<String> filenames = new ArrayList<>();
-    // 페이지 컨트롤러는 입력 파라미터 값을 가공하여 모델 객체에게 전달하는 일을 한다.
-    if (files != null && files.length > 0) {
-      System.out.println("2번");
+    
+    if (files == null || files.length == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "파일 업로드 실패..");
+    } else {
+      // 페이지 컨트롤러는 입력 파라미터 값을 가공하여 모델 객체에게 전달하는 일을 한다.
       for (MultipartFile file : files) {
-        System.out.println("3번");
         if (file.getSize() > 0) {
           String newFilename = MultipartUtil.generateFilename();
-          System.out.println("newFilename : "+newFilename);
-          file.transferTo(new File(sc.getRealPath("/upload/" + newFilename)));
+          file.transferTo(new File(sc.getRealPath("/upload/deal/" + newFilename)));
           filenames.add(newFilename);
         }
       }
+      return new AjaxResult(AjaxResult.SUCCESS, filenames.toString().replace("[", "").replace("]", "").trim());
     }
-    return new AjaxResult(AjaxResult.SUCCESS, filenames);
   }
 }
+

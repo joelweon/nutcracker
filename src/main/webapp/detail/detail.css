@@ -326,7 +326,9 @@ a#more {
 h5 {
   text-align:center;
 }
-
+/* #daumShopping, #daumShoppingScript {
+  display:none;
+} */
 @media screen and (max-width:850px) {
     .modal {
       overflow-y: hidden;

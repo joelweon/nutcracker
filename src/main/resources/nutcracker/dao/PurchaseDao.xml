@@ -58,8 +58,10 @@
    where P.PNO=#{value}
   </select>
   
-  <insert id="insert" parameterType="map" >
+  <insert id="insert" parameterType="map" 
+    useGeneratedKeys="true" keyProperty="purchaseNo" keyColumn="pno">
     insert into PURCHS(
+      PNO,
       CPNO,
       TITLE,
       PRICE,
@@ -67,15 +69,20 @@
       EN_DATE, 
       DEV_DATE, 
       TOTAL_CNT)
-    values(#{companyNo},#{title},#{price},#{startDate},#{endDate},#{deliveryDate},#{totalCount})
+    values(
+      #{purchaseNo},
+      #{companyNo},
+      #{title},
+      #{price},
+      #{startDate},
+      #{endDate},
+      #{deliveryDate},
+      #{totalCount})
   </insert>
   
   <insert id="insertPhoto" parameterType="map" >
     insert into PCH_PHOT(PNO,PATH)
-    values
-      (LAST_INSERT_ID(),#{photoPath})
-      <!-- <foreach collection="map" item="photo" separator=",">
-      </foreach> -->
+    values(#{purchaseNo},#{photoPath})
   </insert>
   
 <!--  <delete id="delete" parameterType="int">

@@ -80,4 +80,13 @@ public class ReviewServiceImpl implements ReviewService {
       return reviewDao.searchInAuth(paramMap);
     }
   }
+
+  @Override
+  public List<HashMap<String, Object>> getListMy(int pageNo, int pageSize, int memberNo) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    paramMap.put("memberNo", memberNo);
+    return reviewDao.getListMy(paramMap);
+  }
 }
