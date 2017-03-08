@@ -14,8 +14,8 @@ $('#input-photo').fileupload({
   previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log("done data: ",data.result.data);
-    $('#photo-path').val(JSON.stringify(data.result.data));
-    console.log("done val: "+$('#photo-path').val());
+    $('#photo-path').val(data.result.data);
+    console.log("done val: " + $('#photo-path').value);
   },
   processalways: function(e, data) {
     console.log('index: '+index);
@@ -30,7 +30,16 @@ $('#input-photo').fileupload({
   			console.log("canvas: ", canvas);
   			var dataURL = canvas.toDataURL();
   		//}
-  		var id = '#photo-img'+index;
+/*=======
+  	div.append(template({"list":list}));
+  	console.log('processalways data:', data);
+  	var index = data.index;
+  	while (index < list.length) {
+  		var canvas = data.files[index].preview;
+  		console.log("canvas: ", canvas);
+  		var dataURL = canvas.toDataURL();
+>>>>>>> branch 'master' of https://github.com/joelweon/nutcracker.git
+*/  		var id = '#photo-img'+index;
   		console.log("id: "+ id);
   		$(id).attr('src', dataURL).css('width', '100px');
   		index++;
