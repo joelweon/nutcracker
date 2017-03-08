@@ -14,13 +14,18 @@ public class CompanyServiceImpl implements CompanyService {
   @Autowired CompanyDao companyDao;
 
   @Override
-  public ArrayList<Company> getParents() throws Exception {
-    return companyDao.getParents();
+  public ArrayList<Company> getBoycottComp(int memberNo) throws Exception {
+    return companyDao.getBoycottComp(memberNo);
   }
   
   @Override
-  public ArrayList<Company> getChildren(String parent) throws Exception {
-    return companyDao.getChildren(parent);
+  public Company getParent(int parentNo) throws Exception {
+   return companyDao.getParent(parentNo);
+  }
+  
+  @Override
+  public ArrayList<Company> getChildren(int parentNo) throws Exception {
+    return companyDao.getChildren(parentNo);
   }
 
 }

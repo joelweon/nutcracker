@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import nutcracker.domain.Company;
 
 public interface CompanyDao {
-  ArrayList<Company> getParents() throws Exception;
-  ArrayList<Company> getChildren(String parent) throws Exception;
+  ArrayList<Company> getBoycottComp(int memberNo) throws Exception;
+  Company getParent(int parentNo) throws Exception;
+  ArrayList<Company> getChildren(int parentNo) throws Exception;
 }
