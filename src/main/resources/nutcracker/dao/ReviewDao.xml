@@ -43,6 +43,20 @@
     limit #{startRowIndex}, #{rowSize}
   </select>
   
+  <select id="getListMy" parameterType="map" resultMap="map">
+    select 
+      r.rvno, 
+      r.path,
+      r.title, 
+      date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      ifnull(r.view_cnt, 0) as view_cnt, 
+      ifnull(r.hodu_cnt, 0) as hodu_cnt
+    from review r
+    where r.mno=#{memberNo}
+    order by r.rv_date desc
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
   <update id="updateRead" parameterType="String">
     update review
     set view_cnt=view_cnt + 1

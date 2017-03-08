@@ -73,7 +73,7 @@
 	        <input id='input-photo' type='file' class='photo' name="photoList" multiple />
 		    </form>
 		      <div id='div-photo' class='input-text photo'>
-            <img id='photo-img' height='80'>
+            <!-- <img id='photo-img' height='80'> -->
             <input id='photo-path' type='hidden'>
 		      </div>
 		    </div>
@@ -90,6 +90,12 @@
 		<!-- 풋터 -->
 		<div id='wrap-footer'></div>
 	</div>
+
+<script id="trTemplate" type="text/x-handlebars-template">
+  {{#each list}}
+    <img id='photo-img{{@index}}' height='80'>
+  {{/each}}
+</script>
 <script src="../js/context.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
@@ -106,6 +112,7 @@
 <script src="../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
 <script src="../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
 <script src="../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src='../js/common.js'></script>
 <!-- <script src='../js/header.js'></script> -->
 <script src='deal-write.js'></script>

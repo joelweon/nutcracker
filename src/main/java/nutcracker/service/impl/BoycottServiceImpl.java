@@ -59,6 +59,11 @@ public class BoycottServiceImpl implements BoycottService{
     
     return boycottDao.update(boycott);
   }
+  
+  @Override
+  public int updateBoycottCount(int boycottNo) throws Exception {
+    return boycottDao.updateBoycott(boycottNo);
+  }
 
   @Override
   public int updateViewCount(int boycottNo) throws Exception {

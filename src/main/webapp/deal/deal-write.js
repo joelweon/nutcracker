@@ -10,24 +10,29 @@ $('#input-photo').fileupload({
   previewMaxWidth: 800,   // 미리보기 이미지 너비
   previewMaxHeight: 800,  // 미리보기 이미지 높이 
   previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-  /*add: function (e, data) {
-    data.submit();
-  },*/
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    console.log("done data: ",data.result);
-    $('#photo-path').val(data.result.data);
-    console.log("done val: ",$('#photo-path').val());
+    console.log("done data: ",data.result.data);
+    $('#photo-path').val(JSON.stringify(data.result.data));
+    console.log("done val: "+$('#photo-path').val());
   },
   processalways: function(e, data) {
-    console.log('processalways data:', data);
-    var img = $('#photo-img');
-    if (data.index == 0) {
-      var canvas = data.files[0].preview;
-      var dataURL = canvas.toDataURL();
-      img.attr('src', dataURL).css('width', '100px');
-      $('#photo-label').css('display', '');
-    }
-  }
+  	var list = data.files;
+  	var div = $('#div-photo');
+  	var template = Handlebars.compile($('#trTemplate').html());
+  	div.html(template({"list":list}));
+  	console.log('processalways data:', data);
+  	$.each(list, function (index, file) {
+  		if (!index) {
+  			console.log('if문 진입 index: '+index);
+  			var canvas = data.files[index].preview;
+  			console.log("canvas: ", canvas);
+  			var dataURL = canvas.toDataURL();
+  		}
+  		var id = '#photo-img'+index;
+  		console.log("id: "+ id);
+  		$(id).attr('src', dataURL).css('width', '100px');
+  	});
+  },
 });
 
 $( function() {
