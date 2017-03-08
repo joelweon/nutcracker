@@ -17,5 +17,10 @@ public class CompanyServiceImpl implements CompanyService {
   public ArrayList<Company> getParents() throws Exception {
     return companyDao.getParents();
   }
+  
+  @Override
+  public ArrayList<Company> getChildren(String parent) throws Exception {
+    return companyDao.getChildren(parent);
+  }
 
 }

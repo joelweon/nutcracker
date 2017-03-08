@@ -22,5 +22,12 @@ public class CompanyJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/company/getChildren")
+  public AjaxResult getChildren(String parent) throws Exception {
+    System.out.println("parent: " + parent);
+    ArrayList<Company> list = companyService.getChildren(parent);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
 
 }
