@@ -33,7 +33,7 @@ public class CommonJsonControl {
           filenames.add(newFilename);
         }
       }
-      return new AjaxResult(AjaxResult.SUCCESS, filenames.toString().replace("[", "").replace("]", "").trim());
+      return new AjaxResult(AjaxResult.SUCCESS, filenames.toString().trim().replace("[", "").replace("]", ""));
     }
   }
 }

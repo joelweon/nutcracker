@@ -93,7 +93,7 @@
 
 <script id="trTemplate" type="text/x-handlebars-template">
   {{#each list}}
-    <img id='photo-img' height='80'>
+    <img id='photo-img{{@index}}' height='80'>
   {{/each}}
 </script>
 <script src="../js/context.js"></script>
