@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="myside.css">
   <link rel="stylesheet" href="../css/footer.css">
 </head>
+
 <body>
 <div id='wrap-header'></div>
 <!-- 숨은메뉴, 숨은검색 -->
@@ -26,21 +27,44 @@
   <div id='wrap-myside'></div>
   
   <div class="main-contents">
-  
-  
-  
+    <ul id="compositions-list" class="pure-tree main-tree">
+	  <!-- <ul id="compositions-list" class="pure-tree main-tree">
+		  <li>
+		    <input type="checkbox" id="trigger-views">
+		    <label for="trigger-views">views</label>
+		    <ul class="pure-tree">
+		      <li class="pure-tree_link"><a href="" title="index.jade" target="_blank">index.html</a></li>
+		    </ul>
+		  </li>
+		</ul> -->
+		</ul>
   </div>
 </div>
 
-
 <div id='wrap-footer'></div>
 
+<script id="parentTemplate" type="text/x-handlebars-template">
+    <li>
+      <input type="checkbox" id="trigger-views{{index}}" class=".trigger-views">
+      <label for="trigger-views{{index}}">{{parent}}</label>
+      <ul id="pure-tree{{index}}" class="pure-tree">
+      </ul>
+    </li>
+</script>
+<script id="childTemplate" type="text/x-handlebars-template">
+  {{#each children}}
+  <li class="pure-tree_link"><a href="" title="index.jade" target="_blank">{{childNo}}</a></li>
+  {{/each}}
+</script>
+
 <script src="../js/context.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/common.js"></script>
 <!-- <script src="../js/header.js"></script> -->
-<script src="./myboycott.js"></script>
+<script src="mypage.js"></script>
+<script src="myboycott.js"></script>
 
 <script>
 $(document).on('click', '.detail-togle', function() {
