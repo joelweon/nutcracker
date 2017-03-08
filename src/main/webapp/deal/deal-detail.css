@@ -114,7 +114,7 @@ body {background-color: #ffffff;}
   top:-20px;
   width:100%;
 }
-.purchase-btn ul li a {
+/* .purchase-btn ul li a {
   display: inline-block;
   height: 40px;
   background: #ff0000;
@@ -137,12 +137,12 @@ body {background-color: #ffffff;}
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   border-left: 20px solid #ff0000;
-}
-.purchase-btn ul li a:hover,
+} */
+
 .wish-btn ul li a:hover {
   background: #2ac7e1;
 }
-.purchase-btn ul li a:hover:after,
+
 .wish-btn ul li a:hover:after {
   border-left-color: #2ac7e1;
 }
@@ -163,17 +163,23 @@ body {background-color: #ffffff;}
 }
 .wish-btn ul li a {
   display: inline-block;
-  height: 40px;
-  background: #808080;
+  width: 120px;
+  height: 50px;
+  background: #f47894;
   text-align: center;
-  padding: 8px 10px 0 10px;
+  padding: 12px;
   position: absolute;
-  margin: 15px 5px 0 0; 
+  margin: 16px 5px 0 0; 
   font-size: 1.2em;
   text-decoration: none;
-  color: #ffffff;
+  color: #000;
+  border-radius: 40px;
+      font-weight: 600;
 }
-.wish-btn ul li a:after {
+.purchase-btn ul .ka-pay {
+  margin: 15px 5px 0 0; 
+}
+/* .wish-btn ul li a:after {
   content: "";
   border-top: 20px solid red;
   border-bottom: 20px solid red;
@@ -184,7 +190,7 @@ body {background-color: #ffffff;}
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
   border-left: 20px solid #808080;
-}
+} */
 
 /* 딜 상세 컨텐츠 */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
@@ -323,9 +329,10 @@ body {background-color: #ffffff;}
 	.purchase-btn ul {
 	  left:-30px;
 	}
-	.purchase-btn ul li a {
+	
+/* 	.purchase-btn ul li a {
 	  padding: 8px 20px 0 10px;
-	}
+	} */
 	.deal-detail-tabs {
 	  /* border:1px solid red; */
 	  top:520px;

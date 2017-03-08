@@ -46,8 +46,9 @@
            var ba3 = document.createElement('span');
            var ba4 = document.createElement('span');
            var ba5 = document.createElement('span');
+           var ba6 = document.createElement('button');
            var img = document.createElement('img');
-           var aimg = document.createElement('a');
+           var aimg = document.createElement('b');
            
            /*img.width = 100;
            img.height = 100;*/
@@ -71,6 +72,10 @@
                 + daumShoppingSearch.escapeHtml(z.publish_date) + '<br'+'/>';
            ba5.innerHTML = '쇼핑몰명 : ' 
              + daumShoppingSearch.escapeHtml(z.shoppingmall) + '<br'+'/>';
+           ba6.className = "wish";
+           ba6.className += " btn btn-danger btn-s";
+           //ba6.className = "";
+           ba6.innerHTML = '위시리스트 추가'
 
            b.appendChild(ba1);
            b.appendChild(ba2);
@@ -81,6 +86,7 @@
            div.appendChild(aimg);
            div.appendChild(b);
            div.appendChild(a);
+           div.appendChild(ba6);
                       
            return div;
        }

@@ -72,4 +72,13 @@ public class CommentJsonControl {
     }
   }
   
+  @RequestMapping("/comment/deleteReviewCmtsMy")
+  public AjaxResult deleteReviewCmtsMy(String[] ownNo) throws Exception {
+    for (int i = 0; i < ownNo.length; i++) {
+      System.out.println(ownNo[i]);
+      commentService.deleteReviewCmts(ownNo[i]);
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "[comment] 불량후기 댓글리스트 삭제 성공");
+  }
+  
 }
