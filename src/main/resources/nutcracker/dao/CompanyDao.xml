@@ -9,14 +9,13 @@
     <id     column="cpno"     property="companyNo"/>
     <result column="cp_name"  property="companyName"/>
     <result column="parno"    property="parentNo"/>
-    <result column="chino"    property="childNo"/>
   </resultMap>
   
   <select id="getParents" resultMap="map">
-    select distinct parno from com_rls
+    select * from comp where parno=0
   </select>
   
   <select id="getChildren" parameterType="String" resultMap="map">
-    select chino from com_rls where parno=#{parent}
+    select * from com_rls where parno=#{parent}
   </select>
 </mapper>
