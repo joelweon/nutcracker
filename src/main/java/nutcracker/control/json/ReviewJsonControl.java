@@ -135,7 +135,7 @@ public class ReviewJsonControl {
   public AjaxResult delete(int reviewNo) throws Exception {
     reviewService.delete(reviewNo);
     
-    return new AjaxResult(AjaxResult.SUCCESS, "불량후기 수정 성공입니다.");
+    return new AjaxResult(AjaxResult.SUCCESS, "불량후기 삭제 성공입니다.");
   }
   
   @RequestMapping("/review/search")
@@ -181,4 +181,13 @@ public class ReviewJsonControl {
     
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
+  
+  @RequestMapping("/review/deleteMy")
+  public AjaxResult deleteMy(String[] rnoAry) throws Exception {
+    for (int i = 0; i < rnoAry.length; i++) {
+      reviewService.delete(Integer.parseInt(rnoAry[i]));
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
+  }
+  
 }

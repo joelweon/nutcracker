@@ -61,6 +61,7 @@ public class ReviewServiceImpl implements ReviewService {
   @Override
   public int delete(int reviewNo) throws Exception {
     int deleteCnt = reviewDao.delete(reviewNo);
+    System.out.println(deleteCnt);
     if (deleteCnt <= 0) { return 0; }
     return deleteCnt;
   }
@@ -89,4 +90,14 @@ public class ReviewServiceImpl implements ReviewService {
     paramMap.put("memberNo", memberNo);
     return reviewDao.getListMy(paramMap);
   }
+  
+/*  @Override
+  public ArrayList<String> deleteMy(ArrayList<String> rnoAry) throws Exception {
+    for (int i = 0; i < rnoAry.size(); i++) {
+      int deleteCnt = reviewDao.deleteMy(rnoAry.get(i));
+      if (deleteCnt <= 0) { return 0; }
+      return deleteCnt;
+    }
+  }*/
+  
 }

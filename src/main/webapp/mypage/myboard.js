@@ -10,7 +10,7 @@ var pageGpSize = 5; // 페이지그룹 크기
 var pRCnt = parseInt(curPageNo / pageGpSize); // 페이지그룹 번호
 var maxPageNo; // 총 페이지 수
 
-  
+
 loadList(curPageNo, pageSize);
 // 버튼 이벤트 등록
 $('#prevPgBtn').click(function() {
@@ -43,7 +43,7 @@ function loadList(pageNo, pageSize) {
     }
     var list = ajaxResult.data.list;
     var div = $('.board-table > tbody');
-    console.log(list);
+    //console.log(list);
 
     var template = Handlebars.compile($('#trTemplate').html());
     div.html(template({"list":list}));
@@ -94,3 +94,41 @@ function preparePagingButton(totalCount) {
     $('#nextPgBtn').addClass('disabled');
   }
 }
+
+// 삭제
+$('.main-contents .delete-div > .delete-btn').click(function(e) {
+  if (confirm("정말 삭제하시겠습니까??") == true) {    //확인
+    e.preventDefault();
+    
+    var rnoAry = new Array();
+    $('input[name=box]:checked').each(function() {
+      rnoAry.push($(this).val());
+    });
+    jQuery.ajaxSettings.traditional = true;
+    console.log(rnoAry);
+    
+    //댓삭
+    $.ajax({
+      method : 'POST',
+      url    : serverRoot + '/comment/deleteReviewCmtsMy.json',
+      data   : {
+        'ownNo' : rnoAry
+      }
+    });
+    //글삭
+    $.ajax({
+      method : 'POST',
+      url    : serverRoot + "/review/deleteMy.json",
+      data   : {
+        'rnoAry' : rnoAry
+      }
+    }).done(function() {
+      location.href = clientRoot + '/mypage/myboard.html';
+    });
+
+
+  } else { //취소
+    return;
+  }
+})//delete
+
