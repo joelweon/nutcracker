@@ -46,12 +46,27 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, boycott);
   }
   
+  @RequestMapping("/boycott/delete")
+  public AjaxResult delete(int boycottNo) throws Exception {
+    boycottService.delete(boycottNo);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "불매운동 삭제 성공입니다.");
+  }
+  
   @RequestMapping("/boycott/update")
   public AjaxResult update(@RequestBody Boycott boycott) throws Exception {
     
     boycottService.update(boycott);
     
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  @RequestMapping("/boycott/boycottUpdate")
+  public AjaxResult boycottUpdate(int boycottNo) throws Exception {
+    Boycott boycott = boycottService.getOne(boycottNo);
+    boycottService.updateBoycottCount(boycottNo);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, boycott.getBoycottCount());
   }
   
   @RequestMapping("/boycott/viewUpdate")

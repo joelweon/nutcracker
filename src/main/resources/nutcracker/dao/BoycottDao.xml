@@ -10,11 +10,12 @@
     <result column="bot_date"   property="postTime"/>
     <result column="title"      property="title"/>
     <result column="cont"       property="content"/>
-    <result column="pt_path"       property="photoPath"/>
+    <result column="pt_path"    property="photoPath"/>
     <result column="view_cnt"   property="viewCount"/>
     <result column="hodu_cnt"   property="hoduCount"/>
     <result column="cmt_cnt"    property="commentCount"/>
     <result column="shr_cnt"    property="shareCount"/>
+    <result column="bot_cnt"    property="boycottCount"/>
     <result column="cpno"       property="companyNo"/>
     
     <collection property="newsList" ofType="BoycottNews">
@@ -34,6 +35,7 @@
       b.hodu_cnt,
       b.cmt_cnt,
       b.shr_cnt,
+      b.bot_cnt,
       b.pt_path,
       bn.newsno,
       bn.headline,
@@ -106,15 +108,13 @@
   
   <update id="update" parameterType="boycott">
     update bot set
-      bot_date=#{postTime}, 
       title=#{title}, 
       cont=#{content}, 
-      view_cnt=#{viewCount},
-      hodu_cnt=#{hoduCount},
-      cmt_cnt=#{commentCount},
-      shr_cnt=#{shareCount}
+      pt_path=#{photoPath},
+      cpno=#{companyNo}
     where botno=#{boycottNo}
   </update>
+  
   
   <update id="updateView" parameterType="int">
     update bot set
@@ -125,6 +125,12 @@
   <update id="updateHodu" parameterType="int">
     update bot set
       hodu_cnt = hodu_cnt+1
+    where botno=#{boycottNo}
+  </update>
+  
+  <update id="updateBoycott" parameterType="int">
+    update bot set
+      bot_cnt = bot_cnt+1
     where botno=#{boycottNo}
   </update>
   
