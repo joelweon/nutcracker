@@ -1,3 +1,5 @@
+var index = 0; 
+
 $('#input-photo').fileupload({
   url: serverRoot + '/common/fileupload.json', // 서버에 요청할 URL
   dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -16,23 +18,30 @@ $('#input-photo').fileupload({
     console.log("done val: "+$('#photo-path').val());
   },
   processalways: function(e, data) {
-  	var list = data.files;
+    console.log('index: '+index);
+  	var list = data.files[index];
   	var div = $('#div-photo');
   	var template = Handlebars.compile($('#trTemplate').html());
-  	div.html(template({"list":list}));
-  	console.log('processalways data:', data);
-  	$.each(list, function (index, file) {
-  		if (!index) {
-  			console.log('if문 진입 index: '+index);
+  	div.append(template({"index" : index}));
+  	//console.log('processalways data:', data);
+  	/*$.each(list, function (index, file) {
+  		if (!index) {*/
   			var canvas = data.files[index].preview;
   			console.log("canvas: ", canvas);
   			var dataURL = canvas.toDataURL();
-  		}
+  		//}
   		var id = '#photo-img'+index;
   		console.log("id: "+ id);
   		$(id).attr('src', dataURL).css('width', '100px');
-  	});
+  		index++;
+  	//});
   },
+  change: function(e, data) {
+    console.log("변경됨!!");
+    index = 0;
+    $('#div-photo').html("<input id='photo-path' type='hidden'>");
+    
+  }
 });
 
 $( function() {
