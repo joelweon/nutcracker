@@ -37,6 +37,7 @@
       b.shr_cnt,
       b.bot_cnt,
       b.pt_path,
+      b.cpno,
       bn.newsno,
       bn.headline,
       bn.path
@@ -54,6 +55,7 @@
       b.hodu_cnt,
       b.cmt_cnt,
       b.shr_cnt,
+      b.bot_cnt,
       b.pt_path,
       b.cpno,
       bn.newsno,
@@ -128,9 +130,15 @@
     where botno=#{boycottNo}
   </update>
   
-  <update id="updateBoycott" parameterType="int">
+  <update id="updateBoycott" parameterType="String">
     update bot set
       bot_cnt = bot_cnt+1
+    where botno=#{boycottNo}
+  </update>
+  
+  <update id="cancelBoycott" parameterType="String">
+    update bot set
+      bot_cnt = bot_cnt-1
     where botno=#{boycottNo}
   </update>
   

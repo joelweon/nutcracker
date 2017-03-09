@@ -15,5 +15,6 @@ public interface BoycottDao {
   int deleteNews(int boycottNo) throws Exception;
   int updateView(int boycottNo) throws Exception;
   int updateHodu(int boycottNo) throws Exception;
-  int updateBoycott(int boycottNo) throws Exception;
+  int updateBoycott(String boycottNo) throws Exception;
+  int cancelBoycott(String boycottNo) throws Exception;
 }
