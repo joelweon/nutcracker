@@ -86,10 +86,15 @@
 }
 .pagination > li.disabled > a {
   color: #ddd;
+  pointer-events: none;
+  cursor: default;
 }
-.pagination > li.disabled > a:hover, .pagination > li.disabled > span:hover {
+.pagination > li.disabled > a:hover, .pagination > li.disabled > span:hover,
+.pagination > li.disabled > a:focus, .pagination > li.disabled > span:focus {
 	background-color: #fff;
 	color: #ddd;
+	pointer-events: none;
+  cursor: default;
 }
 
 /* ------------------------------------------
