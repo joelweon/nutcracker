@@ -43,6 +43,32 @@
 	color: red;
 }
 .boycott-list-btn .list-add-btn { float: right; }
+.hidden { display: none; }
+
+.btn-bot-add {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-bot-delete {
+    color: #fff;
+    background-color: #32CD32;
+    border-color: #32CD32;
+}
+.list-add-btn > p {
+	display: inline;
+	float: right;
+}
+.list-add-btn:hover { color : #fff; }
+.list-add-btn {
+	padding:  8px 12px 0px 12px;
+}
+
+.glyphicon { 
+	float: left; 
+	padding: 1px;
+}
 
 /* ------------------------------------------
   가로가 760px 이하일 때 
