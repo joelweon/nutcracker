@@ -33,7 +33,13 @@ body { background-color: #fff; }
 }
 
 /*  */
-div.photo { border: 1px solid #999; border-radius: 4px; padding: 0 10px; margin-top: 10px;}
+div.photo {
+	border: 1px solid #999;
+	border-radius: 4px;
+	padding: 0 10px;
+	margin-top: 10px;
+	min-height: 80px;
+}
 a#add-photo, a#remove-photo { width: 30px; height: 30px; border-radius: 15px; margin-left: 10px; 
                 padding: 3px 0; background-color: transparent; color: #999;
                 font-size: 1.3em; }

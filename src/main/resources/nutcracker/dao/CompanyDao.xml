@@ -26,7 +26,8 @@
   </select>
   
   <select id="searchMaker" parameterType="String" resultMap="Company-map">
-    select 
+    select
+      cpno,
       cp_name
    from comp
    where cp_name like concat('%',#{value},'%')

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import nutcracker.domain.Company;
 import nutcracker.service.PurchaseService;
 
 @RestController
@@ -42,7 +43,8 @@ public class PurchaseJsonControl {
   
   @RequestMapping("/deal/search")
   public AjaxResult searchMaker(@RequestParam HashMap<String,Object> map) throws Exception {
-    ArrayList<String> result = purchaseService.searchMaker(map);
+    ArrayList<Company> result = purchaseService.searchMaker(map);
+    System.out.println("json result: "+result);
     return new AjaxResult(AjaxResult.SUCCESS, result);
   }
 

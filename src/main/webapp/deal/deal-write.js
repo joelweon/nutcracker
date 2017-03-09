@@ -80,7 +80,6 @@ $('#write').click(function() {
 // 제조사 검색
 function startSearch() {
   var keyword = $(document.getElementById('input-maker'))[0].value;
-  console.log(keyword);
   $.ajax({
     url: serverRoot + "/deal/search.json",
     type: 'POST',
@@ -94,7 +93,11 @@ function startSearch() {
       $(document.getElementById('results')).empty();
       for (var i =0;i<=ajaxResult.data.length;i++){
       	if (ajaxResult.data[i] !== undefined){
-      		results.push('<a href="javascript:void(0)"><div><p>'+ajaxResult.data[i].companyName+'</p></div></a>')}}
+      		results.push('<a href="javascript:void(0)" data-company-no="'
+      				+ajaxResult.data[i].companyNo+
+      				'"><div><p>'+ajaxResult.data[i].companyName+'</p></div></a>')
+      	}
+      }
       results.forEach(function(x){$(document.getElementById('results')).append(x)})
     },
     error: function(err) {
@@ -104,7 +107,8 @@ function startSearch() {
 }
 
 $('#results').delegate('a','click', function() {
-	$('#input-maker').val($(this).text());
+	console.log($(this).text());
+	$('#input-maker').val($(this).data("company-no"));
 	$('#results').html("");
 });
 

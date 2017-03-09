@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import nutcracker.dao.CompanyDao;
 import nutcracker.dao.PurchaseDao;
+import nutcracker.domain.Company;
 import nutcracker.service.PurchaseService;
 
 @Service
@@ -44,15 +45,15 @@ public class PurchaseServiceImpl implements PurchaseService {
   }
 
   @Override
-  public ArrayList<String> searchMaker(HashMap<String, Object> map) throws Exception {
+  public ArrayList<Company> searchMaker(HashMap<String, Object> map) throws Exception {
     String keyword = (String)map.get("keyword");
-    ArrayList<String> resultList;
+    ArrayList<Company> result;
+    System.out.println("service keyword: "+keyword);
     if (!keyword.equals("")) {
-      resultList = companyDao.searchMaker(keyword);
+      result = companyDao.searchMaker(keyword);
     } else {
-      resultList = new ArrayList<String>();
+      result = new ArrayList<>();
     }
-    System.out.println("service result : "+resultList);
-    return resultList;
+    return result;
   }
 }
