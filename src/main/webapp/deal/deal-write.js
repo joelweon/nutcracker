@@ -16,16 +16,13 @@ $('#input-photo').fileupload({
     $('#photo-path').val(data.result.data);
   },
   processalways: function(e, data) {
-    console.log('index: '+index);
   	var list = data.files[index];
   	var div = $('#div-photo');
   	var template = Handlebars.compile($('#trTemplate').html());
   	div.append(template({"index" : index}));
 		var canvas = data.files[index].preview;
-		console.log("canvas: ", canvas);
 		var dataURL = canvas.toDataURL();
 		var id = '#photo-img'+index;
-		console.log("id: "+ id);
 		$(id).attr('src', dataURL).css('width', '100px');
 		index++;
   },
@@ -71,7 +68,6 @@ $('#write').click(function() {
 		deliveryDate: $('#deliv-date').val(),
 		photoList: $('#photo-path').val()
 	};
-	console.log("param: ",param)
   $.post(serverRoot + '/deal/add.json', param, function(ajaxResult) {
     location.href = serverRoot + '/deal/deal.html';
   }, 'json');
@@ -88,7 +84,6 @@ function startSearch() {
     dataType: 'json',
 
     success: function(ajaxResult) {
-    	console.log("data",ajaxResult.data);
       var results = [];
       $(document.getElementById('results')).empty();
       for (var i =0;i<=ajaxResult.data.length;i++){

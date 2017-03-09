@@ -9,7 +9,6 @@ $(function(event) {
       var list = [];
       var finised = [];
       for (var i = 0; i < total.length; i++) {
-      	console.log("ajaxResult.data.rest: " + ajaxResult.data[i].rest);
       	if (ajaxResult.data[i].rest > 0) {
       		list.push(ajaxResult.data[i]);
       	} else {
@@ -25,19 +24,16 @@ $(function(event) {
         location.href = 'deal-detail.html?purchaseNo=' + $(this).attr("data-no");
       });
       
-      
       //퍼센트 그래프
       $('.percentbar').each(function(){
         var percentage = $(this).attr('data-percent');
         $(this).find('.percentbar-bar').animate({ width:percentage },1000);
       });
-
       return;
     }
     alert(ajaxResult.data);
   }, 'json');
 })
-
 
 //탭이동
 var sections = $('deal-detail-navi-cont')
