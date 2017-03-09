@@ -24,7 +24,9 @@ public class PurchaseServiceImpl implements PurchaseService {
 
   @Override
   public HashMap<String, Object> getDetail(int purchaseNo) throws Exception {
-    return purchaseDao.getDetail(purchaseNo);
+    HashMap<String, Object> map = purchaseDao.getDetail(purchaseNo);
+    System.out.println("service map: " + map.get("photoList").toString());
+    return map;
   }
 
   @Override

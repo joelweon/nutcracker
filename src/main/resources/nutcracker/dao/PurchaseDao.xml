@@ -53,6 +53,7 @@
       date_format(ST_DATE, '%Y-%m-%d') as ST_DATE, 
       date_format(EN_DATE, '%Y-%m-%d') as EN_DATE, 
       date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
+      datediff(EN_DATE,now()) as REST,
       TOTAL_CNT,
       ifnull(API_CNT, 0) as API_CNT
    from PURCHS P
