@@ -48,7 +48,6 @@ public class PurchaseServiceImpl implements PurchaseService {
   public ArrayList<Company> searchMaker(HashMap<String, Object> map) throws Exception {
     String keyword = (String)map.get("keyword");
     ArrayList<Company> result;
-    System.out.println("service keyword: "+keyword);
     if (!keyword.equals("")) {
       result = companyDao.searchMaker(keyword);
     } else {

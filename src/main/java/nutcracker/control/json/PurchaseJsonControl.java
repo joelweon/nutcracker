@@ -44,7 +44,6 @@ public class PurchaseJsonControl {
   @RequestMapping("/deal/search")
   public AjaxResult searchMaker(@RequestParam HashMap<String,Object> map) throws Exception {
     ArrayList<Company> result = purchaseService.searchMaker(map);
-    System.out.println("json result: "+result);
     return new AjaxResult(AjaxResult.SUCCESS, result);
   }
 

@@ -36,7 +36,7 @@
       P.TOTAL_CNT,
       ifnull(API_CNT, 0) as API_CNT,
       ifnull(API_CNT*100/TOTAL_CNT, 0) as PERCENT,
-      datediff(EN_DATE,ST_DATE) as REST,
+      datediff(EN_DATE,now()) as REST,
       pp.path
     from PURCHS P 
       left outer join PCH_PHOT PP on P.PNO = PP.PNO
