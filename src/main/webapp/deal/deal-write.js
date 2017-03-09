@@ -73,6 +73,7 @@ $('#write').click(function() {
 	};
 	console.log("param: ",param)
   $.post(serverRoot + '/deal/add.json', param, function(ajaxResult) {
+  	if (ajaxResult.data.endDate)
     location.href = serverRoot + '/deal/deal.html';
   }, 'json');
 });
