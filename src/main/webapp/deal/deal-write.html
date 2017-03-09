@@ -42,9 +42,10 @@
 		      <span class="separator input-text-el"></span>
 		    </div>
 		    <div class='input-text div-maker'>
-          <input type="text" id='input-maker' class='input-text-el input-maker' placeholder="Maker">
+          <input type="text" id='input-maker' class='input-text-el input-maker' onkeyup='startSearch()' placeholder="Maker">
           <span class="separator input-text-el input-maker"></span>
         </div>
+        <div id='results' class='results'></div>
 		    <div class='input-text div-price'>
 	        <input type="text" id='input-price' class='input-text-el input-price' placeholder="Price">
 	        <span class="separator input-text-el input-price"></span>
@@ -73,7 +74,6 @@
 	        <input id='input-photo' type='file' class='photo' name="photoList" multiple />
 		    </form>
 		      <div id='div-photo' class='input-text photo'>
-            <!-- <img id='photo-img' height='80'> -->
             <input id='photo-path' type='hidden'>
 		      </div>
 		    </div>

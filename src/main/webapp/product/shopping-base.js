@@ -114,5 +114,5 @@
     };
     window.onload = function () {
         daumShoppingSearch.init();
-        daumShoppingSearch.search();
+//        daumShoppingSearch.search();
     };

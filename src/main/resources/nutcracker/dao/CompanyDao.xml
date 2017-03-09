@@ -24,4 +24,13 @@
   <select id="getChildren" parameterType="int" resultMap="Company-map">
     select * from comp where parno=#{value}
   </select>
+  
+  <select id="searchMaker" parameterType="String" resultMap="Company-map">
+    select
+      cpno,
+      cp_name
+   from comp
+   where cp_name like concat('%',#{value},'%')
+  </select>
+  
 </mapper>

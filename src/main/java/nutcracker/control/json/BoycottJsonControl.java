@@ -62,9 +62,17 @@ public class BoycottJsonControl {
   }
   
   @RequestMapping("/boycott/boycottUpdate")
-  public AjaxResult boycottUpdate(int boycottNo) throws Exception {
-    Boycott boycott = boycottService.getOne(boycottNo);
+  public AjaxResult boycottUpdate(String boycottNo) throws Exception {
     boycottService.updateBoycottCount(boycottNo);
+    Boycott boycott = boycottService.getOne(Integer.parseInt(boycottNo));
+    
+    return new AjaxResult(AjaxResult.SUCCESS, boycott.getBoycottCount());
+  }
+  
+  @RequestMapping("/boycott/cancelBoycott")
+  public AjaxResult cancelBoycott(String boycottNo) throws Exception {
+    boycottService.cancelBoycottCount(boycottNo);
+    Boycott boycott = boycottService.getOne(Integer.parseInt(boycottNo));
     
     return new AjaxResult(AjaxResult.SUCCESS, boycott.getBoycottCount());
   }

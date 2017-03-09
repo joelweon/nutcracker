@@ -43,5 +43,10 @@ public class Photo implements Serializable {
   public void setPhotoPath(String photoPath) {
     this.photoPath = photoPath;
   }
+
+  @Override
+  public String toString() {
+    return "Photo [photoNo=" + photoNo + ", ownerNo=" + ownerNo + ", photoPath=" + photoPath + "]";
+  }
   
 }

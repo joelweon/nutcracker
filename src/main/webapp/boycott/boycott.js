@@ -1,3 +1,4 @@
+
 /* 썸머노트 가져오기 */
 $(function(event) {
 //학생 목록 가져와서 tr 태그를 만들어 붙인다.
@@ -22,20 +23,73 @@ $(function(event) {
 	  event.preventDefault(); 
 	  location.href = 'view.html';
   });
+  
+  
 });
 
 $(document).on('click', '.list-add-btn', function(event){
 	var param;
-	console.log('111');
+	var addbtn = $(this)
 	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
-	    if (ajaxResult.status != 'success') {
-	      return;
-	    }
-	    
-	    
-	
-	    
-	    
+    if (ajaxResult.status != 'success') {
+    	alert('로그인 후 이용 가능합니다.');
+      return;
+    }
+    $checkbox = $(addbtn.find('input:checkbox'));
+    
+//    $checkbox.triggerHandler('change');
+
+    event.preventDefault();
+    var boycottNo = addbtn.attr("id");
+    
+    if ($checkbox.is(":checked")) {
+    	cancelBoycottCount(boycottNo);
+//    	updateDisplay(boycottNo);
+    	$checkbox.prop('checked', !$checkbox.is(':checked'));
+    	$('#'+boycottNo+' > p').text("나의 불매 리스트 추가");
+    	$('#'+boycottNo).removeClass("btn-bot-delete");
+    	$('#'+boycottNo).addClass("btn-bot-add");
+    }
+    else {
+    	addBoycottCount(boycottNo);
+//    	updateDisplay(boycottNo);
+    	$checkbox.prop('checked', !$checkbox.is(':checked'));
+    	$('#'+boycottNo+' > p').text("나의 불매 리스트 제거");
+    	$('#'+boycottNo).removeClass("btn-bot-add");
+    	$('#'+boycottNo).addClass("btn-bot-delete");
+		}
+    
+//    updateDisplay();
+    
 	}, 'json');
 });
+
+function addBoycottCount(boycottNo) {
+	var param = {"boycottNo": boycottNo}
+	$.post(serverRoot + '/boycott/boycottUpdate.json', param, function(ajaxResult) {
+		if (ajaxResult.status != 'success') {
+      return;
+    }
+		$('#cnt'+boycottNo).text(ajaxResult.data);
+	});
+}
+
+function cancelBoycottCount(boycottNo) {
+	var param = {"boycottNo": boycottNo}
+	$.post(serverRoot + '/boycott/cancelBoycott.json', param, function(ajaxResult) {
+		if (ajaxResult.status != 'success') {
+      return;
+    }
+		$('#cnt'+boycottNo).text(ajaxResult.data);
+	});
+}
+
+function updateDisplay(boycottNo) {
+	var isChecked = $checkbox.is(':checked');
+	
+	$button.data('state', (isChecked) ? "on" : "off");
+	
+	$button.find('')
+}
+
 
