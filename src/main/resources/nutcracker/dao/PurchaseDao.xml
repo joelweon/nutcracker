@@ -37,9 +37,11 @@
       ifnull(API_CNT, 0) as API_CNT,
       ifnull(API_CNT*100/TOTAL_CNT, 0) as PERCENT,
       datediff(EN_DATE,ST_DATE) as REST,
-      PP.PATH
-    from PURCHS P
+      pp.path
+    from PURCHS P 
       left outer join PCH_PHOT PP on P.PNO = PP.PNO
+    where pp.path in (select MIN(path) from pch_phot group by pno)
+    order by p.en_date asc
   </select>
 
   <select id="getDetail" parameterType="int" resultMap="purchase-map">

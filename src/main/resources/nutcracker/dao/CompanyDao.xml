@@ -19,4 +19,12 @@
   <select id="getChildren" parameterType="String" resultMap="map">
     select chino from com_rls where parno=#{parent}
   </select>
+  
+  <select id="searchMaker" parameterType="String" resultMap="map">
+    select 
+      cp_name
+   from comp
+   where cp_name like concat('%',#{value},'%')
+  </select>
+  
 </mapper>

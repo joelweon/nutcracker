@@ -1,5 +1,6 @@
 package nutcracker.control.json;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,6 +38,12 @@ public class PurchaseJsonControl {
   public AjaxResult add(@RequestParam HashMap<String,Object> map) throws Exception {
     purchaseService.add(map);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  @RequestMapping("/deal/search")
+  public AjaxResult searchMaker(@RequestParam HashMap<String,Object> map) throws Exception {
+    ArrayList<String> result = purchaseService.searchMaker(map);
+    return new AjaxResult(AjaxResult.SUCCESS, result);
   }
 
 }
