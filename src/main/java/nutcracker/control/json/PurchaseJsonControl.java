@@ -28,10 +28,10 @@ public class PurchaseJsonControl {
   @RequestMapping("/deal/detail")
   public AjaxResult detail(int purchaseNo) throws Exception {
     HashMap<String, Object> map = purchaseService.getDetail(purchaseNo);
-    
     if (map == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 리뷰가 없습니다.");
+      return new AjaxResult(AjaxResult.FAIL, "해당 공구 정보가 없습니다.");
     }
+    System.out.println(map);
     return new AjaxResult(AjaxResult.SUCCESS, map);
   }
   

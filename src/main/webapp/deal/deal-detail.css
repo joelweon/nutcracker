@@ -23,13 +23,6 @@ body {background-color: #ffffff;}
 	text-align:center;
 	font-size:2em;
 }
-/* 목록으로 돌아가기 */
-#deal-btn {
-	position:absolute;
-	left:5px;
-	
-	top:70px;
-}
 /* 공유 아이콘 */
 .share-icon {
 	/* border:1px solid red; */
@@ -57,7 +50,7 @@ body {background-color: #ffffff;}
   left:30px;
   top:180px;
   width:50%;
-  height:auto;
+  max-height:300px;
   overflow:hidden;
 }
 .deal-detail-img > img {
