@@ -1,11 +1,23 @@
 $(function(event) {
   $.get(serverRoot + '/deal/list.json', function(ajaxResult) {
     if (ajaxResult.status == "success") {
-      var list = ajaxResult.data;
-      var div = $('.deal-container > .deal-area');
+      var total = ajaxResult.data;
+      var div1 = $('.deal-container > .deal-area');
+      var div2 = $('.deal-container > .deal-area-finish');
 
       var template = Handlebars.compile($('#trTemplate').html());
-      div.html(template({"list":list}));
+      var list = [];
+      var finised = [];
+      for (var i = 0; i < total.length; i++) {
+      	console.log("ajaxResult.data.rest: " + ajaxResult.data[i].rest);
+      	if (ajaxResult.data[i].rest > 0) {
+      		list.push(ajaxResult.data[i]);
+      	} else {
+      		finised.push(ajaxResult.data[i]);
+      	}
+      }
+      div1.html(template({"list":list}));
+      div2.html(template({"finished":finised}));
 
       // 디테일 링크
       $('.deal-box').click(function(event) {
