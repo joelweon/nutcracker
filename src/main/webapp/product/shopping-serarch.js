@@ -25,7 +25,6 @@
               z.channel.totalCount/daumShopping.result,daumShopping.pingSearch));
         },
         
-        
         /** li setting **/
         getSearch : function(title,content){
             var li = document.createElement('li');
@@ -78,7 +77,7 @@
            ba6.className = "wish";
            ba6.className += " btn btn-danger btn-s";
            ba6.innerHTML = '위시리스트 추가';
-           ba6.setAttribute('onclick','javascript:cl.cli()');
+           ba6.setAttribute('onclick','javascript:cli()');
            
            ba1.className += "price";
            ba2.className += "maker";

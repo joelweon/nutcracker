@@ -10,7 +10,7 @@
 	href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="mywishi.css">
+<link rel="stylesheet" href="mywish.css">
 <link rel="stylesheet" href="mytop.css">
 <link rel="stylesheet" href="myside.css">
 <link rel="stylesheet" href="../css/footer.css">
@@ -29,7 +29,7 @@
 		<div id='wrap-myside'></div>
 
 		<div class="main-contents">
-			<div>
+<!-- 			<div>
 				<h2>공동구매 상품</h2>
 				<table class="wishi-table">
 					<tr class="wishi-list-title">
@@ -54,84 +54,80 @@
 						<td class="wishi-delivery">무료</td>
 					</tr>
 				</table>
-			</div>
+			</div> 
 
 			<div class="delete-div">
 				선택한 게시글을 <a href="#" class="delete-btn">삭제</a>
-			</div>
+			</div>-->
 			
 			<div>
 				<h2>일반상품</h2>
 				<table class="wishi-table">
-					<tr class="wishi-list-title">
-						<th><input id="allCheck" class="th-check-2" type="checkbox" /></th>
-						<th>상품정보</th>
-						<th>제조사</th>
-						<th>상품금액</th>
-						<th>배송비</th>
-					</tr>
-					<tr class="wishi-list-tr">
-						<td class="wishi-table-date"><input class="td-check-2"
-							type="checkbox" /></td>
-						<td class="wishi-list"><span class="list-img-span"> <a
-								href="#"> <img src="../images/sundung.png">
-							</a>
-						</span>
-							<div>
+          <thead>
+  					<tr class="wishi-list-title">
+  						<th><input id="allCheck" class="th-check-2" type="checkbox" /></th>
+  						<th>상품정보</th>
+  						<th>제조사</th>
+  						<th>브랜드</th>
+  						<th>상품금액</th>
+  					</tr>
+          </thead>
+          <tbody></tbody>
+<!-- 					<tr class="wishi-list-tr">
+						<td class="wishi-table-date">
+              <input class="td-check-2"	type="checkbox" />
+            </td>
+						<td class="wishi-list">
+              <span class="list-img-span"> 
+                <a href="#"> <img src="../images/sundung.png"></a>
+  						</span>
+						  <div>
 								<p>순둥이 베이직 무향 물티슈 80매</p>
-							</div></td>
+							</div>
+            </td>
 						<td class="wishi-brand">우수컨버팅</td>
 						<td class="wishi-price">9,000원</td>
 						<td class="wishi-delivery">무료</td>
-					</tr>
+					</tr> -->
 				</table>
 			</div>
 
 			<div class="delete-div">
 				선택한 게시글을 <a href="#" class="delete-btn">삭제</a>
 			</div>
-
-
 		</div>
 	</div>
-
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+  <tr class="wishi-list-tr">
+    <td class="wishi-table-date">
+       <input class="td-check-2" type="checkbox" />
+    </td>
+    <td class="wishi-list">
+      <span class="list-img-span"> 
+        <a href={{link}}> <img src={{photoPath}}></a>
+      </span>
+      <div>
+        <p><a href={{link}}>{{productName}}</a></p>
+      </div>
+    </td>
+    <td class="wishi-maker">{{maker}}</td>
+    <td class="wishi-brand">{{brand}}</td>
+    <td class="wishi-price">{{price}}</td>
+  </tr> 
+{{/each}}
+</script>
 
 	<div id='wrap-footer'></div>
 
   <script src="../js/context.js"></script>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="../js/common.js"></script>
-	<!-- <script src="../js/header.js"></script> -->
-	<script src="mypage.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../js/common.js"></script>
+  <!-- <script src="../js/header.js"></script> -->
+  <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+  <script src="mypage.js"></script>
+  <script src="mywish.js"></script>
 
-	<script>
-$(document).on('click', '.detail-togle', function() {
-  $(".my-top-detail").toggle("1000");
-});
-
-
-$(function(){
-	$(".th-check-1").click(function(){
-		if($(".th-check-1").prop("checked")) {
-			$(".td-check-1").prop("checked",true);
-			} else {
-			 $(".td-check-1").prop("checked",false);
-  		}
-  })
-})
-
-$(function(){
-	$(".th-check-2").click(function(){
-		if($(".th-check-2").prop("checked")) {
-			$(".td-check-2").prop("checked",true);
-			} else {
-			 $(".td-check-2").prop("checked",false);
-  		}
-  })
-})
-
-</script>
 </body>
 </html>
