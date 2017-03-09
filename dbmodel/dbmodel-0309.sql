@@ -196,9 +196,9 @@ CREATE TABLE WISH (
   WNO      INTEGER      NOT NULL COMMENT '리스트일련번호', -- 리스트일련번호
   MNO      INTEGER      NOT NULL COMMENT '회원일련번호', -- 회원일련번호
   PRO_NAME VARCHAR(255) NOT NULL COMMENT '상품명', -- 상품명
-  PRO_COMP VARCHAR(255) NULL     COMMENT '제조사', -- 제조사
+  MAKER    VARCHAR(255) NULL     COMMENT '제조사', -- 제조사
   BRAND    VARCHAR(255) NULL     COMMENT '브랜드', -- 브랜드
-  PRICE    INTEGER      NULL     COMMENT '가격', -- 가격
+  PRICE    VARCHAR(255) NULL     COMMENT '가격', -- 가격
   PATH     VARCHAR(255) NULL     COMMENT '사진경로', -- 사진경로
   LINK     VARCHAR(255) NULL     COMMENT '링크주소' -- 링크주소
 )
