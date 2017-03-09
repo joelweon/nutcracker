@@ -15,4 +15,6 @@ public interface BoycottService {
   int updateHoduCount(int BoycottNo) throws Exception;
   int updateBoycottCount(String BoycottNo) throws Exception;
   int cancelBoycottCount(String BoycottNo) throws Exception;
+  int addRelation(Boycott boycott) throws Exception;
+  int deleteRelation(Boycott boycott) throws Exception;
 }

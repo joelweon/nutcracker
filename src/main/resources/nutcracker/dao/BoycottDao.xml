@@ -17,6 +17,7 @@
     <result column="shr_cnt"    property="shareCount"/>
     <result column="bot_cnt"    property="boycottCount"/>
     <result column="cpno"       property="companyNo"/>
+    <result column="mno"        property="memberNo"/>
     
     <collection property="newsList" ofType="BoycottNews">
       <id       column="newsno"     property="newsNo"/>
@@ -141,6 +142,11 @@
       bot_cnt = bot_cnt-1
     where botno=#{boycottNo}
   </update>
+  
+  <insert id="insertRelation" parameterType="boycott">
+    insert into bot_rls(mno, cpno, reg_date)
+    values(#{memberNo},#{companyNo},now())
+  </insert>
   
 </mapper>
 

@@ -42,19 +42,23 @@ if (device.indexOf('Mobile') != -1) {
 $('#write').click(function() {
   var param;
   $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
-    if (ajaxResult.status != 'success') {
+    if (ajaxResult.status != 'success') { 
+      colsole.log(ajaxResult.data); 
       return;
     }
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
     var start = contents.indexOf('<img src=');
-    var end = contents.indexOf('data-filename', start);
-    dataURL = contents.substring(start + 10, end - 2);
-    var blob = dataURItoBlob(dataURL);
-    /*var fd = new FormData(document.forms[0]);
-    fd.append("image", blob);*/
-    uploadImage(blob);
-    console.log("thumbnail: " + thumbnail);
+    if (start == -1) {
+      thumbnail = 'default';
+    } else {
+      var end = contents.indexOf('data-filename', start);
+      dataURL = contents.substring(start + 10, end - 2);
+      var blob = dataURItoBlob(dataURL);
+      /*var fd = new FormData(document.forms[0]);
+      fd.append("image", blob);*/
+      uploadImage(blob);
+    }
     
     param = {
       memberNo: ajaxResult.data.memberNo,
@@ -68,12 +72,9 @@ $('#write').click(function() {
         alert(ajaxResult.data);
         return;
       }
-      
-      
       location.href = clientRoot + '/review/review.html';
     }, 'json'); // post();
-  }, 'json');
-  
+  });
 }); // click()
 
 $('#cancel').click(function(event) {

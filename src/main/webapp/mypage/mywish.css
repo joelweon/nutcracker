@@ -98,6 +98,10 @@ body {
 	text-align: center;
 }
 
+.wishi-list > div > p > a {
+  text-decoration:none;
+  color:black;
+}
 
 /* --------------------- */
 .delete-div {

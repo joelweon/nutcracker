@@ -119,23 +119,26 @@
         daumShoppingSearch.init();
         /*daumShoppingSearch.search();*/
     };
-var cl = {
-    cli : function(e) {
-      var param = {
-        img   : $(event.target).closest('li').find('img').attr('src'),
-        name  : ($(event.target).closest('li').find('.name').text()),
-        maker : ($(event.target).closest('li').find('.maker').text()).substring(6),
-        brand : ($(event.target).closest('li').find('.brand').text()).substring(6),
-        price : ($(event.target).closest('li').find('.price').text()).substring(6),
-        path : $(event.target).closest('li').find('.name').attr('href')
-      };
-      console.log(param);
-      
-/*      $.get(serverRoot + '/mypage/mywish.json', param, function(ajaxResult) {
-        if (ajaxResult.status != "success") {
-          console.log(ajaxResult.data);
-          return;
-        }
-      }*/
-    }
+    
+var cli = function(e) {
+    var users = window.sessionStorage.getItem('user');
+    var param = {
+      photoPath   : $(event.target).closest('li').find('img').attr('src'),
+      productName : ($(event.target).closest('li').find('.name').text()),
+      maker       : ($(event.target).closest('li').find('.maker').text()).substring(6),
+      brand       : ($(event.target).closest('li').find('.brand').text()).substring(6),
+      price       : ($(event.target).closest('li').find('.price').text()).substring(6),
+      link        : $(event.target).closest('li').find('.name').attr('href'),
+      memberNo    : JSON.parse(users).memberNo
+    };
+    //console.log(param);
+    
+    $.get(serverRoot + '/mypage/myWishListAdd.json', param, function(ajaxResult) {
+      if (ajaxResult.status != "success") {
+        console.log(ajaxResult.data);
+        return;
+      }
+      alert('담기완료!');
+    });
+  
 }

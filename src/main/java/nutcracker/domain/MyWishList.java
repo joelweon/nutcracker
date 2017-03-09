@@ -8,10 +8,10 @@ public class MyWishList implements Serializable {
   protected int wishNo;
   protected String productName;
   protected String maker;
-  protected int price;
-  protected int dileveryFee;
-  protected String link;
+  protected String brand;
+  protected String price;
   protected String photoPath;
+  protected String link;
   
   public int getWishNo() {
     return wishNo;
@@ -31,23 +31,17 @@ public class MyWishList implements Serializable {
   public void setMaker(String maker) {
     this.maker = maker;
   }
-  public int getPrice() {
+  public String getBrand() {
+    return brand;
+  }
+  public void setBrand(String brand) {
+    this.brand = brand;
+  }
+  public String getPrice() {
     return price;
   }
-  public void setPrice(int price) {
+  public void setPrice(String price) {
     this.price = price;
-  }
-  public int getDileveryFee() {
-    return dileveryFee;
-  }
-  public void setDileveryFee(int dileveryFee) {
-    this.dileveryFee = dileveryFee;
-  }
-  public String getLink() {
-    return link;
-  }
-  public void setLink(String link) {
-    this.link = link;
   }
   public String getPhotoPath() {
     return photoPath;
@@ -55,5 +49,12 @@ public class MyWishList implements Serializable {
   public void setPhotoPath(String photoPath) {
     this.photoPath = photoPath;
   }
-
+  public String getLink() {
+    return link;
+  }
+  public void setLink(String link) {
+    this.link = link;
+  }
+  
+  
 }
