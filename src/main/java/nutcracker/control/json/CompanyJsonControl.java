@@ -16,16 +16,22 @@ public class CompanyJsonControl {
   @Autowired ServletContext sc;
   @Autowired CompanyService companyService;
   
-  @RequestMapping("/company/getParents")
-  public AjaxResult getParents() throws Exception {
-    ArrayList<Company> list = companyService.getParents();
+  @RequestMapping("/company/getBoycottComp")
+  public AjaxResult getBoycottComp(int memberNo) throws Exception {
+    ArrayList<Company> list = companyService.getBoycottComp(memberNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/company/getParent")
+  public AjaxResult getParent(int parentNo) throws Exception {
+    Company comp = companyService.getParent(parentNo);
+    return new AjaxResult(AjaxResult.SUCCESS, comp);
+  }
+  
   @RequestMapping("/company/getChildren")
-  public AjaxResult getChildren(String parent) throws Exception {
-    System.out.println("parent: " + parent);
-    ArrayList<Company> list = companyService.getChildren(parent);
+  public AjaxResult getChildren(int parentNo) throws Exception {
+    System.out.println("parent: " + parentNo);
+    ArrayList<Company> list = companyService.getChildren(parentNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   

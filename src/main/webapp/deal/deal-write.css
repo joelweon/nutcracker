@@ -8,9 +8,18 @@ body { background-color: #fff; }
 .title-sub { color: #252525; font-size: 1em; }
 
 .input-text { margin-bottom: 10px; }
-.div-price, .div-volume { width: 35%;} 
+.div-maker, .div-price, .div-volume { width: 35%;} 
 .div-datepicker { width: 30%; display: inline-block; margin-right: 3%; }
 .edit-text { color: #525252; font-size: 1em; }
+
+/* 제조사 선택창 */
+#maker-search {
+	/* border:1px solid red; */
+	display: none;
+	margin-top: -10px;
+	width: 35%;
+	height: 165px;
+}
 
 /* 날짜피커 */
 #ui-datepicker-div { width: 25%; }
@@ -24,7 +33,13 @@ body { background-color: #fff; }
 }
 
 /*  */
-div.photo { border: 1px solid #999; border-radius: 4px; padding: 0 10px; margin-top: 10px;}
+div.photo {
+	border: 1px solid #999;
+	border-radius: 4px;
+	padding: 0 10px;
+	margin-top: 10px;
+	min-height: 80px;
+}
 a#add-photo, a#remove-photo { width: 30px; height: 30px; border-radius: 15px; margin-left: 10px; 
                 padding: 3px 0; background-color: transparent; color: #999;
                 font-size: 1.3em; }
@@ -86,3 +101,8 @@ input[type="file"] {
   outline-color: transparent;
   outline-style: none;
 }
+
+/* 제조사 검색 */
+
+
+

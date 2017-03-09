@@ -13,40 +13,20 @@ $('#input-photo').fileupload({
   previewMaxHeight: 800,  // 미리보기 이미지 높이 
   previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-    console.log("done data: ",data.result.data);
     $('#photo-path').val(data.result.data);
-    console.log("done val: " + $('#photo-path').value);
   },
   processalways: function(e, data) {
-    console.log('index: '+index);
   	var list = data.files[index];
   	var div = $('#div-photo');
   	var template = Handlebars.compile($('#trTemplate').html());
   	div.append(template({"index" : index}));
-  	//console.log('processalways data:', data);
-  	/*$.each(list, function (index, file) {
-  		if (!index) {*/
-  			var canvas = data.files[index].preview;
-  			console.log("canvas: ", canvas);
-  			var dataURL = canvas.toDataURL();
-  		//}
-/*=======
-  	div.append(template({"list":list}));
-  	console.log('processalways data:', data);
-  	var index = data.index;
-  	while (index < list.length) {
-  		var canvas = data.files[index].preview;
-  		console.log("canvas: ", canvas);
-  		var dataURL = canvas.toDataURL();
->>>>>>> branch 'master' of https://github.com/joelweon/nutcracker.git
-*/  		var id = '#photo-img'+index;
-  		console.log("id: "+ id);
-  		$(id).attr('src', dataURL).css('width', '100px');
-  		index++;
-  	//});
+		var canvas = data.files[index].preview;
+		var dataURL = canvas.toDataURL();
+		var id = '#photo-img'+index;
+		$(id).attr('src', dataURL).css('width', '100px');
+		index++;
   },
   change: function(e, data) {
-    console.log("변경됨!!");
     index = 0;
     $('#div-photo').html("<input id='photo-path' type='hidden'>");
     
@@ -88,9 +68,42 @@ $('#write').click(function() {
 		deliveryDate: $('#deliv-date').val(),
 		photoList: $('#photo-path').val()
 	};
-	console.log("param: ",param)
   $.post(serverRoot + '/deal/add.json', param, function(ajaxResult) {
     location.href = serverRoot + '/deal/deal.html';
   }, 'json');
+});
+
+// 제조사 검색
+function startSearch() {
+  var keyword = $(document.getElementById('input-maker'))[0].value;
+  $.ajax({
+    url: serverRoot + "/deal/search.json",
+    type: 'POST',
+    data: {keyword: keyword},
+    crossDomain: 'true',
+    dataType: 'json',
+
+    success: function(ajaxResult) {
+      var results = [];
+      $(document.getElementById('results')).empty();
+      for (var i =0;i<=ajaxResult.data.length;i++){
+      	if (ajaxResult.data[i] !== undefined){
+      		results.push('<a href="javascript:void(0)" data-company-no="'
+      				+ajaxResult.data[i].companyNo+
+      				'"><div><p>'+ajaxResult.data[i].companyName+'</p></div></a>')
+      	}
+      }
+      results.forEach(function(x){$(document.getElementById('results')).append(x)})
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  })
+}
+
+$('#results').delegate('a','click', function() {
+	console.log($(this).text());
+	$('#input-maker').val($(this).data("company-no"));
+	$('#results').html("");
 });
 
