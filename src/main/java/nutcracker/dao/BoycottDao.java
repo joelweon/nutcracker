@@ -17,4 +17,5 @@ public interface BoycottDao {
   int updateHodu(int boycottNo) throws Exception;
   int updateBoycott(String boycottNo) throws Exception;
   int cancelBoycott(String boycottNo) throws Exception;
+  int insertRelation(Boycott boycott) throws Exception;
 }

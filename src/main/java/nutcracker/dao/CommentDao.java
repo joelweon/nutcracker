@@ -12,4 +12,5 @@ public interface CommentDao {
   int getBoycottCommentCount(int ownNo) throws Exception;
   int insertBoycottComment(HashMap<String, String> map) throws Exception;
   int insertBoycottCommentRel(HashMap<String, String> map) throws Exception;
+  List<HashMap<String, Object>> getProductCommentList(int ownNo) throws Exception;
 }

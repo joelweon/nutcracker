@@ -4,7 +4,6 @@
 body {background-color: #ffffff;}
 
 .deal-detail-container {
-	/* border:1px solid red; */
 	height:800px;
 	width:100%;
 	max-width:960px;
@@ -14,7 +13,6 @@ body {background-color: #ffffff;}
 }
 /* 딜 제목 */
 .deal-detail-title {
-	/* border:1px solid red; */
 	position:absolute;
 	top:10px;
 	max-width:960px;
@@ -25,7 +23,6 @@ body {background-color: #ffffff;}
 }
 /* 공유 아이콘 */
 .share-icon {
-	/* border:1px solid red; */
   position:absolute;
   right:0;
   top:60px;
@@ -54,8 +51,8 @@ body {background-color: #ffffff;}
   overflow:hidden;
 }
 .deal-detail-img > img {
-	width:100%;
-	height:auto;
+	max-width:100%;
+	max-height:300px;
 	margin-left: auto;
   margin-right: auto;
   display: block;
@@ -86,110 +83,29 @@ body {background-color: #ffffff;}
 }
 /* 버튼 */
 .deal-detail-info-btn {
-	/* border: 1px solid red; */
 	position: absolute;
 	width:100%;
-	height:40px;
+	height:50px;
 	left: 15px;
 	margin-top: 30px;
 }
 /* 구매버튼 */
 .purchase-btn{
-	/* border:1px solid green; */
 	position: absolute;
-	width: 40%;
-	height:40px;
+	width: 90%;
+	height:50px;
+	margin: 0 10% 0 10%;
 }
-.purchase-btn ul {
-	list-style:none;
+.purchase-btn .ka-pay {
 	position: absolute;
-	left:-20px;
-  top:-20px;
-  width:100%;
+	border-radius: 10px;
+	height:50px;
+	max-width:100%;
+	margin:auto;
 }
-/* .purchase-btn ul li a {
-  display: inline-block;
-  height: 40px;
-  background: #ff0000;
-  text-align: center;
-  padding: 8px 30px 0 15px;
-  position: absolute;
-  margin: 15px 5px 0 0; 
-  font-size: 1.2em;
-  text-decoration: none;
-  color: #ffffff;
-}
-.purchase-btn ul li a:after {
-  content: "";
-  border-top: 20px solid red;
-  border-bottom: 20px solid red;
-  border-left: 20px solid blue;
-  position: absolute;
-  right: -20px;
-  top: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid #ff0000;
-} */
-
-.wish-btn ul li a:hover {
-  background: #2ac7e1;
-}
-
-.wish-btn ul li a:hover:after {
-  border-left-color: #2ac7e1;
-}
-/* 위시버튼 */
-.wish-btn {
-  /* border:1px solid green; */
-  position: absolute;
-  width: 60%;
-  height:40px;
-  right:0;
-}
-.wish-btn ul {
-  list-style:none;
-  position: absolute;
-  left:-20px;
-  top:-20px;
-  width:100%;
-}
-.wish-btn ul li a {
-  display: inline-block;
-  width: 120px;
-  height: 50px;
-  background: #f47894;
-  text-align: center;
-  padding: 12px;
-  position: absolute;
-  margin: 16px 5px 0 0; 
-  font-size: 1.2em;
-  text-decoration: none;
-  color: #000;
-  border-radius: 40px;
-      font-weight: 600;
-}
-.purchase-btn ul .ka-pay {
-  margin: 15px 5px 0 0; 
-}
-/* .wish-btn ul li a:after {
-  content: "";
-  border-top: 20px solid red;
-  border-bottom: 20px solid red;
-  border-left: 20px solid blue;
-  position: absolute;
-  right: -20px;
-  top: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid #808080;
-} */
 
 /* 딜 상세 컨텐츠 */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
 .deal-detail-tabs {
-  /* border:1px solid red; */
   position:absolute;
   top:460px;
   width:90%;
@@ -234,13 +150,11 @@ body {background-color: #ffffff;}
   position: relative;
 }
 .deal-detail-navi-cont-title {
-  /* border:1px solid #808080; */
   width:100%;
   margin:10px 0 10px 0;
   font-size:1.5em;
 }
 #deal-detail-navi1, #deal-detail-navi2, #deal-detail-navi3 {
-  /* border:1px solid green; */
   padding:30px 10px 0 10px;
 }
 #deal-detail-navi1 img {
@@ -249,8 +163,15 @@ body {background-color: #ffffff;}
   width:90%;
 }
 .deal-detail-navi2-review {
-  /* border:1px solid #ff0080; */
   padding:15px 0;
+}
+.deal-detail-navi2-review span:first-child {
+  padding-right: 10px;
+  font-size:1.2em;
+}
+.deal-detail-navi2-review span:last-child {
+	padding-top:5px;
+  font-size:1.1em;
 }
 #deal-detail-navi2 .deal-detail-navi-cont-title,
 #deal-detail-navi3 .deal-detail-navi-cont-title {

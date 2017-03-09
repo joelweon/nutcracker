@@ -38,6 +38,17 @@ public class BoycottServiceImpl implements BoycottService{
     }
     return 0;
   }
+  
+  @Override
+  public int addRelation(Boycott boycott) throws Exception {
+    boycottDao.insertRelation(boycott);
+    return 0;
+  }
+  
+  @Override
+  public int deleteRelation(Boycott boycott) throws Exception {
+    return 0;
+  }
 
   @Override
   public int delete(int no) throws Exception {
