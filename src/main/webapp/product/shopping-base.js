@@ -131,13 +131,11 @@ var cl = {
       };
       console.log(param);
       
-      $.get(serverRoot + '/mypage/mywish.json', param, function(ajaxResult) {
+/*      $.get(serverRoot + '/mypage/mywish.json', param, function(ajaxResult) {
         if (ajaxResult.status != "success") {
           console.log(ajaxResult.data);
           return;
         }
-
-      };
-      
+      }*/
     }
 }
