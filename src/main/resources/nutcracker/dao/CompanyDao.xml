@@ -5,19 +5,24 @@
   
 <mapper namespace="nutcracker.dao.CompanyDao">
 
-  <resultMap type="hashmap" id="map">
+  <resultMap type="Company" id="Company-map">
     <id     column="cpno"     property="companyNo"/>
     <result column="cp_name"  property="companyName"/>
     <result column="parno"    property="parentNo"/>
-    <result column="chino"    property="childNo"/>
   </resultMap>
   
-  <select id="getParents" resultMap="map">
-    select distinct parno from com_rls
+  <select id="getBoycottComp" parameterType="int" resultMap="Company-map">
+    select c.cpno,c.cp_name,c.parno 
+		from comp as c
+		right outer join (select cpno from bot_rls where mno=#{value}) as r on r.cpno=c.cpno;
   </select>
   
-  <select id="getChildren" parameterType="String" resultMap="map">
-    select chino from com_rls where parno=#{parent}
+  <select id="getParent" parameterType="int" resultMap="Company-map">
+    select * from comp where cpno=#{value}
+  </select>
+  
+  <select id="getChildren" parameterType="int" resultMap="Company-map">
+    select * from comp where parno=#{value}
   </select>
   
   <select id="searchMaker" parameterType="String" resultMap="map">

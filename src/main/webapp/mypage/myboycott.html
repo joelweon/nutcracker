@@ -15,45 +15,38 @@
 </head>
 
 <body>
-<div id='wrap-header'></div>
-<!-- 숨은메뉴, 숨은검색 -->
-<div id='wrap-hidden'></div>
-
-<!-- 마이페이지 상단 바 -->
-<div id='wrap-mytop'></div>
-
-<div class="my-content-area">
-  <!-- 마이페이지 사이드 메뉴 -->
-  <div id='wrap-myside'></div>
-  
-  <div class="main-contents">
-    <ul id="compositions-list" class="pure-tree main-tree">
-	  <!-- <ul id="compositions-list" class="pure-tree main-tree">
-		  <li>
-		    <input type="checkbox" id="trigger-views">
-		    <label for="trigger-views">views</label>
-		    <ul class="pure-tree">
-		      <li class="pure-tree_link"><a href="" title="index.jade" target="_blank">index.html</a></li>
-		    </ul>
-		  </li>
-		</ul> -->
-		</ul>
-  </div>
+<div class='container'>
+	<div id='wrap-header'></div>
+	<!-- 숨은메뉴, 숨은검색 -->
+	<div id='wrap-hidden'></div>
+	
+	<!-- 마이페이지 상단 바 -->
+	<div id='wrap-mytop'></div>
+	
+	<div class="my-content-area">
+	  <!-- 마이페이지 사이드 메뉴 -->
+	  <div id='wrap-myside'></div>
+	  
+	  <div class="main-contents">
+	    <ul id="compositions-list" class="pure-tree main-tree">
+			</ul>
+	  </div>
+	</div>
 </div>
 
-<div id='wrap-footer'></div>
+<!-- <div id='wrap-footer'></div> -->
 
 <script id="parentTemplate" type="text/x-handlebars-template">
     <li>
       <input type="checkbox" id="trigger-views{{index}}" class=".trigger-views">
-      <label for="trigger-views{{index}}">{{parent}}</label>
+      <label for="trigger-views{{index}}" id={{parent.companyNo}}>{{parent.companyName}}</label>
       <ul id="pure-tree{{index}}" class="pure-tree">
       </ul>
     </li>
 </script>
 <script id="childTemplate" type="text/x-handlebars-template">
   {{#each children}}
-  <li class="pure-tree_link"><a href="" title="index.jade" target="_blank">{{childNo}}</a></li>
+  <li class="pure-tree_link"><a id={{companyNo}}>{{companyName}}</a></li>
   {{/each}}
 </script>
 

@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
 
-body {
+/* body {
   font-size: small;
   background-color: rgb(25, 25, 25);
-}
+} */
 
 .my-content-area {
   position: relative;
@@ -15,9 +15,11 @@ body {
 
 /* main contents area*/
 .main-contents {
-  max-width: 80%;
-  font-size: 1.1em;
+  /* max-width: 100%; */
+  font-size: 1em;
   /* float: right; */
+  margin-left: 17%;
+  margin-right: 5%;
 }
 
 /* 기업 트리 */
@@ -32,7 +34,7 @@ ul {
   display: block;
 }
 .pure-tree.main-tree {
-  width: 30em;
+  width: 100%;
   display: inline-block;
 }
 .pure-tree:not(.main-tree) {
@@ -46,8 +48,8 @@ ul {
 .pure-tree label {
   display: block;
   cursor: pointer;
-  color: #717780;
-  border-bottom: 1px dashed #B0B9C5;
+  color: #fff;
+  border-bottom: 1px dashed #fff;
   padding: 1.125em 1.125em 1.125em 0;
 }
 /* .pure-tree label:before {
@@ -60,8 +62,8 @@ ul {
   padding-right: .75em;
 } */
 .pure-tree label:hover {
-  color: #434a58;
-  border-bottom-color: #434a58;
+  color: #B0B9C5;
+  border-bottom-color: #B0B9C5;
 }
 .pure-tree .pure-tree_link a {
   padding: 1.500em 1.125em 0.750em 0;
@@ -70,9 +72,9 @@ ul {
   color: #717780;
   text-decoration: none;
 }
-.pure-tree .pure-tree_link a:hover {
+/* .pure-tree .pure-tree_link a:hover {
   color: #434a58;
-}
+} */
 .pure-tree.nested {
   padding-left: 1.7em;
 }
@@ -85,4 +87,9 @@ ul {
 }
 .pure-tree [type="checkbox"]:checked ~ ul > li {
   height: auto;
+}
+
+label.check, li.pure-tree_link > a.check {
+	color: #f00;
+	font-weight: bold;
 }
