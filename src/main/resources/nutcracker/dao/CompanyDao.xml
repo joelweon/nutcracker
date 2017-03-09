@@ -25,7 +25,7 @@
     select * from comp where parno=#{value}
   </select>
   
-  <select id="searchMaker" parameterType="String" resultMap="map">
+  <select id="searchMaker" parameterType="String" resultMap="Company-map">
     select 
       cp_name
    from comp
