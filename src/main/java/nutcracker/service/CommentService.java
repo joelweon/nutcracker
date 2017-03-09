@@ -12,4 +12,5 @@ public interface CommentService {
   int getBoycottCmtCount(int ownNo) throws Exception;
   int addBoycottCmt(HashMap<String, String> map) throws Exception;
   int addBoycottCmtRel(HashMap<String, String> map) throws Exception;
+  List<HashMap<String, Object>> getProductCmtList(int ownNo)  throws Exception;
 }

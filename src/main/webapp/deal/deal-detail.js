@@ -18,6 +18,22 @@ $(function() {
 	});
 });
 
+// 댓글 불러오기
+$(function() {
+  $.post(serverRoot + '/comment/productcomments.json', 'purchaseNo='+purchaseNo, function(ajaxResult) {
+    var cmtList = ajaxResult.data;
+    console.log("cmtList: ", cmtList);
+    if (cmtList.legth < 1) {
+      return;
+    } else {
+      var div = $('.reply-list-area:last-child');
+      var template = Handlebars.compile($('#trTemplate').html());
+      div.html(template({"list":cmtList}));
+      return;
+    }
+  }, 'json');
+});
+
 //퍼센트 그래프
 $('.percentbar').each(function(){
   var percentage = $(this).attr('data-percent');
