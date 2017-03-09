@@ -5,7 +5,7 @@
             this.q = document.getElementById('daumShoppingSearch');
             
             //검색 객체들 초기화.
-            daumShopping.init(6);
+            daumShopping.init(20);
         },
         /** 검색 **/
         search : function(){
@@ -26,6 +26,7 @@
                 + callback + '&result='+result ; 
             
             ds.appendChild(s);
+            
         },
         /** 결과를 뿌려줌. **/
         pongSearch : function(search, z){
@@ -39,6 +40,7 @@
                 a.target = '_blank';
                 a.innerHTML = this.escapeHtml(z.channel.item[i].title) 
                     + '<br'+'/>';
+                a.className += 'name';
 
                 title.appendChild(a);
                 
@@ -48,6 +50,7 @@
                 //리스트 화.
                 ul.appendChild(search.getSearch(title,content));
             }
+
             return ul;
         },
         /** PageNumber를 그려줌. **/
@@ -114,5 +117,27 @@
     };
     window.onload = function () {
         daumShoppingSearch.init();
-        daumShoppingSearch.search();
+        /*daumShoppingSearch.search();*/
     };
+var cl = {
+    cli : function(e) {
+      var param = {
+        img   : $(event.target).closest('li').find('img').attr('src'),
+        name  : ($(event.target).closest('li').find('.name').text()),
+        maker : ($(event.target).closest('li').find('.maker').text()).substring(6),
+        brand : ($(event.target).closest('li').find('.brand').text()).substring(6),
+        price : ($(event.target).closest('li').find('.price').text()).substring(6),
+        path : $(event.target).closest('li').find('.name').attr('href')
+      };
+      console.log(param);
+      
+      $.get(serverRoot + '/mypage/mywish.json', param, function(ajaxResult) {
+        if (ajaxResult.status != "success") {
+          console.log(ajaxResult.data);
+          return;
+        }
+
+      };
+      
+    }
+}
