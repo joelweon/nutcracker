@@ -13,8 +13,12 @@ $(function() {
 		$('.deal-detail-info-cont-rest').text(ajaxResult.data.rest+" 일");
 		$('.deal-detail-info-cont-total').text(ajaxResult.data.totalCount+" 명");
 		$('.deal-detail-info-cont-applicant').text(ajaxResult.data.applicantCount+" 명");
-		var photo = ajaxResult.data.photoList;
-		console.log(photo);
+		
+		// 상세정보 이미지 불러오기
+		var div = $('.deal-detail-img-list:last-child');
+		var template = Handlebars.compile($('#imgTemplate').html());
+		var imgList = ajaxResult.data.photo;
+		div.html(template({"imgList":imgList}));
 	});
 });
 
@@ -22,12 +26,11 @@ $(function() {
 $(function() {
   $.post(serverRoot + '/comment/productcomments.json', 'purchaseNo='+purchaseNo, function(ajaxResult) {
     var cmtList = ajaxResult.data;
-    console.log("cmtList: ", cmtList);
     if (cmtList.legth < 1) {
       return;
     } else {
       var div = $('.reply-list-area:last-child');
-      var template = Handlebars.compile($('#trTemplate').html());
+      var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":cmtList}));
       return;
     }

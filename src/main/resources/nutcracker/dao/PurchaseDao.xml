@@ -58,7 +58,14 @@
       ifnull(API_CNT, 0) as API_CNT
    from PURCHS P
      left outer join PCH_PHOT PP on P.PNO = PP.PNO
-   where P.PNO=#{value}
+   where pp.path in (select MIN(path) from pch_phot group by pno) and P.PNO=#{value}
+  </select>
+  
+  <select id="getDetailPhoto" parameterType="int" resultType="java.util.HashMap">
+    select 
+      PATH
+   from pch_phot
+   where PNO=#{value}
   </select>
   
   <insert id="insert" parameterType="map" 

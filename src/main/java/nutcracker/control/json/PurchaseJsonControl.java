@@ -31,7 +31,6 @@ public class PurchaseJsonControl {
     if (map == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 공구 정보가 없습니다.");
     }
-    System.out.println(map);
     return new AjaxResult(AjaxResult.SUCCESS, map);
   }
   
