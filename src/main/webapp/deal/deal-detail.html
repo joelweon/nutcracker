@@ -62,16 +62,8 @@
     <!-- 버튼 -->
     <div class='deal-detail-info-btn'>
 		  <div class="purchase-btn">
-			  <ul>
-          <li><a href="#"><img class="ka-pay" src="../images/deal/payment_icon.png" /></a></li>
-			    <!-- <li><a href="#">구매하기</a></li> -->
-			  </ul>
+        <a href="#"><img class="ka-pay" src="../images/deal/payment_icon.png" /></a>
 		  </div>
-		  <div class="wish-btn">
-        <ul>
-          <li><a href="#">위시리스트</a></li>
-        </ul>
-      </div>
 	  </div>
   </div> <!-- deal-detail-infoset -->
   <!-- 딜 상세 컨텐츠-->
@@ -92,18 +84,7 @@
 	    </section>
 	    <section id="deal-detail-navi2">
 	      <div class='deal-detail-navi-cont-title'><span>상품평</span></div>
-	      <div class='deal-detail-navi2-review'>
-	        <span>젊줌마 3시간 전<br></span>
-	        <span>공구 올라올 때마다 구매하고 있어요. 쓸때마다 너무 좋네요</span>
-	      </div>
-	      <div class='deal-detail-navi2-review'>
-	      <span>하랑맘 5시간 전<br></span>
-	      <span>공구로 싸게 사서 좋아요! 다음에 또 했으면 좋겠어요!!</span>
-	      </div>
-	      <div class='deal-detail-navi2-review'>
-	      <span>hahahoho 6시간 전<br></span>
-	      <span>믿고쓰는 제품 순둥이이이이</span>
-	      </div>
+	      <div class='reply-list-area'></div>
 	    </section>
 	    <section id="deal-detail-navi3">
 	      <div class='deal-detail-navi-cont-title'><span>제품문의</span></div>
@@ -115,10 +96,21 @@
     <i class="fa fa-arrow-circle-up fa-2x" aria-hidden="true"></i>
   </a>
 </div><!-- deal-detail-container -->
-<div id='wrap-footer'></div>
+<!-- <div id='wrap-footer'></div> -->
 </div>
+<script id="trTemplate" type="text/x-handlebars-template">
+  {{#each list}}
+    <div class='deal-detail-navi2-review'>
+      <span>{{name}}</span>
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <span>{{postTime}}<br></span>
+      <span>{{content}}</span>
+    </div>
+  {{/each}}
+</script>
 <script src="../js/context.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript" src="deal-detail.js"></script>
 </body>

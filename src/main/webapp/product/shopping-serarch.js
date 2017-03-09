@@ -60,22 +60,31 @@
            aimg.style.float = 'left';
            
            aimg.appendChild(img);
+           img.className += "pic";
            
            
            ba1.innerHTML = '가격 : ' 
-                + z.price_min + '원 ~ ' + z.price_max + '원<br'+'/>';
-           ba2.innerHTML = '제조사 : ' 
-                + daumShoppingSearch.escapeHtml(z.maker) + '<br'+'/>';
-           ba3.innerHTML = '브랜드 : ' 
-             + daumShoppingSearch.escapeHtml(z.brand) + '<br'+'/>';
-           ba4.innerHTML = '출시일 : ' 
-                + daumShoppingSearch.escapeHtml(z.publish_date) + '<br'+'/>';
-           ba5.innerHTML = '쇼핑몰명 : ' 
-             + daumShoppingSearch.escapeHtml(z.shoppingmall) + '<br'+'/>';
+               + z.price_min + '원 ~ ' + z.price_max + '원<br'+'/>';
+           ba2.innerHTML = '제조사 : '
+               + daumShoppingSearch.escapeHtml(z.maker) + '<br'+'/>';
+           ba3.innerHTML = '브랜드 : '
+               + daumShoppingSearch.escapeHtml(z.brand) + '<br'+'/>';
+           ba4.innerHTML = '출시일 : '
+               + daumShoppingSearch.escapeHtml(z.publish_date) + '<br'+'/>';
+           ba5.innerHTML = '쇼핑몰명 : '
+               + daumShoppingSearch.escapeHtml(z.shoppingmall) + '<br'+'/>';
+           
+           
            ba6.className = "wish";
            ba6.className += " btn btn-danger btn-s";
-           //ba6.className = "";
-           ba6.innerHTML = '위시리스트 추가'
+           ba6.innerHTML = '위시리스트 추가';
+           ba6.setAttribute('onclick','javascript:cl.cli()');
+           
+           ba1.className += "price";
+           ba2.className += "maker";
+           ba3.className += "brand";
+           ba4.className += "publish-date";
+           ba5.className += "shoppingmall";
 
            b.appendChild(ba1);
            b.appendChild(ba2);
@@ -87,7 +96,7 @@
            div.appendChild(b);
            div.appendChild(a);
            div.appendChild(ba6);
-                      
+
            return div;
        }
     };

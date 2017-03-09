@@ -28,6 +28,7 @@ public class ReviewJsonControl {
   public AjaxResult list(
       @RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="5") int pageSize) throws Exception {
+    System.out.println("pageSize:" + pageSize);
     
     if (pageNo < 1) {
       pageNo = 1;
