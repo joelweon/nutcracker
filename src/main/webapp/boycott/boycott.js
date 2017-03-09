@@ -42,6 +42,12 @@ $(document).on('click', '.list-add-btn', function(event){
     event.preventDefault();
     var boycottNo = addbtn.attr("id");
     
+    param = {
+    		memberNo		: 	ajaxResult.data.memberNo,
+    		companyNo		:		addbtn.attr("data-no")
+    }
+    
+    
     if ($checkbox.is(":checked")) {
     	cancelBoycottCount(boycottNo);
 //    	updateDisplay(boycottNo);
@@ -57,6 +63,13 @@ $(document).on('click', '.list-add-btn', function(event){
     	$('#'+boycottNo+' > p').text("나의 불매 리스트 제거");
     	$('#'+boycottNo).removeClass("btn-bot-add");
     	$('#'+boycottNo).addClass("btn-bot-delete");
+    	
+    	$.post(serverRoot + '/boycott/relationAdd.json', param, function(ajaxResult) {
+    		if (ajaxResult.status != "success") {
+        alert(ajaxResult.data);
+        return;
+      }
+    	}, 'json');
 		}
     
 //    updateDisplay();

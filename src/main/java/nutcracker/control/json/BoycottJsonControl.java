@@ -37,6 +37,16 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
+  @RequestMapping("/boycott/relationAdd")
+  public AjaxResult addRelation(Boycott boycott) throws Exception {
+    
+    boycottService.addRelation(boycott);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  
+  
   @RequestMapping("/boycott/detail")
   public AjaxResult detail(int boycottNo) throws Exception {
     Boycott boycott = boycottService.getOne(boycottNo);
