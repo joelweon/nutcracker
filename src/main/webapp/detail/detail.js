@@ -66,15 +66,15 @@ $(function() {
 					boycottNo: boycottNo,
 			};
 			console.log(param);
-			/*if (param.content.equals("")) {
-				alertify.confirm("댓글을 입력하세요.", function (e) {});
+			if (param.content.length == 0) {
+				alertify.alert("댓글을 입력하세요.");
 			} else {
 				$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
 					getComments(boycottNo);
 				});
-			}*/
+			}
 		} else {
-			alertify.confirm("댓글 작성은 로그인 후 이용 가능합니다.", function (e) {
+			alertify.confirm("로그인 후 이용 가능합니다. 로그인하시겠습니까?", function (e) {
 	      if (e) {location.href = serverRoot+'/auth/login.html';}
 	      else {}
 	    });
