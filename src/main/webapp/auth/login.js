@@ -19,7 +19,7 @@ function login() {
     $.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
       if (ajaxResult.status == "success") {
         window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
-        location.href = clientRoot + "/main.html"; 
+        history.back();
         return;
       }
       alert(ajaxResult.data);
