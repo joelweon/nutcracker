@@ -118,7 +118,7 @@ body {
 .pagination > li.active > a, .pagination > li.active > span,
 .pagination > .active > a:hover, .pagination > li.active > span:hover,
 .pagination > .active > a:focus, .pagination > li.active > span:focus
-{
+ {
   background-color: #009900;
   color: white;
   border: 1px solid gray;
@@ -126,10 +126,15 @@ body {
 }
 .pagination > li.disabled > a {
   color: #ddd;
+  pointer-events: none;
+  cursor: default;
 }
-.pagination > li.disabled > a:hover, .pagination > li.disabled > span:hover {
+.pagination > li.disabled > a:hover, .pagination > li.disabled > span:hover,
+.pagination > li.disabled > a:focus, .pagination > li.disabled > span:focus {
   background-color: #fff;
   color: #ddd;
+  pointer-events: none;
+  cursor: default;
 }
 
 
