@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="nutcracker.dao.MyWishListDao">
+  
+  <resultMap type="hashmap"      id="myWishList-map">
+    <id     column="WNO"         property="wishNo"/>
+    <result column="MNO"         property="memberNo"/>
+    <result column="PRO_NAME"    property="productName"/>
+    <result column="MAKER"       property="maker"/>
+    <result column="BRAND"       property="brand"/>
+    <result column="PRICE"       property="price"/>
+    <result column="PATH"        property="photoPath"/>
+    <result column="LINK"        property="link"/>
+  </resultMap>
+  
+   <select id="getList" parameterType="int" resultMap="myWishList-map">
+    select 
+      ifnull(W.PATH,' ') as PATH,
+      W.PRO_NAME,
+      ifnull(W.MAKER,' ') as MAKER,
+      ifnull(W.BRAND,' ') as BRAND,
+      ifnull(W.PRICE,' ') as PRICE,
+      ifnull(W.LINK,' ') as LINK
+    from WISH W
+      where MNO=#{value}
+  </select>
+
+  <insert id="insert" parameterType="map" 
+    useGeneratedKeys="true" keyProperty="wishNo" keyColumn="wno">
+    insert into WISH(
+      WNO,
+      MNO,
+      PRO_NAME,
+      MAKER,
+      BRAND,
+      PRICE,
+      PATH,
+      LINK)
+    values(
+      #{wishNo},
+      #{memberNo},
+      #{productName},
+      #{maker},
+      #{brand},
+      #{price},
+      #{photoPath},
+      #{link})
+  </insert>
+</mapper>
