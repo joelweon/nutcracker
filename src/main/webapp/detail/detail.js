@@ -38,9 +38,9 @@ $(function() {
 	});
 
 	// 공구 정보 가져오기
-	var purchaseNo = '405'; //번호를 어디서 받아오는건지 모르겠어요
+	var purchaseNo = '411'; //번호를 어디서 받아오는건지 모르겠어요
 	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
-		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.photoList.photoPath);
+		$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
 		$('.purchase-subtitle').text(ajaxResult.data.title);
 	});
 	
@@ -57,37 +57,25 @@ $(function() {
 	
 	getComments(boycottNo);
 	
-	
 //댓글 작성
 	$('.reply-button').click(function() {
-	  var param = {
-	      memberNo: JSON.parse(users).memberNo,
-	      content: $('#textarea').val(),
-	      boycottNo: boycottNo,
-	  };
-	  $.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
-	    getComments(boycottNo);
-	  });
-	  
+		if (users != null) {
+			var param = {
+					memberNo: JSON.parse(users).memberNo,
+					content: $('#textarea').val(),
+					boycottNo: boycottNo,
+			};
+			$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
+		    getComments(boycottNo);
+		  });
+		} else {
+			alertify.confirm("댓글 작성은 로그인 후 이용 가능합니다.", function (e) {
+	      if (e) {location.href = serverRoot+'/auth/login.html';}
+	      else {}
+	    });
+		}
 	});
 	
-
-	
-	// handlebars helper 등록
-	/*var context = {
-	    postDate   : Date.now() - (1000 * 60 * 60 * 24),
-	    commentDate: Date.now() - (1000 * 60 * 60 * 2),
-	    meetingDate: Date.now() + (1000 * 60 * 51)
-	};
-	var intlData = {
-			"locales": "en-US"
-	};
-	var html = template(context, {
-		data: {intl: intlData}
-	});
-	Handlebars.registerHelper('formatDate', function(date) {
-		return;
-	});*/
 }); // db 관련 js 끝
 
 // 댓글 정보 가져오기
