@@ -47,18 +47,22 @@ $(document).on('click', '.list-add-btn', function(event){
     		companyNo		:		addbtn.attr("data-no")
     }
     
-    
     if ($checkbox.is(":checked")) {
     	cancelBoycottCount(boycottNo);
-//    	updateDisplay(boycottNo);
     	$checkbox.prop('checked', !$checkbox.is(':checked'));
     	$('#'+boycottNo+' > p').text("나의 불매 리스트 추가");
     	$('#'+boycottNo).removeClass("btn-bot-delete");
     	$('#'+boycottNo).addClass("btn-bot-add");
+    	
+    	$.post(serverRoot + '/boycott/relationDelete.json', param, function(ajaxResult) {
+    		if (ajaxResult.status != "success") {
+        alert(ajaxResult.data);
+        return;
+      }
+    	}, 'json');
     }
     else {
     	addBoycottCount(boycottNo);
-//    	updateDisplay(boycottNo);
     	$checkbox.prop('checked', !$checkbox.is(':checked'));
     	$('#'+boycottNo+' > p').text("나의 불매 리스트 제거");
     	$('#'+boycottNo).removeClass("btn-bot-add");
@@ -71,9 +75,6 @@ $(document).on('click', '.list-add-btn', function(event){
       }
     	}, 'json');
 		}
-    
-//    updateDisplay();
-    
 	}, 'json');
 });
 

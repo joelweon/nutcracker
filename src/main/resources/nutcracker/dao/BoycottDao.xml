@@ -148,6 +148,10 @@
     values(#{memberNo},#{companyNo},now())
   </insert>
   
+  <delete id="deleteRelation" parameterType="boycott">
+    delete from bot_rls where mno=#{memberNo} and cpno=#{companyNo}
+  </delete>
+  
 </mapper>
 
 
