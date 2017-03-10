@@ -47,6 +47,9 @@ public class BoycottServiceImpl implements BoycottService{
   
   @Override
   public int deleteRelation(Boycott boycott) throws Exception {
+    
+    boycottDao.deleteRelation(boycott);
+    
     return 0;
   }
 

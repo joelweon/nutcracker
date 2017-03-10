@@ -45,6 +45,13 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
   
+  @RequestMapping("/boycott/relationDelete")
+  public AjaxResult deleteRelation(Boycott boycott) throws Exception {
+    boycottService.deleteRelation(boycott);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
+  }
+  
   
   
   @RequestMapping("/boycott/detail")
