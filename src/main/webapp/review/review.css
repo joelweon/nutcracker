@@ -72,6 +72,8 @@
 .board-search #btn-reviewSearch { padding: 4px; height: 30px; }
 .dropup, .dropup button { width: 100px; }
 
+div#noresult { display: none; }
+
 /* 페이지 이동 */
 .pagination { width: 100%; margin: 5px 0px 30px 0px; }
 .pagination > li > a { color: gray; }
