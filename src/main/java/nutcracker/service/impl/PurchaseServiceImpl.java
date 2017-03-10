@@ -33,7 +33,6 @@ public class PurchaseServiceImpl implements PurchaseService {
       photo.add(realPath);
     }
     map.put("photo", photo);
-    System.out.println("map: "+ map);
     return map;
   }
 

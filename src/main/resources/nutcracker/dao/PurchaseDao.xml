@@ -55,7 +55,8 @@
       date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
       datediff(EN_DATE,now()) as REST,
       TOTAL_CNT,
-      ifnull(API_CNT, 0) as API_CNT
+      ifnull(API_CNT, 0) as API_CNT,
+      ifnull(API_CNT*100/TOTAL_CNT, 0) as PERCENT
    from PURCHS P
      left outer join PCH_PHOT PP on P.PNO = PP.PNO
    where pp.path in (select MIN(path) from pch_phot group by pno) and P.PNO=#{value}
@@ -99,10 +100,9 @@
   <![CDATA[
     delete from PURCHASE where PNO=#{value}
   ]]>
-  </delete>
+  </delete> -->
   
-  
-  <update id="update" parameterType="purchase">
+  <!-- <update id="update" parameterType="purchase-map">
     update PURCHS set
       TITLE=#{title},
       PRICE=#{price},

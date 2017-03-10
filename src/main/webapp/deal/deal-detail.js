@@ -13,6 +13,19 @@ $(function() {
 		$('.deal-detail-info-cont-rest').text(ajaxResult.data.rest+" 일");
 		$('.deal-detail-info-cont-total').text(ajaxResult.data.totalCount+" 명");
 		$('.deal-detail-info-cont-applicant').text(ajaxResult.data.applicantCount+" 명");
+		$('.percentbar').attr('data-percent', ajaxResult.data.percent+"%");
+		$('.percentbar .percentbar-text').text(ajaxResult.data.percent+"%");
+
+		//퍼센트 그래프
+		$('.percentbar').each(function(){
+		  var percentage = $(this).attr('data-percent');
+		  if (ajaxResult.data.percent < 50) {
+		  	$(this).find('.percentbar-bar').css("background-color","rgb(255,0,0)");
+		  } else {
+		  	$(this).find('.percentbar-bar').css("background-color","rgb(0,128,64)");
+		  }
+		  $(this).find('.percentbar-bar').animate({ width:percentage },1000);
+		});
 		
 		// 상세정보 이미지 불러오기
 		var div = $('.deal-detail-img-list:last-child');
@@ -35,12 +48,6 @@ $(function() {
       return;
     }
   }, 'json');
-});
-
-//퍼센트 그래프
-$('.percentbar').each(function(){
-  var percentage = $(this).attr('data-percent');
-  $(this).find('.percentbar-bar').animate({ width:percentage },1000);
 });
 
 //탭 고정
