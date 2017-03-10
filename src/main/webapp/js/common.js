@@ -38,7 +38,8 @@ $(document).ready(function() {
         event.preventDefault();
         window.sessionStorage.removeItem('user');
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-          location.href = clientRoot + '/main.html';
+          location.reload();
+          return;
         });
       });
       
