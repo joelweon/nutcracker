@@ -138,7 +138,7 @@ var cli = function(e) {
         console.log(ajaxResult.data);
         return;
       }
-      alert('담기완료!');
+      alertify.alert("담기완료!");
     });
   
 }
