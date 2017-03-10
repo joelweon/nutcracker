@@ -60,9 +60,11 @@ div.tit-area span.des {
 
 /* left-공유 */
 div.share-area {
-    width: 100%;
-    text-align: right;
-    margin-bottom:120px;
+	width:100%;
+	position:absolute;
+  text-align: right;
+  margin-bottom:10px;
+  padding-right: 30px;
 }
 
 div.share-area.active {
@@ -71,6 +73,7 @@ div.share-area.active {
   top:40%;
   text-align: left;
   z-index:2000;
+  margin-left:-3%;
 }
 .top {
   display:none;
@@ -82,23 +85,9 @@ div.share-area.active {
 .share-area > a {
   text-decoration:none;
 }
-.facebook-logo {
-  width:30px;
-  height:30px;
-  border-radius:5px;
-  margin-right:1px;
-  margin-bottom:7px;
-}
-.twitter-logo {
-  width:30px;
-  height:30px;
-  margin-bottom:7px;
-}
- .share-logo {
-  width:32px;
-  height:30px;
-  margin-right:30px;
-  margin-bottom:7px;
+.facebook-logo, .twitter-logo, .share-logo {
+  margin-right:5px;
+  margin-bottom:10px;
 }
 .top-logo {
   width:32px;
@@ -139,6 +128,7 @@ div.share-area.active {
   position:relative;
   border:0;
   padding:4px 8px;
+  max-width:100%
 }
 .reply-button {
   background-color:#2AA8E0;
@@ -272,7 +262,7 @@ span.link {
 .right-image {
   width:100%;
   height:100%;
-  border-radius:10px;
+  /* border-radius:10px; */
   color:black;
 }
 
@@ -306,7 +296,7 @@ span.link {
 
 .alta-title {
   color:white;
-  margin-bottom: 10px;
+  margin:0 10px 10px 10px;
 }
 
 .alternative-goods {
@@ -326,9 +316,8 @@ a#more {
 h5 {
   text-align:center;
 }
-/* #daumShopping, #daumShoppingScript {
-  display:none;
-} */
+
+
 @media screen and (max-width:850px) {
     .modal {
       overflow-y: hidden;
@@ -336,6 +325,9 @@ h5 {
     .modal-content {
       top:0;
       left:0;
+    }
+    .active {
+      display: none;
     }
     .left-area {
 	    top:0;
@@ -369,7 +361,7 @@ h5 {
       position:relative;
       display:inline-block;
       margin: 2px auto;
-      width:24.3%;
+      width:23.3%;
       height:20px;
       text-align:center;
     }
@@ -396,7 +388,7 @@ h5 {
 		  color:white;
 		  padding:0 0 5px 0;
 		}
-		.purchase-img {
+		.purchase-img, #hidden-alternative-goods > #daumShopping {
 		  width:200px;
 		  height:180px;
 		  margin:auto;
@@ -404,11 +396,14 @@ h5 {
 		  border-radius:10px;
 		  background-color: white;
 		}
+		#hidden-alternative-goods > .alta-title {
+		  margin:0;
+		}
 		.right-image {
 		  width:80%;
 		  height:150px;
 		  color:black;
-		  margin:0 9% 0 9%;
+		  margin:5px 9% 0 9%;
 		}
 		span.link {
 		  display:block;
@@ -422,6 +417,8 @@ h5 {
       top:10px;
       right:10%;
       margin:auto;
+      width:200px;
+      height:210px;
     }
     .swiper-container {
         margin:0;
@@ -462,7 +459,8 @@ h5 {
 		
 		.alta-title {
 		  color:white;
-		  margin-bottom: 10px;
+		  padding:0 0 5px 0;
+		  margin-bottom: 0;
 		}
 		
 		.alternative-goods {
@@ -476,5 +474,6 @@ h5 {
     position:fixed;
     top:4%;
     right:4%;
+    z-index:2000;
     }
 }

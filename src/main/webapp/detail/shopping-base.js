@@ -39,7 +39,8 @@
                 a.href = z.channel.item[i].link;
                 a.target = '_blank';
                 a.innerHTML = this.escapeHtml(z.channel.item[i].title);
-                a.style.color = "white";
+                a.style.textDecoration = "none";
+                /*a.style.color = "white";*/
                 
                 title.appendChild(a);
                 

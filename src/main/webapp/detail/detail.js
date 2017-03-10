@@ -65,9 +65,14 @@ $(function() {
 					content: $('#textarea').val(),
 					boycottNo: boycottNo,
 			};
-			$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
-		    getComments(boycottNo);
-		  });
+			console.log(param);
+			/*if (param.content.equals("")) {
+				alertify.confirm("댓글을 입력하세요.", function (e) {});
+			} else {
+				$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
+					getComments(boycottNo);
+				});
+			}*/
 		} else {
 			alertify.confirm("댓글 작성은 로그인 후 이용 가능합니다.", function (e) {
 	      if (e) {location.href = serverRoot+'/auth/login.html';}
@@ -166,14 +171,13 @@ $('.walnut-stamp > img').click(function(event) {
     		$('#sticker').css('position','absolute').css('bottom','0');
     	}                    
     	else {
-    		/*$('.content-content2').removeClass("active");*/
     		$('#sticker').css('height','100%');
     		$('#sticker').css('position','fixed').css('top','0');
     		$('#sticker').css('position','fixed').css('bottom','0');
     	}
     	
     	// 공유하기 버튼 이동
-      if ( $(window).scrollTop() > snsTop ) {
+      if ( $(window).scrollTop() > snsTop + 100 ) {
       	$('#sns-area').css('position', 'fixed');
         $('.share-area').addClass("active");
         $('.top').addClass("active");
