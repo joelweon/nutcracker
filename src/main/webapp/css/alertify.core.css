@@ -35,6 +35,7 @@
 	position: fixed; z-index: 99999;
 	top: 100px; left: 50%;
 	width: 550px;
+  height: 200px;
 	margin-left: -275px;
 	opacity: 1;
 }
@@ -82,7 +83,7 @@
 		opacity: 0;
 	}
 	.alertify-dialog {
-		padding: 25px;
+	    padding: 50px;
 	}
 		.alertify-resetFocus {
 			border: 0;
@@ -106,6 +107,7 @@
 			font-size: 100%;
 		}
 		.alertify-buttons {
+		    margin-top: 20px;
 		}
 			.alertify-button,
 			.alertify-button:hover,
@@ -121,6 +123,9 @@
 				cursor: pointer;
 				margin-left: 5px;
 			}
+.alertify-inner > p.alertify-message {
+		font-size: 1.3em;
+}
 
 @media only screen and (max-width: 680px) {
 	.alertify,
