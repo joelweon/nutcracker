@@ -55,9 +55,9 @@
       <span class='deal-detail-info-cont deal-detail-info-cont-applicant'></span>
     </div> <!-- deal-detail-info -->
     <!-- 퍼센트 바 -->
-    <div class="percentbar clearfix" data-percent="30%">
+    <div class="percentbar clearfix" data-percent="">
       <div class="percentbar-bar" style='background-color:#ff0000'></div>
-      <div class="percentbar-text">30%</div>
+      <div class="percentbar-text"></div>
     </div> <!-- 퍼센트 바 끝 -->
     <!-- 버튼 -->
     <div class='deal-detail-info-btn'>
@@ -79,8 +79,7 @@
 	  <div class="deal-detail-navi-cont">
 	    <section id="deal-detail-navi1">
 	      <div class='deal-detail-navi-cont-title'><span>상품정보</span></div>
-	      <img src='../images/sundung-detail.jpg'>
-	      <img src='../images/sundung-detail2.jpg'>
+	      <div class='deal-detail-img-list'></div>
 	    </section>
 	    <section id="deal-detail-navi2">
 	      <div class='deal-detail-navi-cont-title'><span>상품평</span></div>
@@ -98,7 +97,7 @@
 </div><!-- deal-detail-container -->
 <!-- <div id='wrap-footer'></div> -->
 </div>
-<script id="trTemplate" type="text/x-handlebars-template">
+<script id="divTemplate" type="text/x-handlebars-template">
   {{#each list}}
     <div class='deal-detail-navi2-review'>
       <span>{{name}}</span>
@@ -106,6 +105,11 @@
       <span>{{postTime}}<br></span>
       <span>{{content}}</span>
     </div>
+  {{/each}}
+</script>
+<script id="imgTemplate" type="text/x-handlebars-template">
+  {{#each imgList}}
+    <img src='/nutcracker/upload/deal/{{this}}'>
   {{/each}}
 </script>
 <script src="../js/context.js"></script>

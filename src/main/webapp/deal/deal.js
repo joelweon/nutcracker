@@ -1,14 +1,13 @@
 $(function(event) {
   $.get(serverRoot + '/deal/list.json', function(ajaxResult) {
     if (ajaxResult.status == "success") {
-      var total = ajaxResult.data;
       var div1 = $('.deal-container > .deal-area');
       var div2 = $('.deal-container > .deal-area-finish');
 
       var template = Handlebars.compile($('#trTemplate').html());
       var list = [];
       var finised = [];
-      for (var i = 0; i < total.length; i++) {
+      for (var i = 0; i < ajaxResult.data.length; i++) {
       	if (ajaxResult.data[i].rest > 0) {
       		list.push(ajaxResult.data[i]);
       	} else {
@@ -25,13 +24,17 @@ $(function(event) {
       });
       
       //퍼센트 그래프
-      $('.percentbar').each(function(){
-        var percentage = $(this).attr('data-percent');
-        $(this).find('.percentbar-bar').animate({ width:percentage },1000);
+      $('.percentbar').each(function() {
+        var percentage = $(this).attr('data-percent').replace("%","");
+        if (percentage < 50) {
+  		  	$(this).find('.percentbar-bar').css("background-color","rgb(255,0,0)");
+  		  } else {
+  		  	$(this).find('.percentbar-bar').css("background-color","rgb(0,128,64)");
+  		  }
+        $(this).find('.percentbar-bar').animate({ width:percentage+"%" },1000);
       });
       return;
     }
-    alert(ajaxResult.data);
   }, 'json');
 })
 

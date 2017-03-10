@@ -153,9 +153,12 @@ public class ReviewJsonControl {
     }
     List<HashMap<String, Object>> list = reviewService.search(pageNo, pageSize, range, keyword);
     int totalCount = list.size();
-    
-    System.out.println("list: " + list.get(0));
     HashMap<String, Object> resultMap = new HashMap<>();
+    if (totalCount <= 0) {
+      resultMap.put("list", null);
+      resultMap.put("totalCount", 0);
+      return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+    }
     resultMap.put("list",  list);
     resultMap.put("totalCount",  totalCount);
     

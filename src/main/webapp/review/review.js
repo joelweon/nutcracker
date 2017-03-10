@@ -5,7 +5,7 @@ try {
 } catch (error) {
   var curPageNo = 1; // 현재페이지
 }
-var pageSize = 5; // 한 페이지에 보여줄 글 갯수
+var pageSize = 10; // 한 페이지에 보여줄 글 갯수
 var pageGpSize = 5; // 페이지그룹 크기
 var pRCnt = parseInt(curPageNo / pageGpSize); // 페이지그룹 번호
 var maxPageNo; // 총 페이지 수
@@ -108,15 +108,22 @@ function loadList(pageNo, pageSize) {
         return;
       }
       list = ajaxResult.data.list;
-      var tbody = $('.table-review > tbody');
-      
-      var template = Handlebars.compile($('#trTemplate').html());
-      tbody.html(template({"list":list}));
-   
-      $('.title-link').click(function(event) {
-        event.preventDefault();
-        location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
-      });
+      // 검색 결과가 없을 때
+      if (list == null) {
+        $('table#table-review').css('display', 'none');
+        $('div#noresult').css('display', 'block');
+      } else {
+        $('div#noresult').css('display', 'none');
+        $('table#table-review').css('display', 'table');
+        var tbody = $('.table-review > tbody');
+        var template = Handlebars.compile($('#trTemplate').html());
+        tbody.html(template({"list":list}));
+        
+        $('.title-link').click(function(event) {
+          event.preventDefault();
+          location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
+        });
+      }
    
       // 페이지 버튼 설정
       preparePagingButton(ajaxResult.data.totalCount);
