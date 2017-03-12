@@ -1,9 +1,8 @@
-/**
- * Default Look and Feel
- */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 .alertify,
 .alertify-log {
-	font-family: sans-serif;
+	font-family: 'Nanum Gothic', sans-serif;
+	color:black;
 }
 .alertify {
 	background: #FFF;

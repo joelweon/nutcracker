@@ -38,9 +38,9 @@ $(function() {
 	});
 
 	// 공구 정보 가져오기
-	var purchaseNo = '405'; //번호를 어디서 받아오는건지 모르겠어요
+	var purchaseNo = '411'; //번호를 어디서 받아오는건지 모르겠어요
 	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
-		$('.purchase-img img').attr('src', clientRoot+'/images/'+ajaxResult.data.photoList.photoPath);
+		$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
 		$('.purchase-subtitle').text(ajaxResult.data.title);
 	});
 	
@@ -57,37 +57,30 @@ $(function() {
 	
 	getComments(boycottNo);
 	
-	
 //댓글 작성
 	$('.reply-button').click(function() {
-	  var param = {
-	      memberNo: JSON.parse(users).memberNo,
-	      content: $('#textarea').val(),
-	      boycottNo: boycottNo,
-	  };
-	  $.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
-	    getComments(boycottNo);
-	  });
-	  
+		if (users != null) {
+			var param = {
+					memberNo: JSON.parse(users).memberNo,
+					content: $('#textarea').val(),
+					boycottNo: boycottNo,
+			};
+			console.log(param);
+			if (param.content.length == 0) {
+				alertify.alert("댓글을 입력하세요.");
+			} else {
+				$.getJSON(serverRoot + '/comment/boycottcommentadd.json', param, function(ajaxResult) {
+					getComments(boycottNo);
+				});
+			}
+		} else {
+			alertify.confirm("로그인 후 이용 가능합니다. 로그인하시겠습니까?", function (e) {
+	      if (e) {location.href = serverRoot+'/auth/login.html';}
+	      else {}
+	    });
+		}
 	});
 	
-
-	
-	// handlebars helper 등록
-	/*var context = {
-	    postDate   : Date.now() - (1000 * 60 * 60 * 24),
-	    commentDate: Date.now() - (1000 * 60 * 60 * 2),
-	    meetingDate: Date.now() + (1000 * 60 * 51)
-	};
-	var intlData = {
-			"locales": "en-US"
-	};
-	var html = template(context, {
-		data: {intl: intlData}
-	});
-	Handlebars.registerHelper('formatDate', function(date) {
-		return;
-	});*/
 }); // db 관련 js 끝
 
 // 댓글 정보 가져오기
@@ -178,14 +171,13 @@ $('.walnut-stamp > img').click(function(event) {
     		$('#sticker').css('position','absolute').css('bottom','0');
     	}                    
     	else {
-    		/*$('.content-content2').removeClass("active");*/
     		$('#sticker').css('height','100%');
     		$('#sticker').css('position','fixed').css('top','0');
     		$('#sticker').css('position','fixed').css('bottom','0');
     	}
     	
     	// 공유하기 버튼 이동
-      if ( $(window).scrollTop() > snsTop ) {
+      if ( $(window).scrollTop() > snsTop + 100 ) {
       	$('#sns-area').css('position', 'fixed');
         $('.share-area').addClass("active");
         $('.top').addClass("active");
