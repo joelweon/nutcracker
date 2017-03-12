@@ -103,6 +103,32 @@ body {background-color: #ffffff;}
 	max-width:100%;
 	margin:auto;
 }
+/* 수량 선택 */
+.qty-box {
+  border: 1px solid #94c4ec;
+  border-radius: 3px;
+  display: block;
+  height: 60px;
+  margin: calc(50vh - 30px) auto 0 auto;
+  width: 200px;
+}
+
+.qty-box:span {
+  color: #62a8e2;
+  font-family: sans-serif;
+  float: left;
+  line-height: 60px;
+  text-align: center;
+  width: calc(200px/3);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dec, .inc {
+  height: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 /* 딜 상세 컨텐츠 */
 .deal-detail-tabs {
