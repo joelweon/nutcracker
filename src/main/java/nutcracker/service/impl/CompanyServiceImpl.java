@@ -14,6 +14,11 @@ public class CompanyServiceImpl implements CompanyService {
   @Autowired CompanyDao companyDao;
 
   @Override
+  public int[] getBoycottNo(int memberNo) throws Exception {
+    return companyDao.getBoycottNo(memberNo);
+  }
+  
+  @Override
   public ArrayList<Company> getBoycottComp(int memberNo) throws Exception {
     return companyDao.getBoycottComp(memberNo);
   }
