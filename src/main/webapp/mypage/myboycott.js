@@ -1,3 +1,5 @@
+var boycottNo;; // 회원이 등록한 불매운동 기업번호
+
 prepareForm();
 
 function prepareForm() {
@@ -5,12 +7,12 @@ function prepareForm() {
     if (ajaxResult.status != 'success') {
       return;
     }
-    getCompany(ajaxResult.data.memberNo);
+    var memberNo = ajaxResult.data.memberNo;
+    getCompany(memberNo);
   });
 }
 
 function getCompany(memberNo) {
-  console.log("getCompany()...");
   var param = {"memberNo" : memberNo};
   $.get(serverRoot + '/company/getBoycottComp.json', param, function(ajaxResult) {
     if (ajaxResult.status != 'success') {
@@ -21,32 +23,37 @@ function getCompany(memberNo) {
     var parentTemplate = Handlebars.compile($('#parentTemplate').html());
     var list = ajaxResult.data;
     for(var i = 0; i < list.length; i++) {
-      var comp = list[i].parentNo;
-      var param;
-      if (comp == 0) {
-        contents.append(parentTemplate({"index": i, "parent" : list[i]}));
-        param = {"parentNo" : list[i].companyNo};
-        getChildren(i, param);
-      } else {
-        param = {"parentNo" : comp};
-        console.log("getParent...");
-        $.ajax({
-          type: 'GET',
-          url: serverRoot + '/company/getParent.json',
-          data: param,
-          success: function(ajaxResult) {
-            if (ajaxResult.status != 'success') {
-              console.log('[company] 기업정보를 가져오지 못했습니다.');
-              return;
-            }
-            console.log("부모 가져옴!! " + ajaxResult.data.companyName);
-            contents.append(parentTemplate({"index": i, "parent" : ajaxResult.data}));
-            getChildren(i, param);
-          },
-          async: false
-        });
+      contents.append(
+          parentTemplate({"index": i, "parentNo" : list[i].cpno, "parentName" : list[i].cp_name}));
+      if (list[i].childrenNo != null) {
+        var childrenNo = list[i].childrenNo.split(',');
+        var childrenName = list[i].childrenName.split(',');
+        var childrenArray = new Array(childrenNo.length);
+        for (var j = 0; j < childrenNo.length; j++) {
+          childrenArray[j] = {"childrenNo" : childrenNo[j], "childrenName" : childrenName[j]};
+        }
+        var li = $('#pure-tree' + i);
+        var childTemplate = Handlebars.compile($('#childTemplate').html());
+        li.append(childTemplate({"childrenArray" : childrenArray}));
       }
-      $('#'+list[i].companyNo).addClass('check');
+    }
+  });
+  
+  checkBoycott(memberNo);
+}
+
+function checkBoycott(memberNo) {
+  console.log('checkBoycott()...');
+  var param = {"memberNo" : memberNo};
+  $.get(serverRoot + '/company/getBoycottNo.json', param, function(ajaxResult) {
+    if (ajaxResult.status != 'success') {
+      console.log('[company] 불매기업번호를 가져오지 못했습니다.');
+      return;
+    }
+    var list = ajaxResult.data;
+    console.log("list: " + list);
+    for (var i = 0; i < list.length; i++) {
+      $('#'+list[i]).addClass('check');
     }
   });
 }

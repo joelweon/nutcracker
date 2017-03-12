@@ -115,24 +115,32 @@ $('#btn-hodu').click(function() {
 $('#btn-report').click(function() {
   event.preventDefault();
   var cmtParam;
+  event.preventDefault();
   $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
     if (ajaxResult.status != 'success') {
-      console.log("[ReviewComment] 세션값 없음");
-      return;
-    }
-    cmtParam = {
-      memberNo: ajaxResult.data.memberNo,
-      content: $('#comment').val(),
-      reviewNo: reviewNo
-    };
-    $.get(serverRoot + '/comment/addReviewCmt.json', cmtParam, function(ajaxResult) {
-      if (ajaxResult.status != 'success') {
-        console.log("[ReviewComment] 댓글 등록 실패");
-        return;
+      alertify.alert('로그인 후 사용가능합니다.', function() {
+        location.href = clientRoot + '/auth/login.html';
+      });
+    } else {
+      cmtParam = {
+        memberNo: ajaxResult.data.memberNo,
+        content: $('#comment').val(),
+        reviewNo: reviewNo
+      };
+      if (cmtParam.content.length <= 0) {
+        alertify.alert('내용을 입력해주세요.');
+      } else {
+        
+        $.get(serverRoot + '/comment/addReviewCmt.json', cmtParam, function(ajaxResult) {
+          if (ajaxResult.status != 'success') {
+            console.log("[ReviewComment] 댓글 등록 실패");
+            return;
+          }
+          //location.href = 'review-detail.html?reviewNo=' + reviewNo;
+          getComments(reviewNo);
+        });
       }
-      //location.href = 'review-detail.html?reviewNo=' + reviewNo;
-      getComments(reviewNo);
-    });
+    }
   });
 });
 

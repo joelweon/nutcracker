@@ -5,16 +5,39 @@
   
 <mapper namespace="nutcracker.dao.CompanyDao">
 
-  <resultMap type="Company" id="Company-map">
+  <!-- <resultMap type="Company" id="Company-map"> -->
+  <resultMap type="hashmap" id="Company-map">
     <id     column="cpno"     property="companyNo"/>
     <result column="cp_name"  property="companyName"/>
     <result column="parno"    property="parentNo"/>
+    
+    <!-- <collection property="childList" javaType="ArrayList" column="chino" ofType="Company">
+      <result column="chino"    property="childNo"/>
+      <result column="chiname"  property="childName"/>
+    </collection> -->
   </resultMap>
   
-  <select id="getBoycottComp" parameterType="int" resultMap="Company-map">
-    select c.cpno,c.cp_name,c.parno 
+  <select id="getBoycottNo" parameterType="int" resultType="int">
+    select cpno from bot_rls where mno=#{value}
+  </select>
+  
+  <select id="getBoycottComp" parameterType="int" resultType="hashmap">
+    <!-- select c.cpno,c.cp_name,c.parno 
 		from comp as c
-		right outer join (select cpno from bot_rls where mno=#{value}) as r on r.cpno=c.cpno;
+		right outer join (select cpno from bot_rls where mno=#{value}) as r on r.cpno=c.cpno; -->
+		select res.cpno, res.cp_name,
+		  group_concat(aa.cpno) as childrenNo,
+		  group_concat(aa.cp_name) as childrenName
+		from comp aa
+		  right join (select com.cpno, com.cp_name, com.parno
+		  from comp com
+		    join (select c.cpno, c.cp_name, c.parno
+		    from comp as c
+		      right join (select cpno from bot_rls where mno=#{value})as r on r.cpno=c.cpno) as te
+		where if (te.parno=0, te.cpno=com.cpno, te.parno=com.cpno)) as res
+		on aa.parno=res.cpno
+		group by res.cpno
+		order by aa.cpno
   </select>
   
   <select id="getParent" parameterType="int" resultMap="Company-map">
