@@ -110,13 +110,13 @@ $(document).ready(function () {
 });
 
 //카카오페이
-$('.purchase-btn').click(function() {
+$('#purchase-btn').click(function() {
 	IMP.request_pay({
 		pg : 'kakao',
 		pay_method : 'card',
 		merchant_uid : 'merchant_' + new Date().getTime(),
 		name : '주문명:결제테스트',
-		paid_amount : 100,
+		amount : 100,
 		buyer_email : JSON.parse(users).email,
 		buyer_name : JSON.parse(users).name,
 		buyer_tel : JSON.parse(users).tel,

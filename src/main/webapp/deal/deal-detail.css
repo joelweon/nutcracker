@@ -90,13 +90,13 @@ body {background-color: #ffffff;}
 	margin-top: 30px;
 }
 /* 구매버튼 */
-.purchase-btn{
+#purchase-btn{
 	position: absolute;
 	width: 90%;
 	height:50px;
 	margin: 0 10% 0 10%;
 }
-.purchase-btn .ka-pay {
+#purchase-btn .ka-pay {
 	position: absolute;
 	border-radius: 10px;
 	height:50px;
@@ -266,7 +266,7 @@ body {background-color: #ffffff;}
 	  left: 5px;
 	  margin-top: 40px;
 	}
-	.purchase-btn ul {
+	#purchase-btn ul {
 	  left:-30px;
 	}
 	
