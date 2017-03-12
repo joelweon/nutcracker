@@ -33,7 +33,7 @@
 		  from comp com
 		    join (select c.cpno, c.cp_name, c.parno
 		    from comp as c
-		      right join (select cpno from bot_rls where mno=2)as r on r.cpno=c.cpno) as te
+		      right join (select cpno from bot_rls where mno=#{value})as r on r.cpno=c.cpno) as te
 		where if (te.parno=0, te.cpno=com.cpno, te.parno=com.cpno)) as res
 		on aa.parno=res.cpno
 		group by res.cpno
