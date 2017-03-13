@@ -1,11 +1,11 @@
 <!-- 숨은 div들 -->
 <div class='header-sub div-menu-hidden'>
   <ul id='nav-menu-hidden' class='nav-memu-hidden'>
-    <li><a href="./boycott.html">불매운동</a></li>
+    <li><a href="boycott/boycott.html">불매운동</a></li>
     <li><hr/></li>
-    <li><a href="./review.html">불량후기</a></li>
+    <li><a href="review/review.html">불량후기</a></li>
     <li><hr/></li>
-    <li><a href="./product-search.html">대체상품</a></li>
+    <li><a href="product/product-search.html">대체상품</a></li>
     <li><hr/></li>
     <li><a href="deal/deal.html">공동구매</a></li>
     <li><hr/></li>
@@ -31,8 +31,9 @@
 <div class="triangle visible"></div>
 <div class="popup visible">
   <div class="div-popup-menu">
+    <input type="file" id="uploadImage" onchange="readUploadImage(this);"/>
     <div class='div-user'>
-      <img id='profile-img-big' src=""/>
+      <img id='profile-img-big' src="" />
     </div>
     <div id='div-user-info' class='div-user'>
 		  <div id='user-name' class='info-span'><span></span></div>

@@ -1,4 +1,4 @@
-
+var btnCpnoList = new Array();
 $(function(event) {
 //학생 목록 가져와서 tr 태그를 만들어 붙인다.
   $.get(serverRoot + '/boycott/list.json', function(ajaxResult) {
@@ -16,6 +16,10 @@ $(function(event) {
 	  // 템플릿 엔진을 통해 생성된 HTML을 tbody에 넣는다.
 	  tbody.html(template({"list": list}));
 	  
+	  for(i = 0; i < ajaxResult.data.length; i++) {
+	  	btnCpnoList.push(ajaxResult.data[i].companyNo);
+	  }
+//	  console.log(btnCpnoList);
   });
 });
 
@@ -24,31 +28,27 @@ $(function(event) {
 	var param;
 	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
 		if(ajaxResult.status == 'success') {
+			
 			$.get(serverRoot + '/boycott/myBoycottList.json', {
 				"memberNo" : ajaxResult.data.memberNo
 			}, function(ajaxResult){
 				console.log("okok")
 				if (ajaxResult.data.length > 0) {
 					var cpnoList
-					for(i = 0; i < ajaxResult.data.length; i++) {
-						cpnoList = ajaxResult.data[i].companyNo;
-						console.log(cpnoList);
-						console.log($('.list-add-btn').attr("data-no"));
-						if(cpnoList == $('.list-add-btn').attr("data-no")) {
-							$checkbox.prop('checked', !$checkbox.is(':checked'));
-							$('#'+boycottNo+' > p').text("나의 불매 리스트 제거");
-							$('.list-add-btn').attr("data-no").removeClass("btn-bot-add");
-							$('.list-add-btn').attr("data-no").addClass("btn-bot-delete");
+					for(i = 0; i < btnCpnoList.length; i++) {
+						for(j = 0; j < ajaxResult.data.length; j++) {
+							cpnoList = ajaxResult.data[j].companyNo;
+							if(btnCpnoList[i] == cpnoList) {
+								console.log(btnCpnoList[i] + "==" + ajaxResult.data[j].companyNo);
+								$('a[name='+btnCpnoList[i]+'] > input').prop('checked', 
+										!$('a[name='+btnCpnoList[i]+'] > input').is(':checked'));
+								$('a[name='+btnCpnoList[i]+'] > p').text("나의 불매 리스트 제거");
+					    	$('a[name='+btnCpnoList[i]+']').removeClass("btn-bot-add");
+					    	$('a[name='+btnCpnoList[i]+']').addClass("btn-bot-delete");
+							}
 						}
 					}
 				}
-			
-//				if(true) {
-//					$('.list-add-btn'.arrt("data-no")==)
-//				}	else {
-//					
-//				}
-				
 			})
 		}
 	}, 'json');

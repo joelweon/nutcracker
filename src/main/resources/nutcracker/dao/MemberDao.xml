@@ -93,5 +93,13 @@
     where email=#{email} 
       and pwd=password(#{password})
   </select>
+  
+  <update id="updateImg" parameterType="map">
+    update MEMB
+    set
+      PATH=#{photoPath}
+    where MNO=#{memberNo}
+  </update>
+  
 </mapper>
   

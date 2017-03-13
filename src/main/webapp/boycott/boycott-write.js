@@ -36,7 +36,7 @@ $('a#write').click(function(event) {
   	
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
-    var start = contents.indexOf('<img src=');
+    var start = $(contents).find('img').attr('src');
     console.log(start);
     if (start == -1) {
     	thumbnail = 'default';
