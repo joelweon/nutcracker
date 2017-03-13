@@ -19,7 +19,9 @@ function login() {
     $.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
       if (ajaxResult.status == "success") {
         window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
+        
         history.back();
+        location.reload();
         return;
       }
       alert(ajaxResult.data);
