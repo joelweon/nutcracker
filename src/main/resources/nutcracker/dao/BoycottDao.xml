@@ -18,6 +18,7 @@
     <result column="bot_cnt"    property="boycottCount"/>
     <result column="cpno"       property="companyNo"/>
     <result column="mno"        property="memberNo"/>
+    <result column="reg_date"   property="regDate"/>
     
     <collection property="newsList" ofType="BoycottNews">
       <id       column="newsno"     property="newsNo"/>
@@ -44,6 +45,14 @@
       bn.path
     from bot b
     left outer join bot_news bn on b.botno=bn.botno
+  </select>
+  
+  <select id="getMyboycottList" parameterType="int" resultMap="boycott-map">
+    select
+      mno,
+      cpno,
+      reg_date
+    from bot_rls where mno=#{value}
   </select>
   
   <select id="getOne" parameterType="int" resultMap="boycott-map">
@@ -151,6 +160,15 @@
   <delete id="deleteRelation" parameterType="boycott">
     delete from bot_rls where mno=#{memberNo} and cpno=#{companyNo}
   </delete>
+  
+  <select id="getSearch" parameterType="String" resultMap="boycott-map">
+    select
+      botno, title, date_format(bot_date,'%Y-%m-%d') as bot_date
+    from bot
+    where
+      title like concat('%',#{value},'%') or
+      cont like concat('%',#{value},'%')
+  </select>
   
 </mapper>
 

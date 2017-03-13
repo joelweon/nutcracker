@@ -6,6 +6,7 @@ import nutcracker.domain.Boycott;
 
 public interface BoycottDao {
   ArrayList<Boycott> getList() throws Exception;
+  ArrayList<Boycott> getMyboycottList(int memberNo) throws Exception;
   int insert(Boycott boycott) throws Exception;
   Boycott getOne(int boycottNo) throws Exception;
   int update(Boycott boycott) throws Exception;
@@ -19,4 +20,5 @@ public interface BoycottDao {
   int cancelBoycott(String boycottNo) throws Exception;
   int insertRelation(Boycott boycott) throws Exception;
   int deleteRelation(Boycott boycott) throws Exception;
+  ArrayList<Boycott> getSearch(String keyword) throws Exception;
 }

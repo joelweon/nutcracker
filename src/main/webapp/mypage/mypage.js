@@ -29,7 +29,14 @@ $(document).on('click', '.detail-togle', function() {
 		location.href = clientRoot + "/mypage/mydetail.html";
   });
 });*/
-$("#re-login").click(function() {
+document.querySelector('#re-login').addEventListener('click',reLogin);
+document.querySelector('#re-password').addEventListener('keypress', function (e) {
+  var key = e.which || e.keyCode;
+  if (key === 13) { // 13 is enter
+    reLogin();
+  }
+});
+function reLogin() { 
   var param = {
       email: $('#re-email').val(),
       password: $('#re-password').val(),
@@ -40,7 +47,6 @@ $("#re-login").click(function() {
       location.href = clientRoot + "/mypage/mydetail.html"; 
       return;
     }
-    alert(ajaxResult.data);
+    alertify.alert(ajaxResult.data);
   }, 'json');
-});
-
+}

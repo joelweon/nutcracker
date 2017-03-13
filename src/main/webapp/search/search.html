@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>The Nutcracker</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/> -->
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="../css/footer.css">
+</head>
+
+<body>
+
+<div class='container'>
+  <!-- 헤더(로고, 메뉴, 로그인) -->
+  <div id='wrap-header'></div>
+  
+  <!-- 숨은메뉴, 숨은검색 -->
+  <div id='wrap-hidden'></div>
+  
+  <!-- 소개글 -->
+  <div id='div-intro-none'></div>
+  
+  <div id='wrap-content'>
+    <h1><span id='keyword'></span>검색 결과</h1>
+    <span class='search-title'>불매운동</span><span id='boycottCnt'></span><a href='#' id='boycottVM' class='viewmore'>view more>></a>
+    <div id='wrap-boycott'></div>
+    
+    <span class='search-title'>불량후기</span><span id='reviewCnt'></span><a href='#' id='reviewVM' class='viewmore'>view more>></a>
+    <div id='wrap-review'></div>
+    
+    <span class='search-title'>공동구매</span><span id='purchsCnt'></span><a href='#' id='purchsVM' class='viewmore'>view more>></a>
+    <div id='wrap-purchs'></div>
+  </div><!-- wrap-content -->
+  
+</div><!-- container -->
+  
+</body>
+
+<script id="boycottTemplate" type="text/x-handlebars-template">
+  {{#each boycottList}}
+  <div class='div-searchResult'>
+    <a href='#' data-no={{boycottNo}} class='search-boycott-title'>{{title}}</a><span class='search-date'>{{postTime}}</span>
+  </div>
+  {{/each}}
+</script>
+<script id="reviewTemplate" type="text/x-handlebars-template">
+  {{#each reviewList}}
+  <div class='div-searchResult'>
+    <a href='#' data-no={{reviewNo}} class='search-review-title'>[{{titleHead}}] {{title}}</a><span class='search-date'>{{postTime}}</span>
+  </div>
+  {{/each}}
+</script>
+<script id="purchsTemplate" type="text/x-handlebars-template">
+  {{#each purchsList}}
+  <div class='div-searchResult'>
+    <a href='#' data-no={{purchsNo}} class='search-review-title'>{{title}}</a><span class='search-date'>{{startTime}} - {{endTime}}</span>
+  </div>
+  {{/each}}
+</script>
+
+
+<script src="../js/context.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../js/common.js"></script>
+<script src="search.js"></script>
+
+</html>

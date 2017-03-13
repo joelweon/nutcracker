@@ -29,6 +29,21 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/boycott/myBoycottList")
+  public AjaxResult mylist(int memberNo) throws Exception {
+    List<Boycott> list = boycottService.getMyBoycottList(memberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  @RequestMapping("/boycott/detail")
+  public AjaxResult detail(int boycottNo) throws Exception {
+    Boycott boycott = boycottService.getOne(boycottNo);
+    if (boycott == null) {
+      return new AjaxResult(AjaxResult.FAIL, "데이터를 불러오지 못했습니다.");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, boycott);
+  }
+  
   @RequestMapping("/boycott/add")
   public AjaxResult add(@RequestBody Boycott boycott) throws Exception {
 //    System.out.println(boycott);
@@ -54,14 +69,7 @@ public class BoycottJsonControl {
   
   
   
-  @RequestMapping("/boycott/detail")
-  public AjaxResult detail(int boycottNo) throws Exception {
-    Boycott boycott = boycottService.getOne(boycottNo);
-    if (boycott == null) {
-      return new AjaxResult(AjaxResult.FAIL, "데이터를 불러오지 못했습니다.");
-    }
-    return new AjaxResult(AjaxResult.SUCCESS, boycott);
-  }
+  
   
   @RequestMapping("/boycott/delete")
   public AjaxResult delete(int boycottNo) throws Exception {
@@ -134,6 +142,12 @@ public class BoycottJsonControl {
       }
     }
     return new AjaxResult(AjaxResult.FAIL, "[Boycott]이미지를 업로드하지 못했습니다.");
+  }
+  
+  @RequestMapping("/boycott/search")
+  public AjaxResult search(String keyword) throws Exception {
+    List<Boycott> list = boycottService.getSearch(keyword);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
 }

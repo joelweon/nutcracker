@@ -1,5 +1,4 @@
 
-/* 썸머노트 가져오기 */
 $(function(event) {
 //학생 목록 가져와서 tr 태그를 만들어 붙인다.
   $.get(serverRoot + '/boycott/list.json', function(ajaxResult) {
@@ -18,11 +17,41 @@ $(function(event) {
 	  tbody.html(template({"list": list}));
 	  
   });
-  
-  $('#new-btn').click(function(event) {
-	  event.preventDefault(); 
-	  location.href = 'view.html';
-  });
+});
+
+// 로그인 되어있을때 불매리스트 추가 버튼 변경하는 함수
+$(function(event) {
+	var param;
+	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
+		if(ajaxResult.status == 'success') {
+			$.get(serverRoot + '/boycott/myBoycottList.json', {
+				"memberNo" : ajaxResult.data.memberNo
+			}, function(ajaxResult){
+				console.log("okok")
+				if (ajaxResult.data.length > 0) {
+					var cpnoList
+					for(i = 0; i < ajaxResult.data.length; i++) {
+						cpnoList = ajaxResult.data[i].companyNo;
+						console.log(cpnoList);
+						console.log($('.list-add-btn').attr("data-no"));
+						if(cpnoList == $('.list-add-btn').attr("data-no")) {
+							$checkbox.prop('checked', !$checkbox.is(':checked'));
+							$('#'+boycottNo+' > p').text("나의 불매 리스트 제거");
+							$('.list-add-btn').attr("data-no").removeClass("btn-bot-add");
+							$('.list-add-btn').attr("data-no").addClass("btn-bot-delete");
+						}
+					}
+				}
+			
+//				if(true) {
+//					$('.list-add-btn'.arrt("data-no")==)
+//				}	else {
+//					
+//				}
+				
+			})
+		}
+	}, 'json');
 });
 
 $(document).on('click', '.list-add-btn', function(event){

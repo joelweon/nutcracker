@@ -48,6 +48,7 @@ $('#write').click(function() {
     }
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
+    console.log(contents);
     var start = contents.indexOf('<img src=');
     if (start == -1) {
       thumbnail = 'default';

@@ -172,5 +172,4 @@ public class ReviewJsonControl {
     }
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
-  
 }
