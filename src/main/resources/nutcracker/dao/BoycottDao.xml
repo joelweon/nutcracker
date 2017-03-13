@@ -37,7 +37,7 @@
       b.cmt_cnt,
       b.shr_cnt,
       b.bot_cnt,
-      b.pt_path,
+      ifnull(b.pt_path, "default") as pt_path,
       b.cpno,
       bn.newsno,
       bn.headline,
@@ -97,8 +97,8 @@
   
   <insert id="insert" parameterType="boycott"
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
-    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,pt_path)
-    values(#{companyNo},now(),#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount},#{photoPath})      
+    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,bot_cnt,pt_path)
+    values(#{companyNo},now(),#{title},#{content},0,0,0,0,0,#{photoPath})      
   </insert>
   
   <insert id="insertNews" parameterType="boycott">

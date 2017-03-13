@@ -23,8 +23,6 @@ $(function(event) {
 	  event.preventDefault(); 
 	  location.href = 'view.html';
   });
-  
-  
 });
 
 $(document).on('click', '.list-add-btn', function(event){
