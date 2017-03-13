@@ -19,6 +19,7 @@ public class MyPurchaseHistoryJsonControl {
   @RequestMapping("/mypage/myPurchseHistoryAdd")
   public AjaxResult add(@RequestParam HashMap<String,Object> map) throws Exception {
     /*myPurchseHistoryService.add(map);*/
-    return new AjaxResult(AjaxResult.SUCCESS, "구매 성공입니다.");
+    System.out.println("json map: " + map);
+    return new AjaxResult(AjaxResult.SUCCESS, map);
   }
 }
