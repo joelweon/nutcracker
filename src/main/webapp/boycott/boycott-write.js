@@ -37,14 +37,18 @@ $('a#write').click(function(event) {
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
     var start = contents.indexOf('<img src=');
-    var end = contents.indexOf('data-filename', start);
-    dataURL = contents.substring(start + 10, end - 2);
-    var blob = dataURItoBlob(dataURL);
-    /*var fd = new FormData(document.forms[0]);
-    fd.append("image", blob);*/
-    uploadImage(blob);
+    console.log(start);
+    if (start == -1) {
+    	thumbnail = 'default';
+    }	else {
+    	var end = contents.indexOf('data-filename', start);
+      dataURL = contents.substring(start + 10, end - 2);
+      var blob = dataURItoBlob(dataURL);
+      /*var fd = new FormData(document.forms[0]);
+      fd.append("image", blob);*/
+      uploadImage(blob);
+    }
     console.log("thumbnail: " + thumbnail);
-  
   
 	param = {
 		title		:	 	$('#input-title').val(),
