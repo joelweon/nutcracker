@@ -156,7 +156,7 @@ $('#purchase-btn').click(function() {
 					msg += '<br>나의 구매내역으로 이동하시겠습니까?'
 						alertify.confirm(msg, function (e) {
 							if (e) {
-								location.href = serverRoot+'/mypage/purchase.html';
+								location.href = serverRoot+'/mypage/mypurchase.html';
 							} else {
 								location.href = serverRoot+'/deal/deal.html';
 							}

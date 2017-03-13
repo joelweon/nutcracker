@@ -25,4 +25,10 @@ public class MyPurchaseHistoryJsonControl {
       return new AjaxResult(AjaxResult.SUCCESS, "구매 완료되었습니다.");
     }
   }
+  
+  @RequestMapping("/mypage/myPurchseHistory")
+  public AjaxResult getList(@RequestParam HashMap<String,Object> map) throws Exception {
+    HashMap<String,Object> purchaseHistory = myPurchaseHistoryService.getList(map);
+    return new AjaxResult(AjaxResult.SUCCESS, purchaseHistory);
+  }
 }

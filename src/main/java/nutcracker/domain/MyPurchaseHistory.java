@@ -4,6 +4,7 @@ public class MyPurchaseHistory extends Purchase {
   private static final long serialVersionUID = 1L;
   
   protected int memberNo;
+  protected int purchaseNo;
   protected String purchaseDate;
   protected int quantity;
   
@@ -12,6 +13,12 @@ public class MyPurchaseHistory extends Purchase {
   }
   public void setMemberNo(int memberNo) {
     this.memberNo = memberNo;
+  }
+  public int getPurchaseNo() {
+    return purchaseNo;
+  }
+  public void setPurchaseNo(int purchaseNo) {
+    this.purchaseNo = purchaseNo;
   }
   public String getPurchaseDate() {
     return purchaseDate;
