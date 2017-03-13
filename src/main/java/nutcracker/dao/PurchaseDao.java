@@ -12,4 +12,5 @@ public interface PurchaseDao {
   int insert(HashMap<String,Object> map) throws Exception;
   int insertPhoto(HashMap<String,Object> map) throws Exception;
   List<HashMap<String, Object>> getDetailPhoto(int purchaseNo) throws Exception;
+  List<HashMap<String, Object>> searchDeal(String keyword) throws Exception;
 }

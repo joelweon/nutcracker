@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+div#wrap-boycott, div#wrap-review {
+	margin-bottom: 30px;
+}
+span.search-title { 
+	display: inline-block;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	font-size: 1.5em;
+	color: #fff; 
+}
+a.viewmore {
+	margin-left: 10px;
+	text-decoration: none;
+	font-size: 0.9em;
+	color: #aaa;
+}
+span.search-date {
+	display: inline-block;
+	font-size: 1em;
+	color: #aaa;
+}
+a.search-boycott-title, a.search-review-title {
+	margin: 0px 15px 0px 15px;
+	text-decoration: none;
+	font-size: 1.3em;
+	color: #fff;
+}
+a.search-boycott-title:hover {
+	color: #f97c00;
+}
+a.search-review-title:hover {
+  color: #009900;
+}
+div.div-searchResult {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}

@@ -89,12 +89,79 @@ body {background-color: #ffffff;}
 	left: 15px;
 	margin-top: 30px;
 }
+/* 수량선택 */
+#product-quantity {
+  position: absolute;
+  width: 25%;
+  height: 50px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number]
+{
+  -moz-appearance: textfield;
+}
+#product-quantity input {
+	position: absolute;
+  width: 100%;
+  height: 50px;
+  line-height: 1.65;
+  left:0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+  border: 1px solid #eee;
+}
+#product-quantity input:focus {
+  outline: 0;
+}
+.quantity-nav {
+  position: absolute;
+  right:0;
+  height: 50px;
+}
+.quantity-button {
+  position: relative;
+  cursor: pointer;
+  border-left: 1px solid #eee;
+  width: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 13px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  line-height: 1.7;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.quantity-button.quantity-up {
+  position: absolute;
+  height: 50%;
+  top: 0;
+  border-bottom: 1px solid #eee;
+}
+.quantity-button.quantity-down {
+  position: absolute;
+  bottom: -1px;
+  height: 50%;
+}
+
 /* 구매버튼 */
 #purchase-btn{
 	position: absolute;
-	width: 90%;
+	width: 70%;
 	height:50px;
-	margin: 0 10% 0 10%;
+	margin: 0 2% 0 2%;
+	right:0;
 }
 #purchase-btn .ka-pay {
 	position: absolute;
@@ -269,16 +336,12 @@ body {background-color: #ffffff;}
 	#purchase-btn ul {
 	  left:-30px;
 	}
-	
-/* 	.purchase-btn ul li a {
-	  padding: 8px 20px 0 10px;
-	} */
 	.deal-detail-tabs {
-	  /* border:1px solid red; */
 	  top:520px;
 	  width:100%;
 	  min-width:280px;
 	  margin:2em 0;
+	  padding-top: 20px;
 	}
 	.deal-detail-navi {
 	  width:100%;

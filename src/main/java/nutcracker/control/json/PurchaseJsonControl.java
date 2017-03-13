@@ -45,5 +45,11 @@ public class PurchaseJsonControl {
     ArrayList<Company> result = purchaseService.searchMaker(map);
     return new AjaxResult(AjaxResult.SUCCESS, result);
   }
+  
+  @RequestMapping("/deal/searchDeal")
+  public AjaxResult searchDeal(String keyword) throws Exception {
+    List<HashMap<String, Object>> list = purchaseService.searchDeal(keyword);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
 
 }

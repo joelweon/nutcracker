@@ -20,4 +20,5 @@ public interface BoycottDao {
   int cancelBoycott(String boycottNo) throws Exception;
   int insertRelation(Boycott boycott) throws Exception;
   int deleteRelation(Boycott boycott) throws Exception;
+  ArrayList<Boycott> getSearch(String keyword) throws Exception;
 }

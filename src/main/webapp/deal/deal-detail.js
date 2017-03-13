@@ -70,27 +70,36 @@ $(function(){
 });
 
 //구매 수량 선택
-/*var QuantityBox = React.createClass({
-  getInitialState: function() {
-    return { value: 1 };
-  },
-  onDecrement: function(e) {
-    if (this.state.value <= 0) return;
-    this.setState({value: --this.state.value});
-  },
-  onIncrement: function(e) {
-    this.setState({value: ++this.state.value});
-  },    
-  render: function() {
-	  var html = document.createElement("div");
-	  html.addClassName("qty-box");
-	  html.append('<span className="dec" onClick={this.onDecrement} onTouchStart={this.onDecrement}>–</span>');
-	  html.append('<span className="qty">{this.state.value}</span>');
-	  html.append('<span className="inc" onClick={this.onIncrement} onTouchStart={this.onIncrement}>+</span>');
-    return html;
-  }
+jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('#product-quantity input');
+jQuery('#product-quantity').each(function() {
+  var spinner = jQuery(this),
+    input = spinner.find('input[type="number"]'),
+    btnUp = spinner.find('.quantity-up'),
+    btnDown = spinner.find('.quantity-down'),
+    min = input.attr('min'),
+    max = input.attr('max');
+  btnUp.click(function() {
+    var oldValue = parseFloat(input.val());
+    if (oldValue >= max) {
+      var newVal = oldValue;
+      alertify.alert("1인 최대 구매 가능수량은 10개입니다.");
+    } else {
+      var newVal = oldValue + 1;
+    }
+    spinner.find("input").val(newVal);
+    spinner.find("input").trigger("change");
+  });
+  btnDown.click(function() {
+    var oldValue = parseFloat(input.val());
+    if (oldValue <= min) {
+      var newVal = oldValue;
+    } else {
+      var newVal = oldValue - 1;
+    }
+    spinner.find("input").val(newVal);
+    spinner.find("input").trigger("change");
+  });
 });
-React.render("<QuantityBox />", document.body);*/
 
 //위로 :top btn
 $(document).ready(function () {
@@ -111,46 +120,57 @@ $(document).ready(function () {
 
 //카카오페이
 $('#purchase-btn').click(function() {
-	IMP.request_pay({
-		pg : 'kakao',
-		pay_method : 'card',
-		merchant_uid : 'merchant_' + new Date().getTime(),
-		name : '주문명:결제테스트',
-		amount : 100,
-		buyer_email : JSON.parse(users).email,
-		buyer_name : JSON.parse(users).name,
-		buyer_tel : JSON.parse(users).tel,
-		buyer_addr : JSON.parse(users).basicAddress + " " + JSON.parse(users).detailAddress,
-		buyer_postcode : JSON.parse(users).postcode
-	}, function(rsp) {
-		if ( rsp.success ) {
-			jQuery.ajax({
-        url: "/mypage/myPurchseHistoryAdd", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
-        type: 'POST',
-        dataType: 'json',
-        data: {
-            imp_uid : rsp.imp_uid
-            //기타 필요한 데이터가 있으면 추가 전달
-        }
-    }).done(function(data) {
-        //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-        if ( everythings_fine ) {
-            var msg = '결제가 완료되었습니다.';
-            msg += '\n고유ID : ' + rsp.imp_uid;
-            msg += '\n상점 거래ID : ' + rsp.merchant_uid;
-            msg += '\결제 금액 : ' + rsp.paid_amount;
-            msg += '카드 승인번호 : ' + rsp.apply_num;
-
-            alert(msg);
-        } else {
+	if (users != null) { //유저정보가 있는 경우
+		IMP.request_pay({
+			pg : 'kakao',
+			pay_method : 'card',
+			merchant_uid : 'merchant_' + new Date().getTime(),
+			name : '주문명:결제테스트',
+			amount : 1000 * $("#product-quantity input").val(),
+			buyer_email : JSON.parse(users).email,
+			buyer_name : JSON.parse(users).name,
+			buyer_tel : JSON.parse(users).tel,
+			buyer_addr : JSON.parse(users).basicAddress + " " + JSON.parse(users).detailAddress,
+			buyer_postcode : JSON.parse(users).postcode
+		}, function(rsp) {
+			if ( rsp.success ) {
+				jQuery.ajax({
+					url: serverRoot + "/mypage/myPurchseHistoryAdd.json", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
+					type: 'POST',
+					dataType: 'json',
+					data: {
+						imp_uid : rsp.imp_uid,
+						purchaseDate : rsp.paid_at,
+						receipt : rsp.receipt_url
+						//기타 필요한 데이터가 있으면 추가 전달
+					}
+				}).done(function(data) {
+					//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
+					/*if (data) {*/
+					var msg = '결제가 완료되었습니다.';
+					msg += '<br>나의 구매내역으로 이동하시겠습니까?'
+						alertify.confirm(msg, function (e) {
+							if (e) {
+								location.href = serverRoot+'/mypage/purchase.html';
+							} else {
+								location.href = serverRoot+'/deal/deal.html';
+							}
+						});
+					/*} else {
         	alertify.alert("결제 실패");
-            //[3] 아직 제대로 결제가 되지 않았습니다.
-            //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
-        }
+          //[3] 아직 제대로 결제가 되지 않았습니다.
+          //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
+        }*/
+				});
+			} else {
+				var msg = rsp.error_msg;
+				alertify.alert(msg);
+			}
+		});
+	} else { //유저정보가 없는 경우
+		alertify.confirm("로그인 후 이용 가능합니다. 로그인하시겠습니까?", function (e) {
+      if (e) {location.href = serverRoot+'/auth/login.html';}
+      else {}
     });
-	    } else {
-	        var msg = rsp.error_msg;
-	    }
-		alertify.alert(msg);
-	});
+	}
 });

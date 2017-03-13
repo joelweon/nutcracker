@@ -35,11 +35,11 @@ function getCompany(memberNo) {
         var li = $('#pure-tree' + i);
         var childTemplate = Handlebars.compile($('#childTemplate').html());
         li.append(childTemplate({"childrenArray" : childrenArray}));
+        
+        checkBoycott(memberNo);
       }
     }
   });
-  
-  checkBoycott(memberNo);
 }
 
 function checkBoycott(memberNo) {
