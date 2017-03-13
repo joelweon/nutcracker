@@ -62,6 +62,22 @@
     }
     return false;
   });
+	/* 검색할 때 */
+	$(document).on('keydown', '#input-search', function(key) {
+	  if (key.keyCode == 13) { //엔터키값은 13
+	    var keyword = $(this).val();
+	    console.log('[통합검색] keyword: ' + keyword);
+	    if (keyword != "") {
+	      console.log('[통합검색] 검색 실행...');
+	      location.href=serverRoot + '/search/search.html?keyword=' 
+	        +  encodeURI(keyword , "UTF-8");;
+	      //totalSearch(keyword);
+	    } else {
+	      console.log('[통합검색] 검색어 없음...');
+	      return;
+	    }
+	  }
+	});
 	
 	$(document).on('click', '#btn-member', function() {
     $('.div-profile').toggleClass('on');

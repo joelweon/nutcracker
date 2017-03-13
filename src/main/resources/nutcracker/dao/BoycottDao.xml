@@ -152,6 +152,15 @@
     delete from bot_rls where mno=#{memberNo} and cpno=#{companyNo}
   </delete>
   
+  <select id="getSearch" parameterType="String" resultMap="boycott-map">
+    select
+      botno, title, date_format(bot_date,'%Y-%m-%d') as bot_date
+    from bot
+    where
+      title like concat('%',#{value},'%') or
+      cont like concat('%',#{value},'%')
+  </select>
+  
 </mapper>
 
 

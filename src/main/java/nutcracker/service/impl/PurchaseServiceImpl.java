@@ -64,4 +64,9 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
     return result;
   }
+  
+  @Override
+  public List<HashMap<String, Object>> searchDeal(String keyword) throws Exception {
+    return purchaseDao.searchDeal(keyword);
+  }
 }

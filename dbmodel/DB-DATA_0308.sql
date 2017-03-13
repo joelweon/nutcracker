@@ -103,7 +103,7 @@ insert into comp(cpno,cp_name,parno)
 insert into comp(cpno,cp_name,parno) 
     values(526,'아이오페',522);
 insert into comp(cpno,cp_name,parno) 
-    values(527,'롤리타램피카');
+    values(527,'롤리타램피카',522);
 insert into comp(cpno,cp_name,parno) 
     values(528,'아닉구딸',522);
 insert into comp(cpno,cp_name,parno) 
@@ -377,16 +377,16 @@ insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) valu
 insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(210,8,'2017-02-03 13:47:24','불량후기','강남역 고깃집의 충격적인 점심특선!','불량후기 내용입니다','default',51,20);
 
 --  REV_PHOT(사용하지 않는 테이블)
---insert into rev_phot(rpno,rvno,path) values(250,200,'reviw01.jpg');
---insert into rev_phot(rpno,rvno,path) values(251,201,'reviw02.jpg');
---insert into rev_phot(rpno,rvno,path) values(252,202,'reviw03.jpg');
---insert into rev_phot(rpno,rvno,path) values(253,205,'reviw06.jpg');
---insert into rev_phot(rpno,rvno,path) values(254,206,'reviw07.jpg');
---insert into rev_phot(rpno,rvno,path) values(255,207,'reviw08.jpg');
---insert into rev_phot(rpno,rvno,path) values(256,207,'reviw08_2.jpg');
---insert into rev_phot(rpno,rvno,path) values(257,208,'reviw09.jpg');
---insert into rev_phot(rpno,rvno,path) values(258,209,'reviw10.jpg');
---insert into rev_phot(rpno,rvno,path) values(259,210,'reviw11.jpg');
+/*insert into rev_phot(rpno,rvno,path) values(250,200,'reviw01.jpg');
+insert into rev_phot(rpno,rvno,path) values(251,201,'reviw02.jpg');
+insert into rev_phot(rpno,rvno,path) values(252,202,'reviw03.jpg');
+insert into rev_phot(rpno,rvno,path) values(253,205,'reviw06.jpg');
+insert into rev_phot(rpno,rvno,path) values(254,206,'reviw07.jpg');
+insert into rev_phot(rpno,rvno,path) values(255,207,'reviw08.jpg');
+insert into rev_phot(rpno,rvno,path) values(256,207,'reviw08_2.jpg');
+insert into rev_phot(rpno,rvno,path) values(257,208,'reviw09.jpg');
+insert into rev_phot(rpno,rvno,path) values(258,209,'reviw10.jpg');
+insert into rev_phot(rpno,rvno,path) values(259,210,'reviw11.jpg');*/
 
 
 -- 불매운동 --
@@ -413,24 +413,24 @@ insert into bot(botno, cpno, bot_date, title, cont, view_cnt, hodu_cnt, cmt_cnt,
 
 
 -- 불매운동 사진(사용하지 않는 테이블)
---insert into bot_phot(bpno, botno, path) values(350, 300, 'img1_1.jpg');
---insert into bot_phot(bpno, botno, path) values(351, 300, 'img1_2.jpg');
---insert into bot_phot(bpno, botno, path) values(352, 301, 'img2_1.jpg');
---insert into bot_phot(bpno, botno, path) values(353, 302, 'img3_1.jpg');
---insert into bot_phot(bpno, botno, path) values(354, 302, 'img3_2.jpg');
---insert into bot_phot(bpno, botno, path) values(355, 303, 'img4_1.jpg');
---insert into bot_phot(bpno, botno, path) values(356, 304, 'img5_1.jpg');
---insert into bot_phot(bpno, botno, path) values(357, 304, 'img5_2.jpg');
---insert into bot_phot(bpno, botno, path) values(358, 305, 'img6_1.jpg');
---insert into bot_phot(bpno, botno, path) values(359, 306, 'img7_1.jpg');
---insert into bot_phot(bpno, botno, path) values(360, 306, 'img7_2.jpg');
---insert into bot_phot(bpno, botno, path) values(361, 306, 'img7_3.jpg');
---insert into bot_phot(bpno, botno, path) values(362, 307, 'img8_1.jpg');
---insert into bot_phot(bpno, botno, path) values(363, 307, 'img8_2.jpg');
---insert into bot_phot(bpno, botno, path) values(364, 308, 'img9_1.jpg');
---insert into bot_phot(bpno, botno, path) values(365, 309, 'img10_1.jpg');
---insert into bot_phot(bpno, botno, path) values(366, 309, 'img10_2.jpg');
---insert into bot_phot(bpno, botno, path) values(367, 309, 'img10_3.jpg');
+/*insert into bot_phot(bpno, botno, path) values(350, 300, 'img1_1.jpg');
+insert into bot_phot(bpno, botno, path) values(351, 300, 'img1_2.jpg');
+insert into bot_phot(bpno, botno, path) values(352, 301, 'img2_1.jpg');
+insert into bot_phot(bpno, botno, path) values(353, 302, 'img3_1.jpg');
+insert into bot_phot(bpno, botno, path) values(354, 302, 'img3_2.jpg');
+insert into bot_phot(bpno, botno, path) values(355, 303, 'img4_1.jpg');
+insert into bot_phot(bpno, botno, path) values(356, 304, 'img5_1.jpg');
+insert into bot_phot(bpno, botno, path) values(357, 304, 'img5_2.jpg');
+insert into bot_phot(bpno, botno, path) values(358, 305, 'img6_1.jpg');
+insert into bot_phot(bpno, botno, path) values(359, 306, 'img7_1.jpg');
+insert into bot_phot(bpno, botno, path) values(360, 306, 'img7_2.jpg');
+insert into bot_phot(bpno, botno, path) values(361, 306, 'img7_3.jpg');
+insert into bot_phot(bpno, botno, path) values(362, 307, 'img8_1.jpg');
+insert into bot_phot(bpno, botno, path) values(363, 307, 'img8_2.jpg');
+insert into bot_phot(bpno, botno, path) values(364, 308, 'img9_1.jpg');
+insert into bot_phot(bpno, botno, path) values(365, 309, 'img10_1.jpg');
+insert into bot_phot(bpno, botno, path) values(366, 309, 'img10_2.jpg');
+insert into bot_phot(bpno, botno, path) values(367, 309, 'img10_3.jpg');*/
 
 
 -- 불매운동 기사 --

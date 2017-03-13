@@ -93,4 +93,8 @@ public class BoycottServiceImpl implements BoycottService{
     return boycottDao.updateHodu(boycottNo); 
   }
 
+  @Override
+  public List<Boycott> getSearch(String keyword) throws Exception {
+    return boycottDao.getSearch(keyword);
+  }
 }

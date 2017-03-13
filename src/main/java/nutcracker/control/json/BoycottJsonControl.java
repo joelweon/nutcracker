@@ -136,4 +136,10 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.FAIL, "[Boycott]이미지를 업로드하지 못했습니다.");
   }
   
+  @RequestMapping("/boycott/search")
+  public AjaxResult search(String keyword) throws Exception {
+    List<Boycott> list = boycottService.getSearch(keyword);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
 }

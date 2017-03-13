@@ -17,4 +17,5 @@ public interface BoycottService {
   int cancelBoycottCount(String BoycottNo) throws Exception;
   int addRelation(Boycott boycott) throws Exception;
   int deleteRelation(Boycott boycott) throws Exception;
+  List<Boycott> getSearch(String keyword) throws Exception;
 }
