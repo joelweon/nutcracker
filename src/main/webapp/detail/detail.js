@@ -102,7 +102,7 @@ function getComments(boycottNo) {
 
   
 //호두 던지기
-$('.walnut-stamp > img').click(function(event) {
+$('.walnut-stamp > a').click(function(event) {
   $.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
 		event.preventDefault();
 		$("span.hoducount").text(ajaxResult.data);
