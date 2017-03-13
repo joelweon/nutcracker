@@ -1,6 +1,7 @@
 package nutcracker.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import nutcracker.domain.Member;
@@ -16,4 +17,5 @@ public interface MemberDao {
   Member getOneByNo(int memberNo) throws Exception;
   Member getOne(String email) throws Exception;
   Member getOneByEmailPassword(Map<String,String> paramMap) throws Exception;
+  int updateImg(HashMap<String, Object> map) throws Exception;
 }

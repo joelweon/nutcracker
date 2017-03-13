@@ -111,5 +111,5 @@
       delete from user where uno=#{value}
     ]]>
   </delete>
-  
+
 </mapper>
