@@ -1,4 +1,4 @@
-package nutcracker.sh;
+/*package nutcracker.sh;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -37,7 +37,7 @@ public class ShoppingNaver {
       switch(eventType) {
         case XmlPullParser.START_TAG: {
           String tag = parser.getRawName();
-          /*System.out.println("tag : "+tag);*/
+          System.out.println("tag : "+tag);
           switch(tag) {
             case "item": product = new Product(); break;
             case "title": System.out.println("제목 : "+parser.getLocalName()); break;
@@ -57,3 +57,4 @@ public class ShoppingNaver {
   }
 
 }
+*/
