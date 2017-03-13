@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="mywish.css">
 <link rel="stylesheet" href="mytop.css">
 <link rel="stylesheet" href="myside.css">
+<link rel="stylesheet" href="../css/alertify.core.css">
+<link rel="stylesheet" href="../css/alertify.default.css">
 <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
@@ -31,10 +33,10 @@
 		<div class="main-contents">
 			<div>
 				<h2>일반상품</h2>
-				<table class="wishi-table">
+				<table class="wish-table">
           <thead>
-  					<tr class="wishi-list-title">
-  						<th><input id="allCheck" class="th-check-2" type="checkbox" /></th>
+  					<tr class="wish-list-title">
+  						<th><input id="allCheck" class="th-check" type="checkbox" /></th>
   						<th>상품정보</th>
   						<th>제조사</th>
   						<th>브랜드</th>
@@ -44,20 +46,34 @@
           <tbody></tbody>
 				</table>
 			</div>
+          <!-- 페이지이동 -->
+    <div class="clearfix">
+      <ul class="pagination">
+        <li id='prevPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        <li class='pgBtn'><a id='pg1' href="#"></a></li>
+        <li class='pgBtn'><a id='pg2' href="#"></a></li>
+        <li class='pgBtn'><a id='pg3' href="#"></a></li>
+        <li class='pgBtn'><a id='pg4' href="#"></a></li>
+        <li class='pgBtn'><a id='pg5' href="#"></a></li>
+        <li id='nextPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+      </ul>
+    </div>
+    
+    <!-- 삭제 -->
 			<div class="delete-div">
-				선택한 게시글을 <a href="#" class="delete-btn">삭제</a>
+				선택한 위시리스트 <a href="#" class="delete-btn">삭제</a>
 			</div>
 		</div>
 	</div>
-	<div id='wrap-footer'></div>
+	<!-- <div id='wrap-footer'></div> -->
   
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
-  <tr class="wishi-list-tr">
-    <td class="wishi-table-date">
-       <input class="td-check-2" type="checkbox" />
+  <tr class="wish-list-tr">
+    <td class="wish-table-date">
+       <input name="box" class="td-check" type="checkbox" value={{wishNo}}>
     </td>
-    <td class="wishi-list">
+    <td class="wish-list">
       <span class="list-img-span"> 
         <a href={{link}}> <img src={{photoPath}}></a>
       </span>
@@ -65,9 +81,9 @@
         <p><a href={{link}}>{{productName}}</a></p>
       </div>
     </td>
-    <td class="wishi-maker">{{maker}}</td>
-    <td class="wishi-brand">{{brand}}</td>
-    <td class="wishi-price">{{price}}</td>
+    <td class="wish-maker">{{maker}}</td>
+    <td class="wish-brand">{{brand}}</td>
+    <td class="wish-price">{{price}}</td>
   </tr> 
 {{/each}}
 </script>
@@ -80,6 +96,6 @@
   <script src="../node_modules/handlebars/dist/handlebars.js"></script>
   <script src="mypage.js"></script>
   <script src="mywish.js"></script>
-
+  <script type="text/javascript" src="../js/alertify.min.js"></script>
 </body>
 </html>

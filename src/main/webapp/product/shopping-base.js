@@ -122,6 +122,10 @@
     
 var cli = function(e) {
     var users = window.sessionStorage.getItem('user');
+    if (users == null) {
+      alertify.alert("로그인 후 이용 가능합니다.");
+      return;
+    }
     var param = {
       photoPath   : $(event.target).closest('li').find('img').attr('src'),
       productName : ($(event.target).closest('li').find('.name').text()),
@@ -138,7 +142,7 @@ var cli = function(e) {
         console.log(ajaxResult.data);
         return;
       }
-      alert('담기완료!');
+      alertify.alert("담기완료!");
     });
   
 }

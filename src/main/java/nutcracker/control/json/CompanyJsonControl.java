@@ -16,6 +16,12 @@ public class CompanyJsonControl {
   @Autowired ServletContext sc;
   @Autowired CompanyService companyService;
   
+  @RequestMapping("/company/getBoycottNo")
+  public AjaxResult getBoycottNo(int memberNo) throws Exception {
+    int[] arr = companyService.getBoycottNo(memberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, arr);
+  }
+  
   @RequestMapping("/company/getBoycottComp")
   public AjaxResult getBoycottComp(int memberNo) throws Exception {
     ArrayList<Company> list = companyService.getBoycottComp(memberNo);

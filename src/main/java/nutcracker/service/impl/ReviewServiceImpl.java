@@ -90,14 +90,4 @@ public class ReviewServiceImpl implements ReviewService {
     paramMap.put("memberNo", memberNo);
     return reviewDao.getListMy(paramMap);
   }
-  
-/*  @Override
-  public ArrayList<String> deleteMy(ArrayList<String> rnoAry) throws Exception {
-    for (int i = 0; i < rnoAry.size(); i++) {
-      int deleteCnt = reviewDao.deleteMy(rnoAry.get(i));
-      if (deleteCnt <= 0) { return 0; }
-      return deleteCnt;
-    }
-  }*/
-  
 }

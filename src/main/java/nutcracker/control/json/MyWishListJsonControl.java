@@ -18,10 +18,24 @@ public class MyWishListJsonControl {
   @Autowired MyWishListService myWishListService;
   
   @RequestMapping("/mypage/myWishList")
-  public AjaxResult mywishList(int memberNo) throws Exception {
+  public AjaxResult myWishList(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="5") int pageSize, int memberNo) throws Exception {
     
-    List<HashMap<String, Object>> list = myWishListService.getList(memberNo);
-    return new AjaxResult(AjaxResult.SUCCESS, list);
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    if (pageSize < 5 || pageSize > 10) {
+      pageSize = 5;
+    }
+    List<HashMap<String, Object>> list = myWishListService.getList(pageNo, pageSize, memberNo);
+    int totalCount = myWishListService.getSize();
+    
+    HashMap<String, Object> resultMap = new HashMap<>();
+    resultMap.put("list",  list);
+    resultMap.put("totalCount",  totalCount);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
   @RequestMapping("/mypage/myWishListAdd")
@@ -29,5 +43,14 @@ public class MyWishListJsonControl {
     myWishListService.add(map);
     
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  @RequestMapping("/mypage/myWishListDelete")
+  public AjaxResult delete(String[] rnoAry) throws Exception  {
+    for (int i = 0; i < rnoAry.length; i++) {
+      myWishListService.delete(Integer.parseInt(rnoAry[i]));
+      System.out.println(Integer.parseInt(rnoAry[i]));
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
 }

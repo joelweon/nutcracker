@@ -14,17 +14,17 @@ var listSearch = 'list'; //단순리스팅 or 검색리스팅
 var range; // 검색범위
 var keyword; // 검색어
 
-// 비로그인 상태일 때 글쓰기 버튼 숨기기
-$.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-  if (ajaxResult.status != 'success') {
-    $('#btn-write').css('visibility', 'hidden');
-  } else {
-    $('#btn-write').css('visibility', 'visible');
-  }
-});
-
-$('#btn-write').click(function() {
-  location.href = clientRoot + '/review/review-write.html';
+$('#btn-write').click(function(event) {
+  event.preventDefault();
+  $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+    if (ajaxResult.status != 'success') {
+      alertify.alert('로그인 후 사용가능합니다.', function() {
+        location.href = clientRoot + '/auth/login.html';
+      });
+    } else {
+      location.href = clientRoot + '/review/review-write.html';
+    }
+  });
 });
 
 //loadList(curPageNo, pageSize);

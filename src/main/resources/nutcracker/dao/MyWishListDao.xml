@@ -5,7 +5,7 @@
     
 <mapper namespace="nutcracker.dao.MyWishListDao">
   
-  <resultMap type="hashmap"      id="myWishList-map">
+  <resultMap type="hashmap"      id="map">
     <id     column="WNO"         property="wishNo"/>
     <result column="MNO"         property="memberNo"/>
     <result column="PRO_NAME"    property="productName"/>
@@ -16,8 +16,9 @@
     <result column="LINK"        property="link"/>
   </resultMap>
   
-   <select id="getList" parameterType="int" resultMap="myWishList-map">
+   <select id="getList" parameterType="map" resultMap="map">
     select 
+      W.WNO,
       ifnull(W.PATH,' ') as PATH,
       W.PRO_NAME,
       ifnull(W.MAKER,' ') as MAKER,
@@ -25,7 +26,9 @@
       ifnull(W.PRICE,' ') as PRICE,
       ifnull(W.LINK,' ') as LINK
     from WISH W
-      where MNO=#{value}
+      where W.MNO=#{memberNo}
+    order by W.WNO desc
+    limit #{startRowIndex}, #{rowSize}
   </select>
 
   <insert id="insert" parameterType="map" 
@@ -49,4 +52,13 @@
       #{photoPath},
       #{link})
   </insert>
+
+  <delete id="delete" parameterType="int">
+    delete from WISH where WNO=#{value}
+  </delete>
+  
+  <select id="countAll" resultType="int">
+    select count(*) from WISH;
+  </select>
+  
 </mapper>

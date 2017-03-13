@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="myside.css">
   <link rel="stylesheet" href="myboard.css">
   <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/alertify.core.css">
+  <link rel="stylesheet" href="../css/alertify.default.css">
 </head>
 <body>
 <div id='wrap-header'></div>
@@ -41,7 +43,7 @@
         <tbody></tbody>
       </table>
     </div>
-        <!-- 페이지이동 -->
+    <!-- 페이지이동 -->
     <div class="clearfix">
       <ul class="pagination">
         <li id='prevPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
@@ -52,8 +54,8 @@
         <li class='pgBtn'><a id='pg5' href="#"></a></li>
         <li id='nextPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
       </ul>
-      
     </div>
+    <!-- 삭제 버튼 -->
     <div class="delete-div">
       선택한 게시글을
       <a href="#" class="delete-btn">삭제</a>
@@ -93,21 +95,6 @@
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="mypage.js"></script>
 <script src="myboard.js"></script>
-
-<script>
-$(document).on('click', '.detail-togle', function() {
-  $(".my-top-detail").toggle("1000");
-});
-
-$(function(){
-  $("#allCheck").click(function(){
-    if($("#allCheck").prop("checked")) {
-			$("input[type=checkbox]").prop("checked",true);
-        } else {
-          $("input[type=checkbox]").prop("checked",false);
-    }
-  })
-})
-</script>
+<script type="text/javascript" src="../js/alertify.min.js"></script>
 </body>
 </html>

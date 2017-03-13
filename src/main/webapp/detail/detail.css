@@ -60,9 +60,11 @@ div.tit-area span.des {
 
 /* left-공유 */
 div.share-area {
-    width: 100%;
-    text-align: right;
-    margin-bottom:120px;
+	width:100%;
+	position:absolute;
+  text-align: right;
+  margin-bottom:10px;
+  padding-right: 30px;
 }
 
 div.share-area.active {
@@ -71,6 +73,7 @@ div.share-area.active {
   top:40%;
   text-align: left;
   z-index:2000;
+  margin-left:-3%;
 }
 .top {
   display:none;
@@ -82,23 +85,9 @@ div.share-area.active {
 .share-area > a {
   text-decoration:none;
 }
-.facebook-logo {
-  width:30px;
-  height:30px;
-  border-radius:5px;
-  margin-right:1px;
-  margin-bottom:7px;
-}
-.twitter-logo {
-  width:30px;
-  height:30px;
-  margin-bottom:7px;
-}
- .share-logo {
-  width:32px;
-  height:30px;
-  margin-right:30px;
-  margin-bottom:7px;
+.facebook-logo, .twitter-logo, .share-logo {
+  margin-right:5px;
+  margin-bottom:10px;
 }
 .top-logo {
   width:32px;
@@ -112,7 +101,7 @@ div.share-area.active {
 .detail {
   margin:0 auto 100px;
   width:100%;
-  height:100%;
+  max-height:100%;
 }
 
 /* 호두 던지기 */
@@ -127,6 +116,9 @@ div.share-area.active {
   padding:20px;
   position:relative;
 }
+.reply-commit {
+	position: relative;
+}
 
 #rep-img {
   float:left;
@@ -139,6 +131,7 @@ div.share-area.active {
   position:relative;
   border:0;
   padding:4px 8px;
+  max-width:100%
 }
 .reply-button {
   background-color:#2AA8E0;
@@ -272,7 +265,7 @@ span.link {
 .right-image {
   width:100%;
   height:100%;
-  border-radius:10px;
+  /* border-radius:10px; */
   color:black;
 }
 
@@ -306,7 +299,7 @@ span.link {
 
 .alta-title {
   color:white;
-  margin-bottom: 10px;
+  margin:0 10px 10px 10px;
 }
 
 .alternative-goods {
@@ -326,10 +319,9 @@ a#more {
 h5 {
   text-align:center;
 }
-/* #daumShopping, #daumShoppingScript {
-  display:none;
-} */
-@media screen and (max-width:850px) {
+
+
+@media only screen and (max-width:850px) and (min-width:550px) {
     .modal {
       overflow-y: hidden;
     }
@@ -337,21 +329,31 @@ h5 {
       top:0;
       left:0;
     }
+    .active {
+      display: none;
+    }
+    .detail-area{
+      padding:70px 10px 0 10px;
+      margin: 0 auto;
+    }
     .left-area {
 	    top:0;
 	    margin-bottom:0;
       width:100%;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
     .reply-button {
       background-color:#2AA8E0;
       position:absolute;
       color:white;
-      width:70px;
-      height:20px;
+      width:100px;
+      height:40px;
       border:0;
-      right:10%;
+      top:0;
+      right:0;
     }
     .right-area {
       display:none;
@@ -369,7 +371,7 @@ h5 {
       position:relative;
       display:inline-block;
       margin: 2px auto;
-      width:24.3%;
+      width:23.3%;
       height:20px;
       text-align:center;
     }
@@ -396,7 +398,7 @@ h5 {
 		  color:white;
 		  padding:0 0 5px 0;
 		}
-		.purchase-img {
+		.purchase-img, #hidden-alternative-goods > #daumShopping {
 		  width:200px;
 		  height:180px;
 		  margin:auto;
@@ -404,11 +406,14 @@ h5 {
 		  border-radius:10px;
 		  background-color: white;
 		}
+		#hidden-alternative-goods > .alta-title {
+		  margin:0;
+		}
 		.right-image {
 		  width:80%;
-		  height:150px;
+		  height:140px;
 		  color:black;
-		  margin:0 9% 0 9%;
+		  margin:5px 9% 0 9%;
 		}
 		span.link {
 		  display:block;
@@ -422,6 +427,8 @@ h5 {
       top:10px;
       right:10%;
       margin:auto;
+      width:200px;
+      height:210px;
     }
     .swiper-container {
         margin:0;
@@ -462,7 +469,8 @@ h5 {
 		
 		.alta-title {
 		  color:white;
-		  margin-bottom: 10px;
+		  padding:0 0 5px 0;
+		  margin-bottom: 0;
 		}
 		
 		.alternative-goods {
@@ -470,11 +478,187 @@ h5 {
 		  font-size:1.4em;
 		  font-weight:bold;
 		}
-    
+    #textarea {
+      margin-top:5px;
+    }
     .min-close {
     display:block;
     position:fixed;
     top:4%;
     right:4%;
+    z-index:2000;
     }
 }
+
+@media only screen and (max-width:550px) {
+	.modal {
+    overflow-y: hidden;
+  }
+  .modal-content {
+    top:0;
+    left:0;
+  }
+  .active {
+    display: none;
+  }
+  .detail-area{
+    padding:70px 10px 0 10px;
+    margin: 0 auto;
+  }
+  .left-area {
+    top:0;
+    margin-bottom:0;
+    width:100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .reply-button {
+    background-color:#2AA8E0;
+    position:absolute;
+    color:white;
+    width:100px;
+    height:40px;
+    border:0;
+    top:0;
+    right:0;
+  }
+  .right-area {
+    display:none;
+  }
+  .hidden-right {
+    display: block;
+    position:relative;
+    border-bottom: 1px solid #6a6e71;
+    margin:0 30px 5px 30px;
+    height:25px;
+    color:white;
+    background-color:#424242;
+  }
+  .hidden-right-menu {
+    position:relative;
+    display:inline-block;
+    margin: 2px auto;
+    width:23.3%;
+    height:20px;
+    text-align:center;
+  }
+  .hidden-right-menu > i {
+    margin-right:10px;
+  }
+  
+  .hidden-right-bottom {
+    height:230px;
+    margin:0;
+  }
+  #hidden-purchase-area {
+    position:absolute;
+    top:10px;
+    left:5%;
+    margin:auto;
+    width:40%;
+    min-width:150px;
+    height:210px;
+  }
+  div.purchase-title-area {
+    text-align:left;
+    font-size:1.3em;
+    font-weight:bold;
+    color:white;
+    padding:0 0 5px 0;
+  }
+  .purchase-img, #hidden-alternative-goods > #daumShopping {
+    min-width:150px;
+    width:100%;
+    height:180px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:10px;
+    background-color: white;
+  }
+  #hidden-alternative-goods > .alta-title {
+    margin:0;
+  }
+  .right-image {
+    width:80%;
+    height:140px;
+    color:black;
+    margin:5px 9% 0 9%;
+  }
+  span.link {
+    display:block;
+    text-align:center;
+    color:#6a6e71;
+    margin:0;
+  }
+  
+  #hidden-alternative-goods {
+    position:absolute;
+    top:10px;
+    right:5%;
+    margin:auto;
+    width:40%;
+    min-width:150px;
+    height:210px;
+  }
+  .swiper-container {
+      margin:0;
+      width:150px;
+      height:180px;
+  }
+  .swiper-slide {
+      width:150px;
+      height:150px;
+      text-align: center;
+      font-size: 1em;
+      background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      padding:0;
+      border-radius:10px;
+  }
+  .swiper-slide a {
+    position:absolute;
+    top:0;
+    text-decoration: none;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    margin-top:-15px;
+    width: 27px;
+    height: 20px;
+  }
+  
+  .alta-title {
+    color:white;
+    padding:0 0 5px 0;
+    margin-bottom: 0;
+  }
+  
+  .alternative-goods {
+    display:inline-block;
+    font-size:1.4em;
+    font-weight:bold;
+  }
+  #textarea {
+    margin-top:5px;
+  }
+  .min-close {
+    display:block;
+    position:fixed;
+    top:4%;
+    right:4%;
+    z-index:2000;
+  }
+}
+

@@ -20,8 +20,24 @@ public class MyWishListServiceImpl implements MyWishListService {
   }
 
   @Override
-  public List<HashMap<String, Object>> getList(int memberNo) throws Exception {
-    List<HashMap<String, Object>> map = myWishListDao.getList(memberNo);
-    return map;
+  public List<HashMap<String, Object>> getList(int pageNo, int pageSize, int memberNo) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    paramMap.put("memberNo", memberNo);
+    return myWishListDao.getList(paramMap);
+  }
+
+  @Override
+  public int delete(int wishNo) throws Exception {
+    int deleteCnt = myWishListDao.delete(wishNo);
+    System.out.println(deleteCnt);
+    if (deleteCnt <= 0) { return 0; }
+    return deleteCnt;
+  }
+  
+  @Override
+  public int getSize() throws Exception {
+    return myWishListDao.countAll();
   }
 }
