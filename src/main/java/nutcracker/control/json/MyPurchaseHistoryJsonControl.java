@@ -18,8 +18,11 @@ public class MyPurchaseHistoryJsonControl {
   
   @RequestMapping("/mypage/myPurchseHistoryAdd")
   public AjaxResult add(@RequestParam HashMap<String,Object> map) throws Exception {
-    /*myPurchseHistoryService.add(map);*/
-    System.out.println("json map: " + map);
-    return new AjaxResult(AjaxResult.SUCCESS, map);
+    int count = myPurchaseHistoryService.add(map);
+    if (count == -1) {
+      return new AjaxResult(AjaxResult.FAIL, "구매 진행 중 오류가 발생하였습니다.");
+    } else {
+      return new AjaxResult(AjaxResult.SUCCESS, "구매 완료되었습니다.");
+    }
   }
 }

@@ -3,6 +3,7 @@ try {
   var purchaseNo = location.href.split('?')[1].split('=')[1];
   var users = window.sessionStorage.getItem('user');
   var IMP = window.IMP;
+  var getDetail;
   IMP.init('imp59301576');
 } catch (error) {
 	console.log(error);
@@ -10,6 +11,7 @@ try {
 
 $(function() {
 	$.post(serverRoot + '/deal/detail.json', 'purchaseNo='+purchaseNo, function(ajaxResult) {
+		getDetail = ajaxResult.data;
 		$('.deal-detail-img > img').attr('src', clientRoot+"/upload/deal/"+ajaxResult.data.photoList.photoPath);
 		$('.deal-detail-title > span').text(ajaxResult.data.title);
 		$('.deal-detail-info-cont-price').text(ajaxResult.data.price+" 원");
@@ -125,8 +127,8 @@ $('#purchase-btn').click(function() {
 			pg : 'kakao',
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			name : '주문명:결제테스트',
-			amount : 1000 * $("#product-quantity input").val(),
+			name : getDetail.title,
+			amount : getDetail.price * $("#product-quantity input").val(),
 			buyer_email : JSON.parse(users).email,
 			buyer_name : JSON.parse(users).name,
 			buyer_tel : JSON.parse(users).tel,
@@ -139,9 +141,12 @@ $('#purchase-btn').click(function() {
 					type: 'POST',
 					dataType: 'json',
 					data: {
+						memberNo : JSON.parse(users).memberNo,
+						purchaseNo : purchaseNo,
+						quantity : $("#product-quantity input").val(),
 						imp_uid : rsp.imp_uid,
-						purchaseDate : rsp.paid_at,
-						receipt : rsp.receipt_url
+						purchaseDate : rsp.paid_at, //결제 승인 시각
+						receipt : rsp.receipt_url // 거래 매출 전표 URL
 						//기타 필요한 데이터가 있으면 추가 전달
 					}
 				}).done(function(data) {
