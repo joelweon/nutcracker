@@ -149,8 +149,7 @@ $('#purchase-btn').click(function() {
         }
     });
 	    } else {
-	        var msg = '결제에 실패하였습니다.<br>';
-	        msg += '상세내용 : ' + rsp.error_msg;
+	        var msg = rsp.error_msg;
 	    }
 		alertify.alert(msg);
 	});

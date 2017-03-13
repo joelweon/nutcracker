@@ -60,7 +60,7 @@ $( function() {
 $('#write').click(function() {
 	var param = {
 		title: $('#input-title').val(),
-		companyNo: $('#input-maker').val(),
+		companyNo: $('#input-maker-hidden').val(),
 		price: $('#input-price').val(),
 		totalCount: $('#input-volume').val(),
 		startDate: $('#start-date').val(),
@@ -102,8 +102,8 @@ function startSearch() {
 }
 
 $('#results').delegate('a','click', function() {
-	console.log($(this).text());
-	$('#input-maker').val($(this).data("company-no"));
+	$('#input-maker-hidden').val($(this).data("company-no"));
+	$('#input-maker').val($(this).text());
 	$('#results').html("");
 });
 
