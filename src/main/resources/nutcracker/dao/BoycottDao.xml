@@ -18,6 +18,7 @@
     <result column="bot_cnt"    property="boycottCount"/>
     <result column="cpno"       property="companyNo"/>
     <result column="mno"        property="memberNo"/>
+    <result column="reg_date"   property="regDate"/>
     
     <collection property="newsList" ofType="BoycottNews">
       <id       column="newsno"     property="newsNo"/>
@@ -37,13 +38,21 @@
       b.cmt_cnt,
       b.shr_cnt,
       b.bot_cnt,
-      b.pt_path,
+      ifnull(b.pt_path, "default") as pt_path,
       b.cpno,
       bn.newsno,
       bn.headline,
       bn.path
     from bot b
     left outer join bot_news bn on b.botno=bn.botno
+  </select>
+  
+  <select id="getMyboycottList" parameterType="int" resultMap="boycott-map">
+    select
+      mno,
+      cpno,
+      reg_date
+    from bot_rls where mno=#{value}
   </select>
   
   <select id="getOne" parameterType="int" resultMap="boycott-map">
@@ -97,8 +106,8 @@
   
   <insert id="insert" parameterType="boycott"
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
-    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,pt_path)
-    values(#{companyNo},now(),#{title},#{content},#{viewCount},#{hoduCount},#{commentCount},#{shareCount},#{photoPath})      
+    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,bot_cnt,pt_path)
+    values(#{companyNo},now(),#{title},#{content},0,0,0,0,0,#{photoPath})      
   </insert>
   
   <insert id="insertNews" parameterType="boycott">

@@ -90,18 +90,44 @@ body {background-color: #ffffff;}
 	margin-top: 30px;
 }
 /* 구매버튼 */
-.purchase-btn{
+#purchase-btn{
 	position: absolute;
 	width: 90%;
 	height:50px;
 	margin: 0 10% 0 10%;
 }
-.purchase-btn .ka-pay {
+#purchase-btn .ka-pay {
 	position: absolute;
 	border-radius: 10px;
 	height:50px;
 	max-width:100%;
 	margin:auto;
+}
+/* 수량 선택 */
+.qty-box {
+  border: 1px solid #94c4ec;
+  border-radius: 3px;
+  display: block;
+  height: 60px;
+  margin: calc(50vh - 30px) auto 0 auto;
+  width: 200px;
+}
+
+.qty-box:span {
+  color: #62a8e2;
+  font-family: sans-serif;
+  float: left;
+  line-height: 60px;
+  text-align: center;
+  width: calc(200px/3);
+  -webkit-font-smoothing: antialiased;
+}
+
+.dec, .inc {
+  height: 100%;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* 딜 상세 컨텐츠 */
@@ -240,7 +266,7 @@ body {background-color: #ffffff;}
 	  left: 5px;
 	  margin-top: 40px;
 	}
-	.purchase-btn ul {
+	#purchase-btn ul {
 	  left:-30px;
 	}
 	

@@ -1,6 +1,6 @@
 package nutcracker.domain;
 
-public class MyPurchaseList extends Purchase {
+public class MyPurchaseHistory extends Purchase {
   private static final long serialVersionUID = 1L;
   
   protected int memberNo;

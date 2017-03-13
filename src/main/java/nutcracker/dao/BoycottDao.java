@@ -6,6 +6,7 @@ import nutcracker.domain.Boycott;
 
 public interface BoycottDao {
   ArrayList<Boycott> getList() throws Exception;
+  ArrayList<Boycott> getMyboycottList(int memberNo) throws Exception;
   int insert(Boycott boycott) throws Exception;
   Boycott getOne(int boycottNo) throws Exception;
   int update(Boycott boycott) throws Exception;

@@ -31,13 +31,13 @@ div {
   position: relative;
   padding-bottom: 50px;
 }
-.container.main {
+/* .container.main {
 	width:100%;
 	background-image: url(http://www.powerpointhintergrund.com/download/grey-ppt-background-522);
-	/* background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg); */
+	background-image: url(http://www.siwallpaperhd.com/wp-content/uploads/2015/07/purple_plain_wallpaper.jpg);
 	background-size: 100% 340px;
 	background-repeat: no-repeat;
-}
+} */
 #wrap-content {
 	width: 100%;
 	max-width: 960px;
