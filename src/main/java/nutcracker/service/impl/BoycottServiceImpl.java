@@ -17,6 +17,12 @@ public class BoycottServiceImpl implements BoycottService{
   public List<Boycott> getList() throws Exception {
     return boycottDao.getList();
   }
+  
+  @Override
+  public List<Boycott> getMyBoycottList(int memberNo) throws Exception {
+    
+    return boycottDao.getMyboycottList(memberNo);
+  }
 
   @Override
   public Boycott getDetail(int no) throws Exception {
@@ -92,5 +98,7 @@ public class BoycottServiceImpl implements BoycottService{
   public int updateHoduCount(int boycottNo) throws Exception {
     return boycottDao.updateHodu(boycottNo); 
   }
+
+  
 
 }
