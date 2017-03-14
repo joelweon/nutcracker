@@ -71,4 +71,12 @@ public class UserServiceImpl implements UserService {
     return count;
   }
 
+  @Override
+  public int updateProfile(HashMap<String, Object> map) throws Exception {
+    int updateCnt = memberDao.updateImg(map);
+    System.out.println("updateProfile-map: " + map);
+    System.out.println("updateCnt: " + updateCnt);
+    if (updateCnt <= 0) { return 0; }
+    return updateCnt;
+  }
 }

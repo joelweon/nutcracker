@@ -62,13 +62,9 @@ body {
   text-align: center;
 } 
 
-purchase-table. th {
-  background-color: #cococo;
-  font: bold;
-}
-
-.list-img-span > a > img {
+.list-img-span > img {
   width: 20%;
+  max-height:95px;
   margin: 2px 0px 0px 10px;
 }
 
@@ -92,11 +88,11 @@ purchase-table. th {
 
 .purchase-list {
   text-align: left;
-  width: 60%;
+  width: 50%;
 }
 
 .purchase-list div {
-  width: 70%;
+  width: 75%;
   margin: 5px 0px 0px 0px;
   float: right;
 }

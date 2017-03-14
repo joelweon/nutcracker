@@ -69,4 +69,9 @@ public class PurchaseServiceImpl implements PurchaseService {
   public List<HashMap<String, Object>> searchDeal(String keyword) throws Exception {
     return purchaseDao.searchDeal(keyword);
   }
+
+  @Override
+  public int updateApplicant(int purchaseNo) throws Exception {
+    return purchaseDao.updateApplicant(purchaseNo);
+  }
 }

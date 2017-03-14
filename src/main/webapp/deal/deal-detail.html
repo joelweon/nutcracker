@@ -7,14 +7,14 @@
   maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/> -->
 <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/footer.css">
-<link rel="stylesheet" href="deal.css">
-<link rel="stylesheet" href="deal-detail.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/alertify.core.css">
 <link rel="stylesheet" href="../css/alertify.default.css">
+<link rel="stylesheet" href="deal.css">
+<link rel="stylesheet" href="deal-detail.css">
 </head>
 <body>
 <div class='container'>
@@ -28,9 +28,9 @@
     <hr style='border-top: 1px solid #333333;'>
   </div>
   <div class='share-icon'>
-	  <i class="fa">&#xf081;</i>
-	  <i class="fa">&#xf082;</i>
-	  <i class="fa">&#xf1e1;</i>
+	  <i class="fa">&#xf081;</i> <!-- 트위터 아이콘 -->
+	  <i class="fa">&#xf082;</i> <!-- 페북 아이콘 -->
+	  <i class="fa">&#xf1e1;</i> <!-- 공유 아이콘 -->
   </div>
   <div class='deal-detail-img'>
     <img src=''>
@@ -63,6 +63,10 @@
     </div> <!-- 퍼센트 바 끝 -->
     <!-- 버튼 -->
     <div class='deal-detail-info-btn'>
+	    <!-- 수량 선택 -->
+	    <div id="product-quantity">
+	      <input type="number" min="1" max="10" step="1" value="1">
+	    </div>
 		  <div id="purchase-btn">
         <a href="javascript:void(0)"><img class="ka-pay" src="../images/deal/payment_icon.png" /></a>
 		  </div>

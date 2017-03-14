@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="nutcracker.dao.MyPurchaseHistoryDao">
+  
+  <resultMap type="hashmap"      id="map">
+    <id     column="MNO"         property="memberNo"/>
+    <id     column="PNO"         property="purchaseNo"/>
+    <result column="PCH_DATE"    property="purchaseDate"/>
+    <result column="PCH_CNT"     property="quantity"/>
+    <result column="IMP_UID"     property="imp_uid"/>
+    <result column="RECEIPT"     property="receipt"/>
+    <result column="CPNO"        property="companyNo"/>
+    <result column="CPNO"        property="companyNo"/>
+    <result column="TITLE"       property="title"/>
+    <result column="PRICE"       property="price"/>
+    <result column="DEV_DATE"    property="deleveryDate"/>
+    <result column="PATH"        property="path"/>
+    <result column="CP_NAME"     property="companyName"/>
+    <result column="ZIP"         property="postcode"/>
+    <result column="BAS_ADR"     property="basicAddress"/>
+    <result column="DET_ADR"     property="detailAddress"/>
+  </resultMap>
+  
+  <select id="getList" resultMap="map">
+    select
+      MY.MNO,
+      MY.PNO,
+      date_format(MY.PCH_DATE, '%Y-%m-%d %T') as PCH_DATE, 
+      MY.PCH_CNT,
+      MY.IMP_UID,
+      MY.RECEIPT,
+      PUR.TITLE,
+      PUR.PRICE,
+      date_format(PUR.DEV_DATE, '%Y-%m-%d') as DEV_DATE,
+      USER.BAS_ADR,
+      USER.DET_ADR,
+      USER.ZIP,
+      (select MIN(PP.PATH) from PCH_PHOT PP where MY.PNO = PP.PNO) as PATH,
+      (select CP_NAME from COMP where PUR.CPNO = COMP.CPNO) as CP_NAME
+    from PCH_HIST MY
+      left outer join PURCHS PUR on MY.PNO = PUR.PNO
+      left outer join USER on MY.MNO = USER.UNO
+    where MY.MNO=#{value}
+  </select>
+  
+  <insert id="insert" parameterType="map">
+    insert into PCH_HIST(MNO, PNO, PCH_DATE, PCH_CNT, IMP_UID, RECEIPT)
+    values(
+      #{memberNo},
+      #{purchaseNo},
+      now(),
+      #{quantity},
+      #{imp_uid},
+      #{receipt}
+    )
+  </insert>
+</mapper>

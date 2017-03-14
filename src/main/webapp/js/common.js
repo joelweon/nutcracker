@@ -23,8 +23,8 @@ $(document).ready(function() {
       // 로그인 되었으면 로그오프 출력 창을 감춘다.
       $('#btn-login').css('display', 'none');
       if (ajaxResult.data.photoUrl == null) { //일반계정으로 로그인한 경우
-      	$('#profile-img').attr('src', clientRoot+'/images/user/'+ajaxResult.data.photoPath);
-      	$('#profile-img-big').attr('src', clientRoot+'/images/user/'+ajaxResult.data.photoPath);
+      	$('#profile-img').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
+      	$('#profile-img-big').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
       } else { //sns계정으로 로그인한 경우
       	$('#profile-img').attr('src', ajaxResult.data.photoUrl);
       	$('#profile-img-big').attr('src', ajaxResult.data.photoUrl);
@@ -82,3 +82,112 @@ function fnMove(seq){
     var offset = $("#title-bar-" + seq).offset();
     $('html, body').animate({scrollTop : offset.top}, 400);
 };
+
+/* 유저 정보 갖고오기 */
+var users = window.sessionStorage.getItem('user');
+
+/* 프로필 사진 변경 */
+function readUploadImage( inputObject ) {
+  /*
+  브라우저에서 FileReader가 지원되는지
+  확인하기 위해 
+  window.File && window.FileReader 
+  해 본다. 
+  안되면 안된다고 알려 주면 되지~ ㅋㅋ
+  */
+    if ( window.File && window.FileReader ) {
+      /*
+      입력된 파일이 1개 이상 있는지 확인~
+      */
+      if ( inputObject.files && inputObject.files[0]) {
+
+        /* 이미지 파일인지도 체크해 주면 좋지~ */
+        if ( !(/image/i).test(inputObject.files[0].type ) ){
+          alertify.alert("이미지 파일을 선택해 주세요!");
+          return false;
+        }
+        /* FileReader 를 준비 한다. */
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          /* reader가 다 읽으면 imagePreview에 뿌려 주면 끝~  */
+          $('#profile-img-big').attr('src', e.target.result);
+        }
+
+        /* input file에 있는 파일 하나를 읽어온다. */
+        reader.readAsDataURL(inputObject.files[0]);
+        
+        /* 썸네일 사진 업로드 */
+        var dataURL = $('#profile-img-big').attr('src');//data:image/png;base64,iVBORw
+        var blob = dataURItoBlob(dataURL);
+        
+        uploadImage(blob);
+    }
+
+  } else {
+    alertify.alert( "미리보기 지원하지 않습니다. 브라우저를 업그레이드하세요.");
+  }
+}
+  
+  function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0) {
+        byteString = atob(dataURI.split(',')[1]);
+    } else {
+        byteString = unescape(dataURI.split(',')[1]);
+    }
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], {type:mimeString});
+  }
+
+  function uploadImage(image) {
+    var IMAGE_PATH = serverRoot + '/upload/profile/';
+
+    var data = new FormData(); 
+    data.append("image",image);
+    $.ajax ({
+      async: false,
+      data: data,
+      dataType : "json",
+      type: "POST",
+      url: serverRoot + "/user/profileUpload.json",
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(ajaxResult) {
+        thumbnail = ajaxResult.data;
+        console.log("성공: " + thumbnail);
+        doUpdate(thumbnail);
+      },
+      error: function(result) {
+        console.log("실패: " + result);
+      }
+    });
+  }
+  
+  function doUpdate(thumbnail) {
+    var param = {
+        memberNo: JSON.parse(users).memberNo,
+        photoPath: thumbnail
+    };
+    $.ajax({
+      url: serverRoot + '/user/updateProfile.json',
+      method: 'post',
+      dataType: 'json',
+      data: JSON.stringify(param),
+      contentType: "application/json; charset=UTF-8",
+      timeout: 40000,
+      success: function(ajaxResult) {
+        alertify.alert('수정성공');
+      }
+    });
+  }
