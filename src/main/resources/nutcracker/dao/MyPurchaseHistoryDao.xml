@@ -8,18 +8,40 @@
   <resultMap type="hashmap"      id="map">
     <id     column="MNO"         property="memberNo"/>
     <id     column="PNO"         property="purchaseNo"/>
-    <result column="PCH_DATE"       property="purchaseDate"/>
-    <result column="PCH_CNT"       property="quantity"/>
+    <result column="PCH_DATE"    property="purchaseDate"/>
+    <result column="PCH_CNT"     property="quantity"/>
+    <result column="CPNO"        property="companyNo"/>
+    <result column="CPNO"        property="companyNo"/>
+    <result column="TITLE"       property="title"/>
+    <result column="PRICE"       property="price"/>
+    <result column="DEV_DATE"    property="deleveryDate"/>
+    <result column="PATH"        property="path"/>
+    <result column="CP_NAME"     property="companyName"/>
+    <result column="ZIP"         property="postcode"/>
+    <result column="BAS_ADR"     property="basicAddress"/>
+    <result column="DET_ADR"     property="detailAddress"/>
   </resultMap>
   
   <select id="getList" resultMap="map">
     select 
-      MNO,
-      PNO, 
-      date_format(PCH_DATE, '%Y-%m-%d %T') as PCH_DATE, 
-      PCH_CNT
-    from PCH_HIST
-    where MNO={#value}
+      MY.MNO,
+      MY.PNO,
+      date_format(MY.PCH_DATE, '%Y-%m-%d %T') as PCH_DATE, 
+      MY.PCH_CNT,
+      PUR.TITLE,
+      PUR.PRICE,
+      date_format(PUR.DEV_DATE, '%Y-%m-%d') as DEV_DATE,
+      MIN(PP.PATH) as PATH,
+      COMP.CP_NAME,
+      USER.BAS_ADR,
+      USER.DET_ADR,
+      USER.ZIP
+    from PCH_HIST MY
+      left outer join PURCHS PUR on MY.PNO = PUR.PNO
+      left outer join PCH_PHOT PP on MY.PNO = PP.PNO
+      left outer join COMP on PUR.CPNO = COMP.CPNO
+      left outer join USER on MY.MNO = USER.UNO
+    where MY.MNO=#{value}
   </select>
   
   <insert id="insert" parameterType="map">

@@ -1,6 +1,7 @@
 package nutcracker.control.json;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -16,6 +17,12 @@ public class MyPurchaseHistoryJsonControl {
   @Autowired ServletContext sc;
   @Autowired MyPurchaseHistoryService myPurchaseHistoryService;
   
+  @RequestMapping("/mypage/myPurchseHistory")
+  public AjaxResult getList(@RequestParam int memberNo) throws Exception {
+    List<HashMap<String,Object>> purchaseHistory = myPurchaseHistoryService.getList(memberNo);
+    return new AjaxResult(AjaxResult.SUCCESS, purchaseHistory);
+  }
+  
   @RequestMapping("/mypage/myPurchseHistoryAdd")
   public AjaxResult add(@RequestParam HashMap<String,Object> map) throws Exception {
     int count = myPurchaseHistoryService.add(map);
@@ -24,11 +31,5 @@ public class MyPurchaseHistoryJsonControl {
     } else {
       return new AjaxResult(AjaxResult.SUCCESS, "구매 완료되었습니다.");
     }
-  }
-  
-  @RequestMapping("/mypage/myPurchseHistory")
-  public AjaxResult getList(@RequestParam HashMap<String,Object> map) throws Exception {
-    HashMap<String,Object> purchaseHistory = myPurchaseHistoryService.getList(map);
-    return new AjaxResult(AjaxResult.SUCCESS, purchaseHistory);
   }
 }

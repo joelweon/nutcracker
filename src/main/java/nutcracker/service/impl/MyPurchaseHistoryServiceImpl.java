@@ -1,6 +1,7 @@
 package nutcracker.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,7 @@ public class MyPurchaseHistoryServiceImpl implements MyPurchaseHistoryService {
   @Autowired MyPurchaseHistoryDao myPurchaseHistoryDao;
   
   @Override
-  public HashMap<String, Object> getList(HashMap<String, Object> map) throws Exception {
-    int memberNo = Integer.parseInt(map.get("memberNo").toString());
+  public List<HashMap<String, Object>> getList(int memberNo) throws Exception {
     return myPurchaseHistoryDao.getList(memberNo);
   }
 

@@ -40,51 +40,58 @@
 		</div> <!-- term-list -->
 		<div>
 			<table class="purchase-table">
-				<tr class="purchase-list-title">
-					<th>구매일시</th>
-					<th>구매내역</th>
-					<th>구매금액</th>
-					<th>배송일자</th>
-					<th>구매후기</th>
-				</tr>
-				<tr>
-					<td class="purchase-table-date">
-						<p>2017.01.19</p>
-						<p>(22:08:34)</p>
-						<p>249987364</p>
-					</td>
-					<td class="purchase-list">
-						<span class="list-img-span">
-							<a href="#">
-								<img src="../images/cleanall.png">
-							</a>
-						</span>
-						<div>
-							<p>대용량 클린올 버블핸드워시 거품비누 800ml</p>
-							<p>구매수량 : 1개</p>
-							<p>제조사 : 이코바이오</p>
-							<p>배송지 : 서초구 서초대로 74길 33, 2층</p>
-						</div>
-					</td>
-					<td class="purchase-price">7,300원</td>
-					<td class="delivery-date">2017.01.23</td>
-					<td class="purchase-review">
-						<div id="buttons">
-						  <a href="#" class="review-btn review-btn-red">작성</a>
-						</div>
-					</td>
-				</tr>
+			  <thead>
+					<tr class="purchase-list-title">
+						<th>구매일시</th>
+						<th>구매내역</th>
+						<th>결제금액</th>
+						<th>배송일자</th>
+						<th>구매후기</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
 			</table>
 		</div>
 	</div> <!-- main-contents -->
 </div> <!-- my-content-area -->
 <!-- <div id='wrap-footer'></div> -->
-
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+  <tr>
+    <td class="purchase-table-date">
+      <p>{{purchaseDate}}</p>
+      <p>{{imp_uid}}</p>
+    </td>
+    <td class="purchase-list">
+      <span class="list-img-span">
+        <a href="{{receipt}}">
+          <img src="/nutcracker/upload/deal/{{path}}">
+        </a>
+      </span>
+      <div>
+        <p>{{title}}</p>
+        <p>구매수량 : {{quantity}}개</p>
+        <p>제조사 : {{companyName}}</p>
+        <p>배송지 : [{{postcode}}] {{basicAddress}} {{detailAddress}}</p>
+      </div>
+    </td>
+    <td class="purchase-price">{{price}}원</td>
+    <td class="delivery-date">{{deleveryDate}}</td>
+    <td class="purchase-review">
+      <div id="buttons">
+        <a href="#" class="review-btn review-btn-red">작성</a>
+      </div>
+    </td>
+  </tr>
+{{/each}}
+</script>
 <script src="../js/context.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script type="text/javascript" src="../js/alertify.min.js"></script>
 <script src="../js/common.js"></script>
 <script src="mypage.js"></script>
+<script src="mypurchase.js"></script>
 <script>
 $(document).on('click', '.detail-togle', function() {
 	$(".my-top-detail").toggle("1000");
