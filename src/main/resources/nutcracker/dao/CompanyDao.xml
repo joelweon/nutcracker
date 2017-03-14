@@ -22,22 +22,30 @@
   </select>
   
   <select id="getBoycottComp" parameterType="int" resultType="hashmap">
-    <!-- select c.cpno,c.cp_name,c.parno 
-		from comp as c
-		right outer join (select cpno from bot_rls where mno=#{value}) as r on r.cpno=c.cpno; -->
-		select res.cpno, res.cp_name,
-		  group_concat(aa.cpno) as childrenNo,
-		  group_concat(aa.cp_name) as childrenName
-		from comp aa
-		  right join (select com.cpno, com.cp_name, com.parno
+    select 
+		  concat('[', 
+		    group_concat('{"', com.cpno, '","', com.cp_name, '","', com.lvl, '","',(select count(0) from bot_rls r where com.cpno=r.cpno and mno=2), '"}' 
+		    order by com.lvl separator '-'),
+		    ']') as sub_com_list
+		from comp com
+		where com.parno in 
+		  (select case when parno=0 then com.cpno else com.parno end as pc_no
 		  from comp com
-		    join (select c.cpno, c.cp_name, c.parno
-		    from comp as c
-		      right join (select cpno from bot_rls where mno=#{value})as r on r.cpno=c.cpno) as te
-		where if (te.parno=0, te.cpno=com.cpno, te.parno=com.cpno)) as res
-		on aa.parno=res.cpno
-		group by res.cpno
-		order by aa.cpno
+		    left join bot_rls r on com.cpno=r.cpno
+		  where r.mno=2)
+		  group by (com.parno)
+		  <!-- select 
+			  concat('[', 
+			    group_concat('{', com.cpno, ',', com.cp_name, ',', com.lvl, ',',(select count(0) from bot_rls r where com.cpno=r.cpno and mno=2), '}' 
+			    order by com.lvl),
+			    ']') as sub_com_list
+			from comp com
+			where com.parno in 
+			  (select case when parno=0 then com.cpno else com.parno end as pc_no
+			  from comp com
+			    left join bot_rls r on com.cpno=r.cpno
+			  where r.mno=2)
+			  group by (com.parno) -->
   </select>
   
   <select id="getParent" parameterType="int" resultMap="Company-map">

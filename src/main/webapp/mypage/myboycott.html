@@ -35,21 +35,70 @@
 </div>
 
 <!-- <div id='wrap-footer'></div> -->
-
+<!-- <script id="parentTemplate" type="text/x-handlebars-template">
+  {{list}}
+  {{#each list}}
+    -- {{cpno}}
+  {{/each}}
+</script> -->
 <script id="parentTemplate" type="text/x-handlebars-template">
+  {{#each parent}}
     <li>
-      <input type="checkbox" id="trigger-views{{index}}" class=".trigger-views">
-      <label for="trigger-views{{index}}" id={{parentNo}}>{{parentName}}</label>
-      <ul id="pure-tree{{index}}" class="pure-tree">
+      <input type="checkbox" id="trigger-views{{obj.no}}" class=".trigger-views">
+      {{#if obj.check}}
+      <label class='check' for="trigger-views{{obj.no}}" id={{obj.no}}>{{obj.name}}</label>
+      {{else}}
+      <label for="trigger-views{{obj.no}}" id={{obj.no}}>{{obj.name}}</label>
+      {{/if}}
+      <ul id="pure-tree{{obj.no}}" class="pure-tree">
       </ul>
     </li>
+  {{/each}}
+</script>
+<script id="childTemplate" type="text/x-handlebars-template">
+  {{#each list}}
+  {{#if obj.check}}
+    <li class="pure-tree_link"><a class='check' id={{obj.no}}>{{obj.name}}</a></li>
+  {{else}}
+    <li class="pure-tree_link"><a id={{obj.no}}>{{obj.name}}</a></li>
+  {{/if}}
+  {{/each}}
+</script>
+<!-- 
+    {{if not obj.level}}
+      <li>
+        <input type="checkbox" id="trigger-views{{obj.no}}" class=".trigger-views">
+        <label for="trigger-views{{obj.no}}" id={{obj.no}}>{{obj.name}}</label>
+        <ul id="pure-tree{{obj.no}}" class="pure-tree">
+        </ul>
+      </li>
+    {{else}}
+      <li class="pure-tree_link"><a id={{obj.no}}>{{obj.name}}</a></li>
+    {{/if}}
+      <li>
+        <input type="checkbox" id="trigger-views{{no}}" class=".trigger-views">
+        <label for="trigger-views{{no}}" id={{no}}>{{name}}</label>
+        <ul id="pure-tree{{no}}" class="pure-tree">
+        </ul>
+      </li>
+    {{else}}
+      <li class="pure-tree_link"><a id={{no}}>{{name}}</a></li>
+<script id="parentTemplate" type="text/x-handlebars-template">
+  {{#each parentList}}
+    <li>
+      <input type="checkbox" id="trigger-views{{no}}" class=".trigger-views">
+      <label for="trigger-views{{no}}" id={{no}}>{{name}}</label>
+      <ul id="pure-tree{{no}}" class="pure-tree">
+      </ul>
+    </li>
+  {{/each}}
 </script>
 <script id="childTemplate" type="text/x-handlebars-template">
   {{#each childrenArray}}
   <li class="pure-tree_link"><a id={{childrenNo}}>{{childrenName}}</a></li>
   {{/each}}
 </script>
-
+-->
 <script src="../js/context.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>

@@ -62,7 +62,7 @@ function doReviewSearch(keyword) {
     }
   });
   
-  doSearchPurchase(keyword);
+  //doSearchPurchase(keyword);
 }
 
 function doSearchPurchase(keyword) {
