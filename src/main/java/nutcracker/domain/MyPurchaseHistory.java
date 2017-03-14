@@ -7,6 +7,8 @@ public class MyPurchaseHistory extends Purchase {
   protected int purchaseNo;
   protected String purchaseDate;
   protected int quantity;
+  protected String imp_uid;
+  protected String receipt;
   
   public int getMemberNo() {
     return memberNo;
@@ -32,5 +34,17 @@ public class MyPurchaseHistory extends Purchase {
   public void setQuantity(int quantity) {
     this.quantity = quantity;
   }
-
+  public String getImp_uid() {
+    return imp_uid;
+  }
+  public void setImp_uid(String imp_uid) {
+    this.imp_uid = imp_uid;
+  }
+  public String getReceipt() {
+    return receipt;
+  }
+  public void setReceipt(String receipt) {
+    this.receipt = receipt;
+  }
+  
 }

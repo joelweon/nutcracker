@@ -44,7 +44,7 @@
 					<tr class="purchase-list-title">
 						<th>구매일시</th>
 						<th>구매내역</th>
-						<th>결제금액</th>
+						<th>구매금액</th>
 						<th>배송일자</th>
 						<th>구매후기</th>
 					</tr>
@@ -60,13 +60,13 @@
   <tr>
     <td class="purchase-table-date">
       <p>{{purchaseDate}}</p>
-      <p>{{imp_uid}}</p>
+      <a href="{{receipt}}">
+        <p>{{imp_uid}}</p>
+      </a>
     </td>
     <td class="purchase-list">
       <span class="list-img-span">
-        <a href="{{receipt}}">
-          <img src="/nutcracker/upload/deal/{{path}}">
-        </a>
+        <img src="/nutcracker/upload/deal/{{path}}">
       </span>
       <div>
         <p>{{title}}</p>
