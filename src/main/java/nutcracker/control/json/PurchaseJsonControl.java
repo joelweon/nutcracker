@@ -51,5 +51,11 @@ public class PurchaseJsonControl {
     List<HashMap<String, Object>> list = purchaseService.searchDeal(keyword);
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
+  
+  @RequestMapping("/deal/updateApplicant")
+  public AjaxResult updateApplicant(int purchaseNo) throws Exception {
+    int count = purchaseService.updateApplicant(purchaseNo);
+    return new AjaxResult(AjaxResult.SUCCESS, count);
+  }
 
 }

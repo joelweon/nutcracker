@@ -79,7 +79,8 @@
       ST_DATE,
       EN_DATE, 
       DEV_DATE, 
-      TOTAL_CNT)
+      TOTAL_CNT,
+      API_CNT)
     values(
       #{purchaseNo},
       #{companyNo},
@@ -88,12 +89,19 @@
       #{startDate},
       #{endDate},
       #{deliveryDate},
-      #{totalCount})
+      #{totalCount},
+      0)
   </insert>
   
   <insert id="insertPhoto" parameterType="map" >
     insert into PCH_PHOT(PNO,PATH)
     values(#{purchaseNo},#{photoPath})
+  </insert>
+  
+  <insert id="updateApplicant" parameterType="int" >
+    update PURCHS set
+      API_CNT=API_CNT + 1
+    where PNO=#{value}
   </insert>
   
 <!--  <delete id="delete" parameterType="int">

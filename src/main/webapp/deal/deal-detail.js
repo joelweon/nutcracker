@@ -152,6 +152,7 @@ $('#purchase-btn').click(function() {
 				}).done(function(data) {
 					//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
 					/*if (data) {*/
+					updateApplicant();
 					var msg = '결제가 완료되었습니다.';
 					msg += '<br>나의 구매내역으로 이동하시겠습니까?'
 						alertify.confirm(msg, function (e) {
@@ -179,3 +180,10 @@ $('#purchase-btn').click(function() {
     });
 	}
 });
+
+// 신청인원 업데이트
+var updateApplicant = function() {
+	$.get(serverRoot + '/deal/updateApplicant.json', 'purchaseNo='+purchaseNo, function(ajaxResult) {
+		$('.deal-detail-info-cont-applicant').text(ajaxResult.data+" 명");
+	});
+};
