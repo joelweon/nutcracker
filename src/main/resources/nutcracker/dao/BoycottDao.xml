@@ -30,7 +30,7 @@
   <select id="getList" resultMap="boycott-map">
     select 
       b.botno, 
-      b.bot_date,
+      date_format(b.bot_date,'%Y-%m-%d') as bot_date,
       b.title,
       b.cont,
       b.view_cnt, 
