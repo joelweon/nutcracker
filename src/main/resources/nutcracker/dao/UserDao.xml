@@ -106,6 +106,14 @@
     where uno=#{memberNo}
   </update>
   
+  <update id="updateAddress" parameterType="user">
+    update user set
+      zip=#{postcode},
+      bas_adr=#{basicAddress},
+      det_adr=#{detailAddress}
+    where uno=#{memberNo}
+  </update>
+  
   <delete id="delete" parameterType="int">
     <![CDATA[
       delete from user where uno=#{value}

@@ -79,4 +79,9 @@ public class UserServiceImpl implements UserService {
     if (updateCnt <= 0) { return 0; }
     return updateCnt;
   }
+
+  @Override
+  public int updateAddress(User user) throws Exception {
+    return userDao.updateAddress(user);
+  }
 }

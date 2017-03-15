@@ -47,6 +47,27 @@
     left outer join bot_news bn on b.botno=bn.botno
   </select>
   
+  <select id="getListYear" parameterType="int" resultMap="boycott-map">
+    select 
+      b.botno, 
+      b.bot_date,
+      b.title,
+      b.cont,
+      b.view_cnt, 
+      b.hodu_cnt,
+      b.cmt_cnt,
+      b.shr_cnt,
+      b.bot_cnt,
+      ifnull(b.pt_path, "default") as pt_path,
+      b.cpno,
+      bn.newsno,
+      bn.headline,
+      bn.path
+    from bot b
+    left outer join bot_news bn on b.botno=bn.botno
+    where year(b.bot_date) = #{value};
+  </select>
+  
   <select id="getMyboycottList" parameterType="int" resultMap="boycott-map">
     select
       mno,
