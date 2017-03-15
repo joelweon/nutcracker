@@ -38,7 +38,7 @@ $('a#write').click(function(event) {
     var contents = $('#summernote').summernote('code');
     var start = $(contents).find('img').attr('src');
     console.log(start);
-    if (start == -1) {
+    if (start == undefined) {
     	thumbnail = 'default';
     }	else {
     	var end = contents.indexOf('data-filename', start);
@@ -54,7 +54,7 @@ $('a#write').click(function(event) {
 		title		:	 	$('#input-title').val(),
 		content		: 		$('#summernote').summernote('code'),
 		photoPath	: 		thumbnail,
-		companyNo	:		$('#input-company').val(),
+		companyNo	:		$('#input-maker-hidden').val(),
 		newsList	:		arrayToJson()
 	};  
 
@@ -159,4 +159,37 @@ function uploadImage(image) {
     }
   });
 }
+
+function startSearch() {
+  var keyword = $(document.getElementById('input-company'))[0].value;
+  $.ajax({
+    url: serverRoot + "/deal/search.json",
+    type: 'POST',
+    data: {keyword: keyword},
+    crossDomain: 'true',
+    dataType: 'json',
+
+    success: function(ajaxResult) {
+      var results = [];
+      $(document.getElementById('results')).empty();
+      for (var i =0;i<=ajaxResult.data.length;i++){
+      	if (ajaxResult.data[i] !== undefined){
+      		results.push('<a href="javascript:void(0)" data-company-no="'
+      				+ajaxResult.data[i].companyNo+
+      				'"><div><p>'+ajaxResult.data[i].companyName+'</p></div></a>')
+      	}
+      }
+      results.forEach(function(x){$(document.getElementById('results')).append(x)})
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  })
+}
+
+$('#results').delegate('a','click', function() {
+	$('#input-maker-hidden').val($(this).data("company-no"));
+	$('#input-company').val($(this).text());
+	$('#results').html("");
+});
   

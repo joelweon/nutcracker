@@ -19,6 +19,11 @@ public class BoycottServiceImpl implements BoycottService{
   }
   
   @Override
+  public List<Boycott> getListYear(int year) throws Exception {
+    return boycottDao.getListYear(year);
+  }
+  
+  @Override
   public List<Boycott> getMyBoycottList(int memberNo) throws Exception {
     
     return boycottDao.getMyboycottList(memberNo);

@@ -31,11 +31,25 @@ public class AuthJsonControl {
       return new AjaxResult(AjaxResult.FAIL, "이메일 또는 암호가 틀리거나, 가입된 회원이 아닙니다.");
     }
     
-    session.setAttribute("member", member); // HttpSession에 저장한다.
+    //session.setAttribute("member", member); // HttpSession에 저장한다.
     
     User user = userService.getOneByEmailPassword(email, password);
+    session.setAttribute("user", user);
     return new AjaxResult(AjaxResult.SUCCESS, user);
   }
+  
+  /*@RequestMapping("/auth/user")
+  public AjaxResult loginUser(@RequestParam int userNo, HttpSession session) throws Exception {
+    
+    Member member = authService.getMember(userNo);
+    System.out.println(member);
+    
+    session.setAttribute("member", member); // HttpSession에 저장한다.
+    
+    User user = userService.getOneByNo(userNo);
+    System.out.println(user);
+    return new AjaxResult(AjaxResult.SUCCESS, user);
+  }*/
   
   @RequestMapping("/auth/logout")
   public AjaxResult logout(HttpSession session) throws Exception {
@@ -45,7 +59,9 @@ public class AuthJsonControl {
   
   @RequestMapping("/auth/loginUser")
   public AjaxResult loginUser(HttpSession session) throws Exception {
-    Member member = (Member)session.getAttribute("member");
+    //Member member = (Member)session.getAttribute("member");
+    
+    User member = (User)session.getAttribute("user");
 
     if (member == null) { // 로그인이 되지 않은 상태
       HashMap<String,String> snsUser = new HashMap<>(); // sns 계정 로그인 확인

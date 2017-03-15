@@ -6,6 +6,7 @@ import nutcracker.domain.Boycott;
 
 public interface BoycottService {
   List<Boycott> getList() throws Exception;
+  List<Boycott> getListYear(int year) throws Exception;
   List<Boycott> getMyBoycottList(int memberNo) throws Exception;
   Boycott getDetail(int no) throws Exception;
   Boycott getOne(int boycottNo) throws Exception;

@@ -81,6 +81,17 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  public User getOneByNo(int userNo) throws Exception {
+    HashMap<String,Integer> paramMap = new HashMap<>();
+    paramMap.put("memberNo", userNo);
+    
+    User user = userDao.getOneByNo(paramMap);
+    
+    if (user == null) {
+      return null;
+    }
+    return user;
+  }
   public int updateAddress(User user) throws Exception {
     return userDao.updateAddress(user);
   }

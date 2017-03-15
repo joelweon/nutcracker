@@ -34,12 +34,12 @@
 			  <!-- 년도선택 -->
 			  <div id="div-year" align="right">
 			    <span>연도 별 리스트 보기</span>
-		      <select id='select-year'>
-  		      <option>전체보기</option>
-		        <option>2017년</option>
-		        <option>2016년</option>
-		        <option>2015년</option>
-		        <option>2014년</option>
+		      <select id='select-year' onChange="selectEvent(this.value)">
+  		      <option value="all" selected="selected">전체보기</option>
+		        <option value="2017">2017년</option>
+		        <option value="2016">2016년</option>
+		        <option value="2015">2015년</option>
+		        <option value="2014">2014년</option>
 		      </select>
 		    </div>
 	  	

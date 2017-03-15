@@ -60,6 +60,27 @@
       and m.pwd=password(#{password})
   </select>
   
+  <select id="getOneByNo" parameterType="map" resultMap="user-map">
+    select 
+      m.mno,
+      m.email,
+      m.name,
+      m.pwd,
+      m.path,
+      u.tel,
+      u.zip,
+      u.bas_adr,
+      u.det_adr,
+      u.join_date,
+      u.job,
+      m.lst_date,
+      u.out_type,
+      u.out_cont
+    from user u
+      left outer join memb m on u.uno = m.mno
+    where m.mno=#{memberNo}
+  </select>
+  
   <select id="countByNo" parameterType="int" resultType="int">
     select count(*)
     from user u

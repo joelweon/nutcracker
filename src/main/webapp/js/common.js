@@ -86,49 +86,42 @@ function fnMove(seq){
 /* 유저 정보 갖고오기 */
 var users = window.sessionStorage.getItem('user');
 
+
 /* 프로필 사진 변경 */
 function readUploadImage( inputObject ) {
-  /*
-  브라우저에서 FileReader가 지원되는지
-  확인하기 위해 
-  window.File && window.FileReader 
-  해 본다. 
-  안되면 안된다고 알려 주면 되지~ ㅋㅋ
-  */
-    if ( window.File && window.FileReader ) {
-      /*
-      입력된 파일이 1개 이상 있는지 확인~
-      */
-      if ( inputObject.files && inputObject.files[0]) {
+  /* 브라우저에서 FileReader가 지원되는지
+     확인하기 위해 
+     window.File && window.FileReader 해 본다. */
+  
+  if ( window.File && window.FileReader ) {
+    /*
+    입력된 파일이 1개 이상 있는지 확인~
+    */
+    if ( inputObject.files && inputObject.files[0]) {
 
-        /* 이미지 파일인지도 체크해 주면 좋지~ */
-        if ( !(/image/i).test(inputObject.files[0].type ) ){
-          alert("이미지 파일을 선택해 주세요!");
-          return false;
-        }
-        /* FileReader 를 준비 한다. */
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          /* reader가 다 읽으면 imagePreview에 뿌려 주면 끝~  */
-          $('#profile-img-big').attr('src', e.target.result);
-          console.log("img-big:1  " + $('#profile-img-big').attr('src'));
-        }
-
-        /* input file에 있는 파일 하나를 읽어온다. */
-        reader.readAsDataURL(inputObject.files[0]);
-        
-        /* 썸네일 사진 업로드 */
-        var dataURL = $('#profile-img-big').attr('src');//data:image/png;base64,iVBORw
+      /* 이미지 파일인지도 체크 */
+      if ( !(/image/i).test(inputObject.files[0].type ) ){
+        alert("이미지 파일을 선택해 주세요!");
+        return false;
+      }
+      /* FileReader 를 준비 한다. */
+      var reader = new FileReader();
+      /* 썸네일 사진 업로드 */
+      reader.onload = function (e) {
+        var dataURL = e.target.result;//data:image/png;base64,iVBORw
         var blob = dataURItoBlob(dataURL);
-        console.log("blob:2  "+blob);
         uploadImage(blob);
+      }
+      
+      /* input file에 있는 파일 하나를 읽어온다. */
+      reader.readAsDataURL(inputObject.files[0]);
     }
 
   } else {
     alert( "미리보기 지원하지 않습니다. 브라우저를 업그레이드하세요.");
   }
 }
-  
+
   function dataURItoBlob(dataURI) {
     // convert base64/URLEncoded data component to raw binary data held in a string
     var byteString;
@@ -146,7 +139,6 @@ function readUploadImage( inputObject ) {
     for (var i = 0; i < byteString.length; i++) {
         ia[i] = byteString.charCodeAt(i);
     }
-
     return new Blob([ia], {type:mimeString});
   }
 
@@ -178,9 +170,8 @@ function readUploadImage( inputObject ) {
   function doUpdate(thumbnail) {
     var param = {
         memberNo: JSON.parse(users).memberNo,
-        photoPath: thumbnail+".jpg"
+        photoPath: thumbnail+".png"
     };
-    console.log("doUpdate:  "+param);
     $.ajax({
       url: serverRoot + '/user/updateProfile.json',
       method: 'post',
@@ -189,7 +180,15 @@ function readUploadImage( inputObject ) {
       contentType: "application/json; charset=UTF-8",
       timeout: 40000,
       success: function(ajaxResult) {
-        
+        $('#profile-img').attr('src', serverRoot+'/upload/profile/thumb/'+ param.photoPath);
+        $('#profile-img-big').attr('src', serverRoot+'/upload/profile/thumb/'+ param.photoPath);
+        window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
+        return;
+        /*$.post(serverRoot + '/auth/user.json', {memberNo: JSON.parse(users).memberNo}, function(ajaxResult) {
+          console.log(ajaxResult);
+            window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
+            return;
+          });*/
       }
     });
   }

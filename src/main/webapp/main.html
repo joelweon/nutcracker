@@ -52,7 +52,7 @@
   
   	    <!-- 불매 콘텐츠 -->
         <div id='wrap-box'>
-    	    <div class='boycott-box'>
+    	    <!-- <div class='boycott-box'>
     	      <a href='detail/detail.html?boycottNo=300' class="openMask">
     	        <img class='boycott-img' src='./images/oxy2.PNG'>
     	      </a>
@@ -62,7 +62,7 @@
     	    </div>
     	    
     	    <div class='boycott-box'>
-    	      <!-- <div class='deal-icon'><a href='#'>공구진행중</a></div> -->
+    	      <div class='deal-icon'><a href='#'>공구진행중</a></div>
     	      <a href='detail.html?boycottNo=301'>
     	        <img class='boycott-img' src='./images/huggies1.png'>
     	      </a>
@@ -141,7 +141,7 @@
             <div class='boycott-text'>
             <span><b>수미칩, 포카칩 '질소과자' 여전</b><br>♨ 134 | 1년 전</span>
             </div>
-          </div>
+          </div> -->
         </div><!-- wrap-box -->
       </div> <!-- wrap-boycott -->
         
@@ -161,8 +161,8 @@
   	    </div> -->
   	    <!-- 불량리스트 -->
   	    <div class="row">
-  	      <div class="list-group">
-  	        <div class="list-group-item clearfix">
+  	      <div id='wrap-reviewBox' class="list-group">
+  	        <!-- <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/hong.PNG"/></a></div>
   	          </div>
@@ -174,7 +174,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 10</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/oksusu.PNG"/></a></div>
@@ -187,7 +187,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 24</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/chocomilk1.png"/></a></div>
@@ -200,7 +200,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 51</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/nabang.png"/></a></div>
@@ -213,7 +213,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 30</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/default.png"/></a></div>
@@ -226,7 +226,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 13</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/oksusu.PNG"/></a></div>
@@ -239,7 +239,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 24</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/chocomilk1.png"/></a></div>
@@ -252,7 +252,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 51</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
   	          <div class="profile-teaser-left">
   	            <div class="profile-img"><a href='#'><img src="./images/nabang.png"/></a></div>
@@ -265,7 +265,7 @@
   	            <span class="info">|</span>
   	            <span class="info">♨ 30</span>
   	          </div>
-  	        </div><!-- item -->
+  	        </div>item
   	        <div class="list-group-item clearfix">
               <div class="profile-teaser-left">
                 <div class="profile-img"><a href='#'><img src="./images/hong.PNG"/></a></div>
@@ -278,8 +278,8 @@
                 <span class="info">|</span>
                 <span class="info">♨ 10</span>
               </div>
-            </div><!-- item -->
-  	      </div>
+            </div>item
+  	      </div> -->
   	    </div><!-- row -->
   	  </div>
     </div>
@@ -289,14 +289,43 @@
   <div id='wrap-footer'></div>
 </div> <!-- container -->
 
+</body>
 
+<script id="botTemplate" type="text/x-handlebars-template">
+{{#each list}}
+  <div class='boycott-box'>
+    <a href='detail/detail.html?boycottNo={{boycottNo}}' class="openMask">
+      <img class='boycott-img' src='/nutcracker/upload/boycott/thumb/{{photoPath}}.jpg'>
+    </a>
+    <div class='boycott-text'>
+      <span><b>{{title}}</b><br><span class='support-cnt glyphicon glyphicon-user'>{{boycottCount}}</span>  |  {{postTime}}</span>
+    </div>
+  </div>
+{{/each}}
+</script>
 
+<script id="revTemplate" type="text/x-handlebars-template">
+{{#each list}}
+  <div class="list-group-item clearfix">
+    <div class="profile-teaser-left">
+      <div class="profile-img"><a href='review/review-detail.html?reviewNo={{reviewNo}}'><img src='/nutcracker/upload/review/thumb/{{photoPath}}.jpg'/></a></div>
+    </div>
+    <div class="profile-teaser-main">
+      <span class="profile-name"><a href='review/review-detail.html?reviewNo={{reviewNo}}'>[{{titleHead}}] {{title}}</a></span><br>
+      <span class="info">{{name}}</span>
+      <span class="info">|</span>
+      <span class="info">{{postTime}}</span>
+      <span class="info">|</span>
+      <span class="info">♨ {{hoduCount}}</span>
+    </div>
+  </div>
+{{/each}}
+</script>
 
 <script src="./js/context.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="./js/common.js"></script>
 <!-- <script src="../js/header.js"></script> -->
 <script type="text/javascript" src="./js/main.js"></script>
-
-</body>
 </html>
