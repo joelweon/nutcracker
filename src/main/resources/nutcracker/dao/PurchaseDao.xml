@@ -104,6 +104,18 @@
     where PNO=#{value}
   </insert>
   
+  <select id="searchDeal" parameterType="String" resultMap="purchase-map">
+    select 
+      PNO, 
+      TITLE,
+      PRICE,
+      date_format(ST_DATE, '%Y-%m-%d') as ST_DATE, 
+      date_format(EN_DATE, '%Y-%m-%d') as EN_DATE
+    from PURCHS
+    where title like concat('%',#{value},'%')
+    order by en_date asc
+  </select>
+  
 <!--  <delete id="delete" parameterType="int">
   <![CDATA[
     delete from PURCHASE where PNO=#{value}
