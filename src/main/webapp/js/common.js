@@ -103,7 +103,7 @@ function readUploadImage( inputObject ) {
 
         /* 이미지 파일인지도 체크해 주면 좋지~ */
         if ( !(/image/i).test(inputObject.files[0].type ) ){
-          alertify.alert("이미지 파일을 선택해 주세요!");
+          alert("이미지 파일을 선택해 주세요!");
           return false;
         }
         /* FileReader 를 준비 한다. */
@@ -111,6 +111,7 @@ function readUploadImage( inputObject ) {
         reader.onload = function (e) {
           /* reader가 다 읽으면 imagePreview에 뿌려 주면 끝~  */
           $('#profile-img-big').attr('src', e.target.result);
+          console.log("img-big:1  " + $('#profile-img-big').attr('src'));
         }
 
         /* input file에 있는 파일 하나를 읽어온다. */
@@ -119,12 +120,12 @@ function readUploadImage( inputObject ) {
         /* 썸네일 사진 업로드 */
         var dataURL = $('#profile-img-big').attr('src');//data:image/png;base64,iVBORw
         var blob = dataURItoBlob(dataURL);
-        
+        console.log("blob:2  "+blob);
         uploadImage(blob);
     }
 
   } else {
-    alertify.alert( "미리보기 지원하지 않습니다. 브라우저를 업그레이드하세요.");
+    alert( "미리보기 지원하지 않습니다. 브라우저를 업그레이드하세요.");
   }
 }
   
@@ -177,8 +178,9 @@ function readUploadImage( inputObject ) {
   function doUpdate(thumbnail) {
     var param = {
         memberNo: JSON.parse(users).memberNo,
-        photoPath: thumbnail
+        photoPath: thumbnail+".jpg"
     };
+    console.log("doUpdate:  "+param);
     $.ajax({
       url: serverRoot + '/user/updateProfile.json',
       method: 'post',
@@ -187,7 +189,7 @@ function readUploadImage( inputObject ) {
       contentType: "application/json; charset=UTF-8",
       timeout: 40000,
       success: function(ajaxResult) {
-        alertify.alert('수정성공');
+        
       }
     });
   }

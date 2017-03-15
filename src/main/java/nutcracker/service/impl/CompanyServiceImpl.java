@@ -1,6 +1,7 @@
 package nutcracker.service.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class CompanyServiceImpl implements CompanyService {
   }
   
   @Override
-  public ArrayList<Company> getBoycottComp(int memberNo) throws Exception {
+  public List<Object> getBoycottComp(int memberNo) throws Exception {
     return companyDao.getBoycottComp(memberNo);
   }
   

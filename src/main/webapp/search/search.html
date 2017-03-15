@@ -45,21 +45,21 @@
 <script id="boycottTemplate" type="text/x-handlebars-template">
   {{#each boycottList}}
   <div class='div-searchResult'>
-    <a href='#' data-no={{boycottNo}} class='search-boycott-title'>{{title}}</a><span class='search-date'>{{postTime}}</span>
+    <a href='../detail/detail.html?boycottNo={{boycottNo}}' data-no={{boycottNo}} class='search-boycott-title'>{{title}}</a><span class='search-date'>{{postTime}}</span>
   </div>
   {{/each}}
 </script>
 <script id="reviewTemplate" type="text/x-handlebars-template">
   {{#each reviewList}}
   <div class='div-searchResult'>
-    <a href='#' data-no={{reviewNo}} class='search-review-title'>[{{titleHead}}] {{title}}</a><span class='search-date'>{{postTime}}</span>
+    <a href='../review/review-detail.html?reviewNo={{reviewNo}}' data-no={{reviewNo}} class='search-review-title'>[{{titleHead}}] {{title}}</a><span class='search-date'>{{postTime}}</span>
   </div>
   {{/each}}
 </script>
 <script id="purchsTemplate" type="text/x-handlebars-template">
   {{#each purchsList}}
   <div class='div-searchResult'>
-    <a href='#' data-no={{purchsNo}} class='search-review-title'>{{title}}</a><span class='search-date'>{{startTime}} - {{endTime}}</span>
+    <a href='../deal/deal-detail.html?purchaseNo={{purchaseNo}}' data-no={{purchaseNo}} class='search-purchs-title'>{{title}}</a><span class='search-date'>{{startDate}} ~ {{endDate}}</span>
   </div>
   {{/each}}
 </script>
