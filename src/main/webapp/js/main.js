@@ -21,7 +21,7 @@ function loadMainBoycott() {
       console.log("[main/boycott] 불매운동 리스트 가져오기 실패.");
       return;
     }
-    var list = ajaxResult.data.splice(0,9);
+    var list = ajaxResult.data.splice(0,10);
     var boycottBox = $('#wrap-box');
     
     var botTemplate = Handlebars.compile($('#botTemplate').html());
