@@ -16,4 +16,5 @@ public interface UserDao {
   int update(User user) throws Exception;
   int delete(int userNo) throws Exception;
   User getOneByNo(HashMap<String, Integer> paramMap);
+  int updateAddress(User user) throws Exception;
 }

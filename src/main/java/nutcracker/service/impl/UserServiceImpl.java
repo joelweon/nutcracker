@@ -92,4 +92,7 @@ public class UserServiceImpl implements UserService {
     }
     return user;
   }
+  public int updateAddress(User user) throws Exception {
+    return userDao.updateAddress(user);
+  }
 }

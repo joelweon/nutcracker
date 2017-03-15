@@ -13,4 +13,5 @@ public interface UserService {
   int update(User user) throws Exception;
   int delete(int userNo) throws Exception;
   int updateProfile(HashMap<String, Object> map) throws Exception;
+  int updateAddress(User user) throws Exception;
 }

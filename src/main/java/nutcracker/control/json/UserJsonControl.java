@@ -58,6 +58,12 @@ public class UserJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "업데이트 완료");
   }
   
+  @RequestMapping("/user/updateAddress")
+  public AjaxResult updateAddress(User user) throws Exception {
+    userService.updateAddress(user);
+    return new AjaxResult(AjaxResult.SUCCESS, "업데이트 완료");
+  }
+  
   @RequestMapping("/user/delete")
   public AjaxResult delete(int userNo, HttpServletRequest request) throws Exception {
     int count = userService.delete(userNo);

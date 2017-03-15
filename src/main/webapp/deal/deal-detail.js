@@ -60,13 +60,10 @@ $(function(){
   // Check the initial Poistion of the Sticky Header
   var stickyHeaderTop = $('.deal-detail-navi').offset().top;
   $(window).scroll(function(){
-  	//if() {}
     if( $(window).scrollTop() > stickyHeaderTop ) {
       $('.deal-detail-navi').css({position: 'fixed', left:'0', top: '0'});
-      //$('#stickyalias').css('display', 'block');
     } else {
       $('.deal-detail-navi').css({position: 'static', top: '0px'});
-      //$('#stickyalias').css('display', 'none');
     }
   });
 });
@@ -120,59 +117,23 @@ $(document).ready(function () {
     });
 });
 
-//카카오페이
-$('#purchase-btn').click(function() {
+// 구매버튼:카카오 클릭 시
+$('#purchase-btn').click(function(event) {
 	if (users != null) { //유저정보가 있는 경우
-		IMP.request_pay({
-			pg : 'kakao',
-			pay_method : 'card',
-			merchant_uid : 'merchant_' + new Date().getTime(),
-			name : getDetail.title,
-			amount : getDetail.price * $("#product-quantity input").val(),
-			buyer_email : JSON.parse(users).email,
-			buyer_name : JSON.parse(users).name,
-			buyer_tel : JSON.parse(users).tel,
-			buyer_addr : JSON.parse(users).basicAddress + " " + JSON.parse(users).detailAddress,
-			buyer_postcode : JSON.parse(users).postcode
-		}, function(rsp) {
-			if ( rsp.success ) {
-				jQuery.ajax({
-					url: serverRoot + "/mypage/myPurchseHistoryAdd.json", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
-					type: 'POST',
-					dataType: 'json',
-					data: {
-						memberNo : JSON.parse(users).memberNo,
-						purchaseNo : purchaseNo,
-						quantity : $("#product-quantity input").val(),
-						imp_uid : rsp.imp_uid,
-						purchaseDate : rsp.paid_at, //결제 승인 시각
-						receipt : rsp.receipt_url // 거래 매출 전표 URL
-						//기타 필요한 데이터가 있으면 추가 전달
-					}
-				}).done(function(data) {
-					//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-					/*if (data) {*/
-					updateApplicant();
-					var msg = '결제가 완료되었습니다.';
-					msg += '<br>나의 구매내역으로 이동하시겠습니까?'
-						alertify.confirm(msg, function (e) {
-							if (e) {
-								location.href = serverRoot+'/mypage/mypurchase.html';
-							} else {
-								location.href = serverRoot+'/deal/deal.html';
-							}
-						});
-					/*} else {
-        	alertify.alert("결제 실패");
-          //[3] 아직 제대로 결제가 되지 않았습니다.
-          //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
-        }*/
-				});
-			} else {
-				var msg = rsp.error_msg;
-				alertify.alert(msg);
-			}
-		});
+	  // popup 정보 입력하기
+	  var totalPrice = $("#product-quantity input").val()*getDetail.price;
+	  $(".modal-product-detail-title").text(getDetail.title);
+	  $(".modal-product-detail-quantity").text($("#product-quantity input").val()+"개");
+	  $(".modal-product-detail-price").text(totalPrice+"원");
+	  $("#user-info-name").val(JSON.parse(users).name);
+	  $('#tel').val((JSON.parse(users).tel).substring(0,3));
+	  $("#user-info-tel").val((JSON.parse(users).tel).substring(3,11));
+	  $("#user-info-email").val(JSON.parse(users).email);
+	  $("#postcode").val(JSON.parse(users).postcode);
+	  $("#address").val(JSON.parse(users).basicAddress);
+	  $("#address2").val(JSON.parse(users).detailAddress);
+	  // 마스크 동작
+	  $(".mask").addClass("active");
 	} else { //유저정보가 없는 경우
 		alertify.confirm("로그인 후 이용 가능합니다. 로그인하시겠습니까?", function (e) {
       if (e) {location.href = serverRoot+'/auth/login.html';}
@@ -181,9 +142,102 @@ $('#purchase-btn').click(function() {
 	}
 });
 
+
+//구매버튼:popup 결제하기 클릭 시
+$('#modal-button-continue').click(function(event) {
+	if ($('#modal-contents-check-update').is(":checked")) {
+		updateUserInfo();
+	};
+	closeModal();
+	kakaoPay();
+});
+
+// 마스크 끝내기
+$(".close, .mask").click(function(){
+  closeModal();
+});
+$(document).keyup(function(e) {
+  if (e.keyCode == 27) {
+    closeModal();
+  }
+});
+var closeModal =function() {
+	$(".mask").removeClass("active");
+};
+
+//회원정보 업데이트
+var updateUserInfo = function() {
+	var param = {
+		memberNo : JSON.parse(users).memberNo,
+		postcode : $("#postcode").val(),
+		basicAddress : $("#address").val(),
+		detailAddress : $("#address2").val()
+	};
+	$.post(serverRoot + '/user/updateAddress.json', param, function(ajaxResult) {});
+};
+
+//카카오페이
+var kakaoPay = function() {
+	IMP.request_pay({
+		pg : 'kakao',
+		pay_method : 'card',
+		merchant_uid : 'merchant_' + new Date().getTime(),
+		name : getDetail.title,
+		amount : getDetail.price * $("#product-quantity input").val(),
+		buyer_email : $("#user-info-email").val(),
+		buyer_name : $("#user-info-name").val(),
+		buyer_tel : $('#tel').val()+$("#user-info-tel").val(),
+		buyer_addr : $("#address").val()+" "+$("#address2").val(),
+		buyer_postcode : $("#postcode").val()
+	}, function(rsp) {
+		if ( rsp.success ) {
+			jQuery.ajax({
+				url: serverRoot + "/mypage/myPurchseHistoryAdd.json", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					memberNo : JSON.parse(users).memberNo,
+					purchaseNo : purchaseNo,
+					quantity : $("#product-quantity input").val(),
+					imp_uid : rsp.imp_uid,
+					purchaseDate : rsp.paid_at, //결제 승인 시각
+					receipt : rsp.receipt_url // 거래 매출 전표 URL
+					//기타 필요한 데이터가 있으면 추가 전달
+				}
+			}).done(function(data) {
+				//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
+				/*if (data) {*/
+				updateApplicant();
+				var msg = '결제가 완료되었습니다.';
+				msg += '<br>나의 구매내역으로 이동하시겠습니까?'
+					alertify.confirm(msg, function (e) {
+						if (e) {
+							location.href = serverRoot+'/mypage/mypurchase.html';
+						} else {
+							location.href = serverRoot+'/deal/deal.html';
+						}
+					});
+				/*} else {
+      	alertify.alert("결제 실패");
+        //[3] 아직 제대로 결제가 되지 않았습니다.
+        //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
+      }*/
+			});
+		} else {
+			var msg = rsp.error_msg;
+			alertify.alert(msg);
+			closeModal();
+		}
+	});
+};
+
 // 신청인원 업데이트
 var updateApplicant = function() {
 	$.get(serverRoot + '/deal/updateApplicant.json', 'purchaseNo='+purchaseNo, function(ajaxResult) {
 		$('.deal-detail-info-cont-applicant').text(ajaxResult.data+" 명");
 	});
 };
+
+
+
+

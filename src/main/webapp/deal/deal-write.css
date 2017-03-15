@@ -14,7 +14,6 @@ body { background-color: #fff; }
 
 /* 제조사 선택창 */
 #maker-search {
-	/* border:1px solid red; */
 	display: none;
 	margin-top: -10px;
 	width: 35%;
@@ -33,12 +32,16 @@ body { background-color: #fff; }
 }
 
 /*  */
+#wrap-photo {
+	position:relative;
+}
 div.photo {
 	border: 1px solid #999;
-	border-radius: 4px;
-	padding: 0 10px;
+	background-color:#f0f0f0;
+	border-radius: 15px;
+	padding: 40px 10px 10px 10px;
 	margin-top: 10px;
-	min-height: 80px;
+	min-height: 200px;
 }
 a#add-photo, a#remove-photo { width: 30px; height: 30px; border-radius: 15px; margin-left: 10px; 
                 padding: 3px 0; background-color: transparent; color: #999;
@@ -77,7 +80,9 @@ input[type="password"]:focus + .separator {
 }
 input[type="file"] {
   color:black;
-  float:left;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .separator {
@@ -102,7 +107,4 @@ input[type="file"] {
   outline-style: none;
 }
 
-/* 제조사 검색 */
-
-
-
+/* input button test */

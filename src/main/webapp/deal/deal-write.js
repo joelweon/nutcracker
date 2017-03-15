@@ -23,7 +23,8 @@ $('#input-photo').fileupload({
 		var canvas = data.files[index].preview;
 		var dataURL = canvas.toDataURL();
 		var id = '#photo-img'+index;
-		$(id).attr('src', dataURL).css('width', '100px');
+		$(id).attr('src', dataURL).css('width', '150px');
+		$(id).attr('src', dataURL).css('height', '150px');
 		index++;
   },
   change: function(e, data) {
