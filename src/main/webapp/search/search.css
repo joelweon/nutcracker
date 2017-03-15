@@ -22,7 +22,7 @@ span.search-date {
 	font-size: 1em;
 	color: #aaa;
 }
-a.search-boycott-title, a.search-review-title {
+a.search-boycott-title, a.search-review-title, a.search-purchs-title {
 	margin: 0px 15px 0px 15px;
 	text-decoration: none;
 	font-size: 1.3em;
@@ -33,6 +33,9 @@ a.search-boycott-title:hover {
 }
 a.search-review-title:hover {
   color: #009900;
+}
+a.search-purchs-title:hover {
+	color: #ae63e4;
 }
 div.div-searchResult {
 	margin-top: 10px;

@@ -67,7 +67,7 @@
 	    <div id="product-quantity">
 	      <input type="number" min="1" max="10" step="1" value="1">
 	    </div>
-		  <div id="purchase-btn">
+		  <div id="purchase-btn" aria-haspopup="true">
         <a href="javascript:void(0)"><img class="ka-pay" src="../images/deal/payment_icon.png" /></a>
 		  </div>
 	  </div>
@@ -100,9 +100,76 @@
   <a href="#" class="scrollup">
     <i class="fa fa-arrow-circle-up fa-2x" aria-hidden="true"></i>
   </a>
+<!-- popup -->
+<div class="mask" role="dialog"></div>
+<div class="modal" role="alert">
+  <span id="modal-title">구매 정보 확인</span>
+  <button class="close" role="button">X</button>
+  <div id="modal-contents">
+    <div id="modal-contents-product">
+      <div class="modal-contents-title"><span>주문 상품 정보</span></div>
+      <table id="modal-product-detail">
+       <tr>
+         <th class='modal-product-detail-1'>구매내역</th>
+         <th class='modal-product-detail-2'>주문수량</th>
+         <th class='modal-product-detail-3'>결제금액</th>
+       </tr>
+       <tr>
+         <td class='modal-product-detail-1 modal-product-detail-title'></td>
+         <td class='modal-product-detail-2 modal-product-detail-quantity'></td>
+         <td class='modal-product-detail-3 modal-product-detail-price'></td>
+       </tr>
+      </table>
+    </div>
+    <div id="modal-contents-user">
+      <div class="modal-contents-title"><span>구매자 정보</span></div>
+      <table id="modal-user-detail">
+        <tr>
+          <th>주문자명</th>
+          <td><input id="user-info-name" class="user-info-recheck" type="text" style="width: 230px;"></td>
+        </tr>
+        <tr class='spacer'></tr>
+        <tr>
+          <th>연락처</th>
+          <td>
+            <select name='tel' id='tel' size='1'>
+              <option value='010'>010</option>
+              <option value='011'>011</option>
+              <option value='016'>016</option>
+              <option value='019'>019</option>
+            </select>
+            <input id="user-info-tel" type='text' name="tel" value="" maxlength="8">
+          </td>
+        </tr>
+        <tr class='spacer'></tr>
+        <tr>
+          <th>이메일</th>
+          <td><input id="user-info-email" class="user-info-recheck" type="text" style="width: 230px;"></td>
+        </tr>
+        <tr class='spacer'></tr>
+        <tr>
+          <th>주소</th>
+          <td>
+            <input id="postcode" class="user-info-recheck" type="text" style="width: 120px;">
+            <input class="btn-zip" type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+            <input id="address" class="user-info-recheck address" type="text"><br>
+            <input id="address2" class="user-info-recheck address" type="text">
+          </td>
+        </tr>
+      </table>
+	    <div id="modal-contents-check">
+	      <input id='modal-contents-check-update' type="checkbox">상기 주소를 회원정보에 저장 (기본 주소로 지정)
+	    </div>
+    </div>
+    <div id="modal-contents-button">
+      <button id="modal-button-continue" type="button">결제하기</button>
+    </div>
+  </div>
+</div>
 </div><!-- deal-detail-container -->
 <!-- <div id='wrap-footer'></div> -->
 </div>
+
 <script id="divTemplate" type="text/x-handlebars-template">
   {{#each list}}
     <div class='deal-detail-navi2-review'>
@@ -122,6 +189,8 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="../js/alertify.min.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="../auth/join-address.js"></script>
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript" src="deal-detail.js"></script>
