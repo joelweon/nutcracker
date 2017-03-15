@@ -205,23 +205,21 @@ var kakaoPay = function() {
 					//기타 필요한 데이터가 있으면 추가 전달
 				}
 			}).done(function(data) {
-				//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-				/*if (data) {*/
-				updateApplicant();
-				var msg = '결제가 완료되었습니다.';
-				msg += '<br>나의 구매내역으로 이동하시겠습니까?'
-					alertify.confirm(msg, function (e) {
-						if (e) {
-							location.href = serverRoot+'/mypage/mypurchase.html';
-						} else {
-							location.href = serverRoot+'/deal/deal.html';
-						}
-					});
-				/*} else {
-      	alertify.alert("결제 실패");
-        //[3] 아직 제대로 결제가 되지 않았습니다.
-        //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
-      }*/
+				try {
+					updateApplicant();
+					var msg = '결제가 완료되었습니다.';
+					msg += '<br>나의 구매내역으로 이동하시겠습니까?'
+						alertify.confirm(msg, function (e) {
+							if (e) {
+								location.href = serverRoot+'/mypage/mypurchase.html';
+							} else {
+								location.href = serverRoot+'/deal/deal.html';
+							}
+						});
+				} catch (e) {
+					alertify.alert("결제 진행 중 오류가 발생하였습니다.<br>관리자에게 문의 바랍니다.");
+					console.log(e);
+				}
 			});
 		} else {
 			var msg = rsp.error_msg;
