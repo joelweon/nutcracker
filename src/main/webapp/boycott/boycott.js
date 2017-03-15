@@ -133,4 +133,50 @@ function updateDisplay(boycottNo) {
 	$button.find('')
 }
 
+function selectEvent(value) {
+	console.log("selectEvent()");
+	console.log(value);
+	if(value == "all") {
+		$(function(event) {
+		  $.get(serverRoot + '/boycott/list.json', function(ajaxResult) {
+			  var status = ajaxResult.status;
+			  console.log(status);
+			  if (status != "success")
+				  return;
+			  
+			  var list = ajaxResult.data;
+			  var tbody = $('#test1');
+			  
+			  var template = Handlebars.compile($('#trTemplate').html());
+			  
+			  tbody.html(template({"list": list}));
+			  
+			  for(i = 0; i < ajaxResult.data.length; i++) {
+			  	btnCpnoList.push(ajaxResult.data[i].companyNo);
+			  }
+		  });
+		});
+	} else {
+		$(function(event) {
+			param = { "year" : value	}
+		  $.get(serverRoot + '/boycott/listYear.json', param, function(ajaxResult) {
+			  var status = ajaxResult.status;
+			  console.log(status);
+			  if (status != "success")
+				  return;
+			  
+			  var list = ajaxResult.data;
+			  var tbody = $('#test1');
+			  
+			  var template = Handlebars.compile($('#trTemplate').html());
+			  
+			  tbody.html(template({"list": list}));
+			  
+			  for(i = 0; i < ajaxResult.data.length; i++) {
+			  	btnCpnoList.push(ajaxResult.data[i].companyNo);
+			  }
+		  });
+		});
+	}
+}
 

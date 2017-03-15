@@ -29,6 +29,13 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/boycott/listYear")
+  public AjaxResult list(int year) throws Exception {
+    
+    List<Boycott> list = boycottService.getListYear(year);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
   @RequestMapping("/boycott/myBoycottList")
   public AjaxResult mylist(int memberNo) throws Exception {
     List<Boycott> list = boycottService.getMyBoycottList(memberNo);
