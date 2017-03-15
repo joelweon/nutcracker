@@ -79,4 +79,17 @@ public class UserServiceImpl implements UserService {
     if (updateCnt <= 0) { return 0; }
     return updateCnt;
   }
+
+  @Override
+  public User getOneByNo(int userNo) throws Exception {
+    HashMap<String,Integer> paramMap = new HashMap<>();
+    paramMap.put("memberNo", userNo);
+    
+    User user = userDao.getOneByNo(paramMap);
+    
+    if (user == null) {
+      return null;
+    }
+    return user;
+  }
 }

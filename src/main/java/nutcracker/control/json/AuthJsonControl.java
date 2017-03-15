@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import nutcracker.domain.Member;
@@ -34,6 +35,19 @@ public class AuthJsonControl {
     session.setAttribute("member", member); // HttpSession에 저장한다.
     
     User user = userService.getOneByEmailPassword(email, password);
+    return new AjaxResult(AjaxResult.SUCCESS, user);
+  }
+  
+  @RequestMapping("/auth/user")
+  public AjaxResult loginUser(@RequestParam int userNo, HttpSession session) throws Exception {
+    
+    Member member = authService.getMember(userNo);
+    System.out.println(member);
+    
+    session.setAttribute("member", member); // HttpSession에 저장한다.
+    
+    User user = userService.getOneByNo(userNo);
+    System.out.println(user);
     return new AjaxResult(AjaxResult.SUCCESS, user);
   }
   

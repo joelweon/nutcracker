@@ -22,7 +22,7 @@
     }
     //비밀번호 확인 검사
     if ($('#user-password-new').val() != $('#user-password-new-check').val()) {
-      alert('비밀번호를 확인해주세요.');
+      alertify.alert('비밀번호를 확인해주세요.');
       return;
     }
 
@@ -37,11 +37,11 @@
         "detailAddress": $('#address2').val(),
         "job": $('#user-job').val()
       };
-      console.log($('#tel').val() + $('#user-tel').val());
+      //console.log($('#tel').val() + $('#user-tel').val());
 
       $.post(serverRoot + '/user/update.json', param, function(ajaxResult) {
         if (ajaxResult.status != "success") {
-          alert(ajaxResult.data);
+          alertify.alert(ajaxResult.data);
           return;
         }
         location.href = serverRoot + '/main.html';
@@ -53,7 +53,7 @@
   function checkName() {
     var elName = document.getElementById('user-name-update');
     if (elName.value.length < 2) {
-      alert('닉네임은 2자 이상이여야 합니다.');
+      alertify.alert('닉네임은 2자 이상이여야 합니다.');
       return false;
     } else {
       return true;
@@ -63,7 +63,7 @@
   function checkPassword() {
     var elPassword = document.getElementById('user-password-new');
     if (elPassword.value.length < 6 || elPassword.value.length > 16) {
-      alert('비밀번호는 6글자 이상 16자 이하여야 합니다.');
+      alertify.alert('비밀번호는 6글자 이상 16자 이하여야 합니다.');
       return false;
     } else {
       return true;
@@ -74,7 +74,7 @@
     var re = /^[0-9]+$/;
     var elTel = document.getElementById('user-tel');
     if (elTel.value.length < 7 || elTel.value.length > 8 || !re.test(elTel.value)) {
-      alert('올바른 연락처를 입력해주세요.');
+      alertify.alert('올바른 연락처를 입력해주세요.');
       return false;
     } else {
       return true;

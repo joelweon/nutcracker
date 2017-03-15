@@ -71,6 +71,7 @@ public class UserJsonControl {
   public AjaxResult updateProfile(@RequestBody HashMap<String,Object> map) throws Exception {
     try {
       userService.updateProfile(map);
+      
       return new AjaxResult(AjaxResult.SUCCESS, "유저이미지 수정 성공입니다.");
     } catch (Exception e) {
       e.printStackTrace();
@@ -93,7 +94,7 @@ public class UserJsonControl {
           File thumbnail = new File(sc.getRealPath("/upload/profile/thumb/" + newFilename)); 
           if (original.exists()) { 
             thumbnail.getParentFile().mkdirs(); 
-            Thumbnails.of(original).crop(Positions.CENTER).size(80, 80).outputFormat("jpg").toFile(thumbnail); 
+            Thumbnails.of(original).crop(Positions.CENTER).size(80, 80).outputFormat("png").toFile(thumbnail); 
           }
           return new AjaxResult(AjaxResult.SUCCESS, newFilename);
         }
