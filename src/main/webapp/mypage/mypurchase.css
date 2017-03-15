@@ -130,13 +130,13 @@ body {
 }
 
 /* popup */
-.close{
+.modal > .close{
   position: absolute;
   top: 0;
   right: 0;
   width: 35px;
   height: 30px;
-  background: #000;
+  background: rgba(0,0,0,1);
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -177,4 +177,8 @@ body {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+}
+.purchase-title {
+	height:40px;
+	color:black;
 }

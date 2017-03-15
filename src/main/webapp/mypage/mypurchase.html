@@ -52,6 +52,7 @@
 				<tbody></tbody>
 			</table>
 		</div>
+		<div class='modal-div'></div>
 	</div> <!-- main-contents -->
 </div> <!-- my-content-area -->
 <!-- <div id='wrap-footer'></div> -->
@@ -78,14 +79,19 @@
     <td class="purchase-price">{{price}}원</td>
     <td class="delivery-date">{{deleveryDate}}</td>
     <td class="purchase-review">
-      <div id="buttons">
-        <a href="javascript:void(0)" class="review-btn review-btn-red" aria-haspopup="true">작성</a>
+      <div id="buttons" aria-haspopup="true">
+        <a href="javascript:void(0)" class="review-btn review-btn-red">작성</a>
       </div>
     </td>
   </tr>
+{{/each}}
+</script>
+<script id="modalTemplate" type="text/x-handlebars-template">
+{{#each listForModal}}
   <div class="mask" role="dialog"></div>
   <div class="modal" role="alert">
     <button class="close" role="button">X</button>
+    <div class='purchase-title'>{{title}}</div>
   </div>
 {{/each}}
 </script>
