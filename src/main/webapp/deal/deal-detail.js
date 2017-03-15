@@ -173,7 +173,9 @@ var updateUserInfo = function() {
 		basicAddress : $("#address").val(),
 		detailAddress : $("#address2").val()
 	};
-	$.post(serverRoot + '/user/updateAddress.json', param, function(ajaxResult) {});
+	$.post(serverRoot + '/user/updateAddress.json', param, function(ajaxResult) {
+		window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
+	});
 };
 
 //카카오페이

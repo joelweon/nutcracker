@@ -9,3 +9,8 @@ $(function() {
     tbody.html(template({"list":list}));
 	});
 });
+
+//후기 작성 버튼
+$("review-btn review-btn-red").click(function() {
+	$(".mask").addClass("active");
+});

@@ -60,9 +60,14 @@ public class UserJsonControl {
   }
   
   @RequestMapping("/user/updateAddress")
-  public AjaxResult updateAddress(User user) throws Exception {
-    userService.updateAddress(user);
-    return new AjaxResult(AjaxResult.SUCCESS, "업데이트 완료");
+  public AjaxResult updateAddress(User user, HttpSession session) throws Exception {
+    User oldUser = (User) session.getAttribute("user");
+    oldUser.setPostcode(user.getPostcode());
+    oldUser.setBasicAddress(user.getBasicAddress());
+    oldUser.setDetailAddress(user.getDetailAddress());
+    session.setAttribute("user", oldUser);
+    userService.updateAddress(oldUser);
+    return new AjaxResult(AjaxResult.SUCCESS, oldUser);
   }
   
   @RequestMapping("/user/delete")

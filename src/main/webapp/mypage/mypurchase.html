@@ -79,10 +79,14 @@
     <td class="delivery-date">{{deleveryDate}}</td>
     <td class="purchase-review">
       <div id="buttons">
-        <a href="#" class="review-btn review-btn-red">작성</a>
+        <a href="javascript:void(0)" class="review-btn review-btn-red" aria-haspopup="true">작성</a>
       </div>
     </td>
   </tr>
+  <div class="mask" role="dialog"></div>
+  <div class="modal" role="alert">
+    <button class="close" role="button">X</button>
+  </div>
 {{/each}}
 </script>
 <script src="../js/context.js"></script>

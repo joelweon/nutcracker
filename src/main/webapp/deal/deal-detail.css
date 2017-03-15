@@ -278,15 +278,6 @@ input[type=number]
 }
 
 /* popup */
-.show {
-  width: 150px;
-  height: 50px;
-  color: #fff;
-  cursor: pointer;
-}
-.show:active {
-    transform: scale(0.9);
-}
 button.close {
   position: absolute;
   top: 0;
