@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -74,11 +75,15 @@ public class UserJsonControl {
   }
   
   @RequestMapping("/user/updateProfile")
-  public AjaxResult updateProfile(@RequestBody HashMap<String,Object> map) throws Exception {
+  public AjaxResult updateProfile(@RequestBody HashMap<String,Object> map, HttpSession session) throws Exception {
     try {
+      User oldUser = (User) session.getAttribute("user");
+      oldUser.setPhotoPath((String)map.get("photoPath"));
+      session.setAttribute("user", oldUser);
       userService.updateProfile(map);
       
-      return new AjaxResult(AjaxResult.SUCCESS, "유저이미지 수정 성공입니다.");
+      //return new AjaxResult(AjaxResult.SUCCESS, "유저이미지 수정 성공입니다.");
+      return new AjaxResult(AjaxResult.SUCCESS, oldUser);
     } catch (Exception e) {
       e.printStackTrace();
       return new AjaxResult(AjaxResult.FAIL, "유저이미지 수정 실패입니다.");
