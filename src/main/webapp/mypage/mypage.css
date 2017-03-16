@@ -10,7 +10,7 @@ body {
 	font-size: 1.2em;
 	max-width: 960px;
 	width:100%;
-	margin: 20px auto;
+	margin: 70px auto;
 }
 
 
@@ -76,7 +76,8 @@ span.psw {
   margin-left:2%;
   margin-bottom:30px;
   }
-  
-} 
+  .my-content-area {
+  margin:10px auto;
+  }
+}
 
-/* main contents area*/

@@ -10,7 +10,7 @@
   font-size: 1.2em;
   max-width: 960px;
   width:100%;
-  margin: 20px auto;
+  margin: 70px auto;
 }
 
 /* main contents area*/
@@ -93,3 +93,20 @@ label.check, li.pure-tree_link > a.check {
 	color: #f00;
 	font-weight: bold;
 }
+ @media screen and (max-width: 760px)
+{
+  .main-contents {
+  width:100%;
+  float:left;
+  max-width:95%;
+  margin-left:2%;
+  margin-bottom:30px;
+  }
+  ul {
+  padding-left:0;
+  margin-top:20px;
+  }
+  .my-content-area {
+    margin:10px auto;
+  }
+} 
