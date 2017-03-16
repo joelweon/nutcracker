@@ -38,10 +38,6 @@ body {
   font: bold;
 }
 
-.list-img-span > a > img {
-  width: 20%;
-  margin: 3px 2px;
-}
 
 .board-list-title {
   background-color: #d5d5d5;
@@ -68,9 +64,7 @@ body {
 }
 
 .board-list div {
-  width: 70%;
-  float: right;
-  margin-top: 7%;
+  margin: 10px 10px;
 }
 
 .board-list p {
@@ -84,7 +78,9 @@ body {
 }
 
 .delete-div {
-	margin-top: 20px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 25px;
 }
 
 .delete-btn {
@@ -113,7 +109,7 @@ body {
 }
 
 /* 페이지 이동 */
-.pagination { width: 100%; margin: 5px 0px 30px 0px; }
+.pagination { width: 100%; margin: 30px 0px 30px 0px; }
 .pagination > li > a { color: gray; }
 .pagination > li.active > a, .pagination > li.active > span,
 .pagination > .active > a:hover, .pagination > li.active > span:hover,
@@ -135,6 +131,9 @@ body {
   color: #ddd;
   pointer-events: none;
   cursor: default;
+}
+.clearfix {
+  float:left;
 }
 
 
