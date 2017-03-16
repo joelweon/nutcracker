@@ -26,12 +26,4 @@ public class AuthServiceImpl implements AuthService {
     return memberDao.getOneByNo(member.getMemberNo());
   }
 
-  @Override
-  public Member getMember(int memberNo) throws Exception {
-    HashMap<String,Integer> paramMap = new HashMap<>();
-    paramMap.put("memberNo", memberNo);
-    
-    Member member = memberDao.getOneByNo(memberNo);
-    return memberDao.getOneByNo(member.getMemberNo());
-  }
 }
