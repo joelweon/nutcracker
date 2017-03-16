@@ -130,13 +130,13 @@ body {
 }
 
 /* popup */
-.close{
+.modal > .close{
   position: absolute;
   top: 0;
   right: 0;
   width: 35px;
   height: 30px;
-  background: #000;
+  background: rgba(0,0,0,1);
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -177,4 +177,41 @@ body {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+}
+#purchase-review {
+	border:1px solid red;
+	position:absolute;
+  font-size: 1.5em;
+  font-weight:bolder;
+  padding: 5px 10px;
+  color:black;
+}
+#purchase-review-contents {
+	border:1px solid red;
+  position:absolute;
+  bottom:0;
+  height:560px;
+  width:100%;
+}
+.purchase-image {
+	border:1px solid red;
+	position:absolute;
+	height:100px;
+	width:100px;
+	top:10px;
+	left:10px;
+}
+.purchase-image img {
+	height:100%;
+  width:100%;
+}
+.purchase-title {
+	border:1px solid red;
+	position:absolute;
+	left:120px;
+	top:20px;
+	height:40px;
+	width:370px;
+	color:black;
+	font-size:1.3em;
 }

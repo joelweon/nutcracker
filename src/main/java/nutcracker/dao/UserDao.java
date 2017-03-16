@@ -1,7 +1,6 @@
 package nutcracker.dao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import nutcracker.domain.User;
@@ -15,6 +14,5 @@ public interface UserDao {
   int insert(User user) throws Exception;
   int update(User user) throws Exception;
   int delete(int userNo) throws Exception;
-  User getOneByNo(HashMap<String, Integer> paramMap);
   int updateAddress(User user) throws Exception;
 }

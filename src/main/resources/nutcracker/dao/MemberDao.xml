@@ -29,11 +29,6 @@
     where email=#{value}
   </select>
   
-  <select id="countByNo" parameterType="int" resultType="int">
-    select count(*) 
-    from memb 
-    where mno=#{value}
-  </select>
   
   <select id="countByEmailPassword" parameterType="map" resultType="int">
     select count(*) 
