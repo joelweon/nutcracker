@@ -32,27 +32,60 @@
           var li = document.createElement('li');
             
           /*li.style.height = '150px';*/
-          li.appendChild(title);
-          li.appendChild(content);
+          /*li.appendChild(title);
+          li.appendChild(content);*/
           //console.log('[shopping-serach.js] title:' + title + ', content: ' + content);
           var checkStr = $(title).find('.name').text().replace('"','') + " "
             + $(content).find('.maker').text().split(':')[1] + " "
             + $(content).find('.brand').text().split(':')[1];
           
+          var divBlock = document.createElement('div');
+          divBlock.className = 'blocked';
+          
+          var logo = document.createElement('img');
+          logo.setAttribute('src', clientRoot + '/images/boycott.jpg');
+          
+          /*var span = document.createElement('p');
+          span.className = 'blockMsg';
+          span.append(document.createTextNode('불매기업 제품입니다.'));*/
+          
+          var moveArticle = document.createElement('a');
+          moveArticle.className = 'moveArticle btn';
+          moveArticle.setAttribute('type', 'button');
+          moveArticle.setAttribute('target', "_blank");
+          moveArticle.append(document.createTextNode('관련글 보기'));
+          
+          var moveProd = document.createElement('a');
+          moveProd.className = 'moveProd btn';
+          moveProd.setAttribute('type', 'button');
+          moveProd.setAttribute('target', "_blank");
+          moveProd.setAttribute('href', $(title).find('.name').attr('href'));
+          moveProd.append(document.createTextNode('제품 상세보기'));
+          
+          divBlock.append(logo);
+          divBlock.append(document.createElement('br'));
+          /*divBlock.append(span);
+          divBlock.append(document.createElement('br'));*/
+          divBlock.append(moveArticle);
+          divBlock.append(moveProd);
+          
+          
           for (var i = 0; i < allBoycottNames.length; i++) {
-            if (checkStr.indexOf(allBoycottNames[i]) != -1) {
-              content.append("<span>총블록처리</span>");
+            if (checkStr.indexOf(allBoycottNames[i].split(',')[1]) != -1) {
+              moveArticle.setAttribute('href', '/nutcracker/detail/detail.html?boycottNo=' + allBoycottNames[i].split(',')[0]);
+              li.append(divBlock);
             }
           }
 
           for (var i = 0; i < myBoycottNames.length; i++) {
-            if (checkStr.indexOf(myBoycottNames[i]) != -1) {
-              // li 블록처리
-              content.append("<span>my블록처리</span>");
-              break;
+            if (checkStr.indexOf(myBoycottNames[i].split(',')[1]) != -1) {
+              moveArticle.setAttribute('href', '/nutcracker/detail/detail.html?boycottNo=' + myBoycottNames[i].split(',')[0]);
+              li.append(divBlock);
             }
           }
-            
+          
+          li.appendChild(title);
+          li.appendChild(content);
           return li;
         },
         /*getBoycottList : function() {
