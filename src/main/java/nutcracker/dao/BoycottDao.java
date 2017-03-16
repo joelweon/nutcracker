@@ -1,6 +1,7 @@
 package nutcracker.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import nutcracker.domain.Boycott;
 
@@ -22,4 +23,5 @@ public interface BoycottDao {
   int insertRelation(Boycott boycott) throws Exception;
   int deleteRelation(Boycott boycott) throws Exception;
   ArrayList<Boycott> getSearch(String keyword) throws Exception;
+  List<Boycott> getBoycottNames() throws Exception;
 }

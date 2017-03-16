@@ -57,7 +57,6 @@
     </div>
     <!-- 삭제 버튼 -->
     <div class="delete-div">
-      선택한 게시글을
       <a href="#" class="delete-btn">삭제</a>
     </div>
   </div>
@@ -73,13 +72,8 @@
             <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
           </td>
           <td class="board-list">
-            <span class="list-img-span">
-              <a href="#">
-                <img >
-              </a>
-            </span>
             <div>
-              <p>{{title}}</p>
+              <a href=http://localhost:8080/nutcracker/review/review-detail.html?reviewNo={{reviewNo}}><p>{{title}}</p></a>
             </div>
           </td>
           <td class="board-reportdate">{{postTime}}</td>

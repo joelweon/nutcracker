@@ -50,5 +50,6 @@ var closeModal =function() {
 	$(".mask").removeClass("active");
 };
 
-
-
+$(document).on('click', '.detail-togle', function() {
+	$(".my-top-detail").toggle("1000");
+});

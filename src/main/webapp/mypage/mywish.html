@@ -37,10 +37,10 @@
           <thead>
   					<tr class="wish-list-title">
   						<th><input id="allCheck" class="th-check" type="checkbox" /></th>
-  						<th>상품정보</th>
-  						<th>제조사</th>
-  						<th>브랜드</th>
-  						<th>상품금액</th>
+  						<th class="prod-width">상품정보</th>
+  						<th class="maker-width">제조사</th>
+  						<th class="brand-width">브랜드</th>
+  						<th class="price-width">상품금액</th>
   					</tr>
           </thead>
           <tbody></tbody>
@@ -61,7 +61,7 @@
     
     <!-- 삭제 -->
 			<div class="delete-div">
-				선택한 위시리스트 <a href="#" class="delete-btn">삭제</a>
+				<a href="#" class="delete-btn">삭제</a>
 			</div>
 		</div>
 	</div>
@@ -73,7 +73,7 @@
     <td class="wish-table-date">
        <input name="box" class="td-check" type="checkbox" value={{wishNo}}>
     </td>
-    <td class="wish-list">
+    <td class="wish-list prod-width">
       <span class="list-img-span"> 
         <a href={{link}}> <img src={{photoPath}}></a>
       </span>
@@ -81,9 +81,9 @@
         <p><a href={{link}}>{{productName}}</a></p>
       </div>
     </td>
-    <td class="wish-maker">{{maker}}</td>
-    <td class="wish-brand">{{brand}}</td>
-    <td class="wish-price">{{price}}</td>
+    <td class="wish-maker maker-width">{{maker}}</td>
+    <td class="wish-brand brand-width">{{brand}}</td>
+    <td class="wish-price price-width">{{price}}</td>
   </tr> 
 {{/each}}
 </script>

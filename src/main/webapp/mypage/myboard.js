@@ -1,6 +1,4 @@
-$(document).on('click', '.detail-togle', function() {
-  $(".my-top-detail").toggle("1000");
-});
+
 
 $(function(){
   $("#allCheck").click(function(){
@@ -87,6 +85,7 @@ function loadList(pageNo, pageSize) {
   
       var template = Handlebars.compile($('#trTemplate').html());
       tbody.html(template({"list":list}));
+      console.log(list);
       
       // 페이지 버튼 설정
       preparePagingButton(ajaxResult.data.totalCount);
@@ -174,4 +173,3 @@ $('.main-contents .delete-div > .delete-btn').click(function(e) {
     }
   });
 }) //delete
-
