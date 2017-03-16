@@ -8,12 +8,14 @@ $(function(e) {
 		var tbody = $('.purchase-table > tbody');
     var template = Handlebars.compile($('#trTemplate').html());
     tbody.html(template({"list":list}));
-    // 구매 후기
-    var modal = $('.modal-div');
-    var templateForModal = Handlebars.compile($('#modalTemplate').html());
-    modal.html(templateForModal({"listForModal":list}));
     // 작성 버튼 클릭
     $(".review-btn").click(function() {
+    	var purchaseNo = $(this).attr("data-no");
+    	$.get(serverRoot + '/deal/detail.json', {purchaseNo}, function(ajaxResult) {
+    		console.log(ajaxResult.data);
+    		$('.purchase-title').text(ajaxResult.data.title);
+    		$('.purchase-image > img').attr('src', serverRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
+    	});
     	$(".mask").addClass("active");
     });
     // 마스크 끝내기

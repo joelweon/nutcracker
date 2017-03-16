@@ -203,7 +203,10 @@ var kakaoPay = function() {
 					quantity : $("#product-quantity input").val(),
 					imp_uid : rsp.imp_uid,
 					purchaseDate : rsp.paid_at, //결제 승인 시각
-					receipt : rsp.receipt_url // 거래 매출 전표 URL
+					receipt : rsp.receipt_url, // 거래 매출 전표 URL
+					postcode: $("#postcode").val(),
+					basicAddress: $("#address").val(),
+					detailAddress: $("#address2").val()
 					//기타 필요한 데이터가 있으면 추가 전달
 				}
 			}).done(function(data) {

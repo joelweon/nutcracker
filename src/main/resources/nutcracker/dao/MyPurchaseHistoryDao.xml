@@ -35,26 +35,28 @@
       PUR.TITLE,
       PUR.PRICE,
       date_format(PUR.DEV_DATE, '%Y-%m-%d') as DEV_DATE,
-      USER.BAS_ADR,
-      USER.DET_ADR,
-      USER.ZIP,
+      MY.BAS_ADR,
+      MY.DET_ADR,
+      MY.ZIP,
       (select MIN(PP.PATH) from PCH_PHOT PP where MY.PNO = PP.PNO) as PATH,
       (select CP_NAME from COMP where PUR.CPNO = COMP.CPNO) as CP_NAME
     from PCH_HIST MY
       left outer join PURCHS PUR on MY.PNO = PUR.PNO
-      left outer join USER on MY.MNO = USER.UNO
     where MY.MNO=#{value}
   </select>
   
   <insert id="insert" parameterType="map">
-    insert into PCH_HIST(MNO, PNO, PCH_DATE, PCH_CNT, IMP_UID, RECEIPT)
+    insert into PCH_HIST(MNO, PNO, PCH_DATE, PCH_CNT, IMP_UID, RECEIPT, ZIP, BAS_ADR, DET_ADR)
     values(
       #{memberNo},
       #{purchaseNo},
       now(),
       #{quantity},
       #{imp_uid},
-      #{receipt}
+      #{receipt},
+      #{postcode},
+      #{basicAddress},
+      #{detailAddress}
     )
   </insert>
 </mapper>

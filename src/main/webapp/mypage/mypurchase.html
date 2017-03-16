@@ -52,7 +52,15 @@
 				<tbody></tbody>
 			</table>
 		</div>
-		<div class='modal-div'></div>
+	  <div class="mask" role="dialog"></div>
+     <div class="modal" role="alert">
+       <span id='purchase-review'>구매 후기 작성</span>
+       <button class="close" role="button">X</button>
+       <div id='purchase-review-contents'>
+         <div class='purchase-image'><img></div>
+         <div class='purchase-title'></div>
+       </div>
+     </div>
 	</div> <!-- main-contents -->
 </div> <!-- my-content-area -->
 <!-- <div id='wrap-footer'></div> -->
@@ -80,19 +88,10 @@
     <td class="delivery-date">{{deleveryDate}}</td>
     <td class="purchase-review">
       <div id="buttons" aria-haspopup="true">
-        <a href="javascript:void(0)" class="review-btn review-btn-red">작성</a>
+        <a href="javascript:void(0)" class="review-btn review-btn-red" data-no="{{purchaseNo}}">작성</a>
       </div>
     </td>
   </tr>
-{{/each}}
-</script>
-<script id="modalTemplate" type="text/x-handlebars-template">
-{{#each listForModal}}
-  <div class="mask" role="dialog"></div>
-  <div class="modal" role="alert">
-    <button class="close" role="button">X</button>
-    <div class='purchase-title'>{{title}}</div>
-  </div>
 {{/each}}
 </script>
 <script src="../js/context.js"></script>
