@@ -38,18 +38,6 @@ public class AuthJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, user);
   }
   
-  /*@RequestMapping("/auth/user")
-  public AjaxResult loginUser(@RequestParam int userNo, HttpSession session) throws Exception {
-    
-    Member member = authService.getMember(userNo);
-    System.out.println(member);
-    
-    session.setAttribute("member", member); // HttpSession에 저장한다.
-    
-    User user = userService.getOneByNo(userNo);
-    System.out.println(user);
-    return new AjaxResult(AjaxResult.SUCCESS, user);
-  }*/
   
   @RequestMapping("/auth/logout")
   public AjaxResult logout(HttpSession session) throws Exception {

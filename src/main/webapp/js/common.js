@@ -184,11 +184,6 @@ function readUploadImage( inputObject ) {
         $('#profile-img-big').attr('src', serverRoot+'/upload/profile/thumb/'+ param.photoPath);
         window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
         return;
-        /*$.post(serverRoot + '/auth/user.json', {memberNo: JSON.parse(users).memberNo}, function(ajaxResult) {
-          console.log(ajaxResult);
-            window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
-            return;
-          });*/
       }
     });
   }
