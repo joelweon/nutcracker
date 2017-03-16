@@ -24,6 +24,14 @@ $(document).ready(function() {
 });
 
 $(function() {
+  //textarea 글자수 제한
+  $('#textarea').keyup(function (e){
+    var content = $(this).val();
+    $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
+    $('#counter').html(content.length + '/200');
+  });
+  $('#textarea').keyup();
+  
 	// 불매운동 정보 가져오기
 	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
 		$('#title-top h1').text(ajaxResult.data.title);
