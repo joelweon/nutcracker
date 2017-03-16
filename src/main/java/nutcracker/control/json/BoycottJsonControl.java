@@ -157,4 +157,10 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/boycott/getBoycottNames")
+  public AjaxResult getBoycottNames() throws Exception {
+    List<Boycott> list = boycottService.getBoycottNames();
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
 }

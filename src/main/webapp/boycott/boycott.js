@@ -20,11 +20,13 @@ $(function(event) {
 	  	btnCpnoList.push(ajaxResult.data[i].companyNo);
 	  }
 //	  console.log(btnCpnoList);
+	  changeBtn();
   });
 });
 
 // 로그인 되어있을때 불매리스트 추가 버튼 변경하는 함수
-$(function(event) {
+function changeBtn() {
+//$(function(event) {
 	var param;
 	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
 		if(ajaxResult.status == 'success') {
@@ -34,7 +36,7 @@ $(function(event) {
 			}, function(ajaxResult){
 				console.log("okok")
 				if (ajaxResult.data.length > 0) {
-					var cpnoList
+					var cpnoList = [];
 					for(i = 0; i < btnCpnoList.length; i++) {
 						for(j = 0; j < ajaxResult.data.length; j++) {
 							cpnoList = ajaxResult.data[j].companyNo;
@@ -52,7 +54,8 @@ $(function(event) {
 			})
 		}
 	}, 'json');
-});
+//});
+}
 
 $(document).on('click', '.list-add-btn', function(event){
 	var param;

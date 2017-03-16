@@ -32,3 +32,7 @@ $(function(e) {
     };
 	});
 });
+
+$(document).on('click', '.detail-togle', function() {
+	$(".my-top-detail").toggle("1000");
+});
