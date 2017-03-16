@@ -15,6 +15,7 @@
     <result column="rep_cnt"  property="reportCount"/>
     <result column="del_yn"   property="commentDelete"/>
     <result column="botno"   property="boycottNo"/>
+    <result column="pno"   property="purchaseNo"/>
   </resultMap>
   
   <select id='getReviewCmtList' parameterType="int" resultMap="map">
@@ -81,7 +82,7 @@
     values (LAST_INSERT_ID(), #{boycottNo})
   </insert>
   
-  <select id='getProductCommentList' parameterType="int" resultMap="map">
+  <select id='getPurchaseCommentList' parameterType="int" resultMap="map">
     select
       cm.ctno,
       m.mno,
@@ -96,11 +97,17 @@
       cm.mno=m.mno
   </select>
   
-  <insert id='insertProductComment' parameterType="map">
+  <insert id='insertPurchaseComment' parameterType="map"
+  useGeneratedKeys="true" keyProperty="commentNo" keyColumn="ctno">
     insert into cmt
       (ctno,mno,ct_date,cont,rep_cnt,del_yn)
     values
       (#{commentNo},#{memberNo},now(),#{content},0,'n')
+  </insert>
+  
+  <insert id='insertPurchaseCommentRel' parameterType="map">
+    insert into pch_cmt(ctno,pno)
+    values (#{commentNo}, #{purchaseNo})
   </insert>
   
 </mapper>

@@ -81,11 +81,21 @@ public class CommentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "[comment] 불량후기 댓글리스트 삭제 성공");
   }
   
-//공구 관련 사항
- @RequestMapping("/comment/productcomments")
- public AjaxResult productComments(int purchaseNo) throws Exception {
-   List<HashMap<String, Object>> list = commentService.getProductCmtList(purchaseNo);
-   return new AjaxResult(AjaxResult.SUCCESS, list);
- }
+  //공구 관련 사항
+  @RequestMapping("/comment/productcomments")
+  public AjaxResult productComments(int purchaseNo) throws Exception {
+    List<HashMap<String, Object>> list = commentService.getPuchaseCmtList(purchaseNo);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  @RequestMapping("/comment/purchasecommentadd")
+  public AjaxResult purchaseCommentAdd(@RequestParam HashMap<String,String> map) throws Exception {
+    int count = commentService.addPurchaseCmt(map);
+    commentService.addPurchaseCmtRel(map);
+    if (count == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "후기 등록 실패");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "후기 등록 완료");
+  }
   
 }

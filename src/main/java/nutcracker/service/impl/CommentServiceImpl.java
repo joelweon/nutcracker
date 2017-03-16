@@ -61,7 +61,19 @@ public class CommentServiceImpl implements CommentService {
   }
 
   @Override
-  public List<HashMap<String, Object>> getProductCmtList(int ownNo) throws Exception {
-    return commentDao.getProductCommentList(ownNo);
+  public List<HashMap<String, Object>> getPuchaseCmtList(int ownNo) throws Exception {
+    return commentDao.getPurchaseCommentList(ownNo);
+  }
+
+  @Override
+  public int addPurchaseCmt(HashMap<String, String> map) throws Exception {
+    int count = commentDao.insertPurchaseComment(map);
+    return count;
+  }
+
+  @Override
+  public int addPurchaseCmtRel(HashMap<String, String> map) throws Exception {
+    int count = commentDao.insertPurchaseCommentRel(map);
+    return count;
   }
 }

@@ -10,7 +10,7 @@ body {
   font-size: 1.2em;
   max-width: 960px;
   width:100%;
-  margin: 20px auto;
+  margin: 70px auto;
 }
 
 /* main contents area*/
@@ -58,3 +58,19 @@ input {
   margin-top: 5px;
   width: 60%;
 }
+
+
+ @media screen and (max-width: 760px)
+{
+  .main-contents {
+  width:100%;
+  float:left;
+  max-width:95%;
+  margin-top:20px;
+  margin-left:2%;
+  margin-bottom:30px;
+  }
+  .my-content-area {
+    margin:10px auto;
+  }
+} 
