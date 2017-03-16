@@ -1,6 +1,4 @@
-$(document).on('click', '.detail-togle', function() {
-  $(".my-top-detail").toggle("1000");
-});
+
 
 $(function(){
   $("#allCheck").click(function(){
@@ -174,4 +172,3 @@ $('.main-contents .delete-div > .delete-btn').click(function(e) {
     }
   });
 }) //delete
-
