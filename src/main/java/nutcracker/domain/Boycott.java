@@ -17,6 +17,7 @@ public class Boycott implements Serializable {
   protected int boycottCount;
   protected String photoPath;
   protected int companyNo;
+  protected String companyName;
   protected int memberNo;
   protected String regDate;
   protected List<Photo> photoList;
@@ -46,6 +47,12 @@ public class Boycott implements Serializable {
   }
   public void setCompanyNo(int companyNo) {
     this.companyNo = companyNo;
+  }
+  public String getCompanyName() {
+    return companyName;
+  }
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
   }
   public int getBoycottNo() {
     return boycottNo;
@@ -118,12 +125,8 @@ public class Boycott implements Serializable {
     return "Boycott [boycottNo=" + boycottNo + ", postTime=" + postTime + ", title=" + title + ", content=" + content
         + ", viewCount=" + viewCount + ", hoduCount=" + hoduCount + ", commentCount=" + commentCount + ", shareCount="
         + shareCount + ", boycottCount=" + boycottCount + ", photoPath=" + photoPath + ", companyNo=" + companyNo
-        + ", memberNo=" + memberNo + ", regDate=" + regDate + ", photoList=" + photoList + ", newsList=" + newsList
-        + "]";
+        + ", companyName=" + companyName + ", memberNo=" + memberNo + ", regDate=" + regDate + ", photoList="
+        + photoList + ", newsList=" + newsList + "]";
   }
-  
-  
-  
-  
 }
 

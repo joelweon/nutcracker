@@ -27,14 +27,41 @@
         
         /** li setting **/
         getSearch : function(title,content){
-            var li = document.createElement('li');
+          console.log('[getSearch] 호출...');
+
+          var li = document.createElement('li');
             
-            /*li.style.height = '150px';*/
-            li.appendChild(title);
-            li.appendChild(content);
+          /*li.style.height = '150px';*/
+          li.appendChild(title);
+          li.appendChild(content);
+          //console.log('[shopping-serach.js] title:' + title + ', content: ' + content);
+          var checkStr = $(title).find('.name').text().replace('"','') + " "
+            + $(content).find('.maker').text().split(':')[1] + " "
+            + $(content).find('.brand').text().split(':')[1];
+          
+          for (var i = 0; i < allBoycottNames.length; i++) {
+            if (checkStr.indexOf(allBoycottNames[i]) != -1) {
+              content.append("<span>총블록처리</span>");
+            }
+          }
+
+          for (var i = 0; i < myBoycottNames.length; i++) {
+            if (checkStr.indexOf(myBoycottNames[i]) != -1) {
+              // li 블록처리
+              content.append("<span>my블록처리</span>");
+              break;
+            }
+          }
             
-            return li;
+          return li;
         },
+        /*getBoycottList : function() {
+          console.log('[getBoycottList] 호출...');
+          if ($('#allCheck').hasClass('switchon')) {
+            var boycottNameList = productSearch.getAllBoycott();
+            return boycottNameList;
+          } else return;
+        },*/
         /** 설명 return **/
        getContent : function(z){
            var div = document.createElement('div');

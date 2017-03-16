@@ -108,4 +108,9 @@ public class BoycottServiceImpl implements BoycottService{
   public List<Boycott> getSearch(String keyword) throws Exception {
     return boycottDao.getSearch(keyword);
   }
+  
+  @Override
+  public List<Boycott> getBoycottNames() throws Exception {
+    return boycottDao.getBoycottNames();
+  }
 }

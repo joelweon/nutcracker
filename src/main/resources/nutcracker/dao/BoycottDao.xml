@@ -17,6 +17,7 @@
     <result column="shr_cnt"    property="shareCount"/>
     <result column="bot_cnt"    property="boycottCount"/>
     <result column="cpno"       property="companyNo"/>
+    <result column="cp_name"    property="companyName"/>
     <result column="mno"        property="memberNo"/>
     <result column="reg_date"   property="regDate"/>
     
@@ -68,12 +69,23 @@
     where year(b.bot_date) = #{value};
   </select>
   
+  <select id="getBoycottNames" resultMap="boycott-map">
+    select
+      b.cpno,
+      c.cp_name
+    from bot b
+      left join comp c on c.cpno=b.cpno
+  </select>
+  
   <select id="getMyboycottList" parameterType="int" resultMap="boycott-map">
     select
-      mno,
-      cpno,
-      reg_date
-    from bot_rls where mno=#{value}
+      br.mno,
+      br.cpno,
+      c.cp_name,
+      br.reg_date
+    from bot_rls br
+      left join comp c on c.cpno = br.cpno 
+    where mno=#{value}
   </select>
   
   <select id="getOne" parameterType="int" resultMap="boycott-map">
