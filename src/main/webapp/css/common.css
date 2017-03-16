@@ -78,6 +78,15 @@ div {
   color: #343434;
   font-weight: bold;
 }
+.cam {
+  position:absolute;
+  top: 75px;
+  left:84px;
+  cursor:pointer;
+  color:black;
+  background:white;
+  border-radius:30px;
+}
 
 /* 공통 버튼 */
 .common-btn-white { color: #fff; background-color: #525252; }
