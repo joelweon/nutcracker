@@ -85,6 +85,7 @@ function loadList(pageNo, pageSize) {
   
       var template = Handlebars.compile($('#trTemplate').html());
       tbody.html(template({"list":list}));
+      console.log(list);
       
       // 페이지 버튼 설정
       preparePagingButton(ajaxResult.data.totalCount);

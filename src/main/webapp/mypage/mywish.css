@@ -105,7 +105,9 @@ body {
 
 /* --------------------- */
 .delete-div {
-	margin-top: 5px;
+    float: right;
+    margin-top: 30px;
+    margin-right: 25px;
 }
 
 .delete-btn {
@@ -134,7 +136,7 @@ body {
 }
 
 /* 페이지 이동 */
-.pagination { width: 100%; margin: 5px 0px 30px 0px; }
+.pagination { width: 100%; margin: 30px 0px 30px 0px; }
 .pagination > li > a { color: gray; }
 .pagination > li.active > a, .pagination > li.active > span,
 .pagination > .active > a:hover, .pagination > li.active > span:hover,
@@ -157,3 +159,17 @@ body {
   pointer-events: none;
   cursor: default;
 }
+.clearfix {
+  float:left;
+}
+ @media screen and (max-width: 760px)
+{
+  .main-contents {
+  width:100%;
+  float:left;
+  max-width:95%;
+  margin-left:2%;
+  margin-bottom:30px;
+  }
+  
+} 
