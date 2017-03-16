@@ -233,7 +233,10 @@ CREATE TABLE PCH_HIST (
   PCH_DATE DATETIME     NOT NULL, -- 구매일
   PCH_CNT  INTEGER      NOT NULL, -- 구매수량
   IMP_UID  VARCHAR(50)  NULL,     -- 결제아이디
-  RECEIPT  VARCHAR(255) NULL      -- 매출전표
+  RECEIPT  VARCHAR(255) NULL,     -- 매출전표
+  ZIP      VARCHAR(6)   NULL,     -- 우편번호
+  BAS_ADR  VARCHAR(255) NULL,     -- 기본주소
+  DET_ADR  VARCHAR(255) NULL      -- 상세주소
 );
 
 -- 구매내역
