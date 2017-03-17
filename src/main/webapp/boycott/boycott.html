@@ -33,6 +33,7 @@
 	      <span class='title-title'>불매운동</span><span class='title-sub'>현재 진행중인 불매운동 리스트입니다.</span>
 			  <!-- 년도선택 -->
 			  <div id="div-year" align="right">
+				  
 			    <span>연도 별 리스트 보기</span>
 		      <select id='select-year' onChange="selectEvent(this.value)">
   		      <option value="all" selected="selected">전체보기</option>
@@ -42,7 +43,10 @@
 		        <option value="2014">2014년</option>
 		      </select>
 		    </div>
-	  	
+	  	    <!-- 글쓰기버튼 -->
+          <div class='btn-toolbar'>
+            <a type='button' id='btn-write' class="btn btn-default common-btn-white hidden" href='#'>글쓰기</a>
+          </div>
 	  	</nav>
 	  </div>
 	 
@@ -79,6 +83,13 @@
             <input type="checkbox" class="hidden">
             <span class="glyphicon glyphicon-plus"></span>
           </a>
+          <a name='{{boycottNo}}' class="list-delete-btn btn btn-bot-add hidden">
+            <p>삭제</p>
+          </a>
+          <a name='{{boycottNo}}' class="list-update-btn btn btn-bot-add hidden">
+            <p>수정</p>
+          </a>
+          
         </div>
       </div> <!-- boycott-list-detail -->
     </div>

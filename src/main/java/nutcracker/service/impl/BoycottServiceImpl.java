@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import nutcracker.dao.BoycottDao;
+import nutcracker.dao.CommentDao;
 import nutcracker.domain.Boycott;
 import nutcracker.service.BoycottService;
 
 @Service
 public class BoycottServiceImpl implements BoycottService{
   @Autowired BoycottDao boycottDao;
+  @Autowired CommentDao commentDao;
 
   @Override
   public List<Boycott> getList() throws Exception {
@@ -67,6 +69,7 @@ public class BoycottServiceImpl implements BoycottService{
   @Override
   public int delete(int no) throws Exception {
     boycottDao.deleteNews(no);  // 불매운동 기사를 지움
+    commentDao.deleteBoycottCmts(no);
     
     int count = boycottDao.delete(no);
     
@@ -113,4 +116,6 @@ public class BoycottServiceImpl implements BoycottService{
   public List<Boycott> getBoycottNames() throws Exception {
     return boycottDao.getBoycottNames();
   }
+  
+  
 }
