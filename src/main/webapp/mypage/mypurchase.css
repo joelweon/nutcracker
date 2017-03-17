@@ -20,7 +20,7 @@ body {
   font-size: 0.9em;
 }
 
-.term-list > span {
+.page-title {
   font: 1.4em bold;
   color: white;
 }
@@ -297,8 +297,34 @@ body {
   max-width:95%;
   margin-left:2%;
   margin-bottom:30px;
+  margin-top:25px;
   }
   .my-content-area {
-    margin:10px auto;
+    margin:0 auto;
   }
+  .page-title {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .purchase-table, .purchase-table-date p,
+  .purchase-price, .delivery-date, .purchase-review {
+    font-size: 0.9em;
+  }
+  .purchase-list-title th:first-child {
+    width:20%;
+  }
+  .purchase-list-title th:nth-child(2), .purchase-list {
+    width:49%;
+  }
+  .purchase-list-title th:last-child, .purchase-list-title th:nth-child(3) {
+    width:15%;
+  }
+  .list-img-span, .delivery-date, .purchase-list-title th:nth-child(4) {
+    display:none;
+  }
+  .purchase-list div {
+	  width: 100%;
+	  margin: 5px 0;
+	  float: right;
+	}
 } 

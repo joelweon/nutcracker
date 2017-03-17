@@ -75,9 +75,14 @@ span.psw {
   max-width:95%;
   margin-left:2%;
   margin-bottom:30px;
+  margin-top:25px;
+  }
+  .page-title {
+    font-size: 1.3em;
+    font-weight: bold;
   }
   .my-content-area {
-  margin:10px auto;
+  margin:0 auto;
   }
 }
 

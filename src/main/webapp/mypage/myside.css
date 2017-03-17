@@ -43,24 +43,22 @@
    width: 100%;
   background-color: rgb(70, 30, 30);
   float: left;
-  height: 100px; 
-  margin-bottom: 20px;
+  height: 35px; 
+  margin-bottom: 10px;
   }
   
   .my-side-menu h2 {
     text-align: center;
     color: white;
-    display:inline;
+    display:none;
   }
    
   .my-side-menu ul {
-     background-color: rgb(100, 25, 25);
+    background-color: rgb(100, 25, 25);
     list-style-type: none;
-    margin:0;
-    padding:0; 
-    padding-top:10px;
+    padding:5px 1%; 
     overflow: auto;
-    
+    margin:0 auto;
   }
   
   .my-side-menu ul>li {
@@ -72,9 +70,8 @@
   }
   
   .my-side-menu ul>li>a {
-    text-decoration: none;
-    color: #fff;
-  }
+  padding: 5px;
+}
   
   .my-side-menu ul>li>a:hover {
     background-color: #802525;
