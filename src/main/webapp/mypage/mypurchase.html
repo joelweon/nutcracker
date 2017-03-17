@@ -6,10 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, 
   maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/alertify.core.css">
+<link rel="stylesheet" href="../css/alertify.default.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="mypurchase.css">
-<link rel="stylesheet" href="mytop.css">
 <link rel="stylesheet" href="myside.css">
 <link rel="stylesheet" href="../css/footer.css">
 </head>
@@ -30,7 +32,7 @@
 
 	<div class="main-contents">
 		<div class="term-list">
-			<span>공동구매내역</span>
+			<span class='page-title'>공동구매내역</span>
 			<ul>
 				<li><a href="#">전체</a></li>
 				<li><a href="#">3개월</a></li>
@@ -59,7 +61,23 @@
        <div id='purchase-review-contents'>
          <div class='purchase-image'><img></div>
          <div class='purchase-title'></div>
-       </div>
+         <span>목표 달성률 </span>
+         <div class='purchase-percent'>
+           <span>목표 달성률 </span><div></div>
+         </div>
+         <div class='purchase-delivery'>
+           <span>배송 예정일 </span><div></div>
+         </div>
+         <div class='purchase-review-area'>
+           <span>구매 후기는 5자 이상 500자 이하로 작성 가능합니다.</span>
+           <textarea id="textarea" rows="10" cols="62" maxlength="500" placeholder="구매 후기를 입력해주세요."></textarea>
+         </div>
+         <div class='purchase-review-message'>
+	         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+	         <span>작성하신 후기 대한 책임은 본인에게 있으며, 등록된 내용은 상품 페이지에 노출될 수 있습니다.</span>
+         </div>
+       </div> <!-- purchase-review-contents -->
+       <button id="hugi" class="purchase-review-button btn-success btn-lg" type="button" disabled="disabled">후기 등록</button>
      </div>
 	</div> <!-- main-contents -->
 </div> <!-- my-content-area -->
@@ -87,8 +105,11 @@
     <td class="purchase-price">{{price}}원</td>
     <td class="delivery-date">{{deleveryDate}}</td>
     <td class="purchase-review">
-      <div id="buttons" aria-haspopup="true">
+      <div id='writeBtn_{{purchaseNo}}' aria-haspopup="true">
         <a href="javascript:void(0)" class="review-btn review-btn-red" data-no="{{purchaseNo}}">작성</a>
+      </div>
+      <div id='completeBtn_{{purchaseNo}}'>
+        <a href='../deal/deal-detail.html?purchaseNo={{purchaseNo}}' class='review-btn-completed review-btn-red'>보기</a>
       </div>
     </td>
   </tr>

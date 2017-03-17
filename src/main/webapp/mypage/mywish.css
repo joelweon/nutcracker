@@ -10,7 +10,7 @@ body {
   font-size: 1.2em;
   max-width: 960px;
   width:100%;
-  margin: 20px auto;
+  margin: 70px auto;
 }
 
 /* main contents area*/
@@ -24,6 +24,7 @@ body {
 .wish-table { 
   border: 5px solid rgb(47, 47, 47);
   width: 100%;
+  text-align: center;
 }
 
 .wish-table. th {
@@ -135,6 +136,18 @@ body {
   color: white;
 }
 
+/* 상품정보 탭 너비 조정 */
+.prod-width {
+  width:60%;
+}
+.maker-width {
+  width: 80px;
+}
+.brand-width {
+  width: 80px;
+}
+
+
 /* 페이지 이동 */
 .pagination { width: 100%; margin: 30px 0px 30px 0px; }
 .pagination > li > a { color: gray; }
@@ -170,6 +183,29 @@ body {
   max-width:95%;
   margin-left:2%;
   margin-bottom:30px;
+  margin-top:25px;
+  }
+  .page-title {
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .my-content-area {
+    margin:0 auto;
+  }
+  .wish-list div {
+    width: 100%;
+    float: left;
+    margin-top: 9%;
+    text-align: center;
   }
   
-} 
+  .prod-width {
+    width:40%;
+  }
+  .maker-width {
+    width: 80px;
+  }
+  .brand-width {
+    width: 80px;
+  }
+}

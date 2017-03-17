@@ -11,25 +11,32 @@ $(document).ready(function(){
     console.log('allcheck 클릭');
     if ($(this).hasClass('switchon')) {
       productSearch.getAllBoycott();
+      $('div#myCheck').removeClass('switchon');
+      myBoycottNames = [];
     } else {
-      allBoycottList = [];
+      allBoycottNames = [];
     }
   });
   
   $('div#myCheck').click(function() {
     console.log('mycheck 클릭');
-    var user = window.sessionStorage.getItem('user');
-    if (user == null) {
-      $(this).removeClass('switchon');
-      alertify.alert('로그인 후 사용가능합니다.', function() {
-        location.href = clientRoot + '/auth/login.html';
-      });
-    }
-    if ($(this).hasClass('switchon')) {
-      productSearch.getMyBoycott();
-    } else {
-      myBoycottList = [];
-    }
+    /*var user = window.sessionStorage.getItem('user');
+    if (user == null) {*/
+    $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+      if (ajaxResult.status != 'success') {
+        $('div#myCheck').removeClass('switchon');
+        alertify.alert('로그인 후 사용가능합니다.', function() {
+          location.href = clientRoot + '/auth/login.html';
+        });
+      }
+      if ($('div#myCheck').hasClass('switchon')) {
+        productSearch.getMyBoycott();
+        $('div#allCheck').removeClass('switchon');
+        allBoycottNames = [];
+      } else {
+        myBoycottNames = [];
+      }
+    });
   });
 });
 
@@ -43,13 +50,13 @@ var productSearch = {
         }
         var list = ajaxResult.data;
         for (var i = 0; i < list.length; i++) {
-          allBoycottNames.push(list[i].companyName);
+          allBoycottNames.push(list[i].companyNo + "," + list[i].companyName);
         }
       });
     },
 
     getMyBoycott: function() {
-      console.log('[product-search/getAllBoycott] 호출...');
+      console.log('[product-search/getMyBoycott] 호출...');
       var user = window.sessionStorage.getItem('user');
       var param = {"memberNo" : JSON.parse(user).memberNo}
       $.get(serverRoot + '/boycott/myBoycottList.json', param, function(ajaxResult) {
@@ -60,7 +67,7 @@ var productSearch = {
         var list = ajaxResult.data;
         var nameList = [];
         for (var i = 0; i < list.length; i++) {
-          nameList.push(list[i].companyName);
+          nameList.push(list[i].companyNo + "," + list[i].companyName);
         }
         myBoycottNames = nameList;
       });

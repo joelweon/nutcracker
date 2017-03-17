@@ -33,7 +33,6 @@ $(function(){
         });
         
         jQuery.ajaxSettings.traditional = true;
-        console.log(rnoAry);
         
         $.ajax({
           method : 'POST',
@@ -124,7 +123,6 @@ function loadList(pageNo, pageSize) {
       }
       var list = ajaxResult.data.list;
       var tbody = $('.wish-table > tbody');
-      console.log(list);
   
       var template = Handlebars.compile($('#trTemplate').html());
       tbody.html(template({"list":list}));
@@ -142,7 +140,6 @@ function preparePagingButton(totalCount) {
   }
 
   // 현재 1페이지면 이전 버튼 비활성화
-  console.log("curPageNo: " + curPageNo + ", maxPageNo: " + maxPageNo);
   var prevBtn = $('#prevPgBtn');
   if (curPageNo <= 1) {
     prevBtn.addClass('disabled');
