@@ -8,6 +8,7 @@ public interface CommentDao {
   int insertReviewCmt(HashMap<String, Object> map) throws Exception;
   int insertReviewCmtCon(HashMap<String, Object> map) throws Exception;
   int deleteReviewCmts(String ownNo) throws Exception;
+  int deleteBoycottCmts(int boycottNo) throws Exception;
   List<HashMap<String, Object>> getBoycottCommentList(int ownNo) throws Exception;
   int getBoycottCommentCount(int ownNo) throws Exception;
   int insertBoycottComment(HashMap<String, String> map) throws Exception;

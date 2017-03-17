@@ -24,24 +24,49 @@ $(function(event) {
   });
 });
 
+function admin() {
+	$('#btn-write').removeClass("hidden");
+	$('.list-delete-btn').removeClass("hidden");
+	$('.list-update-btn').removeClass("hidden");
+	$('.list-add-btn').addClass("hidden");
+}
+
+$('#btn-write').click(function(event) {
+	location.href = clientRoot + '/boycott/boycott-write.html';
+});
+
+$(document).on('click', '.list-update-btn', function(event){
+	location.href = clientRoot + '/boycott/boycott-update.html?boycottNo=' + $(this).attr("name");
+});
+
+$(document).on('click', '.list-delete-btn', function(event){
+	$.get(serverRoot + '/boycott/delete.json', {
+		"boycottNo" : $(this).attr("name")
+	}, function(ajaxResult) {
+		if(ajaxResult.status != 'success') {
+			console.log('삭제 실패');
+		}
+	})
+});
+
+
+
 // 로그인 되어있을때 불매리스트 추가 버튼 변경하는 함수
 function changeBtn() {
 //$(function(event) {
 	var param;
 	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
 		if(ajaxResult.status == 'success') {
-			
+			var loginMember = ajaxResult.data.memberNo;
 			$.get(serverRoot + '/boycott/myBoycottList.json', {
 				"memberNo" : ajaxResult.data.memberNo
 			}, function(ajaxResult){
-				console.log("okok")
 				if (ajaxResult.data.length > 0) {
 					var cpnoList = [];
 					for(i = 0; i < btnCpnoList.length; i++) {
 						for(j = 0; j < ajaxResult.data.length; j++) {
 							cpnoList = ajaxResult.data[j].companyNo;
 							if(btnCpnoList[i] == cpnoList) {
-								console.log(btnCpnoList[i] + "==" + ajaxResult.data[j].companyNo);
 								$('a[name='+btnCpnoList[i]+'] > input').prop('checked', 
 										!$('a[name='+btnCpnoList[i]+'] > input').is(':checked'));
 								$('a[name='+btnCpnoList[i]+'] > p').text("나의 불매 리스트 제거");
@@ -50,6 +75,9 @@ function changeBtn() {
 							}
 						}
 					}
+				}
+				if(loginMember == 1) {
+					admin();
 				}
 			})
 		}
