@@ -15,6 +15,7 @@ insert into memb(mno,email,name,pwd,path,lst_date) values(13,'user13@test.com','
 insert into memb(mno,email,name,pwd,path,lst_date) values(14,'user14@test.com','곰돌이푸우',password('1111'),'user13.jpg','2016-12-26 17:01:29');
 
 -- 2. USER
+insert into user(uno,b_day,tel,out_type,join_date) values(1,'1991-09-02','01011112222','0','2015-09-02');
 insert into user(uno,b_day,tel,bas_adr,det_adr,zip,gen,out_type,join_date) values(2,'1989-05-23','01054895547','대전광역시 동구 대성2길 101','동성빌라 201호','34599','w','0','2017-02-08');
 insert into user(uno,b_day,tel,gen,out_type,join_date) values(3,'1992-10-15','01088951234','m','0','2016-04-13');
 insert into user(uno,b_day,tel,job,gen,out_type,join_date) values(4,'1991-04-09','01024696988','영양사','m','0','2016-11-24');

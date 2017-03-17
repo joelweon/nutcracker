@@ -56,19 +56,22 @@
     background-color: #32CD32;
     border-color: #32CD32;
 }
-.list-add-btn > p {
+.list-add-btn > p, .list-delete-btn > p, .list-update-btn > p {
 	display: inline;
 	float: right;
 }
-.list-add-btn:hover { color : #fff; }
-.list-add-btn {
+.list-add-btn:hover, .list-delete-btn:hover, .list-update-btn:hover { color : #fff; }
+.list-add-btn, .list-update-btn, .list-delete-btn {
 	padding:  8px 12px 0px 12px;
+	float: right;
+	margin-right: 10px;
 }
 
 .glyphicon { 
 	float: left; 
 	padding: 1px;
 }
+#btn-write { margin-bottom: 5px; float: right; }
 
 /* ------------------------------------------
   가로가 760px 이하일 때 

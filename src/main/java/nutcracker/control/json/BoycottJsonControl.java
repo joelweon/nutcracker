@@ -74,10 +74,6 @@ public class BoycottJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
   
-  
-  
-  
-  
   @RequestMapping("/boycott/delete")
   public AjaxResult delete(int boycottNo) throws Exception {
     boycottService.delete(boycottNo);

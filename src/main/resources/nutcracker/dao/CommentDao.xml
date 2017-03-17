@@ -48,6 +48,12 @@
     delete from rev_cmt where rvno=#{ownNo}
   </delete>
   
+  <delete id='deleteBoycottCmts' parameterType='int'>
+    delete from bot_cmt where botno=#{boycottNo}
+  </delete>
+  
+  
+  
   <select id='getBoycottCommentList' parameterType="int" resultMap="map">
     select
       cm.ctno,

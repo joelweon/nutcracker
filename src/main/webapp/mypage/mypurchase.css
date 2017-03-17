@@ -20,7 +20,7 @@ body {
   font-size: 0.9em;
 }
 
-.term-list > span {
+.page-title {
   font: 1.4em bold;
   color: white;
 }
@@ -128,7 +128,15 @@ body {
   background-color: #12d55b;
   color: white;
 }
-
+.review-btn-completed {
+	display:none;
+	border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 1em;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
 /* popup */
 .modal > .close{
   position: absolute;
@@ -267,11 +275,18 @@ body {
 }
 .purchase-review-button {
 	position:absolute;
-  top:470px;
-  margin-left:210px;
-  border-radius:5px;
-  color:black;
-  padding:5px 10px;
+  top:465px;
+  margin-left:200px;
+  font-size: 1.1em;
+}
+.btn-success.active:hover, .btn-success.active:focus {
+	background-color: none;
+	border-color:none;
+}
+.btn-success {
+  color: #fff;
+  background-color: #bfdabf;
+  border-color: #99d699;
 }
 
 @media screen and (max-width: 760px)
@@ -282,8 +297,65 @@ body {
   max-width:95%;
   margin-left:2%;
   margin-bottom:30px;
+  margin-top:25px;
   }
   .my-content-area {
-    margin:10px auto;
+    margin:0 auto;
   }
+  .page-title {
+    font-weight: bold;
+  }
+  .purchase-table, .purchase-table-date p,
+  .purchase-price, .delivery-date, .purchase-review {
+    font-size: 0.9em;
+  }
+  .purchase-list-title th:first-child {
+    width:20%;
+  }
+  .purchase-list-title th:nth-child(2), .purchase-list {
+    width:49%;
+  }
+  .purchase-list-title th:last-child, .purchase-list-title th:nth-child(3) {
+    width:15%;
+  }
+  .list-img-span, .delivery-date, .purchase-list-title th:nth-child(4) {
+    display:none;
+  }
+  .purchase-list div {
+	  width: 100%;
+	  margin: 5px 0;
+	  float: right;
+	}
+	.modal{
+	  top: 102px;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  max-height: 520px;
+	  margin-left: 0;
+	}
+	.purchase-review-button {
+	  top:465px;
+	  margin-left:37%;
+	  font-size: 1.1em;
+	}
+	.purchase-review-area {
+	  top:130px;
+	  left:1%;
+	  width:98%;
+	  height:250px;
+	}
+	.purchase-review-message {
+	  position:absolute;
+	  top:383px;
+	  right:0.5%;
+	  width:100%;
+	  height:20px;
+	  color:#808080;
+	  font-size: 0.5em;
+	  text-align: right;
+	}
+	#textarea {
+	  width:95%;
+	}
 } 

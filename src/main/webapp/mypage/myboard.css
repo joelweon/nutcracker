@@ -143,12 +143,11 @@ body {
   width:100%;
   float:left;
   max-width:95%;
-  margin-top:20px;
   margin-left:2%;
   margin-bottom:30px;
-  margin: 20px auto;
+  margin-top:25px;
   }
   .my-content-area {
-    margin:10px auto;
+    margin:0 auto;
   }
 } 

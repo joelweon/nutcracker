@@ -20,6 +20,7 @@
     <result column="cp_name"    property="companyName"/>
     <result column="mno"        property="memberNo"/>
     <result column="reg_date"   property="regDate"/>
+    <result column="cp_name"    property="companyName"/>
     
     <collection property="newsList" ofType="BoycottNews">
       <id       column="newsno"     property="newsNo"/>
@@ -107,7 +108,8 @@
       b.cpno,
       bn.newsno,
       bn.headline,
-      bn.path
+      bn.path,
+      cp.cp_name
     from bot b
     left outer join bot_news bn on b.botno=bn.botno
     left outer join comp cp on b.cpno=cp.cpno 

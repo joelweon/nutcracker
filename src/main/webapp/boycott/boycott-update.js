@@ -37,7 +37,7 @@ if (device.indexOf('Mobile') != -1) {
     maxHeight: null,             // set maximum height of editor
     focus: true,                  // set focus to editable area after initializing summernote
     lang: 'ko-KR',
-    //maximumImageFileSize: 1000000, //1MB
+    maximumImageFileSize: 1000000, //1MB
   });
 }
 
@@ -50,9 +50,10 @@ function prepareViewForm(boycottNo) {
     }
     
     var boycott = ajaxResult.data;
-    
+    console.log(ajaxResult.data);
     $('#input-title').val(boycott.title);
-    $('#input-company').val(boycott.companyNo);
+    $('#input-company').val(boycott.companyName);
+    $('#input-maker-hidden').val(boycott.companyNo);
     $('#summernote').summernote('code', boycott.content);
 	    
     for(var i = 1; i < (boycott.newsList).length; i++) {
@@ -75,15 +76,30 @@ function prepareViewForm(boycottNo) {
 $('#btn-update').click(function() {
   console.log(JSON.stringify({"newsList" : arrayToJson()}));
   	
-    /* 썸네일 사진 업로드 */
-    var contents = $('#summernote').summernote('code');
-    var start = contents.indexOf('<img src=');
-    var end = contents.indexOf('data-filename', start);
+//    /* 썸네일 사진 업로드 */
+//    var contents = $('#summernote').summernote('code');
+//    var start = contents.indexOf('<img src=');
+//    var end = contents.indexOf('data-filename', start);
+//    dataURL = contents.substring(start + 10, end - 2);
+//    var blob = dataURItoBlob(dataURL);
+//    /*var fd = new FormData(document.forms[0]);
+//    fd.append("image", blob);*/
+//    uploadImage(blob);
+  
+  /* 썸네일 사진 업로드 */
+  var contents = $('#summernote').summernote('code');
+  var start = $(contents).find('img').attr('src');
+  console.log(start);
+  if (start == undefined) {
+  	thumbnail = 'default';
+  }	else {
+  	var end = contents.indexOf('data-filename', start);
     dataURL = contents.substring(start + 10, end - 2);
     var blob = dataURItoBlob(dataURL);
     /*var fd = new FormData(document.forms[0]);
     fd.append("image", blob);*/
     uploadImage(blob);
+  }
 });
 
 $('#cancel').click(function(event) {
@@ -176,10 +192,10 @@ function doUpdate(thumbnail) {
   console.log('doUpdate()....');
   var param = {
       boycottNo		: 		boycottNo,
-      title			: 		$('#input-title').val(),
-      content		: 		$('#summernote').summernote('code'),
-      companyNo		:		$('#input-company').val(),
-      newsList		:		arrayToJson(),
+      title				: 		$('#input-title').val(),
+      content			: 		$('#summernote').summernote('code'),
+      companyNo		:			$('#input-maker-hidden').val(),
+      newsList		:			arrayToJson(),
       photoPath		: 		thumbnail
     };
   
@@ -198,4 +214,37 @@ function doUpdate(thumbnail) {
     }
   });
 }
+
+function startSearch() {
+  var keyword = $(document.getElementById('input-company'))[0].value;
+  $.ajax({
+    url: serverRoot + "/deal/search.json",
+    type: 'POST',
+    data: {keyword: keyword},
+    crossDomain: 'true',
+    dataType: 'json',
+
+    success: function(ajaxResult) {
+      var results = [];
+      $(document.getElementById('results')).empty();
+      for (var i =0;i<=ajaxResult.data.length;i++){
+      	if (ajaxResult.data[i] !== undefined){
+      		results.push('<a href="javascript:void(0)" data-company-no="'
+      				+ajaxResult.data[i].companyNo+
+      				'"><div><p>'+ajaxResult.data[i].companyName+'</p></div></a>')
+      	}
+      }
+      results.forEach(function(x){$(document.getElementById('results')).append(x)})
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  })
+}
+
+$('#results').delegate('a','click', function() {
+	$('#input-maker-hidden').val($(this).data("company-no"));
+	$('#input-company').val($(this).text());
+	$('#results').html("");
+});
   
