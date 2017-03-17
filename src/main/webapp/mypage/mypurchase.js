@@ -1,12 +1,14 @@
 var users = window.sessionStorage.getItem('user');
 var memberNo = JSON.parse(users).memberNo;
 var purchaseNo;
-var newList =[];
 
 // 리스트 및 팝업 출력
 $(function(e) {
 	$.get(serverRoot + '/mypage/myPurchseHistory.json', 'memberNo='+memberNo, function(ajaxResult) {
 		var list = ajaxResult.data;
+		for (var i=0; i<list.length; i++) {
+			buttonAfterReview(list[i].purchaseNo);
+		}
 		// 구매 리스트
 		var tbody = $('.purchase-table > tbody');
     var template = Handlebars.compile($('#trTemplate').html());
@@ -15,7 +17,6 @@ $(function(e) {
     $(".review-btn").click(function() {
     	$('#hugi').removeClass('active');
     	purchaseNo = $(this).attr("data-no");
-    	buttonAfterReview(purchaseNo);
     	$.get(serverRoot + '/deal/detail.json', {purchaseNo}, function(ajaxResult) {
     		$('.purchase-image > img').attr('src', serverRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
     		$('.purchase-title').text(ajaxResult.data.title);
@@ -52,7 +53,9 @@ $('.purchase-review-button').click(function() {
 		content : $('#textarea').val(),
 		purchaseNo : purchaseNo
 	};
+	buttonAfterReview(purchaseNo);
 	$.post(serverRoot+'/comment/purchasecommentadd.json',param,function() {
+		buttonAfterReview(purchaseNo);
 		alertify.alert("구매 후기가 등록되었습니다.");
 		closeModal();
 	});
@@ -61,7 +64,7 @@ $('.purchase-review-button').click(function() {
 // 구매 등록 후 버튼 변경
 var buttonAfterReview = function(purchaseNo) {
 	$.get(serverRoot+'/comment/productcomments.json', {purchaseNo}, function(AjaxResult) {
-		if (AjaxResult.data != null) {
+		if (AjaxResult.data.length > 0) {
 			$('#writeBtn_'+purchaseNo).css('display','none');
 			$('#completeBtn_'+purchaseNo).css('display','inline-block');
 			$('#completeBtn_'+purchaseNo+' .review-btn-completed').css('display','inline-block');

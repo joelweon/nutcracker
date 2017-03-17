@@ -131,7 +131,7 @@ body {
 .review-btn-completed {
 	display:none;
 	border-radius: 5px;
-  padding: 5px;
+  padding: 5px 15px;
   font-size: 1em;
   text-decoration: none;
   color: #fff;
