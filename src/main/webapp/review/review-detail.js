@@ -15,7 +15,6 @@ function prepareViewForm(reviewNo) {
       console.log("[Review] 조회수 증가 실패"); 
       return; 
     }
-  
     getContent(reviewNo);
     getComments(reviewNo);
     
@@ -41,6 +40,20 @@ function getContent(reviewNo) {
     $('#hoducount').text("추천수: " + review.hoduCount);
     $('#content').html(review.content);
     
+    
+    /* 수정, 삭제 버튼 설정 */
+    $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+      if (ajaxResult.status != 'success') {
+        console.log('[review-detail] 로그인 정보 가져오기 실패.');
+        return;
+      }
+      console.log(ajaxResult.data.memberNo);
+      console.log(review.memberNo);
+      if (ajaxResult.data.memberNo == review.memberNo) {
+        $('#btn-update').css('display', 'block');
+        $('#btn-delete').css('display', 'block');
+      }
+    });
     return;
   }, 'json');
 }

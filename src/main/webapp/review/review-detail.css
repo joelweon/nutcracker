@@ -132,6 +132,7 @@
 }
 #btn-update, #btn-list, #btn-delete { 
 	margin-bottom: 5px; margin-top: 10px; float: right; }
+#btn-update, #btn-delete { display: none; }
 
 /* 댓글 */
 .review-detail-cont-box > span {

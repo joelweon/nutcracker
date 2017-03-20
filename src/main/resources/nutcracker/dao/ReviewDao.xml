@@ -72,6 +72,7 @@
   <select id='getDetail' parameterType="int" resultMap="map">
     select
 		  r.rvno,
+		  m.mno,
 		  m.name,
 		  m.path,
 		  date_format(r.rv_date,'%Y-%m-%d %H:%m:%s') as rv_date,
