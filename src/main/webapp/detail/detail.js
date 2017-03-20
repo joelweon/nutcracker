@@ -102,7 +102,6 @@ function getComments(boycottNo) {
       var div = $('.reply-list-area:last-child');
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
-      
       return;
     }
   }, 'json');
@@ -203,5 +202,4 @@ $('.walnut-stamp > a').click(function(event) {
   	right:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px',
     left:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px'
   });
-
 
