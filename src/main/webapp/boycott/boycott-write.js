@@ -72,6 +72,7 @@ $('a#write').click(function(event) {
          alert(ajaxResult.data);
          return;
        }
+       location.href = clientRoot + "/boycott/boycott.html";
      }
   });
 });

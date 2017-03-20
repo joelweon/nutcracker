@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <title>The Nutcracker</title>
   <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+  
+  
+  <meta property="fb:app_id"        content="177980746026260" />
+  <meta property="og:url"           content="http://192.168.1.32:8080/nutcracker/detail/detail.html?boycottNo=300" />
+  <meta property="og:type"          content="article" />
+  <meta property="og:title"         content="Your Website Title" />
+  <meta property="og:description"   content="Your description" />
+  <meta property="og:image:url"         content="http://localhost:8080/nutcracker/images/newlogo.png" />
+  
+  
+  
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -48,16 +59,23 @@
               </div>
             </div>
             
+            
+
+
+            
   <!-- SNS공유 -->
             <div class="share-area" id="sns-area">
-              <a href='http://www.facebook.com'>
-                <i class="fa facebook-logo fa-3x">&#xf082;</i>
-                <!-- <img class='facebook-logo' src="../images/facebook-logo.png"/> -->
-              </a>
-              <a href='http://www.twitter.com'>
+              <div class="fb" data-href="http://192.168.1.32:8080/nutcracker/detail/detail.html?boycottNo=300" data-mobile-iframe="true">
+                <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://192.168.1.32:8080/nutcracker/detail/detail.html?boycottNo=300">
+                  <i class="fa facebook-logo fa-3x">&#xf082;</i>
+                  <!-- <img class='facebook-logo' src="../images/facebook-logo.png"/> -->
+                </a>
+              </div>
+              <!-- <a href="https://twitter.com/share" class="twitter-share" data-size="large"></a> --> 
+               <a href='https://twitter.com/share' target="_blank" >
                 <i class="fa twitter-logo fa-3x">&#xf081;</i>
                 <!-- <img class='twitter-logo' src="../images/twitter-logo.png"/> -->
-              </a>
+              </a> 
               <a href='#'>
                 <i class="fa share-logo fa-3x">&#xf1e1;</i>
                 <!-- <img class='share-logo' src="../images/share-logo.png"/> -->
@@ -69,7 +87,8 @@
   
   <!-- 콘텐츠 -->
             <div class="detail-area">
-              <img class="detail" src="../images/detail/img1_1.jpg" />
+            <div id='content' class='boycott-detail-cont-box'>
+              <!-- <img class="detail" src="../images/detail/img1_1.jpg" /> -->
               <!-- <img class="detail" src="./images/detail/옥3.PNG" />
               <img class="detail" src="./images/detail/옥4.PNG" />
               <img class="detail" src="./images/detail/옥5.PNG" />
@@ -77,6 +96,7 @@
               <img class="detail" src="./images/detail/옥7.PNG" />
               <img class="detail" src="./images/detail/옥8.PNG" />
               <img class="detail" src="./images/detail/옥9.PNG" /> -->
+            </div>
             </div>
             <div class="walnut-area">
               <div class="walnut-stamp">
@@ -192,5 +212,31 @@
 <script src="shopping-serarch.js"></script>
 <script src="shopping-base.js"></script>
 <script type="text/javascript" src="detail.js"></script>
+
+<!-- 페이스북 -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=177980746026260";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- 트위터 -->
+<script>!function(d,s,id) {
+  var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+  if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+  fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- <script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'http://192.168.1.32:8080/nutcracker/',
+  }, function(response){});
+}
+</script> -->
+
 </body>
 </html>
