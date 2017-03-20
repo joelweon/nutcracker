@@ -13,8 +13,10 @@ $(document).ready(function(){
       productSearch.getAllBoycott();
       $('div#myCheck').removeClass('switchon');
       myBoycottNames = [];
+      daumShoppingSearch.search();
     } else {
       allBoycottNames = [];
+      daumShoppingSearch.search();
     }
   });
   
