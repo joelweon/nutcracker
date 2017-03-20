@@ -34,6 +34,8 @@ $(function() {
   
 	// 불매운동 정보 가져오기
 	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
+		console.log(ajaxResult.data);
+		$('#content').html(ajaxResult.data.content);
 		$('#title-top h1').text(ajaxResult.data.title);
 		$('#date').text(ajaxResult.data.postTime);
 		$('.viewcount').text(ajaxResult.data.viewCount);

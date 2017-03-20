@@ -65,12 +65,12 @@
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
 <div class='boycott-list-box'>
-      <a href='../je/b.html'>
+      <a href='../detail/detail.html?boycottNo={{boycottNo}}'>
         <img class='boycott-list-img' src="/nutcracker/upload/boycott/thumb/{{photoPath}}.jpg">
       </a>
       <div class='boycott-list-detail'>
         <div class='boycott-list-content'>
-          <span class='boycott-list-title'><a href='#'>{{title}}</a></span><br>
+          <span class='boycott-list-title'><a href='../detail/detail.html?boycottNo={{boycottNo}}'>{{title}}</a></span><br>
           <span class='boycott-list-text'><a href='{{newsList.0.path}}' target="_blank">{{newsList.0.headLine}}</a></span><br>
           <span class='boycott-list-text'><a href='{{newsList.1.path}}' target="_blank">{{newsList.1.headLine}}</a></span><br>
           <span class='boycott-list-text'><a href='{{newsList.2.path}}' target="_blank">{{newsList.2.headLine}}</a></span><br>
