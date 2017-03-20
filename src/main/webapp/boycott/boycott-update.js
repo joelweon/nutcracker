@@ -100,6 +100,7 @@ $('#btn-update').click(function() {
     fd.append("image", blob);*/
     uploadImage(blob);
   }
+  location.href = clientRoot + "/boycott/boycott.html";
 });
 
 $('#cancel').click(function(event) {

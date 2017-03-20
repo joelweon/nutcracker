@@ -9,6 +9,11 @@
 /* #select-year {
   color:black !important;
 } */
+
+#title-bar-boycott nav{ display: inline; }
+#div-year {	float: right; }
+#btn-write { margin-right: 10px; }
+
 * :focus {
   outline-color: transparent;
   outline-style: none;

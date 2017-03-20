@@ -43,7 +43,7 @@
           divBlock.className = 'blocked';
           
           var logo = document.createElement('img');
-          logo.setAttribute('src', clientRoot + '/images/boycott.jpg');
+          logo.setAttribute('src', clientRoot + '/images/boycott.png');
           
           /*var span = document.createElement('p');
           span.className = 'blockMsg';
