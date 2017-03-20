@@ -142,7 +142,14 @@ var cli = function(e) {
         console.log(ajaxResult.data);
         return;
       }
-      alertify.alert("담기완료!");
+      //alertify.alert("담기완료!");
+      alertify.confirm("담기완료! 위시리스트로 이동 하시겠습니까?", function (e) {
+        if (e) {
+            location.href = serverRoot + '/mypage/mywish.html';
+        } else {
+          return;
+        }
+    });
     });
   
 }

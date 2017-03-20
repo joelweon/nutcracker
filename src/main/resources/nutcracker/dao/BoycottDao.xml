@@ -71,11 +71,15 @@
   </select>
   
   <select id="getBoycottNames" resultMap="boycott-map">
-    select
-      b.cpno,
-      c.cp_name
-    from bot b
-      left join comp c on c.cpno=b.cpno
+    select 
+      c.cpno, 
+      c.cp_name 
+    from comp c 
+      inner join 
+      (select distinct c2.parno 
+      from comp c2 
+        inner join 
+        bot b on b.cpno=c2.cpno) p on p.parno=c.parno
   </select>
   
   <select id="getMyboycottList" parameterType="int" resultMap="boycott-map">

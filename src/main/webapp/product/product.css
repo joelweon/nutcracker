@@ -173,23 +173,30 @@ body {color:black; background-color: #ffffff;}
 }
 
 /* 컨텐츠 */
-ul {
+#daumShopping ul {
   list-style:none;
   padding-left:0px;
 }
-li {
+#daumShopping li {
   width:100%;
   height:230px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
+#daumShopping li > div {
+	display: inline-block;
+	width: 100%;
+}
+/* #daumShopping > ul > li > div > b:nth-child(2) { margin-top: 40px; } */
 /* 이미지 */
 #daumShopping > ul > li > div > b > img {
-  width:200px;
-  height:200px;
+  width:180px;
+  height:180px;
   margin-right:50px;
 }
 h4 {
   display:inline;
-  margin: 0 240px;
+  margin: 0 230px;
 }
 
 .wish {
@@ -201,6 +208,7 @@ h4 {
 div.blocked {
 	background-color: rgba(255,255,255,0.9);
 	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 	width: 100%;
 	height: 230px;
 	z-index: 10;
@@ -246,18 +254,21 @@ a.moveArticle:hover, a.moveProd:hover {
 --------------------------------------------*/
 @media screen and (max-width: 500px)
 {
-  h4 {margin:0;}
-  h4 a {float:left;}
+  h4 > a { margin-bottom: 10px; }
+  h4 a { font-size: 1em; float:left;}
 	.product-search-option-set {max-width:400px;}
 	.product-search-option {width:300px;}
 	#daumShoppingSearch {font-size: 2.7em;top:12%;}
 	#daumShoppingSubmit {top:10%;left:35%;}
-	li {margin:0px 30px 130px 30px; width:90%;}
+	#daumShopping > ul > li > h4 > a, #daumShopping > ul > li > div:last-child {
+	  margin: 0px 20px 0px 20px; width: initial; }
+	#daumShopping > ul > li > div > b > img {
+	  width: 100px; height: 100px; margin-right: 20px;}
+	/* #daumShopping li {text-align: center;} */
 	b {float:left;}
 	#daumShopping {margin-top: 40px;}
 	#daumShoppingForm {margin-top: 40px;}
 	.product-search-window .product-btn {left:43%;}
 	
-	div.blocked { width: 90%; }
-}
+	div.blocked { width: 100%; }
 
