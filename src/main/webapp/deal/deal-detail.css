@@ -303,11 +303,12 @@ button.close {
 }
 .modal {
   position: fixed;
-  top: 15%;
+  top: 10%;
   left: 50%;
   width:100%;
   max-width: 500px;
   height: 80%;
+  min-height: 435px;
   max-height: 600px;
   margin-left: -200px;
   background: #ffffff;
@@ -377,7 +378,7 @@ button.close {
 }
 #modal-contents-user {
   position:absolute;
-  top:30%;
+  top:23%;
   width:100%;
   max-width: 500px;
   min-height:240px;
@@ -406,7 +407,7 @@ button.close {
 }
 #modal-contents-button {
 	position:absolute;
-	bottom:10px;
+	top:90%;
 	height:40px;
 	font-size:1.5em;
 	margin:0 200px;
