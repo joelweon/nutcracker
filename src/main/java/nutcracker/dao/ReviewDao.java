@@ -19,4 +19,7 @@ public interface ReviewDao {
   List<HashMap<String, Object>> searchInTitleContent(Map<String, Object> paramMap) throws Exception;
   List<HashMap<String, Object>> searchInTitle(Map<String, Object> paramMap) throws Exception;
   List<HashMap<String, Object>> searchInAuth(Map<String, Object> paramMap) throws Exception;
+  int checkReport(HashMap<String, Object> paramMap) throws Exception;
+  int reviewReport(HashMap<String, Object> paramMap) throws Exception;
+  int reportPlus(int reviewNo) throws Exception;
 }

@@ -172,4 +172,16 @@ public class ReviewJsonControl {
     }
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
+  
+  @RequestMapping("/review/reviewReport")
+  public AjaxResult reviewReport(@RequestParam HashMap<String, Object> paramMap) throws Exception {
+    int cnt = reviewService.checkReport(paramMap);
+    if (cnt > 0) {
+      return new AjaxResult(AjaxResult.FAIL, "신고는 한 게시글 당 한 번만 가능합니다.");
+    } else {
+      reviewService.report(paramMap);
+      reviewService.reportPlus(Integer.parseInt(paramMap.get("reviewNo").toString()));
+      return new AjaxResult(AjaxResult.SUCCESS, "신고 성공입니다.");
+    }
+  }
 }
