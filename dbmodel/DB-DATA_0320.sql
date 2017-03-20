@@ -576,8 +576,8 @@ insert into pch_cmt(ctno,pno) values(658,409);
 insert into pch_cmt(ctno,pno) values(659,409);
 
 -- 신고사유
-insert into rep_why(rwno,cont) values(1,"광고/음란성 댓글");
-insert into rep_why(rwno,cont) values(2,"도배성 댓글");
+insert into rep_why(rwno,cont) values(1,"광고/음란성 글");
+insert into rep_why(rwno,cont) values(2,"도배성 글");
 insert into rep_why(rwno,cont) values(3,"욕설/반말/부적절한 언어 사용");
 insert into rep_why(rwno,cont) values(4,"지나친 정치/종교 논쟁");
 insert into rep_why(rwno,cont) values(5,"회원 분란 유도");
