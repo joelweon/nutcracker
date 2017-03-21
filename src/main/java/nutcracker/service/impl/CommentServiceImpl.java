@@ -76,4 +76,22 @@ public class CommentServiceImpl implements CommentService {
     int count = commentDao.insertPurchaseCommentRel(map);
     return count;
   }
+
+  @Override
+  public int commentReport(HashMap<String, String> map) throws Exception {
+    int count = commentDao.insertCommentReport(map);
+    return count;
+  }
+
+  @Override
+  public int updateReportCmt(HashMap<String, String> map) throws Exception {
+    int count = commentDao.updateReportCmt(map);
+    return count;
+  }
+
+  @Override
+  public int existReport(HashMap<String, String> map) throws Exception {
+    int count = commentDao.countReport(map);
+    return count;
+  }
 }

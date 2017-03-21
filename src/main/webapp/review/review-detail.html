@@ -129,18 +129,31 @@
 </body>
 
 <script id="divTemplate" type="text/x-handlebars-template">
-  <span>댓글 {{list.length}}</span>
+<span>댓글 {{list.length}}</span>
 
-  {{#each list}}
+{{#each list}}
   <div id='review-detail-comment-others' class='review-detail-comment-others'>
-  <div id='review-detail-info-image' class='review-detail-info-image'>
-    <img src='../images/user/{{photoPath}}'>
+    <div id='review-detail-info-image' class='review-detail-info-image'>
+      <img src='../images/user/{{photoPath}}'>
+    </div>
+    <span class='review-detail-info-nickname review-detail-comment-others-nick'>{{name}}</span>
+    <span class='review-detail-comment-others-sentence'>{{content}}</span>
+    <div id='report-{{commentNo}}'>
+      <div class='report-menu'>
+        <div class='report-title'><span>신고 이유 선택<span></div>
+        <div class='report-radio-btn'>
+          <input type="radio" name='reasons'class="report-reason" value="1">광고/음란성 댓글<br>
+          <input type="radio" name='reasons' class="report-reason" value="2">도배성 댓글<br>
+          <input type="radio" name='reasons' class="report-reason" value="3">욕설/반말/부적절한 언어 사용<br>
+          <input type="radio" name='reasons' class="report-reason" value="4">지나친 정치/종교 논쟁<br>
+          <input type="radio" name='reasons' class="report-reason" value="5">회원 분란 유도<br>
+        </div>
+        <button type="button" class="report-submit-btn btn btn-default btn-xs">제출</button>
+      </div>
+    </div>
+    <a type='button' class='btn btn-default common-btn-black comment-report' data-no='{{commentNo}}'>댓글 신고</a>
   </div>
-  <span class='review-detail-info-nickname review-detail-comment-others-nick'>{{name}}</span>
-  <span class='review-detail-comment-others-sentence'>{{content}}</span>
-    <a type='button' class='btn btn-default common-btn-black comment-report' href='#'>댓글 신고</a>
-  </div>
-  {{/each}}
+{{/each}}
 </script>
 
 <script src="../js/context.js"></script>

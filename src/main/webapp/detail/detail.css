@@ -164,11 +164,15 @@ ul.reply-list-area {
 
 .reply-box {
   margin:20px;
+  position: relative;
+}
+.reply-box:hover > .reply-info > div > .report-btn {
+	visibility:visible;
 }
 
 .reply-id {
-      font-weight: 700;
-      font-size:1.1em;
+  font-weight: 700;
+  font-size:1.1em;
 }
 .c-time {
   margin-top:10px;
@@ -182,8 +186,39 @@ ul.reply-list-area {
   position:absolute;
   color:#929292;
 }
-
-
+.report-btn {
+	visibility:hidden;
+	position: absolute;
+	right: 10px;
+	top:25%;
+}
+.report-title {
+	border-bottom:1px solid #c0c0c0;
+	position: relative;
+  width:200px;
+  font-size:1.1em;
+  padding: 5px;
+}
+.report-menu {
+	visibility:hidden;
+	box-shadow: -3px -3px 20px #c0c0c0;
+	border-radius:5px;
+	position: absolute;
+	width:200px;
+	height:175px;
+	right:10px;
+	bottom:80%;
+	background-color: white;
+}
+.reprot-radio-btn {
+	padding: 0 5px;
+}
+.report-submit-btn {
+	position: absolute;
+	bottom: 5px;
+	left: 70px;
+	padding: 0 20px;
+}
 
 
 /* ----------------Right ------------------*/
