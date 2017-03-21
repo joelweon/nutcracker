@@ -94,4 +94,16 @@ public class CommentServiceImpl implements CommentService {
     int count = commentDao.countReport(map);
     return count;
   }
+
+  @Override
+  public List<HashMap<String, Object>> getCommentReportList() throws Exception {
+    List<HashMap<String, Object>> map = commentDao.getCommentReportList();
+    List<String> list;
+    for (int i = 0 ; i < map.size(); i++) {
+      int commentNo = Integer.parseInt(map.get(i).get("commentNo").toString());
+      list = commentDao.getCommentReportReasons(commentNo);
+      map.get(i).put("report", list);
+    }
+    return map;
+  }
 }

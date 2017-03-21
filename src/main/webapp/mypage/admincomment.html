@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우리는 The Nutcracker 입니다.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="mytop.css">
+  <link rel="stylesheet" href="myside.css">
+  <link rel="stylesheet" href="admincomment.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/alertify.core.css">
+  <link rel="stylesheet" href="../css/alertify.default.css">
+</head>
+<body>
+<div id='wrap-header'></div>
+
+<!-- 숨은메뉴, 숨은검색 -->
+<div id='wrap-hidden'></div>
+
+<!-- 마이페이지 상단 바 -->
+<div id='wrap-mytop'></div>
+
+<div class="my-content-area">
+  <!-- 마이페이지 사이드 메뉴 -->
+  <div id='wrap-myside'></div>
+  
+  <div class="main-contents">
+    <div>
+      <table class="comment-table">
+        <thead>
+          <tr class="comment-list-title">
+  	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
+  	        <th>게시판명</th>
+  	        <th>글번호</th>
+  	        <th>댓글내용</th>
+  	        <th>작성자</th>
+  	        <th>신고사유</th>
+  	      </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- 페이지이동 -->
+    <div class="clearfix">
+      <ul class="pagination">
+        <li id='prevPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        <li class='pgBtn'><a id='pg1' href="#"></a></li>
+        <li class='pgBtn'><a id='pg2' href="#"></a></li>
+        <li class='pgBtn'><a id='pg3' href="#"></a></li>
+        <li class='pgBtn'><a id='pg4' href="#"></a></li>
+        <li class='pgBtn'><a id='pg5' href="#"></a></li>
+        <li id='nextPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+      </ul>
+    </div>
+    <!-- 삭제 버튼 -->
+    <div class="delete-div">
+      <a href="#" class="delete-btn">삭제</a>
+    </div>
+  </div>
+</div>
+<!-- 풋터 -->
+<div id='wrap-footer'></div>
+
+<script id="reviewTemplate" type="text/x-handlebars-template">
+{{#each reviewList}}
+  <tr>
+    <td class="comment-table-data">
+      <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+    </td>
+    <td>불량후기</td>
+    <td><a href="#" data-tooltip="{{reviewTitle}}" data-placement="bottom">{{reviewNo}}</a></td>
+    <td><a href="#" data-tooltip="{{content}}" data-placement="bottom">{{content}}</a></td>
+    <td>{{name}}</td>
+    <td><a href="#" data-tooltip="{{#each report}}{{content}}
+{{/each}}" data-placement="bottom">상세보기</a></td>
+  </tr>
+{{/each}}
+</script>
+<script id="boycottTemplate" type="text/x-handlebars-template">
+{{#each boycottList}}
+  <tr>
+    <td class="comment-table-data">
+      <input name="box" class="td-check" type="checkbox" value={{boycottNo}}>
+    </td>
+    <td>불매운동</td>
+    <td><a href="#" data-tooltip="{{boycottTitle}}" data-placement="bottom">{{boycottNo}}</a></td>
+    <td><a href="#" data-tooltip="{{content}}" data-placement="bottom">{{content}}</a></td>
+    <td>{{name}}</td>
+    <td><a href="#" data-tooltip="{{#each report}}{{content}}
+{{/each}}" data-placement="bottom">상세보기</a></td>
+  </tr>
+{{/each}}
+</script>
+<script src="../js/context.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="mypage.js"></script>
+<script src="admincomment.js"></script>
+<script type="text/javascript" src="../js/alertify.min.js"></script>
+</body>
+</html>
