@@ -77,7 +77,13 @@ function loadList(pageNo, pageSize) {
           console.log('[mypage/adminboard] 게시글 리스트 가져오기 실패.');
           return;
         } else {
-          attachList(ajaxResult.data.list);
+          $('th.repCnt').css('display', 'none');
+          var tbody = $('.board-table > tbody');
+
+          var admintemplate = Handlebars.compile($('#adminTemplate').html());
+          tbody.html(admintemplate({"list":ajaxResult.data.list}));
+          
+          preparePagingButton(ajaxResult.data.totalCount);
         }
       });
   } else {
@@ -91,20 +97,18 @@ function loadList(pageNo, pageSize) {
       if (ajaxResult.status != "success") {
         console.log('[mypage/myboard] 게시글 리스트 가져오기 실패.');
         return;
+      } else {
+        $('th.name').css('display', 'none');
+        $('a.reset-btn').css('display', 'none');
+        var tbody = $('.board-table > tbody');
+  
+        var template = Handlebars.compile($('#trTemplate').html());
+        tbody.html(template({"list":ajaxResult.data.list}));
+        
+        preparePagingButton(ajaxResult.data.totalCount);
       }
-      attachList(ajaxResult.data.list);
-      // 페이지 버튼 설정
-      preparePagingButton(ajaxResult.data.totalCount);
     });
   }
-}
-function attachList(list) {
-  var tbody = $('.board-table > tbody');
-  //console.log(list);
-
-  var template = Handlebars.compile($('#trTemplate').html());
-  tbody.html(template({"list":list}));
-  //console.log(list);
 }
 
 function preparePagingButton(totalCount) {
@@ -188,3 +192,30 @@ $('.main-contents .delete-div > .delete-btn').click(function(e) {
     }
   });
 }) //delete
+
+// 신고취소(0으로 세팅)
+$('.main-contents .delete-div > a.reset-btn').click(function(e) {
+  e.preventDefault();
+  alertify.confirm("정말 복구하시겠습니까??", function(e) {
+    if (e) {
+      var rnoAry = new Array();
+      $('input[name=box]:checked').each(function() {
+        rnoAry.push($(this).val());
+      });
+      jQuery.ajaxSettings.traditional = true;
+      console.log(rnoAry);
+      
+      $.ajax({
+        method : 'POST',
+        url    : serverRoot + "/review/resetReport.json",
+        data   : {
+          'rnoAry' : rnoAry
+        }
+      }).done(function() {
+        location.reload();
+      });
+    } else { //취소
+      return;
+    }
+  });
+});

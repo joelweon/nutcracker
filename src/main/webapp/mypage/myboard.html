@@ -35,10 +35,11 @@
           <tr class="board-list-title">
   	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
   	        <th>제목</th>
+  	        <th class='name'>작성자</th>
   	        <th>작성일</th>
   	        <th>조회수</th>
   	        <th>추천수</th>
-  	        <th>신고수</th>
+  	        <th class='repCnt'>신고수</th>
   	      </tr>
         </thead>
         <tbody></tbody>
@@ -58,7 +59,8 @@
     </div>
     <!-- 삭제 버튼 -->
     <div class="delete-div">
-      <a href="#" class="delete-btn">삭제</a>
+      <a class="btn reset-btn">복구</a>
+      <a class="btn delete-btn">삭제</a>
     </div>
   </div>
 </div>
@@ -83,6 +85,25 @@
           <td class="board-viewcnt">{{viewCount}}</td>
           <td class="board-like">{{hoduCount}}</td>
           <td class="board-rep">{{reportCount}}</td>
+        </tr>
+{{/each}}
+</script>
+
+<script id="adminTemplate" type="text/x-handlebars-template">
+{{#each list}}
+        <tr>
+          <td class="board-table-date">
+            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+          </td>
+          <td class="board-list">
+            <div>
+              <a href=http://localhost:8080/nutcracker/review/review-detail.html?reviewNo={{reviewNo}}><p>{{title}}</p></a>
+            </div>
+          </td>
+          <td class="board-name">{{name}}</td>
+          <td class="board-reportdate">{{postTime}}</td>
+          <td class="board-viewcnt">{{viewCount}}</td>
+          <td class="board-like">{{hoduCount}}</td>
         </tr>
 {{/each}}
 </script>

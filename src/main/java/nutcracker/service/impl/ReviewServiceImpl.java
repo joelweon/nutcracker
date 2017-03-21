@@ -92,6 +92,19 @@ public class ReviewServiceImpl implements ReviewService {
   }
   
   @Override
+  public List<HashMap<String, Object>> getReportList(int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo -1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    return reviewDao.getReportList(paramMap);
+  }
+  
+  @Override
+  public int getReportSize() throws Exception {
+    return reviewDao.countReport();
+  }
+  
+  @Override
   public int checkReport(HashMap<String, Object> paramMap) throws Exception {
     return reviewDao.checkReport(paramMap);
   }
@@ -104,5 +117,10 @@ public class ReviewServiceImpl implements ReviewService {
   @Override
   public int reportPlus(int reviewNo) throws Exception {
     return reviewDao.reportPlus(reviewNo);
+  }
+  
+  @Override
+  public int resetReport(int reviewNo) throws Exception {
+    return reviewDao.resetReport(reviewNo);
   }
 }

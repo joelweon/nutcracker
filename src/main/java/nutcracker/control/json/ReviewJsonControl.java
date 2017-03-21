@@ -184,4 +184,12 @@ public class ReviewJsonControl {
       return new AjaxResult(AjaxResult.SUCCESS, "신고 성공입니다.");
     }
   }
+  
+  @RequestMapping("/review/resetReport")
+  public AjaxResult resetReport(String[] rnoAry) throws Exception {
+    for (int i = 0; i < rnoAry.length; i++) {
+      reviewService.resetReport(Integer.parseInt(rnoAry[i]));
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "신고글 복구 성공입니다.");
+  }
 }

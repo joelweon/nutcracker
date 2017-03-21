@@ -95,15 +95,32 @@ body {
   background-color: #e74c3c;
   box-shadow: 0px 5px 0px 0px #CE3323;
 }
+.reset-btn {
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 1em;
+  text-decoration: none;
+  margin-left:2px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: #0080ff;
+  box-shadow: 0px 5px 0px 0px #004080;
+}
 
-.delete-btn:active {
+.delete-btn:active, .reset-btn:active {
   transform: translate(0px, 5px);
   -webkit-transform: translate(0px, 5px);
   box-shadow: 0px 1px 0px 0px;
 }
 
 .delete-btn:hover {
-  background-color: #ec5444;
+  background-color: #ef6b5c;
+  text-decoration: none;
+  color: white;
+}
+.reset-btn:hover {
+  background-color: #2f97ff;
   text-decoration: none;
   color: white;
 }
