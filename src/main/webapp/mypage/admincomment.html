@@ -41,20 +41,7 @@
   	        <th>신고사유</th>
   	      </tr>
         </thead>
-        <tbody>
-        
-        <tr>
-          <td class="comment-table-data">
-            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
-          </td>
-          <td>불매운동</td>
-          <td><a href="#" data-tooltip="메디안 독소 성분 검출" data-placement="bottom">209</a></td>
-          <td><a href="#" data-tooltip="XX 메디안 이노무 시키들 내 이럴줄 알았다. 망해라 흥흥" data-placement="bottom">XX 메디안 이노무 시키들..</a></td>
-          <td>호호아줌마</td>
-          <td><a href="#" data-tooltip="욕설/반말/부적절한 언어 사용" data-placement="bottom">상세보기</a></td>
-        </tr>
-        
-        </tbody>
+        <tbody></tbody>
       </table>
     </div>
     <!-- 페이지이동 -->
@@ -78,25 +65,34 @@
 <!-- 풋터 -->
 <div id='wrap-footer'></div>
 
-
-<!-- <div id='wrap-footer'></div> -->
-
-<script id="trTemplate" type="text/x-handlebars-template">
-{{#each list}}
-        <tr>
-          <td class="board-table-date">
-            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
-          </td>
-          <td class="board-list">
-            <div>
-              <a href=http://localhost:8080/nutcracker/review/review-detail.html?reviewNo={{reviewNo}}><p>{{title}}</p></a>
-            </div>
-          </td>
-          <td class="board-reportdate">{{postTime}}</td>
-          <td class="board-viewcnt">{{viewCount}}</td>
-          <td class="board-like">{{hoduCount}}</td>
-          <td class="board-rep">{{reportCount}}</td>
-        </tr>
+<script id="reviewTemplate" type="text/x-handlebars-template">
+{{#each reviewList}}
+  <tr>
+    <td class="comment-table-data">
+      <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+    </td>
+    <td>불량후기</td>
+    <td><a href="#" data-tooltip="{{reviewTitle}}" data-placement="bottom">{{reviewNo}}</a></td>
+    <td><a href="#" data-tooltip="{{content}}" data-placement="bottom">{{content}}</a></td>
+    <td>{{name}}</td>
+    <td><a href="#" data-tooltip="{{#each report}}{{content}}
+{{/each}}" data-placement="bottom">상세보기</a></td>
+  </tr>
+{{/each}}
+</script>
+<script id="boycottTemplate" type="text/x-handlebars-template">
+{{#each boycottList}}
+  <tr>
+    <td class="comment-table-data">
+      <input name="box" class="td-check" type="checkbox" value={{boycottNo}}>
+    </td>
+    <td>불매운동</td>
+    <td><a href="#" data-tooltip="{{boycottTitle}}" data-placement="bottom">{{boycottNo}}</a></td>
+    <td><a href="#" data-tooltip="{{content}}" data-placement="bottom">{{content}}</a></td>
+    <td>{{name}}</td>
+    <td><a href="#" data-tooltip="{{#each report}}{{content}}
+{{/each}}" data-placement="bottom">상세보기</a></td>
+  </tr>
 {{/each}}
 </script>
 <script src="../js/context.js"></script>
@@ -105,7 +101,7 @@
 <script src="../js/common.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="mypage.js"></script>
-<script src="myboard.js"></script>
+<script src="admincomment.js"></script>
 <script type="text/javascript" src="../js/alertify.min.js"></script>
 </body>
 </html>
