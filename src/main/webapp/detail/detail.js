@@ -35,6 +35,8 @@ $(function() {
   
 	// 불매운동 정보 가져오기
 	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
+		console.log(ajaxResult.data);
+		$('#content').html(ajaxResult.data.content);
 		$('#title-top h1').text(ajaxResult.data.title);
 		$('#date').text(ajaxResult.data.postTime);
 		$('.viewcount').text(ajaxResult.data.viewCount);
@@ -137,9 +139,9 @@ var commentReport = function(commentNo,reportNo) {
     success: function(AjaxResult) {
     	$('.report-menu').css('visibility','hidden');
     	if (AjaxResult.data == 0) {
-    		alertify.alert("댓글 신고가 접수되었습니다.");
+    		alertify.alert("정상적으로 신고되었습니다.");
     	} else {
-    		alertify.alert("해당 댓글을 이미 신고하였습니다.");
+    		alertify.alert("신고는 한 댓글 당 한 번만 가능합니다.");
     	}
     }
   });

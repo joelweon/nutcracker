@@ -67,6 +67,18 @@ div.share-area {
   padding-right: 30px;
 }
 
+div.fb {
+  display:inline;
+}
+.share-area > .fb > a > .facebook-logo {
+  color:#4267b2;
+}
+.share-area > a > .twitter-logo {
+  color:#55acee;
+}
+.share-area > a > .share-logo {
+  color:#4bb531;
+}
 div.share-area.active {
   width:3%;
   position:fixed;

@@ -36,9 +36,11 @@
       r.head, 
       r.title, 
       ifnull(r.view_cnt, 0) as view_cnt, 
-      ifnull(r.hodu_cnt, 0) as hodu_cnt
+      ifnull(r.hodu_cnt, 0) as hodu_cnt,
+      ifnull(r.rep_cnt, 0) as rep_cnt
     from review r
       left outer join memb m on r.mno=m.mno
+    where r.rep_cnt &lt; 10
     order by r.rvno desc
     limit #{startRowIndex}, #{rowSize}
   </select>
@@ -163,5 +165,22 @@
     order by r.rvno desc
     limit #{startRowIndex}, #{rowSize}
   </select>
+  
+  <select id='checkReport' parameterType='map' resultType='int'>
+    select count(*)
+    from board_rep
+    where mno=#{memberNo} and rvno=#{reviewNo}
+  </select>
+  
+  <insert id='reviewReport' parameterType='map'>
+    insert into board_rep(mno, rvno, rwno)
+    values(#{memberNo}, #{reviewNo}, #{reasonNo})
+  </insert>
+  
+  <update id='reportPlus' parameterType='int'>
+    update review
+    set rep_cnt=rep_cnt + 1
+    where rvno=#{reviewNo}
+  </update>
   
 </mapper>

@@ -98,7 +98,7 @@ $('#btn-update').click(function() {
 }); // click()
 
 $('#btn-delete').click(function() {
-  if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+  if (alertify.submit('정말 삭제하시겠습니까??'), function(){
     var param = {"ownNo" : reviewNo};
     console.log('param.ownNo: ' + param.ownNo);
     $.post(serverRoot + '/comment/deleteReviewCmts.json', param, function(ajaxResult) {
@@ -115,9 +115,14 @@ $('#btn-delete').click(function() {
         location.href = clientRoot + '/review/review.html';
       });
     });
+  }, function() {
+    return;
+  });
+  /*if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+    
   } else {   //취소
     return;
-  }
+  }*/
 }); // click()
 
 $('#btn-list').click(function() {
@@ -181,11 +186,44 @@ var commentReport = function(commentNo,reportNo) {
     success: function(AjaxResult) {
     	$('.report-menu').css('visibility','hidden');
     	if (AjaxResult.data == 0) {
-    		alertify.alert("댓글 신고가 접수되었습니다.");
+    		alertify.alert("정상적으로 신고되었습니다.");
     	} else {
-    		alertify.alert("해당 댓글을 이미 신고하였습니다.");
+    		alertify.alert("신고는 한 댓글 당 한 번만 가능합니다.");
     	}
     }
   });
 };
 
+$('#review-report').click(function() {
+  $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+    if (ajaxResult.status != 'success') {
+      alertify.alert('로그인 후 신고 가능합니다.', function() {
+        location.href = clientRoot + '/auth/login.html';
+      });
+    } else {
+      $('div#div-report').toggleClass('open');
+    }
+  });
+});
+$('a#submit-report').click(function() {
+  var reportVal = $('input[name="report"]:checked').val();
+  if (reportVal == null) {
+    alertify.alert('신고 사유를 선택해주세요.');
+  } else {
+    $.get(serverRoot + '/review/reviewReport.json', {
+      memberNo: JSON.parse(window.sessionStorage.getItem('user')).memberNo,
+      reviewNo: reviewNo,
+      reasonNo: reportVal
+    }, function(ajaxResult) {
+      if (ajaxResult.status != 'success') {
+        alertify.alert(ajaxResult.data);
+        return;
+      } else {
+        alertify.alert('정상적으로 신고되었습니다.', function() {
+          location.href = clientRoot + '/review/review.html';
+        });
+      }
+    });
+  }
+  console.log(reportVal);
+});

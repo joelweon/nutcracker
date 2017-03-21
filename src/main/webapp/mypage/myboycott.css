@@ -93,6 +93,9 @@ label.check, li.pure-tree_link > a.check {
 	color: #f00;
 	font-weight: bold;
 }
+#div-footer {
+	position: relative;
+}
  @media screen and (max-width: 760px)
 {
   .main-contents {
