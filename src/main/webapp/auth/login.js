@@ -27,9 +27,10 @@ function login() {
         window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
         
         history.back();
-        location.reload();
+        window.location.replace(document.referrer)
         return;
       }
       alertify.alert(ajaxResult.data);
     }, 'json');
 }
+
