@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nutcracker.domain.Member;
 import nutcracker.service.MemberService;
+import nutcracker.service.UserService;
 
 @RestController
 public class MemberJsonControl {
   @Autowired ServletContext sc;
   @Autowired MemberService memberService;
+  @Autowired UserService userservice;
   
   @RequestMapping("/member/list")
   public AjaxResult list() throws Exception {
@@ -43,6 +45,7 @@ public class MemberJsonControl {
   
   @RequestMapping("/member/delete")
   public AjaxResult delete(int memberNo, HttpServletRequest request) throws Exception {
+    userservice.delete(memberNo);
     int count = memberService.delete(memberNo);
     if (count == 0) {
       return new AjaxResult(AjaxResult.FAIL, "해당 번호의 회원이 없습니다.");
