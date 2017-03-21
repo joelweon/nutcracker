@@ -1,5 +1,6 @@
 try {
   var reviewNo = location.href.split('?')[1].split('=')[1];
+  var users = window.sessionStorage.getItem('user');
 } catch (error) {
   var reviewNo = -1;
 }
@@ -72,20 +73,27 @@ function getComments(ownNo){
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
       $('.comment-report').click(function() {
-      	var commentNo = $(this).attr('data-no');
-      	if ($('#report-'+commentNo+' > .report-menu').css('visibility') == 'hidden') {
-      		$('#report-'+commentNo+' > .report-menu').css('visibility','visible');
-      		$('#report-'+commentNo+' > .report-menu > .report-submit-btn').click(function() {
-      			var reportNo = $('#report-'+commentNo+' > .report-menu > .report-radio-btn > .report-reason:checked').val();
-      			if (reportNo == undefined) {
-      				alertify.alert("신고 사유를 선택해주세요.");
-      				return;
-      			}
-      			commentReport(commentNo, reportNo);
-      		});
-      	} else {
-      		$('#report-'+commentNo+' > .report-menu').css('visibility','hidden');
-      	}
+    	  if (users != null) {
+	      	var commentNo = $(this).attr('data-no');
+	      	if ($('#report-'+commentNo+' > .report-menu').css('visibility') == 'hidden') {
+	      		$('#report-'+commentNo+' > .report-menu').css('visibility','visible');
+	      		$('#report-'+commentNo+' > .report-menu > .report-submit-btn').click(function() {
+	      			var reportNo = $('input[name="reasons"]:checked').val();
+	      			if (reportNo == undefined) {
+	      				alertify.alert("신고 사유를 선택해주세요.");
+	      				return;
+	      			}
+	      			commentReport(commentNo, reportNo);
+	      		});
+	      	} else {
+	      		$('#report-'+commentNo+' > .report-menu').css('visibility','hidden');
+	      	}
+      } else {
+        alertify.confirm("로그인 후 이용 가능합니다. 로그인하시겠습니까?", function (e) {
+          if (e) {location.href = serverRoot+'/auth/login.html';}
+          else {}
+        });
+      }
       });
       return;
     }
@@ -174,7 +182,7 @@ $('#btn-report').click(function() {
   });
 });
 
-//신고 사유 등록하기 -> 버튼 이벤트 등록 전
+//신고 사유 등록하기
 var commentReport = function(commentNo,reportNo) {
 	$.ajax({
     type: "POST",

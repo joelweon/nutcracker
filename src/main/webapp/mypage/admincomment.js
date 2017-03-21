@@ -72,7 +72,6 @@ function loadList(pageNo, pageSize) {
 		}
 		var reviewtemplate = Handlebars.compile($('#reviewTemplate').html());
 		var boycotttemplate = Handlebars.compile($('#boycottTemplate').html());
-		tbody.html("");
 		tbody.append(reviewtemplate({"reviewList":reviewList}));
 		tbody.append(boycotttemplate({"boycottList":boycottList}));
 		preparePagingButton(ajaxResult.data.length);

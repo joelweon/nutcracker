@@ -105,21 +105,28 @@ function getComments(boycottNo) {
       div.html(template({"list":list}));
       // 신고 버튼 클릭
       $('.report-btn').click(function() {
-      	var commentNo = $(this).attr('data-no');
-      	if ($('#report-'+commentNo+' > .report-menu').css('visibility') == 'hidden') {
-      		$('#report-'+commentNo+' > .report-menu').css('visibility','visible');
-      		// 제출 버튼 클릭
-      		$('.report-submit-btn').click(function() {
-      			var reportNo = $('.report-reason:checked').val();
-      			if (reportNo == undefined) {
-      				alertify.alert("신고 사유를 선택해주세요.");
-      				return;
-      			}
-      			commentReport(commentNo,reportNo);
-      		});
-      	} else {
-      		$('#report-'+commentNo+' > .report-menu').css('visibility','hidden');
-      	}
+        if (users != null) {
+	      	var commentNo = $(this).attr('data-no');
+	      	if ($('#report-'+commentNo+' > .report-menu').css('visibility') == 'hidden') {
+	      		$('#report-'+commentNo+' > .report-menu').css('visibility','visible');
+	      		// 제출 버튼 클릭
+	      		$('.report-submit-btn').click(function() {
+	      			var reportNo = $('.report-reason:checked').val();
+	      			if (reportNo == undefined) {
+	      				alertify.alert("신고 사유를 선택해주세요.");
+	      				return;
+	      			}
+	      			commentReport(commentNo,reportNo);
+	      		});
+	      	} else {
+	      		$('#report-'+commentNo+' > .report-menu').css('visibility','hidden');
+	      	}
+        } else {
+        	alertify.confirm("로그인 후 이용 가능합니다. 로그인하시겠습니까?", function (e) {
+      	      if (e) {location.href = serverRoot+'/auth/login.html';}
+      	      else {}
+      	    });
+        }
       });
     }
   }, 'json');
@@ -136,9 +143,9 @@ var commentReport = function(commentNo,reportNo) {
   		reportNo : reportNo
   	}),
     dataType: "json",
-    success: function(AjaxResult) {
+    success: function(ajaxResult) {
     	$('.report-menu').css('visibility','hidden');
-    	if (AjaxResult.data == 0) {
+    	if (ajaxResult.data == 0) {
     		alertify.alert("정상적으로 신고되었습니다.");
     	} else {
     		alertify.alert("신고는 한 댓글 당 한 번만 가능합니다.");
