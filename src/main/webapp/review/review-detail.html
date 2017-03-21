@@ -29,8 +29,36 @@
     <div class='review-detail-title'>
       <span id='titleHead' class='review-detail-title-subject'></span>
       <span id='title' class='review-detail-title-title'></span>
-      <a type='button' id='report' class='btn btn-default common-btn-black' href='#'>신고</a>
+      <a type='button' id='review-report' class='btn btn-default common-btn-black'>신고</a>
+	    <!-- 신고 버튼 시 팝업 창 -->
+			<!-- <div id='div-report' role="alert"> -->
+			  <div id='div-report' class='control-group'>
+				  <span id='report-title'>불량후기 신고하기</span><hr>
+				    <label class='control control--radio'>광고/음란성 글
+				      <input type="radio" name='report' value="1"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class='control control--radio'>도배성 글
+				      <input type="radio" name='report' value="2"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class='control control--radio'>욕설/반말/부적절한 언어 사용
+				      <input type="radio" name='report' value="3"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class='control control--radio'>지나친 정치/종교 논쟁
+				      <input type="radio" name='report' value="4"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				    <label class='control control--radio'>회원 분란 유도
+				      <input type="radio" name='report' value="5"/>
+				      <div class="control__indicator"></div>
+				    </label>
+				  <a type='button' id='submit-report' class='btn btn-danger'>신고하기</a>
+		    </div>
+			<!-- </div> -->
     </div>
+    
     <div id='review-detail-info' class='review-detail-info'>
       <div class='review-detail-info-image'>
         <img id='auth-image'>
@@ -97,6 +125,7 @@
   <!-- 풋터 -->
   <div id='wrap-footer'></div>
 </div> <!-- container -->
+
 </body>
 
 <script id="divTemplate" type="text/x-handlebars-template">

@@ -90,4 +90,19 @@ public class ReviewServiceImpl implements ReviewService {
     paramMap.put("memberNo", memberNo);
     return reviewDao.getListMy(paramMap);
   }
+  
+  @Override
+  public int checkReport(HashMap<String, Object> paramMap) throws Exception {
+    return reviewDao.checkReport(paramMap);
+  }
+  
+  @Override
+  public int report(HashMap<String, Object> paramMap) throws Exception {
+    return reviewDao.reviewReport(paramMap);
+  }
+  
+  @Override
+  public int reportPlus(int reviewNo) throws Exception {
+    return reviewDao.reportPlus(reviewNo);
+  }
 }
