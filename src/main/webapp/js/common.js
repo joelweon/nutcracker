@@ -2,6 +2,14 @@
  * html 가져오기
  ------------------*/
 $(document).ready(function() {
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
   /*$('#wrap-header').load('./header.html');*/
   $.get(clientRoot + '/header.html', function(result) {
     // 서버에서 로그인 사용자 정보를 가져온다.
@@ -37,9 +45,27 @@ $(document).ready(function() {
       $('#btn-logout').click(function(event) {
         event.preventDefault();
         window.sessionStorage.removeItem('user');
+        
+        FB.init({
+           appId      : '177980746026260',
+           cookie     : false,  
+           xfbml      : false,
+           version    : 'v2.8' 
+        });
+        
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-          location.reload();
-          return;
+        //add event listener to login button
+            FB.getLoginStatus(function(response) {
+              console.log(response);
+              if (response && response.status === 'connected') {
+                console.log(3120);
+                  FB.logout(function(response) {
+                    location.reload();
+                  }, {scope:'email,public_profile', return_scopes: false});
+              } else {
+                  location.reload();
+              }
+          });
         });
       });
       
@@ -52,7 +78,9 @@ $(document).ready(function() {
       });
     });
     
+    
   });
+
   $('#wrap-hidden').load(clientRoot + '/hidden.html');
   $('#div-intro').load(clientRoot + '/intro.html');
   $('#wrap-footer').load(clientRoot + '/footer.html');
