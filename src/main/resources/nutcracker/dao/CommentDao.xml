@@ -14,8 +14,9 @@
     <result column='cont'     property='content'/>
     <result column="rep_cnt"  property="reportCount"/>
     <result column="del_yn"   property="commentDelete"/>
-    <result column="botno"   property="boycottNo"/>
-    <result column="pno"   property="purchaseNo"/>
+    <result column="botno"    property="boycottNo"/>
+    <result column="pno"      property="purchaseNo"/>
+    <result column="rwno"     property="reportNo"/>
   </resultMap>
   
   <select id='getReviewCmtList' parameterType="int" resultMap="map">
@@ -88,6 +89,7 @@
     values (LAST_INSERT_ID(), #{boycottNo})
   </insert>
   
+  
   <select id='getPurchaseCommentList' parameterType="int" resultMap="map">
     select
       cm.ctno,
@@ -115,5 +117,23 @@
     insert into pch_cmt(ctno,pno)
     values (#{commentNo}, #{purchaseNo})
   </insert>
+  
+  
+  <insert id='insertCommentReport' parameterType="map">
+    insert into cmt_rep(ctno,mno,rwno)
+    values (#{commentNo}, #{memberNo}, #{reportNo})
+  </insert>
+  
+  <update id="updateReportCmt" parameterType="map">
+    update cmt
+    set rep_cnt=rep_cnt + 1
+    where ctno=#{commentNo}
+  </update>
+  
+  <select id='countReport' parameterType="map" resultType="int">
+    select count(*)
+    from cmt_rep
+    where ctno=#{commentNo} and mno=#{memberNo}
+  </select>
   
 </mapper>

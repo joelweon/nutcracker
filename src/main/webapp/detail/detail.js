@@ -1,6 +1,7 @@
 // 데이터 관련 js
 try {
   var boycottNo = location.href.split('?')[1].split('=')[1];
+  var users = window.sessionStorage.getItem('user');
 } catch (error) {
 	console.log(error);
 }
@@ -55,7 +56,6 @@ $(function() {
 	});
 	
 	// 사용자 정보 가져오기
-	var users = window.sessionStorage.getItem('user');
 	if (users != null) {
 		$('#rep-img').attr('src', clientRoot+'/images/user/'+JSON.parse(users).photoPath);
 		$('#textarea').attr('placeholder', '댓글을 입력하세요.');
@@ -75,7 +75,6 @@ $(function() {
 					content: $('#textarea').val(),
 					boycottNo: boycottNo,
 			};
-			console.log(param);
 			if (param.content.length == 0) {
 				alertify.alert("댓글을 입력하세요.");
 			} else {
@@ -104,11 +103,49 @@ function getComments(boycottNo) {
       var div = $('.reply-list-area:last-child');
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
-      
-      return;
+      // 신고 버튼 클릭
+      $('.report-btn').click(function() {
+      	var commentNo = $(this).attr('data-no');
+      	if ($('#report-'+commentNo+' > .report-menu').css('visibility') == 'hidden') {
+      		$('#report-'+commentNo+' > .report-menu').css('visibility','visible');
+      		// 제출 버튼 클릭
+      		$('.report-submit-btn').click(function() {
+      			var reportNo = $('.report-reason:checked').val();
+      			if (reportNo == undefined) {
+      				alertify.alert("신고 사유를 선택해주세요.");
+      				return;
+      			}
+      			commentReport(commentNo,reportNo);
+      		});
+      	} else {
+      		$('#report-'+commentNo+' > .report-menu').css('visibility','hidden');
+      	}
+      });
     }
   }, 'json');
 }
+
+// 신고 사유 등록하기
+var commentReport = function(commentNo,reportNo) {
+	$.ajax({
+    type: "POST",
+    url: serverRoot+'/comment/commentReport.json',
+    data: ({
+  		commentNo : commentNo,
+  		memberNo : JSON.parse(users).memberNo,
+  		reportNo : reportNo
+  	}),
+    dataType: "json",
+    success: function(AjaxResult) {
+    	$('.report-menu').css('visibility','hidden');
+    	if (AjaxResult.data == 0) {
+    		alertify.alert("정상적으로 신고되었습니다.");
+    	} else {
+    		alertify.alert("신고는 한 댓글 당 한 번만 가능합니다.");
+    	}
+    }
+  });
+};
 
   
 //호두 던지기
@@ -205,5 +242,4 @@ $('.walnut-stamp > a').click(function(event) {
   	right:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px',
     left:((window.innerWidth/2) - ($('.wrap-body').width()/2))+'px'
   });
-
 

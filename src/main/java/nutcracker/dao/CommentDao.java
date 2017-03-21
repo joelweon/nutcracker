@@ -16,4 +16,7 @@ public interface CommentDao {
   List<HashMap<String, Object>> getPurchaseCommentList(int ownNo) throws Exception;
   int insertPurchaseComment(HashMap<String, String> map) throws Exception;
   int insertPurchaseCommentRel(HashMap<String, String> map) throws Exception;
+  int insertCommentReport(HashMap<String, String> map) throws Exception;
+  int updateReportCmt(HashMap<String, String> map) throws Exception;
+  int countReport(HashMap<String, String> map) throws Exception;
 }
