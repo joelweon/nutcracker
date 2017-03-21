@@ -26,11 +26,11 @@ body {
 }
 
 .board-list-title, .board-table-date, 
-.board-reportdate, .board-viewcnt, .board-like {
+.board-reportdate, .board-viewcnt, .board-like, .board-rep {
   text-align: center;
 } 
 
-.board-reportdate, .board-viewcnt, .board-like {
+.board-reportdate, .board-viewcnt, .board-like, .board-rep {
   font-size: 0.9em;
 }
 

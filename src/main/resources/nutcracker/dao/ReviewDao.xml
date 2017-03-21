@@ -16,6 +16,7 @@
     <result column="cont"     property="content"/>
     <result column="view_cnt" property="viewCount"/>
     <result column="hodu_cnt" property="hoduCount"/>
+    <result column="rep_cnt"  property="reportCount"/>
     
     <!-- <collection property="photoList" ofType="photo">
       <id     column="rpno"   property="photoNo"/>
@@ -40,7 +41,7 @@
       ifnull(r.rep_cnt, 0) as rep_cnt
     from review r
       left outer join memb m on r.mno=m.mno
-    where r.rep_cnt &lt; 10
+    where r.rep_cnt &lt; 1
     order by r.rvno desc
     limit #{startRowIndex}, #{rowSize}
   </select>
@@ -52,7 +53,8 @@
       r.title, 
       date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
       ifnull(r.view_cnt, 0) as view_cnt, 
-      ifnull(r.hodu_cnt, 0) as hodu_cnt
+      ifnull(r.hodu_cnt, 0) as hodu_cnt,
+      ifnull(r.rep_cnt, 0) as rep_cnt
     from review r
     where r.mno=#{memberNo}
     order by r.rv_date desc

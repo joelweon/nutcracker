@@ -1,5 +1,3 @@
-
-
 $(function(){
   $("#allCheck").click(function(){
     if($("#allCheck").prop("checked")) {
@@ -66,30 +64,47 @@ $('.pgBtn > a').click(function() {
 
 function loadList(pageNo, pageSize) {
   //console.log("loadList()..." + pageNo + ", " + pageSize);
-  var users = window.sessionStorage.getItem('user');
-  var ajaxResult;
+  var users = JSON.parse(window.sessionStorage.getItem('user'));
+  console.log('users.memberNo: ' + users.memberNo);
+  if (users.memberNo == 1) {
+    $.get(serverRoot + '/mypage/adminboard.json',
+      {
+        "pageNo" : pageNo,
+        "pageSize" : pageSize
+      },
+      function(ajaxResult) {
+        if (ajaxResult.status != 'success') {
+          console.log('[mypage/adminboard] 게시글 리스트 가져오기 실패.');
+          return;
+        } else {
+          attachList(ajaxResult.data.list);
+        }
+      });
+  } else {
     $.get(serverRoot + '/mypage/myboard.json',
       {
         "pageNo" : pageNo,
         "pageSize" : pageSize,
-        "memberNo" : JSON.parse(users).memberNo
+        "memberNo" : users.memberNo
       }, 
     function(ajaxResult) {
       if (ajaxResult.status != "success") {
-        console.log(ajaxResult.data);
+        console.log('[mypage/myboard] 게시글 리스트 가져오기 실패.');
         return;
       }
-      var list = ajaxResult.data.list;
-      var tbody = $('.board-table > tbody');
-      //console.log(list);
-  
-      var template = Handlebars.compile($('#trTemplate').html());
-      tbody.html(template({"list":list}));
-      console.log(list);
-      
+      attachList(ajaxResult.data.list);
       // 페이지 버튼 설정
       preparePagingButton(ajaxResult.data.totalCount);
     });
+  }
+}
+function attachList(list) {
+  var tbody = $('.board-table > tbody');
+  //console.log(list);
+
+  var template = Handlebars.compile($('#trTemplate').html());
+  tbody.html(template({"list":list}));
+  //console.log(list);
 }
 
 function preparePagingButton(totalCount) {
