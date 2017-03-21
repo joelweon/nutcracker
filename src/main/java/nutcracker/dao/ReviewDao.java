@@ -16,6 +16,7 @@ public interface ReviewDao {
   int insert(HashMap<String, Object> map) throws Exception;
   int insertPhoto(HashMap<String, Object> map) throws Exception;
   int update(HashMap<String, Object> map) throws Exception;
+  int deleteReportRls(int reviewNo) throws Exception;
   int delete(int reviewNo) throws Exception;
   int deleteReviewComment(int reviewNo) throws Exception;
   List<HashMap<String, Object>> searchInTitleContent(Map<String, Object> paramMap) throws Exception;

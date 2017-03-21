@@ -177,7 +177,7 @@ $('.main-contents .delete-div > .delete-btn').click(function(e) {
           'ownNo' : rnoAry
         }
       });
-      //글삭
+      //신고수삭제 + 글삭
       $.ajax({
         method : 'POST',
         url    : serverRoot + "/review/deleteMy.json",

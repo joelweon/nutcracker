@@ -112,8 +112,8 @@
   </select>
   
   <insert id="insert" parameterType="map">
-    insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt) 
-    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath}, 0, 0);
+    insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt, rep_cnt) 
+    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath}, 0, 0, 0);
   </insert>
   
   <insert id="insertPhoto" parameterType="map">
@@ -132,6 +132,10 @@
 		  path=#{photoPath}
 		where rvno=#{reviewNo}
   </update>
+  
+  <delete id="deleteReportRls" parameterType="int">
+    delete from board_rep where rvno=#{value}
+  </delete>
   
   <delete id="delete" parameterType="int">
     delete from review where rvno=#{value}

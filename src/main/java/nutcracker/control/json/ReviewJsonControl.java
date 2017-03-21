@@ -168,6 +168,7 @@ public class ReviewJsonControl {
   @RequestMapping("/review/deleteMy")
   public AjaxResult deleteMy(String[] rnoAry) throws Exception {
     for (int i = 0; i < rnoAry.length; i++) {
+      reviewService.deleteReportRls(Integer.parseInt(rnoAry[i]));
       reviewService.delete(Integer.parseInt(rnoAry[i]));
     }
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");

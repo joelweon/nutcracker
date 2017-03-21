@@ -59,9 +59,15 @@ public class ReviewServiceImpl implements ReviewService {
   }
   
   @Override
+  public int deleteReportRls(int reviewNo) throws Exception {
+    int cnt = reviewDao.deleteReportRls(reviewNo);
+    if (cnt <= 0) { return 0; }
+    return cnt;
+  }
+  
+  @Override
   public int delete(int reviewNo) throws Exception {
     int deleteCnt = reviewDao.delete(reviewNo);
-    System.out.println(deleteCnt);
     if (deleteCnt <= 0) { return 0; }
     return deleteCnt;
   }

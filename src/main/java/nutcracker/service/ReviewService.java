@@ -15,6 +15,7 @@ public interface ReviewService {
   HashMap<String, Object> getDetail(int reviewNo) throws Exception;
   int add(HashMap<String, Object> map) throws Exception;
   int update(HashMap<String, Object> map) throws Exception;
+  int deleteReportRls(int reviewNo) throws Exception;
   int delete(int reviewNo) throws Exception;
   List<HashMap<String, Object>> search(int pageNo, int pageSize, String range, String keyword) throws Exception;
   int checkReport(HashMap<String, Object> paramMap) throws Exception;
