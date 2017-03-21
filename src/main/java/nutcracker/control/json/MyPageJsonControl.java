@@ -37,4 +37,24 @@ public class MyPageJsonControl {
     
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
+  
+  @RequestMapping("/mypage/adminboard")
+  public AjaxResult adminboard(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="5") int pageSize) throws Exception {
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    if (pageSize < 5 || pageSize > 20) {
+      pageSize = 10;
+    }
+    List<HashMap<String, Object>> list = reviewService.getReportList(pageNo, pageSize);
+    int totalCount = reviewService.getReportSize();
+    
+    HashMap<String, Object> resultMap = new HashMap<>();
+    resultMap.put("list", list);
+    resultMap.put("totalCount", totalCount);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
 }

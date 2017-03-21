@@ -61,6 +61,27 @@
     limit #{startRowIndex}, #{rowSize}
   </select>
   
+  <select id="getReportList" parameterType="map" resultMap="map">
+    select 
+      r.rvno, 
+      r.path,
+      r.title,
+      m.name,
+      date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      ifnull(r.view_cnt, 0) as view_cnt, 
+      ifnull(r.hodu_cnt, 0) as hodu_cnt,
+      ifnull(r.rep_cnt, 0) as rep_cnt
+    from review r
+      left join memb m on r.mno=m.mno
+    where r.rep_cnt &gt;= 1 
+    order by r.rv_date desc
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+  <select id="countReport" resultType="int">
+    select count(*) from review where rep_cnt &gt;= 1
+  </select>
+  
   <update id="updateRead" parameterType="String">
     update review
     set view_cnt=view_cnt + 1
@@ -91,8 +112,8 @@
   </select>
   
   <insert id="insert" parameterType="map">
-    insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt) 
-    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath}, 0, 0);
+    insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt, rep_cnt) 
+    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath}, 0, 0, 0);
   </insert>
   
   <insert id="insertPhoto" parameterType="map">
@@ -111,6 +132,10 @@
 		  path=#{photoPath}
 		where rvno=#{reviewNo}
   </update>
+  
+  <delete id="deleteReportRls" parameterType="int">
+    delete from board_rep where rvno=#{value}
+  </delete>
   
   <delete id="delete" parameterType="int">
     delete from review where rvno=#{value}
@@ -182,6 +207,12 @@
   <update id='reportPlus' parameterType='int'>
     update review
     set rep_cnt=rep_cnt + 1
+    where rvno=#{reviewNo}
+  </update>
+  
+  <update id='resetReport' parameterType='int'>
+    update review
+    set rep_cnt=0
     where rvno=#{reviewNo}
   </update>
   
