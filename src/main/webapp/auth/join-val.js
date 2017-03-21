@@ -14,7 +14,7 @@
 		};
 		$.post(serverRoot+'/user/add.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
-	      location.href = clientRoot + "/auth/login.html"; 
+	      location.href = clientRoot + "/main.html"; 
 	      return;
 	    }
 	    alert(ajaxResult.data);
