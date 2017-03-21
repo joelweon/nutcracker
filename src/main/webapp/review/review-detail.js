@@ -97,27 +97,29 @@ $('#btn-update').click(function() {
   location.href = clientRoot + '/review/review-update.html?reviewNo=' + reviewNo;
 }); // click()
 
-$('#btn-delete').click(function() {
-  if (alertify.submit('정말 삭제하시겠습니까??'), function(){
-    var param = {"ownNo" : reviewNo};
-    console.log('param.ownNo: ' + param.ownNo);
-    $.post(serverRoot + '/comment/deleteReviewCmts.json', param, function(ajaxResult) {
-      if (ajaxResult.status != 'success') {
-        console.log(ajaxResult.data);
-        return;
-      }
-      param = {"reviewNo" : reviewNo};
-      $.post(serverRoot + '/review/delete.json', param, function(ajaxResult) {
+$('#btn-delete').click(function(e) {
+  alertify.confirm('정말 삭제하시겠습니까??', function(e) {
+    if (e) {
+      var param = {"ownNo" : reviewNo};
+      console.log('param.ownNo: ' + param.ownNo);
+      $.post(serverRoot + '/comment/deleteReviewCmts.json', param, function(ajaxResult) {
         if (ajaxResult.status != 'success') {
           console.log(ajaxResult.data);
           return;
         }
-        location.href = clientRoot + '/review/review.html';
+        param = {"reviewNo" : reviewNo};
+        $.post(serverRoot + '/review/delete.json', param, function(ajaxResult) {
+          if (ajaxResult.status != 'success') {
+            console.log(ajaxResult.data);
+            return;
+          }
+          location.href = clientRoot + '/review/review.html';
+        });
       });
-    });
-  }, function() {
-    return;
-  });
+    } else {
+      return;
+    }
+  })
   /*if (confirm("정말 삭제하시겠습니까??") == true){    //확인
     
   } else {   //취소

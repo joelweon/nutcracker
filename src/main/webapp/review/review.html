@@ -39,6 +39,7 @@
 	  <!-- 글쓰기버튼 -->
 	  <div class='btn-toolbar'>
 	    <a type='button' id='btn-write' class="btn btn-default common-btn-white" href='#'>글쓰기</a>
+	    <a type='button' id='btn-delete' class="btn btn-default common-btn-black" href='#'>삭제</a>
 	  </div>
 	  
 		<!-- 테이블 -->
@@ -46,6 +47,7 @@
 		  <table id='table-review' class="table table-hover table-review">
 			  <thead>
 		        <tr>
+		          <th><input id="allCheck" class="th-check" type="checkbox"/></th>
 		          <th id='no'>No.</th>
 		          <th id='title'>제목</th>
 		          <th id='writer'>작성자</th>
@@ -71,17 +73,6 @@
 			      <option value='제목'>제목</option>
 			      <option value='작성자'>작성자</option>
 			    </select>
-				  <!-- <div class="dropup">
-					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-					    제목+내용
-					    <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					    <li><a href="#">제목</a></li>
-					    <li><a href="#">내용</a></li>
-					    <li><a href="#">작성자</a></li>
-					  </ul>
-					</div> -->
 				</li>
 				<li><input type='text' id='input-reviewSearch'></li>
 				<li><a type='button' id='btn-reviewSearch' class='btn btn-default common-btn-black'>검색</a></li>
@@ -113,6 +104,9 @@
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
 <tr>
+  <td class="board-table-date">
+    <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+  </td>
   <td>{{reviewNo}}</td>
   <td class='td-title'>
     <a href="#" class="table-review-img">

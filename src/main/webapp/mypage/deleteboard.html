@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우리는 The Nutcracker 입니다.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="mytop.css">
+  <link rel="stylesheet" href="myside.css">
+  <link rel="stylesheet" href="myboard.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/alertify.core.css">
+  <link rel="stylesheet" href="../css/alertify.default.css">
+</head>
+<body>
+<div id='wrap-header'></div>
+
+<!-- 숨은메뉴, 숨은검색 -->
+<div id='wrap-hidden'></div>
+
+<!-- 마이페이지 상단 바 -->
+<div id='wrap-mytop'></div>
+
+<div class="my-content-area">
+  <!-- 마이페이지 사이드 메뉴 -->
+  <div id='wrap-myside'></div>
+  
+  <div class="main-contents">
+    <div>
+      <table class="board-table">
+        <thead>
+          <tr class="board-list-title">
+  	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
+  	        <th>제목</th>
+  	        <th class='name'>작성자</th>
+  	        <th>작성일</th>
+  	        <th>조회수</th>
+  	        <th>추천수</th>
+  	      </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- 페이지이동 -->
+    <div class="clearfix">
+      <ul class="pagination">
+        <li id='prevPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        <li class='pgBtn'><a id='pg1' href="#"></a></li>
+        <li class='pgBtn'><a id='pg2' href="#"></a></li>
+        <li class='pgBtn'><a id='pg3' href="#"></a></li>
+        <li class='pgBtn'><a id='pg4' href="#"></a></li>
+        <li class='pgBtn'><a id='pg5' href="#"></a></li>
+        <li id='nextPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+      </ul>
+    </div>
+    <!-- 삭제 버튼 -->
+    <div class="delete-div">
+      <a class="btn reset-btn">복구</a>
+      <a class="btn delete-btn">삭제</a>
+    </div>
+  </div>
+</div>
+<!-- 풋터 -->
+<div id='wrap-footer'></div>
+
+
+<!-- <div id='wrap-footer'></div> -->
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+        <tr>
+          <td class="board-table-date">
+            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+          </td>
+          <td class="board-list">
+            <div>
+              <a href='../review/review-detail.html?reviewNo={{reviewNo}}'><p>{{title}}</p></a>
+            </div>
+          </td>
+          <td class="board-name">{{name}}</td>
+          <td class="board-reportdate">{{postTime}}</td>
+          <td class="board-viewcnt">{{viewCount}}</td>
+          <td class="board-like">{{hoduCount}}</td>
+        </tr>
+{{/each}}
+</script>
+
+<script src="../js/context.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+<!-- <script src="../js/header.js"></script> -->
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="mypage.js"></script>
+<script src="deleteboard.js"></script>
+<script type="text/javascript" src="../js/alertify.min.js"></script>
+</body>
+</html>

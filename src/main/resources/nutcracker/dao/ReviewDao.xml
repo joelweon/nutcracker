@@ -41,7 +41,7 @@
       ifnull(r.rep_cnt, 0) as rep_cnt
     from review r
       left outer join memb m on r.mno=m.mno
-    where r.rep_cnt &lt; 1
+    where r.rep_cnt &lt; 1 and r.del_yn='n'
     order by r.rvno desc
     limit #{startRowIndex}, #{rowSize}
   </select>
@@ -112,8 +112,8 @@
   </select>
   
   <insert id="insert" parameterType="map">
-    insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt, rep_cnt) 
-    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath}, 0, 0, 0);
+    insert into review(rvno, rv_date,head,title,cont,mno,path, view_cnt, hodu_cnt, rep_cnt,del_yn) 
+    values(#{reviewNo}, now(),#{titleHead},#{title},#{content},#{memberNo},#{photoPath}, 0, 0, 0,'n');
   </insert>
   
   <insert id="insertPhoto" parameterType="map">
@@ -213,6 +213,37 @@
   <update id='resetReport' parameterType='int'>
     update review
     set rep_cnt=0
+    where rvno=#{reviewNo}
+  </update>
+  
+  <update id='moveDelete' parameterType='int'>
+    update review
+    set del_yn='y'
+    where rvno=#{reviewNo}
+  </update>
+  
+  <select id='getDeleteList' parameterType='map' resultMap='map'>
+    select 
+      r.rvno, 
+      r.title,
+      m.name,
+      date_format(r.rv_date,'%Y-%m-%d') as rv_date, 
+      ifnull(r.view_cnt, 0) as view_cnt, 
+      ifnull(r.hodu_cnt, 0) as hodu_cnt
+    from review r
+      left join memb m on r.mno=m.mno
+    where r.del_yn='y'
+    order by r.rv_date desc
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+  <select id='countDelete' resultType='int'>
+    select count(*) from review where del_yn='y'
+  </select>
+  
+  <update id='resetDelete' parameterType='int'>
+    update review
+    set del_yn='n'
     where rvno=#{reviewNo}
   </update>
   

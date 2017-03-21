@@ -26,4 +26,8 @@ public interface ReviewDao {
   int reviewReport(HashMap<String, Object> paramMap) throws Exception;
   int reportPlus(int reviewNo) throws Exception;
   int resetReport(int reviewNo) throws Exception;
+  int moveDelete(int reviewNo) throws Exception;
+  List<HashMap<String, Object>> getDeleteList(Map<String, Object> paramMap) throws Exception;
+  int countDelete() throws Exception;
+  int resetDelete(int reviewNo) throws Exception;
 }

@@ -129,4 +129,27 @@ public class ReviewServiceImpl implements ReviewService {
   public int resetReport(int reviewNo) throws Exception {
     return reviewDao.resetReport(reviewNo);
   }
+  
+  @Override
+  public int moveDelete(int reviewNo) throws Exception {
+    return reviewDao.moveDelete(reviewNo);
+  }
+  
+  @Override
+  public List<HashMap<String, Object>> getDeleteList(int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo -1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    return reviewDao.getDeleteList(paramMap);
+  }
+  
+  @Override
+  public int getDeleteSize() throws Exception {
+    return reviewDao.countDelete();
+  }
+  
+  @Override
+  public int resetDelete(int reviewNo) throws Exception {
+    return reviewDao.resetDelete(reviewNo);
+  }
 }
