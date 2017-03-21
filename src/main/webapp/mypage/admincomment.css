@@ -1,0 +1,185 @@
+@CHARSET "UTF-8";
+
+body {
+  font-size: small;
+  background-color: rgb(25, 25, 25);
+}
+
+.my-content-area {
+  position: relative;
+  font-size: 1.2em;
+  max-width: 960px;
+  width:100%;
+  margin: 70px auto;
+}
+
+/* main contents area*/
+.main-contents {
+  width: 80%;
+  font-size: 1.1em;
+  float: right;
+}
+
+.comment-table { 
+  border: 5px solid rgb(47, 47, 47);
+  width: 100%;
+}
+
+.comment-table {
+  text-align: center;
+} 
+
+.comment-table th {
+  font-weight: bold;
+}
+
+.comment-table > tbody > tr {
+	font-size: 0.9em;
+}
+
+.comment-list-title {
+  background-color: #d5d5d5;
+  margin: 0;
+  text-align: center;
+}
+
+.comment-list-title th {
+  background-color: rgb(47, 47, 47);
+  text-align: center;
+  color: white;
+  padding-bottom: 4px;
+}
+
+.comment-table tr {
+  background-color: white;
+  color: black;
+  border-bottom: 3px solid rgb(47, 47, 47);
+}
+
+.comment-table-data {
+	width: 5%;
+}
+
+/* 툴팁 */
+a[data-tooltip] {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+a[data-tooltip]::before,
+a[data-tooltip]::after {
+  position: absolute;
+  display: none;
+  opacity: 0.85;
+}
+a[data-tooltip]::before {
+  content: attr(data-tooltip);
+  background: #000;
+  color: #fff;
+  font-size: 0.8em;
+  text-align:left;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  min-width: 150px;
+  text-decoration: none;
+}
+a[data-tooltip]::after {
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  content: '';
+}
+
+a[data-tooltip]:hover::before,
+a[data-tooltip]:hover::after {
+  display: block;
+}
+a[data-tooltip][data-placement="bottom"]::before {
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+}
+a[data-tooltip][data-placement="bottom"]::after {
+  border-bottom-color: #000;
+  border-top: none;
+  top: 100%;
+  left: 10px;
+  margin-top: 4px;
+}
+
+/* 삭제 버튼 */
+.delete-div {
+    float: right;
+    margin-top: 30px;
+    margin-right: 25px;
+}
+
+.delete-btn {
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 1em;
+  text-decoration: none;
+  margin-left:2px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: #e74c3c;
+  box-shadow: 0px 5px 0px 0px #CE3323;
+}
+
+.delete-btn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+
+.delete-btn:hover {
+  background-color: #ec5444;
+  text-decoration: none;
+  color: white;
+}
+
+/* 페이지 이동 */
+.pagination { width: 100%; margin: 30px 0px 30px 0px; }
+.pagination > li > a { color: gray; }
+.pagination > li.active > a, .pagination > li.active > span,
+.pagination > .active > a:hover, .pagination > li.active > span:hover,
+.pagination > .active > a:focus, .pagination > li.active > span:focus
+ {
+  background-color: #009900;
+  color: white;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+.pagination > li.disabled > a {
+  color: #ddd;
+  pointer-events: none;
+  cursor: default;
+}
+.pagination > li.disabled > a:hover, .pagination > li.disabled > span:hover,
+.pagination > li.disabled > a:focus, .pagination > li.disabled > span:focus {
+  background-color: #fff;
+  color: #ddd;
+  pointer-events: none;
+  cursor: default;
+}
+.clearfix {
+  float:left;
+}
+
+
+ @media screen and (max-width: 760px)
+{
+  .main-contents {
+  width:100%;
+  float:left;
+  max-width:95%;
+  margin-left:2%;
+  margin-bottom:30px;
+  margin-top:25px;
+  }
+  .my-content-area {
+    margin:0 auto;
+  }
+} 

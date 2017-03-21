@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>우리는 The Nutcracker 입니다.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, 
+  maximum-scale=1.0, minimum-scale=1.0, user-scale=no, target-densitydpi=medium-dpi"/>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="mytop.css">
+  <link rel="stylesheet" href="myside.css">
+  <link rel="stylesheet" href="admincomment.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/alertify.core.css">
+  <link rel="stylesheet" href="../css/alertify.default.css">
+</head>
+<body>
+<div id='wrap-header'></div>
+
+<!-- 숨은메뉴, 숨은검색 -->
+<div id='wrap-hidden'></div>
+
+<!-- 마이페이지 상단 바 -->
+<div id='wrap-mytop'></div>
+
+<div class="my-content-area">
+  <!-- 마이페이지 사이드 메뉴 -->
+  <div id='wrap-myside'></div>
+  
+  <div class="main-contents">
+    <div>
+      <table class="comment-table">
+        <thead>
+          <tr class="comment-list-title">
+  	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
+  	        <th>게시판명</th>
+  	        <th>글번호</th>
+  	        <th>댓글내용</th>
+  	        <th>작성자</th>
+  	        <th>신고사유</th>
+  	      </tr>
+        </thead>
+        <tbody>
+        
+        <tr>
+          <td class="comment-table-data">
+            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+          </td>
+          <td>불매운동</td>
+          <td><a href="#" data-tooltip="메디안 독소 성분 검출" data-placement="bottom">209</a></td>
+          <td><a href="#" data-tooltip="XX 메디안 이노무 시키들 내 이럴줄 알았다. 망해라 흥흥" data-placement="bottom">XX 메디안 이노무 시키들..</a></td>
+          <td>호호아줌마</td>
+          <td><a href="#" data-tooltip="욕설/반말/부적절한 언어 사용" data-placement="bottom">상세보기</a></td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    <!-- 페이지이동 -->
+    <div class="clearfix">
+      <ul class="pagination">
+        <li id='prevPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        <li class='pgBtn'><a id='pg1' href="#"></a></li>
+        <li class='pgBtn'><a id='pg2' href="#"></a></li>
+        <li class='pgBtn'><a id='pg3' href="#"></a></li>
+        <li class='pgBtn'><a id='pg4' href="#"></a></li>
+        <li class='pgBtn'><a id='pg5' href="#"></a></li>
+        <li id='nextPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+      </ul>
+    </div>
+    <!-- 삭제 버튼 -->
+    <div class="delete-div">
+      <a href="#" class="delete-btn">삭제</a>
+    </div>
+  </div>
+</div>
+<!-- 풋터 -->
+<div id='wrap-footer'></div>
+
+
+<!-- <div id='wrap-footer'></div> -->
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+        <tr>
+          <td class="board-table-date">
+            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+          </td>
+          <td class="board-list">
+            <div>
+              <a href=http://localhost:8080/nutcracker/review/review-detail.html?reviewNo={{reviewNo}}><p>{{title}}</p></a>
+            </div>
+          </td>
+          <td class="board-reportdate">{{postTime}}</td>
+          <td class="board-viewcnt">{{viewCount}}</td>
+          <td class="board-like">{{hoduCount}}</td>
+          <td class="board-rep">{{reportCount}}</td>
+        </tr>
+{{/each}}
+</script>
+<script src="../js/context.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="mypage.js"></script>
+<script src="myboard.js"></script>
+<script type="text/javascript" src="../js/alertify.min.js"></script>
+</body>
+</html>
