@@ -124,4 +124,16 @@
     values (#{commentNo}, #{memberNo}, #{reportNo})
   </insert>
   
+  <update id="updateReportCmt" parameterType="map">
+    update cmt
+    set rep_cnt=rep_cnt + 1
+    where ctno=#{commentNo}
+  </update>
+  
+  <select id='countReport' parameterType="map" resultType="int">
+    select count(*)
+    from cmt_rep
+    where ctno=#{commentNo} and mno=#{memberNo}
+  </select>
+  
 </mapper>

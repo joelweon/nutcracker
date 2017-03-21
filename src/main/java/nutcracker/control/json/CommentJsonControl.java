@@ -100,11 +100,14 @@ public class CommentJsonControl {
   
   @RequestMapping("/comment/commentReport")
   public AjaxResult commentReport(@RequestParam HashMap<String,String> map) throws Exception {
-    int count = commentService.commentReport(map);
+    int count = commentService.existReport(map);
     if (count == 0) {
-      return new AjaxResult(AjaxResult.FAIL, "댓글 신고 실패");
+      commentService.commentReport(map);
+      commentService.updateReportCmt(map);
+      return new AjaxResult(AjaxResult.SUCCESS, count);
+    } else {
+      return new AjaxResult(AjaxResult.FAIL, count);
     }
-    return new AjaxResult(AjaxResult.SUCCESS, "댓글 신고 완료");
   }
   
 }

@@ -168,6 +168,41 @@
 	top:25px;
   left:60px;
 }
+.report-btn {
+  visibility:hidden;
+  position: absolute;
+  right: 10px;
+  top:25%;
+}
+.report-title {
+  border-bottom:1px solid #c0c0c0;
+  position: relative;
+  width:200px;
+  font-size:1.1em;
+  padding: 5px;
+  color:black;
+}
+.report-menu {
+  visibility:hidden;
+  box-shadow: -2px -2px 15px #808080;
+  border-radius:5px;
+  position: absolute;
+  width:200px;
+  height:175px;
+  right:5px;
+  bottom:90%;
+  background-color: white;
+  color:black;
+}
+.reprot-radio-btn {
+  padding: 0 5px;
+}
+.report-submit-btn {
+  position: absolute;
+  bottom: 5px;
+  left: 70px;
+  padding: 0 20px;
+}
 .review-detail-comment-input {
 	position:relative;
 	width:98%;

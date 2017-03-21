@@ -47,8 +47,6 @@ function getContent(reviewNo) {
         console.log('[review-detail] 로그인 정보 가져오기 실패.');
         return;
       }
-      console.log(ajaxResult.data.memberNo);
-      console.log(review.memberNo);
       if (ajaxResult.data.memberNo == review.memberNo) {
         $('#btn-update').css('display', 'block');
         $('#btn-delete').css('display', 'block');
@@ -65,18 +63,30 @@ function getComments(ownNo){
       console.log(ajaxResult.data);
       return;
     }
-    
     var list = ajaxResult.data;
     if (list.length < 1) { 
       return;
     } else {
       $('#comment').val("");
-    
       var div = $('#div-commentList');
-      
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
-
+      $('.comment-report').click(function() {
+      	var commentNo = $(this).attr('data-no');
+      	if ($('#report-'+commentNo+' > .report-menu').css('visibility') == 'hidden') {
+      		$('#report-'+commentNo+' > .report-menu').css('visibility','visible');
+      		$('#report-'+commentNo+' > .report-menu > .report-submit-btn').click(function() {
+      			var reportNo = $('#report-'+commentNo+' > .report-menu > .report-radio-btn > .report-reason:checked').val();
+      			if (reportNo == undefined) {
+      				alertify.alert("신고 사유를 선택해주세요.");
+      				return;
+      			}
+      			commentReport(commentNo, reportNo);
+      		});
+      	} else {
+      		$('#report-'+commentNo+' > .report-menu').css('visibility','hidden');
+      	}
+      });
       return;
     }
   }, 'json');
@@ -156,4 +166,26 @@ $('#btn-report').click(function() {
     }
   });
 });
+
+//신고 사유 등록하기 -> 버튼 이벤트 등록 전
+var commentReport = function(commentNo,reportNo) {
+	$.ajax({
+    type: "POST",
+    url: serverRoot+'/comment/commentReport.json',
+    data: ({
+  		commentNo : commentNo,
+  		memberNo : JSON.parse(users).memberNo,
+  		reportNo : reportNo
+  	}),
+    dataType: "json",
+    success: function(AjaxResult) {
+    	$('.report-menu').css('visibility','hidden');
+    	if (AjaxResult.data == 0) {
+    		alertify.alert("댓글 신고가 접수되었습니다.");
+    	} else {
+    		alertify.alert("해당 댓글을 이미 신고하였습니다.");
+    	}
+    }
+  });
+};
 

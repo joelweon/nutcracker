@@ -16,4 +16,6 @@ public interface CommentService {
   int addPurchaseCmt(HashMap<String, String> map) throws Exception;
   int addPurchaseCmtRel(HashMap<String, String> map) throws Exception;
   int commentReport(HashMap<String, String> map) throws Exception;
+  int updateReportCmt(HashMap<String, String> map) throws Exception;
+  int existReport(HashMap<String, String> map) throws Exception;
 }
