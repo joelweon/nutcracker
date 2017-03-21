@@ -110,4 +110,14 @@ public class CommentJsonControl {
     }
   }
   
+  @RequestMapping("/comment/getCommentReportList")
+  public AjaxResult getCommentReportList() throws Exception {
+    List<HashMap<String, Object>> list = commentService.getCommentReportList();
+    if (list.size() > 0) {
+      return new AjaxResult(AjaxResult.SUCCESS, list);
+    } else {
+      return new AjaxResult(AjaxResult.FAIL, "10회 이상 신고된 댓글이 없습니다.");
+    }
+  }
+  
 }

@@ -20,63 +20,96 @@ body {
   float: right;
 }
 
-.board-table { 
+.comment-table { 
   border: 5px solid rgb(47, 47, 47);
   width: 100%;
 }
 
-.board-list-title, .board-table-date, 
-.board-reportdate, .board-viewcnt, .board-like, .board-rep {
+.comment-table {
   text-align: center;
 } 
 
-.board-reportdate, .board-viewcnt, .board-like, .board-rep {
-  font-size: 0.9em;
+.comment-table th {
+  font-weight: bold;
 }
 
-.board-table. th {
-  font: bold;
+.comment-table > tbody > tr {
+	font-size: 0.9em;
 }
 
-
-.board-list-title {
+.comment-list-title {
   background-color: #d5d5d5;
   margin: 0;
   text-align: center;
 }
 
-.board-list-title th {
+.comment-list-title th {
   background-color: rgb(47, 47, 47);
   text-align: center;
   color: white;
   padding-bottom: 4px;
 }
 
-.board-table tr {
+.comment-table tr {
   background-color: white;
   color: black;
   border-bottom: 3px solid rgb(47, 47, 47);
 }
 
-.board-list {
-  text-align: left;
-  width: 60%;
-}
-
-.board-list div {
-  margin: 10px 10px;
-}
-
-.board-list p {
-  margin: 0px 0px 0px 0px;
-  font: 0.9em normal;
-  line-height: 150%;
-}
-
-.board-table-date {
+.comment-table-data {
 	width: 5%;
 }
 
+/* 툴팁 */
+a[data-tooltip] {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+a[data-tooltip]::before,
+a[data-tooltip]::after {
+  position: absolute;
+  display: none;
+  opacity: 1;
+}
+a[data-tooltip]::before {
+  content: attr(data-tooltip);
+  background: #000;
+  color: #fff;
+  font-size: 0.8em;
+  text-align:left;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+  min-width: 170px;
+  text-decoration: none;
+  z-index: 50;
+}
+a[data-tooltip]::after {
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  content: '';
+}
+
+a[data-tooltip]:hover::before,
+a[data-tooltip]:hover::after {
+  display: block;
+}
+a[data-tooltip][data-placement="bottom"]::before {
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+}
+a[data-tooltip][data-placement="bottom"]::after {
+  border-bottom-color: #000;
+  border-top: none;
+  top: 100%;
+  left: 10px;
+  margin-top: 4px;
+}
+
+/* 삭제 버튼 */
 .delete-div {
     float: right;
     margin-top: 30px;
@@ -95,32 +128,15 @@ body {
   background-color: #e74c3c;
   box-shadow: 0px 5px 0px 0px #CE3323;
 }
-.reset-btn {
-  border-radius: 5px;
-  padding: 2px 10px;
-  font-size: 1em;
-  text-decoration: none;
-  margin-left:2px;
-  color: #fff;
-  position: relative;
-  display: inline-block;
-  background-color: #0080ff;
-  box-shadow: 0px 5px 0px 0px #004080;
-}
 
-.delete-btn:active, .reset-btn:active {
+.delete-btn:active {
   transform: translate(0px, 5px);
   -webkit-transform: translate(0px, 5px);
   box-shadow: 0px 1px 0px 0px;
 }
 
 .delete-btn:hover {
-  background-color: #ef6b5c;
-  text-decoration: none;
-  color: white;
-}
-.reset-btn:hover {
-  background-color: #2f97ff;
+  background-color: #ec5444;
   text-decoration: none;
   color: white;
 }

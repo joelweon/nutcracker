@@ -1,3 +1,13 @@
+$(function(){
+  $("#allCheck").click(function(){
+    if($("#allCheck").prop("checked")) {
+      $("input[type=checkbox]").prop("checked",true);
+        } else {
+          $("input[type=checkbox]").prop("checked",false);
+    }
+  })
+})
+
 // 처음에는 1페이지 10개를 로딩한다.
 try {
   var params = location.href.split('?')[1];
@@ -10,29 +20,10 @@ var pageGpSize = 5; // 페이지그룹 크기
 var pRCnt = parseInt(curPageNo / pageGpSize); // 페이지그룹 번호
 var maxPageNo; // 총 페이지 수
 
-var listSearch = 'list'; //단순리스팅 or 검색리스팅
-var range; // 검색범위
-var keyword; // 검색어
-
-$('#btn-write').click(function(event) {
-  event.preventDefault();
-  $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-    if (ajaxResult.status != 'success') {
-      alertify.alert('로그인 후 사용가능합니다.', function() {
-        location.href = clientRoot + '/auth/login.html';
-      });
-    } else {
-      location.href = clientRoot + '/review/review-write.html';
-    }
-  });
-});
-
-//loadList(curPageNo, pageSize);
-  
-// 페이지 처음 로딩시
+//페이지 처음 로딩시
 document.location.hash = '#1';
 checkForHash();
-// hash 값 변경
+//hash 값 변경
 
 function checkForHash() {
   //console.log(document.location);
@@ -47,7 +38,8 @@ function checkForHash() {
 }
 $(window).on('hashchange', function(){ checkForHash() });
 
-// 버튼 이벤트 등록
+
+//버튼 이벤트 등록
 $('#prevPgBtn').click(function() {
   event.preventDefault();
   document.location.hash = '#' + --curPageNo;
@@ -71,65 +63,24 @@ $('.pgBtn > a').click(function() {
 })
 
 function loadList(pageNo, pageSize) {
-  //console.log("loadList()..." + pageNo + ", " + pageSize);
-  var ajaxResult;
-  var list;
-  if (listSearch == 'list') {
-    $.get(serverRoot + '/review/list.json', {
+  $.get(serverRoot + '/mypage/deleteboard.json',
+    {
       "pageNo" : pageNo,
-      "pageSize" : pageSize }, function(ajaxResult) {
-      if (ajaxResult.status != "success") {
-        console.log(ajaxResult.data);
+      "pageSize" : pageSize
+    },
+    function(ajaxResult) {
+      if (ajaxResult.status != 'success') {
+        console.log('[mypage/deleteboard] 삭제게시글 리스트 가져오기 실패.');
         return;
-      }
-      list = ajaxResult.data.list;
-      var tbody = $('.table-review > tbody');
-      
-      var template = Handlebars.compile($('#trTemplate').html());
-      tbody.html(template({"list":list}));
-   
-      $('.title-link').click(function(event) {
-        event.preventDefault();
-        location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
-      });
-   
-      // 페이지 버튼 설정
-      preparePagingButton(ajaxResult.data.totalCount);
-    });
-  } else if (listSearch == 'search') {
-    $.get(serverRoot + '/review/search.json', {
-      "pageNo" : pageNo,
-      "pageSize" : pageSize,
-      "range" : range,
-      "keyword" : keyword
-    }, function(ajaxResult) {
-      if(ajaxResult.status != 'success') {
-        console.log('[Review] 검색 실패');
-        return;
-      }
-      list = ajaxResult.data.list;
-      // 검색 결과가 없을 때
-      if (list == null) {
-        $('table#table-review').css('display', 'none');
-        $('div#noresult').css('display', 'block');
       } else {
-        $('div#noresult').css('display', 'none');
-        $('table#table-review').css('display', 'table');
-        var tbody = $('.table-review > tbody');
+        var tbody = $('.board-table > tbody');
+
         var template = Handlebars.compile($('#trTemplate').html());
-        tbody.html(template({"list":list}));
+        tbody.html(template({"list":ajaxResult.data.list}));
         
-        $('.title-link').click(function(event) {
-          event.preventDefault();
-          location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
-        });
+        preparePagingButton(ajaxResult.data.totalCount);
       }
-   
-      // 페이지 버튼 설정
-      preparePagingButton(ajaxResult.data.totalCount);
-    });
-  }
-    
+  });
 }
 
 function preparePagingButton(totalCount) {
@@ -177,37 +128,31 @@ function preparePagingButton(totalCount) {
   }
 }
 
-$('#btn-reviewSearch').click(function() {
-  range = $('#select-search').val();
-  console.log("range: " + range);
-  keyword = $('#input-reviewSearch').val();
-  console.log("keyword: " + keyword);
-  listSearch = 'search';
-  loadList(curPageNo, pageSize);
-});
-
-$("#allCheck").click(function(){
-  if($("#allCheck").prop("checked")) {
-    $("input[type=checkbox]").prop("checked",true);
-  } else {
-    $("input[type=checkbox]").prop("checked",false);
-  }
-});
-
-$('a#btn-delete').click(function(e) {
+// 삭제
+$('.main-contents .delete-div > .delete-btn').click(function(e) {
   e.preventDefault();
-  alertify.confirm("삭제게시글로 처리하시겠습니까??", function(e) {
+  alertify.confirm("정말 삭제하시겠습니까??", function(e) {
     if (e) {
+      
       var rnoAry = new Array();
       $('input[name=box]:checked').each(function() {
         rnoAry.push($(this).val());
       });
       jQuery.ajaxSettings.traditional = true;
       console.log(rnoAry);
-        
+      
+      //댓삭
       $.ajax({
         method : 'POST',
-        url    : serverRoot + "/review/moveDelete.json",
+        url    : serverRoot + '/comment/deleteReviewCmtsMy.json',
+        data   : {
+          'ownNo' : rnoAry
+        }
+      });
+      //신고수삭제 + 글삭
+      $.ajax({
+        method : 'POST',
+        url    : serverRoot + "/review/deleteMy.json",
         data   : {
           'rnoAry' : rnoAry
         }
@@ -215,7 +160,34 @@ $('a#btn-delete').click(function(e) {
         location.reload();
       });
     } else { //취소
-        return;
+      return;
+    }
+  });
+}) //delete
+
+// 삭제취소('n'으로 세팅)
+$('.main-contents .delete-div > a.reset-btn').click(function(e) {
+  e.preventDefault();
+  alertify.confirm("정말 복구하시겠습니까??", function(e) {
+    if (e) {
+      var rnoAry = new Array();
+      $('input[name=box]:checked').each(function() {
+        rnoAry.push($(this).val());
+      });
+      jQuery.ajaxSettings.traditional = true;
+      console.log(rnoAry);
+      
+      $.ajax({
+        method : 'POST',
+        url    : serverRoot + "/review/resetDelete.json",
+        data   : {
+          'rnoAry' : rnoAry
+        }
+      }).done(function() {
+        location.reload();
+      });
+    } else { //취소
+      return;
     }
   });
 });

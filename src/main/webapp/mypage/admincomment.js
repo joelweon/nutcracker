@@ -26,9 +26,6 @@ checkForHash();
 //hash 값 변경
 
 function checkForHash() {
-  //console.log(document.location);
-  //var oldURL = document.referrer;
-  //console.log("prevURL: " + oldURL);
   if (document.location.hash) {
     curPageNo = document.location.hash.replace('#', '');
     loadList(curPageNo, pageSize);
@@ -44,14 +41,12 @@ $('#prevPgBtn').click(function() {
   event.preventDefault();
   document.location.hash = '#' + --curPageNo;
   checkForHash();
-  //loadList(--curPageNo, pageSize);
 })
 
 $('#nextPgBtn').click(function() {
   event.preventDefault();
   document.location.hash = '#' + ++curPageNo;
   checkForHash();
-  //loadList(++curPageNo, pageSize);
 })
 
 $('.pgBtn > a').click(function() {
@@ -59,56 +54,29 @@ $('.pgBtn > a').click(function() {
   var page = $(this).text();
   document.location.hash = '#' + page;
   checkForHash();
-  //loadList(curPageNo = page, pageSize);
 })
 
 function loadList(pageNo, pageSize) {
-  //console.log("loadList()..." + pageNo + ", " + pageSize);
-  var users = JSON.parse(window.sessionStorage.getItem('user'));
-  console.log('users.memberNo: ' + users.memberNo);
-  if (users.memberNo == 1) {
-    $.get(serverRoot + '/mypage/adminboard.json',
-      {
-        "pageNo" : pageNo,
-        "pageSize" : pageSize
-      },
-      function(ajaxResult) {
-        if (ajaxResult.status != 'success') {
-          console.log('[mypage/adminboard] 게시글 리스트 가져오기 실패.');
-          return;
-        } else {
-          $('th.repCnt').css('display', 'none');
-          var tbody = $('.board-table > tbody');
-
-          var admintemplate = Handlebars.compile($('#adminTemplate').html());
-          tbody.html(admintemplate({"list":ajaxResult.data.list}));
-          
-          preparePagingButton(ajaxResult.data.totalCount);
-        }
-      });
-  } else {
-    $.get(serverRoot + '/mypage/myboard.json',
-      {
-        "pageNo" : pageNo,
-        "pageSize" : pageSize,
-        "memberNo" : users.memberNo
-      }, 
-    function(ajaxResult) {
-      if (ajaxResult.status != "success") {
-        console.log('[mypage/myboard] 게시글 리스트 가져오기 실패.');
-        return;
-      } else {
-        $('th.name').css('display', 'none');
-        $('a.reset-btn').css('display', 'none');
-        var tbody = $('.board-table > tbody');
-  
-        var template = Handlebars.compile($('#trTemplate').html());
-        tbody.html(template({"list":ajaxResult.data.list}));
-        
-        preparePagingButton(ajaxResult.data.totalCount);
-      }
-    });
-  }
+	$.get(serverRoot+'/comment/getCommentReportList.json', function(ajaxResult) {
+		var list = ajaxResult.data;
+		var reviewList = [];
+		var boycottList = [];
+		var tbody = $('.comment-table > tbody');
+		for (var i=0; i < list.length; i++) {
+			if (ajaxResult.data[i].reviewNo != undefined) {
+				reviewList.push(ajaxResult.data[i]);
+			}
+			if (ajaxResult.data[i].boycottNo != undefined) {
+				boycottList.push(ajaxResult.data[i]);
+			}
+		}
+		var reviewtemplate = Handlebars.compile($('#reviewTemplate').html());
+		var boycotttemplate = Handlebars.compile($('#boycottTemplate').html());
+		tbody.html("");
+		tbody.append(reviewtemplate({"reviewList":reviewList}));
+		tbody.append(boycotttemplate({"boycottList":boycottList}));
+		preparePagingButton(ajaxResult.data.length);
+	});
 }
 
 function preparePagingButton(totalCount) {
@@ -157,7 +125,7 @@ function preparePagingButton(totalCount) {
 }
 
 // 삭제
-$('.main-contents .delete-div > .delete-btn').click(function(e) {
+/*$('.main-contents .delete-div > .delete-btn').click(function(e) {
   e.preventDefault();
   alertify.confirm("정말 삭제하시겠습니까??", function(e) {
     if (e) {
@@ -177,24 +145,14 @@ $('.main-contents .delete-div > .delete-btn').click(function(e) {
           'ownNo' : rnoAry
         }
       });
-      //신고수삭제 + 글삭
-      $.ajax({
-        method : 'POST',
-        url    : serverRoot + "/review/deleteMy.json",
-        data   : {
-          'rnoAry' : rnoAry
-        }
-      }).done(function() {
-        location.reload();
-      });
     } else { //취소
       return;
     }
   });
 }) //delete
-
+*/
 // 신고취소(0으로 세팅)
-$('.main-contents .delete-div > a.reset-btn').click(function(e) {
+/*$('.main-contents .delete-div > a.reset-btn').click(function(e) {
   e.preventDefault();
   alertify.confirm("정말 복구하시겠습니까??", function(e) {
     if (e) {
@@ -218,4 +176,4 @@ $('.main-contents .delete-div > a.reset-btn').click(function(e) {
       return;
     }
   });
-});
+});*/
