@@ -36,9 +36,11 @@
       r.head, 
       r.title, 
       ifnull(r.view_cnt, 0) as view_cnt, 
-      ifnull(r.hodu_cnt, 0) as hodu_cnt
+      ifnull(r.hodu_cnt, 0) as hodu_cnt,
+      ifnull(r.rep_cnt, 0) as rep_cnt
     from review r
       left outer join memb m on r.mno=m.mno
+    where r.rep_cnt &lt; 10
     order by r.rvno desc
     limit #{startRowIndex}, #{rowSize}
   </select>
