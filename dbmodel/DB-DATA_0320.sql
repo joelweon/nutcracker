@@ -351,17 +351,17 @@ insert into pch_hist(mno,pno,pch_date,pch_cnt) values(10,404,'2017-03-09 15:24:3
 insert into pch_hist(mno,pno,pch_date,pch_cnt) values(11,400,'2017-03-04 15:42:19',3);
 
 --  REVIEW
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(200,3,'2017-02-24 15:41:02','불매운동','홍삼액이 가짜 홍삼이라니요.','홍삼액이 가짜 홍삼이라니요-내용','default',78,34);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(201,4,'2017-02-01 19:28:49','불량후기','과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ','불량후기 내용입니다','default',59,24);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(202,8,'2017-01-30 21:07:34','불량후기','나방나온다아 나바아앙~~~','불량후기 내용입니다','default',54,19);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(203,6,'2017-02-10 18:03:42','불량후기','혜화역식당, 역대급 불친절!!','불량후기 내용입니다','default',38,9);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(204,2,'2017-02-02 22:14:28','불매운동','존리는 무죄라네요ㅡㅡ','불량후기 내용입니다','default',84,41);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(205,7,'2017-02-10 14:37:54','불매운동','하기스 물티슈 판매중지한대요!!','불량후기 내용입니다','default',93,46);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(206,10,'2017-02-01 19:27:04','불매운동','남양유업 갑질..잊지맙시다!불매불매!','불량후기 내용입니다','default',87,37);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(207,10,'2017-02-14 22:19:54','불량후기','엄망진창 삼성동 미용실 후기입니다.','불량후기 내용입니다','default',61,13);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(208,11,'2016-12-10 21:38:05','불량후기','파리바게트 빵에서 나온 무언가...','불량후기 내용입니다','default',79,42);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(209,4,'2017-02-03 17:04:27','불매운동','제가 질소를 1500원에 샀네요?','불량후기 내용입니다','default',97,43);
-insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt) values(210,8,'2017-02-03 13:47:24','불량후기','강남역 고깃집의 충격적인 점심특선!','불량후기 내용입니다','default',51,20);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(200,3,'2017-02-24 15:41:02','불매운동','홍삼액이 가짜 홍삼이라니요.','홍삼액이 가짜 홍삼이라니요-내용','default',78,34,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(201,4,'2017-02-01 19:28:49','불량후기','과자 먹다가 옥수수 털릴 뻔 했어요ㅠㅠ','불량후기 내용입니다','default',59,24,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(202,8,'2017-01-30 21:07:34','불량후기','나방나온다아 나바아앙~~~','불량후기 내용입니다','default',54,19,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(203,6,'2017-02-10 18:03:42','불량후기','혜화역식당, 역대급 불친절!!','불량후기 내용입니다','default',38,9,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(204,2,'2017-02-02 22:14:28','불매운동','존리는 무죄라네요ㅡㅡ','불량후기 내용입니다','default',84,41,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(205,7,'2017-02-10 14:37:54','불매운동','하기스 물티슈 판매중지한대요!!','불량후기 내용입니다','default',93,46,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(206,10,'2017-02-01 19:27:04','불매운동','남양유업 갑질..잊지맙시다!불매불매!','불량후기 내용입니다','default',87,37,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(207,10,'2017-02-14 22:19:54','불량후기','엄망진창 삼성동 미용실 후기입니다.','불량후기 내용입니다','default',61,13,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(208,11,'2016-12-10 21:38:05','불량후기','파리바게트 빵에서 나온 무언가...','불량후기 내용입니다','default',79,42,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(209,4,'2017-02-03 17:04:27','불매운동','제가 질소를 1500원에 샀네요?','불량후기 내용입니다','default',97,43,0);
+insert into review(rvno,mno,rv_date,head,title,cont,path,view_cnt,hodu_cnt,rep_cnt) values(210,8,'2017-02-03 13:47:24','불량후기','강남역 고깃집의 충격적인 점심특선!','불량후기 내용입니다','default',51,20,0);
 
 
 -- 불매운동 --
