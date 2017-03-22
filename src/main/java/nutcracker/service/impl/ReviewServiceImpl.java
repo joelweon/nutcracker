@@ -17,6 +17,10 @@ public class ReviewServiceImpl implements ReviewService {
   public int getSize() throws Exception {
     return reviewDao.countAll();
   }
+  @Override
+  public int getSizeMyBoard(int memberNo) throws Exception {
+    return reviewDao.countAllMyBoard(memberNo);
+  }
 
   @Override
   public List<HashMap<String, Object>> getList(int pageNo, int pageSize) throws Exception {

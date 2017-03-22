@@ -37,7 +37,7 @@ public class MyWishListServiceImpl implements MyWishListService {
   }
   
   @Override
-  public int getSize() throws Exception {
-    return myWishListDao.countAll();
+  public int getSize(int memberNo) throws Exception {
+    return myWishListDao.countAll(memberNo);
   }
 }

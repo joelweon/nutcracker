@@ -29,7 +29,7 @@ public class MyWishListJsonControl {
       pageSize = 5;
     }
     List<HashMap<String, Object>> list = myWishListService.getList(pageNo, pageSize, memberNo);
-    int totalCount = myWishListService.getSize();
+    int totalCount = myWishListService.getSize(memberNo);
     
     HashMap<String, Object> resultMap = new HashMap<>();
     resultMap.put("list",  list);

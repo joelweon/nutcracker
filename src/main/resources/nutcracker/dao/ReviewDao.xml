@@ -27,6 +27,10 @@
   <select id="countAll" resultType="int">
     select count(*) from review;
   </select>
+  <select id="countAllMyBoard" resultType="int">
+    select count(*) from review
+      where mno=#{memberNo}
+  </select>
   
   <select id="getList" parameterType="map" resultMap="map">
     select 
