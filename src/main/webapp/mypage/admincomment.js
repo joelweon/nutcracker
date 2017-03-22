@@ -57,25 +57,26 @@ $('.pgBtn > a').click(function() {
 })
 
 function loadList(pageNo, pageSize) {
-	$.get(serverRoot+'/comment/getCommentReportList.json', function(ajaxResult) {
-		var list = ajaxResult.data;
+	$.get(serverRoot+'/comment/getCommentReportList.json', {"pageNo":pageNo,"pageSize":pageSize}, function(ajaxResult) {
+		var list = ajaxResult.data.list;
+		var totalCount = ajaxResult.data.totalCount;
 		var reviewList = [];
 		var boycottList = [];
-		var tbody = $('.comment-table > tbody');
+		var tbody1 = $('.comment-table > #tbody-review');
+		var tbody2 = $('.comment-table > #tbody-boycott');
 		for (var i=0; i < list.length; i++) {
-			if (ajaxResult.data[i].reviewNo != undefined) {
-				reviewList.push(ajaxResult.data[i]);
+			if (list[i].reviewNo != undefined) {
+				reviewList.push(list[i]);
 			}
-			if (ajaxResult.data[i].boycottNo != undefined) {
-				boycottList.push(ajaxResult.data[i]);
+			if (list[i].boycottNo != undefined) {
+				boycottList.push(list[i]);
 			}
 		}
 		var reviewtemplate = Handlebars.compile($('#reviewTemplate').html());
 		var boycotttemplate = Handlebars.compile($('#boycottTemplate').html());
-		tbody.html("");
-		tbody.append(reviewtemplate({"reviewList":reviewList}));
-		tbody.append(boycotttemplate({"boycottList":boycottList}));
-		preparePagingButton(ajaxResult.data.length);
+		tbody1.html(reviewtemplate({"reviewList":reviewList}));
+		tbody2.html(boycotttemplate({"boycottList":boycottList}));
+		preparePagingButton(totalCount);
 	});
 }
 

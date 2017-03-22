@@ -19,6 +19,7 @@ public interface CommentDao {
   int insertCommentReport(HashMap<String, String> map) throws Exception;
   int updateReportCmt(HashMap<String, String> map) throws Exception;
   int countReport(HashMap<String, String> map) throws Exception;
-  List<HashMap<String, Object>> getCommentReportList() throws Exception;
+  List<HashMap<String, Object>> getCommentReportList(HashMap<String, Object> paramMap) throws Exception;
   List<String> getCommentReportReasons(int ownNo) throws Exception;
+  int countTotalList() throws Exception;
 }

@@ -96,8 +96,11 @@ public class CommentServiceImpl implements CommentService {
   }
 
   @Override
-  public List<HashMap<String, Object>> getCommentReportList() throws Exception {
-    List<HashMap<String, Object>> map = commentDao.getCommentReportList();
+  public List<HashMap<String, Object>> getCommentReportList(int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    List<HashMap<String, Object>> map = commentDao.getCommentReportList(paramMap);
     List<String> list;
     for (int i = 0 ; i < map.size(); i++) {
       int commentNo = Integer.parseInt(map.get(i).get("commentNo").toString());
@@ -105,5 +108,10 @@ public class CommentServiceImpl implements CommentService {
       map.get(i).put("report", list);
     }
     return map;
+  }
+
+  @Override
+  public int getSize() throws Exception {
+    return commentDao.countTotalList();
   }
 }
