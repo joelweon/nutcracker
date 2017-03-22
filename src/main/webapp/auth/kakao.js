@@ -6,9 +6,11 @@ function createKakaotalkLogin() {
     persistAccessToken: false,
     persistRefreshToken: false,
     success: function(authObj) {
+      console.log(authObj);
       Kakao.API.request({
         url: '/v1/user/me',
         success: function(res) {
+          window.sessionStorage.setItem('kakao', Kakao.Auth.getAccessToken());
           //console.log(res.kaccount_email);
           var param = {
             name: res.properties.nickname,
@@ -29,6 +31,8 @@ function createKakaotalkLogin() {
     }
   });
 };
-document.getElementById('kaout').addEventListener('click', function() {
+//로그아웃 버튼 (임시)
+/*document.getElementById('kaout').addEventListener('click', function() {
+  console.log(Kakao.Auth.getAccessToken());
   Kakao.Auth.logout();
-})
+})*/
