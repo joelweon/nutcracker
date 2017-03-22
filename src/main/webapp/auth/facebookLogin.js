@@ -1,7 +1,6 @@
 function getUserData() {
   FB.api('/me', function(response) {
     //document.getElementById('response').innerHTML = response.name;
-    document.getElementById('logoutBtn').style.display = '';
       var param = {
           name: response.name,
           photoPath: 'http://graph.facebook.com/' + response.id + '/picture'
@@ -22,12 +21,13 @@ window.fbAsyncInit = function() {
     xfbml  : true, // 소셜 플러그인이 있으면 처리
     version : 'v2.8' // use version 2.8
   });
-
+ 
   //check user session and refresh it
   FB.getLoginStatus(function(response) {
+    //console.log(response);
     if (response.status === 'connected') {
       //user is authorized
-      //document.getElementById('facebookLogin').style.display = 'none';
+      //document.getElementById('loginBtn').style.display = 'none';
       getUserData();
 
     } else {
@@ -49,19 +49,12 @@ document.getElementById('facebookLogin').addEventListener('click', function() {
   //do the login
   FB.login(function(response) {
     if (response.authResponse) {
-      location.href = serverRoot;
+      //console.log(response.authResponse);
+      //location.href = serverRoot;
       //user just authorized your app
-      //document.getElementById('facebookLogin').style.display = 'none';
+      //document.getElementById('loginBtn').style.display = 'none';
       getUserData();
     }
   }, {scope: 'email,public_profile', return_scopes: true});
 }, false);
 
-//add event listener to login button
-//document.getElementById('logoutBtn').addEventListener('click', function() {
-//  FB.logout(function(response) {
-//    
-//    // user is now logged out
-//    console.log('logout- ' + response);
-//  });
-//}, false);

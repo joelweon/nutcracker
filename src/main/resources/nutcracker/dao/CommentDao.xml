@@ -155,8 +155,13 @@
       left outer join review on rc.rvno=review.rvno
       left outer join bot_cmt bc on cm.ctno=bc.ctno
       left outer join bot on bc.botno=bot.botno
-    where cm.rep_cnt > 1
+    where cm.rep_cnt &gt; 1
     group by cm.ctno
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+  <select id="countTotalList" resultType="int">
+    select count(*) from cmt where rep_cnt &gt; 1
   </select>
   
   <select id='getCommentReportReasons' parameterType="int" resultMap="map">
@@ -166,5 +171,25 @@
     where cmt_rep.ctno=#{value}
     group by cont
   </select>
+  
+  <select id='existCmtInBot' parameterType="int" resultType="int">
+    select count(*)
+    from bot_cmt 
+    where ctno=#{value}
+  </select>
+  
+  <!-- ctno를 사용하여 댓글 지우기 (DB에서 삭제) -->
+  <delete id='deleteReportCmt' parameterType='int'>
+    delete from cmt where ctno=#{value}
+  </delete>
+  <delete id='deleteCmtReportReason' parameterType='int'>
+    delete from cmt_rep where ctno=#{value}
+  </delete>
+  <delete id='deleteReviewCmtRelByCtno' parameterType='int'>
+    delete from rev_cmt where ctno=#{value}
+  </delete>
+  <delete id='deleteBotCmtRelByCtno' parameterType='int'>
+    delete from bot_cmt where ctno=#{value}
+  </delete>
   
 </mapper>

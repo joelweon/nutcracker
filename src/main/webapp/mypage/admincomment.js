@@ -57,24 +57,31 @@ $('.pgBtn > a').click(function() {
 })
 
 function loadList(pageNo, pageSize) {
-	$.get(serverRoot+'/comment/getCommentReportList.json', function(ajaxResult) {
-		var list = ajaxResult.data;
+	$.get(serverRoot+'/comment/getCommentReportList.json', {"pageNo":pageNo,"pageSize":pageSize}, function(ajaxResult) {
+		var status = ajaxResult.status;
+    if (status != "success") {
+    	$('.comment-table > #tbody-review').html("<tr><td></td><td></td><td></td><td>"+ajaxResult.data+"</td><td></td><td></td></tr>");
+      return;
+    }
+		var list = ajaxResult.data.list;
+		var totalCount = ajaxResult.data.totalCount;
 		var reviewList = [];
 		var boycottList = [];
-		var tbody = $('.comment-table > tbody');
+		var tbody1 = $('.comment-table > #tbody-review');
+		var tbody2 = $('.comment-table > #tbody-boycott');
 		for (var i=0; i < list.length; i++) {
-			if (ajaxResult.data[i].reviewNo != undefined) {
-				reviewList.push(ajaxResult.data[i]);
+			if (list[i].reviewNo != undefined) {
+				reviewList.push(list[i]);
 			}
-			if (ajaxResult.data[i].boycottNo != undefined) {
-				boycottList.push(ajaxResult.data[i]);
+			if (list[i].boycottNo != undefined) {
+				boycottList.push(list[i]);
 			}
 		}
 		var reviewtemplate = Handlebars.compile($('#reviewTemplate').html());
 		var boycotttemplate = Handlebars.compile($('#boycottTemplate').html());
-		tbody.append(reviewtemplate({"reviewList":reviewList}));
-		tbody.append(boycotttemplate({"boycottList":boycottList}));
-		preparePagingButton(ajaxResult.data.length);
+		tbody1.html(reviewtemplate({"reviewList":reviewList}));
+		tbody2.html(boycotttemplate({"boycottList":boycottList}));
+		preparePagingButton(totalCount);
 	});
 }
 
@@ -124,55 +131,27 @@ function preparePagingButton(totalCount) {
 }
 
 // 삭제
-/*$('.main-contents .delete-div > .delete-btn').click(function(e) {
+$('.main-contents .delete-div > .delete-btn').click(function(e) {
   e.preventDefault();
-  alertify.confirm("정말 삭제하시겠습니까??", function(e) {
+  alertify.confirm("정말 삭제하시겠습니까?", function(e) {
     if (e) {
-      
-      var rnoAry = new Array();
+      var noAry = new Array();
       $('input[name=box]:checked').each(function() {
-        rnoAry.push($(this).val());
+        noAry.push($(this).val());
       });
       jQuery.ajaxSettings.traditional = true;
-      console.log(rnoAry);
-      
       //댓삭
       $.ajax({
         method : 'POST',
-        url    : serverRoot + '/comment/deleteReviewCmtsMy.json',
+        url    : serverRoot + '/comment/deleteReportCmt.json',
         data   : {
-          'ownNo' : rnoAry
+          'commentNo' : noAry
         }
       });
+      loadList(curPageNo, pageSize);
     } else { //취소
       return;
     }
   });
 }) //delete
-*/
-// 신고취소(0으로 세팅)
-/*$('.main-contents .delete-div > a.reset-btn').click(function(e) {
-  e.preventDefault();
-  alertify.confirm("정말 복구하시겠습니까??", function(e) {
-    if (e) {
-      var rnoAry = new Array();
-      $('input[name=box]:checked').each(function() {
-        rnoAry.push($(this).val());
-      });
-      jQuery.ajaxSettings.traditional = true;
-      console.log(rnoAry);
-      
-      $.ajax({
-        method : 'POST',
-        url    : serverRoot + "/review/resetReport.json",
-        data   : {
-          'rnoAry' : rnoAry
-        }
-      }).done(function() {
-        location.reload();
-      });
-    } else { //취소
-      return;
-    }
-  });
-});*/
+
