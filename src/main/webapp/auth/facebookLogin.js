@@ -51,6 +51,7 @@ document.getElementById('loginBtn').addEventListener('click', function() {
   //do the login
   FB.login(function(response) {
     if (response.authResponse) {
+      console.log(response.authResponse);
       //location.href = serverRoot;
       console.log('login- '+ response);
       //user just authorized your app
