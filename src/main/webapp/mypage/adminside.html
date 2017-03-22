@@ -1,12 +1,13 @@
 <nav class="my-side-menu">
   <h2>관리페이지</h2>
   <ul>
-    <li><a href="mypage.html">회원 관리</a></li>
-    <li><a href="myboycott.html">기업 관리</a></li>
-    <li><a href="deleteboard.html">삭제글 관리</a></li>
-   <!--  <li><a href="mywish.html">위시리스트</a></li> -->
-    <li><a href="myboard.html">신고글 관리</a></li>
-    <li><a href="admincomment.html">댓글 관리</a></li>
+    <li id='side-member' class='parent'><a href="mypage.html">회원 관리</a></li>
+    <li id='side-boycott' class='parent'><a href="myboycott.html">기업 관리</a></li>
+    <li id='side-myboard' class='parent'><a href="deleteboard.html">게시글 관리</a></li>
+    <li id='side-boardDel' class='child'><a href="deleteboard.html">삭제글 관리</a></li>
+    <li id='side-boardRep' class='child'><a href="myboard.html">신고글 관리</a></li>
+    <li id='side-comment' class='parent'><a href="admincomment.html">댓글 관리</a></li>
+    <li id='side-commentRep' class='child'><a href="admincomment.html">신고댓글 관리</a></li>
     <!-- <li><a href="myhodu.html">내가던진호두</a></li> -->
   </ul>
 </nav>

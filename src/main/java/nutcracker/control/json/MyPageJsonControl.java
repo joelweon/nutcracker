@@ -29,7 +29,7 @@ public class MyPageJsonControl {
       pageSize = 5;
     }
     List<HashMap<String, Object>> list = reviewService.getListMy(pageNo, pageSize, memberNo);
-    int totalCount = reviewService.getSize();
+    int totalCount = reviewService.getSizeMyBoard(memberNo);
     
     HashMap<String, Object> resultMap = new HashMap<>();
     resultMap.put("list",  list);

@@ -58,7 +58,8 @@
   </delete>
   
   <select id="countAll" resultType="int">
-    select count(*) from WISH;
+    select count(*) from WISH
+      where MNO=#{memberNo}
   </select>
   
 </mapper>

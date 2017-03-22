@@ -40,6 +40,8 @@ if (device.indexOf('Mobile') != -1) {
   alert('contents is empty');
 } */
 $('#write').click(function() {
+  event.preventDefault();
+  $('#loading-img').fadeIn('slow');
   var param;
   $.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
     if (ajaxResult.status != 'success') { 
@@ -48,19 +50,12 @@ $('#write').click(function() {
     }
     /* 썸네일 사진 업로드 */
     var contents = $('#summernote').summernote('code');
-    console.log('-----------------')
-    console.log($(contents).find('img').attr('src'));
-    console.log('-----------------')
-    var start = contents.indexOf('<img src=');
-    if (start == -1) {
-      thumbnail = 'default';
-    } else {
-      var end = contents.indexOf('data-filename', start);
-      dataURL = contents.substring(start + 10, end - 2);
-      var blob = dataURItoBlob(dataURL);
-      /*var fd = new FormData(document.forms[0]);
-      fd.append("image", blob);*/
+    if ($(contents).find('img').length >= 1) {
+      var dataURL = $(contents).find('img').attr('src');
+      var blob = dataURItoBlob($(contents).find('img').attr('src'));
       uploadImage(blob);
+    } else {
+      thumbnail = 'default';
     }
     
     param = {
@@ -70,6 +65,7 @@ $('#write').click(function() {
       content: contents,
       photoPath: thumbnail,
     };
+    
     $.post(serverRoot + '/review/add.json', param, function(ajaxResult) {
       if (ajaxResult.status != "success") {
         alert(ajaxResult.data);

@@ -17,23 +17,40 @@
   background-color: rgb(100, 25, 25);
   list-style-type: none;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-.my-side-menu ul>li {
-  margin-top: 20px;
-  padding: 10px 0px 10px 0px;
-  
+.my-side-menu ul > li {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1px;
+}
+li.parent.unselected {
+  font-size: 1em;
+}
+li.parent.selected { background-color: #802525; font-weight: bolder;}
+li.child.unselected {
+  font-size: 0.9em;
+  background-color: #f1f1f1;
+}
+li.child.selected {
+	font-weight: bolder;
+	background-color: #f1f1f1;
 }
 
-.my-side-menu ul>li>a {
+.my-side-menu ul > li > a {
   display: block;
+  padding: 15px 0px 15px 15px;
   text-decoration: none;
-  padding: 10px;
   color: #fff;
 }
+.my-side-menu ul > li.child > a { color: #252525; }
 
-.my-side-menu ul>li>a:hover {
-  background-color: #802525;
+.my-side-menu ul > li.parent:hover { background-color: #802525; }
+.my-side-menu ul > li.child a:hover { 
+  background-color: #555;
+  color: #fff;
 }
 /* side menu  CSS */
 
@@ -47,7 +64,7 @@
     margin-bottom: 10px;
   }
   
-  .my-side-menu h2 {
+  .my-side-menu h3 {
     text-align: center;
     color: white;
     display:none;
@@ -62,18 +79,18 @@
     text-align: center;
   }
   
-  .my-side-menu ul>li {
+  .my-side-menu ul > li {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     border : 0;
     display:inline-block;
   }
   
-  .my-side-menu ul>li>a {
+  .my-side-menu ul > li > a {
     padding: 5px;
   }
   
-  .my-side-menu ul>li>a:hover {
+  .my-side-menu ul > li > a:hover {
     background-color: #802525;
   }
 }

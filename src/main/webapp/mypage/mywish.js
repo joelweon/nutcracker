@@ -59,7 +59,7 @@ try {
 } catch (error) {
   var curPageNo = 1; // 현재페이지
 }
-var pageSize = 10; // 한 페이지에 보여줄 글 갯수
+var pageSize = 5; // 한 페이지에 보여줄 글 갯수
 var pageGpSize = 5; // 페이지그룹 크기
 var pRCnt = parseInt(curPageNo / pageGpSize); // 페이지그룹 번호
 var maxPageNo; // 총 페이지 수

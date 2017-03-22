@@ -52,19 +52,28 @@ $(document).ready(function() {
            xfbml      : true,
            version    : 'v2.8' 
         });
-        
+        Kakao.init('413a2236a9af2136f9841c01e0335019');
+
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+          Kakao.Auth.logout();
         //add event listener to login button
             FB.getLoginStatus(function(response) {
-              console.log(FB.getAuthResponse());
-              console.log(response);
+              //console.log(FB.getAuthResponse());
               if (response && response.status === 'connected') {
-                console.log(3120);
                   FB.logout(function(response) {
-                    location.reload();
+                    location.href=serverRoot;
+                    if (location.href.indexOf('mypage') != -1) {
+                      location.href = serverRoot + '/main.html';
+                    } else {
+                      location.reload();
+                    }
                   }, {scope:'email,public_profile', return_scopes: false});
               } else {
-                  location.reload();
+                  if (location.href.indexOf('mypage') != -1) {
+                    location.href = serverRoot + '/main.html';
+                  } else {
+                    location.reload();
+                  }
               }
           });
         });

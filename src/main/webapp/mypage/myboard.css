@@ -103,7 +103,7 @@ body {
   margin-left:2px;
   color: #fff;
   position: relative;
-  display: inline-block;
+  display: none;
   background-color: #0080ff;
   box-shadow: 0px 5px 0px 0px #004080;
 }

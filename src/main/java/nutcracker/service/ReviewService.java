@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ReviewService {
   int getSize() throws Exception;
+  int getSizeMyBoard(int memberNo) throws Exception;
   int updateRead(String reviewNo) throws Exception;
   int updateHodu(String reviewNo) throws Exception;
   List<HashMap<String, Object>> getList(int pageNo, int pageSize) throws Exception;

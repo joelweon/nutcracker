@@ -155,8 +155,8 @@ label.input-search.hover { color: #343434; }
 /* .div-profile { display: none; }
 .div-profile.on { display: block; } */
 .popup {
-	position: absolute;
-	right: 4.5%;
+	position: fixed;
+	right: 22px;
 	top: 70px;
 	z-index: 100;
   background-color: #fff;
@@ -167,7 +167,6 @@ label.input-search.hover { color: #343434; }
   flex-direction: column;
   justify-content: center;
   align-items: center;
-/*   box-shadow: 0 1.5rem 0 0.5rem PaleVioletRed; */
 }
 .popup > hr { margin: 10px 0; }
 .popup > a { text-decoration: none; }
@@ -192,8 +191,8 @@ label.input-search.hover { color: #343434; }
 #user-name { font-size: 1.2em; color: #525252; font-weight: bold; }
 #user-email { color: #aaa; }
 .triangle {
-	position: absolute;
-  right: 4.5%;
+	position: fixed;
+  right: 45px;
   top: 60px;
   display: block;
   z-index: 100;

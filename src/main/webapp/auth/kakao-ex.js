@@ -1,26 +1,26 @@
 function createKakaotalkLogin() {
-	Kakao.init("413a2236a9af2136f9841c01e0335019");
+  Kakao.init("413a2236a9af2136f9841c01e0335019");
   // 로그인 창을 띄웁니다.
   Kakao.Auth.login({
     persistAccessToken: false,
     persistRefreshToken: false,
     success: function(authObj) {
-    	Kakao.API.request({
+      Kakao.API.request({
         url: '/v1/user/me',
         success: function(res) {
-        	var param = {
-        		name: res.properties.nickname,
-        		photoPath: res.properties.profile_image
-        	}
-        	$.post(serverRoot+"/auth/snsLogin.json", param, function(ajaxResult) {
-          	/*location.href=serverRoot+"/main.html";*/
+          var param = {
+            name: res.properties.nickname,
+            photoPath: res.properties.profile_image
+          }
+          $.post(serverRoot+"/auth/snsLogin.json", param, function(ajaxResult) {
+            /*location.href=serverRoot+"/main.html";*/
           }, "json");
         },
         fail: function(error) {
           console.log(error);
         }
       });
-    	createKakaotalkLogout();
+      createKakaotalkLogout();
     },
     fail: function(err) {
       console.log(err);

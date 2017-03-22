@@ -18,5 +18,11 @@ public interface CommentService {
   int commentReport(HashMap<String, String> map) throws Exception;
   int updateReportCmt(HashMap<String, String> map) throws Exception;
   int existReport(HashMap<String, String> map) throws Exception;
-  List<HashMap<String, Object>> getCommentReportList() throws Exception;
+  List<HashMap<String, Object>> getCommentReportList(int pageNo, int pageSize) throws Exception;
+  int getSize() throws Exception;
+  int existCmtInBot(int commentNo) throws Exception;
+  int deleteReportCmt(int commentNo) throws Exception;
+  int deleteCmtReportReason(int commentNo) throws Exception;
+  int deleteReviewCmtRelByCtno(int commentNo) throws Exception;
+  int deleteBotCmtRelByCtno(int commentNo) throws Exception;
 }

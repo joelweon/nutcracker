@@ -41,7 +41,8 @@
   	        <th>작성자</th>
   	      </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id='tbody-review'></tbody>
+        <tbody id='tbody-boycott'></tbody>
       </table>
     </div>
     <!-- 페이지이동 -->
@@ -69,7 +70,7 @@
 {{#each reviewList}}
   <tr>
     <td class="comment-table-data">
-      <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+      <input name="box" class="td-check" type="checkbox" value={{commentNo}}>
     </td>
     <td>불량후기</td>
     <td><a href="#" data-tooltip="{{reviewTitle}}" data-placement="bottom">{{reviewNo}}</a></td>
@@ -84,7 +85,7 @@
 {{#each boycottList}}
   <tr>
     <td class="comment-table-data">
-      <input name="box" class="td-check" type="checkbox" value={{boycottNo}}>
+      <input name="box" class="td-check" type="checkbox" value={{commentNo}}>
     </td>
     <td>불매운동</td>
     <td><a href="#" data-tooltip="{{boycottTitle}}" data-placement="bottom">{{boycottNo}}</a></td>

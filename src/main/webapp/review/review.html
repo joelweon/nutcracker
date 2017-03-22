@@ -47,7 +47,7 @@
 		  <table id='table-review' class="table table-hover table-review">
 			  <thead>
 		        <tr>
-		          <th><input id="allCheck" class="th-check" type="checkbox"/></th>
+		          <th class="table-check"><input id="allCheck" class="th-check" type="checkbox"/></th>
 		          <th id='no'>No.</th>
 		          <th id='title'>제목</th>
 		          <th id='writer'>작성자</th>
@@ -104,7 +104,7 @@
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
 <tr>
-  <td class="board-table-date">
+  <td class="table-check">
     <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
   </td>
   <td>{{reviewNo}}</td>

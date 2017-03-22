@@ -14,6 +14,13 @@ var listSearch = 'list'; //단순리스팅 or 검색리스팅
 var range; // 검색범위
 var keyword; // 검색어
 
+$(function() {
+  //페이지 처음 로딩시
+  document.location.hash = '#1';
+  checkForHash();
+});
+
+
 $('#btn-write').click(function(event) {
   event.preventDefault();
   $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
@@ -26,13 +33,6 @@ $('#btn-write').click(function(event) {
     }
   });
 });
-
-//loadList(curPageNo, pageSize);
-  
-// 페이지 처음 로딩시
-document.location.hash = '#1';
-checkForHash();
-// hash 값 변경
 
 function checkForHash() {
   //console.log(document.location);
@@ -93,6 +93,7 @@ function loadList(pageNo, pageSize) {
         location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
       });
    
+      formForAdmin();
       // 페이지 버튼 설정
       preparePagingButton(ajaxResult.data.totalCount);
     });
@@ -124,12 +125,26 @@ function loadList(pageNo, pageSize) {
           location.href = clientRoot + '/review/review-detail.html?reviewNo=' + $(this).attr("data-no");
         });
       }
-   
+      formForAdmin();
       // 페이지 버튼 설정
       preparePagingButton(ajaxResult.data.totalCount);
     });
   }
     
+}
+
+function formForAdmin() {
+  $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+    if (ajaxResult.status != 'success') {
+      return;
+    } else {
+      if (ajaxResult.data.memberNo == 1) {
+        $('a#btn-delete').css('display', 'block');
+        $('th.table-check').css('display', 'table-cell');
+        $('td.table-check').css('display', 'table-cell');
+      }
+    }
+  });
 }
 
 function preparePagingButton(totalCount) {
@@ -139,7 +154,6 @@ function preparePagingButton(totalCount) {
   }
 
   // 현재 1페이지면 이전 버튼 비활성화
-  console.log("curPageNo: " + curPageNo + ", maxPageNo: " + maxPageNo);
   var prevBtn = $('#prevPgBtn');
   if (curPageNo <= 1) {
     prevBtn.addClass('disabled');

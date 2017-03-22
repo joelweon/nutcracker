@@ -30,4 +30,5 @@ public interface ReviewDao {
   List<HashMap<String, Object>> getDeleteList(Map<String, Object> paramMap) throws Exception;
   int countDelete() throws Exception;
   int resetDelete(int reviewNo) throws Exception;
+  int countAllMyBoard(int memberNo);
 }

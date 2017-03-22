@@ -2,8 +2,8 @@ $(function(){
   $("#allCheck").click(function(){
     if($("#allCheck").prop("checked")) {
       $("input[type=checkbox]").prop("checked",true);
-        } else {
-          $("input[type=checkbox]").prop("checked",false);
+    } else {
+      $("input[type=checkbox]").prop("checked",false);
     }
   })
 })
@@ -78,6 +78,7 @@ function loadList(pageNo, pageSize) {
           return;
         } else {
           $('th.repCnt').css('display', 'none');
+          $('a.reset-btn').css('display', 'inline-block');
           var tbody = $('.board-table > tbody');
 
           var admintemplate = Handlebars.compile($('#adminTemplate').html());
@@ -185,7 +186,8 @@ $('.main-contents .delete-div > .delete-btn').click(function(e) {
           'rnoAry' : rnoAry
         }
       }).done(function() {
-        location.reload();
+        //location.reload();
+        loadList(curPageNo, pageSize);
       });
     } else { //취소
       return;
@@ -212,7 +214,8 @@ $('.main-contents .delete-div > a.reset-btn').click(function(e) {
           'rnoAry' : rnoAry
         }
       }).done(function() {
-        location.reload();
+        //location.reload();
+        loadList(curPageNo, pageSize);
       });
     } else { //취소
       return;
