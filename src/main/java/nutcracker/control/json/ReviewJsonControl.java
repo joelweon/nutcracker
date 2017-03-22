@@ -168,6 +168,7 @@ public class ReviewJsonControl {
   @RequestMapping("/review/deleteMy")
   public AjaxResult deleteMy(String[] rnoAry) throws Exception {
     for (int i = 0; i < rnoAry.length; i++) {
+      reviewService.deleteReportRls(Integer.parseInt(rnoAry[i]));
       reviewService.delete(Integer.parseInt(rnoAry[i]));
     }
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
@@ -183,5 +184,29 @@ public class ReviewJsonControl {
       reviewService.reportPlus(Integer.parseInt(paramMap.get("reviewNo").toString()));
       return new AjaxResult(AjaxResult.SUCCESS, "신고 성공입니다.");
     }
+  }
+  
+  @RequestMapping("/review/resetReport")
+  public AjaxResult resetReport(String[] rnoAry) throws Exception {
+    for (int i = 0; i < rnoAry.length; i++) {
+      reviewService.resetReport(Integer.parseInt(rnoAry[i]));
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "신고글 복구 성공입니다.");
+  }
+  
+  @RequestMapping("/review/moveDelete")
+  public AjaxResult moveDelete(String[] rnoAry) throws Exception {
+    for (int i = 0; i < rnoAry.length; i++) {
+      reviewService.moveDelete(Integer.parseInt(rnoAry[i]));
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제페이지로 이동 성공입니다.");
+  }
+  
+  @RequestMapping("/review/resetDelete")
+  public AjaxResult resetDelete(String[] rnoAry) throws Exception {
+    for (int i = 0; i < rnoAry.length; i++) {
+      reviewService.resetDelete(Integer.parseInt(rnoAry[i]));
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "삭제글 복구 성공입니다.");
   }
 }

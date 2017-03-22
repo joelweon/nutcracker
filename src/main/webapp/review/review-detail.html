@@ -139,14 +139,29 @@
     <span class='review-detail-info-nickname review-detail-comment-others-nick'>{{name}}</span>
     <span class='review-detail-comment-others-sentence'>{{content}}</span>
     <div id='report-{{commentNo}}'>
-      <div class='report-menu'>
+      <div class='report-menu control-group'>
         <div class='report-title'><span>신고 이유 선택<span></div>
         <div class='report-radio-btn'>
-          <input type="radio" name='reasons'class="report-reason" value="1">광고/음란성 댓글<br>
-          <input type="radio" name='reasons' class="report-reason" value="2">도배성 댓글<br>
-          <input type="radio" name='reasons' class="report-reason" value="3">욕설/반말/부적절한 언어 사용<br>
-          <input type="radio" name='reasons' class="report-reason" value="4">지나친 정치/종교 논쟁<br>
-          <input type="radio" name='reasons' class="report-reason" value="5">회원 분란 유도<br>
+          <label class='control control--radio'>
+            <input type="radio" name='reasons'class="report-reason" value="1">광고/음란성 댓글<br>
+            <div class="control__indicator"></div>
+          </label>
+          <label class='control control--radio'>
+            <input type="radio" name='reasons' class="report-reason" value="2">도배성 댓글<br>
+            <div class="control__indicator"></div>
+          </label>
+          <label class='control control--radio'>
+            <input type="radio" name='reasons' class="report-reason" value="3">욕설/반말/부적절한 언어 사용<br>
+            <div class="control__indicator"></div>
+          </label>
+          <label class='control control--radio'>
+            <input type="radio" name='reasons' class="report-reason" value="4">지나친 정치/종교 논쟁<br>
+            <div class="control__indicator"></div>
+          </label>
+          <label class='control control--radio'>
+            <input type="radio" name='reasons' class="report-reason" value="5">회원 분란 유도<br>
+            <div class="control__indicator"></div>
+          </label>
         </div>
         <button type="button" class="report-submit-btn btn btn-default btn-xs">제출</button>
       </div>

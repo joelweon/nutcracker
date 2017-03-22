@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="mytop.css">
   <link rel="stylesheet" href="myside.css">
-  <link rel="stylesheet" href="myboard.css">
+  <link rel="stylesheet" href="admincomment.css">
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/alertify.core.css">
   <link rel="stylesheet" href="../css/alertify.default.css">
@@ -30,16 +30,15 @@
   
   <div class="main-contents">
     <div>
-      <table class="board-table">
+      <table class="comment-table">
         <thead>
-          <tr class="board-list-title">
+          <tr class="comment-list-title">
   	        <th><input id="allCheck" class="th-check" type="checkbox"/></th>
-  	        <th>제목</th>
-  	        <th class='name'>작성자</th>
-  	        <th>작성일</th>
-  	        <th>조회수</th>
-  	        <th>추천수</th>
-  	        <th class='repCnt'>신고수</th>
+  	        <th>게시판명</th>
+  	        <th>글번호</th>
+  	        <th>댓글내용</th>
+  	        <th>신고사유</th>
+  	        <th>작성자</th>
   	      </tr>
         </thead>
         <tbody></tbody>
@@ -59,62 +58,50 @@
     </div>
     <!-- 삭제 버튼 -->
     <div class="delete-div">
-      <a class="btn reset-btn">복구</a>
-      <a class="btn delete-btn">삭제</a>
+      <a href="#" class="delete-btn">삭제</a>
     </div>
   </div>
 </div>
 <!-- 풋터 -->
 <div id='wrap-footer'></div>
 
-
-<!-- <div id='wrap-footer'></div> -->
-
-<script id="trTemplate" type="text/x-handlebars-template">
-{{#each list}}
-        <tr>
-          <td class="board-table-date">
-            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
-          </td>
-          <td class="board-list">
-            <div>
-              <a href=http://localhost:8080/nutcracker/review/review-detail.html?reviewNo={{reviewNo}}><p>{{title}}</p></a>
-            </div>
-          </td>
-          <td class="board-reportdate">{{postTime}}</td>
-          <td class="board-viewcnt">{{viewCount}}</td>
-          <td class="board-like">{{hoduCount}}</td>
-          <td class="board-rep">{{reportCount}}</td>
-        </tr>
+<script id="reviewTemplate" type="text/x-handlebars-template">
+{{#each reviewList}}
+  <tr>
+    <td class="comment-table-data">
+      <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
+    </td>
+    <td>불량후기</td>
+    <td><a href="#" data-tooltip="{{reviewTitle}}" data-placement="bottom">{{reviewNo}}</a></td>
+    <td><a href="#" data-tooltip="{{content}}" data-placement="bottom">{{content}}</a></td>
+    <td><a href="#" data-tooltip="{{#each report}}{{content}}
+{{/each}}" data-placement="bottom">상세보기</a></td>
+    <td>{{name}}</td>
+  </tr>
 {{/each}}
 </script>
-
-<script id="adminTemplate" type="text/x-handlebars-template">
-{{#each list}}
-        <tr>
-          <td class="board-table-date">
-            <input name="box" class="td-check" type="checkbox" value={{reviewNo}}>
-          </td>
-          <td class="board-list">
-            <div>
-              <a href=http://localhost:8080/nutcracker/review/review-detail.html?reviewNo={{reviewNo}}><p>{{title}}</p></a>
-            </div>
-          </td>
-          <td class="board-name">{{name}}</td>
-          <td class="board-reportdate">{{postTime}}</td>
-          <td class="board-viewcnt">{{viewCount}}</td>
-          <td class="board-like">{{hoduCount}}</td>
-        </tr>
+<script id="boycottTemplate" type="text/x-handlebars-template">
+{{#each boycottList}}
+  <tr>
+    <td class="comment-table-data">
+      <input name="box" class="td-check" type="checkbox" value={{boycottNo}}>
+    </td>
+    <td>불매운동</td>
+    <td><a href="#" data-tooltip="{{boycottTitle}}" data-placement="bottom">{{boycottNo}}</a></td>
+    <td><a href="#" data-tooltip="{{content}}" data-placement="bottom">{{content}}</a></td>
+    <td><a href="#" data-tooltip="{{#each report}}{{content}}
+{{/each}}" data-placement="bottom">상세보기</a></td>
+    <td>{{name}}</td>
+  </tr>
 {{/each}}
 </script>
 <script src="../js/context.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/common.js"></script>
-<!-- <script src="../js/header.js"></script> -->
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="mypage.js"></script>
-<script src="myboard.js"></script>
+<script src="admincomment.js"></script>
 <script type="text/javascript" src="../js/alertify.min.js"></script>
 </body>
 </html>

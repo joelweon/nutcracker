@@ -187,20 +187,20 @@
   box-shadow: -2px -2px 15px #808080;
   border-radius:5px;
   position: absolute;
-  width:200px;
-  height:175px;
+  width:220px;
+  height:220px;
   right:5px;
   bottom:90%;
   background-color: white;
   color:black;
 }
-.reprot-radio-btn {
+.report-radio-btn {
   padding: 0 5px;
 }
 .report-submit-btn {
   position: absolute;
   bottom: 5px;
-  left: 70px;
+  left: 80px;
   padding: 0 20px;
 }
 .review-detail-comment-input {

@@ -13,7 +13,7 @@
 .div-menu a#review { color: red; }
 
 /* 글쓰기버튼 */
-#btn-write { margin-bottom: 5px; float: right; }
+#btn-write, #btn-delete { margin-bottom: 5px; float: right; }
 
 /* 불매후기 리스트 테이블 */
 .table-review { width: 100%; font-size: 1.1em; }

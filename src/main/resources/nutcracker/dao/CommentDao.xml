@@ -15,8 +15,11 @@
     <result column="rep_cnt"  property="reportCount"/>
     <result column="del_yn"   property="commentDelete"/>
     <result column="botno"    property="boycottNo"/>
+    <result column="rvno"    property="reviewNo"/>
     <result column="pno"      property="purchaseNo"/>
     <result column="rwno"     property="reportNo"/>
+    <result column="bottitle"     property="boycottTitle"/>
+    <result column="reviewtitle"     property="reviewTitle"/>
   </resultMap>
   
   <select id='getReviewCmtList' parameterType="int" resultMap="map">
@@ -134,6 +137,34 @@
     select count(*)
     from cmt_rep
     where ctno=#{commentNo} and mno=#{memberNo}
+  </select>
+  
+  <select id='getCommentReportList' parameterType="map" resultMap="map">
+    select
+      cm.ctno,
+      m.name,
+      cm.cont,
+      rc.rvno,
+      review.title as reviewtitle,
+      bc.botno,
+      bot.title as bottitle
+    from cmt cm
+      left outer join memb m on cm.mno=m.mno
+      left outer join cmt_rep cr on cm.ctno=cr.ctno
+      left outer join rev_cmt rc on cm.ctno=rc.ctno
+      left outer join review on rc.rvno=review.rvno
+      left outer join bot_cmt bc on cm.ctno=bc.ctno
+      left outer join bot on bc.botno=bot.botno
+    where cm.rep_cnt > 1
+    group by cm.ctno
+  </select>
+  
+  <select id='getCommentReportReasons' parameterType="int" resultMap="map">
+    select cont
+    from rep_why
+      left outer join cmt_rep on rep_why.rwno=cmt_rep.rwno
+    where cmt_rep.ctno=#{value}
+    group by cont
   </select>
   
 </mapper>

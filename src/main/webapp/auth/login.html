@@ -8,8 +8,9 @@
 
   <title>The Nutcracker</title>
   <link rel="stylesheet" href="../css/alertify.core.css">
-<link rel="stylesheet" href="../css/alertify.default.css">
+  <link rel="stylesheet" href="../css/alertify.default.css">
   <link rel="stylesheet" href="login.css">
+  
 </head>
  
 <body>
@@ -47,29 +48,37 @@
           </div>
 
         <div class="connect-section">
-          <div class="naver-join" id="naver_id_login">
-            <button type="button" class="btn" id="btn-n">
+          <div class="snslogin"><span>SNS로 로그인하기</span></div>
+           <div class="naver-join inl" id="naver_id_login">
+            <button type="button" class="btn inl" id="btn-n">
             계정으로 로그인
             </button>
-          </div>
+          </div> 
 
 <!--           <div class="kakao-join" id="kakao-logged-group">
             <button type="button" class="btn" id="btn-k">
             계정으로 로그인
             </button>
           </div> -->
-          <div>
+          <div class="inl">
             <a id="custom-login-btn" href="javascript:void(0);" onclick="createKakaotalkLogin()">
-              <img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="300"/>
+              <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium_ov.png" width="42" height="42"/>
             </a>
-            <div id="kakao-logged-group"></div>
-            <div id=kakao-profile></div>
+            <div id="kakao-logged-group" class="inl"></div>
+            <div id=kakao-profile class="inl"></div>
           </div>
           
 <!--               <div id="kakao-logged-group"></div>
               <div id="kakao-profile"></div>     -->
-              
-<fb:login-button data-auto-logout-link="true" data-scope="public_profile,email" data-size="xlarge" onlogin="checkLoginState();"> </fb:login-button>
+            <!-- <fb:login-button data-auto-logout-link="true" data-scope="public_profile,email" data-size="icon" onlogin="checkLoginState();" width="42px"></fb:login-button> -->
+            <div class="inl">
+              <a id="facebookLogin">
+                <img src="../images/facebook-logo.png" />
+              </a>
+            </div>
+
+<!-- <a href="#" onlogin="checkLoginState();"><img src="images/fb_login_awesome.jpg" border="0" alt=""></a> -->
+
 <!--  <script>
   FB.login(function(response) { // response 처리 
     }, {scope: 'public_profile,email'});
@@ -82,11 +91,11 @@
             data-show-faces="true">
           </div> -->
     <!--<a href="#" id="auth-logoutlink" style="float:left;font-size: small;" onclick="FB.logout(function() { document.location.reload(); });">[logout]</a><br>-->
-    <div align="left">
+<!--     <div align="left">
         <img id="image"/>
         <div id="name"></div>
         <div id="id"></div>
-    </div>
+    </div> -->
         </div>
       </div>
     </div>
@@ -101,7 +110,8 @@
 <script src="naver.js"></script>
 <script src="../js/bit.js"></script>
 <script src="login.js"></script>
-<script src="fb.js"></script>
+<script src="facebookLogin.js"></script>
+<!-- <script src="fb.js"></script> -->
 <script src="jquery.cookie.js"></script>
 <script type="text/javascript" src="../js/alertify.min.js"></script>
 </body>
