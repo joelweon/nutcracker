@@ -90,6 +90,7 @@ $('#btn-update').click(function(event) {
       uploadImage(blob);
     } else {
       thumbnail = 'default';
+      doUpdate(thumbnail);
     }
   }, 'json');
   
