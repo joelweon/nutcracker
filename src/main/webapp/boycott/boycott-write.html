@@ -27,6 +27,7 @@
   
   <!-- 불매운동 페이지 -->
   <div id='wrap-content'>
+    <img id='loading-img' src='../images/loading.gif'></img>
     <!-- 불매 헤더 -->
     <div id="title-bar-boycott" class="title-bar">
       <nav>
@@ -37,12 +38,17 @@
     <!-- 글 작성 폼 -->
     <div class='input-text'>
 	    <input type="text" id='input-title' class='input-text-el' placeholder="Title">
-	    <span class="separator input-text-el"></span>
-	    <input type="text" id='input-company' class='input-text-el' onkeyup='startSearch()' placeholder="기업번호">
+	    <span class="separatorfortitle input-text-el"></span>
 	    <input type="hidden" id='input-maker-hidden'>
+	    <input type="text" id='input-company' class='input-text-el' onkeyup='startSearch()' placeholder="Boycott Company">
+      <span class="separator input-text-el"></span>
+      <div id='results' class='results'></div>
+      <input type="text" id='input-deal' class='input-text-el' onkeyup='searchDeal()' placeholder="Cooperative Purchase Code">
+      <span class="separator input-text-el"></span>
+      <div id='dealResults' class='dealResults'></div>
+      <input type="text" id='input-keyword' class='input-text-el' placeholder="Keyword for Alternative Products">
       <span class="separator input-text-el"></span>
     </div>
-    <div id='results' class='results'></div>
     <!-- 썸머노트 -->
 	  <div id="summernote"></div>
 	  
@@ -72,6 +78,5 @@
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
   <script src='../js/common.js'></script>
-<!--   <script src='../js/header.js'></script> -->
   <script src='boycott-write.js'></script>
 </html>

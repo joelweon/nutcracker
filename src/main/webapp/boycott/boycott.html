@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="boycott.css">
+  <link rel="stylesheet" href="../css/alertify.core.css">
+  <link rel="stylesheet" href="../css/alertify.default.css">
   <link rel="stylesheet" href="../css/footer.css">
 </head>
 
@@ -33,7 +35,6 @@
 	      <span class='title-title'>불매운동</span><span class='title-sub'>현재 진행중인 불매운동 리스트입니다.</span>
 			  <!-- 년도선택 -->
 			  <div id="div-year" align="right">
-				  
 			    <span>연도 별 리스트 보기</span>
 		      <select id='select-year' onChange="selectEvent(this.value)">
   		      <option value="all" selected="selected">전체보기</option>
@@ -43,10 +44,10 @@
 		        <option value="2014">2014년</option>
 		      </select>
 		    </div>
-	  	    <!-- 글쓰기버튼 -->
-          <div class='btn-toolbar'>
-            <a type='button' id='btn-write' class="btn btn-default common-btn-white hidden" href='#'>글쓰기</a>
-          </div>
+  	    <!-- 글쓰기버튼 -->
+        <!-- <div id='btn-toolbar'> -->
+          <a type='button' id='btn-write' class="btn btn-default common-btn-white hidden" href='#'>글쓰기</a>
+        <!-- </div> -->
 	  	</nav>
 	  </div>
 	 
@@ -103,6 +104,7 @@
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../js/common.js"></script>
 <script src="boycott.js"></script>
+<script src="../js/alertify.min.js"></script>
 <!-- <script src="../js/header.js"></script> -->
 </body>
 </html>

@@ -1,28 +1,31 @@
 var btnCpnoList = new Array();
 $(function(event) {
-//학생 목록 가져와서 tr 태그를 만들어 붙인다.
-  $.get(serverRoot + '/boycott/list.json', function(ajaxResult) {
-	  var status = ajaxResult.status;
-	  console.log(status);
-	  if (status != "success")
-		  return;
-	  
-	  var list = ajaxResult.data;
-	  var tbody = $('#test1');
-	  
-	  // 템플릿 텍스트를 처리하여 HTML을 생성해 줄 함수 얻기
-	  var template = Handlebars.compile($('#trTemplate').html());
-	  
-	  // 템플릿 엔진을 통해 생성된 HTML을 tbody에 넣는다.
-	  tbody.html(template({"list": list}));
-	  
-	  for(i = 0; i < ajaxResult.data.length; i++) {
-	  	btnCpnoList.push(ajaxResult.data[i].companyNo);
-	  }
-//	  console.log(btnCpnoList);
-	  changeBtn();
-  });
+  loadList();
 });
+
+function loadList() {
+  $.get(serverRoot + '/boycott/list.json', function(ajaxResult) {
+    var status = ajaxResult.status;
+    console.log(status);
+    if (status != "success")
+      return;
+    
+    var list = ajaxResult.data;
+    var tbody = $('#test1');
+    
+    // 템플릿 텍스트를 처리하여 HTML을 생성해 줄 함수 얻기
+    var template = Handlebars.compile($('#trTemplate').html());
+    
+    // 템플릿 엔진을 통해 생성된 HTML을 tbody에 넣는다.
+    tbody.html(template({"list": list}));
+    
+    for(i = 0; i < ajaxResult.data.length; i++) {
+      btnCpnoList.push(ajaxResult.data[i].companyNo);
+    }
+//    console.log(btnCpnoList);
+    changeBtn();
+  });
+}
 
 function admin() {
 	$('#btn-write').removeClass("hidden");
@@ -39,14 +42,21 @@ $(document).on('click', '.list-update-btn', function(event){
 	location.href = clientRoot + '/boycott/boycott-update.html?boycottNo=' + $(this).attr("name");
 });
 
-$(document).on('click', '.list-delete-btn', function(event){
-	$.get(serverRoot + '/boycott/delete.json', {
-		"boycottNo" : $(this).attr("name")
-	}, function(ajaxResult) {
-		if(ajaxResult.status != 'success') {
-			console.log('삭제 실패');
-		}
-	})
+$(document).on('click', '.list-delete-btn', function(e){
+  var boycottNo = $(this).prop("name");
+  alertify.confirm("정말 삭제하시겠습니까?", function(e) {
+    if (e) {
+      $.get(serverRoot + '/boycott/delete.json', {
+        "boycottNo" : boycottNo
+      }, function(ajaxResult) {
+        if(ajaxResult.status != 'success') {
+          console.log('삭제 실패');
+        } else {
+          loadList();
+        }
+      })
+    }
+  })
 });
 
 

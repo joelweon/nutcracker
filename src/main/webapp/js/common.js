@@ -52,10 +52,35 @@ $(document).ready(function() {
            xfbml      : true,
            version    : 'v2.8' 
         });
-        Kakao.init('413a2236a9af2136f9841c01e0335019');
 
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-          Kakao.Auth.logout();
+          // ********************카카오 할때는 두 줄 주석 풀기************************
+/*          Kakao.init('413a2236a9af2136f9841c01e0335019');
+            Kakao.Auth.logout();*/
+          
+          
+          //console.log(Kakao.Auth.getAccessToken());
+          
+          
+/*          Kakao.API.request({
+            url: '/v1/user/logout',
+            success: function(res) {
+              console.log(res);
+            },
+            fail: function(error) {
+              console.log(error);
+            }
+          });*/
+          
+/*          Kakao.API.request({
+            url: '/v1/user/logout',
+            success: function(res) {
+              console.log(res);
+            },
+            fail: function(error) {
+              console.log(error);
+            }
+          });*/
         //add event listener to login button
             FB.getLoginStatus(function(response) {
               //console.log(FB.getAuthResponse());

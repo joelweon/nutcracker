@@ -209,6 +209,16 @@
       cont like concat('%',#{value},'%')
   </select>
   
+  <select id="searchBoycott" parameterType="String" resultMap="boycott-map">
+    select
+      b.botno,
+      c.cpno,
+      c.cp_name
+   from bot b
+     left join comp c on c.cpno = b.cpno
+   where c.cp_name like concat('%',#{value},'%')
+  </select>
+  
 </mapper>
 
 

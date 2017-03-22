@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import nutcracker.dao.BoycottDao;
 import nutcracker.dao.CompanyDao;
 import nutcracker.dao.PurchaseDao;
 import nutcracker.domain.Company;
@@ -16,6 +17,7 @@ import nutcracker.service.PurchaseService;
 public class PurchaseServiceImpl implements PurchaseService {
   @Autowired PurchaseDao purchaseDao;
   @Autowired CompanyDao companyDao;
+  @Autowired BoycottDao boycottDao;
 
   @Override
   public List<HashMap<String, Object>> getList() throws Exception {
@@ -66,8 +68,25 @@ public class PurchaseServiceImpl implements PurchaseService {
   }
   
   @Override
+  public ArrayList<Company> searchBoycott(HashMap<String, Object> map) throws Exception {
+    String keyword = (String)map.get("keyword");
+    ArrayList<Company> result;
+    if (!keyword.equals("")) {
+      result = boycottDao.searchBoycott(keyword);
+    } else {
+      result = new ArrayList<>();
+    }
+    return result;
+  }
+  
+  @Override
   public List<HashMap<String, Object>> searchDeal(String keyword) throws Exception {
     return purchaseDao.searchDeal(keyword);
+  }
+  
+  @Override
+  public List<HashMap<String, Object>> searchExceptFinish(String keyword) throws Exception {
+    return purchaseDao.searchExceptFinish(keyword);
   }
 
   @Override
