@@ -157,6 +157,7 @@
       left outer join bot on bc.botno=bot.botno
     where cm.rep_cnt > 1
     group by cm.ctno
+    limit #{startRowIndex}, #{rowSize}
   </select>
   
   <select id='getCommentReportReasons' parameterType="int" resultMap="map">
