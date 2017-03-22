@@ -34,6 +34,12 @@ public class PurchaseJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, map);
   }
   
+  @RequestMapping("/deal/detailByBotno")
+  public AjaxResult detailByBotno(int boycottNo) throws Exception {
+    HashMap<String, Object> map = purchaseService.getDetailByBotno(boycottNo);
+    return new AjaxResult(AjaxResult.SUCCESS, map);
+  }
+  
   @RequestMapping("/deal/add")
   public AjaxResult add(@RequestParam HashMap<String,Object> map) throws Exception {
     purchaseService.add(map);

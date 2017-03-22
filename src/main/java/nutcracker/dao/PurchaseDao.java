@@ -15,4 +15,5 @@ public interface PurchaseDao {
   List<HashMap<String, Object>> searchDeal(String keyword) throws Exception;
   List<HashMap<String, Object>> searchExceptFinish(String keyword) throws Exception;
   int updateApplicant(int purchaseNo) throws Exception;
+  HashMap<String, Object> getDetailByBotno(int boycottNo) throws Exception;
 }

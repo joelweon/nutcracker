@@ -1,19 +1,24 @@
+try {
+	var boycottNo = location.href.split('?')[1].split('=')[1];
+	var keyword;
+	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
+		keyword = ajaxResult.data.keyword;
+	});
+} catch(e) {}
     var daumShoppingSearch = {
         /** 초기화. **/
         init : function(){
-            this.apikey = "7a03f2ccbc4a1f5b6f74ea1cd48ec6e0";
-            this.q = document.getElementById('daumShoppingSearch');
-            
-            //검색 객체들 초기화.
-            daumShopping.init(6);
+          this.apikey = "7a03f2ccbc4a1f5b6f74ea1cd48ec6e0";
+          this.q = document.getElementById('daumShoppingSearch');
+          //검색 객체들 초기화.
+          daumShopping.init(6);
         },
         /** 검색 **/
         search : function(){
-            this.query = '?apikey=' + this.apikey + '&output=json&q=' 
-                + '가습';
-            
-            //검색어에 맞게 각각 첫페이지를 띄움.
-            daumShopping.pingSearch(1);
+        	console.log("search keyword: ", keyword);
+        	this.query = '?apikey=' + this.apikey + '&output=json&q=' + keyword;
+        	//검색어에 맞게 각각 첫페이지를 띄움.
+        	daumShopping.pingSearch(1);
         },
         /** callback 함수 호출. **/
         pingSearch : function(ds, api, pgno, callback, result){

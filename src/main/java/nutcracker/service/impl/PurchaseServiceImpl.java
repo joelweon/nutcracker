@@ -37,6 +37,11 @@ public class PurchaseServiceImpl implements PurchaseService {
   }
 
   @Override
+  public HashMap<String, Object> getDetailByBotno(int boycottNo) throws Exception {
+    return purchaseDao.getDetailByBotno(boycottNo);
+  }
+
+  @Override
   public int add(HashMap<String,Object> map) throws Exception {
       int count = purchaseDao.insert(map);
       
@@ -79,4 +84,5 @@ public class PurchaseServiceImpl implements PurchaseService {
   public int updateApplicant(int purchaseNo) throws Exception {
     return purchaseDao.updateApplicant(purchaseNo);
   }
+
 }

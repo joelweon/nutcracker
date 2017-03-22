@@ -49,7 +49,7 @@
       P.PNO,
       PP.PATH,
       P.TITLE,
-      P.PRICE, 
+      P.PRICE,
       date_format(ST_DATE, '%Y-%m-%d') as ST_DATE, 
       date_format(EN_DATE, '%Y-%m-%d') as EN_DATE, 
       date_format(DEV_DATE,'%Y-%m-%d') as DEV_DATE, 
@@ -60,6 +60,17 @@
    from PURCHS P
      left outer join PCH_PHOT PP on P.PNO = PP.PNO
    where pp.path in (select MIN(path) from pch_phot group by pno) and P.PNO=#{value}
+  </select>
+  
+  <select id="getDetailByBotno" parameterType="int" resultMap="purchase-map">
+    select 
+      P.PNO,
+      PP.PATH,
+      P.TITLE,
+      P.PRICE
+   from PURCHS P
+     left outer join PCH_PHOT PP on P.PNO = PP.PNO
+   where pp.path in (select MIN(path) from pch_phot group by pno) and P.botno=#{value}
   </select>
   
   <select id="getDetailPhoto" parameterType="int" resultType="java.util.HashMap">
