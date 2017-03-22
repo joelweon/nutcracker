@@ -170,6 +170,14 @@ ul.reply-list-area {
 	visibility:visible;
 }
 
+.reply-box:hover > .reply-info > div > .delete-btn {
+  visibility:visible;
+}
+
+.reply-box:hover > .reply-info > div > .update-btn {
+  visibility:visible;
+}
+
 .reply-id {
   font-weight: 700;
   font-size:1.1em;
@@ -191,6 +199,20 @@ ul.reply-list-area {
 	position: absolute;
 	right: 10px;
 	top:25%;
+}
+
+.delete-btn {
+  visibility:hidden;
+  position: absolute;
+  right: 10px;
+  top:25%;
+}
+
+.update-btn {
+  visibility:hidden;
+  position: absolute;
+  right: 60px;
+  top:25%;
 }
 .report-title {
 	border-bottom:1px solid #c0c0c0;
@@ -294,6 +316,10 @@ ul.reply-list-area {
   width: 6px;
   border-radius: 50%;
   background: #fff;
+}
+
+.hidden {
+	display: none;
 }
 
 

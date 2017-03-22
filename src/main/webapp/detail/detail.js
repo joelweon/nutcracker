@@ -49,11 +49,11 @@ $(function() {
 	});
 
 	// 공구 정보 가져오기
-	var purchaseNo = '411'; //번호를 어디서 받아오는건지 모르겠어요
-	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
-		$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
-		$('.purchase-subtitle').text(ajaxResult.data.title);
-	});
+//	var purchaseNo = '411'; //번호를 어디서 받아오는건지 모르겠어요
+//	$.getJSON(serverRoot + '/deal/detail.json?purchaseNo='+purchaseNo, function(ajaxResult) {
+//		$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
+//		$('.purchase-subtitle').text(ajaxResult.data.title);
+//	});
 	
 	// 사용자 정보 가져오기
 	if (users != null) {
@@ -103,6 +103,7 @@ function getComments(boycottNo) {
       var div = $('.reply-list-area:last-child');
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
+      
       // 신고 버튼 클릭
       $('.report-btn').click(function() {
         if (users != null) {
@@ -129,8 +130,31 @@ function getComments(boycottNo) {
         }
       });
     }
+    changeBtn()
   }, 'json');
 }
+
+function changeBtn() {
+	var param;
+	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
+		if(ajaxResult.status == 'success') {
+			console.log('success');
+			var loginMember = ajaxResult.data.memberNo;
+			$('div[name='+loginMember+'] .report-btn').addClass("hidden");
+			$('div[name='+loginMember+'] .update-btn').removeClass("hidden");
+			$('div[name='+loginMember+'] .delete-btn').removeClass("hidden");
+		}
+	}, 'json');
+}
+
+$(document).on('click', '.update-btn', function(event) {
+	
+});
+
+$(document).on('click', '.delete-btn', function(event) {
+	
+});
+
 
 // 신고 사유 등록하기
 var commentReport = function(commentNo,reportNo) {

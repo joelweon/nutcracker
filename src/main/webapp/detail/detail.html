@@ -199,7 +199,7 @@
             <span class="time">{{postTime}}</span>
           </div>
         </div>
-        <div id='report-{{commentNo}}'>
+        <div id='report-{{commentNo}}' name='{{memberNo}}'>
           <div class='report-menu'>
             <div class='report-title'><span>신고 이유 선택<span></div>
             <div class='reprot-radio-btn'>
@@ -226,7 +226,9 @@
             </div>
             <button type="button" class="report-submit-btn btn btn-default btn-xs">제출</button>
           </div>
-          <button type="button" class="report-btn btn btn-default btn-sm" data-no="{{commentNo}}">댓글신고</button>
+          <button type="button" class="report-btn btn btn-default btn-sm " data-no="{{commentNo}}">댓글신고</button>
+          <button type="button" class="update-btn btn btn-default btn-sm hidden" data-no="{{commentNo}}">수정</button>
+          <button type="button" class="delete-btn btn btn-default btn-sm hidden" data-no="{{commentNo}}">삭제</button>
         </div>
       </div>
     </div>
