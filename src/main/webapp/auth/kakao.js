@@ -6,7 +6,7 @@ function createKakaotalkLogin() {
     persistAccessToken: false,
     persistRefreshToken: false,
     success: function(authObj) {
-      console.log(authObj);
+      //console.log(authObj);
       Kakao.API.request({
         url: '/v1/user/me',
         success: function(res) {

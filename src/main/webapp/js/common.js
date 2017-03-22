@@ -58,7 +58,7 @@ $(document).ready(function() {
 /*          var kakao = window.sessionStorage.getItem('kakao');
           Kakao.Auth.setAccessToken(kakao, false);*/
           Kakao.Auth.logout();
-          console.log(Kakao.Auth.getAccessToken());
+          //console.log(Kakao.Auth.getAccessToken());
           
           
 /*          Kakao.API.request({
