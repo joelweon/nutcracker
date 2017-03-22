@@ -62,9 +62,18 @@ $(document).ready(function() {
               if (response && response.status === 'connected') {
                   FB.logout(function(response) {
                     location.href=serverRoot;
+                    if (location.href.indexOf('mypage') != -1) {
+                      location.href = serverRoot + '/main.html';
+                    } else {
+                      location.reload();
+                    }
                   }, {scope:'email,public_profile', return_scopes: false});
               } else {
-                  location.href=serverRoot;
+                  if (location.href.indexOf('mypage') != -1) {
+                    location.href = serverRoot + '/main.html';
+                  } else {
+                    location.reload();
+                  }
               }
           });
         });

@@ -96,8 +96,11 @@ public class CommentServiceImpl implements CommentService {
   }
 
   @Override
-  public List<HashMap<String, Object>> getCommentReportList() throws Exception {
-    List<HashMap<String, Object>> map = commentDao.getCommentReportList();
+  public List<HashMap<String, Object>> getCommentReportList(int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    List<HashMap<String, Object>> map = commentDao.getCommentReportList(paramMap);
     List<String> list;
     for (int i = 0 ; i < map.size(); i++) {
       int commentNo = Integer.parseInt(map.get(i).get("commentNo").toString());
@@ -105,5 +108,35 @@ public class CommentServiceImpl implements CommentService {
       map.get(i).put("report", list);
     }
     return map;
+  }
+
+  @Override
+  public int getSize() throws Exception {
+    return commentDao.countTotalList();
+  }
+  
+  @Override
+  public int existCmtInBot(int commentNo) throws Exception {
+    return commentDao.existCmtInBot(commentNo);
+  }
+
+  @Override
+  public int deleteReportCmt(int commentNo) throws Exception {
+    return commentDao.deleteReportCmt(commentNo);
+  }
+
+  @Override
+  public int deleteCmtReportReason(int commentNo) throws Exception {
+    return commentDao.deleteCmtReportReason(commentNo);
+  }
+
+  @Override
+  public int deleteReviewCmtRelByCtno(int commentNo) throws Exception {
+    return commentDao.deleteReviewCmtRelByCtno(commentNo);
+  }
+
+  @Override
+  public int deleteBotCmtRelByCtno(int commentNo) throws Exception {
+    return commentDao.deleteBotCmtRelByCtno(commentNo);
   }
 }

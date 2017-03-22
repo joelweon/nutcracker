@@ -6,9 +6,9 @@
 //로그인된 회원(member) 정보 불러오기
 $(document).ready(function() {
   $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-    if (ajaxResult.status != 'success') {
+    /*if (ajaxResult.status != 'success') {
       location.href=clientRoot + '/main.html';
-    }
+    }*/
   	$('#re-email').attr('placeholder', ajaxResult.data.email);
   	$('#re-email').attr('value', ajaxResult.data.email);
     if ("admin@test.com" == ajaxResult.data.email) {
