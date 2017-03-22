@@ -152,7 +152,14 @@ $(document).on('click', '.update-btn', function(event) {
 });
 
 $(document).on('click', '.delete-btn', function(event) {
-	
+	$.get(serverRoot + '/comment/deleteOneBotCmt.json', {
+			"commentNo" : $(this).attr("data-no")
+	}, function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			console.log("삭제실패");
+		}
+		getComments(boycottNo);
+	}, 'json');
 });
 
 

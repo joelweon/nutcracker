@@ -56,6 +56,13 @@
     delete from bot_cmt where botno=#{boycottNo}
   </delete>
   
+  <delete id='deleteOneBoycottCmt' parameterType="int">
+    delete from bot_cmt where ctno=#{commentNo}
+  </delete>
+  
+  <delete id='deleteCmt' parameterType="int">
+    delete from cmt where ctno=#{commentNo}
+  </delete>
   
   
   <select id='getBoycottCommentList' parameterType="int" resultMap="map">

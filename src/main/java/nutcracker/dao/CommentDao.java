@@ -27,4 +27,6 @@ public interface CommentDao {
   int deleteCmtReportReason(int commentNo) throws Exception;
   int deleteReviewCmtRelByCtno(int commentNo) throws Exception;
   int deleteBotCmtRelByCtno(int commentNo) throws Exception;
+  int deleteOneBoycottCmt(int commentNo) throws Exception;
+  int deleteCmt(int commentNo) throws Exception;
 }
