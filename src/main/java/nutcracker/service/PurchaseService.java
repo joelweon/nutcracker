@@ -12,5 +12,6 @@ public interface PurchaseService {
   int add(HashMap<String,Object> map) throws Exception;
   ArrayList<Company> searchMaker(HashMap<String, Object> map) throws Exception;
   List<HashMap<String, Object>> searchDeal(String keyword) throws Exception;
+  List<HashMap<String, Object>> searchExceptFinish(String keyword) throws Exception;
   int updateApplicant(int purchaseNo) throws Exception;
 }

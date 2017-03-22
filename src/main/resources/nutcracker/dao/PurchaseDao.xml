@@ -116,6 +116,15 @@
     order by en_date asc
   </select>
   
+  <select id="searchExceptFinish" parameterType="String" resultMap="purchase-map">
+    select 
+      PNO, 
+      TITLE
+    from PURCHS
+    where title like concat('%',#{value},'%') and datediff(EN_DATE,now()) > 0
+    order by en_date asc
+  </select>
+  
 <!--  <delete id="delete" parameterType="int">
   <![CDATA[
     delete from PURCHASE where PNO=#{value}

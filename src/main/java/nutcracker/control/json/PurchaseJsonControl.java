@@ -52,6 +52,12 @@ public class PurchaseJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  @RequestMapping("/deal/searchExceptFinish")
+  public AjaxResult searchExceptFinish(String keyword) throws Exception {
+    List<HashMap<String, Object>> list = purchaseService.searchExceptFinish(keyword);
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
   @RequestMapping("/deal/updateApplicant")
   public AjaxResult updateApplicant(int purchaseNo) throws Exception {
     int count = purchaseService.updateApplicant(purchaseNo);
