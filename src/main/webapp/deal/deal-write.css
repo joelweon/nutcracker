@@ -8,7 +8,7 @@ body { background-color: #fff; }
 .title-sub { color: #252525; font-size: 1em; }
 
 .input-text { margin-bottom: 10px; }
-.div-maker, .div-price, .div-volume { width: 35%;} 
+.div-maker, .div-boycott, .div-price, .div-volume { width: 35%;} 
 .div-datepicker { width: 30%; display: inline-block; margin-right: 3%; }
 .edit-text { color: #525252; font-size: 1em; }
 
