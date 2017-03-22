@@ -32,23 +32,19 @@ if (device.indexOf('Mobile') != -1) {
 
 
 $('a#write').click(function(event) {
-  console.log(JSON.stringify({"newsList" : arrayToJson()}));
+  event.preventDefault();
+  $('#loading-img').fadeIn('slow');
+  //console.log(JSON.stringify({"newsList" : arrayToJson()}));
   	
-    /* 썸네일 사진 업로드 */
-    var contents = $('#summernote').summernote('code');
-    var start = $(contents).find('img').attr('src');
-    console.log(start);
-    if (start == undefined) {
-    	thumbnail = 'default';
-    }	else {
-    	var end = contents.indexOf('data-filename', start);
-      dataURL = contents.substring(start + 10, end - 2);
-      var blob = dataURItoBlob(dataURL);
-      /*var fd = new FormData(document.forms[0]);
-      fd.append("image", blob);*/
-      uploadImage(blob);
-    }
-    console.log("thumbnail: " + thumbnail);
+  /* 썸네일 사진 업로드 */
+  var contents = $('#summernote').summernote('code');
+  if ($(contents).find('img').length >= 1) {
+    var dataURL = $(contents).find('img').attr('src');
+    var blob = dataURItoBlob($(contents).find('img').attr('src'));
+    uploadImage(blob);
+  } else {
+    thumbnail = 'default';
+  }
   
 	param = {
 		title		:	 	$('#input-title').val(),
@@ -58,7 +54,6 @@ $('a#write').click(function(event) {
 		newsList	:		arrayToJson()
 	};  
 
-	
 	$.ajax({
 	url: serverRoot + '/boycott/add.json',
     method: 'post',
