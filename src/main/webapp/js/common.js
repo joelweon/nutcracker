@@ -54,10 +54,11 @@ $(document).ready(function() {
         });
 
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-          Kakao.init('413a2236a9af2136f9841c01e0335019');
-/*          var kakao = window.sessionStorage.getItem('kakao');
-          Kakao.Auth.setAccessToken(kakao, false);*/
-          Kakao.Auth.logout();
+          // ********************카카오 할때는 두 줄 주석 풀기************************
+/*          Kakao.init('413a2236a9af2136f9841c01e0335019');
+            Kakao.Auth.logout();*/
+          
+          
           //console.log(Kakao.Auth.getAccessToken());
           
           
