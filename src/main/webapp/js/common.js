@@ -48,14 +48,15 @@ $(document).ready(function() {
         
         FB.init({
            appId      : '177980746026260',
-           cookie     : false,  
-           xfbml      : false,
+           cookie     : true,  
+           xfbml      : true,
            version    : 'v2.8' 
         });
         
         $.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
         //add event listener to login button
             FB.getLoginStatus(function(response) {
+              console.log(FB.getAuthResponse());
               console.log(response);
               if (response && response.status === 'connected') {
                 console.log(3120);
