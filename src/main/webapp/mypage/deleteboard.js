@@ -1,12 +1,14 @@
 $(function(){
+  setSideMenu();
   $("#allCheck").click(function(){
     if($("#allCheck").prop("checked")) {
       $("input[type=checkbox]").prop("checked",true);
-        } else {
-          $("input[type=checkbox]").prop("checked",false);
+    } else {
+      $("input[type=checkbox]").prop("checked",false);
     }
   })
 })
+
 
 // 처음에는 1페이지 10개를 로딩한다.
 try {
@@ -126,6 +128,8 @@ function preparePagingButton(totalCount) {
   } else {
     nextBtn.addClass('disabled');
   }
+  
+  $('a.reset-btn').css('display', 'inline-block');
 }
 
 // 삭제
@@ -157,7 +161,8 @@ $('.main-contents .delete-div > .delete-btn').click(function(e) {
           'rnoAry' : rnoAry
         }
       }).done(function() {
-        location.reload();
+        //location.reload();
+        loadList(curPageNo, pageSize);
       });
     } else { //취소
       return;
@@ -184,7 +189,8 @@ $('.main-contents .delete-div > a.reset-btn').click(function(e) {
           'rnoAry' : rnoAry
         }
       }).done(function() {
-        location.reload();
+        //location.reload();
+        loadList(curPageNo, pageSize);
       });
     } else { //취소
       return;
