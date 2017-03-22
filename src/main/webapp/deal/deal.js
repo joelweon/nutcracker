@@ -1,4 +1,11 @@
 $(function(event) {
+	// 관리자 로그인 시 글쓰기 버튼 보이기
+	var user = window.sessionStorage.getItem('user');
+	if (JSON.parse(user).memberNo == 1) {
+		$("#purchase-write-btn").css('display','inline');
+	} else {
+		$("#purchase-write-btn").css('display','none');
+	}
   $.get(serverRoot + '/deal/list.json', function(ajaxResult) {
     if (ajaxResult.status == "success") {
       var div1 = $('.deal-container > .deal-area');
@@ -8,7 +15,7 @@ $(function(event) {
       var list = [];
       var finised = [];
       for (var i = 0; i < ajaxResult.data.length; i++) {
-      	if (ajaxResult.data[i].rest > 0) {
+      	if (ajaxResult.data[i].rest >= 0) {
       		list.push(ajaxResult.data[i]);
       	} else {
       		finised.push(ajaxResult.data[i]);
@@ -66,7 +73,7 @@ var $el = $(this)
 
 $('html, body').animate({
   scrollTop: $(id).offset().top - nav_height
-}, 500);
+}, 300);
 
 return false;
 });
