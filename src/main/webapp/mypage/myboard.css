@@ -53,6 +53,7 @@ body {
 }
 
 .board-table tr {
+  font-size: 0.9em;
   background-color: white;
   color: black;
   border-bottom: 3px solid rgb(47, 47, 47);

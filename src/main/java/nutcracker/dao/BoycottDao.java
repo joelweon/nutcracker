@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nutcracker.domain.Boycott;
+import nutcracker.domain.Company;
 
 public interface BoycottDao {
   ArrayList<Boycott> getList() throws Exception;
@@ -24,4 +25,5 @@ public interface BoycottDao {
   int deleteRelation(Boycott boycott) throws Exception;
   ArrayList<Boycott> getSearch(String keyword) throws Exception;
   List<Boycott> getBoycottNames() throws Exception;
+  ArrayList<Company> searchBoycott(String keyword) throws Exception;
 }

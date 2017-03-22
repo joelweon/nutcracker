@@ -52,6 +52,12 @@ public class PurchaseJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, result);
   }
   
+  @RequestMapping("/deal/searchBoycott")
+  public AjaxResult searchBoycott(@RequestParam HashMap<String,Object> map) throws Exception {
+    ArrayList<Company> result = purchaseService.searchBoycott(map);
+    return new AjaxResult(AjaxResult.SUCCESS, result);
+  }
+  
   @RequestMapping("/deal/searchDeal")
   public AjaxResult searchDeal(String keyword) throws Exception {
     List<HashMap<String, Object>> list = purchaseService.searchDeal(keyword);

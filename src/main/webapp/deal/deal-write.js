@@ -59,9 +59,11 @@ $( function() {
 } );
 
 $('#write').click(function() {
+  console.log($('#input-boycott-hidden').val());
 	var param = {
 		title: $('#input-title').val(),
 		companyNo: $('#input-maker-hidden').val(),
+		boycottNo: $('#input-boycott-hidden').val(),
 		price: $('#input-price').val(),
 		totalCount: $('#input-volume').val(),
 		startDate: $('#start-date').val(),
@@ -102,9 +104,41 @@ function startSearch() {
   })
 }
 
+function startBoycottSearch() {
+  var keyword = $(document.getElementById('input-boycott'))[0].value;
+  $.ajax({
+    url: serverRoot + "/deal/searchBoycott.json",
+    type: 'POST',
+    data: {keyword: keyword},
+    crossDomain: 'true',
+    dataType: 'json',
+
+    success: function(ajaxResult) {
+      var results = [];
+      $(document.getElementById('resultsBoycott')).empty();
+      for (var i =0;i<=ajaxResult.data.length;i++){
+        if (ajaxResult.data[i] != undefined){
+          results.push('<a href="javascript:void(0)" data-boycott-no="'
+              +ajaxResult.data[i].boycottNo+
+              '"><div><p>'+ajaxResult.data[i].companyName+'</p></div></a>')
+        }
+      }
+      results.forEach(function(x){$(document.getElementById('resultsBoycott')).append(x)})
+    },
+    error: function(err) {
+      console.log(err);
+    }
+  })
+}
+
 $('#results').delegate('a','click', function() {
 	$('#input-maker-hidden').val($(this).data("company-no"));
 	$('#input-maker').val($(this).text());
 	$('#results').html("");
+});
+$('#resultsBoycott').delegate('a','click', function() {
+  $('#input-boycott-hidden').val($(this).data("boycott-no"));
+  $('#input-boycott').val($(this).text());
+  $('#resultsBoycott').html("");
 });
 

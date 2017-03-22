@@ -15,8 +15,9 @@
     <result column="TOTAL_CNT"   property="totalCount"/>
     <result column="API_CNT"     property="applicantCount"/>
     <result column="PERCENT"     property="percent"/>
-    <result column="REST"     property="rest"/>
-    <result column="cpno"       property="companyNo"/>
+    <result column="REST"        property="rest"/>
+    <result column="cpno"        property="companyNo"/>
+    <result column="botno"       property="boycottNo"/>
     
     <collection property="photoList" ofType="Photo">
       <id       column="PPNO"     property="photoNo"/>
@@ -85,6 +86,7 @@
     insert into PURCHS(
       PNO,
       CPNO,
+      BOTNO,
       TITLE,
       PRICE,
       ST_DATE,
@@ -95,6 +97,7 @@
     values(
       #{purchaseNo},
       #{companyNo},
+      #{boycottNo},
       #{title},
       #{price},
       #{startDate},
