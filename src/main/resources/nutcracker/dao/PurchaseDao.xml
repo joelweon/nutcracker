@@ -65,13 +65,15 @@
   
   <select id="getDetailByBotno" parameterType="int" resultMap="purchase-map">
     select 
-      P.PNO,
+      MIN(P.PNO) as PNO,
       PP.PATH,
       P.TITLE,
       P.PRICE
    from PURCHS P
      left outer join PCH_PHOT PP on P.PNO = PP.PNO
-   where pp.path in (select MIN(path) from pch_phot group by pno) and P.botno=#{value}
+   where pp.path in (select MIN(path) from pch_phot group by pno)
+     and datediff(P.EN_DATE,now()) > 0
+     and P.botno=#{value}
   </select>
   
   <select id="getDetailPhoto" parameterType="int" resultType="java.util.HashMap">

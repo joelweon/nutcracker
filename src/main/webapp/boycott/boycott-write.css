@@ -48,14 +48,14 @@ a#cancel, a#write {
   border: none;
   border-bottom: 1px solid #999;
 }
-input[type="text"]:focus + .separatorfortitle,
+input[type="text"]:focus + .separator100,
 input[type="text"]:focus + .separator {
   -webkit-transform: scaleX(1) translateY(-2px);
           transform: scaleX(1) translateY(-2px);
   opacity: 1;
 }
 
-.separatorfortitle {
+.separator100 {
   height: 3px;
   width: 100%;
   background: #fff;

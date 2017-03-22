@@ -4,7 +4,9 @@ try {
 	$.getJSON(serverRoot + '/boycott/detail.json?boycottNo='+boycottNo, function(ajaxResult) {
 		keyword = ajaxResult.data.keyword;
 	});
-} catch(e) {}
+} catch(e) {
+	console.log(e);
+}
     var daumShoppingSearch = {
         /** 초기화. **/
         init : function(){
