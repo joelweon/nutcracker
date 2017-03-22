@@ -98,6 +98,7 @@ public class CommentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "후기 등록 완료");
   }
   
+  //신고 관련 사항
   @RequestMapping("/comment/commentReport")
   public AjaxResult commentReport(@RequestParam HashMap<String,String> map) throws Exception {
     int count = commentService.existReport(map);
@@ -128,6 +129,21 @@ public class CommentJsonControl {
     } else {
       return new AjaxResult(AjaxResult.FAIL, "10회 이상 신고된 댓글이 없습니다.");
     }
+  }
+  
+  @RequestMapping("/comment/deleteReportCmt")
+  public AjaxResult deleteReportCmt(String[] commentNo) throws Exception {
+    for (int i = 0; i < commentNo.length; i++) {
+      System.out.println(commentNo[i]);
+      commentService.deleteCmtReportReason(Integer.parseInt(commentNo[i]));
+      if (commentService.existCmtInBot(Integer.parseInt(commentNo[i])) > 0) {
+        commentService.deleteBotCmtRelByCtno(Integer.parseInt(commentNo[i]));
+      } else {
+        commentService.deleteReviewCmtRelByCtno(Integer.parseInt(commentNo[i]));
+      }
+      commentService.deleteReportCmt(Integer.parseInt(commentNo[i]));
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "[comment] 신고 댓글 리스트 삭제 성공");
   }
   
 }

@@ -172,4 +172,24 @@
     group by cont
   </select>
   
+  <select id='existCmtInBot' parameterType="int" resultType="int">
+    select count(*)
+    from bot_cmt 
+    where ctno=#{value}
+  </select>
+  
+  <!-- ctno를 사용하여 댓글 지우기 (DB에서 삭제) -->
+  <delete id='deleteReportCmt' parameterType='int'>
+    delete from cmt where ctno=#{value}
+  </delete>
+  <delete id='deleteCmtReportReason' parameterType='int'>
+    delete from cmt_rep where ctno=#{value}
+  </delete>
+  <delete id='deleteReviewCmtRelByCtno' parameterType='int'>
+    delete from rev_cmt where ctno=#{value}
+  </delete>
+  <delete id='deleteBotCmtRelByCtno' parameterType='int'>
+    delete from bot_cmt where ctno=#{value}
+  </delete>
+  
 </mapper>

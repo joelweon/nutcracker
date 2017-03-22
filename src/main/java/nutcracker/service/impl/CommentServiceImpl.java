@@ -114,4 +114,29 @@ public class CommentServiceImpl implements CommentService {
   public int getSize() throws Exception {
     return commentDao.countTotalList();
   }
+  
+  @Override
+  public int existCmtInBot(int commentNo) throws Exception {
+    return commentDao.existCmtInBot(commentNo);
+  }
+
+  @Override
+  public int deleteReportCmt(int commentNo) throws Exception {
+    return commentDao.deleteReportCmt(commentNo);
+  }
+
+  @Override
+  public int deleteCmtReportReason(int commentNo) throws Exception {
+    return commentDao.deleteCmtReportReason(commentNo);
+  }
+
+  @Override
+  public int deleteReviewCmtRelByCtno(int commentNo) throws Exception {
+    return commentDao.deleteReviewCmtRelByCtno(commentNo);
+  }
+
+  @Override
+  public int deleteBotCmtRelByCtno(int commentNo) throws Exception {
+    return commentDao.deleteBotCmtRelByCtno(commentNo);
+  }
 }

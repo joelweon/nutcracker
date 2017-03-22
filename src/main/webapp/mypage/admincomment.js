@@ -58,6 +58,11 @@ $('.pgBtn > a').click(function() {
 
 function loadList(pageNo, pageSize) {
 	$.get(serverRoot+'/comment/getCommentReportList.json', {"pageNo":pageNo,"pageSize":pageSize}, function(ajaxResult) {
+		var status = ajaxResult.status;
+    if (status != "success") {
+    	$('.comment-table > #tbody-review').html("<tr><td></td><td></td><td></td><td>"+ajaxResult.data+"</td><td></td><td></td></tr>");
+      return;
+    }
 		var list = ajaxResult.data.list;
 		var totalCount = ajaxResult.data.totalCount;
 		var reviewList = [];
@@ -126,55 +131,27 @@ function preparePagingButton(totalCount) {
 }
 
 // 삭제
-/*$('.main-contents .delete-div > .delete-btn').click(function(e) {
+$('.main-contents .delete-div > .delete-btn').click(function(e) {
   e.preventDefault();
-  alertify.confirm("정말 삭제하시겠습니까??", function(e) {
+  alertify.confirm("정말 삭제하시겠습니까?", function(e) {
     if (e) {
-      
-      var rnoAry = new Array();
+      var noAry = new Array();
       $('input[name=box]:checked').each(function() {
-        rnoAry.push($(this).val());
+        noAry.push($(this).val());
       });
       jQuery.ajaxSettings.traditional = true;
-      console.log(rnoAry);
-      
       //댓삭
       $.ajax({
         method : 'POST',
-        url    : serverRoot + '/comment/deleteReviewCmtsMy.json',
+        url    : serverRoot + '/comment/deleteReportCmt.json',
         data   : {
-          'ownNo' : rnoAry
+          'commentNo' : noAry
         }
       });
+      loadList(curPageNo, pageSize);
     } else { //취소
       return;
     }
   });
 }) //delete
-*/
-// 신고취소(0으로 세팅)
-/*$('.main-contents .delete-div > a.reset-btn').click(function(e) {
-  e.preventDefault();
-  alertify.confirm("정말 복구하시겠습니까??", function(e) {
-    if (e) {
-      var rnoAry = new Array();
-      $('input[name=box]:checked').each(function() {
-        rnoAry.push($(this).val());
-      });
-      jQuery.ajaxSettings.traditional = true;
-      console.log(rnoAry);
-      
-      $.ajax({
-        method : 'POST',
-        url    : serverRoot + "/review/resetReport.json",
-        data   : {
-          'rnoAry' : rnoAry
-        }
-      }).done(function() {
-        location.reload();
-      });
-    } else { //취소
-      return;
-    }
-  });
-});*/
+
