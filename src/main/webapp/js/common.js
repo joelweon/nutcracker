@@ -61,10 +61,18 @@ $(document).ready(function() {
               if (response && response.status === 'connected') {
                 console.log(3120);
                   FB.logout(function(response) {
-                    location.reload();
+                    if (location.href.indexOf('mypage') != -1) {
+                      location.href = serverRoot + '/main.html';
+                    } else {
+                      location.reload();
+                    }
                   }, {scope:'email,public_profile', return_scopes: false});
               } else {
-                  location.reload();
+                  if (location.href.indexOf('mypage') != -1) {
+                    location.href = serverRoot + '/main.html';
+                  } else {
+                    location.reload();
+                  }
               }
           });
         });
