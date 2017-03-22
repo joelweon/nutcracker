@@ -125,10 +125,10 @@ span.psw {
 input {
   opacity:0.9;
 }
-#loginBtn {
+#facebookLogin {
   cursor:pointer;
 }
-#loginBtn > img {
+#facebookLogin > img {
   width: 45px;
   height:42px;
   border-radius:5px;
