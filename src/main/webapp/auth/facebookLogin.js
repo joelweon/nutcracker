@@ -22,13 +22,12 @@ window.fbAsyncInit = function() {
     xfbml  : true, // 소셜 플러그인이 있으면 처리
     version : 'v2.8' // use version 2.8
   });
- 
+
   //check user session and refresh it
   FB.getLoginStatus(function(response) {
-    console.log(response);
     if (response.status === 'connected') {
       //user is authorized
-      //document.getElementById('loginBtn').style.display = 'none';
+      //document.getElementById('facebookLogin').style.display = 'none';
       getUserData();
 
     } else {
@@ -36,7 +35,6 @@ window.fbAsyncInit = function() {
     }
   });
 };
-document.getElementById('logoutBtn').style.display = 'none';
 //load the JavaScript SDK
 (function(d, s, id){
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -47,26 +45,23 @@ document.getElementById('logoutBtn').style.display = 'none';
 }(document, 'script', 'facebook-jssdk'));
  
 //add event listener to login button
-document.getElementById('loginBtn').addEventListener('click', function() {
+document.getElementById('facebookLogin').addEventListener('click', function() {
   //do the login
   FB.login(function(response) {
     if (response.authResponse) {
-      console.log(response.authResponse);
-      //location.href = serverRoot;
-      console.log('login- '+ response);
+      location.href = serverRoot;
       //user just authorized your app
-      //document.getElementById('loginBtn').style.display = 'none';
+      //document.getElementById('facebookLogin').style.display = 'none';
       getUserData();
     }
   }, {scope: 'email,public_profile', return_scopes: true});
 }, false);
 
 //add event listener to login button
-document.getElementById('logoutBtn').addEventListener('click', function() {
-  FB.logout(function(response) {
-    
-    // user is now logged out
-    console.log('logout- ' + response);
-    document.getElementById('logoutBtn').style.display = 'none';
-  });
-}, false);
+//document.getElementById('logoutBtn').addEventListener('click', function() {
+//  FB.logout(function(response) {
+//    
+//    // user is now logged out
+//    console.log('logout- ' + response);
+//  });
+//}, false);
