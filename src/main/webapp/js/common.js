@@ -72,15 +72,6 @@ $(document).ready(function() {
             }
           });*/
           
-/*          Kakao.API.request({
-            url: '/v1/user/logout',
-            success: function(res) {
-              console.log(res);
-            },
-            fail: function(error) {
-              console.log(error);
-            }
-          });*/
         //add event listener to login button
             FB.getLoginStatus(function(response) {
               //console.log(FB.getAuthResponse());

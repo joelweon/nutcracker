@@ -335,17 +335,15 @@ ul.reply-list-area {
 .content-content2 {
 	position:absolute;
 	width:260px;
-	margin-bottom:100px;
+	/* padding-bottom:500px; */
   color:#939598;
-  background-color: #424242;
-}
-#sticker {
-  height:100%;
-  background-color: #424242;
+  /* background-color: #424242; */
+  /* height:680px; */
   border-top-right-radius:10px;
   border-bottom-right-radius:10px;
 }
-
+/* #sticker {
+} */
 .content-content2.active{
   width: 260px;
   position: fixed;
@@ -419,7 +417,7 @@ span.link {
 }
 
 /* 대체상품  이미지 Loop Mode */
-.swiper-container {
+/* .swiper-container {
         margin:30px 20px;
 }
 .swiper-slide {
@@ -444,7 +442,7 @@ span.link {
   margin-top:-15px;
   width: 27px;
   height: 20px;
-}
+} */
 
 .alta-title {
   color:white;

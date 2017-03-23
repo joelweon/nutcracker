@@ -246,15 +246,15 @@ $('.walnut-stamp > a').click(function(event) {
   	var snsTop = $('#sns-area').offset().top;
   	var stikerTop = $('.right-area').offset().top;
   	var rightHeight = $('.left-area').height();
-  	$('#sticker').css('height',rightHeight);
+  	/*$('#sticker').css('height','100%');*/
     $(window).scroll(function() {
     	// 오른쪽 바 상단 고정
     	if ( $(window).scrollTop() < stikerTop || $(window).scrollTop() == stikerTop ) {
-    		$('#sticker').css('height',rightHeight - 100);
     		$('#sticker').css('position','absolute').css('top','0');
     		$('#sticker').css('position','absolute').css('bottom','0');
     	}                    
     	else {
+    	  $('#sticker').css('background-color','#424242');
     		$('#sticker').css('height','100%');
     		$('#sticker').css('position','fixed').css('top','0');
     		$('#sticker').css('position','fixed').css('bottom','0');
