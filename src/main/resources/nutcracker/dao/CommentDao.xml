@@ -49,11 +49,17 @@
   </insert>
   
   <delete id='deleteReviewCmts' parameterType='String'>
-    delete from rev_cmt where rvno=#{ownNo}
+    delete c, rc
+    from cmt c
+      left join rev_cmt rc on rc.ctno=c.ctno
+    where rc.rvno=#{ownNo}
   </delete>
   
   <delete id='deleteBoycottCmts' parameterType='int'>
-    delete from bot_cmt where botno=#{boycottNo}
+    delete c, bc
+    from cmt c
+      left join bot_cmt bc on rc.ctno=c.ctno
+    where bc.botno=#{boycottNo}
   </delete>
   
   
