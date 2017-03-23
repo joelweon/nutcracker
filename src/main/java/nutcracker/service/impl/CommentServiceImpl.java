@@ -146,4 +146,10 @@ public class CommentServiceImpl implements CommentService {
     return commentDao.deleteCmt(commentNo);
   }
 
+  @Override
+  public int updateCmt(HashMap<String, String> map) throws Exception {
+    int count = commentDao.updateCmt(map);
+    return count;
+  }
+
 }

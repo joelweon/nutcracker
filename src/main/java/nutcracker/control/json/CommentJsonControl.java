@@ -153,4 +153,12 @@ public class CommentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "[comment] Boycott Comment 삭제 성공");
   }
   
+  @RequestMapping("/comment/updateCmt")
+  public AjaxResult updateCmt(@RequestParam HashMap<String,String> map) throws Exception {
+    
+    commentService.updateCmt(map);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "[comment] Boycott Comment 수정 성공");
+  }
+  
 }

@@ -146,10 +146,18 @@ function changeBtn() {
 	}, 'json');
 }
 
+
+
+// 댓글 수정버튼 클릭 시 해당 폼 변경
 $(document).on('click', '.update-btn', function(event) {
-	
+	var clickCmtNo = $(this).attr("data-no");
+	console.log(clickCmtNo);
+	$('#div-'+clickCmtNo+'> .infotext').addClass("hidden");
+	$('#div-'+clickCmtNo+'> .comment-write-box').removeClass("hidden");
+	$('#report-'+clickCmtNo).addClass("hidden");
 });
 
+// 댓글 삭제 이벤트
 $(document).on('click', '.delete-btn', function(event) {
 	$.get(serverRoot + '/comment/deleteOneBotCmt.json', {
 			"commentNo" : $(this).attr("data-no")
@@ -160,6 +168,25 @@ $(document).on('click', '.delete-btn', function(event) {
 		getComments(boycottNo);
 	}, 'json');
 });
+
+function updateCmt(cmtNo) {
+	var param = {
+			"cont" : $('#div-'+cmtNo+' .comment-write-textarea').val(),
+			"ctno" : cmtNo
+	}
+	$.post(serverRoot + '/comment/updateCmt.json', param, function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			console.log("수정실패");
+		}
+		getComments(boycottNo);
+	}, 'json');
+}
+
+function updateCancel(cmtNo) {
+	$('#div-'+cmtNo+'> .infotext').removeClass("hidden");
+	$('#div-'+cmtNo+'> .comment-write-box').addClass("hidden");
+	$('#report-'+cmtNo).removeClass("hidden");
+}
 
 
 // 신고 사유 등록하기

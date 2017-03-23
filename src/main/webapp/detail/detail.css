@@ -194,6 +194,18 @@ ul.reply-list-area {
   position:absolute;
   color:#929292;
 }
+
+/* 댓글 관련 CSS */
+.comment-write-box { height: 50px;}
+.comment-write-textarea {
+	width: 70%;
+	height: 50px;
+}
+
+.comment-update-btn, .comment-cancel-btn {
+	margin-bottom: 50px;
+}
+
 .report-btn {
 	visibility:hidden;
 	position: absolute;

@@ -185,6 +185,13 @@
     where ctno=#{value}
   </select>
   
+  <update id="updateCmt" parameterType="map">
+    update cmt set
+      cont=#{cont}
+    where ctno=#{ctno}
+  </update>
+  
+  
   <!-- ctno를 사용하여 댓글 지우기 (DB에서 삭제) -->
   <delete id='deleteReportCmt' parameterType='int'>
     delete from cmt where ctno=#{value}

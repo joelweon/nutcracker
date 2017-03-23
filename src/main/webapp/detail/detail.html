@@ -16,7 +16,7 @@
   
   
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="../css/header.css">
+  <!-- <link rel="stylesheet" href="../css/header.css"> -->
   <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/common.css">
@@ -27,7 +27,7 @@
 <body>
 <!-- 디테일 -->
   <div class="wrap-body">
-  <div id='wrap-header'></div>
+  <!-- <div id='wrap-header'></div> -->
     <div id="myModal" class="wrap">
       <!-- Modal content -->
       <div class="modal-content">
@@ -185,8 +185,14 @@
       <div><img id="rep-img" src="../images/user/{{photoPath}}" /></div>
       <div class="reply-info">
       <span class="reply-id">{{name}}</span>
-        <div class="infotext-area">
+        <div id="div-{{commentNo}}" class="infotext-area">
           <span class="infotext">{{content}}</span>
+          <div class='comment-write-box hidden'>
+            <!-- <span class='writer-name'>{{name}}</span> -->
+            <textarea class='comment-write-textarea' rows="5">{{content}}</textarea>
+            <button type='button' class='btn btn-default comment-update-btn' onclick="updateCmt({{commentNo}})">수정</button>
+            <button type='button' class='btn btn-default comment-cancel-btn' onclick="updateCancel({{commentNo}})">취소</button>
+          </div>
           <div class="c-time">
             <img class="clock" src="../images/clock.PNG" />
             <span class="time">{{postTime}}</span>
@@ -219,7 +225,7 @@
             </div>
             <button type="button" class="report-submit-btn btn btn-default btn-xs">제출</button>
           </div>
-          <button type="button" class="report-btn btn btn-default btn-sm " data-no="{{commentNo}}">댓글신고</button>
+          <button type="button" class="report-btn btn btn-default btn-sm" data-no="{{commentNo}}">댓글신고</button>
           <button type="button" class="update-btn btn btn-default btn-sm hidden" data-no="{{commentNo}}">수정</button>
           <button type="button" class="delete-btn btn btn-default btn-sm hidden" data-no="{{commentNo}}">삭제</button>
         </div>
@@ -231,7 +237,7 @@
 <script src="../js/context.js"></script>
 <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="../js/common.js"></script>
+<!-- <script src="../js/common.js"></script> -->
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="../js/alertify.min.js"></script>
 <script src="shopping-serarch.js"></script>
