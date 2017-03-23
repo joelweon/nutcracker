@@ -1,13 +1,122 @@
-<nav class="my-side-menu">
-  <h2>관리페이지</h2>
-  <ul>
-    <li id='side-member' class='parent'><a href="adminmember.html">회원 관리</a></li>
-    <li id='side-boycott' class='parent'><a href="myboycott.html">기업 관리</a></li>
-    <li id='side-myboard' class='parent'><a href="deleteboard.html">게시글 관리</a></li>
-    <li id='side-boardDel' class='child'><a href="deleteboard.html">삭제글 관리</a></li>
-    <li id='side-boardRep' class='child'><a href="myboard.html">신고글 관리</a></li>
-    <li id='side-comment' class='parent'><a href="admincomment.html">댓글 관리</a></li>
-    <li id='side-commentRep' class='child'><a href="admincomment.html">신고댓글 관리</a></li>
-    <!-- <li><a href="myhodu.html">내가던진호두</a></li> -->
-  </ul>
-</nav>
+<div id="container-side">
+  <nav class="my-side-menu">
+    <h2>관리페이지</h2>
+    <ul>
+      <li id='side-member' class='parent'><a href="mypage.html">회원 관리</a></li>
+      <li id='side-boycott' class='parent'><a href="admincompany.html">기업 관리</a></li>
+      <li id='side-myboard' class='parent'><a href="deleteboard.html">게시글 관리</a>
+        <ul>
+          <li id='side-boardDel' class='child'><a href="deleteboard.html">- 삭제글 관리</a></li>
+          <li id='side-boardRep' class='child'><a href="myboard.html">- 신고글 관리</a></li>
+        </ul>
+      </li>
+      <li id='side-comment' class='parent'><a href="admincomment.html">댓글 관리</a>
+        <ul>
+          <li id='side-commentRep' class='child'><a href="admincomment.html">- 신고댓글 관리</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- CSS -->
+
+<style>
+/* myside 오버라이딩 */
+.my-side-menu {
+  height: 80px;
+}
+.my-side-menu h2 {
+  margin-bottom: 25px;
+}
+.my-side-menu ul {
+  background-color: initial;
+}
+.my-side-menu ul > li.child > a {
+  color:white;
+}
+.my-content-area {
+}
+
+/* Admin 커스텀 */
+nav {
+  margin: 0 auto;
+  border: 1px solid #25272b;
+  border-radius: 3px;
+  box-shadow: rgba(0,0,0,0.15) 0 0 5px, rgba(0,0,0,0.2) 0 1px 0;
+}
+nav ul li a {
+  display: block;
+  padding-left: 40px;
+  text-decoration: none;
+  color: #d9ddea;
+  text-shadow: rgba(0,0,0,0.25) 0 1px 0;
+}
+nav ul li {
+  background: rgba(100,25,25,1);
+  box-shadow: rgba(255,255,255,0.1) 1px 1px 0 inset;
+  /* border-bottom: #292b30 1px solid; */
+}
+#side-myboard, #side-comment {
+  position: relative;
+}
+#side-myboard ul, #side-comment ul {
+   height: 0; 
+    overflow: hidden;
+    -webkit-transition: height ease-out .5s;
+    -moz-transition:    height ease-out .5s;
+    -o-transition:      height ease-out .5s;
+    transition:         height ease-out .5s;
+}
+#side-myboard:hover ul {
+  height: 102px;
+}
+#side-comment:hover ul {
+  height: 51px;
+}
+#side-myboard ul li, #side-comment ul li {
+  background: rgb(70, 30, 30);
+  box-shadow: #3a3c42 0 1px 0 inset;
+}
+
+#side-myboard ul li:nth-of-type(1), #side-comment ul li:nth-of-type(1) {
+  box-shadow: rgba(0,0,0,0.1) 0 2px 2px inset;
+}
+#side-myboard ul li:nth-of-type(2) {
+  box-shadow: rgba(0,0,0,0.1) 0 -2px 2px inset, #3a3c42 0 1px 0 inset;
+}
+.my-side-menu ul > li.child a:hover {
+  background: -webkit-linear-gradient(top,  rgba(58,96,209,1) 0%,rgba(44,72,194,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(58,96,209,1) 0%,rgba(44,72,194,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(58,96,209,1) 0%,rgba(44,72,194,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(58,96,209,1) 0%,rgba(44,72,194,1) 100%); /* W3C */
+  box-shadow:#5173d5 1px 1px 0 inset;
+}
+
+#side-myboard > a, #side-comment > a {
+  background-position: 0 -40px;
+}
+
+#side-member, #side-boycott, {
+  border-radius: 0 0 3px 3px;
+}
+#side-member a {
+  background-position: 0 -120px;
+}
+</style>
+
+<script>
+if(location.href.indexOf('admincomment') != -1) {
+  $('#side-comment > ul').css('height', '51px');
+} else if(location.href.indexOf('deleteboard') != -1 || location.href.indexOf('myboard') != -1) {
+  $('#side-myboard > ul').css('height', '102px');
+} else {
+  $('#side-comment > ul').css('height', '0px');
+  $('#side-myboard > ul').css('height', '0px');
+}
+
+/*   var sm = document.getElementById('side-myboard');
+  sm.addEventListener('click', function() {
+    
+  }) */
+</script>

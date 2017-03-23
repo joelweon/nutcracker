@@ -108,15 +108,12 @@ $('#btn-update').click(function() {
 $('#btn-delete').click(function(e) {
   alertify.confirm('정말 삭제하시겠습니까??', function(e) {
     if (e) {
-      var param = {"ownNo" : reviewNo};
-      console.log('param.ownNo: ' + param.ownNo);
-      $.post(serverRoot + '/comment/deleteReviewCmts.json', param, function(ajaxResult) {
+      $.post(serverRoot + '/comment/deleteReviewCmts.json', {"ownNo" : reviewNo}, function(ajaxResult) {
         if (ajaxResult.status != 'success') {
           console.log(ajaxResult.data);
           return;
         }
-        param = {"reviewNo" : reviewNo};
-        $.post(serverRoot + '/review/delete.json', param, function(ajaxResult) {
+        $.post(serverRoot + '/review/delete.json', {"reviewNo" : reviewNo}, function(ajaxResult) {
           if (ajaxResult.status != 'success') {
             console.log(ajaxResult.data);
             return;

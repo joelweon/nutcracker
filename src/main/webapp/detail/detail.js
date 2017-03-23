@@ -48,6 +48,7 @@ $(function() {
 	});
 
 	// 공구 정보 가져오기
+
 	$.getJSON(serverRoot + '/deal/detailByBotno.json', {boycottNo}, function(ajaxResult) {
 		$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
 		$('.purchase-subtitle').text(ajaxResult.data.title);
@@ -101,6 +102,7 @@ function getComments(boycottNo) {
       var div = $('.reply-list-area:last-child');
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
+      
       // 신고 버튼 클릭
       $('.report-btn').click(function() {
         if (users != null) {
@@ -127,8 +129,65 @@ function getComments(boycottNo) {
         }
       });
     }
+    changeBtn()
   }, 'json');
 }
+
+function changeBtn() {
+	var param;
+	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
+		if(ajaxResult.status == 'success') {
+			console.log('success');
+			var loginMember = ajaxResult.data.memberNo;
+			$('div[name='+loginMember+'] .report-btn').addClass("hidden");
+			$('div[name='+loginMember+'] .update-btn').removeClass("hidden");
+			$('div[name='+loginMember+'] .delete-btn').removeClass("hidden");
+		}
+	}, 'json');
+}
+
+
+
+// 댓글 수정버튼 클릭 시 해당 폼 변경
+$(document).on('click', '.update-btn', function(event) {
+	var clickCmtNo = $(this).attr("data-no");
+	console.log(clickCmtNo);
+	$('#div-'+clickCmtNo+'> .infotext').addClass("hidden");
+	$('#div-'+clickCmtNo+'> .comment-write-box').removeClass("hidden");
+	$('#report-'+clickCmtNo).addClass("hidden");
+});
+
+// 댓글 삭제 이벤트
+$(document).on('click', '.delete-btn', function(event) {
+	$.get(serverRoot + '/comment/deleteOneBotCmt.json', {
+			"commentNo" : $(this).attr("data-no")
+	}, function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			console.log("삭제실패");
+		}
+		getComments(boycottNo);
+	}, 'json');
+});
+
+function updateCmt(cmtNo) {
+	var param = {
+			"cont" : $('#div-'+cmtNo+' .comment-write-textarea').val(),
+			"ctno" : cmtNo
+	}
+	$.post(serverRoot + '/comment/updateCmt.json', param, function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			console.log("수정실패");
+		}
+		getComments(boycottNo);
+	}, 'json');
+}
+
+function updateCancel(cmtNo) {
+	$('#div-'+cmtNo+'> .infotext').removeClass("hidden");
+	$('#div-'+cmtNo+'> .comment-write-box').addClass("hidden");
+	$('#report-'+cmtNo).removeClass("hidden");
+}
+
 
 // 신고 사유 등록하기
 var commentReport = function(commentNo,reportNo) {
@@ -214,15 +273,15 @@ $('.walnut-stamp > a').click(function(event) {
   	var snsTop = $('#sns-area').offset().top;
   	var stikerTop = $('.right-area').offset().top;
   	var rightHeight = $('.left-area').height();
-  	$('#sticker').css('height',rightHeight);
+  	/*$('#sticker').css('height','100%');*/
     $(window).scroll(function() {
     	// 오른쪽 바 상단 고정
     	if ( $(window).scrollTop() < stikerTop || $(window).scrollTop() == stikerTop ) {
-    		$('#sticker').css('height',rightHeight - 100);
     		$('#sticker').css('position','absolute').css('top','0');
     		$('#sticker').css('position','absolute').css('bottom','0');
     	}                    
     	else {
+    	  $('#sticker').css('background-color','#424242');
     		$('#sticker').css('height','100%');
     		$('#sticker').css('position','fixed').css('top','0');
     		$('#sticker').css('position','fixed').css('bottom','0');

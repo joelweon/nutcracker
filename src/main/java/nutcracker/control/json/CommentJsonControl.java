@@ -146,4 +146,19 @@ public class CommentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "[comment] 신고 댓글 리스트 삭제 성공");
   }
   
+  @RequestMapping("/comment/deleteOneBotCmt")
+  public AjaxResult deleteOneBotCmt(int commentNo) throws Exception {
+    commentService.deleteBoycottCmt(commentNo);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "[comment] Boycott Comment 삭제 성공");
+  }
+  
+  @RequestMapping("/comment/updateCmt")
+  public AjaxResult updateCmt(@RequestParam HashMap<String,String> map) throws Exception {
+    
+    commentService.updateCmt(map);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "[comment] Boycott Comment 수정 성공");
+  }
+  
 }

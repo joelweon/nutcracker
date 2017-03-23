@@ -6,10 +6,11 @@
 <mapper namespace="nutcracker.dao.CompanyDao">
 
   <!-- <resultMap type="Company" id="Company-map"> -->
-  <resultMap type="hashmap" id="Company-map">
+  <resultMap type="Company" id="Company-map">
     <id     column="cpno"     property="companyNo"/>
     <result column="cp_name"  property="companyName"/>
     <result column="parno"    property="parentNo"/>
+    <result column='lvl'      property="level"/>
     
     <!-- <collection property="childList" javaType="ArrayList" column="chino" ofType="Company">
       <result column="chino"    property="childNo"/>
@@ -21,10 +22,18 @@
     select cpno from bot_rls where mno=#{value}
   </select>
   
+  <select id="getAllCompany" resultType="String">
+		select cast(
+		  concat('[',group_concat(json_object('na',cp_name,'no',cpno)),']') as json) 
+		from comp 
+		group by parno 
+		order by cpno
+  </select>
+  
   <select id="getBoycottComp" parameterType="int" resultType="hashmap">
     select 
 		  concat('[', 
-		    group_concat('{"', com.cpno, '","', com.cp_name, '","', com.lvl, '","',(select count(0) from bot_rls r where com.cpno=r.cpno and mno=2), '"}' 
+		    group_concat('{"', com.cpno, '","', com.cp_name, '","', com.lvl, '","',(select count(0) from bot_rls r where com.cpno=r.cpno and mno=#{memberNo}), '"}' 
 		    order by com.lvl separator '-'),
 		    ']') as sub_com_list
 		from comp com
@@ -32,7 +41,7 @@
 		  (select case when parno=0 then com.cpno else com.parno end as pc_no
 		  from comp com
 		    left join bot_rls r on com.cpno=r.cpno
-		  where r.mno=2)
+		  where r.mno=#{memberNo})
 		  group by (com.parno)
 		  <!-- select 
 			  concat('[', 
@@ -63,5 +72,20 @@
    from comp
    where cp_name like concat('%',#{value},'%')
   </select>
+  
+  <insert id="addParent" parameterType="map"
+          useGeneratedKeys="true" keyProperty="companyNo" keyColumn="cpno">
+    insert into comp(cpno, cp_name, parno, lvl)
+    values (#{companyNo},#{companyName},0,0)
+  </insert>
+  
+  <update id="setParentNo" parameterType="int">
+    update comp set parno=#{parno} where cpno=#{parno}
+  </update>
+  
+  <insert id="addChild" parameterType="Company">
+    insert into comp(cpno, cp_name, parno, lvl)
+    values (#{companyNo},#{companyName},#{parentNo},1);
+  </insert>
   
 </mapper>
