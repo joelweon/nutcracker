@@ -14,15 +14,17 @@ body {
     margin:auto; 
     display:inline;
     color:black;
+    height:100%;
 }
 .modal-content {
     border: 1px;
     border-radius: 20px;
+    height:100%;
+    margin-top:100px;
+    width: 99%;
 }
 /* Left */
 .left-area {
-  top:100px;
-  /* margin-bottom:100px; */
   width:73%;
   background: #fff;
   border-top-left-radius: 10px;
@@ -31,7 +33,7 @@ body {
   position:relative;
 }
 .close {
-  border-top-right-radius: 10px;
+  border-radius: 10px;
 }
 .min-close {
 	display: none;
@@ -338,30 +340,18 @@ ul.reply-list-area {
 /* ----------------Right ------------------*/
 .right-area {
   width: 27%;
-  top:100px;
   float:left;
   position:relative;
-  margin-bottom:100px;
+  background-color: #424242;
+  height:100%;
+  border-top-right-radius:10px;
 }
 
 .content-content2 {
 	position:absolute;
 	width:260px;
-	/* padding-bottom:500px; */
   color:#939598;
-  /* background-color: #424242; */
-  /* height:680px; */
-  border-top-right-radius:10px;
   border-bottom-right-radius:10px;
-}
-/* #sticker {
-} */
-.content-content2.active{
-  width: 260px;
-  position: fixed;
-/*    top: 0;
-    left:600px;
-    width:230px; */
 }
 
 /* hidden menu bar */
@@ -487,6 +477,8 @@ h5 {
     .modal-content {
       top:0;
       left:0;
+      margin-top:0px;
+      width: 100%;
     }
     .active {
       display: none;
@@ -656,6 +648,8 @@ h5 {
   .modal-content {
     top:0;
     left:0;
+    margin-top:0px;
+    width: 100%;
   }
   .active {
     display: none;
