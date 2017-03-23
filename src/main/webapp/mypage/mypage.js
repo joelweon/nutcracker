@@ -32,7 +32,6 @@ $(document).on('click', '.detail-togle', function() {
 });
 
 function setSideMenu(){
-  console.log('setSideMenu()...');
   var page = new Array;
   page[0] = "mypage.html";
   page[1] = "myboycott.html";
@@ -53,7 +52,6 @@ function setSideMenu(){
   var getAr6 = url.indexOf(page[6]);
   var getAr7 = url.indexOf(page[7]);
   if (getAr0 != -1){ //mypage
-    console.log('setSideMenu()...getAr0');
     $('li#side-member').addClass('selected');
     $('li#side-boycott').addClass('unselected');
     $('li#side-purchase').addClass('unselected');
@@ -64,7 +62,6 @@ function setSideMenu(){
     $('li#side-comment').addClass('unselected');
     $('li#side-commentRep').addClass('unselected');
   } else if (getAr1 != -1) { //myboycott
-    console.log('setSideMenu()...getAr1');
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('selected');
     $('li#side-purchase').addClass('unselected');
@@ -75,7 +72,6 @@ function setSideMenu(){
     $('li#side-comment').addClass('unselected');
     $('li#side-commentRep').addClass('unselected');
   } else if (getAr2 != -1) { //mypurchase
-    console.log('setSideMenu()...getAr2');
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('unselected');
     $('li#side-purchase').addClass('selected');
@@ -86,7 +82,6 @@ function setSideMenu(){
     $('li#side-comment').addClass('unselected');
     $('li#side-commentRep').addClass('unselected');
   } else if (getAr3 != -1) { //mywish
-    console.log('setSideMenu()...getAr3');
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('unselected');
     $('li#side-purchase').addClass('unselected');
@@ -97,7 +92,6 @@ function setSideMenu(){
     $('li#side-comment').addClass('unselected');
     $('li#side-commentRep').addClass('unselected');
   } else if (getAr4 != -1) { //myboard(user)
-    console.log('setSideMenu()...getAr4');
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('unselected');
     $('li#side-purchase').addClass('unselected');
@@ -108,7 +102,6 @@ function setSideMenu(){
     $('li#side-comment').addClass('unselected');
     $('li#side-commentRep').addClass('unselected');
   } else if (getAr5 != -1) { //deleteboard(admin)
-    console.log('setSideMenu()...getAr5');
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('unselected');
     $('li#side-purchase').addClass('unselected');
@@ -119,7 +112,6 @@ function setSideMenu(){
     $('li#side-comment').addClass('unselected');
     $('li#side-commentRep').addClass('unselected');
   } else if (getAr6 != -1) { //admincomment(admin)
-    console.log('setSideMenu()...getAr6');
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('unselected');
     $('li#side-purchase').addClass('unselected');
@@ -130,7 +122,6 @@ function setSideMenu(){
     $('li#side-comment').addClass('selected');
     $('li#side-commentRep').addClass('selected');
   } else if (getAr7 != -1) { //admincompany(admin)
-    console.log('setSideMenu()...getAr6');
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('selected');
     $('li#side-purchase').addClass('unselected');

@@ -24,6 +24,55 @@
 .accordian--box div > table > tbody > tr > td { padding: 5px 5px 5px 5px; }
 span.childName { width: 200px; font-size: 0.8em; display: table-cell; }
 
+div#div-regComp { padding-left: 40px; width: 100%; }
+div#div-regComp > * {display: inline;}
+a#btn-regComp { 
+	float: right; 
+	width: 10%; 
+	padding: 1em 0 12px;
+  padding-left: 0;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+/* input 강조효과 */
+input[type="text"],
+input[type="password"] {
+  width: 88%;
+  padding: 1em 0 12px;
+  padding-left: 0;
+  background: none;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 400;
+  border: none;
+  border-bottom: 1px solid #999;
+  /*Some sibling magic happens */
+}
+input[type="text"]:focus + .separator,
+input[type="password"]:focus + .separator {
+  -webkit-transform: scaleX(1) translateY(-2px);
+          transform: scaleX(1) translateY(-2px);
+  opacity: 1;
+}
+.separator {
+  height: 3px;
+  width: 88%;
+  background: #fff;
+  display: block;
+  -webkit-transform: scaleX(0) translateY(-2px);
+          transform: scaleX(0) translateY(-2px);
+  -webkit-transform-origin: 50%;
+          transform-origin: 50%;
+  opacity: 0;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
 #div-footer {
   position: relative;
 }

@@ -1,6 +1,7 @@
 package nutcracker.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import nutcracker.domain.Company;
@@ -12,4 +13,7 @@ public interface CompanyDao {
   Company getParent(int parentNo) throws Exception;
   ArrayList<Company> getChildren(int parentNo) throws Exception;
   ArrayList<Company> searchMaker(String keyword) throws Exception;
+  int addParent(HashMap<String,Object> parent) throws Exception;
+  int setParentNo(int parentNo) throws Exception;
+  int addChild(Company child) throws Exception;
 }

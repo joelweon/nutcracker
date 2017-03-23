@@ -30,8 +30,25 @@ public class CompanyJsonControl {
   @RequestMapping("/company/getAllCompany")
   public AjaxResult getAllCompany() throws Exception {
     List<Object> list = companyService.getAllCompany();
-    System.out.println(list.toString());
     return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  @RequestMapping("/company/add")
+  public AjaxResult add(String comp) throws Exception {
+    String[] arr = comp.split(",");
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("companyName", arr[0]);
+    int parentNo = companyService.addParent(map);
+    companyService.setParentNo(parentNo);
+    if (arr.length > 1) {
+      for(int i = 1; i < arr.length; i++) {
+        Company child = new Company();
+        child.setCompanyName(arr[i]);
+        child.setParentNo(parentNo);
+        companyService.addChild(child);
+      }
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "기업정보 등록 성공");
   }
   
   @RequestMapping("/company/getBoycottComp")
