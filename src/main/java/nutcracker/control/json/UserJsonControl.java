@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -94,6 +95,7 @@ public class UserJsonControl {
       return new AjaxResult(AjaxResult.FAIL, "유저이미지 수정 실패입니다.");
     }
   }
+  
   @RequestMapping("/user/profileUpload")
   public AjaxResult profileUpload(MultipartFile[] image) throws Exception {
     ArrayList<String> images = new ArrayList<>();
@@ -117,5 +119,31 @@ public class UserJsonControl {
       }
     }
     return new AjaxResult(AjaxResult.FAIL, "[profileUpload]이미지를 업로드하지 못했습니다.");
+  }
+  
+  @RequestMapping("/user/listReportMember")
+  public AjaxResult listReportMember(@RequestParam(defaultValue="1") int pageNo, @RequestParam(defaultValue="15") int pageSize) throws Exception {
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    if (pageSize < 5 || pageSize > 10) {
+      pageSize = 5;
+    }
+    HashMap<String, Object> map = new HashMap<>();
+    List<HashMap<String,Object>> totalList = userService.listReportMember(pageNo,pageSize);
+    List<HashMap<String,Object>> list = new ArrayList<>();
+    int totalCount = totalList.size();
+    for (int i = 0; i < totalCount; i ++) {
+      int memberNo = Integer.parseInt(totalList.get(i).get("mno").toString());
+      list.add(userService.detailReportMember(memberNo));
+      System.out.println(userService.detailReportMember(memberNo));
+    }
+    map.put("list", list);
+    map.put("totalCount", totalCount);
+    if (!map.get("totalCount").toString().equals("0")) {
+      return new AjaxResult(AjaxResult.SUCCESS, map);
+    } else {
+      return new AjaxResult(AjaxResult.FAIL, "20회 이상 신고된 회원이 없습니다.");
+    }
   }
 }

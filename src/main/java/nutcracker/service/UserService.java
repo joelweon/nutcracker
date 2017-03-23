@@ -2,6 +2,7 @@ package nutcracker.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import nutcracker.domain.User;
 
@@ -13,4 +14,6 @@ public interface UserService {
   int delete(int userNo) throws Exception;
   int updateProfile(HashMap<String, Object> map) throws Exception;
   int updateAddress(User user) throws Exception;
+  List<HashMap<String, Object>> listReportMember(int pageNo, int pageSize) throws Exception;
+  HashMap<String, Object> detailReportMember(int memberNo) throws Exception;
 }
