@@ -122,7 +122,7 @@ public class UserJsonControl {
   }
   
   @RequestMapping("/user/listReportMember")
-  public AjaxResult listReportMember(@RequestParam(defaultValue="1") int pageNo, @RequestParam(defaultValue="15") int pageSize) throws Exception {
+  public AjaxResult listReportMember(@RequestParam(defaultValue="1") int pageNo, @RequestParam(defaultValue="10") int pageSize) throws Exception {
     if (pageNo < 1) {
       pageNo = 1;
     }
@@ -145,5 +145,14 @@ public class UserJsonControl {
     } else {
       return new AjaxResult(AjaxResult.FAIL, "20회 이상 신고된 회원이 없습니다.");
     }
+  }
+  
+  @RequestMapping("/user/updateStatus")
+  public AjaxResult updateStatus(User user) throws Exception {
+    int count = userService.updateStatus(user);
+    if (count == 0) {
+      return new AjaxResult(AjaxResult.FAIL, "회원 활동 상태 변경 실패");
+    }
+    return new AjaxResult(AjaxResult.SUCCESS, "회원 활동 상태 변경 성공");
   }
 }

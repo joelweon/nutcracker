@@ -99,4 +99,9 @@ public class UserServiceImpl implements UserService {
     return userDao.detailReportMember(memberNo);
   }
 
+  @Override
+  public int updateStatus(User user) throws Exception {
+    return userDao.updateStatus(user);
+  }
+
 }
