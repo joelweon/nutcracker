@@ -62,6 +62,13 @@
     where bc.botno=#{boycottNo}
   </delete>
   
+  <delete id='deleteOneBoycottCmt' parameterType="int">
+    delete from bot_cmt where ctno=#{commentNo}
+  </delete>
+  
+  <delete id='deleteCmt' parameterType="int">
+    delete from cmt where ctno=#{commentNo}
+  </delete>
   
   
   <select id='getBoycottCommentList' parameterType="int" resultMap="map">
@@ -183,6 +190,13 @@
     from bot_cmt 
     where ctno=#{value}
   </select>
+  
+  <update id="updateCmt" parameterType="map">
+    update cmt set
+      cont=#{cont}
+    where ctno=#{ctno}
+  </update>
+  
   
   <!-- ctno를 사용하여 댓글 지우기 (DB에서 삭제) -->
   <delete id='deleteReportCmt' parameterType='int'>

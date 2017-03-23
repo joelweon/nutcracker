@@ -14,15 +14,17 @@ body {
     margin:auto; 
     display:inline;
     color:black;
+    height:100%;
 }
 .modal-content {
     border: 1px;
     border-radius: 20px;
+    height:100%;
+    margin-top:100px;
+    width: 99%;
 }
 /* Left */
 .left-area {
-  top:100px;
-  /* margin-bottom:100px; */
   width:73%;
   background: #fff;
   border-top-left-radius: 10px;
@@ -31,7 +33,7 @@ body {
   position:relative;
 }
 .close {
-  border-top-right-radius: 10px;
+  border-radius: 10px;
 }
 .min-close {
 	display: none;
@@ -170,6 +172,14 @@ ul.reply-list-area {
 	visibility:visible;
 }
 
+.reply-box:hover > .reply-info > div > .delete-btn {
+  visibility:visible;
+}
+
+.reply-box:hover > .reply-info > div > .update-btn {
+  visibility:visible;
+}
+
 .reply-id {
   font-weight: 700;
   font-size:1.1em;
@@ -186,11 +196,37 @@ ul.reply-list-area {
   position:absolute;
   color:#929292;
 }
+
+/* 댓글 관련 CSS */
+.comment-write-box { height: 50px;}
+.comment-write-textarea {
+	width: 70%;
+	height: 50px;
+}
+
+.comment-update-btn, .comment-cancel-btn {
+	margin-bottom: 50px;
+}
+
 .report-btn {
 	visibility:hidden;
 	position: absolute;
 	right: 10px;
 	top:25%;
+}
+
+.delete-btn {
+  visibility:hidden;
+  position: absolute;
+  right: 10px;
+  top:25%;
+}
+
+.update-btn {
+  visibility:hidden;
+  position: absolute;
+  right: 60px;
+  top:25%;
 }
 .report-title {
 	border-bottom:1px solid #c0c0c0;
@@ -296,36 +332,26 @@ ul.reply-list-area {
   background: #fff;
 }
 
+.hidden {
+	display: none;
+}
+
 
 /* ----------------Right ------------------*/
 .right-area {
   width: 27%;
-  top:100px;
   float:left;
   position:relative;
-  margin-bottom:100px;
+  background-color: #424242;
+  height:100%;
+  border-top-right-radius:10px;
 }
 
 .content-content2 {
 	position:absolute;
 	width:260px;
-	margin-bottom:100px;
   color:#939598;
-  background-color: #424242;
-}
-#sticker {
-  height:100%;
-  background-color: #424242;
-  border-top-right-radius:10px;
   border-bottom-right-radius:10px;
-}
-
-.content-content2.active{
-  width: 260px;
-  position: fixed;
-/*    top: 0;
-    left:600px;
-    width:230px; */
 }
 
 /* hidden menu bar */
@@ -393,7 +419,7 @@ span.link {
 }
 
 /* 대체상품  이미지 Loop Mode */
-.swiper-container {
+/* .swiper-container {
         margin:30px 20px;
 }
 .swiper-slide {
@@ -418,7 +444,7 @@ span.link {
   margin-top:-15px;
   width: 27px;
   height: 20px;
-}
+} */
 
 .alta-title {
   color:white;
@@ -451,6 +477,8 @@ h5 {
     .modal-content {
       top:0;
       left:0;
+      margin-top:0px;
+      width: 100%;
     }
     .active {
       display: none;
@@ -620,6 +648,8 @@ h5 {
   .modal-content {
     top:0;
     left:0;
+    margin-top:0px;
+    width: 100%;
   }
   .active {
     display: none;

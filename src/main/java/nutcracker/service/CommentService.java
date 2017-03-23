@@ -25,4 +25,6 @@ public interface CommentService {
   int deleteCmtReportReason(int commentNo) throws Exception;
   int deleteReviewCmtRelByCtno(int commentNo) throws Exception;
   int deleteBotCmtRelByCtno(int commentNo) throws Exception;
+  int deleteBoycottCmt(int commentNo) throws Exception;
+  int updateCmt(HashMap<String, String> map) throws Exception;
 }

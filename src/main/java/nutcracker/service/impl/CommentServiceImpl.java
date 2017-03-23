@@ -139,4 +139,17 @@ public class CommentServiceImpl implements CommentService {
   public int deleteBotCmtRelByCtno(int commentNo) throws Exception {
     return commentDao.deleteBotCmtRelByCtno(commentNo);
   }
+
+  @Override
+  public int deleteBoycottCmt(int commentNo) throws Exception {
+    commentDao.deleteOneBoycottCmt(commentNo);
+    return commentDao.deleteCmt(commentNo);
+  }
+
+  @Override
+  public int updateCmt(HashMap<String, String> map) throws Exception {
+    int count = commentDao.updateCmt(map);
+    return count;
+  }
+
 }
