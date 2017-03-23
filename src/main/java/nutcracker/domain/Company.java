@@ -8,6 +8,7 @@ public class Company implements Serializable {
   protected int companyNo;
   protected String companyName;
   protected int parentNo;
+  protected int level;
   
   public int getCompanyNo() {
     return companyNo;
@@ -26,6 +27,12 @@ public class Company implements Serializable {
   }
   public void setParentNo(int parentNo) {
     this.parentNo = parentNo;
+  }
+  public int getLevel() {
+    return level;
+  }
+  public void setLevel(int level) {
+    this.level = level;
   }
   
 }
