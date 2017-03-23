@@ -27,6 +27,13 @@ public class CompanyJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, arr);
   }
   
+  @RequestMapping("/company/getAllCompany")
+  public AjaxResult getAllCompany() throws Exception {
+    List<Object> list = companyService.getAllCompany();
+    System.out.println(list.toString());
+    return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
   @RequestMapping("/company/getBoycottComp")
   public AjaxResult getBoycottComp(int memberNo) throws Exception {
     List<Object> list = companyService.getBoycottComp(memberNo);

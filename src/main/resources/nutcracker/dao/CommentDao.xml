@@ -58,7 +58,7 @@
   <delete id='deleteBoycottCmts' parameterType='int'>
     delete c, bc
     from cmt c
-      left join bot_cmt bc on rc.ctno=c.ctno
+      left join bot_cmt bc on bc.ctno=c.ctno
     where bc.botno=#{boycottNo}
   </delete>
   

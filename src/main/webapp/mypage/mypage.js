@@ -41,6 +41,7 @@ function setSideMenu(){
   page[4] = "myboard.html";
   page[5] = "deleteboard.html";
   page[6] = "admincomment.html";
+  page[7] = "admincompany.html";
   var url = location.href;
   console.log(location.href);
   var getAr0 = url.indexOf(page[0]);
@@ -50,6 +51,7 @@ function setSideMenu(){
   var getAr4 = url.indexOf(page[4]);
   var getAr5 = url.indexOf(page[5]);
   var getAr6 = url.indexOf(page[6]);
+  var getAr7 = url.indexOf(page[7]);
   if (getAr0 != -1){ //mypage
     console.log('setSideMenu()...getAr0');
     $('li#side-member').addClass('selected');
@@ -127,5 +129,16 @@ function setSideMenu(){
     $('li#side-boardRep').addClass('unselected');
     $('li#side-comment').addClass('selected');
     $('li#side-commentRep').addClass('selected');
+  } else if (getAr7 != -1) { //admincompany(admin)
+    console.log('setSideMenu()...getAr6');
+    $('li#side-member').addClass('unselected');
+    $('li#side-boycott').addClass('selected');
+    $('li#side-purchase').addClass('unselected');
+    $('li#side-wish').addClass('unselected');
+    $('li#side-myboard').addClass('unselected');
+    $('li#side-boardDel').addClass('unselected');
+    $('li#side-boardRep').addClass('unselected');
+    $('li#side-comment').addClass('unselected');
+    $('li#side-commentRep').addClass('unselected');
   }
 }

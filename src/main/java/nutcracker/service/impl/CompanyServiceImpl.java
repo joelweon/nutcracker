@@ -20,6 +20,11 @@ public class CompanyServiceImpl implements CompanyService {
   }
   
   @Override
+  public List<Object> getAllCompany() throws Exception {
+    return companyDao.getAllCompany();
+  }
+  
+  @Override
   public List<Object> getBoycottComp(int memberNo) throws Exception {
     return companyDao.getBoycottComp(memberNo);
   }
