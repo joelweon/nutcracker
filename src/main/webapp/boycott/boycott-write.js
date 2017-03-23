@@ -47,11 +47,12 @@ $('a#write').click(function(event) {
   }
   
 	param = {
-		title		:	 	$('#input-title').val(),
-		content		: 		$('#summernote').summernote('code'),
-		photoPath	: 		thumbnail,
-		companyNo	:		$('#input-maker-hidden').val(),
-		newsList	:		arrayToJson()
+		title      : $('#input-title').val(),
+		content    : $('#summernote').summernote('code'),
+		photoPath  : thumbnail,
+		companyNo  : $('#input-maker-hidden').val(),
+		keyword    : $('#input-keyword').val(),
+		newsList   : arrayToJson()
 	};  
 
 	$.ajax({
@@ -190,41 +191,4 @@ $('#results').delegate('a','click', function() {
 	$('#results').html("");
 });
 
-//공구 검색
-function searchDeal() {
-  var keyword = $(document.getElementById('input-deal'))[0].value;
-  $.ajax({
-    url: serverRoot + "/deal/searchExceptFinish.json",
-    type: 'POST',
-    data: {keyword: keyword},
-    crossDomain: 'true',
-    dataType: 'json',
-
-    success: function(ajaxResult) {
-      var results = [];
-      $(document.getElementById('dealResults')).empty();
-      for (var i =0;i<=ajaxResult.data.length;i++){
-      	if (ajaxResult.data[i] !== undefined){
-      		results.push('<a href="javascript:void(0)" data-deal-no="'
-      				+ajaxResult.data[i].purchaseNo+
-      				'"><div><p>'+ajaxResult.data[i].title+'</p></div></a>')
-      	}
-      }
-      results.forEach(function(x){$(document.getElementById('dealResults')).append(x)})
-    },
-    error: function(err) {
-      console.log(err);
-    }
-  })
-}
-
-$('#dealResults').delegate('a','click', function() {
-	$('#input-deal').val($(this).data("deal-no"));
-	$('#dealResults').html("");
-});
-
-$('.container').click(function() {
-	$('#results').html("");
-	$('#dealResults').html("");
-});
   

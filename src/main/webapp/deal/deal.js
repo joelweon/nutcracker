@@ -1,10 +1,8 @@
 $(function(event) {
 	// 관리자 로그인 시 글쓰기 버튼 보이기
 	var user = window.sessionStorage.getItem('user');
-	if (JSON.parse(user).memberNo == 1) {
+	if (user != null && JSON.parse(user).memberNo == 1) {
 		$("#purchase-write-btn").css('display','inline');
-	} else {
-		$("#purchase-write-btn").css('display','none');
 	}
   $.get(serverRoot + '/deal/list.json', function(ajaxResult) {
     if (ajaxResult.status == "success") {

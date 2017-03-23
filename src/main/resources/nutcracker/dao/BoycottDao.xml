@@ -21,6 +21,7 @@
     <result column="mno"        property="memberNo"/>
     <result column="reg_date"   property="regDate"/>
     <result column="cp_name"    property="companyName"/>
+    <result column="keyword"    property="keyword"/>
     
     <collection property="newsList" ofType="BoycottNews">
       <id       column="newsno"     property="newsNo"/>
@@ -106,6 +107,7 @@
       b.bot_cnt,
       b.pt_path,
       b.cpno,
+      b.keyword,
       bn.newsno,
       bn.headline,
       bn.path,
@@ -145,8 +147,8 @@
   
   <insert id="insert" parameterType="boycott"
           useGeneratedKeys="true" keyColumn="botno" keyProperty="boycottNo">
-    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,bot_cnt,pt_path)
-    values(#{companyNo},now(),#{title},#{content},0,0,0,0,0,#{photoPath})      
+    insert into bot(cpno,bot_date,title,cont,view_cnt,hodu_cnt,cmt_cnt,shr_cnt,bot_cnt,pt_path,keyword)
+    values(#{companyNo},now(),#{title},#{content},0,0,0,0,0,#{photoPath},#{keyword})      
   </insert>
   
   <insert id="insertNews" parameterType="boycott">

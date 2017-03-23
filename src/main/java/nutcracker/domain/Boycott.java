@@ -20,40 +20,10 @@ public class Boycott implements Serializable {
   protected String companyName;
   protected int memberNo;
   protected String regDate;
+  protected String keyword;
   protected List<Photo> photoList;
   protected List<BoycottNews> newsList;
   
-  
-  public String getRegDate() {
-    return regDate;
-  }
-  public void setRegDate(String regDate) {
-    this.regDate = regDate;
-  }
-  public int getMemberNo() {
-    return memberNo;
-  }
-  public void setMemberNo(int memberNo) {
-    this.memberNo = memberNo;
-  }
-  public int getBoycottCount() {
-    return boycottCount;
-  }
-  public void setBoycottCount(int boycottCount) {
-    this.boycottCount = boycottCount;
-  }
-  public int getCompanyNo() {
-    return companyNo;
-  }
-  public void setCompanyNo(int companyNo) {
-    this.companyNo = companyNo;
-  }
-  public String getCompanyName() {
-    return companyName;
-  }
-  public void setCompanyName(String companyName) {
-    this.companyName = companyName;
-  }
   public int getBoycottNo() {
     return boycottNo;
   }
@@ -102,11 +72,47 @@ public class Boycott implements Serializable {
   public void setShareCount(int shareCount) {
     this.shareCount = shareCount;
   }
+  public int getBoycottCount() {
+    return boycottCount;
+  }
+  public void setBoycottCount(int boycottCount) {
+    this.boycottCount = boycottCount;
+  }
   public String getPhotoPath() {
     return photoPath;
   }
   public void setPhotoPath(String photoPath) {
     this.photoPath = photoPath;
+  }
+  public int getCompanyNo() {
+    return companyNo;
+  }
+  public void setCompanyNo(int companyNo) {
+    this.companyNo = companyNo;
+  }
+  public String getCompanyName() {
+    return companyName;
+  }
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
+  public int getMemberNo() {
+    return memberNo;
+  }
+  public void setMemberNo(int memberNo) {
+    this.memberNo = memberNo;
+  }
+  public String getRegDate() {
+    return regDate;
+  }
+  public void setRegDate(String regDate) {
+    this.regDate = regDate;
+  }
+  public String getKeyword() {
+    return keyword;
+  }
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
   }
   public List<Photo> getPhotoList() {
     return photoList;
@@ -120,13 +126,15 @@ public class Boycott implements Serializable {
   public void setNewsList(List<BoycottNews> newsList) {
     this.newsList = newsList;
   }
+  
   @Override
   public String toString() {
     return "Boycott [boycottNo=" + boycottNo + ", postTime=" + postTime + ", title=" + title + ", content=" + content
         + ", viewCount=" + viewCount + ", hoduCount=" + hoduCount + ", commentCount=" + commentCount + ", shareCount="
         + shareCount + ", boycottCount=" + boycottCount + ", photoPath=" + photoPath + ", companyNo=" + companyNo
-        + ", companyName=" + companyName + ", memberNo=" + memberNo + ", regDate=" + regDate + ", photoList="
-        + photoList + ", newsList=" + newsList + "]";
+        + ", companyName=" + companyName + ", memberNo=" + memberNo + ", regDate=" + regDate + ", keyword=" + keyword
+        + ", photoList=" + photoList + ", newsList=" + newsList + "]";
   }
+  
 }
 
