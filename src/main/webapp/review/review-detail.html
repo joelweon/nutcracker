@@ -133,12 +133,17 @@
 <span>댓글 {{list.length}}</span>
 
 {{#each list}}
-  <div id='review-detail-comment-others' class='review-detail-comment-others'>
+  <div id='div-{{commentNo}}' class='review-detail-comment-others' name='{{memberNo}}'>
     <div id='review-detail-info-image' class='review-detail-info-image'>
       <img src='../images/user/{{photoPath}}'>
     </div>
     <span class='review-detail-info-nickname review-detail-comment-others-nick'>{{name}}</span>
     <span class='review-detail-comment-others-sentence'>{{content}}</span>
+    <div class='comment-write-box hidden'>
+      <textarea class='comment-write-textarea' rows="5">{{content}}</textarea>
+      <button type='button' class='btn btn-default inner-comment-update-btn' onclick="updateCmt({{commentNo}})">수정</button>
+      <button type='button' class='btn btn-default inner-comment-cancel-btn' onclick="updateCancel({{commentNo}})">취소</button>
+    </div>
     <div id='report-{{commentNo}}'>
       <div class='report-menu control-group'>
         <div class='report-title'><span>신고 이유 선택<span></div>
@@ -168,6 +173,8 @@
       </div>
     </div>
     <a type='button' class='btn btn-default common-btn-black comment-report' data-no='{{commentNo}}'>댓글 신고</a>
+    <button type="button" class="comment-update-btn btn btn-default common-btn-black hidden" data-no="{{commentNo}}">수정</button>
+    <button type="button" class="comment-delete-btn btn btn-default common-btn-black hidden" data-no="{{commentNo}}">삭제</button>
   </div>
 {{/each}}
 </script>
