@@ -58,8 +58,8 @@
 
 .btn-bot-delete {
     color: #fff;
-    background-color: #32CD32;
-    border-color: #32CD32;
+    background-color: #cccccc;
+    border-color: #cccccc;
 }
 .list-add-btn > p, .list-delete-btn > p, .list-update-btn > p {
 	display: inline;
