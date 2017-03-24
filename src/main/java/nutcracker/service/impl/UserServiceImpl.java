@@ -84,6 +84,11 @@ public class UserServiceImpl implements UserService {
   public int updateAddress(User user) throws Exception {
     return userDao.updateAddress(user);
   }
+  
+  @Override
+  public int countReportMember() throws Exception {
+    return userDao.countReportMember();
+  }
 
   @Override
   public List<HashMap<String, Object>> listReportMember(int pageNo, int pageSize) throws Exception {

@@ -141,6 +141,16 @@
     ]]>
   </delete>
   
+  <select id="countReportMember" resultType="int">
+    select count(*) 
+    from (select m.mno
+    from memb m
+      left outer join review r on m.mno=r.mno
+      left outer join cmt c on m.mno=c.mno
+    where r.rep_cnt > 0 or c.rep_cnt > 0
+    group by m.mno) as a
+  </select>
+  
   <select id="listReportMember" parameterType="map" resultType="map">
     select m.mno
     from memb m

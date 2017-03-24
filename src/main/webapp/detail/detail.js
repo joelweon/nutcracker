@@ -53,6 +53,7 @@ $(function() {
 		if (ajaxResult.status == "success") {
 			$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
 			$('.purchase-subtitle').text(ajaxResult.data.title);
+			$('.purchase-img a').attr('href', serverRoot+'/deal/deal-detail.html?purchaseNo='+ajaxResult.data.purchaseNo);
 		} else {
 			$('.purchase-subtitle').text(ajaxResult.data);
 		}
