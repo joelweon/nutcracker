@@ -126,6 +126,11 @@ $(document).ready(function() {
   }
 });
 
+$('.container').click(function(event) {
+	$('.triangle').addClass('visible');
+  $('.popup').addClass('visible');
+});
+
 function addJavascript(jsname) {
   var th = document.getElementsByTagName('head')[0];
   var s = document.createElement('script');
