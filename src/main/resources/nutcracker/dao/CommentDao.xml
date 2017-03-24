@@ -66,6 +66,10 @@
     delete from bot_cmt where ctno=#{commentNo}
   </delete>
   
+  <delete id='deleteOneReviewCmt' parameterType="int">
+    delete from rev_cmt where ctno=#{commentNo}
+  </delete>
+  
   <delete id='deleteCmt' parameterType="int">
     delete from cmt where ctno=#{commentNo}
   </delete>

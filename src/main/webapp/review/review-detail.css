@@ -220,6 +220,49 @@
 	right:5px;
   width:60px;
 }
+
+/* 댓글 수정 삭제 관련 CSS */
+.hidden {
+  display: none;
+}
+
+.comment-write-box { height: 50px;}
+.comment-write-textarea {
+  width: 80%;
+  height: 30px;
+  color: black;
+  margin-left: 60px;
+  margin-top: 25px; 
+}
+
+.inner-comment-update-btn, .inner-comment-cancel-btn {
+  margin-bottom: 25px;
+  height: 60%;
+  text-align: center;
+}
+
+
+.comment-delete-btn {
+	width: 50px;
+  visibility:hidden;
+  position: absolute;
+  right: 5px;
+  top:10px;
+  text-align: center;
+}
+
+.comment-update-btn {
+	width: 50px;
+  visibility:hidden;
+  position: absolute;
+  right: 60px;
+  top:10px;
+  text-align: center;
+}
+
+.review-detail-comment-others:hover > .comment-update-btn {  visibility:visible; }
+.review-detail-comment-others:hover > .comment-delete-btn {  visibility:visible; }
+
 /* 신고 */
 div#div-report{
 	background-color: #fff;
@@ -318,6 +361,8 @@ span#report-title {
   border-radius: 50%;
   background: #fff;
 }
+
+
 
 /* ------------------------------------------
   가로가 760px 이하일 때 

@@ -145,11 +145,18 @@ public class CommentServiceImpl implements CommentService {
     commentDao.deleteOneBoycottCmt(commentNo);
     return commentDao.deleteCmt(commentNo);
   }
+  
+  @Override
+  public int deleteReviewCmt(int commentNo) throws Exception {
+    commentDao.deleteOneReviewCmt(commentNo);
+    return commentDao.deleteCmt(commentNo);
+  }
 
   @Override
   public int updateCmt(HashMap<String, String> map) throws Exception {
     int count = commentDao.updateCmt(map);
     return count;
   }
+
 
 }

@@ -153,12 +153,20 @@ public class CommentJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "[comment] Boycott Comment 삭제 성공");
   }
   
+  @RequestMapping("/comment/deleteOneRevCmt")
+  public AjaxResult deleteOneRevCmt(int commentNo) throws Exception {
+    commentService.deleteReviewCmt(commentNo);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, "[comment] Review Comment 삭제 성공");
+  }
+  
+  
   @RequestMapping("/comment/updateCmt")
   public AjaxResult updateCmt(@RequestParam HashMap<String,String> map) throws Exception {
     
     commentService.updateCmt(map);
     
-    return new AjaxResult(AjaxResult.SUCCESS, "[comment] Boycott Comment 수정 성공");
+    return new AjaxResult(AjaxResult.SUCCESS, "[comment] Comment 수정 성공");
   }
   
 }

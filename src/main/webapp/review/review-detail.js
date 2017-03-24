@@ -1,3 +1,4 @@
+var ownNo;
 try {
   var reviewNo = location.href.split('?')[1].split('=')[1];
   var users = window.sessionStorage.getItem('user');
@@ -19,7 +20,9 @@ function prepareViewForm(reviewNo) {
     getContent(reviewNo);
     getComments(reviewNo);
     
+    
   });
+  
 } // prepareViewForm()
 
 function getContent(reviewNo) {
@@ -72,6 +75,9 @@ function getComments(ownNo){
       var div = $('#div-commentList');
       var template = Handlebars.compile($('#divTemplate').html());
       div.html(template({"list":list}));
+      
+      changeBtn();
+      
       $('.comment-report').click(function() {
     	  if (users != null) {
 	      	var commentNo = $(this).attr('data-no');
@@ -234,3 +240,62 @@ $('a#submit-report').click(function() {
   }
   console.log(reportVal);
 });
+
+function changeBtn() {
+	var param;
+	$.get(serverRoot + '/auth/loginUser.json', param, function(ajaxResult) {
+		if(ajaxResult.status == 'success') {
+			console.log('success');
+			var loginMember = ajaxResult.data.memberNo;
+			console.log(loginMember);
+			$('div[name='+loginMember+'] .comment-report').addClass("hidden");
+			$('div[name='+loginMember+'] .comment-update-btn').removeClass("hidden");
+			$('div[name='+loginMember+'] .comment-delete-btn').removeClass("hidden");
+		}
+	}, 'json');
+}
+
+//댓글 수정버튼 클릭 시 해당 폼 변경
+$(document).on('click', '.comment-update-btn', function(event) {
+	var clickCmtNo = $(this).attr("data-no");
+	console.log(clickCmtNo);
+	$('#div-'+clickCmtNo+'> .review-detail-comment-others-sentence').addClass("hidden");
+	$('#div-'+clickCmtNo+'> .comment-write-box').removeClass("hidden");
+	$('#div-'+clickCmtNo+'> .comment-update-btn').addClass("hidden");
+	$('#div-'+clickCmtNo+'> .comment-delete-btn').addClass("hidden");
+});
+
+// 댓글 삭제 이벤트
+$(document).on('click', '.comment-delete-btn', function(event) {
+	$.get(serverRoot + '/comment/deleteOneRevCmt.json', {
+			"commentNo" : $(this).attr("data-no")
+	}, function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			console.log("삭제실패");
+		}
+		console.log("revNo:" + reviewNo);
+		getComments(reviewNo);
+	}, 'json');
+});
+
+function updateCmt(cmtNo) {
+	var param = {
+			"cont" : $('#div-'+cmtNo+' .comment-write-textarea').val(),
+			"ctno" : cmtNo
+	}
+	$.post(serverRoot + '/comment/updateCmt.json', param, function(ajaxResult) {
+		if (ajaxResult.status != "success") {
+			console.log("수정실패");
+		}
+		getComments(reviewNo);
+	}, 'json');
+}
+
+function updateCancel(cmtNo) {
+	$('#div-'+cmtNo+'> .review-detail-comment-others-sentence').removeClass("hidden");
+	$('#div-'+cmtNo+'> .comment-write-box').addClass("hidden");
+	$('#div-'+cmtNo+'> .comment-update-btn').removeClass("hidden");
+	$('#div-'+cmtNo+'> .comment-delete-btn').removeClass("hidden");
+}
+
+
