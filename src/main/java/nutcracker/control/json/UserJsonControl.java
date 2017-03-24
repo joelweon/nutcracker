@@ -130,11 +130,11 @@ public class UserJsonControl {
       pageSize = 5;
     }
     HashMap<String, Object> map = new HashMap<>();
-    List<HashMap<String,Object>> totalList = userService.listReportMember(pageNo,pageSize);
+    int totalCount = userService.countReportMember();
+    List<HashMap<String,Object>> mnoList = userService.listReportMember(pageNo,pageSize);
     List<HashMap<String,Object>> list = new ArrayList<>();
-    int totalCount = totalList.size();
-    for (int i = 0; i < totalCount; i ++) {
-      int memberNo = Integer.parseInt(totalList.get(i).get("mno").toString());
+    for (int i = 0; i < mnoList.size(); i ++) {
+      int memberNo = Integer.parseInt(mnoList.get(i).get("mno").toString());
       list.add(userService.detailReportMember(memberNo));
     }
     map.put("list", list);
@@ -142,7 +142,7 @@ public class UserJsonControl {
     if (!map.get("totalCount").toString().equals("0")) {
       return new AjaxResult(AjaxResult.SUCCESS, map);
     } else {
-      return new AjaxResult(AjaxResult.FAIL, "20회 이상 신고된 회원이 없습니다.");
+      return new AjaxResult(AjaxResult.FAIL, "3회 이상 신고된 회원이 없습니다.");
     }
   }
   

@@ -62,11 +62,11 @@ function loadList(pageNo, pageSize) {
         tbody.html(template({"list":ajaxResult.data.list}));
         preparePagingButton(ajaxResult.data.totalCount);
       }
-      //회원 활동상태 변경
       statusButton();
   });
 }
 
+//회원 활동상태 변경
 var statusButton = function() {
   $('.status-btn').click(function() {
   	var memberNo = $(this).attr("data-no");
