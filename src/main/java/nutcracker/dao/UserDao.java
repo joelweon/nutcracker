@@ -10,7 +10,7 @@ import nutcracker.domain.User;
 public interface UserDao {
   ArrayList<User> getList() throws Exception;
   User getOneByEmailPassword(Map<String,String> paramMap) throws Exception;
-  User getOneByNo(Map<String,String> paramMap) throws Exception;
+  User getOneByNo(int memberNo) throws Exception;
   int countByEmail(String email) throws Exception;
   int countByNo(int userNo) throws Exception;
   int insert(User user) throws Exception;
