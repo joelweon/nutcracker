@@ -136,7 +136,6 @@ public class UserJsonControl {
     for (int i = 0; i < totalCount; i ++) {
       int memberNo = Integer.parseInt(totalList.get(i).get("mno").toString());
       list.add(userService.detailReportMember(memberNo));
-      System.out.println(userService.detailReportMember(memberNo));
     }
     map.put("list", list);
     map.put("totalCount", totalCount);
