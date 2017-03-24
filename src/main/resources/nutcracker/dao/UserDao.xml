@@ -140,5 +140,36 @@
       delete from user where uno=#{value}
     ]]>
   </delete>
+  
+  <select id="listReportMember" parameterType="map" resultType="map">
+    select m.mno
+    from memb m
+      left outer join review r on m.mno=r.mno
+      left outer join cmt c on m.mno=c.mno
+    where r.rep_cnt > 0 or c.rep_cnt > 0
+    group by m.mno
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+  <select id="detailReportMember" parameterType="int" resultType="map">
+    select 
+      m.mno,
+      m.name,
+      m.email,
+      date_format(u.join_date,'%Y-%m-%d') as join_date,
+      date_format(m.lst_date,'%Y-%m-%d %T') as lst_date,
+      u.out_type,
+      sum(ifnull((select sum(rep_cnt) from cmt where cmt.mno=#{memberNo}), 0)
+      + ifnull((select sum(rep_cnt) from review where review.mno=#{memberNo}), 0)) as rep_cnt
+    from user u 
+      left outer join memb m on u.uno=m.mno
+    where m.mno=#{memberNo}
+  </select>
+  
+  <update id="updateStatus" parameterType="user">
+    update user set
+      out_type=#{outType}
+    where uno=#{memberNo}
+  </update>
 
 </mapper>

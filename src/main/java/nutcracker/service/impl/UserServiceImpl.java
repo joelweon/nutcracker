@@ -2,6 +2,7 @@ package nutcracker.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,4 +84,24 @@ public class UserServiceImpl implements UserService {
   public int updateAddress(User user) throws Exception {
     return userDao.updateAddress(user);
   }
+
+  @Override
+  public List<HashMap<String, Object>> listReportMember(int pageNo, int pageSize) throws Exception {
+    HashMap<String, Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    List<HashMap<String, Object>> map = userDao.listReportMember(paramMap);
+    return map;
+  }
+
+  @Override
+  public HashMap<String, Object> detailReportMember(int memberNo) throws Exception {
+    return userDao.detailReportMember(memberNo);
+  }
+
+  @Override
+  public int updateStatus(User user) throws Exception {
+    return userDao.updateStatus(user);
+  }
+
 }

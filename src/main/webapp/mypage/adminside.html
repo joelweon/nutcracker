@@ -2,17 +2,17 @@
   <nav class="my-side-menu">
     <h2>관리페이지</h2>
     <ul>
-      <li id='side-member' class='parent'><a href="mypage.html">회원 관리</a></li>
+      <li id='side-member' class='parent'><a href="adminmember.html">회원 관리</a></li>
       <li id='side-boycott' class='parent'><a href="admincompany.html">기업 관리</a></li>
       <li id='side-myboard' class='parent'><a href="deleteboard.html">게시글 관리</a>
         <ul>
-          <li id='side-boardDel' class='child'><a href="deleteboard.html">삭제글 관리</a></li>
-          <li id='side-boardRep' class='child'><a href="myboard.html">신고글 관리</a></li>
+          <li id='side-boardDel' class='child'><a href="deleteboard.html">- 삭제글 관리</a></li>
+          <li id='side-boardRep' class='child'><a href="myboard.html">- 신고글 관리</a></li>
         </ul>
       </li>
       <li id='side-comment' class='parent'><a href="admincomment.html">댓글 관리</a>
         <ul>
-          <li id='side-commentRep' class='child'><a href="admincomment.html">신고댓글 관리</a></li>
+          <li id='side-commentRep' class='child'><a href="admincomment.html">- 신고댓글 관리</a></li>
         </ul>
       </li>
     </ul>
@@ -34,6 +34,8 @@
 }
 .my-side-menu ul > li.child > a {
   color:white;
+}
+.my-content-area {
 }
 
 /* Admin 커스텀 */
@@ -102,3 +104,19 @@ nav ul li {
   background-position: 0 -120px;
 }
 </style>
+
+<script>
+if(location.href.indexOf('admincomment') != -1) {
+  $('#side-comment > ul').css('height', '51px');
+} else if(location.href.indexOf('deleteboard') != -1 || location.href.indexOf('myboard') != -1) {
+  $('#side-myboard > ul').css('height', '102px');
+} else {
+  $('#side-comment > ul').css('height', '0px');
+  $('#side-myboard > ul').css('height', '0px');
+}
+
+/*   var sm = document.getElementById('side-myboard');
+  sm.addEventListener('click', function() {
+    
+  }) */
+</script>

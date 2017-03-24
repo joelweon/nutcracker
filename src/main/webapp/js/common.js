@@ -100,9 +100,15 @@ $(document).ready(function() {
       // 마이페이지 버튼의 클릭 이벤트 등록
       $('#btn-go-mypage').click(function(event) {
       	event.preventDefault();
-      	$.getJSON(serverRoot + '/user/detail.json', function(ajaxResult) {
-          location.href = clientRoot + '/mypage/mypage.html';
-        });
+      	if (ajaxResult.data.memberNo == 1) {
+      		$.getJSON(serverRoot + '/user/detail.json', function(ajaxResult) {
+            location.href = clientRoot + '/mypage/adminmember.html';
+          });
+      	} else {
+      		$.getJSON(serverRoot + '/user/detail.json', function(ajaxResult) {
+      			location.href = clientRoot + '/mypage/mypage.html';
+      		});
+      	}
       });
     });  
   });
