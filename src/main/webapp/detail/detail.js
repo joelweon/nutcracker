@@ -313,21 +313,20 @@ $('.walnut-stamp > a').click(function(event) {
   });
 
 /* URL 공유하기버튼 */
-//  $('.share-logo').click(function() {
-//    alertify.prompt('링크 URL 복사','ㅂㅂ', document.URL,
-//        function(evt, value) { alertify.success('You entered:' + value)}
-//    , function() { alertify.error('cc')});
-//  });
+  $('.share-logo').click(function() {
+    alertify.alert('링크를 복사하세요'+
+        document.URL);
+  });
   
-  $('.share-logo').click(function () {
-    //var name = $('#selmodels option:selected').text();
-    alertify.prompt('This is a prompt dialog!',
-        function(evt, value) { alertify.message('You entered: '  + value); }
-        'some value'
-    );
-    return false;
-});
-  
+//  function copyToClipboard() {
+//    //alertify.prompt("클립보드 복사 Ctrl+C, Enter", document.URL);
+//    alertify
+//    .prompt("This is a prompt dialog",
+//      function (val, ev) {
+//
+//
+//      })
+//  }  
   
 /*  function copyURL() {
     var Url = document.getElementById("copy");
