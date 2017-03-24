@@ -50,8 +50,12 @@ $(function() {
 	// 공구 정보 가져오기
 
 	$.getJSON(serverRoot + '/deal/detailByBotno.json', {boycottNo}, function(ajaxResult) {
-		$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
-		$('.purchase-subtitle').text(ajaxResult.data.title);
+		if (ajaxResult.status == "success") {
+			$('.purchase-img img').attr('src', clientRoot+'/upload/deal/'+ajaxResult.data.photoList.photoPath);
+			$('.purchase-subtitle').text(ajaxResult.data.title);
+		} else {
+			$('.purchase-subtitle').text(ajaxResult.data);
+		}
 	});
 	
 	// 사용자 정보 가져오기

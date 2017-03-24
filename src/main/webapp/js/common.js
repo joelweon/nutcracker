@@ -18,8 +18,8 @@ $(document).ready(function() {
 
       if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
         // 로그온 상태 출력 창을 감춘다.
-        /*$('#btn-logout').css('display', 'none');*/
-        $('#btn-member').css('display', 'none');
+        $('#btn-login').css('display', 'inline-block');
+        //$('#btn-member').css('display', 'none');
       
         // 로그인 버튼의 클릭 이벤트 핸들러 등록하기
         $('#btn-login').click(function(event) {
@@ -28,8 +28,10 @@ $(document).ready(function() {
         });
         return;
       }
+      
       // 로그인 되었으면 로그오프 출력 창을 감춘다.
-      $('#btn-login').css('display', 'none');
+      //$('#btn-login').css('display', 'none');
+      $('#btn-member').css('display', 'inline-block');
       if (ajaxResult.data.photoUrl == null) { //일반계정으로 로그인한 경우
       	$('#profile-img').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
       	$('#profile-img-big').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
@@ -98,15 +100,19 @@ $(document).ready(function() {
       // 마이페이지 버튼의 클릭 이벤트 등록
       $('#btn-go-mypage').click(function(event) {
       	event.preventDefault();
-      	$.getJSON(serverRoot + '/user/detail.json', function(ajaxResult) {
-          location.href = clientRoot + '/mypage/mypage.html';
-        });
+      	if (ajaxResult.data.memberNo == 1) {
+      		$.getJSON(serverRoot + '/user/detail.json', function(ajaxResult) {
+            location.href = clientRoot + '/mypage/adminmember.html';
+          });
+      	} else {
+      		$.getJSON(serverRoot + '/user/detail.json', function(ajaxResult) {
+      			location.href = clientRoot + '/mypage/mypage.html';
+      		});
+      	}
       });
-    });
-    
-    
+    });  
   });
-
+  
   $('#wrap-hidden').load(clientRoot + '/hidden.html');
   $('#div-intro').load(clientRoot + '/intro.html');
   $('#wrap-footer').load(clientRoot + '/footer.html');

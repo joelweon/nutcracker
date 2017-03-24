@@ -165,5 +165,11 @@
       left outer join memb m on u.uno=m.mno
     where m.mno=#{memberNo}
   </select>
+  
+  <update id="updateStatus" parameterType="user">
+    update user set
+      out_type=#{outType}
+    where uno=#{memberNo}
+  </update>
 
 </mapper>

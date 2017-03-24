@@ -77,13 +77,13 @@
       ifnull(r.rep_cnt, 0) as rep_cnt
     from review r
       left join memb m on r.mno=m.mno
-    where r.rep_cnt &gt;= 1 
+    where r.rep_cnt &gt;= 3 
     order by r.rv_date desc
     limit #{startRowIndex}, #{rowSize}
   </select>
   
   <select id="countReport" resultType="int">
-    select count(*) from review where rep_cnt &gt;= 1
+    select count(*) from review where rep_cnt &gt;= 3
   </select>
   
   <update id="updateRead" parameterType="String">

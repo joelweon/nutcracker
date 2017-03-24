@@ -34,8 +34,14 @@ public class AuthJsonControl {
     //session.setAttribute("member", member); // HttpSession에 저장한다.
     
     User user = userService.getOneByEmailPassword(email, password);
-    session.setAttribute("user", user);
-    return new AjaxResult(AjaxResult.SUCCESS, user);
+    if (user.getOutType() == 1) {
+      return new AjaxResult(AjaxResult.FAIL, "가입된 회원이 아닙니다.");
+    } else if (user.getOutType() == 2) {
+      return new AjaxResult(AjaxResult.FAIL, "신고로 인해 활동 정지된 계정입니다.");
+    } else {
+      session.setAttribute("user", user);
+      return new AjaxResult(AjaxResult.SUCCESS, user);
+    } 
   }
   
   

@@ -37,6 +37,9 @@ public class PurchaseJsonControl {
   @RequestMapping("/deal/detailByBotno")
   public AjaxResult detailByBotno(int boycottNo) throws Exception {
     HashMap<String, Object> map = purchaseService.getDetailByBotno(boycottNo);
+    if (map == null) {
+      return new AjaxResult(AjaxResult.FAIL, "진행중인 공동구매가 없습니다.");
+    }
     return new AjaxResult(AjaxResult.SUCCESS, map);
   }
   

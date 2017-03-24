@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/alertify.core.css">
   <link rel="stylesheet" href="../css/alertify.default.css">
   <link rel="stylesheet" href="../css/footer.css">
+  <link rel="shortcut icon" href="../images/favicon/favicon.png" type="image/x-icon">
 </head>
 <body>
 <div id='wrap-header'></div>
@@ -44,6 +45,18 @@
         <tbody></tbody>
       </table>
 		</div>
+		<!-- 페이지이동 -->
+    <div class="clearfix">
+      <ul class="pagination">
+        <li id='prevPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+        <li class='pgBtn'><a id='pg1' href="#"></a></li>
+        <li class='pgBtn'><a id='pg2' href="#"></a></li>
+        <li class='pgBtn'><a id='pg3' href="#"></a></li>
+        <li class='pgBtn'><a id='pg4' href="#"></a></li>
+        <li class='pgBtn'><a id='pg5' href="#"></a></li>
+        <li id='nextPgBtn'><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+      </ul>
+    </div>
 	</div> <!-- main contents area end -->
 </div>
 
@@ -57,7 +70,13 @@
     <td>{{lst_date}}</td>
     <td>{{rep_cnt}}</td>
     <td>
-      <input type="submit" id="status-btn-{{mno}}" class="status-btn" value="ON" data-no={{mno}}>
+      <input type="submit" id="status-btn-{{mno}}" class="status-btn" name="{{out_type}}" 
+      {{#ifCond out_type "0"}} 
+        value="ON" 
+      {{else}}
+        value="OFF" 
+      {{/ifCond}}
+      data-no={{mno}}>
     </td>
   </tr>
 {{/each}}
@@ -67,6 +86,7 @@
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="../js/alertify.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="mypage.js"></script>
 <script src="../js/common.js"></script>
 <script src="adminmember.js"></script>
 

@@ -16,4 +16,5 @@ public interface UserService {
   int updateAddress(User user) throws Exception;
   List<HashMap<String, Object>> listReportMember(int pageNo, int pageSize) throws Exception;
   HashMap<String, Object> detailReportMember(int memberNo) throws Exception;
+  int updateStatus(User user) throws Exception;
 }
