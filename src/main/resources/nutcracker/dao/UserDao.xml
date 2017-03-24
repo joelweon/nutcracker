@@ -152,12 +152,12 @@
   </select>
   
   <select id="listReportMember" parameterType="map" resultType="map">
-    select m.mno
-    from memb m
-      left outer join review r on m.mno=r.mno
-      left outer join cmt c on m.mno=c.mno
-    where r.rep_cnt > 0 or c.rep_cnt > 0
-    group by m.mno
+		select r.mno, sum(r.rep_cnt) as sr, sum(c.rep_cnt) as sc
+		  from memb m 
+		left outer join review r on m.mno=r.mno
+		left outer join cmt c on m.mno=c.mno  
+		group by r.mno
+    having ifnull(sr,0) + ifnull(sc,0) > 3
     limit #{startRowIndex}, #{rowSize}
   </select>
   

@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/alertify.core.css">
   <link rel="stylesheet" href="../css/alertify.default.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="detail.css">
   <link rel="shortcut icon" href="../images/favicon/favicon.png" type="image/x-icon">
 </head>
@@ -83,10 +84,26 @@
                 <i class="fa twitter-logo fa-3x">&#xf081;</i>
                 <!-- <img class='twitter-logo' src="../images/twitter-logo.png"/> -->
               </a> 
-              <a href='#'>
-                <i class="fa share-logo fa-3x">&#xf1e1;</i>
-                <!-- <img class='share-logo' src="../images/share-logo.png"/> -->
+              
+              
+                
+                
+                
+                
+                
+              <a href='javascript:void(0)' title="URL 공유하기">
+                <i class="fa share-logo fa-3x" >&#xf1e1;</i>
+                
+                <!-- <textarea rows="1" cols="30" id="copy"></textarea> -->
               </a>
+              
+
+              
+              
+              
+              
+              
+              
               <a href='#title-top' id="top" class="top">
                 <img class='top-logo' src="../images/top.png"/>
               </a>
@@ -251,6 +268,7 @@
 <script type="text/javascript" src="../js/alertify.min.js"></script>
 <script src="shopping-serarch.js"></script>
 <script src="shopping-base.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="detail.js"></script>
 
 <!-- 페이스북 -->
@@ -268,15 +286,6 @@
   if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
   fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-<!-- <script>
-document.getElementById('shareBtn').onclick = function() {
-  FB.ui({
-    method: 'share',
-    display: 'popup',
-    href: 'http://192.168.1.32:8080/nutcracker/',
-  }, function(response){});
-}
-</script> -->
 
 </body>
 </html>
