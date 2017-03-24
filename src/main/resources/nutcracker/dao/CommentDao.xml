@@ -168,13 +168,13 @@
       left outer join review on rc.rvno=review.rvno
       left outer join bot_cmt bc on cm.ctno=bc.ctno
       left outer join bot on bc.botno=bot.botno
-    where cm.rep_cnt &gt; 1
+    where cm.rep_cnt &gt;= 3
     group by cm.ctno
     limit #{startRowIndex}, #{rowSize}
   </select>
   
   <select id="countTotalList" resultType="int">
-    select count(*) from cmt where rep_cnt &gt; 1
+    select count(*) from cmt where rep_cnt &gt;= 3
   </select>
   
   <select id='getCommentReportReasons' parameterType="int" resultMap="map">

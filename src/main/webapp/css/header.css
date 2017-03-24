@@ -199,7 +199,7 @@ label.input-search.hover { color: #343434; }
 #user-email { color: #aaa; }
 .triangle {
 	position: fixed;
-  right: 45px;
+  right: 65px;
   top: 60px;
   display: block;
   z-index: 100;
