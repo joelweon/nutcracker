@@ -45,7 +45,7 @@
       ifnull(r.rep_cnt, 0) as rep_cnt
     from review r
       left outer join memb m on r.mno=m.mno
-    where r.rep_cnt &lt; 1 and r.del_yn='n'
+    where r.rep_cnt &lt;= 3 and r.del_yn='n'
     order by r.rvno desc
     limit #{startRowIndex}, #{rowSize}
   </select>
