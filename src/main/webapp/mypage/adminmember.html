@@ -69,7 +69,13 @@
     <td>{{lst_date}}</td>
     <td>{{rep_cnt}}</td>
     <td>
-      <input type="submit" id="status-btn-{{mno}}" class="status-btn" value="ON" data-no={{mno}}>
+      <input type="submit" id="status-btn-{{mno}}" class="status-btn" name="{{out_type}}" 
+      {{#ifCond out_type "0"}} 
+        value="ON" 
+      {{else}}
+        value="OFF" 
+      {{/ifCond}}
+      data-no={{mno}}>
     </td>
   </tr>
 {{/each}}

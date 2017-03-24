@@ -64,23 +64,39 @@ function loadList(pageNo, pageSize) {
         //회원 활동상태 변경
         $('.status-btn').mouseover(function() {
 	        var memberNo = $(this).attr("data-no");
-	        var memberStatusBtn = document.getElementById('status-btn-'+memberNo);
-	        var count = 1;
-	        memberStatusBtn.onclick = function(){
-	          count = -count;
-	          if(count == -1){
-	          	memberStatusBtn.style.background="#ff0000";
-	          	memberStatusBtn.value="OFF";
-	          }else{
-	          	memberStatusBtn.style.background="#808080";
-	          	memberStatusBtn.value="ON";
-	          }
-	        };
+	        statusButton(memberNo);
         });
       }
   });
 }
 
+var statusButton = function(memberNo) {
+  var count = 1;
+  $('#status-btn-'+memberNo).click(function() {
+    count = -count;
+    if(count == -1){
+    	$('#status-btn-'+memberNo).css('background', '#808080');
+    	$('#status-btn-'+memberNo).val("OFF");
+    	var data ={
+    		outType: 2,
+    		memberNo: memberNo
+    	};
+    	$.get(serverRoot+'/user/updateStatus.json', data, function(ajaxResult) {
+    		console.log(ajaxResult.data);
+    	});
+    }else{
+    	$('#status-btn-'+memberNo).css('background', '#ff0000');
+    	$('#status-btn-'+memberNo).val("ON");
+    	var data ={
+      		outType: 0,
+      		memberNo: memberNo
+      };
+      $.get(serverRoot+'/user/updateStatus.json', data, function(ajaxResult) {
+      	console.log(ajaxResult.data);
+      });
+    }
+  });
+};
 function preparePagingButton(totalCount) {
   var maxPageNo = parseInt(totalCount / pageSize); // 총 페이지 수
   if ((totalCount % pageSize) > 0) {
@@ -125,3 +141,9 @@ function preparePagingButton(totalCount) {
     nextBtn.addClass('disabled');
   }
 }
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
