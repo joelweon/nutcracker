@@ -168,7 +168,7 @@ insert into comp(cpno,cp_name,parno,lvl)
     values(557,'팸퍼스',545,1);
 -- 위메프
 insert into comp(cpno,cp_name,parno,lvl) 
-    values(558,'위메프',588,0);
+    values(558,'위메프',558,0);
 insert into comp(cpno,cp_name,parno,lvl) 
     values(559,'원더윅스',558,1);
 insert into comp(cpno,cp_name,parno,lvl) 
