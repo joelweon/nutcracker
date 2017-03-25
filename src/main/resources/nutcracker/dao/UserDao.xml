@@ -152,7 +152,7 @@
 		        left join (select mno, sum(rep_cnt) cc from cmt group by mno) a on a.mno=u.uno
 		        left join (select mno, sum(rep_cnt) rc from review group by mno) b on b.mno=u.uno
 		        left outer join memb m on u.uno=m.mno
-		        having cnt > 2) as a;
+		        having cnt > 2) as a
   </select>
   
   <select id="listReportMember" parameterType="map" resultType="map">
