@@ -100,11 +100,6 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public HashMap<String, Object> detailReportMember(int memberNo) throws Exception {
-    return userDao.detailReportMember(memberNo);
-  }
-
-  @Override
   public int updateStatus(User user) throws Exception {
     return userDao.updateStatus(user);
   }
