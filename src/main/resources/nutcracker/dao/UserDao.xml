@@ -147,7 +147,7 @@
     from memb m
       left outer join review r on m.mno=r.mno
       left outer join cmt c on m.mno=c.mno
-    where r.rep_cnt > 0 or c.rep_cnt > 0
+    where r.rep_cnt > 1 or c.rep_cnt > 1
     group by m.mno) as a
   </select>
   
