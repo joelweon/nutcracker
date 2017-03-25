@@ -136,9 +136,11 @@ insert into comp(cpno,cp_name,parno,lvl)
 insert into comp(cpno,cp_name,parno,lvl) 
     values(542,'해피바스',522,1);
 insert into comp(cpno,cp_name,parno,lvl) 
-    values(543,'댄트롤샴푸',522,1);
+    values(543,'댄트롤',522,1);
 insert into comp(cpno,cp_name,parno,lvl) 
-    values(544,'송염치약',522,1);
+    values(544,'송염',522,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(678,'메디안',522,1);
 -- 피앤지
 insert into comp(cpno,cp_name,parno,lvl) 
     values(545,'피앤지',545,0);
@@ -355,6 +357,82 @@ insert into comp(cpno,cp_name,parno,lvl)
     values(644,'레드락',636,1);
 insert into comp(cpno,cp_name,parno,lvl) 
     values(645,'스텔라 아루투아',636,1);
+-- 천호식품
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(646,'천호식품',646,0);
+-- 이랜드
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(647,'이랜드',647,0);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(648,'SPAO',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(649,'에블린',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(650,'OST',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(651,'미쏘',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(652,'뉴발란스',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(653,'EnC',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(654,'케이스위스',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(655,'로이드',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(656,'슈펜',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(657,'로엠',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(658,'뉴코아아울렛',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(659,'동아백화점',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(660,'NC백화점',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(661,'2001아울렛',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(662,'킴스클럽',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(663,'모던하우스',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(664,'이월드',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(665,'애슐리',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(666,'피자몰',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(667,'더카페',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(668,'카페루고',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(669,'반궁',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(670,'자연별곡',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(671,'후원',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(672,'글로버거',647,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(673,'이랜드건설',647,1);
+-- 오리온
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(674,'오리온',674,0);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(675,'쇼박스',674,1);
+-- 송학식품
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(676,'송학식품',676,0);
+-- 미스터피자
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(677,'미스터피자',677,0);
+-- 금복주
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(679,'금복주',679,0);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(680,'참소주',679,1);
+insert into comp(cpno,cp_name,parno,lvl) 
+    values(681,'경주법주',679,1);
 
 -- 불매기업관계
 insert into bot_rls(mno,cpno,reg_date)
