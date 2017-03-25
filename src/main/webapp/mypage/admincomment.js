@@ -61,6 +61,7 @@ function loadList(pageNo, pageSize) {
 		var status = ajaxResult.status;
     if (status != "success") {
     	$('.comment-table > #tbody-review').html("<tr><td></td><td></td><td></td><td>"+ajaxResult.data+"</td><td></td><td></td></tr>");
+    	preparePagingButton(1);
       return;
     }
 		var list = ajaxResult.data.list;
