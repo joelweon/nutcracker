@@ -36,18 +36,27 @@
 	background-color: #fff;
 }
 .boycott-list-img {	width: 18%;	margin-right: 10px; }
-.boycott-list-detail { width: 80%; float: right; padding: 5px 5px; }
+.boycott-list-detail { 
+	width: 80%; 
+	float: right; 
+	padding: 3px 5px 0px 5px;
+	height: 180px; 
+	}
 .boycott-list-content {	margin-bottom: 20px; }
-.boycott-list-content span a { text-decoration: none;	color: #000; }
+.boycott-list-content span a { text-decoration: none;	color: #000; position: relative;}
 .boycott-list-content span a:hover { text-decoration: underline; }
 .boycott-list-title {	font-size: 1.5em;	font-weight: bold; }
-.boycott-list-text { font-size: 1.2em; }
+.boycott-list-text a{ font-size: 1.1em; top: 5px;}
 .boycott-list-btn .support-cnt {
 	font-size: 1.5em;
 	font-weight: bold;
 	color: red;
+	margin-top: 10px;
 }
-.boycott-list-btn .list-add-btn { float: right; }
+.boycott-list-btn .list-add-btn { 
+	float: right;
+	margin-bottom: 10px;  
+	}
 .hidden { display: none; }
 
 .btn-bot-add {
