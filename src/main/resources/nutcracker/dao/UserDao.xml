@@ -142,26 +142,34 @@
   </delete>
   
   <select id="countReportMember" resultType="int">
-    select count(*) 
-    from (select m.mno
-    from memb m
-      left outer join review r on m.mno=r.mno
-      left outer join cmt c on m.mno=c.mno
-    where r.rep_cnt > 0 or c.rep_cnt > 0
-    group by m.mno) as a
+    select count(*)
+		from (select m.mno, m.name, m.email,
+		        (ifnull(a.cc,0)+ifnull(b.rc,0)) cnt,
+		        date_format(u.join_date,'%Y-%m-%d') as join_date,
+		        date_format(m.lst_date,'%Y-%m-%d %T') as lst_date,
+		        u.out_type
+		      from user u
+		        left join (select mno, sum(rep_cnt) cc from cmt group by mno) a on a.mno=u.uno
+		        left join (select mno, sum(rep_cnt) rc from review group by mno) b on b.mno=u.uno
+		        left outer join memb m on u.uno=m.mno
+		        having cnt > 2) as a;
   </select>
   
   <select id="listReportMember" parameterType="map" resultType="map">
-		select r.mno, sum(r.rep_cnt) as sr, sum(c.rep_cnt) as sc
-		  from memb m 
-		left outer join review r on m.mno=r.mno
-		left outer join cmt c on m.mno=c.mno  
-		group by r.mno
-    having ifnull(sr,0) + ifnull(sc,0) > 3
+		select m.mno, m.name, m.email,
+      (ifnull(a.cc,0)+ifnull(b.rc,0)) cnt,
+			date_format(u.join_date,'%Y-%m-%d') as join_date,
+			date_format(m.lst_date,'%Y-%m-%d %T') as lst_date,
+			u.out_type
+		from user u
+		  left join (select mno, sum(rep_cnt) cc from cmt group by mno) a on a.mno=u.uno
+			left join (select mno, sum(rep_cnt) rc from review group by mno) b on b.mno=u.uno
+			left outer join memb m on u.uno=m.mno
+		  having cnt > 2
     limit #{startRowIndex}, #{rowSize}
   </select>
   
-  <select id="detailReportMember" parameterType="int" resultType="map">
+  <!-- <select id="detailReportMember" parameterType="int" resultType="map">
     select 
       m.mno,
       m.name,
@@ -174,7 +182,7 @@
     from user u 
       left outer join memb m on u.uno=m.mno
     where m.mno=#{memberNo}
-  </select>
+  </select> -->
   
   <update id="updateStatus" parameterType="user">
     update user set
