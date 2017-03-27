@@ -25,6 +25,9 @@ $(document).ready(function() {
 });
 
 $(function() {
+  /* 해당 페이지 URL 넣기(페이스북 공유) */
+  $('.fb-share-button').attr('href','http://www.facebook.com/sharer.php?u=http://thenutcracker.xyz/nutcracker/detail/detail.html?boycottNo='+boycottNo);
+  
   //textarea 글자수 제한
   $('#textarea').keyup(function (e){
     var content = $(this).val();
@@ -313,18 +316,10 @@ $('.walnut-stamp > a').click(function(event) {
   });
 
 /* URL 공유하기버튼 */
-//  $('.share-logo').click(function() {
-//    alertify.alert('링크를 복사하세요'+
-//        document.URL);
-//  });
-  
   function copyToClipboard() {
     //$('.alertyfy').css('height','250px');
     alertify.prompt("클립보드 복사 Ctrl+C", function (e, str) {}, document.URL);
   }
-//.alertyfy {
-//  height:250px;
-//}
   
 /*  function copyURL() {
     var Url = document.getElementById("copy");
