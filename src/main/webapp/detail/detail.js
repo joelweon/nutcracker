@@ -26,6 +26,7 @@ $(document).ready(function() {
 
 $(function() {
   /* 해당 페이지 URL 넣기(페이스북 공유) */
+  $("#meta-og-url").attr("content","http://thenutcracker.xyz/nutcracker/detail/detail.html?boycottNo="+boycottNo);
   $('.fb-share-button').attr('href','http://www.facebook.com/sharer.php?u=http://thenutcracker.xyz/nutcracker/detail/detail.html?boycottNo='+boycottNo);
   
   //textarea 글자수 제한
