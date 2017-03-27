@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>The Nutcracker</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+  <meta property="fb:app_id" content="177980746026260">
+  <meta property="og:url" content="http://thenutcracker.xyz/nutcracker/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Nutcracker" />
+  <meta property="og:description" content="올바른 소비문화와 갑질 근절을 위해 이 세상의 모든 부조리를 까버리는 우리는 The Nutcracker 입니다." />
+  <meta property="og:image:url" content="http://thenutcracker.xyz/nutcracker/images/newlogo.png" />
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="318">
   
-  
-  <meta property="fb:app_id"        content="177980746026260" />
-  <meta property="og:url"           content="http://el.bitcamp.com:8080/nutcracker/detail/detail.html?boycottNo=300" />
-  <meta property="og:type"          content="article" />
-  <meta property="og:title"         content="Your Website Title" />
-  <meta property="og:description"   content="Your description" />
-  <meta property="og:image:url"         content="http://el.bitcamp.com:8080/nutcracker/images/newlogo.png" />
-  
-  
-  
+  <title>The Nutcracker</title>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/header.css">
@@ -73,35 +70,23 @@
             
   <!-- SNS공유 -->
             <div class="share-area" id="sns-area">
-              <div class="fb" data-href="http://el.bitcamp.com:8080/nutcracker/detail/detail.html?boycottNo=300" data-mobile-iframe="true">
-                <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://el.bitcamp.com:8080/nutcracker/detail/detail.html?boycottNo=300">
+              
+            <!-- 페이스북 버튼-->
+              <a class="fb-share-button"  data-layout="button" data-size="small" data-mobile-iframe="true" target="_blank" >
                   <i class="fa facebook-logo fa-3x">&#xf082;</i>
-                  <!-- <img class='facebook-logo' src="../images/facebook-logo.png"/> -->
-                </a>
-              </div>
-              <!-- <a href="https://twitter.com/share" class="twitter-share" data-size="large"></a> --> 
-               <a href='https://twitter.com/share' target="_blank" >
-                <i class="fa twitter-logo fa-3x">&#xf081;</i>
-                <!-- <img class='twitter-logo' src="../images/twitter-logo.png"/> -->
-              </a> 
-              
-              
-                
-                
-                
-                
-              <a href='javascript:copyToClipboard()'>
-                <i class="fa share-logo fa-3x" >&#xf1e1;</i>
-                <!-- <textarea rows="1" cols="30" id="copy"></textarea> -->
               </a>
               
-
+            <!-- 트위터 버튼-->
+              <a href='https://twitter.com/share' target="_blank" >
+                <i class="fa twitter-logo fa-3x">&#xf081;</i>
+              </a> 
               
+            <!-- URL 공유 버튼-->
+              <a href='javascript:copyToClipboard()'>
+                <i class="fa share-logo fa-3x" >&#xf1e1;</i>
+              </a>
               
-              
-              
-              
-              
+            <!-- 상단 스크롤 버튼 -->
               <a href='#title-top' id="top" class="top">
                 <img class='top-logo' src="../images/top.png"/>
               </a>
@@ -259,30 +244,46 @@
 </script>
 
 <script src="../js/context.js"></script>
-<script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="../js/common.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="../js/alertify.min.js"></script>
 <script src="shopping-serarch.js"></script>
 <script src="shopping-base.js"></script>
-<script type="text/javascript" src="detail.js"></script>
-
-<!-- 페이스북 -->
-<!-- <script>(function(d, s, id) {
+<!-- <div id="fb-root"></div> -->
+<script>
+/* (function(d, s, id){
   var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
+  if (d.getElementById(id)) {return;}
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=177980746026260";
+  js.src = "//connect.facebook.net/ko_KR/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script> -->
+}(document, 'script', 'facebook-jssdk'));
 
+window.fbAsyncInit = function() {
+  //SDK loaded, initialize it
+  FB.init({
+    appId : '177980746026260',
+    xfbml  : true, // 소셜 플러그인이 있으면 처리
+    version : 'v2.8' // use version 2.8
+  });
+}
+
+
+$('.fb-share-button').click(function() {
+    FB.ui({
+      method: 'share',
+      display:'popup',
+      href: 'http://ec2-13-124-100-249.ap-northeast-2.compute.amazonaws.com:8080/nutcracker/'
+    }, function(response) {});
+  }); */
+</script>
 <!-- 트위터 -->
 <script>!function(d,s,id) {
   var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
   if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
   fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
+<script type="text/javascript" src="detail.js"></script>
 
 </body>
 </html>
