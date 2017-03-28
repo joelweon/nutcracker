@@ -24,6 +24,8 @@ function login() {
     };
     $.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
       if (ajaxResult.status == "success") {
+        console.log("[login check]");
+        console.log(ajaxResult.data);
         window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
         
         history.back();
