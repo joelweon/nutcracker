@@ -49,7 +49,7 @@ var productSearch = {
         }
         var list = ajaxResult.data;
         for (var i = 0; i < list.length; i++) {
-          allBoycottNames.push(list[i].companyNo + "," + list[i].companyName);
+          allBoycottNames.push(list[i].boycottNo + "," +list[i].companyName + "," + list[i].companyNo);
         }
         daumShoppingSearch.search();
       });
@@ -66,7 +66,7 @@ var productSearch = {
         var list = ajaxResult.data;
         var nameList = [];
         for (var i = 0; i < list.length; i++) {
-          nameList.push(list[i].companyNo + "," + list[i].companyName);
+          nameList.push(list[i].boycottNo + "," +list[i].companyName + "," + list[i].companyNo);
         }
         myBoycottNames = nameList;
         daumShoppingSearch.search();

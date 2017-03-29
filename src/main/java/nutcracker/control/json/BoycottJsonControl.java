@@ -39,6 +39,7 @@ public class BoycottJsonControl {
   @RequestMapping("/boycott/myBoycottList")
   public AjaxResult mylist(int memberNo) throws Exception {
     List<Boycott> list = boycottService.getMyBoycottList(memberNo);
+    System.out.println(list.toString());
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
@@ -156,6 +157,7 @@ public class BoycottJsonControl {
   @RequestMapping("/boycott/getBoycottNames")
   public AjaxResult getBoycottNames() throws Exception {
     List<Boycott> list = boycottService.getBoycottNames();
+    System.out.println(list.toString());
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   

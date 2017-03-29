@@ -48,6 +48,7 @@
       bn.path
     from bot b
     left outer join bot_news bn on b.botno=bn.botno
+    order by b.botno desc
   </select>
   
   <select id="getListYear" parameterType="int" resultMap="boycott-map">
@@ -72,7 +73,7 @@
   </select>
   
   <select id="getBoycottNames" resultMap="boycott-map">
-    select 
+    <!-- select 
       c.cpno, 
       c.cp_name 
     from comp c 
@@ -80,17 +81,42 @@
       (select distinct c2.parno 
       from comp c2 
         inner join 
-        bot b on b.cpno=c2.cpno) p on p.parno=c.parno
+        bot b on b.cpno=c2.cpno) p on p.parno=c.parno -->
+    select
+		  cc.cpno,
+		  cc.cp_name,
+		  res1.botno
+		from comp cc
+		join
+		(select
+		     b.botno,
+		     c.cpno,
+		     c.parno,
+		     c.cp_name
+		  from comp c
+		    right outer join bot b on b.cpno=c.cpno) as res1 on cc.parno=res1.parno
+		order by res1.botno
   </select>
   
   <select id="getMyboycottList" parameterType="int" resultMap="boycott-map">
-    select
+    <!-- select
       br.mno,
       br.cpno,
       c.cp_name,
       br.reg_date
     from bot_rls br
       left join comp c on c.cpno = br.cpno 
+    where mno=#{value} -->
+    select
+      br.mno,
+      b.botno,
+      br.cpno,
+      c.parno,
+      c.cp_name,
+      br.reg_date
+    from bot_rls br
+      left join comp c on c.cpno = br.cpno 
+      right outer join bot b on b.cpno=c.cpno
     where mno=#{value}
   </select>
   

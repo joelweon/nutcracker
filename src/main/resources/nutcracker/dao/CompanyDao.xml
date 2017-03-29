@@ -23,11 +23,21 @@
   </select>
   
   <select id="getAllCompany" resultType="String">
-		select cast(
+		<!-- select cast(
 		  concat('[',group_concat(json_object('na',cp_name,'no',cpno)),']') as json) 
 		from comp 
 		group by parno 
-		order by cpno
+		order by cpno -->
+		select concat('[',
+                 group_concat('{"no":',
+                              cpno,
+                              ',"na":"',
+                              cp_name,
+                              '"}' order by cpno asc separator ','),
+                 ']')
+    from comp 
+    group by parno
+    order by cpno;
   </select>
   
   <select id="getBoycottComp" parameterType="int" resultType="hashmap">

@@ -27,8 +27,6 @@
         
         /** li setting **/
         getSearch : function(title,content){
-          console.log('[getSearch] 호출...');
-
           var li = document.createElement('li');
             
           /*li.style.height = '150px';*/
@@ -38,6 +36,7 @@
           var checkStr = $(title).find('.name').text().replace('"','') + " "
             + $(content).find('.maker').text().split(':')[1] + " "
             + $(content).find('.brand').text().split(':')[1];
+          //console.log(checkStr);
           
           var divBlock = document.createElement('div');
           divBlock.className = 'blocked';
@@ -72,6 +71,7 @@
           
           for (var i = 0; i < allBoycottNames.length; i++) {
             if (checkStr.indexOf(allBoycottNames[i].split(',')[1]) != -1) {
+              console.log('namesA:' + allBoycottNames[i]);
               moveArticle.setAttribute('href', '/nutcracker/detail/detail.html?boycottNo=' + allBoycottNames[i].split(',')[0]);
               li.append(divBlock);
             }
@@ -79,11 +79,14 @@
 
           for (var i = 0; i < myBoycottNames.length; i++) {
             if (checkStr.indexOf(myBoycottNames[i].split(',')[1]) != -1) {
+              console.log('namesM:' + allBoycottNames[i]);
               moveArticle.setAttribute('href', '/nutcracker/detail/detail.html?boycottNo=' + myBoycottNames[i].split(',')[0]);
               li.append(divBlock);
             }
           }
-          
+          var space = document.createElement('h5');
+          space.className = 'space';
+          li.appendChild(space);
           li.appendChild(title);
           li.appendChild(content);
           return li;

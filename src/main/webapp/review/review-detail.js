@@ -38,7 +38,7 @@ function getContent(reviewNo) {
     $('#titleHead').text('[' + review.titleHead + ']');
     $('#title').text(review.title);
     $('#nickname').text(review.name);
-    $('#auth-image').attr('src', "/nutcracker/images/user/" + review.photoPath);
+    $('#auth-image').attr('src', "/nutcracker/upload/profile/thumb/" + review.photoPath);
     $('#date').text("최종수정일: " + review.postTime);
     $('#viewcount').text("조회수: " + review.viewCount);
     $('#hoducount').text("추천수: " + review.hoduCount);

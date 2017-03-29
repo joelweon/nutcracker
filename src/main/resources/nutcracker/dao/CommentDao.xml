@@ -88,6 +88,7 @@
     from cmt cm, memb m
     where ctno in (select ctno from bot_cmt where botno=#{value}) and
       cm.mno=m.mno
+    order by cm.ct_date
   </select>
   
   <select id='getBoycottCommentCount' parameterType="int" resultType="int">

@@ -1,9 +1,14 @@
 $(function(event) {
 	// 관리자 로그인 시 글쓰기 버튼 보이기
-	var user = window.sessionStorage.getItem('user');
-	if (user != null && JSON.parse(user).memberNo == 1) {
-		$("#purchase-write-btn").css('display','inline');
-	}
+	//var user = window.sessionStorage.getItem('user');
+  $.get(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+    if (ajaxResult.status == 'success') {
+      var user = ajaxResult.data;
+      if (user != null && user.memberNo == 1) {
+        $("#purchase-write-btn").css('display','inline');
+      }
+    }
+  })
   $.get(serverRoot + '/deal/list.json', function(ajaxResult) {
     if (ajaxResult.status == "success") {
       var div1 = $('.deal-container > .deal-area');

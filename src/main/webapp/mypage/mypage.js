@@ -41,6 +41,7 @@ function setSideMenu(){
   page[5] = "deleteboard.html";
   page[6] = "admincomment.html";
   page[7] = "admincompany.html";
+  page[8] = "adminmember.html";
   var url = location.href;
   console.log(location.href);
   var getAr0 = url.indexOf(page[0]);
@@ -51,6 +52,7 @@ function setSideMenu(){
   var getAr5 = url.indexOf(page[5]);
   var getAr6 = url.indexOf(page[6]);
   var getAr7 = url.indexOf(page[7]);
+  var getAr8 = url.indexOf(page[8]);
   if (getAr0 != -1){ //mypage
     $('li#side-member').addClass('selected');
     $('li#side-boycott').addClass('unselected');
@@ -124,6 +126,16 @@ function setSideMenu(){
   } else if (getAr7 != -1) { //admincompany(admin)
     $('li#side-member').addClass('unselected');
     $('li#side-boycott').addClass('selected');
+    $('li#side-purchase').addClass('unselected');
+    $('li#side-wish').addClass('unselected');
+    $('li#side-myboard').addClass('unselected');
+    $('li#side-boardDel').addClass('unselected');
+    $('li#side-boardRep').addClass('unselected');
+    $('li#side-comment').addClass('unselected');
+    $('li#side-commentRep').addClass('unselected');
+  } else if (getAr8 != -1) { //adminmember(admin)
+    $('li#side-member').addClass('selected');
+    $('li#side-boycott').addClass('unselected');
     $('li#side-purchase').addClass('unselected');
     $('li#side-wish').addClass('unselected');
     $('li#side-myboard').addClass('unselected');
