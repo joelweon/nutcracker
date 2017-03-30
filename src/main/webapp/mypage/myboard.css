@@ -14,6 +14,12 @@ body {
 }
 
 /* main contents area*/
+.alertify-inner nav {
+	border: none;
+	box-shadow: rgba(0,0,0,0.0) 0 0 5px, rgba(0,0,0,0.0) 0 0px 0;
+}
+
+
 .main-contents {
   width: 80%;
   font-size: 1.1em;
