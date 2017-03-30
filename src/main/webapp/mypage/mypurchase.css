@@ -65,7 +65,7 @@ body {
 .list-img-span > img {
   width: 20%;
   max-height:95px;
-  margin: 2px 0px 0px 10px;
+  margin: 10px 0px 0px 5px;
 }
 
 .purchase-list-title {
@@ -93,14 +93,15 @@ body {
 
 .purchase-list div {
   width: 75%;
-  margin: 5px 0px 0px 0px;
+  margin: 5px 0px;
   float: right;
 }
 
 .purchase-list p {
   margin: 0px 0px 0px 0px;
-  font: 0.9em normal;
+  font: 0.85em normal;
   line-height: 150%;
+  padding: 0 5px;
 }
 
 .review-btn {
