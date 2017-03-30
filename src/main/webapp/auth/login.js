@@ -18,6 +18,8 @@ function enter(e) {
   }
 }
 function login() {
+  var backURL = document.referrer;
+  console.log('[backURL]: ' + backURL);
   var param = {
       email: $('#email').val(),
       password: $('#password').val(),
@@ -28,8 +30,9 @@ function login() {
         console.log(ajaxResult.data);
         window.sessionStorage.setItem('user', JSON.stringify(ajaxResult.data));
         
-        history.back();
-        window.location.replace(document.referrer)
+        /*history.back();
+        window.location.replace(document.referrer)*/
+        location.href = backURL;
         return;
       }
       alertify.alert(ajaxResult.data);
