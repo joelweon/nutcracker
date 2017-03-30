@@ -1,3 +1,11 @@
+function redrawImg(ajaxResult) {
+  console.log('[redrawImg]')
+  $('img.deal-img').each(function() {
+    console.log($(this).attr('name'));
+    $(this).attr('src', $(this).attr('name'));
+  })
+}
+
 $(function(event) {
 	// 관리자 로그인 시 글쓰기 버튼 보이기
 	//var user = window.sessionStorage.getItem('user');
@@ -26,6 +34,10 @@ $(function(event) {
       }
       div1.html(template({"list":list}));
       div2.html(template({"finished":finised}));
+      
+      setTimeout(function() {
+        redrawImg(ajaxResult)},
+        2000)
 
       // 디테일 링크
       $('.deal-box').click(function(event) {
@@ -80,4 +92,5 @@ $('html, body').animate({
 
 return false;
 });
+
 

@@ -1,6 +1,32 @@
 /* ------------------
  * html 가져오기
  ------------------*/
+
+function redrawLogin(ajaxResult) {
+  console.log("[redrawLogin]: " + ajaxResult.status);
+  if (ajaxResult.status != 'success') { //fail
+    $('#btn-login').css('display', 'inline-block');
+    //$('#btn-member').css('display', 'none');
+  
+    // 로그인 버튼의 클릭 이벤트 핸들러 등록하기
+    $('#btn-login').click(function(event) {
+      event.preventDefault();
+      location.href = clientRoot + '/auth/login.html';
+    });
+  } else { //success
+    $('#btn-member').css('display', 'inline-block');
+    if (ajaxResult.data.photoUrl == null) { //일반계정으로 로그인한 경우
+      $('#profile-img').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
+      $('#profile-img-big').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
+    } else { //sns계정으로 로그인한 경우
+      $('#profile-img').attr('src', ajaxResult.data.photoUrl);
+      $('#profile-img-big').attr('src', ajaxResult.data.photoUrl);
+    }
+    $('#user-name').text(ajaxResult.data.name);
+    $('#user-email').text(ajaxResult.data.email);
+  }
+}
+
 $(document).ready(function() {
   (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -18,20 +44,27 @@ $(document).ready(function() {
 
       if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
         // 로그온 상태 출력 창을 감춘다.
-        $('#btn-login').css('display', 'inline-block');
+        setTimeout(function () {
+          redrawLogin(ajaxResult); 
+        }, 1000);
+        
+        /*$('#btn-login').css('display', 'inline-block');
         //$('#btn-member').css('display', 'none');
       
         // 로그인 버튼의 클릭 이벤트 핸들러 등록하기
         $('#btn-login').click(function(event) {
           event.preventDefault();
           location.href = clientRoot + '/auth/login.html';
-        });
+        });*/
         return;
-      }
+      } 
+      setTimeout(function () {
+        redrawLogin(ajaxResult); 
+      }, 1000);
       
       // 로그인 되었으면 로그오프 출력 창을 감춘다.
       //$('#btn-login').css('display', 'none');
-      $('#btn-member').css('display', 'inline-block');
+      /*$('#btn-member').css('display', 'inline-block');
       if (ajaxResult.data.photoUrl == null) { //일반계정으로 로그인한 경우
       	$('#profile-img').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
       	$('#profile-img-big').attr('src', serverRoot+'/upload/profile/thumb/'+ajaxResult.data.photoPath);
@@ -40,7 +73,7 @@ $(document).ready(function() {
       	$('#profile-img-big').attr('src', ajaxResult.data.photoUrl);
       }
       $('#user-name').text(ajaxResult.data.name);
-      $('#user-email').text(ajaxResult.data.email);
+      $('#user-email').text(ajaxResult.data.email);*/
       
       // 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
       /*$('#btn-logout').click(function(event) {*/
