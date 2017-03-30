@@ -40,10 +40,11 @@
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
   <div class='deal-box' data-no={{purchaseNo}}>
-    <img class='deal-img' src='/nutcracker/upload/deal/{{photoList.photoPath}}'>
+    <img class='deal-img' src='/nutcracker/upload/deal/{{photoList.photoPath}}'
+       onerror='this.src="/nutcracker/upload/deal/loading.gif"'
+       setTimeout(function() {this.src="/nutcracker/upload/deal/{{photoList.photoPath}}"},5000)>
     <div class='deal-title'><span><b>{{title}}</b></span></div>
     <div class='deal-price'>{{price}}원</div>
-
     <div class="percentbar clearfix" data-percent={{percent}}%>
       <div class="percentbar-bar" style='background-color:#008040'></div>
       <div class="percentbar-text">{{percent}}%</div>
@@ -60,8 +61,8 @@
 <script type="text/javascript" src="../js/context.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
-<script type="text/javascript" src="deal.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script type="text/javascript" src="deal.js"></script>
 
 </body>
 </html>
