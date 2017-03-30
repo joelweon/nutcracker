@@ -5,6 +5,12 @@
     
 <mapper namespace="nutcracker.dao.BoycottDao">
   
+  <resultMap type="boycott"     id="boycott-company-map">
+    <id         column="cpno"       property="companyNo"/>
+    <result     column="botno"      property="boycottNo"/>
+    <result     column="cp_name"    property="companyName"/>
+  </resultMap>
+  
   <resultMap type="boycott"     id="boycott-map">
     <id     column="botno"      property="boycottNo"/>
     <result column="bot_date"   property="postTime"/>
@@ -72,7 +78,7 @@
     where year(b.bot_date) = #{value};
   </select>
   
-  <select id="getBoycottNames" resultMap="boycott-map">
+  <select id="getBoycottNames" resultMap="boycott-company-map">
     <!-- select 
       c.cpno, 
       c.cp_name 
@@ -87,7 +93,7 @@
 		  cc.cp_name,
 		  res1.botno
 		from comp cc
-		join
+		right outer join
 		(select
 		     b.botno,
 		     c.cpno,
@@ -95,7 +101,7 @@
 		     c.cp_name
 		  from comp c
 		    right outer join bot b on b.cpno=c.cpno) as res1 on cc.parno=res1.parno
-		order by res1.botno
+		<!-- order by res1.botno -->
   </select>
   
   <select id="getMyboycottList" parameterType="int" resultMap="boycott-map">
