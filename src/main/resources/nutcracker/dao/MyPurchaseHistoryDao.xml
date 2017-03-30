@@ -43,6 +43,7 @@
     from PCH_HIST MY
       left outer join PURCHS PUR on MY.PNO = PUR.PNO
     where MY.MNO=#{value}
+    order by MY.PCH_DATE
   </select>
   
   <insert id="insert" parameterType="map">

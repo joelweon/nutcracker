@@ -226,6 +226,7 @@ $('.walnut-stamp > a').click(function(event) {
   $.getJSON(serverRoot + '/boycott/hoduUpdate.json', 'boycottNo='+boycottNo, function(ajaxResult) {
 		event.preventDefault();
 		$("span.hoducount").text(ajaxResult.data);
+		alertify.alert("호두를 던졌습니다.");
 	});
 });
 
