@@ -38,7 +38,9 @@
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each finished}}
   <div class='deal-box' data-no={{purchaseNo}}>
+    <div style='width: 100%; height: 200px; overflow: hidden;'>
     <img class='deal-img' src='/nutcracker/upload/deal/{{photoList.photoPath}}'>
+    </div>
     <div class='deal-title'><span><b>{{title}}</b></span></div>
 
     <div class="percentbar clearfix" data-percent={{percent}}%>
